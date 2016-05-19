@@ -1,0 +1,843 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39C81CEE128B00867624 /* AppDelegate.swift */; };
+		ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39CA1CEE128B00867624 /* ViewController.swift */; };
+		ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
+		ACEC39D01CEE128B00867624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CF1CEE128B00867624 /* Assets.xcassets */; };
+		ACEC39D31CEE128B00867624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39D11CEE128B00867624 /* LaunchScreen.storyboard */; };
+		ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39DD1CEE128B00867624 /* NinoTests.swift */; };
+		ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39E81CEE128B00867624 /* NinoUITests.swift */; };
+		ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FC1CEE137A00867624 /* AppDelegate.swift */; };
+		ACEC39FF1CEE137A00867624 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FE1CEE137A00867624 /* ViewController.swift */; };
+		ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
+		ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A031CEE137A00867624 /* Assets.xcassets */; };
+		ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */; };
+		ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC3A111CEE137B00867624 /* Nino_EscolaTests.swift */; };
+		ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC3A1C1CEE137B00867624 /* Nino_EscolaUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACEC39DA1CEE128B00867624 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACEC39BD1CEE128B00867624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACEC39C41CEE128B00867624;
+			remoteInfo = Nino;
+		};
+		ACEC39E51CEE128B00867624 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACEC39BD1CEE128B00867624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACEC39C41CEE128B00867624;
+			remoteInfo = Nino;
+		};
+		ACEC3A0E1CEE137B00867624 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACEC39BD1CEE128B00867624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACEC39F91CEE137A00867624;
+			remoteInfo = "Nino Escola";
+		};
+		ACEC3A191CEE137B00867624 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACEC39BD1CEE128B00867624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACEC39F91CEE137A00867624;
+			remoteInfo = "Nino Escola";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ACEC39C51CEE128B00867624 /* Nino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nino.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC39C81CEE128B00867624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ACEC39CA1CEE128B00867624 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ACEC39CD1CEE128B00867624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ACEC39CF1CEE128B00867624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACEC39D21CEE128B00867624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACEC39D41CEE128B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEC39D91CEE128B00867624 /* NinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC39DD1CEE128B00867624 /* NinoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinoTests.swift; sourceTree = "<group>"; };
+		ACEC39DF1CEE128B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEC39E41CEE128B00867624 /* NinoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC39E81CEE128B00867624 /* NinoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinoUITests.swift; sourceTree = "<group>"; };
+		ACEC39EA1CEE128B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEC39FA1CEE137A00867624 /* Nino Escola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nino Escola.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC39FC1CEE137A00867624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ACEC39FE1CEE137A00867624 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ACEC3A011CEE137A00867624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ACEC3A031CEE137A00867624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACEC3A061CEE137A00867624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACEC3A081CEE137A00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEC3A0D1CEE137B00867624 /* Nino EscolaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nino EscolaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC3A111CEE137B00867624 /* Nino_EscolaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nino_EscolaTests.swift; sourceTree = "<group>"; };
+		ACEC3A131CEE137B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEC3A181CEE137B00867624 /* Nino EscolaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nino EscolaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC3A1C1CEE137B00867624 /* Nino_EscolaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nino_EscolaUITests.swift; sourceTree = "<group>"; };
+		ACEC3A1E1CEE137B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACEC39C21CEE128B00867624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39D61CEE128B00867624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39E11CEE128B00867624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39F71CEE137A00867624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A0A1CEE137B00867624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A151CEE137B00867624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACEC39BC1CEE128B00867624 = {
+			isa = PBXGroup;
+			children = (
+				ACEC39C71CEE128B00867624 /* Nino */,
+				ACEC39DC1CEE128B00867624 /* NinoTests */,
+				ACEC39E71CEE128B00867624 /* NinoUITests */,
+				ACEC39FB1CEE137A00867624 /* Nino Escola */,
+				ACEC3A101CEE137B00867624 /* Nino EscolaTests */,
+				ACEC3A1B1CEE137B00867624 /* Nino EscolaUITests */,
+				ACEC39C61CEE128B00867624 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACEC39C61CEE128B00867624 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC39C51CEE128B00867624 /* Nino.app */,
+				ACEC39D91CEE128B00867624 /* NinoTests.xctest */,
+				ACEC39E41CEE128B00867624 /* NinoUITests.xctest */,
+				ACEC39FA1CEE137A00867624 /* Nino Escola.app */,
+				ACEC3A0D1CEE137B00867624 /* Nino EscolaTests.xctest */,
+				ACEC3A181CEE137B00867624 /* Nino EscolaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACEC39C71CEE128B00867624 /* Nino */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC39C81CEE128B00867624 /* AppDelegate.swift */,
+				ACEC39CA1CEE128B00867624 /* ViewController.swift */,
+				ACEC39CC1CEE128B00867624 /* Main.storyboard */,
+				ACEC39CF1CEE128B00867624 /* Assets.xcassets */,
+				ACEC39D11CEE128B00867624 /* LaunchScreen.storyboard */,
+				ACEC39D41CEE128B00867624 /* Info.plist */,
+			);
+			path = Nino;
+			sourceTree = "<group>";
+		};
+		ACEC39DC1CEE128B00867624 /* NinoTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC39DD1CEE128B00867624 /* NinoTests.swift */,
+				ACEC39DF1CEE128B00867624 /* Info.plist */,
+			);
+			path = NinoTests;
+			sourceTree = "<group>";
+		};
+		ACEC39E71CEE128B00867624 /* NinoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC39E81CEE128B00867624 /* NinoUITests.swift */,
+				ACEC39EA1CEE128B00867624 /* Info.plist */,
+			);
+			path = NinoUITests;
+			sourceTree = "<group>";
+		};
+		ACEC39FB1CEE137A00867624 /* Nino Escola */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC39FC1CEE137A00867624 /* AppDelegate.swift */,
+				ACEC39FE1CEE137A00867624 /* ViewController.swift */,
+				ACEC3A001CEE137A00867624 /* Main.storyboard */,
+				ACEC3A031CEE137A00867624 /* Assets.xcassets */,
+				ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */,
+				ACEC3A081CEE137A00867624 /* Info.plist */,
+			);
+			path = "Nino Escola";
+			sourceTree = "<group>";
+		};
+		ACEC3A101CEE137B00867624 /* Nino EscolaTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC3A111CEE137B00867624 /* Nino_EscolaTests.swift */,
+				ACEC3A131CEE137B00867624 /* Info.plist */,
+			);
+			path = "Nino EscolaTests";
+			sourceTree = "<group>";
+		};
+		ACEC3A1B1CEE137B00867624 /* Nino EscolaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC3A1C1CEE137B00867624 /* Nino_EscolaUITests.swift */,
+				ACEC3A1E1CEE137B00867624 /* Info.plist */,
+			);
+			path = "Nino EscolaUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACEC39C41CEE128B00867624 /* Nino */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC39ED1CEE128B00867624 /* Build configuration list for PBXNativeTarget "Nino" */;
+			buildPhases = (
+				ACEC39C11CEE128B00867624 /* Sources */,
+				ACEC39C21CEE128B00867624 /* Frameworks */,
+				ACEC39C31CEE128B00867624 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nino;
+			productName = Nino;
+			productReference = ACEC39C51CEE128B00867624 /* Nino.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACEC39D81CEE128B00867624 /* NinoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC39F01CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoTests" */;
+			buildPhases = (
+				ACEC39D51CEE128B00867624 /* Sources */,
+				ACEC39D61CEE128B00867624 /* Frameworks */,
+				ACEC39D71CEE128B00867624 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACEC39DB1CEE128B00867624 /* PBXTargetDependency */,
+			);
+			name = NinoTests;
+			productName = NinoTests;
+			productReference = ACEC39D91CEE128B00867624 /* NinoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACEC39E31CEE128B00867624 /* NinoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC39F31CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoUITests" */;
+			buildPhases = (
+				ACEC39E01CEE128B00867624 /* Sources */,
+				ACEC39E11CEE128B00867624 /* Frameworks */,
+				ACEC39E21CEE128B00867624 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACEC39E61CEE128B00867624 /* PBXTargetDependency */,
+			);
+			name = NinoUITests;
+			productName = NinoUITests;
+			productReference = ACEC39E41CEE128B00867624 /* NinoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		ACEC39F91CEE137A00867624 /* Nino Escola */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC3A1F1CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino Escola" */;
+			buildPhases = (
+				ACEC39F61CEE137A00867624 /* Sources */,
+				ACEC39F71CEE137A00867624 /* Frameworks */,
+				ACEC39F81CEE137A00867624 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nino Escola";
+			productName = "Nino Escola";
+			productReference = ACEC39FA1CEE137A00867624 /* Nino Escola.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACEC3A0C1CEE137B00867624 /* Nino EscolaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC3A221CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaTests" */;
+			buildPhases = (
+				ACEC3A091CEE137B00867624 /* Sources */,
+				ACEC3A0A1CEE137B00867624 /* Frameworks */,
+				ACEC3A0B1CEE137B00867624 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACEC3A0F1CEE137B00867624 /* PBXTargetDependency */,
+			);
+			name = "Nino EscolaTests";
+			productName = "Nino EscolaTests";
+			productReference = ACEC3A0D1CEE137B00867624 /* Nino EscolaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACEC3A171CEE137B00867624 /* Nino EscolaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC3A251CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaUITests" */;
+			buildPhases = (
+				ACEC3A141CEE137B00867624 /* Sources */,
+				ACEC3A151CEE137B00867624 /* Frameworks */,
+				ACEC3A161CEE137B00867624 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACEC3A1A1CEE137B00867624 /* PBXTargetDependency */,
+			);
+			name = "Nino EscolaUITests";
+			productName = "Nino EscolaUITests";
+			productReference = ACEC3A181CEE137B00867624 /* Nino EscolaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACEC39BD1CEE128B00867624 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Danilo Becke";
+				TargetAttributes = {
+					ACEC39C41CEE128B00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = N79DG9RG7K;
+					};
+					ACEC39D81CEE128B00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ACEC39C41CEE128B00867624;
+					};
+					ACEC39E31CEE128B00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ACEC39C41CEE128B00867624;
+					};
+					ACEC39F91CEE137A00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = N79DG9RG7K;
+					};
+					ACEC3A0C1CEE137B00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ACEC39F91CEE137A00867624;
+					};
+					ACEC3A171CEE137B00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ACEC39F91CEE137A00867624;
+					};
+				};
+			};
+			buildConfigurationList = ACEC39C01CEE128B00867624 /* Build configuration list for PBXProject "Nino" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACEC39BC1CEE128B00867624;
+			productRefGroup = ACEC39C61CEE128B00867624 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACEC39C41CEE128B00867624 /* Nino */,
+				ACEC39D81CEE128B00867624 /* NinoTests */,
+				ACEC39E31CEE128B00867624 /* NinoUITests */,
+				ACEC39F91CEE137A00867624 /* Nino Escola */,
+				ACEC3A0C1CEE137B00867624 /* Nino EscolaTests */,
+				ACEC3A171CEE137B00867624 /* Nino EscolaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACEC39C31CEE128B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC39D31CEE128B00867624 /* LaunchScreen.storyboard in Resources */,
+				ACEC39D01CEE128B00867624 /* Assets.xcassets in Resources */,
+				ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39D71CEE128B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39E21CEE128B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39F81CEE137A00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
+				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
+				ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A0B1CEE137B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A161CEE137B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACEC39C11CEE128B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
+				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39D51CEE128B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39E01CEE128B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39F61CEE137A00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC39FF1CEE137A00867624 /* ViewController.swift in Sources */,
+				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A091CEE137B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A141CEE137B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACEC39DB1CEE128B00867624 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACEC39C41CEE128B00867624 /* Nino */;
+			targetProxy = ACEC39DA1CEE128B00867624 /* PBXContainerItemProxy */;
+		};
+		ACEC39E61CEE128B00867624 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACEC39C41CEE128B00867624 /* Nino */;
+			targetProxy = ACEC39E51CEE128B00867624 /* PBXContainerItemProxy */;
+		};
+		ACEC3A0F1CEE137B00867624 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACEC39F91CEE137A00867624 /* Nino Escola */;
+			targetProxy = ACEC3A0E1CEE137B00867624 /* PBXContainerItemProxy */;
+		};
+		ACEC3A1A1CEE137B00867624 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACEC39F91CEE137A00867624 /* Nino Escola */;
+			targetProxy = ACEC3A191CEE137B00867624 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ACEC39CC1CEE128B00867624 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACEC39CD1CEE128B00867624 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ACEC39D11CEE128B00867624 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACEC39D21CEE128B00867624 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ACEC3A001CEE137A00867624 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACEC3A011CEE137A00867624 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACEC3A061CEE137A00867624 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACEC39EB1CEE128B00867624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACEC39EC1CEE128B00867624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACEC39EE1CEE128B00867624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Nino/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.nino.ninoapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ACEC39EF1CEE128B00867624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Nino/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.nino.ninoapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		ACEC39F11CEE128B00867624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NinoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino.app/Nino";
+			};
+			name = Debug;
+		};
+		ACEC39F21CEE128B00867624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NinoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino.app/Nino";
+			};
+			name = Release;
+		};
+		ACEC39F41CEE128B00867624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NinoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Nino;
+			};
+			name = Debug;
+		};
+		ACEC39F51CEE128B00867624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NinoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Nino;
+			};
+			name = Release;
+		};
+		ACEC3A201CEE137B00867624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Nino Escola/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		ACEC3A211CEE137B00867624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Nino Escola/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		ACEC3A231CEE137B00867624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Nino EscolaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino Escola.app/Nino Escola";
+			};
+			name = Debug;
+		};
+		ACEC3A241CEE137B00867624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Nino EscolaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino Escola.app/Nino Escola";
+			};
+			name = Release;
+		};
+		ACEC3A261CEE137B00867624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Nino EscolaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Nino Escola";
+			};
+			name = Debug;
+		};
+		ACEC3A271CEE137B00867624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Nino EscolaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Nino Escola";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACEC39C01CEE128B00867624 /* Build configuration list for PBXProject "Nino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC39EB1CEE128B00867624 /* Debug */,
+				ACEC39EC1CEE128B00867624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACEC39ED1CEE128B00867624 /* Build configuration list for PBXNativeTarget "Nino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC39EE1CEE128B00867624 /* Debug */,
+				ACEC39EF1CEE128B00867624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACEC39F01CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC39F11CEE128B00867624 /* Debug */,
+				ACEC39F21CEE128B00867624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACEC39F31CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC39F41CEE128B00867624 /* Debug */,
+				ACEC39F51CEE128B00867624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACEC3A1F1CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino Escola" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC3A201CEE137B00867624 /* Debug */,
+				ACEC3A211CEE137B00867624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACEC3A221CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC3A231CEE137B00867624 /* Debug */,
+				ACEC3A241CEE137B00867624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACEC3A251CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC3A261CEE137B00867624 /* Debug */,
+				ACEC3A271CEE137B00867624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACEC39BD1CEE128B00867624 /* Project object */;
+}
