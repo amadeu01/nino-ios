@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
+		AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
+		AC9F99D61CEF712D001B53E8 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D51CEF712D001B53E8 /* School.swift */; };
+		AC9F99D71CEF712D001B53E8 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D51CEF712D001B53E8 /* School.swift */; };
+		AC9F99D91CEF7136001B53E8 /* Guardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D81CEF7136001B53E8 /* Guardian.swift */; };
+		AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D81CEF7136001B53E8 /* Guardian.swift */; };
+		AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DB1CEF7146001B53E8 /* Educator.swift */; };
+		AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DB1CEF7146001B53E8 /* Educator.swift */; };
+		AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DE1CEF721C001B53E8 /* Credential.swift */; };
+		AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DE1CEF721C001B53E8 /* Credential.swift */; };
+		AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E11CEF7225001B53E8 /* Post.swift */; };
+		AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E11CEF7225001B53E8 /* Post.swift */; };
+		AC9F99E51CEF722C001B53E8 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Class.swift */; };
+		AC9F99E61CEF722C001B53E8 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Class.swift */; };
+		AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E71CEF7233001B53E8 /* Room.swift */; };
+		AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E71CEF7233001B53E8 /* Room.swift */; };
+		AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99EA1CEF723F001B53E8 /* Key.swift */; };
+		AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99EA1CEF723F001B53E8 /* Key.swift */; };
+		AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99ED1CEF7245001B53E8 /* Error.swift */; };
+		AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99ED1CEF7245001B53E8 /* Error.swift */; };
+		AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F01CEF7252001B53E8 /* Menu.swift */; };
+		AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F01CEF7252001B53E8 /* Menu.swift */; };
+		AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F31CEF725B001B53E8 /* Calendar.swift */; };
+		AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F31CEF725B001B53E8 /* Calendar.swift */; };
+		AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F61CEF7270001B53E8 /* Activity.swift */; };
+		AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F61CEF7270001B53E8 /* Activity.swift */; };
+		AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F91CEF72CB001B53E8 /* Event.swift */; };
+		AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F91CEF72CB001B53E8 /* Event.swift */; };
 		ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39C81CEE128B00867624 /* AppDelegate.swift */; };
 		ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39CA1CEE128B00867624 /* ViewController.swift */; };
 		ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
@@ -55,6 +83,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC9F99D21CEF711F001B53E8 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		AC9F99D51CEF712D001B53E8 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		AC9F99D81CEF7136001B53E8 /* Guardian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guardian.swift; sourceTree = "<group>"; };
+		AC9F99DB1CEF7146001B53E8 /* Educator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Educator.swift; sourceTree = "<group>"; };
+		AC9F99DE1CEF721C001B53E8 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		AC9F99E11CEF7225001B53E8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		AC9F99E41CEF722C001B53E8 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		AC9F99E71CEF7233001B53E8 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		AC9F99EA1CEF723F001B53E8 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		AC9F99ED1CEF7245001B53E8 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		AC9F99F01CEF7252001B53E8 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		AC9F99F31CEF725B001B53E8 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		AC9F99F61CEF7270001B53E8 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		AC9F99F91CEF72CB001B53E8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		ACEC39C51CEE128B00867624 /* Nino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEC39C81CEE128B00867624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEC39CA1CEE128B00867624 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,15 +171,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ACEC39BC1CEE128B00867624 = {
+		AC9F99CB1CEF38FB001B53E8 /* VO */ = {
+			isa = PBXGroup;
+			children = (
+				AC9F99D21CEF711F001B53E8 /* Student.swift */,
+				AC9F99D51CEF712D001B53E8 /* School.swift */,
+				AC9F99D81CEF7136001B53E8 /* Guardian.swift */,
+				AC9F99DB1CEF7146001B53E8 /* Educator.swift */,
+				AC9F99DE1CEF721C001B53E8 /* Credential.swift */,
+				AC9F99E11CEF7225001B53E8 /* Post.swift */,
+				AC9F99E41CEF722C001B53E8 /* Class.swift */,
+				AC9F99E71CEF7233001B53E8 /* Room.swift */,
+				AC9F99EA1CEF723F001B53E8 /* Key.swift */,
+				AC9F99ED1CEF7245001B53E8 /* Error.swift */,
+				AC9F99F01CEF7252001B53E8 /* Menu.swift */,
+				AC9F99F31CEF725B001B53E8 /* Calendar.swift */,
+				AC9F99F61CEF7270001B53E8 /* Activity.swift */,
+				AC9F99F91CEF72CB001B53E8 /* Event.swift */,
+			);
+			name = VO;
+			sourceTree = "<group>";
+		};
+		AC9F99CC1CEF3901001B53E8 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		AC9F99CD1CEF3918001B53E8 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		AC9F99CE1CEF3924001B53E8 /* Mechanisms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Mechanisms;
+			sourceTree = "<group>";
+		};
+		AC9F99CF1CEF3937001B53E8 /* Escola */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC39FB1CEE137A00867624 /* Nino Escola */,
+				ACEC3A101CEE137B00867624 /* Nino EscolaTests */,
+				ACEC3A1B1CEE137B00867624 /* Nino EscolaUITests */,
+			);
+			name = Escola;
+			sourceTree = "<group>";
+		};
+		AC9F99D11CEF395A001B53E8 /* Pais */ = {
 			isa = PBXGroup;
 			children = (
 				ACEC39C71CEE128B00867624 /* Nino */,
 				ACEC39DC1CEE128B00867624 /* NinoTests */,
 				ACEC39E71CEE128B00867624 /* NinoUITests */,
-				ACEC39FB1CEE137A00867624 /* Nino Escola */,
-				ACEC3A101CEE137B00867624 /* Nino EscolaTests */,
-				ACEC3A1B1CEE137B00867624 /* Nino EscolaUITests */,
+			);
+			name = Pais;
+			sourceTree = "<group>";
+		};
+		ACEC39BC1CEE128B00867624 = {
+			isa = PBXGroup;
+			children = (
+				AC9F99CE1CEF3924001B53E8 /* Mechanisms */,
+				AC9F99CD1CEF3918001B53E8 /* Persistence */,
+				AC9F99CC1CEF3901001B53E8 /* Business */,
+				AC9F99CB1CEF38FB001B53E8 /* VO */,
+				AC9F99D11CEF395A001B53E8 /* Pais */,
+				AC9F99CF1CEF3937001B53E8 /* Escola */,
 				ACEC39C61CEE128B00867624 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -441,8 +545,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */,
+				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
+				AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
+				AC9F99E51CEF722C001B53E8 /* Class.swift in Sources */,
+				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
+				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
+				AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
+				AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */,
+				AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */,
+				AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */,
+				AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */,
+				AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */,
+				AC9F99D91CEF7136001B53E8 /* Guardian.swift in Sources */,
 				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
+				AC9F99D61CEF712D001B53E8 /* School.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,8 +584,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */,
+				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
+				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
 				ACEC39FF1CEE137A00867624 /* ViewController.swift in Sources */,
+				AC9F99E61CEF722C001B53E8 /* Class.swift in Sources */,
+				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
+				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
+				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
+				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
+				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
+				AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */,
+				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
+				AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
+				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
 				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
+				AC9F99D71CEF712D001B53E8 /* School.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +928,7 @@
 				ACEC39EF1CEE128B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC39F01CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoTests" */ = {
 			isa = XCConfigurationList;
@@ -804,6 +937,7 @@
 				ACEC39F21CEE128B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC39F31CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoUITests" */ = {
 			isa = XCConfigurationList;
@@ -812,6 +946,7 @@
 				ACEC39F51CEE128B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC3A1F1CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino Escola" */ = {
 			isa = XCConfigurationList;
@@ -820,6 +955,7 @@
 				ACEC3A211CEE137B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC3A221CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaTests" */ = {
 			isa = XCConfigurationList;
@@ -828,6 +964,7 @@
 				ACEC3A241CEE137B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC3A251CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaUITests" */ = {
 			isa = XCConfigurationList;
@@ -836,6 +973,7 @@
 				ACEC3A271CEE137B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
