@@ -227,6 +227,7 @@
 				ACEC39C11CEE128B00867624 /* Sources */,
 				ACEC39C21CEE128B00867624 /* Frameworks */,
 				ACEC39C31CEE128B00867624 /* Resources */,
+				077C7DAB1CEF73C4008EC0E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -435,6 +436,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		077C7DAB1CEF73C4008EC0E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ACEC39C11CEE128B00867624 /* Sources */ = {
@@ -796,6 +813,7 @@
 				ACEC39EF1CEE128B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC39F01CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoTests" */ = {
 			isa = XCConfigurationList;
@@ -804,6 +822,7 @@
 				ACEC39F21CEE128B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC39F31CEE128B00867624 /* Build configuration list for PBXNativeTarget "NinoUITests" */ = {
 			isa = XCConfigurationList;
@@ -812,6 +831,7 @@
 				ACEC39F51CEE128B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC3A1F1CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino Escola" */ = {
 			isa = XCConfigurationList;
@@ -820,6 +840,7 @@
 				ACEC3A211CEE137B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC3A221CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaTests" */ = {
 			isa = XCConfigurationList;
@@ -828,6 +849,7 @@
 				ACEC3A241CEE137B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACEC3A251CEE137B00867624 /* Build configuration list for PBXNativeTarget "Nino EscolaUITests" */ = {
 			isa = XCConfigurationList;
@@ -836,6 +858,7 @@
 				ACEC3A271CEE137B00867624 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
