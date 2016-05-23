@@ -1,5 +1,5 @@
 //
-//  Grade.swift
+//  Phase.swift
 //  Nino
 //
 //  Created by Danilo Becke on 20/05/16.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Grade {
+struct Phase {
     
 }

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ *  VO representing one Credential
+ */
 struct Credential {
 
 //MARK: Attributes

@@ -21,8 +21,8 @@
 		AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DE1CEF721C001B53E8 /* Credential.swift */; };
 		AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E11CEF7225001B53E8 /* Post.swift */; };
 		AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E11CEF7225001B53E8 /* Post.swift */; };
-		AC9F99E51CEF722C001B53E8 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Grade.swift */; };
-		AC9F99E61CEF722C001B53E8 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Grade.swift */; };
+		AC9F99E51CEF722C001B53E8 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Phase.swift */; };
+		AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Phase.swift */; };
 		AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E71CEF7233001B53E8 /* Room.swift */; };
 		AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E71CEF7233001B53E8 /* Room.swift */; };
 		AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99EA1CEF723F001B53E8 /* Key.swift */; };
@@ -92,7 +92,7 @@
 		AC9F99DB1CEF7146001B53E8 /* Educator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Educator.swift; sourceTree = "<group>"; };
 		AC9F99DE1CEF721C001B53E8 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		AC9F99E11CEF7225001B53E8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		AC9F99E41CEF722C001B53E8 /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		AC9F99E41CEF722C001B53E8 /* Phase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
 		AC9F99E71CEF7233001B53E8 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		AC9F99EA1CEF723F001B53E8 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		AC9F99ED1CEF7245001B53E8 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				AC9F99DB1CEF7146001B53E8 /* Educator.swift */,
 				AC9F99DE1CEF721C001B53E8 /* Credential.swift */,
 				AC9F99E11CEF7225001B53E8 /* Post.swift */,
-				AC9F99E41CEF722C001B53E8 /* Grade.swift */,
+				AC9F99E41CEF722C001B53E8 /* Phase.swift */,
 				AC9F99E71CEF7233001B53E8 /* Room.swift */,
 				AC9F99EA1CEF723F001B53E8 /* Key.swift */,
 				AC9F99ED1CEF7245001B53E8 /* Error.swift */,
@@ -584,7 +584,7 @@
 				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
-				AC9F99E51CEF722C001B53E8 /* Grade.swift in Sources */,
+				AC9F99E51CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
@@ -624,7 +624,7 @@
 				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
 				ACEC39FF1CEE137A00867624 /* ViewController.swift in Sources */,
-				AC9F99E61CEF722C001B53E8 /* Grade.swift in Sources */,
+				AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,

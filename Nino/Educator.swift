@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ *  VO representing one Educator
+ */
 struct Educator {
 
 //MARK: Attributes
@@ -15,7 +18,7 @@ struct Educator {
     let name: String
     let surname: String
     var schools: [School]?
-    var grades: [Grade]?
+    var phases: [Phase]?
     var rooms: [Room]?
 
 //MARK: Initializer
@@ -26,20 +29,20 @@ struct Educator {
      - parameter name:    educator's name
      - parameter surname: educator's surname
      - parameter school:  optional list of schools
-     - parameter grades:  optional list of grades
+     - parameter phases:  optional list of phases
      - parameter rooms:   optional list of rooms
 
      - returns: struct VO of Guardian type
      */
-    init(id: Int, name: String, surname: String, school: [School]?, grades: [Grade]?, rooms: [Room]?) {
+    init(id: Int, name: String, surname: String, school: [School]?, phases: [Phase]?, rooms: [Room]?) {
         self.id = id
         self.name = name
         self.surname = surname
         if let institution = school {
             self.schools = institution
         }
-        if let classes = grades {
-            self.grades = classes
+        if let classes = phases {
+            self.phases = classes
         }
         if let place = rooms {
             self.rooms = place
