@@ -1,5 +1,5 @@
 //
-//  Class.swift
+//  Gender.swift
 //  Nino
 //
 //  Created by Danilo Becke on 20/05/16.
@@ -7,3 +7,6 @@
 //
 
 import Foundation
+
+enum Gender {
+}

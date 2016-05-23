@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+struct Credential {
+
+//MARK: Attributes
+    let token: String
+
+//MARK: Initializer
+    /**
+     Initialize one credential
+
+     - parameter token: user token for the current session
+
+     - returns: struct VO of Credential type
+     */
+    init(token: String) {
+        self.token = token
+    }
+}

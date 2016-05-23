@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
 		AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
 		AC9F99D61CEF712D001B53E8 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D51CEF712D001B53E8 /* School.swift */; };
@@ -19,8 +21,8 @@
 		AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DE1CEF721C001B53E8 /* Credential.swift */; };
 		AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E11CEF7225001B53E8 /* Post.swift */; };
 		AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E11CEF7225001B53E8 /* Post.swift */; };
-		AC9F99E51CEF722C001B53E8 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Class.swift */; };
-		AC9F99E61CEF722C001B53E8 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Class.swift */; };
+		AC9F99E51CEF722C001B53E8 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Grade.swift */; };
+		AC9F99E61CEF722C001B53E8 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E41CEF722C001B53E8 /* Grade.swift */; };
 		AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E71CEF7233001B53E8 /* Room.swift */; };
 		AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99E71CEF7233001B53E8 /* Room.swift */; };
 		AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99EA1CEF723F001B53E8 /* Key.swift */; };
@@ -83,13 +85,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC238B941CEFDABA00B10F75 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		AC9F99D21CEF711F001B53E8 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		AC9F99D51CEF712D001B53E8 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		AC9F99D81CEF7136001B53E8 /* Guardian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guardian.swift; sourceTree = "<group>"; };
 		AC9F99DB1CEF7146001B53E8 /* Educator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Educator.swift; sourceTree = "<group>"; };
 		AC9F99DE1CEF721C001B53E8 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		AC9F99E11CEF7225001B53E8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		AC9F99E41CEF722C001B53E8 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		AC9F99E41CEF722C001B53E8 /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		AC9F99E71CEF7233001B53E8 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		AC9F99EA1CEF723F001B53E8 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		AC9F99ED1CEF7245001B53E8 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -180,7 +183,7 @@
 				AC9F99DB1CEF7146001B53E8 /* Educator.swift */,
 				AC9F99DE1CEF721C001B53E8 /* Credential.swift */,
 				AC9F99E11CEF7225001B53E8 /* Post.swift */,
-				AC9F99E41CEF722C001B53E8 /* Class.swift */,
+				AC9F99E41CEF722C001B53E8 /* Grade.swift */,
 				AC9F99E71CEF7233001B53E8 /* Room.swift */,
 				AC9F99EA1CEF723F001B53E8 /* Key.swift */,
 				AC9F99ED1CEF7245001B53E8 /* Error.swift */,
@@ -209,6 +212,7 @@
 		AC9F99CE1CEF3924001B53E8 /* Mechanisms */ = {
 			isa = PBXGroup;
 			children = (
+				AC238B941CEFDABA00B10F75 /* Gender.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -385,6 +389,7 @@
 				ACEC39F61CEE137A00867624 /* Sources */,
 				ACEC39F71CEE137A00867624 /* Frameworks */,
 				ACEC39F81CEE137A00867624 /* Resources */,
+				ACCEF66E1CF0262500D0B8DD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -555,6 +560,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		ACCEF66E1CF0262500D0B8DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -566,13 +584,14 @@
 				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
-				AC9F99E51CEF722C001B53E8 /* Class.swift in Sources */,
+				AC9F99E51CEF722C001B53E8 /* Grade.swift in Sources */,
 				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
 				AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */,
 				AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */,
+				AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */,
 				AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */,
 				AC9F99D91CEF7136001B53E8 /* Guardian.swift in Sources */,
@@ -605,13 +624,14 @@
 				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
 				ACEC39FF1CEE137A00867624 /* ViewController.swift in Sources */,
-				AC9F99E61CEF722C001B53E8 /* Class.swift in Sources */,
+				AC9F99E61CEF722C001B53E8 /* Grade.swift in Sources */,
 				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
 				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
 				AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */,
+				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
 				AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
 				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
