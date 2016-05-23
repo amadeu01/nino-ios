@@ -27,5 +27,48 @@ struct Post {
     var read: [Guardian]?
 
 //MARK: Initializer
-    
+    /**
+     Initialize one post
+
+     - parameter id:         unique identifier
+     - parameter type:       post's type
+     - parameter date:       post's date
+     - parameter educator:   post's creator
+     - parameter message:    optional message
+     - parameter attachment: optional attachment
+     - parameter school:     optional target of school type
+     - parameter students:   optional target of student type
+     - parameter phases:     optional target of phase type
+     - parameter rooms:      optional target of room type
+     - parameter read:       optional list of guardians who read
+
+     - returns: struct VO of Post type
+     */
+    init(id: Int, type: String, date: NSDate, educator: Educator, message: String?, attachment: NSData?, school: School?, students: [Student]?, phases: [Phase]?, rooms: [Room]?, read: [Guardian]?) {
+        self.id = id
+        self.type = type
+        self.date = date
+        self.educator = educator
+        if let text = message {
+            self.message = text
+        }
+        if let attc = attachment {
+            self.attachment = attc
+        }
+        if let institution = school {
+            self.school = institution
+        }
+        if let babies = students {
+            self.students = babies
+        }
+        if let classes = phases {
+            self.phases = classes
+        }
+        if let places = rooms {
+            self.rooms = places
+        }
+        if let guardians = read {
+            self.read = guardians
+        }
+    }
 }
