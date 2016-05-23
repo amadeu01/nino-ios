@@ -21,7 +21,7 @@ struct Student {
     let birthDate: NSDate
     var profilePicture: NSData?
     var school: School?
-    var grade: Grade?
+    var phase: Phase?
     var room: Room?
     var guardian: [Guardian]?
     var post: [Post]?
@@ -37,14 +37,14 @@ struct Student {
      - parameter birthDate:      student's birth date
      - parameter profilePicture: optional student's profile picture
      - parameter school:         optional student's school
-     - parameter grade:          optional student's grade
+     - parameter phase:          optional student's phase
      - parameter room:           optional student's room
      - parameter guardian:       optional list of guardians
      - parameter post:           optional list of posts
 
      - returns: struct VO of Student type
      */
-    init(id: Int, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, school: School?, grade: Grade?, room: Room?, guardian: [Guardian]?, post: [Post]?) {
+    init(id: Int, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, school: School?, phase: Phase?, room: Room?, guardian: [Guardian]?, post: [Post]?) {
         self.id = id
         self.name = name
         self.surname = surname
@@ -56,8 +56,8 @@ struct Student {
         if let institution = school {
             self.school = institution
         }
-        if let level = grade {
-            self.grade = level
+        if let level = phase {
+            self.phase = level
         }
         if let place = room {
             self.room = place

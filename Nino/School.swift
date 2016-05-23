@@ -22,7 +22,7 @@ struct School {
     let email: String
     let owner: Int
     var logo: NSData?
-    var grades: [Grade]?
+    var phases: [Phase]?
     var educators: [Educator]?
     var students: [Student]?
     var menus: [Menu]?
@@ -41,7 +41,7 @@ struct School {
      - parameter email:      school's main email
      - parameter owner:      id of the owner of the school
      - parameter logo:       optional school's logo
-     - parameter grades:     optional list of grades
+     - parameter phases:     optional list of phases
      - parameter educators:  optional list of educators
      - parameter students:   optional list of students
      - parameter menus:      optional list of menus
@@ -50,7 +50,7 @@ struct School {
 
      - returns: struct VO of School type
      */
-    init(id: Int, name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, grades: [Grade]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) {
+    init(id: Int, name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) {
         self.id = id
         self.name = name
         self.address = address
@@ -61,8 +61,8 @@ struct School {
         if let picture = logo {
             self.logo = picture
         }
-        if let classes = grades {
-            self.grades = classes
+        if let classes = phases {
+            self.phases = classes
         }
         if let caretakers = educators {
             self.educators = caretakers
