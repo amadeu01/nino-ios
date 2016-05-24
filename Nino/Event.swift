@@ -15,10 +15,10 @@ struct Event {
 
 //MARK: Attributes
     let id: Int
+    let title: String
     let description: String
     let date: NSDate
-    var calendar: Calendar?
-    var confirmation: [Student]?
+    var confirmation: [Guardian]?
 
 //MARK: Initializer
     /**
@@ -27,18 +27,16 @@ struct Event {
      - parameter id:           unique identifier
      - parameter description:  event description
      - parameter date:         event date
-     - parameter calendar:     optional calendar
-     - parameter confirmation: optional list of allowed students
+     - parameter title:        event title
+     - parameter confirmation: optional list of
 
      - returns: struct VO of Event type
      */
-    init(id: Int, description: String, date: NSDate, calendar: Calendar?, confirmation: [Student]?) {
+    init(id: Int, description: String, date: NSDate, title: String, confirmation: [Guardian]?) {
         self.id = id
         self.description = description
         self.date = date
-        if let schedule = calendar {
-            self.calendar = schedule
-        }
+        self.title = title
         if let allowed = confirmation {
             self.confirmation = allowed
         }

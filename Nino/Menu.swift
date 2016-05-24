@@ -17,7 +17,7 @@ struct Menu {
     let id: Int
     var description: String
     var school: School?
-    var phase: Phase?
+    var phase: [Phase]?
 
 //MARK: Initializer
     /**
@@ -26,11 +26,11 @@ struct Menu {
      - parameter id:          unique identifier
      - parameter description: menu's description
      - parameter school:      optional school
-     - parameter phase:       optional class
+     - parameter phase:       optional list of phases
 
      - returns: struct VO of Menu type
      */
-    init(id: Int, description: String, school: School?, phase: Phase?) {
+    init(id: Int, description: String, school: School?, phase: [Phase]?) {
         self.id = id
         self.description = description
         if let institution = school {

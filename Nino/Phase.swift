@@ -18,7 +18,7 @@ struct Phase {
     let school: School
     let name: String
     var rooms: [Room]?
-    var menu: [Menu]?
+    var menu: Menu?
     var activities: [Activity]?
 
 //MARK: Initializer
@@ -29,12 +29,12 @@ struct Phase {
      - parameter school:     phase's owner
      - parameter name:       phase's name
      - parameter rooms:      optional list of rooms
-     - parameter menu:       optional list of menus
+     - parameter menu:       optional menu
      - parameter activities: optional list of activities
 
      - returns: struct VO of Phase type
      */
-    init(id: Int, school: School, name: String, rooms: [Room]?, menu: [Menu]?, activities: [Activity]?) {
+    init(id: Int, school: School, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?) {
         self.id = id
         self.school = school
         self.name = name
