@@ -17,6 +17,7 @@ struct Guardian {
     let id: Int
     let name: String
     let surname: String
+    let email: String
     var students: [Student]?
 
 //MARK: Initializer
@@ -26,14 +27,16 @@ struct Guardian {
      - parameter id:       unique identifier
      - parameter name:     guardian's name
      - parameter surname:  guardian's surname
+     - parameter email:    guardian's email
      - parameter students: optional list of students
 
      - returns: struct VO of Guardian type
      */
-    init(id: Int, name: String, surname: String, students: [Student]?) {
+    init(id: Int, name: String, surname: String, email: String, students: [Student]?) {
         self.id = id
         self.name = name
         self.surname = surname
+        self.email = email
         if let babies = students {
             self.students = babies
         }

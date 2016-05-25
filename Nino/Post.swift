@@ -31,9 +31,9 @@ struct Post {
      Initialize one post
 
      - parameter id:         unique identifier
-     - parameter type:       post's type
-     - parameter date:       post's date
-     - parameter educator:   post's creator
+     - parameter type:       type of the post
+     - parameter date:       date of the post
+     - parameter educator:   creator of the post
      - parameter message:    optional message
      - parameter attachment: optional attachment
      - parameter school:     optional target of school type
