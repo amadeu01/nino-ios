@@ -61,6 +61,7 @@ struct School {
         if let picture = logo {
             self.logo = picture
         }
+
         if let classes = phases {
             self.phases = classes
         }
