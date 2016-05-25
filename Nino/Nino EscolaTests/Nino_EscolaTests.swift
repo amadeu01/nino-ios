@@ -9,6 +9,8 @@
 import XCTest
 @testable import Nino_Escola
 
+// Disables sswiftlint, so that the underline does not cause an error
+// swiftlint:disable:next type_name
 class Nino_EscolaTests: XCTestCase {
     
     override func setUp() {
