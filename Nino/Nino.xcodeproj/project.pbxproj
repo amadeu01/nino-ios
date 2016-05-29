@@ -240,6 +240,7 @@
 				AC9F99F31CEF725B001B53E8 /* Calendar.swift */,
 				AC9F99F61CEF7270001B53E8 /* Activity.swift */,
 				AC9F99F91CEF72CB001B53E8 /* Event.swift */,
+				AC238B941CEFDABA00B10F75 /* Gender.swift */,
 			);
 			name = VO;
 			sourceTree = "<group>";
@@ -268,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				AC529EDF1CF483D6003C1063 /* Errors */,
-				AC238B941CEFDABA00B10F75 /* Gender.swift */,
 				AC529EE91CF49A9B003C1063 /* StringsValidation.swift */,
 				285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */,
 			);
