@@ -8,8 +8,16 @@
 
 import UIKit
 
+/// Class which manages all services of errors
 class ErrorBO: NSObject {
 
+    /**
+     Decodes server errors
+     
+     - parameter code: error code priveded by the server
+     
+     - returns: error of ServerError type
+     */
     static func decodeServerError(code: Int) -> ServerError {
         var error: ServerError
         switch code {

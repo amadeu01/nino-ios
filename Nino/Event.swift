@@ -28,7 +28,7 @@ struct Event {
      - parameter description:  event description
      - parameter date:         event date
      - parameter title:        event title
-     - parameter confirmation: optional list of
+     - parameter confirmation: optional list of guardians which allowed the event
 
      - returns: struct VO of Event type
      */

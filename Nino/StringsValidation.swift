@@ -12,7 +12,7 @@ import UIKit
 class StringsValidation: NSObject {
 
     /**
-     Check if an email is valid
+     Checks if an email is valid
 
      - parameter email: email to be checked
 

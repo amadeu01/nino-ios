@@ -12,7 +12,7 @@ import UIKit
 class CredentialBO: NSObject {
 
     /**
-     Try to create a credential
+     Tries to create a credential
 
      - parameter token: user token for the current session
 

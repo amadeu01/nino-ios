@@ -12,7 +12,7 @@ import UIKit
 class SchoolBO: NSObject {
 
     /**
-     Try to create a school
+     Tries to create a school
 
      - parameter id:         unique identifier
      - parameter name:       school's name

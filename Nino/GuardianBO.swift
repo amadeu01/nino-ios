@@ -12,7 +12,7 @@ import UIKit
 class GuardianBO: NSObject {
 
     /**
-     Try to create a guardian
+     Tries to create a guardian
 
      - parameter id:       unique identifier
      - parameter name:     guardian's name

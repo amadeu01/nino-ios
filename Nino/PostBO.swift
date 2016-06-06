@@ -12,7 +12,7 @@ import UIKit
 class PostBO: NSObject {
 
     /**
-     Try to creat a post
+     Tries to creat a post
 
      - parameter id:         unique identifier
      - parameter type:       type of the post

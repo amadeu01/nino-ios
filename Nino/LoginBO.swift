@@ -10,7 +10,16 @@ import UIKit
 
 /// Class which manages all services of login
 class LoginBO: NSObject {
-    
+
+    /**
+     Tries to login
+
+     - parameter key: Key VO
+
+     - throws: ServerError type
+
+     - returns: Credential VO
+     */
     static func login(key: Key) throws -> Credential {
         let (str, nmb) = LoginMechanism.login(key)
 

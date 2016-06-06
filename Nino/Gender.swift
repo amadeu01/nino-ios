@@ -8,5 +8,13 @@
 
 import Foundation
 
+/**
+ Class designed to manage genders
+ 
+ - Male:   Male type
+ - Female: Female type
+ */
 enum Gender {
+    case Male
+    case Female
 }

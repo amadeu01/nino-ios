@@ -9,6 +9,30 @@
 /* Begin PBXBuildFile section */
 		285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
+		AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
+		AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
+		AC0CDEE31D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
+		AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
+		AC0CDEE61D05DBFE0000ECE9 /* RoomBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE51D05DBFE0000ECE9 /* RoomBO.swift */; };
+		AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE51D05DBFE0000ECE9 /* RoomBO.swift */; };
+		AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE51D05DBFE0000ECE9 /* RoomBO.swift */; };
+		AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE51D05DBFE0000ECE9 /* RoomBO.swift */; };
+		AC0CDEEB1D05E2800000ECE9 /* KeyBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEA1D05E2800000ECE9 /* KeyBO.swift */; };
+		AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEA1D05E2800000ECE9 /* KeyBO.swift */; };
+		AC0CDEED1D05E2800000ECE9 /* KeyBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEA1D05E2800000ECE9 /* KeyBO.swift */; };
+		AC0CDEEE1D05E2800000ECE9 /* KeyBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEA1D05E2800000ECE9 /* KeyBO.swift */; };
+		AC0CDEF01D05EA700000ECE9 /* MenuBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */; };
+		AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */; };
+		AC0CDEF21D05EA700000ECE9 /* MenuBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */; };
+		AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */; };
+		AC0CDEF51D05EBB00000ECE9 /* CalendarBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */; };
+		AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */; };
+		AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */; };
+		AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */; };
+		AC0CDEFA1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
+		AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
+		AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
+		AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
 		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
@@ -85,6 +109,10 @@
 		ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */; };
 		ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC3A111CEE137B00867624 /* Nino_EscolaTests.swift */; };
 		ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC3A1C1CEE137B00867624 /* Nino_EscolaUITests.swift */; };
+		ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1943B1D060D3200F1E68A /* EventBO.swift */; };
+		ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1943B1D060D3200F1E68A /* EventBO.swift */; };
+		ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1943B1D060D3200F1E68A /* EventBO.swift */; };
+		ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1943B1D060D3200F1E68A /* EventBO.swift */; };
 		F9ADECC51EA444060AB5C426 /* Pods_Nino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7FD7DA21639BFE8115518 /* Pods_Nino.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +151,12 @@
 		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		839033F68C1F6783BD2F931A /* Pods-Nino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nino/Pods-Nino.release.xcconfig"; sourceTree = "<group>"; };
 		9CD7FD7DA21639BFE8115518 /* Pods_Nino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhaseBO.swift; sourceTree = "<group>"; };
+		AC0CDEE51D05DBFE0000ECE9 /* RoomBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomBO.swift; sourceTree = "<group>"; };
+		AC0CDEEA1D05E2800000ECE9 /* KeyBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBO.swift; sourceTree = "<group>"; };
+		AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBO.swift; sourceTree = "<group>"; };
+		AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarBO.swift; sourceTree = "<group>"; };
+		AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBO.swift; sourceTree = "<group>"; };
 		AC238B941CEFDABA00B10F75 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		AC410BC91D05A880003EB66B /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBO.swift; sourceTree = "<group>"; };
@@ -176,6 +210,7 @@
 		ACEC3A181CEE137B00867624 /* Nino EscolaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nino EscolaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEC3A1C1CEE137B00867624 /* Nino_EscolaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nino_EscolaUITests.swift; sourceTree = "<group>"; };
 		ACEC3A1E1CEE137B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACF1943B1D060D3200F1E68A /* EventBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBO.swift; sourceTree = "<group>"; };
 		FD4922FB14E563528A03CB9C /* Pods-Nino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino/Pods-Nino.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,14 +312,21 @@
 		AC9F99CC1CEF3901001B53E8 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */,
 				AC529EE31CF48A93003C1063 /* StudentBO.swift */,
 				AC529EE61CF497E3003C1063 /* SchoolBO.swift */,
 				AC529EEC1CF49DDD003C1063 /* GuardianBO.swift */,
 				AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */,
 				AC529EF21CF4A82F003C1063 /* CredentialBO.swift */,
 				AC529EF51CF4AC69003C1063 /* PostBO.swift */,
-				AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */,
+				AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */,
+				AC0CDEE51D05DBFE0000ECE9 /* RoomBO.swift */,
+				AC0CDEEA1D05E2800000ECE9 /* KeyBO.swift */,
 				AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */,
+				AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */,
+				AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */,
+				AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */,
+				ACF1943B1D060D3200F1E68A /* EventBO.swift */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -729,6 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC410BCF1D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
@@ -736,6 +779,8 @@
 				AC89BAC51CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
 				AC529EEA1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
+				AC0CDEF01D05EA700000ECE9 /* MenuBO.swift in Sources */,
+				AC0CDEEB1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC9F99E51CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
@@ -746,15 +791,19 @@
 				AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC529EE11CF48422003C1063 /* CreationError.swift in Sources */,
 				AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */,
+				AC0CDEFA1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */,
 				AC529EF01CF4A25B003C1063 /* EducatorBO.swift in Sources */,
+				AC0CDEE61D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */,
+				ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */,
 				285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */,
 				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				AC9F99D91CEF7136001B53E8 /* Guardian.swift in Sources */,
+				AC0CDEF51D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
 				AC9F99D61CEF712D001B53E8 /* School.swift in Sources */,
 				AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
@@ -765,10 +814,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC61CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
+				AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
+				AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
+				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -786,6 +842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC410BD11D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC0CDEE31D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */,
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
@@ -793,6 +850,8 @@
 				AC89BAC71CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
 				ACEC39FF1CEE137A00867624 /* ViewController.swift in Sources */,
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
+				AC0CDEF21D05EA700000ECE9 /* MenuBO.swift in Sources */,
+				AC0CDEED1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
@@ -803,15 +862,19 @@
 				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
 				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
+				AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */,
 				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
+				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
+				ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */,
 				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
+				AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
 				AC9F99D71CEF712D001B53E8 /* School.swift in Sources */,
 				AC529EE51CF48A93003C1063 /* StudentBO.swift in Sources */,
@@ -822,10 +885,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0CDEEE1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC81CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
+				AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */,
+				AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
+				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

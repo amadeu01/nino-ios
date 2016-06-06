@@ -12,7 +12,7 @@ import UIKit
 class StudentBO: NSObject {
 
     /**
-     Try to create a student
+     Tries to create a student
 
      - parameter id:             unique identifier
      - parameter name:           student's first name
