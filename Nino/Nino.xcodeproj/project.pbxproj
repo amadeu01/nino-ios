@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
+		285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
@@ -83,6 +85,7 @@
 		ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */; };
 		ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC3A111CEE137B00867624 /* Nino_EscolaTests.swift */; };
 		ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC3A1C1CEE137B00867624 /* Nino_EscolaUITests.swift */; };
+		F9ADECC51EA444060AB5C426 /* Pods_Nino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD7FD7DA21639BFE8115518 /* Pods_Nino.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
+		839033F68C1F6783BD2F931A /* Pods-Nino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nino/Pods-Nino.release.xcconfig"; sourceTree = "<group>"; };
+		9CD7FD7DA21639BFE8115518 /* Pods_Nino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC238B941CEFDABA00B10F75 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		AC410BC91D05A880003EB66B /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBO.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 		ACEC3A181CEE137B00867624 /* Nino EscolaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nino EscolaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEC3A1C1CEE137B00867624 /* Nino_EscolaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nino_EscolaUITests.swift; sourceTree = "<group>"; };
 		ACEC3A1E1CEE137B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD4922FB14E563528A03CB9C /* Pods-Nino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino/Pods-Nino.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9ADECC51EA444060AB5C426 /* Pods_Nino.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +226,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A62C4A805791C9D7DF308782 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD4922FB14E563528A03CB9C /* Pods-Nino.debug.xcconfig */,
+				839033F68C1F6783BD2F931A /* Pods-Nino.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AC529EDF1CF483D6003C1063 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +302,7 @@
 				AC89BAC31CF5D87600CB3CD2 /* Server */,
 				AC529EDF1CF483D6003C1063 /* Errors */,
 				AC529EE91CF49A9B003C1063 /* StringsValidation.swift */,
+				285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -319,6 +337,8 @@
 				AC9F99D11CEF395A001B53E8 /* Pais */,
 				AC9F99CF1CEF3937001B53E8 /* Escola */,
 				ACEC39C61CEE128B00867624 /* Products */,
+				A62C4A805791C9D7DF308782 /* Pods */,
+				F1ABD10F3A11A6714FBD943E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -397,6 +417,14 @@
 			path = "Nino EscolaUITests";
 			sourceTree = "<group>";
 		};
+		F1ABD10F3A11A6714FBD943E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CD7FD7DA21639BFE8115518 /* Pods_Nino.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -404,10 +432,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACEC39ED1CEE128B00867624 /* Build configuration list for PBXNativeTarget "Nino" */;
 			buildPhases = (
+				22F1A6E1C32E8C95CFFFCDE5 /* Check Pods Manifest.lock */,
 				ACEC39C11CEE128B00867624 /* Sources */,
 				ACEC39C21CEE128B00867624 /* Frameworks */,
 				ACEC39C31CEE128B00867624 /* Resources */,
 				077C7DAB1CEF73C4008EC0E1 /* ShellScript */,
+				8195A22E71A81880F4B21045 /* Embed Pods Frameworks */,
+				C21CB59C90A31E1FEBA8332C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -632,6 +663,36 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		22F1A6E1C32E8C95CFFFCDE5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8195A22E71A81880F4B21045 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino/Pods-Nino-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ACCEF66E1CF0262500D0B8DD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -644,6 +705,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		C21CB59C90A31E1FEBA8332C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino/Pods-Nino-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -674,6 +750,7 @@
 				AC529EF01CF4A25B003C1063 /* EducatorBO.swift in Sources */,
 				AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */,
+				285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */,
 				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
@@ -730,6 +807,7 @@
 				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
 				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
+				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
@@ -908,6 +986,7 @@
 		};
 		ACEC39EE1CEE128B00867624 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4922FB14E563528A03CB9C /* Pods-Nino.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -921,6 +1000,7 @@
 		};
 		ACEC39EF1CEE128B00867624 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 839033F68C1F6783BD2F931A /* Pods-Nino.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
