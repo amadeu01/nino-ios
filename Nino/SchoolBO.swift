@@ -33,9 +33,9 @@ class SchoolBO: NSObject {
 
      - returns: struct VO of School type
      */
-    func createSchool(id: Int, name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) throws -> School {
+    static func createSchool(id: Int, name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) throws -> School {
 
-        if !StringsValidation().isValidEmail(email) {
+        if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
         return School(id: id, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)

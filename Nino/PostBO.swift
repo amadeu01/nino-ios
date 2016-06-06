@@ -30,7 +30,7 @@ class PostBO: NSObject {
 
      - returns: struct VO of Post type
      */
-    func createPost(id: Int, type: String, date: NSDate, educator: Educator, message: String?, attachment: NSData?, school: School?, students: [Student]?, phases: [Phase]?, rooms: [Room]?, read: [Guardian]?) throws -> Post {
+    static func createPost(id: Int, type: String, date: NSDate, educator: Educator, message: String?, attachment: NSData?, school: School?, students: [Student]?, phases: [Phase]?, rooms: [Room]?, read: [Guardian]?) throws -> Post {
 
         if message == nil && attachment == nil {
             throw CreationError.ContentNotFound

@@ -18,7 +18,7 @@ class CredentialBO: NSObject {
 
      - returns: struct VO of Credential type
      */
-    func createCredential(token: String) -> Credential {
+    static func createCredential(token: String) -> Credential {
         return Credential(token: token)
     }
 }

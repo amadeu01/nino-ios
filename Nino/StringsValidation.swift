@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Machanism designed to check if a string is valid
+/// Mechanism designed to check if a string is valid
 class StringsValidation: NSObject {
 
     /**
@@ -18,7 +18,7 @@ class StringsValidation: NSObject {
 
      - returns: a Bool type
      */
-    func isValidEmail(email: String) -> Bool {
+    static func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
 

@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
+		AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
+		AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
+		AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
+		AC410BCF1D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
+		AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
+		AC410BD11D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
+		AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
 		AC529EE11CF48422003C1063 /* CreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE01CF48422003C1063 /* CreationError.swift */; };
 		AC529EE21CF48422003C1063 /* CreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE01CF48422003C1063 /* CreationError.swift */; };
 		AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE31CF48A93003C1063 /* StudentBO.swift */; };
@@ -25,6 +33,14 @@
 		AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF21CF4A82F003C1063 /* CredentialBO.swift */; };
 		AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
 		AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
+		AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */; };
+		AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */; };
+		AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */; };
+		AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */; };
+		AC89BAC51CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BAC41CF5D88A00CB3CD2 /* LoginMechanism.swift */; };
+		AC89BAC61CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BAC41CF5D88A00CB3CD2 /* LoginMechanism.swift */; };
+		AC89BAC71CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BAC41CF5D88A00CB3CD2 /* LoginMechanism.swift */; };
+		AC89BAC81CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BAC41CF5D88A00CB3CD2 /* LoginMechanism.swift */; };
 		AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
 		AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
 		AC9F99D61CEF712D001B53E8 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D51CEF712D001B53E8 /* School.swift */; };
@@ -102,6 +118,8 @@
 
 /* Begin PBXFileReference section */
 		AC238B941CEFDABA00B10F75 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		AC410BC91D05A880003EB66B /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBO.swift; sourceTree = "<group>"; };
 		AC529EE01CF48422003C1063 /* CreationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationError.swift; sourceTree = "<group>"; };
 		AC529EE31CF48A93003C1063 /* StudentBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentBO.swift; sourceTree = "<group>"; };
 		AC529EE61CF497E3003C1063 /* SchoolBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolBO.swift; sourceTree = "<group>"; };
@@ -110,6 +128,8 @@
 		AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorBO.swift; sourceTree = "<group>"; };
 		AC529EF21CF4A82F003C1063 /* CredentialBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialBO.swift; sourceTree = "<group>"; };
 		AC529EF51CF4AC69003C1063 /* PostBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBO.swift; sourceTree = "<group>"; };
+		AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBO.swift; sourceTree = "<group>"; };
+		AC89BAC41CF5D88A00CB3CD2 /* LoginMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMechanism.swift; sourceTree = "<group>"; };
 		AC9F99D21CEF711F001B53E8 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		AC9F99D51CEF712D001B53E8 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		AC9F99D81CEF7136001B53E8 /* Guardian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guardian.swift; sourceTree = "<group>"; };
@@ -202,8 +222,17 @@
 			isa = PBXGroup;
 			children = (
 				AC529EE01CF48422003C1063 /* CreationError.swift */,
+				AC410BC91D05A880003EB66B /* ServerError.swift */,
 			);
 			name = Errors;
+			sourceTree = "<group>";
+		};
+		AC89BAC31CF5D87600CB3CD2 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				AC89BAC41CF5D88A00CB3CD2 /* LoginMechanism.swift */,
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 		AC9F99CB1CEF38FB001B53E8 /* VO */ = {
@@ -237,6 +266,8 @@
 				AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */,
 				AC529EF21CF4A82F003C1063 /* CredentialBO.swift */,
 				AC529EF51CF4AC69003C1063 /* PostBO.swift */,
+				AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */,
+				AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -251,6 +282,7 @@
 		AC9F99CE1CEF3924001B53E8 /* Mechanisms */ = {
 			isa = PBXGroup;
 			children = (
+				AC89BAC31CF5D87600CB3CD2 /* Server */,
 				AC529EDF1CF483D6003C1063 /* Errors */,
 				AC529EE91CF49A9B003C1063 /* StringsValidation.swift */,
 			);
@@ -620,17 +652,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC410BCF1D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
+				AC89BAC51CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
 				AC529EEA1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
 				AC9F99E51CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */,
+				AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
+				AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC529EE11CF48422003C1063 /* CreationError.swift in Sources */,
 				AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */,
@@ -652,6 +688,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC89BAC61CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
 				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,17 +708,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC410BD11D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */,
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
+				AC89BAC71CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
 				ACEC39FF1CEE137A00867624 /* ViewController.swift in Sources */,
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
 				AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
+				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
+				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
 				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
@@ -700,6 +744,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC89BAC81CF5D88A00CB3CD2 /* LoginMechanism.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,7 @@ class StudentBO: NSObject {
 
      - returns: struct VO of Student type
      */
-    func createStudent(id: Int, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, school: School?, phase: Phase?, room: Room?, guardian: [Guardian]?, post: [Post]?) throws -> Student {
+    static func createStudent(id: Int, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, school: School?, phase: Phase?, room: Room?, guardian: [Guardian]?, post: [Post]?) throws -> Student {
         if birthDate.compare(NSDate()) == NSComparisonResult.OrderedDescending {
             throw CreationError.InvalidBirthDate
         }

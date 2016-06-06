@@ -1,5 +1,5 @@
 //
-//  LoginService.swift
+//  LoginMechanism.swift
 //  Nino
 //
 //  Created by Danilo Becke on 25/05/16.

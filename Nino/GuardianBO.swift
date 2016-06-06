@@ -24,9 +24,9 @@ class GuardianBO: NSObject {
 
      - returns: struct VO of Guardian type
      */
-    func createGuardian(id: Int, name: String, surname: String, email: String, students: [Student]?) throws -> Guardian {
+    static func createGuardian(id: Int, name: String, surname: String, email: String, students: [Student]?) throws -> Guardian {
 
-        if !StringsValidation().isValidEmail(email) {
+        if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
         return Guardian(id: id, name: name, surname: surname, email: email, students: students)
