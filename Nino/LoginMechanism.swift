@@ -13,11 +13,10 @@ class LoginMechanism: NSObject {
     /**
      Tries to generate a credential
      
-     - parameter key: key with login information
-     
-     - returns: tuple containing (accessToken: String, error: Int)
+     - parameter key:                key with login information
+     - parameter completionHandler:  completionHandler with optional accessToken and optional error
      */
-    static func login(key: Key) -> (accessToken: String?, error: Int?) {
-        return ("ok", nil)
+    static func login(key: Key, completionHandler: (accessToken: String?, error: Int?) -> Void) {
+        completionHandler(accessToken: "ok", error: nil)
     }
 }
