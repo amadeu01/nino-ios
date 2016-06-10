@@ -20,7 +20,7 @@ class KeyBO: NSObject {
      
      - returns: Key VO
      */
-    func createKey(email: String, password: String) -> Key {
+    static func createKey(email: String, password: String) -> Key {
         self.saveUsernameAndPassword(email, password: password)
         return Key(email: email, password: password)
     }
@@ -31,7 +31,7 @@ class KeyBO: NSObject {
      - parameter username: the uername to be saved
      - parameter password: the password to be saved
      */
-    private func saveUsernameAndPassword(username: String, password: String) {
+    static private func saveUsernameAndPassword(username: String, password: String) {
         KeychainWrapper.setString(password, forKey: "password")
         NSUserDefaults.standardUserDefaults().setValue(username, forKey: "username")
     }
