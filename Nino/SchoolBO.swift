@@ -10,34 +10,49 @@ import UIKit
 
 /// Class which manages all services of school
 class SchoolBO: NSObject {
-
+    
     /**
      Tries to create a school
-
-     - parameter id:         unique identifier
-     - parameter name:       school's name
-     - parameter address:    school's address
-     - parameter cnpj:       school's legal number
-     - parameter telephone:  school's phone
-     - parameter email:      school's main email
-     - parameter owner:      id of the owner of the school
-     - parameter logo:       optional school's logo
-     - parameter phases:     optional list of phases
-     - parameter educators:  optional list of educators
-     - parameter students:   optional list of students
-     - parameter menus:      optional list of menus
-     - parameter activities: optional list of activities
-     - parameter calendars:  optional list of calendars
-
+     
+     - parameter name:              school's name
+     - parameter address:           school's address
+     - parameter cnpj:              school's legal number
+     - parameter telephone:         school's phone
+     - parameter email:             school's main email
+     - parameter owner:             id of the owner of the school
+     - parameter logo:              optional school's logo
+     - parameter phases:            optional list of phases
+     - parameter educators:         optional list of educators
+     - parameter students:          optional list of students
+     - parameter menus:             optional list of menus
+     - parameter activities:        optional list of activities
+     - parameter calendars:         ptional list of calendars
+     - parameter completionHandler: completionHandler with other inside. The completionHandler from inside can throws ServerError or returns a School
+     
      - throws: error of CreationError.InvalidEmail type
-
-     - returns: struct VO of School type
      */
-    static func createSchool(id: Int, name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) throws -> School {
+    static func createSchool(name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
 
         if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
-        return School(id: id, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
+        
+        SchoolMechanism.createSchool(name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars) { (userID, error, data) in
+            if let errorType = error {
+                //TODO: handle error data
+                completionHandler(getSchool: { () -> School in
+                    throw ErrorBO.decodeServerError(errorType)
+                })
+            } else if let user = userID {
+                completionHandler(getSchool: { () -> School in
+                    return School(id: user, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
+                })
+            }
+            //FIXME: timeout in wrong place
+            completionHandler(getSchool: { () -> School in
+                throw ServerError.Timeout
+            })
+        }
+        
     }
 }

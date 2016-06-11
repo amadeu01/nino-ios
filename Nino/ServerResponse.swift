@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+/**
+ Model of server responses
+ 
+ - parameter userID:    optional userID
+ - parameter error:     optional error
+ - parameter data:      optional extra information about the error
+ */
+typealias ServerResponse = (userID: Int?, error: Int?, data: String?) -> Void
