@@ -18,7 +18,7 @@ class LoginBO: NSObject {
      - parameter completionHandler: completion handler with other inside. The completion handler from the inside can throw an error or return a credential.
      */
     static func login(key: Key, completionHandler: (getCredential: () throws -> Credential) -> Void) {
-        LoginMechanism.login(key) { (accessToken, error) in
+        AccountMechanism.login(key) { (accessToken, error) in
             if let errorType = error {
                 completionHandler(getCredential: { () -> Credential in
                     throw ErrorBO.decodeServerError(errorType)
@@ -28,11 +28,11 @@ class LoginBO: NSObject {
                     return CredentialBO.createCredential(token)
                 })
             }
+            //FIXME: timeout in wrong place
             completionHandler(getCredential: { () -> Credential in
                 throw ServerError.Timeout
             })
         }
     }
-    
     
 }
