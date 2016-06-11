@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginMechanism: NSObject {
+class AccountMechanism: NSObject {
 
     /**
      Tries to generate a credential

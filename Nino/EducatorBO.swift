@@ -17,6 +17,7 @@ class EducatorBO: NSObject {
      - parameter id:      unique identifier
      - parameter name:    educator's name
      - parameter surname: educator's surname
+     - parameter gender:  educator's gender
      - parameter email:   educator's email
      - parameter school:  optional list of schools
      - parameter phases:  optional list of phases
@@ -26,11 +27,11 @@ class EducatorBO: NSObject {
 
      - returns: struct VO of Guardian type
      */
-    static func createEducator(id: Int, name: String, surname: String, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?) throws -> Educator {
+    static func createEducator(id: Int, name: String, surname: String, gender:Gender, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?) throws -> Educator {
 
         if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
-        return Educator(id: id, name: name, surname: surname, email: email, school: school, phases: phases, rooms: rooms)
+        return Educator(id: id, name: name, surname: surname, gender: gender, email: email, school: school, phases: phases, rooms: rooms)
     }
 }

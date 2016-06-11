@@ -17,6 +17,7 @@ struct Educator {
     let id: Int
     let name: String
     let surname: String
+    let gender: Gender
     let email: String
     var schools: [School]?
     var phases: [Phase]?
@@ -29,6 +30,7 @@ struct Educator {
      - parameter id:      unique identifier
      - parameter name:    educator's name
      - parameter surname: educator's surname
+     - parameter gender:  educator's gender
      - parameter email:   educator's email
      - parameter school:  optional list of schools
      - parameter phases:  optional list of phases
@@ -36,10 +38,11 @@ struct Educator {
 
      - returns: struct VO of Guardian type
      */
-    init(id: Int, name: String, surname: String, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?) {
+    init(id: Int, name: String, surname: String, gender: Gender, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?) {
         self.id = id
         self.name = name
         self.surname = surname
+        self.gender = gender
         self.email = email
         if let institution = school {
             self.schools = institution

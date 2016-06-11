@@ -17,6 +17,7 @@ class GuardianBO: NSObject {
      - parameter id:       unique identifier
      - parameter name:     guardian's name
      - parameter surname:  guardian's surname
+     - parameter gender:   guardian's gender
      - parameter email:    guardian's email
      - parameter students: optional list of students
 
@@ -24,11 +25,11 @@ class GuardianBO: NSObject {
 
      - returns: struct VO of Guardian type
      */
-    static func createGuardian(id: Int, name: String, surname: String, email: String, students: [Student]?) throws -> Guardian {
+    static func createGuardian(id: Int, name: String, surname: String, gender: Gender, email: String, students: [Student]?) throws -> Guardian {
 
         if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
-        return Guardian(id: id, name: name, surname: surname, email: email, students: students)
+        return Guardian(id: id, name: name, surname: surname, gender: gender, email: email, students: students)
     }
 }
