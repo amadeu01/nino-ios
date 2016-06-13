@@ -17,7 +17,7 @@ class EducatorBO: NSObject {
      - parameter name:    educator's name
      - parameter surname: educator's surname
      - parameter gender:  educator's gender
-     - parameter key:     educator's key
+     - parameter email:   educator's key
      - parameter school:  optional list of schools
      - parameter phases:  optional list of phases
      - parameter rooms:   optional list of rooms
@@ -25,13 +25,13 @@ class EducatorBO: NSObject {
      
      - throws: error of CreationError.InvalidEmail type
      */
-    static func createEducator(name: String, surname: String, gender: Gender, key: Key, school: [School]?, phases: [Phase]?, rooms: [Room]?, completionHandler: (getEducator: () throws -> Educator) -> Void) throws {
+    static func createEducator(name: String, surname: String, gender: Gender, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?, completionHandler: (getEducator: () throws -> Educator) -> Void) throws {
 
-        if !StringsValidation.isValidEmail(key.email) {
+        if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
         
-        AccountMechanism.createAccount(name, surname: surname, gender: gender, key: key) { (userID, error, data) in
+        AccountMechanism.createAccount(name, surname: surname, gender: gender, email: email) { (userID, error, data) in
             if let errorType = error {
                 //TODO: Handle error data
                 completionHandler(getEducator: { () -> Educator in
@@ -39,7 +39,7 @@ class EducatorBO: NSObject {
                 })
             } else if let user = userID {
                 completionHandler(getEducator: { () -> Educator in
-                    return Educator(id: user, name: name, surname: surname, gender: gender, email: key.email, school: school, phases: phases, rooms: rooms)
+                    return Educator(id: user, name: name, surname: surname, gender: gender, email: email, school: school, phases: phases, rooms: rooms)
                 })
             }
             //FIXME: timeout in wrong place

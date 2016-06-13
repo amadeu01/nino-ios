@@ -30,7 +30,7 @@ class AccountMechanism: NSObject {
      - parameter key:               key with login information
      - parameter completionHandler: completionHandler with optional userID, optional error and optional extra information about the error
      */
-    static func createAccount(name: String, surname: String, gender: Gender, key: Key, completionHandler: ServerResponse) {
+    static func createAccount(name: String, surname: String, gender: Gender, email: String, completionHandler: ServerResponse) {
         completionHandler(userID: 123, error: nil, data: nil)
     }
 }
