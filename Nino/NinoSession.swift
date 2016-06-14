@@ -13,6 +13,7 @@ class NinoSession: NSObject {
     
     static let sharedInstance = NinoSession()
     private var _credential: Credential?
+    /// User credential, get only
     var credential: Credential? {
         return _credential
     }
@@ -21,6 +22,11 @@ class NinoSession: NSObject {
         super.init()
     }
     
+    /**
+     Set user credential
+     
+     - parameter credential: new credential
+     */
     func setCredential(credential: Credential) {
         self._credential = credential
     }

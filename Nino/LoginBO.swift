@@ -27,11 +27,11 @@ class LoginBO: NSObject {
                 completionHandler(getCredential: { () -> Credential in
                     return CredentialBO.createCredential(token)
                 })
+            } else {
+                completionHandler(getCredential: { () -> Credential in
+                    throw ServerError.Timeout
+                })
             }
-            //FIXME: timeout in wrong place
-            completionHandler(getCredential: { () -> Credential in
-                throw ServerError.Timeout
-            })
         }
     }
     

@@ -47,11 +47,11 @@ class SchoolBO: NSObject {
                 completionHandler(getSchool: { () -> School in
                     return School(id: user, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
                 })
+            } else {
+                completionHandler(getSchool: { () -> School in
+                    throw ServerError.Timeout
+                })
             }
-            //FIXME: timeout in wrong place
-            completionHandler(getSchool: { () -> School in
-                throw ServerError.Timeout
-            })
         }
         
     }

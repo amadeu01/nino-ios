@@ -12,10 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    //states whether the user is logged in
+    var loggedIn = false
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.setupRootViewController(false)
+
         return true
     }
 
@@ -39,5 +44,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func setupRootViewController(animated: Bool) {
+        
+        if let window = self.window {
+            var newRootViewController: UIViewController? = nil
+            var transition: UIViewAnimationOptions
+            
+            // create and setup appropriate rootViewController
+            if !loggedIn {
+                if let loginViewController = window.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("Login") as? LoginViewController {
+                    newRootViewController = loginViewController
+                    transition = .TransitionFlipFromLeft
+                } else {
+                    transition = UIViewAnimationOptions.TransitionNone
+                }
+            } else {
+                if let splitViewController = window.rootViewController!.storyboard!.instantiateInitialViewController() as? UISplitViewController {
+                    newRootViewController = splitViewController
+                    transition = .TransitionFlipFromRight
+                } else {
+                    transition = UIViewAnimationOptions.TransitionNone
+                }
+            }
+            // update app's rootViewController
+            if let rootVC = newRootViewController {
+                if animated {
+                    UIView.transitionWithView(window, duration: 0.5, options: transition, animations: { 
+                        window.rootViewController = rootVC
+                        }, completion: nil)
+                } else {
+                    window.rootViewController = rootVC
+                }
+            }
+        }
     }
 }

@@ -43,6 +43,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        for tf in self.textFields {
+            tf.hidden = false
+        }
+    }
+    
 //MARK: TextField methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
@@ -114,6 +121,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(alertView, animated: true, completion: nil)
     }
     
+    /**
+     Handles the error and shows one alert
+     
+     - parameter error: Server Error throwed by login
+     */
+    private func errorAlert(error: ServerError) {
+        var title: String?
+        var message: String?
+        switch error {
+        case ServerError.BadRequest:
+            self.emptyField()
+        case ServerError.NotFound:
+            title = "Dados inválidos"
+            message = "Usuário ou senha inválidos."
+        default:
+            title = "Falha no login"
+            message = "Tente novamente."
+        }
+        if let tt = title {
+            if let txt = message {
+                let alertView = UIAlertController(title: tt, message: txt, preferredStyle: .Alert)
+                let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
+                alertView.addAction(okAction)
+                self.presentViewController(alertView, animated: true, completion: nil)
+            }
+        }
+    }
+    
 //MARK: Button methods
     /**
      The property enable of all text fields becomes false
@@ -139,39 +174,59 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.login()
     }
     
+    /**
+     Shows the page designed to creat new user without animations
+     
+     - parameter sender: UIButton
+     */
     @IBAction func doNewUser(sender: UIButton) {
-        
+        //if you wanna present with animation, change the attribute at the storyboard
+        performSegueWithIdentifier("createNewUser", sender: self)
     }
     
     
     
 //MARK: Login method
+    /**
+     makes the login
+     */
     private func login() {
         self.hideKeyboard()
         if self.checkIfEmpty() {
             self.emptyField()
-        } else {
+        }
+        //all textFields are filled
+        else {
             self.blockTextFields()
             self.blockButtons()
             self.activityIndicator.hidden = false
             self.activityIndicator.startAnimating()
+            //creates a key and saves the login parameters at userDefaults and keychain
             let key = KeyBO.createKey(self.usernameTextField.text!, password: self.passwordTextField.text!)
             LoginBO.login(key, completionHandler: { (getCredential) in
                 do {
+                    //tries to get the credential
                     let credential = try getCredential()
                     NinoSession.sharedInstance.setCredential(credential)
+                    //gets main queue to make ui changes
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.activityIndicator.stopAnimating()
-                        //TODO: Change page
+                        //changes the view
+                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            delegate.loggedIn = true
+                            delegate.setupRootViewController(true)
+                        }
                     })
                 } catch let error {
+                    //clean userDefaults and keychain
                     KeyBO.removePasswordAndUsername()
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.activityIndicator.stopAnimating()
                         self.enableTextFields()
                         self.enableButtons()
-                        //TODO: Handle error
-                        print(error)
+                        if let serverError = error as? ServerError {
+                            self.errorAlert(serverError)
+                        }
                     })
                 }
             })

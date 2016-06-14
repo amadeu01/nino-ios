@@ -41,11 +41,11 @@ class EducatorBO: NSObject {
                 completionHandler(getEducator: { () -> Educator in
                     return Educator(id: user, name: name, surname: surname, gender: gender, email: email, school: school, phases: phases, rooms: rooms)
                 })
+            } else {
+                completionHandler(getEducator: { () -> Educator in
+                    throw ServerError.Timeout
+                })
             }
-            //FIXME: timeout in wrong place
-            completionHandler(getEducator: { () -> Educator in
-                throw ServerError.Timeout
-            })
         }
         
     }

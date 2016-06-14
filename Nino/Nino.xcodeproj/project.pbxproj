@@ -33,6 +33,12 @@
 		AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
 		AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
 		AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
+		AC182A3D1D10362D0013611E /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC182A3C1D10362D0013611E /* SwiftKeychainWrapper.framework */; };
+		AC182A401D103A420013611E /* CreateSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateSchool.storyboard */; };
+		AC182A411D103A420013611E /* CreateSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateSchool.storyboard */; };
+		AC182A421D103A420013611E /* CreateSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateSchool.storyboard */; };
+		AC182A431D103A590013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
+		AC182A441D103A5A0013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
 		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
@@ -206,6 +212,8 @@
 		AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBO.swift; sourceTree = "<group>"; };
 		AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarBO.swift; sourceTree = "<group>"; };
 		AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBO.swift; sourceTree = "<group>"; };
+		AC182A3C1D10362D0013611E /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = "Pods/../build/Debug-iphoneos/SwiftKeychainWrapper.framework"; sourceTree = "<group>"; };
+		AC182A3F1D103A420013611E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateSchool.storyboard; sourceTree = "<group>"; };
 		AC238B941CEFDABA00B10F75 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		AC410BC91D05A880003EB66B /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBO.swift; sourceTree = "<group>"; };
@@ -298,6 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC182A3D1D10362D0013611E /* SwiftKeychainWrapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEC3A001CEE137A00867624 /* Main.storyboard */,
+				AC182A3E1D103A420013611E /* CreateSchool.storyboard */,
 				ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -559,6 +569,7 @@
 		F1ABD10F3A11A6714FBD943E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC182A3C1D10362D0013611E /* SwiftKeychainWrapper.framework */,
 				9CD7FD7DA21639BFE8115518 /* Pods_Nino.framework */,
 			);
 			name = Frameworks;
@@ -786,6 +797,7 @@
 			files = (
 				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
+				AC182A401D103A420013611E /* CreateSchool.storyboard in Resources */,
 				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
 				AC86BBF81D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
@@ -803,9 +815,11 @@
 				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE11D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				AC182A431D103A590013611E /* Main.storyboard in Resources */,
 				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+				AC182A411D103A420013611E /* CreateSchool.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,9 +830,11 @@
 				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
 				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+				AC182A421D103A420013611E /* CreateSchool.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,6 +1096,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AC182A3E1D103A420013611E /* CreateSchool.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC182A3F1D103A420013611E /* Base */,
+			);
+			name = CreateSchool.storyboard;
+			sourceTree = "<group>";
+		};
 		ACEC39CC1CEE128B00867624 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1277,12 +1301,14 @@
 		ACEC3A201CEE137B00867624 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Nino Escola/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -1290,12 +1316,14 @@
 		ACEC3A211CEE137B00867624 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Nino Escola/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
