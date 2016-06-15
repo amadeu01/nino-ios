@@ -4,7 +4,8 @@
 use_frameworks!
 
 target 'Nino' do
-pod ‘SwiftKeychainWrapper’
+pod 'SwiftKeychainWrapper'
+pod 'IQKeyboardManagerSwift', '4.0.0'
 end
 
 target 'NinoTests' do
@@ -16,7 +17,8 @@ target 'NinoUITests' do
 end
 
 target 'Nino Escola' do
-
+pod 'SwiftKeychainWrapper'
+pod 'IQKeyboardManagerSwift', '4.0.0'
 end
 
 target 'Nino EscolaTests' do

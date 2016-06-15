@@ -37,6 +37,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="363" y="356" width="75" height="33"/>
+                                </variation>
                                 <connections>
                                     <action selector="doLogin:" destination="IuW-Is-F4i" eventType="touchUpInside" id="Y84-ja-2UW"/>
                                 </connections>
@@ -54,9 +57,15 @@
                                         <exclude reference="1px-Bc-7Z3"/>
                                     </mask>
                                 </variation>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="273.5" y="188" width="253" height="40"/>
+                                </variation>
                             </textField>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-26-wsp">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="390.5" y="362" width="20" height="20"/>
+                                </variation>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-Bh-lcj">
                                 <rect key="frame" x="230" y="431" width="140" height="34"/>
@@ -68,6 +77,9 @@
                                 <state key="normal" title="Novo Usuário">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="330" y="429" width="140" height="33"/>
+                                </variation>
                                 <connections>
                                     <action selector="doNewUser:" destination="IuW-Is-F4i" eventType="touchUpInside" id="gR1-qn-47x"/>
                                 </connections>
@@ -77,6 +89,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="101"/>
                                 <color key="textColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="303.5" y="30" width="193" height="118"/>
+                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-Di-vBa">
                                 <rect key="frame" x="163" y="234" width="274" height="40"/>
@@ -86,7 +101,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
                                 <variation key="widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="263" y="237" width="274" height="40"/>
+                                    <rect key="frame" x="273.5" y="233" width="253" height="40"/>
                                 </variation>
                             </textField>
                         </subviews>
@@ -152,6 +167,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1Oi-MR-Lxi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jho-VC-PGh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -165,12 +181,15 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="9C3-HK-gHQ" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gmc-b6-LCT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JuN-aF-Ahx">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JuN-aF-Ahx" id="Tra-Tf-ZBf">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
