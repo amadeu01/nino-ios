@@ -148,6 +148,12 @@
 		AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F61CEF7270001B53E8 /* Activity.swift */; };
 		AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F91CEF72CB001B53E8 /* Event.swift */; };
 		AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F91CEF72CB001B53E8 /* Event.swift */; };
+		ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7E0C61D22AD690014F76D /* GenderSelector.xib */; };
+		ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7E0C61D22AD690014F76D /* GenderSelector.xib */; };
+		ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7E0C61D22AD690014F76D /* GenderSelector.xib */; };
+		ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */; };
+		ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */; };
+		ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */; };
 		ACE6E1511D1091B600A11E6A /* Pods_Nino_Escola.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6E1501D1091B600A11E6A /* Pods_Nino_Escola.framework */; };
 		ACE6E1531D10C64B00A11E6A /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */; };
 		ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */; };
@@ -158,12 +164,6 @@
 		ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
 		ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
 		ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
-		ACE6E15F1D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E15D1D10CC9600A11E6A /* SelectGenderViewController.swift */; };
-		ACE6E1601D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E15D1D10CC9600A11E6A /* SelectGenderViewController.swift */; };
-		ACE6E1611D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E15D1D10CC9600A11E6A /* SelectGenderViewController.swift */; };
-		ACE6E1621D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE6E15E1D10CC9600A11E6A /* SelectGenderViewController.xib */; };
-		ACE6E1631D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE6E15E1D10CC9600A11E6A /* SelectGenderViewController.xib */; };
-		ACE6E1641D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACE6E15E1D10CC9600A11E6A /* SelectGenderViewController.xib */; };
 		ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39C81CEE128B00867624 /* AppDelegate.swift */; };
 		ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39CA1CEE128B00867624 /* ViewController.swift */; };
 		ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
@@ -276,13 +276,13 @@
 		AC9F99F31CEF725B001B53E8 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		AC9F99F61CEF7270001B53E8 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		AC9F99F91CEF72CB001B53E8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		ACB7E0C61D22AD690014F76D /* GenderSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderSelector.xib; sourceTree = "<group>"; };
+		ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderSelector.swift; sourceTree = "<group>"; };
 		ACE6E14C1D108FA200A11E6A /* Pods_Nino.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Nino.framework; path = "Pods/../build/Debug-iphoneos/Pods_Nino.framework"; sourceTree = "<group>"; };
 		ACE6E14E1D108FB800A11E6A /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Nino-egmryccsbhyaiehgslzuamkiobxw/Build/Products/Debug-iphonesimulator/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"; sourceTree = "<group>"; };
 		ACE6E1501D1091B600A11E6A /* Pods_Nino_Escola.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Nino_Escola.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Nino-egmryccsbhyaiehgslzuamkiobxw/Build/Products/Debug-iphonesimulator/Pods_Nino_Escola.framework"; sourceTree = "<group>"; };
 		ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
 		ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeColor.swift; sourceTree = "<group>"; };
-		ACE6E15D1D10CC9600A11E6A /* SelectGenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGenderViewController.swift; sourceTree = "<group>"; };
-		ACE6E15E1D10CC9600A11E6A /* SelectGenderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectGenderViewController.xib; sourceTree = "<group>"; };
 		ACEC39C51CEE128B00867624 /* Nino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEC39C81CEE128B00867624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEC39CA1CEE128B00867624 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -534,8 +534,8 @@
 		ACE6E1651D10CC9D00A11E6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				ACE6E15D1D10CC9600A11E6A /* SelectGenderViewController.swift */,
-				ACE6E15E1D10CC9600A11E6A /* SelectGenderViewController.xib */,
+				ACB7E0C61D22AD690014F76D /* GenderSelector.xib */,
+				ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -786,7 +786,7 @@
 				TargetAttributes = {
 					ACEC39C41CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = N79DG9RG7K;
+						DevelopmentTeam = G52JHG5LJN;
 					};
 					ACEC39D81CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -798,7 +798,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = N79DG9RG7K;
+						DevelopmentTeam = G52JHG5LJN;
 					};
 					ACEC3A0C1CEE137B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -880,7 +880,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACE6E1621D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */,
+				ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */,
 				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
 				AC182A401D103A420013611E /* CreateSchool.storyboard in Resources */,
@@ -900,7 +900,7 @@
 			files = (
 				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE11D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-				ACE6E1631D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */,
+				ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A431D103A590013611E /* Main.storyboard in Resources */,
 				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
@@ -916,7 +916,7 @@
 			files = (
 				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-				ACE6E1641D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */,
+				ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
 				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
@@ -1304,7 +1304,7 @@
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
 				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
 				AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
-				ACE6E15F1D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */,
+				ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */,
 				AC9CA6351D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC86BC001D0F43F8005282E7 /* LoginViewController.swift in Sources */,
@@ -1341,10 +1341,10 @@
 				ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */,
 				AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
-				ACE6E1601D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */,
 				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
+				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
 			);
@@ -1355,10 +1355,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
-				ACE6E1611D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				ACE6E1551D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
+				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1601,6 +1601,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -1609,6 +1610,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1621,6 +1623,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -1629,6 +1632,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
