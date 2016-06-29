@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
+		288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
+		288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
+		288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
+		288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */; };
+		288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */; };
+		288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */; };
+		288DE3551D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
+		288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
+		288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
 		92D16C6331EEA46F4B30AE64 /* Pods_Nino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59FC1F84350D209590087D4 /* Pods_Nino.framework */; };
 		AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
 		AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
@@ -220,6 +229,9 @@
 
 /* Begin PBXFileReference section */
 		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
+		288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileTableViewCell.swift; sourceTree = "<group>"; };
+		288DE3501D22B7500052A35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DefaultEmptyState.storyboard; sourceTree = "<group>"; };
+		288DE3541D22BF800052A35D /* StudentProfileListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileListController.swift; sourceTree = "<group>"; };
 		359D6E4261859B42C5C73C6C /* Pods_Nino_Escola.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino_Escola.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1DFD4ECA4E03B0582A1948 /* Pods_NinoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NinoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F3D123CB8DE04FF458B6F1 /* Pods-Nino Escola.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino Escola.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola.debug.xcconfig"; sourceTree = "<group>"; };
@@ -369,6 +381,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		288DE34E1D22AFA30052A35D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		804E27F98D1B009C027E5AA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +444,7 @@
 			children = (
 				AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */,
 				ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */,
+				288DE3541D22BF800052A35D /* StudentProfileListController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -432,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEC3A001CEE137A00867624 /* Main.storyboard */,
+				288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */,
 				AC182A3E1D103A420013611E /* CreateSchool.storyboard */,
 				ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */,
 			);
@@ -608,6 +630,7 @@
 				AC86BC031D0F4413005282E7 /* Storyboards */,
 				ACEC3A031CEE137A00867624 /* Assets.xcassets */,
 				ACE6E1651D10CC9D00A11E6A /* Components */,
+				288DE34E1D22AFA30052A35D /* View */,
 			);
 			path = "Nino Escola";
 			sourceTree = "<group>";
@@ -880,6 +903,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				ACE6E1621D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */,
 				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
@@ -898,6 +922,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE11D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				ACE6E1631D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */,
@@ -914,6 +939,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				ACE6E1641D10CC9600A11E6A /* SelectGenderViewController.xib in Resources */,
@@ -1293,6 +1319,7 @@
 				AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
 				ACE6E1531D10C64B00A11E6A /* CreateSchoolViewController.swift in Sources */,
+				288DE3551D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
@@ -1312,6 +1339,7 @@
 				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
+				288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */,
 				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
@@ -1342,8 +1370,10 @@
 				AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				ACE6E1601D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */,
+				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
+				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
@@ -1357,8 +1387,10 @@
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				ACE6E1611D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				ACE6E1551D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
+				288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1388,6 +1420,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				288DE3501D22B7500052A35D /* Base */,
+			);
+			name = DefaultEmptyState.storyboard;
+			sourceTree = "<group>";
+		};
 		AC182A3E1D103A420013611E /* CreateSchool.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
