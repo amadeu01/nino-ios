@@ -43,12 +43,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        for tf in self.textFields {
-            tf.hidden = false
-        }
-    }
     
 //MARK: TextField methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -231,6 +225,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             })
         }
+    }
+    
+//MARK: Segue methods
+    /**
+     Unwind from create school view
+     
+     - parameter segue: unwind segue
+     */
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
 
 }
