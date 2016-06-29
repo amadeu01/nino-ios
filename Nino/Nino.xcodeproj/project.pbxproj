@@ -129,6 +129,15 @@
 		AC9CA6391D0CB516007AAAA6 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA6371D0CB516007AAAA6 /* ServerResponse.swift */; };
 		AC9CA63A1D0CB516007AAAA6 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA6371D0CB516007AAAA6 /* ServerResponse.swift */; };
 		AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA6371D0CB516007AAAA6 /* ServerResponse.swift */; };
+		AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */; };
+		AC9EC7091D240CA200D54857 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */; };
+		AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */; };
+		AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */; };
+		AC9EC7141D2418B200D54857 /* DefaultAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */; };
+		AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */; };
+		AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */; };
+		AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */; };
+		AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */; };
 		AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
 		AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D21CEF711F001B53E8 /* Student.swift */; };
 		AC9F99D61CEF712D001B53E8 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99D51CEF712D001B53E8 /* School.swift */; };
@@ -274,6 +283,8 @@
 		AC89BAC41CF5D88A00CB3CD2 /* AccountMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountMechanism.swift; sourceTree = "<group>"; };
 		AC9CA6321D0CB429007AAAA6 /* SchoolMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolMechanism.swift; sourceTree = "<group>"; };
 		AC9CA6371D0CB516007AAAA6 /* ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
+		AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAlerts.swift; sourceTree = "<group>"; };
 		AC9F99D21CEF711F001B53E8 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		AC9F99D51CEF712D001B53E8 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		AC9F99D81CEF7136001B53E8 /* Guardian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guardian.swift; sourceTree = "<group>"; };
@@ -445,6 +456,7 @@
 				AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */,
 				ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */,
 				288DE3541D22BF800052A35D /* StudentProfileListController.swift */,
+				AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -529,6 +541,7 @@
 				AC529EE91CF49A9B003C1063 /* StringsValidation.swift */,
 				AC9CA6371D0CB516007AAAA6 /* ServerResponse.swift */,
 				285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */,
+				AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -1244,6 +1257,7 @@
 				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */,
+				AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC9CA6381D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
@@ -1289,6 +1303,7 @@
 				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC9CA6391D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
+				AC9EC7141D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1298,6 +1313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
+				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1326,6 +1342,7 @@
 				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
+				AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
@@ -1347,6 +1364,7 @@
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
 				AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
 				AC9F99D71CEF712D001B53E8 /* School.swift in Sources */,
 				AC529EE51CF48A93003C1063 /* StudentBO.swift in Sources */,
@@ -1369,12 +1387,13 @@
 				ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */,
 				AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
-				ACE6E1601D10CC9600A11E6A /* SelectGenderViewController.swift in Sources */,
 				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
+				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
+				AC9EC7091D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
@@ -1386,8 +1405,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
+				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				ACE6E1551D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,

@@ -201,8 +201,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 do {
                     //tries to get the credential
                     let credential = try getCredential()
+                    //TODO: save active educator on NinoSession
                     NinoSession.sharedInstance.setCredential(credential)
-                    //gets main queue to make ui changes
+                    //gets main queue to make UI changes
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.activityIndicator.stopAnimating()
                         //changes the view
