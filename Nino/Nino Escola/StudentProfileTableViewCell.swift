@@ -24,10 +24,9 @@ class StudentProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var guardianFirstNamesLabel: UILabel!
     
     
-    internal var name: String? {
+    internal var studentName: String? {
         didSet {
-            
-            self.studentNameLabel.text = name
+            self.studentNameLabel.text = studentName
         }
     }
     
@@ -64,21 +63,19 @@ class StudentProfileTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        self.studentName.textColor = CustomizeColor.fontColourNino()
-//        self.studentName.font = NinoFont.fontForCellMainText()
-//        self.studentName.textColor = CustomizeColor.fontColourNino()
-//        self.responsibleName.textColor = CustomizeColor.fontColourNino()
-//        self.responsibleName.font = NinoFont.fontForCellSecondText()
-//        
-//        //border between cells
-//        let border = UIView()
-//        border.translatesAutoresizingMaskIntoConstraints = false
-//        border.backgroundColor = CustomizeColor.borderColourNino()
-//        self.addSubview(border)
-//        let borderConstraints = [FluentConstraint(border).top.equalTo(self).top.activate(), FluentConstraint(border).trailing.equalTo(self).trailing.activate(), FluentConstraint(border).height.equalTo(1).activate(), FluentConstraint(border).leading.plus(-90).equalTo(self).leading.activate()]
-//        
-//        
-//        self.addConstraints(borderConstraints)
+        self.studentNameLabel.textColor = CustomizeColor.fontColourNino()
+        self.studentNameLabel.font = NinoFont.fontForCellMainText()
+        self.studentNameLabel.textColor = CustomizeColor.fontColourNino()
+        self.guardianFirstNamesLabel.textColor = CustomizeColor.fontColourNino()
+        self.guardianFirstNamesLabel.font = NinoFont.fontForCellSecondText()
+        
+        //border between cells
+        let border = UIView()
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.backgroundColor = CustomizeColor.borderColourNino()
+        self.addSubview(border)
+        let borderConstraints = [FluentConstraint(border).top.equalTo(self).top.activate(), FluentConstraint(border).trailing.equalTo(self).trailing.activate(), FluentConstraint(border).height.equalTo(1).activate(), FluentConstraint(border).leading.plus(-90).equalTo(self).leading.activate()]
+        self.addConstraints(borderConstraints)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -86,13 +83,13 @@ class StudentProfileTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-//    
-//    override func layoutSubviews() {
-//        self.profileImage.layer.cornerRadius = self.profileImage.frame.width/2
-//        self.profileImage.clipsToBounds = true
-//        self.profileImage.contentMode = .ScaleAspectFit
-//        self.profileImage.layer.borderColor = CustomizeColor.whiteColor().CGColor
-//        self.profileImage.layer.borderWidth = 2.0
-//        
-//    }
+    
+    override func layoutSubviews() {
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
+        self.profileImageView.clipsToBounds = true
+        self.profileImageView.contentMode = .ScaleAspectFit
+        self.profileImageView.layer.borderColor = CustomizeColor.whiteColor().CGColor
+        self.profileImageView.layer.borderWidth = 2.0
+        
+    }
 }

@@ -18,6 +18,24 @@
 		288DE3551D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
 		288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
 		288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
+		28A046621D254C30007E0053 /* NinoFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046611D254C30007E0053 /* NinoFont.swift */; };
+		28A046631D254C30007E0053 /* NinoFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046611D254C30007E0053 /* NinoFont.swift */; };
+		28A046641D254C30007E0053 /* NinoFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046611D254C30007E0053 /* NinoFont.swift */; };
+		28A046651D254C30007E0053 /* NinoFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046611D254C30007E0053 /* NinoFont.swift */; };
+		28A046661D254C30007E0053 /* NinoFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046611D254C30007E0053 /* NinoFont.swift */; };
+		28A046671D254C30007E0053 /* NinoFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046611D254C30007E0053 /* NinoFont.swift */; };
+		28A0466B1D254D0A007E0053 /* FluentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046691D254D0A007E0053 /* FluentConstraints.swift */; };
+		28A0466C1D254D0A007E0053 /* FluentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046691D254D0A007E0053 /* FluentConstraints.swift */; };
+		28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046691D254D0A007E0053 /* FluentConstraints.swift */; };
+		28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046691D254D0A007E0053 /* FluentConstraints.swift */; };
+		28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046691D254D0A007E0053 /* FluentConstraints.swift */; };
+		28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046691D254D0A007E0053 /* FluentConstraints.swift */; };
+		28A046711D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
+		28A046721D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
+		28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
+		28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
+		28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
+		28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
 		92D16C6331EEA46F4B30AE64 /* Pods_Nino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59FC1F84350D209590087D4 /* Pods_Nino.framework */; };
 		AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
 		AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
@@ -241,6 +259,10 @@
 		288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileTableViewCell.swift; sourceTree = "<group>"; };
 		288DE3501D22B7500052A35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DefaultEmptyState.storyboard; sourceTree = "<group>"; };
 		288DE3541D22BF800052A35D /* StudentProfileListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileListController.swift; sourceTree = "<group>"; };
+		28A046611D254C30007E0053 /* NinoFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NinoFont.swift; path = "Nino Escola/NinoFont.swift"; sourceTree = "<group>"; };
+		28A046681D254D0A007E0053 /* FluentConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FluentConstraints.h; sourceTree = "<group>"; };
+		28A046691D254D0A007E0053 /* FluentConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluentConstraints.swift; sourceTree = "<group>"; };
+		28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluentConstraintSet.swift; sourceTree = "<group>"; };
 		359D6E4261859B42C5C73C6C /* Pods_Nino_Escola.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino_Escola.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1DFD4ECA4E03B0582A1948 /* Pods_NinoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NinoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F3D123CB8DE04FF458B6F1 /* Pods-Nino Escola.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino Escola.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola.debug.xcconfig"; sourceTree = "<group>"; };
@@ -432,7 +454,11 @@
 			isa = PBXGroup;
 			children = (
 				AC86BBD01D0F4329005282E7 /* Fonts */,
+				28A046611D254C30007E0053 /* NinoFont.swift */,
 				ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */,
+				28A046681D254D0A007E0053 /* FluentConstraints.h */,
+				28A046691D254D0A007E0053 /* FluentConstraints.swift */,
+				28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1246,6 +1272,7 @@
 				AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
+				28A0466B1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
 				AC89BAC51CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
@@ -1275,6 +1302,7 @@
 				ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */,
 				285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
+				28A046621D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */,
 				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				AC9F99D91CEF7136001B53E8 /* Guardian.swift in Sources */,
@@ -1282,6 +1310,7 @@
 				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
 				AC9F99D61CEF712D001B53E8 /* School.swift in Sources */,
 				AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
+				28A046711D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1289,6 +1318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A046631D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */,
@@ -1298,11 +1328,13 @@
 				AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
+				28A0466C1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6341D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC9CA6391D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
+				28A046721D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC9EC7141D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
 			);
@@ -1312,7 +1344,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
+				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
+				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 			);
@@ -1340,6 +1375,7 @@
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
 				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
 				AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
@@ -1361,6 +1397,8 @@
 				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
+				28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
 				AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
@@ -1376,9 +1414,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC0CDEEE1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
 				ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */,
@@ -1390,6 +1430,7 @@
 				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
+				28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
@@ -1406,9 +1447,12 @@
 			files = (
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
+				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
+				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				ACE6E1551D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
