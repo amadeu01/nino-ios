@@ -2,77 +2,54 @@
 //  CreateSchoolViewController.swift
 //  Nino
 //
-//  Created by Danilo Becke on 14/06/16.
+//  Created by Danilo Becke on 30/06/16.
 //  Copyright © 2016 Danilo Becke. All rights reserved.
 //
 
 import UIKit
 
-class CreateSchoolViewController: UIViewController, GenderSelectorDelegate, GenderSelectorDataSource, UITextFieldDelegate {
-
+class CreateSchoolViewController: UIViewController, UITextFieldDelegate {
+    
 //MARK: Outlets
-    @IBOutlet weak var genderSelector: GenderSelector!
-    @IBOutlet weak var schoolName: UITextField!
-    @IBOutlet weak var schoolAddr: UITextField!
-    @IBOutlet weak var educatorName: UITextField!
-    @IBOutlet weak var educatorSurname: UITextField!
-    @IBOutlet weak var educatorEmail: UITextField!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var changeLogoButton: UIButton!
+    @IBOutlet weak var schoolNameTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet var textFields: [UITextField]!
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var button: UIButton!
     
 //MARK: View methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = CustomizeColor.defaultBackgroundColor()
-        self.genderSelector.delegate = self
-        self.genderSelector.dataSource = self
-        //redrawing the view
-        self.genderSelector.setNeedsDisplay()
-        
-        for tf in self.textFields {
-            tf.delegate = self
-        }
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-//MARK: GenderSelector Delegate and DataSource Methods
-    func genderWasSelected(gender: Gender) {
-        print(gender)
-    }
-    
-    func changeMaleLabel() -> String {
-        return "Masculino"
-    }
-    
-    func changeFemaleLabel() -> String {
-        return "Feminino"
     }
 
-//MARK: Button methods
-    @IBAction func createUserAndSchool(sender: UIButton) {
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
+//MARK: Button methods
     /**
      The property enable of all text fields becomes false
      */
     private func blockButtons() {
-        self.button.alpha = 0.4
-        self.button.enabled = false
+        for button in self.buttons {
+            button.enabled = false
+            button.alpha = 0.4
+        }
     }
     
     /**
      The property enable of all text fields becomes true
      */
     private func enableButtons() {
-        self.button.alpha = 1
-        self.button.enabled = true
+        for button in self.buttons {
+            button.enabled = true
+            button.alpha = 1
+        }
     }
     
 //MARK: TextField methods
@@ -80,11 +57,13 @@ class CreateSchoolViewController: UIViewController, GenderSelectorDelegate, Gend
         let nextTag = textField.tag + 1
         let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder!
         
-        if (nextResponder != nil) && (nextResponder as? UITextField)?.text?.isEmpty == true {
-            nextResponder?.becomeFirstResponder()
-        } else {
+        //tests if next responder ir nil and is is empty
+        guard let responder = nextResponder where (nextResponder as? UITextField)?.text?.isEmpty == true else {
             self.hideKeyboard()
+            return false
         }
+        
+        responder.becomeFirstResponder()
         return false
     }
     
@@ -115,12 +94,13 @@ class CreateSchoolViewController: UIViewController, GenderSelectorDelegate, Gend
      */
     private func checkIfEmpty() -> Bool {
         for tf in self.textFields {
-            if let txt = tf.text {
-                if txt.isEmpty {
-                    return true
-                }
-            } else {
+            guard let txt = tf.text else {
                 return true
+            }
+            if txt.isEmpty {
+                return true
+            } else {
+                return false
             }
         }
         return false
@@ -133,31 +113,6 @@ class CreateSchoolViewController: UIViewController, GenderSelectorDelegate, Gend
         for tf in self.textFields {
             tf.resignFirstResponder()
         }
-    }
-    
-//MARK: Create user method
-    private func createUser() {
-        self.hideKeyboard()
-        if self.checkIfEmpty() {
-            self.emptyField()
-        } else {
-            self.blockTextFields()
-            self.blockButtons()
-            self.activityIndicator.hidden = false
-            self.activityIndicator.startAnimating()
-            
-        }
-    }
-    
-//MARK: Alert methods
-    /**
-     Shows one alert telling the user that one or more fields are empty
-     */
-    private func emptyField() {
-        let alertView = UIAlertController(title: "Campo vazio", message: "Nenhum campo pode estar vazio.", preferredStyle:.Alert)
-        let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
-        alertView.addAction(okAction)
-        self.presentViewController(alertView, animated: true, completion: nil)
     }
 
 }

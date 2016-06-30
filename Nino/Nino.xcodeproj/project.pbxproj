@@ -74,6 +74,12 @@
 		AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF21CF4A82F003C1063 /* CredentialBO.swift */; };
 		AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
 		AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
+		AC7BFD661D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */; };
+		AC7BFD671D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */; };
+		AC7BFD681D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */; };
+		AC7BFD6A1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */; };
+		AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */; };
+		AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */; };
 		AC86BBD71D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = AC86BBD11D0F4340005282E7 /* HelveticaRoundedLT-Black.otf */; };
 		AC86BBD81D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = AC86BBD11D0F4340005282E7 /* HelveticaRoundedLT-Black.otf */; };
 		AC86BBD91D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = AC86BBD11D0F4340005282E7 /* HelveticaRoundedLT-Black.otf */; };
@@ -173,9 +179,6 @@
 		ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */; };
 		ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */; };
 		ACE6E1511D1091B600A11E6A /* Pods_Nino_Escola.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6E1501D1091B600A11E6A /* Pods_Nino_Escola.framework */; };
-		ACE6E1531D10C64B00A11E6A /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */; };
-		ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */; };
-		ACE6E1551D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */; };
 		ACE6E1571D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
 		ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
 		ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
@@ -272,6 +275,8 @@
 		AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorBO.swift; sourceTree = "<group>"; };
 		AC529EF21CF4A82F003C1063 /* CredentialBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialBO.swift; sourceTree = "<group>"; };
 		AC529EF51CF4AC69003C1063 /* PostBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBO.swift; sourceTree = "<group>"; };
+		AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
+		AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
 		AC86BBD11D0F4340005282E7 /* HelveticaRoundedLT-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-Black.otf"; sourceTree = "<group>"; };
 		AC86BBD21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-BlackObl.otf"; sourceTree = "<group>"; };
 		AC86BBD31D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-Bold.otf"; sourceTree = "<group>"; };
@@ -304,7 +309,6 @@
 		ACE6E14C1D108FA200A11E6A /* Pods_Nino.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Nino.framework; path = "Pods/../build/Debug-iphoneos/Pods_Nino.framework"; sourceTree = "<group>"; };
 		ACE6E14E1D108FB800A11E6A /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Nino-egmryccsbhyaiehgslzuamkiobxw/Build/Products/Debug-iphonesimulator/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"; sourceTree = "<group>"; };
 		ACE6E1501D1091B600A11E6A /* Pods_Nino_Escola.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Nino_Escola.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Nino-egmryccsbhyaiehgslzuamkiobxw/Build/Products/Debug-iphonesimulator/Pods_Nino_Escola.framework"; sourceTree = "<group>"; };
-		ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
 		ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeColor.swift; sourceTree = "<group>"; };
 		ACEC39C51CEE128B00867624 /* Nino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEC39C81CEE128B00867624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -454,9 +458,10 @@
 			isa = PBXGroup;
 			children = (
 				AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */,
-				ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */,
 				288DE3541D22BF800052A35D /* StudentProfileListController.swift */,
 				AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */,
+				AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */,
+				AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1334,7 +1339,6 @@
 				AC0CDEED1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
-				ACE6E1531D10C64B00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				288DE3551D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
@@ -1352,12 +1356,14 @@
 				AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */,
 				AC9CA6351D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC86BC001D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				AC7BFD6A1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
 				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
 				288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */,
+				AC7BFD661D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */,
 				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
@@ -1388,8 +1394,9 @@
 				AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
+				AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
+				AC7BFD671D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */,
 				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
-				ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
@@ -1404,13 +1411,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC7BFD681D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */,
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
-				ACE6E1551D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 			);

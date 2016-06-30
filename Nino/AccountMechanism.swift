@@ -35,6 +35,9 @@ class AccountMechanism: NSObject {
      - parameter completionHandler: completionHandler with optional userID, optional error and optional extra information about the error
      */
     static func createAccount(name: String, surname: String, gender: Gender, email: String, completionHandler: ServerResponse) {
-        completionHandler(userID: 123, error: nil, data: nil)
+        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
+        dispatch_after(time, dispatch_get_main_queue()) { 
+            completionHandler(userID: 123, error: nil, data: nil)
+        }
     }
 }

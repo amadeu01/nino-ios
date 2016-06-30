@@ -162,7 +162,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
                     //gets the main queue to make UI changes
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.activityIndicator.stopAnimating()
-                        //TODO: change view
+                        self.performSegueWithIdentifier("waitEmail", sender: self)
                     })
                 } catch let internalError {
                     //TODO: handle error
