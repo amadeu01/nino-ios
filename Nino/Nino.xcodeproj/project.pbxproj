@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
+		283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
+		283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
 		285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
@@ -36,6 +39,19 @@
 		28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
 		28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
 		28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
+		28A046771D25597F007E0053 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		28A046781D255980007E0053 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		28A046791D255981007E0053 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		28A0467A1D255981007E0053 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		28A046A01D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
+		28A046A11D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
+		28A046A21D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
+		28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
+		28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
+		28A046A51D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
+		28A046A71D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */; };
+		28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */; };
+		28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */; };
 		92D16C6331EEA46F4B30AE64 /* Pods_Nino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59FC1F84350D209590087D4 /* Pods_Nino.framework */; };
 		AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
 		AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
@@ -255,6 +271,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileTableViewCell.swift; sourceTree = "<group>"; };
 		288DE3501D22B7500052A35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DefaultEmptyState.storyboard; sourceTree = "<group>"; };
@@ -263,6 +280,8 @@
 		28A046681D254D0A007E0053 /* FluentConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FluentConstraints.h; sourceTree = "<group>"; };
 		28A046691D254D0A007E0053 /* FluentConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluentConstraints.swift; sourceTree = "<group>"; };
 		28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluentConstraintSet.swift; sourceTree = "<group>"; };
+		28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTopBarViewController.swift; sourceTree = "<group>"; };
+		28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileNavigationController.swift; sourceTree = "<group>"; };
 		359D6E4261859B42C5C73C6C /* Pods_Nino_Escola.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino_Escola.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1DFD4ECA4E03B0582A1948 /* Pods_NinoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NinoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F3D123CB8DE04FF458B6F1 /* Pods-Nino Escola.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino Escola.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola.debug.xcconfig"; sourceTree = "<group>"; };
@@ -483,6 +502,9 @@
 				ACE6E1521D10C64B00A11E6A /* CreateSchoolViewController.swift */,
 				288DE3541D22BF800052A35D /* StudentProfileListController.swift */,
 				AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */,
+				28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */,
+				28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */,
+				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -860,7 +882,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = G52JHG5LJN;
+						DevelopmentTeam = N79DG9RG7K;
 					};
 					ACEC3A0C1CEE137B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1296,6 +1318,7 @@
 				AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */,
 				AC9CA6331D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC529EF01CF4A25B003C1063 /* EducatorBO.swift in Sources */,
+				28A046A01D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC0CDEE61D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */,
@@ -1334,6 +1357,8 @@
 				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC9CA6391D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
+				28A046771D25597F007E0053 /* Gender.swift in Sources */,
+				28A046A11D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				28A046721D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC9EC7141D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
@@ -1348,8 +1373,10 @@
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
 				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				28A046A21D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				28A046781D255980007E0053 /* Gender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,7 +1427,10 @@
 				28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
+				28A046A71D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
+				283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */,
 				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
+				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
@@ -1414,13 +1444,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC0CDEEE1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
+				28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
+				28A046791D255981007E0053 /* Gender.swift in Sources */,
 				AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
@@ -1449,11 +1483,15 @@
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
+				28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				28A0467A1D255981007E0053 /* Gender.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
+				28A046A51D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				ACE6E1551D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
@@ -1708,10 +1746,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "Nino Escola/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;
@@ -1730,10 +1764,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "Nino Escola/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.escola.ninoapp;

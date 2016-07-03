@@ -9,6 +9,7 @@
 import UIKit
 
 public class FluentConstraint {
+    
     var firstView: UIView
     var firstAttribute = NSLayoutAttribute.NotAnAttribute
     var relation = NSLayoutRelation.Equal
