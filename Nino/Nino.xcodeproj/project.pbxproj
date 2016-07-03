@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28143E101D299F4E00139B0D /* StudentProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283C29801D299E0F00DF7DCC /* StudentProfile.storyboard */; };
+		28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283C29801D299E0F00DF7DCC /* StudentProfile.storyboard */; };
+		28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283C29801D299E0F00DF7DCC /* StudentProfile.storyboard */; };
+		28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E1B1D29A15E00139B0D /* Chat.storyboard */; };
+		28143E1F1D29A17100139B0D /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E1B1D29A15E00139B0D /* Chat.storyboard */; };
+		28143E201D29A17100139B0D /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E1B1D29A15E00139B0D /* Chat.storyboard */; };
+		28143E221D29A18000139B0D /* Photos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E181D29A11600139B0D /* Photos.storyboard */; };
+		28143E231D29A18100139B0D /* Photos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E181D29A11600139B0D /* Photos.storyboard */; };
+		28143E241D29A18200139B0D /* Photos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E181D29A11600139B0D /* Photos.storyboard */; };
+		28143E261D29A18700139B0D /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E161D29A0FA00139B0D /* Activities.storyboard */; };
+		28143E271D29A18800139B0D /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E161D29A0FA00139B0D /* Activities.storyboard */; };
+		28143E281D29A18800139B0D /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E161D29A0FA00139B0D /* Activities.storyboard */; };
+		28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E131D29A0D100139B0D /* MyDay.storyboard */; };
+		28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E131D29A0D100139B0D /* MyDay.storyboard */; };
+		28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E131D29A0D100139B0D /* MyDay.storyboard */; };
 		283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
 		283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
 		283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
@@ -271,7 +286,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28143E141D29A0D100139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyDay.storyboard; sourceTree = "<group>"; };
+		28143E161D29A0FA00139B0D /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
+		28143E191D29A11600139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Photos.storyboard; sourceTree = "<group>"; };
+		28143E1C1D29A15E00139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
+		283C29811D299E0F00DF7DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StudentProfile.storyboard; sourceTree = "<group>"; };
 		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileTableViewCell.swift; sourceTree = "<group>"; };
 		288DE3501D22B7500052A35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DefaultEmptyState.storyboard; sourceTree = "<group>"; };
@@ -513,6 +533,11 @@
 			isa = PBXGroup;
 			children = (
 				ACEC3A001CEE137A00867624 /* Main.storyboard */,
+				283C29801D299E0F00DF7DCC /* StudentProfile.storyboard */,
+				28143E1B1D29A15E00139B0D /* Chat.storyboard */,
+				28143E181D29A11600139B0D /* Photos.storyboard */,
+				28143E161D29A0FA00139B0D /* Activities.storyboard */,
+				28143E131D29A0D100139B0D /* MyDay.storyboard */,
 				288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */,
 				AC182A3E1D103A420013611E /* CreateSchool.storyboard */,
 				ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */,
@@ -964,9 +989,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */,
+				28143E271D29A18800139B0D /* Activities.storyboard in Resources */,
 				ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */,
 				288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
+				28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
 				AC182A401D103A420013611E /* CreateSchool.storyboard in Resources */,
 				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
@@ -975,6 +1003,8 @@
 				AC86BBE01D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBEC1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBF21D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				28143E221D29A18000139B0D /* Photos.storyboard in Resources */,
+				28143E101D299F4E00139B0D /* StudentProfile.storyboard in Resources */,
 				AC86BBDA1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,13 +1016,18 @@
 				288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE11D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A431D103A590013611E /* Main.storyboard in Resources */,
+				28143E1F1D29A17100139B0D /* Chat.storyboard in Resources */,
+				28143E231D29A18100139B0D /* Photos.storyboard in Resources */,
 				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */,
 				AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				AC182A411D103A420013611E /* CreateSchool.storyboard in Resources */,
+				28143E261D29A18700139B0D /* Activities.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1003,13 +1038,18 @@
 				288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBE21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
+				28143E201D29A17100139B0D /* Chat.storyboard in Resources */,
+				28143E241D29A18200139B0D /* Photos.storyboard in Resources */,
 				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */,
 				AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				AC182A421D103A420013611E /* CreateSchool.storyboard in Resources */,
+				28143E281D29A18800139B0D /* Activities.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1524,6 +1564,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		28143E131D29A0D100139B0D /* MyDay.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28143E141D29A0D100139B0D /* Base */,
+			);
+			name = MyDay.storyboard;
+			sourceTree = "<group>";
+		};
+		28143E181D29A11600139B0D /* Photos.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28143E191D29A11600139B0D /* Base */,
+			);
+			name = Photos.storyboard;
+			sourceTree = "<group>";
+		};
+		28143E1B1D29A15E00139B0D /* Chat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28143E1C1D29A15E00139B0D /* Base */,
+			);
+			name = Chat.storyboard;
+			sourceTree = "<group>";
+		};
+		283C29801D299E0F00DF7DCC /* StudentProfile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				283C29811D299E0F00DF7DCC /* Base */,
+			);
+			name = StudentProfile.storyboard;
+			sourceTree = "<group>";
+		};
 		288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -30,17 +30,21 @@ class ProfileTopBarViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    @IBAction func shouldPresentViewController1(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName("label1", object: self)
-        
+    @IBAction func showMyDayViewController(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("showMyDayViewController", object: self)
+    }
+    @IBAction func showActivitiesViewController(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("showActivitiesViewController", object: self)
+    }
+    @IBAction func showPhotosViewController(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("showPhotosViewController", object: self)
+    }
+    @IBAction func showChatViewController(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("showChatViewController", object: self)
     }
     
-    @IBAction func shouldPresentViewController2(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName("label2", object: self)
-    }
-    @IBAction func shouldPresentViewController3(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName("label3", object: self)
-    }
+    
+   
+    
+    
 }
-
-

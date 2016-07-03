@@ -12,11 +12,16 @@ class StudentProfileNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        performSegueWithIdentifier("label1", sender: self)
+        performSegueWithIdentifier("showMyDayViewController", sender: self)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector (didPressToShowViewController1), name: "label1", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector (didPressToShowViewController2), name: "label2", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didPressToShowViewController3), name: "label3", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector (didPressToShowMyDayViewController), name: "showMyDayViewController", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector (didPressToShowActivitiesViewController), name: "showActivitiesViewController", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didPressToShowPhotosViewController), name: "showPhotosViewController", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didPressToShowChatViewController), name: "showChatViewController", object: nil)
         
         //TODO: remove observers when it's time
         
@@ -30,22 +35,26 @@ class StudentProfileNavigationController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-    func didPressToShowViewController1() {
-        //
-        performSegueWithIdentifier("label1", sender: self)
-        print("didPressToShowViewController1")
+    func didPressToShowMyDayViewController() {
+        performSegueWithIdentifier("showMyDayViewController", sender: self)
+    }
+    
+    func didPressToShowActivitiesViewController() {
+        performSegueWithIdentifier("showActivitiesViewController", sender: self)
+    }
+    
+    func didPressToShowPhotosViewController() {
+        performSegueWithIdentifier("showPhotosViewController", sender: self)
         
     }
-    func didPressToShowViewController2() {
-        //
-        performSegueWithIdentifier("label2", sender: self)
-        print("didPressToShowViewController2")
+    
+    func didPressToShowChatViewController() {
+        performSegueWithIdentifier("showChatViewController", sender: self)
     }
-    func didPressToShowViewController3() {
-        //
-        performSegueWithIdentifier("label3", sender: self)
-        print("didPressToShowViewController3")
-    }
+    
+    
+
+
     
     
     /*

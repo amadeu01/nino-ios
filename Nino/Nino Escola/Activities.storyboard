@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zf4-bT-kxm">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Ls9-nq-iHd">
+            <objects>
+                <viewController id="Zf4-bT-kxm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Rq-Dy-512"/>
+                        <viewControllerLayoutGuide type="bottom" id="G6w-pE-uPb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bft-p1-NlJ">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="456"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activities View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJd-yS-BdC">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="237" y="217" width="191" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HJd-yS-BdC" firstAttribute="centerY" secondItem="Bft-p1-NlJ" secondAttribute="centerY" id="VDF-ZT-RoA"/>
+                            <constraint firstItem="HJd-yS-BdC" firstAttribute="centerX" secondItem="Bft-p1-NlJ" secondAttribute="centerX" id="dGD-Qb-ech"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="HJd-yS-BdC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="VDF-ZT-RoA"/>
+                                <exclude reference="dGD-Qb-ech"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="HJd-yS-BdC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="VDF-ZT-RoA"/>
+                                <include reference="dGD-Qb-ech"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <fixedSimulatedSizeMetrics key="simulatedDestinationMetrics">
+                        <size key="portraitSize" width="456" height="800"/>
+                        <size key="landscapeSize" width="800" height="456"/>
+                    </fixedSimulatedSizeMetrics>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qAZ-Cr-BNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5129.25" y="-175"/>
+        </scene>
+    </scenes>
+</document>
