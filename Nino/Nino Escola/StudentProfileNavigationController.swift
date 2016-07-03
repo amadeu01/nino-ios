@@ -58,16 +58,5 @@ class StudentProfileNavigationController: UINavigationController {
      }
      */
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("\(segue.identifier)")
-        if segue.identifier == "embedProfileTopBarViewController"{
-            guard let controller = segue.destinationViewController as? ProfileTopBarViewController else {
-                print("Error: bad segue sent in StudentProfileNavigationController")
-                return
-            }
-            controller.delegate = self//Setup delegate
-            
-        }
-    }
     
 }
