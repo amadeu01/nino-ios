@@ -16,7 +16,7 @@ class SchoolBO: NSObject {
      
      - parameter name:              school's name
      - parameter address:           school's address
-     - parameter cnpj:              school's legal number
+     - parameter cnpj:              optional school's legal number
      - parameter telephone:         school's phone
      - parameter email:             school's main email
      - parameter owner:             id of the owner of the school
@@ -31,7 +31,7 @@ class SchoolBO: NSObject {
      
      - throws: error of CreationError.InvalidEmail type
      */
-    static func createSchool(name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
+    static func createSchool(name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
 
         if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
@@ -55,4 +55,9 @@ class SchoolBO: NSObject {
         }
         
     }
+    
+    static func teste() {
+        self
+    }
+    
 }

@@ -67,6 +67,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
 //MARK: GenderSelector DataSource and Delegate methods
     func genderWasSelected(gender: Gender) {
         self.gender = gender
+        self.hideKeyboard()
     }
 
     func changeMaleLabel() -> String {
@@ -82,8 +83,14 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
         let nextTag = textField.tag + 1
         let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder!
         
-        //tests if next responder ir nil and is is empty
-        guard let responder = nextResponder where (nextResponder as? UITextField)?.text?.isEmpty == true else {
+        //tests if next responder is nil
+        guard let responder = nextResponder as? UITextField else {
+            self.createUser()
+            return false
+        }
+        
+        //tests if next responder is empty
+        if responder.text?.isEmpty == false {
             self.hideKeyboard()
             return false
         }
@@ -172,9 +179,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
             self.activityIndicator.stopAnimating()
             self.enableButtons()
             self.enableTextFields()
-            let alertView = UIAlertController(title: "Email inválido", message: "Digite um email válido", preferredStyle: .Alert)
-            let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
-            alertView.addAction(okAction)
+            let alertView = DefaultAlerts.invalidEmail()
             self.presentViewController(alertView, animated: true, completion: nil)
         }
     }

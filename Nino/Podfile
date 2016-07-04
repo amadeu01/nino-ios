@@ -6,6 +6,8 @@ use_frameworks!
 target 'Nino' do
 pod 'SwiftKeychainWrapper'
 pod 'IQKeyboardManagerSwift', '4.0.0'
+pod 'TOCropViewController'
+pod 'QBImagePickerController'
 end
 
 target 'NinoTests' do
@@ -18,7 +20,9 @@ end
 
 target 'Nino Escola' do
 pod 'SwiftKeychainWrapper'
+pod 'TOCropViewController'
 pod 'IQKeyboardManagerSwift', '4.0.0'
+pod 'QBImagePickerController'
 end
 
 target 'Nino EscolaTests' do

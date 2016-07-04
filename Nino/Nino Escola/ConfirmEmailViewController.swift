@@ -14,10 +14,10 @@ class ConfirmEmailViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = CustomizeColor.defaultBackgroundColor()
         
-        //FIXME: fake email validation
+//        FIXME: fake email validation
         let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
         dispatch_after(time, dispatch_get_main_queue()) {
-            self.performSegueWithIdentifier("createSchool", sender: self)
+            self.performSegueWithIdentifier("registerPassword", sender: self)
         }
     }
 
@@ -25,6 +25,8 @@ class ConfirmEmailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
+    func registerPassword(token: String) {
+        print(token)
+    }
 
 }

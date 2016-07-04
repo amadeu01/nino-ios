@@ -85,4 +85,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        var viewController: UIViewController?
+        //block to be always executed before leaving the method
+        defer {
+            (viewController as? ConfirmEmailViewController)?.registerPassword("da")
+        }
+        //tests the host
+        guard url.host == "register" else {
+            return false
+        }
+        //checks if the RegisterPasswordVC is being exhibited
+        let navigation = window?.topMostController() as? UINavigationController
+        guard let vc = navigation?.topViewController else {
+            //at LoginVC
+            let loginVC = window?.topMostController()
+            loginVC?.performSegueWithIdentifier("createNewUser", sender: nil)
+            (window?.topMostController() as? UINavigationController)?.viewControllers[0].performSegueWithIdentifier("waitEmail", sender: nil)
+//            window?.currentViewController()?.performSegueWithIdentifier("waitEmail", sender: nil)
+            viewController = self.window?.currentViewController()
+            print(viewController?.className)
+            return true
+        }
+        guard vc.isMemberOfClass(ConfirmEmailViewController) else {
+            //at CreateUserVC
+            vc.performSegueWithIdentifier("waitEmail", sender: nil)
+            viewController = window?.currentViewController()
+            return true
+        }
+        //at ConfirmEmailVC
+        viewController = vc
+        return true
+    }
+}
+
+extension UIViewController {
+    var className: String {
+        return NSStringFromClass(self.classForCoder).componentsSeparatedByString(".").last!
+    }
 }

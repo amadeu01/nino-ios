@@ -1,15 +1,21 @@
 PODS:
   - IQKeyboardManagerSwift (4.0.0)
+  - QBImagePickerController (3.4.0)
   - SwiftKeychainWrapper (1.0.11)
+  - TOCropViewController (1.3.7)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift (= 4.0.0)
+  - QBImagePickerController
   - SwiftKeychainWrapper
+  - TOCropViewController
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: ede2a27b4e1ce053d03073b9c7fa439322f5e405
+  QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   SwiftKeychainWrapper: 011a6946923948ffa49708014dd691164d7621d1
+  TOCropViewController: 441075834904054c13b5558523743a6e27d1baa5
 
-PODFILE CHECKSUM: 316e26d3c5a060ed99552e725b1f807868ad2706
+PODFILE CHECKSUM: d3a404b147cb86a180122820f9e4fd2bb28ce14e
 
 COCOAPODS: 1.0.1

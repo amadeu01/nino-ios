@@ -14,6 +14,7 @@ class NinoSession: NSObject {
     static let sharedInstance = NinoSession()
     private var _credential: Credential?
     private var _educator: Educator?
+    private var _school: School?
     /// User credential, get only
     var credential: Credential? {
         return _credential
@@ -21,6 +22,10 @@ class NinoSession: NSObject {
     /// Active educator, get only
     var educator: Educator? {
         return _educator
+    }
+    /// Active school, get only
+    var school: School? {
+        return _school
     }
     
     private override init () {
@@ -43,6 +48,15 @@ class NinoSession: NSObject {
      */
     func setEducator(educator: Educator) {
         self._educator = educator
+    }
+    
+    /**
+     Set active school
+     
+     - parameter school: active school
+     */
+    func setSchool(school: School) {
+        self._school = school
     }
     
 }

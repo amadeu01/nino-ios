@@ -19,6 +19,9 @@
 		288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
 		288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE3541D22BF800052A35D /* StudentProfileListController.swift */; };
 		92D16C6331EEA46F4B30AE64 /* Pods_Nino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59FC1F84350D209590087D4 /* Pods_Nino.framework */; };
+		AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */; };
+		AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */; };
+		AC07C43B1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */; };
 		AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
 		AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
 		AC0CDEE31D05D8680000ECE9 /* PhaseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */; };
@@ -205,6 +208,7 @@
 		AEF54DDC26BEC490A5B40805 /* Pods_NinoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976C8F0D8C2644724AD3806 /* Pods_NinoTests.framework */; };
 		B13992DE8FA3FBC76EF7C7ED /* Pods_NinoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1DFD4ECA4E03B0582A1948 /* Pods_NinoUITests.framework */; };
 		BAFDC64155250A7930756189 /* Pods_Nino_EscolaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB19A87C8F4920010EB8751A /* Pods_Nino_EscolaUITests.framework */; };
+		D3AFA8484B9F5EBB0A2A5E97 /* Pods_Nino_Escola.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D6E4261859B42C5C73C6C /* Pods_Nino_Escola.framework */; };
 		DA758CF1CD49547D3E476BFD /* Pods_Nino_EscolaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C2E15EBE8E05C5BAE0F342 /* Pods_Nino_EscolaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -256,6 +260,7 @@
 		9F1F9AE17830D8D74CBC5EE5 /* Pods-Nino Escola.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino Escola.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola.release.xcconfig"; sourceTree = "<group>"; };
 		A59FC1F84350D209590087D4 /* Pods_Nino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E2F94DD7C87F323649107C /* Pods-NinoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NinoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NinoTests/Pods-NinoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPasswordViewController.swift; sourceTree = "<group>"; };
 		AC0CDEE01D05D8680000ECE9 /* PhaseBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhaseBO.swift; sourceTree = "<group>"; };
 		AC0CDEE51D05DBFE0000ECE9 /* RoomBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomBO.swift; sourceTree = "<group>"; };
 		AC0CDEEA1D05E2800000ECE9 /* KeyBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBO.swift; sourceTree = "<group>"; };
@@ -277,6 +282,12 @@
 		AC529EF51CF4AC69003C1063 /* PostBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBO.swift; sourceTree = "<group>"; };
 		AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
 		AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
+		AC7BFDAC1D256E400086B495 /* Nino-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nino-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC7BFDAD1D256E400086B495 /* NinoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NinoTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC7BFDAE1D256E400086B495 /* NinoUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NinoUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC7BFDAF1D256E400086B495 /* Nino Escola-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nino Escola-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC7BFDB01D256E400086B495 /* Nino EscolaTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nino EscolaTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC7BFDB11D256E400086B495 /* Nino EscolaUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nino EscolaUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC86BBD11D0F4340005282E7 /* HelveticaRoundedLT-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-Black.otf"; sourceTree = "<group>"; };
 		AC86BBD21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-BlackObl.otf"; sourceTree = "<group>"; };
 		AC86BBD31D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-Bold.otf"; sourceTree = "<group>"; };
@@ -374,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE6E1511D1091B600A11E6A /* Pods_Nino_Escola.framework in Frameworks */,
+				D3AFA8484B9F5EBB0A2A5E97 /* Pods_Nino_Escola.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +444,19 @@
 			name = Errors;
 			sourceTree = "<group>";
 		};
+		AC7BFDBE1D268C4C0086B495 /* Bridging Headers */ = {
+			isa = PBXGroup;
+			children = (
+				AC7BFDAC1D256E400086B495 /* Nino-Bridging-Header.h */,
+				AC7BFDAD1D256E400086B495 /* NinoTests-Bridging-Header.h */,
+				AC7BFDAE1D256E400086B495 /* NinoUITests-Bridging-Header.h */,
+				AC7BFDAF1D256E400086B495 /* Nino Escola-Bridging-Header.h */,
+				AC7BFDB01D256E400086B495 /* Nino EscolaTests-Bridging-Header.h */,
+				AC7BFDB11D256E400086B495 /* Nino EscolaUITests-Bridging-Header.h */,
+			);
+			name = "Bridging Headers";
+			sourceTree = "<group>";
+		};
 		AC86BBCF1D0F431D005282E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +487,7 @@
 				AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */,
 				AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */,
 				AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */,
+				AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -540,6 +566,7 @@
 		AC9F99CE1CEF3924001B53E8 /* Mechanisms */ = {
 			isa = PBXGroup;
 			children = (
+				AC7BFDBE1D268C4C0086B495 /* Bridging Headers */,
 				AC86BBCF1D0F431D005282E7 /* Resources */,
 				AC89BAC31CF5D87600CB3CD2 /* Server */,
 				AC529EDF1CF483D6003C1063 /* Errors */,
@@ -840,6 +867,11 @@
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = G52JHG5LJN;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					ACEC3A0C1CEE137B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1333,6 +1365,7 @@
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
+				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
 				AC0CDEF21D05EA700000ECE9 /* MenuBO.swift in Sources */,
@@ -1387,6 +1420,7 @@
 				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
@@ -1416,6 +1450,7 @@
 				AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC07C43B1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
@@ -1591,11 +1626,14 @@
 			baseConfigurationReference = 56BC49A855522A69ED8D4F27 /* Pods-Nino.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nino.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1605,11 +1643,13 @@
 			baseConfigurationReference = EEE1A63AA5649D643F6A2E00 /* Pods-Nino.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.nino.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1619,10 +1659,13 @@
 			baseConfigurationReference = A8E2F94DD7C87F323649107C /* Pods-NinoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NinoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NinoTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino.app/Nino";
 			};
 			name = Debug;
@@ -1632,10 +1675,12 @@
 			baseConfigurationReference = 61DCEF4F41D73B5644D477F2 /* Pods-NinoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NinoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NinoTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino.app/Nino";
 			};
 			name = Release;
@@ -1644,10 +1689,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 868DD48A9DE27EA00887C47B /* Pods-NinoUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NinoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NinoUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = Nino;
 			};
 			name = Debug;
@@ -1656,10 +1704,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F6268110339897A316A62AF1 /* Pods-NinoUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NinoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nino.NinoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NinoUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = Nino;
 			};
 			name = Release;
@@ -1670,6 +1720,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1682,6 +1733,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino Escola-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -1692,6 +1745,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1704,6 +1758,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino Escola-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -1713,10 +1768,13 @@
 			baseConfigurationReference = C5E573E73EFEC88E93E8E4D7 /* Pods-Nino EscolaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Nino EscolaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino EscolaTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino Escola.app/Nino Escola";
 			};
 			name = Debug;
@@ -1726,10 +1784,12 @@
 			baseConfigurationReference = 45ABDC3106750FECF86E175B /* Pods-Nino EscolaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Nino EscolaTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino EscolaTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nino Escola.app/Nino Escola";
 			};
 			name = Release;
@@ -1738,10 +1798,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECF79A308ACD0B62849AB05A /* Pods-Nino EscolaUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Nino EscolaUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino EscolaUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = "Nino Escola";
 			};
 			name = Debug;
@@ -1750,10 +1813,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF7F12B890667A6AA6C19C96 /* Pods-Nino EscolaUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Nino EscolaUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nino.Nino-EscolaUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nino EscolaUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = "Nino Escola";
 			};
 			name = Release;

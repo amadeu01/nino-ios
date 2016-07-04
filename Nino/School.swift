@@ -17,8 +17,8 @@ struct School {
     let id: Int
     let name: String
     let address: String
-    let cnpj: Int
-    let telephone: Int
+    var cnpj: Int?
+    let telephone: String
     let email: String
     let owner: Int
     var logo: NSData?
@@ -36,7 +36,7 @@ struct School {
      - parameter id:         unique identifier
      - parameter name:       school's name
      - parameter address:    school's address
-     - parameter cnpj:       school's legal number
+     - parameter cnpj:       optional school's legal number
      - parameter telephone:  school's phone
      - parameter email:      school's main email
      - parameter owner:      id of the owner of the school
@@ -50,11 +50,13 @@ struct School {
 
      - returns: struct VO of School type
      */
-    init(id: Int, name: String, address: String, cnpj: Int, telephone: Int, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) {
+    init(id: Int, name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) {
         self.id = id
         self.name = name
         self.address = address
-        self.cnpj = cnpj
+        if let legalNumber = cnpj {
+            self.cnpj = legalNumber
+        }
         self.email = email
         self.telephone = telephone
         self.owner = owner
