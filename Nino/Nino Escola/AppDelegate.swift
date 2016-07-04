@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     //states whether the user is logged in
-    var loggedIn = true
+    var loggedIn = false
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -88,41 +88,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        var viewController: UIViewController?
-        //block to be always executed before leaving the method
-        defer {
-            (viewController as? ConfirmEmailViewController)?.registerPassword("da")
-        }
-        //tests the host
+        
         guard url.host == "register" else {
             return false
         }
-        //checks if the RegisterPasswordVC is being exhibited
-        let navigation = window?.topMostController() as? UINavigationController
-        guard let vc = navigation?.topViewController else {
-            //at LoginVC
-            let loginVC = window?.topMostController()
-            loginVC?.performSegueWithIdentifier("createNewUser", sender: nil)
-            (window?.topMostController() as? UINavigationController)?.viewControllers[0].performSegueWithIdentifier("waitEmail", sender: nil)
-//            window?.currentViewController()?.performSegueWithIdentifier("waitEmail", sender: nil)
-            viewController = self.window?.currentViewController()
-            print(viewController?.className)
-            return true
-        }
-        guard vc.isMemberOfClass(ConfirmEmailViewController) else {
-            //at CreateUserVC
-            vc.performSegueWithIdentifier("waitEmail", sender: nil)
-            viewController = window?.currentViewController()
-            return true
-        }
-        //at ConfirmEmailVC
-        viewController = vc
+        
+        let navController = window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("passwordNavigation") as? UINavigationController
+        window?.rootViewController = navController
+        let viewController = navController?.viewControllers[0] as? ConfirmEmailViewController
+        //TODO: handle token here
+        viewController?.validateEmail("abc")
         return true
-    }
-}
-
-extension UIViewController {
-    var className: String {
-        return NSStringFromClass(self.classForCoder).componentsSeparatedByString(".").last!
     }
 }

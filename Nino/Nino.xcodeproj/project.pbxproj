@@ -103,9 +103,9 @@
 		AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
 		AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
 		AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */; };
-		AC182A401D103A420013611E /* CreateSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateSchool.storyboard */; };
-		AC182A411D103A420013611E /* CreateSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateSchool.storyboard */; };
-		AC182A421D103A420013611E /* CreateSchool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateSchool.storyboard */; };
+		AC182A401D103A420013611E /* CreateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateUser.storyboard */; };
+		AC182A411D103A420013611E /* CreateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateUser.storyboard */; };
+		AC182A421D103A420013611E /* CreateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateUser.storyboard */; };
 		AC182A431D103A590013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
 		AC182A441D103A5A0013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
 		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
@@ -118,6 +118,9 @@
 		AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
 		AC410BD11D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
 		AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
+		AC4D2E2C1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
+		AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
+		AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
 		AC529EE11CF48422003C1063 /* CreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE01CF48422003C1063 /* CreationError.swift */; };
 		AC529EE21CF48422003C1063 /* CreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE01CF48422003C1063 /* CreationError.swift */; };
 		AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE31CF48A93003C1063 /* StudentBO.swift */; };
@@ -134,9 +137,9 @@
 		AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF21CF4A82F003C1063 /* CredentialBO.swift */; };
 		AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
 		AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
-		AC7BFD661D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */; };
-		AC7BFD671D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */; };
-		AC7BFD681D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */; };
+		AC7BFD661D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
+		AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
+		AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
 		AC7BFD6A1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */; };
 		AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */; };
 		AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */; };
@@ -339,10 +342,11 @@
 		AC0CDEF41D05EBB00000ECE9 /* CalendarBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarBO.swift; sourceTree = "<group>"; };
 		AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBO.swift; sourceTree = "<group>"; };
 		AC182A3C1D10362D0013611E /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = "Pods/../build/Debug-iphoneos/SwiftKeychainWrapper.framework"; sourceTree = "<group>"; };
-		AC182A3F1D103A420013611E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateSchool.storyboard; sourceTree = "<group>"; };
+		AC182A3F1D103A420013611E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateUser.storyboard; sourceTree = "<group>"; };
 		AC238B941CEFDABA00B10F75 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		AC410BC91D05A880003EB66B /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBO.swift; sourceTree = "<group>"; };
+		AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
 		AC529EE01CF48422003C1063 /* CreationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationError.swift; sourceTree = "<group>"; };
 		AC529EE31CF48A93003C1063 /* StudentBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentBO.swift; sourceTree = "<group>"; };
 		AC529EE61CF497E3003C1063 /* SchoolBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolBO.swift; sourceTree = "<group>"; };
@@ -351,7 +355,7 @@
 		AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorBO.swift; sourceTree = "<group>"; };
 		AC529EF21CF4A82F003C1063 /* CredentialBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialBO.swift; sourceTree = "<group>"; };
 		AC529EF51CF4AC69003C1063 /* PostBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBO.swift; sourceTree = "<group>"; };
-		AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
+		AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitEmailViewController.swift; sourceTree = "<group>"; };
 		AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
 		AC7BFDAC1D256E400086B495 /* Nino-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nino-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC7BFDAD1D256E400086B495 /* NinoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NinoTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -560,13 +564,14 @@
 				AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */,
 				288DE3541D22BF800052A35D /* StudentProfileListController.swift */,
 				AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */,
-				AC7BFD651D254AB50086B495 /* ConfirmEmailViewController.swift */,
+				AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */,
 				AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */,
 				AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */,
 				28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */,
 				28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */,
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
 				28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */,
+				AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -582,7 +587,7 @@
 				28143E161D29A0FA00139B0D /* Activities.storyboard */,
 				28143E131D29A0D100139B0D /* MyDay.storyboard */,
 				288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */,
-				AC182A3E1D103A420013611E /* CreateSchool.storyboard */,
+				AC182A3E1D103A420013611E /* CreateUser.storyboard */,
 				ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -951,625 +956,626 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-					DevelopmentTeam = G52JHG5LJN;
-					SystemCapabilities = {
-						com.apple.SafariKeychain = {
-							enabled = 0;
+						DevelopmentTeam = G52JHG5LJN;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
 						};
 					};
-				};
-				ACEC3A0C1CEE137B00867624 = {
-					CreatedOnToolsVersion = 7.3.1;
-					TestTargetID = ACEC39F91CEE137A00867624;
-				};
-				ACEC3A171CEE137B00867624 = {
-					CreatedOnToolsVersion = 7.3.1;
-					TestTargetID = ACEC39F91CEE137A00867624;
+					ACEC3A0C1CEE137B00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ACEC39F91CEE137A00867624;
+					};
+					ACEC3A171CEE137B00867624 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = ACEC39F91CEE137A00867624;
+					};
 				};
 			};
+			buildConfigurationList = ACEC39C01CEE128B00867624 /* Build configuration list for PBXProject "Nino" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACEC39BC1CEE128B00867624;
+			productRefGroup = ACEC39C61CEE128B00867624 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACEC39C41CEE128B00867624 /* Nino */,
+				ACEC39D81CEE128B00867624 /* NinoTests */,
+				ACEC39E31CEE128B00867624 /* NinoUITests */,
+				ACEC39F91CEE137A00867624 /* Nino Escola */,
+				ACEC3A0C1CEE137B00867624 /* Nino EscolaTests */,
+				ACEC3A171CEE137B00867624 /* Nino EscolaUITests */,
+			);
 		};
-		buildConfigurationList = ACEC39C01CEE128B00867624 /* Build configuration list for PBXProject "Nino" */;
-		compatibilityVersion = "Xcode 3.2";
-		developmentRegion = English;
-		hasScannedForEncodings = 0;
-		knownRegions = (
-			en,
-			Base,
-		);
-		mainGroup = ACEC39BC1CEE128B00867624;
-		productRefGroup = ACEC39C61CEE128B00867624 /* Products */;
-		projectDirPath = "";
-		projectRoot = "";
-		targets = (
-			ACEC39C41CEE128B00867624 /* Nino */,
-			ACEC39D81CEE128B00867624 /* NinoTests */,
-			ACEC39E31CEE128B00867624 /* NinoUITests */,
-			ACEC39F91CEE137A00867624 /* Nino Escola */,
-			ACEC3A0C1CEE137B00867624 /* Nino EscolaTests */,
-			ACEC3A171CEE137B00867624 /* Nino EscolaUITests */,
-		);
-	};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-	ACEC39C31CEE128B00867624 /* Resources */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			ACEC39D31CEE128B00867624 /* LaunchScreen.storyboard in Resources */,
-			ACEC39D01CEE128B00867624 /* Assets.xcassets in Resources */,
-			AC86BBE31D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
-			ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */,
-			AC86BBF51D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
-			AC86BBDD1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-			AC86BBE91D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
-			AC86BBEF1D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
-			AC86BBD71D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC39D71CEE128B00867624 /* Resources */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			AC86BBD81D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
-			AC86BBDE1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-			AC86BBF01D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
-			AC86BBEA1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
-			AC86BBF61D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
-			AC86BBE41D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC39E21CEE128B00867624 /* Resources */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			AC86BBD91D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
-			AC86BBDF1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-			AC86BBF11D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
-			AC86BBEB1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
-			AC86BBF71D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
-			AC86BBE51D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC39F81CEE137A00867624 /* Resources */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */,
-			28143E271D29A18800139B0D /* Activities.storyboard in Resources */,
-			ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */,
-			288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
-			ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
-			28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */,
-			ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
-			28143E411D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
-			AC182A401D103A420013611E /* CreateSchool.storyboard in Resources */,
-			AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
-			ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
-			AC86BBF81D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
-			AC86BBE01D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-			AC86BBEC1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
-			AC86BBF21D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
-			28143E221D29A18000139B0D /* Photos.storyboard in Resources */,
-			28143E101D299F4E00139B0D /* StudentProfile.storyboard in Resources */,
-			AC86BBDA1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC3A0B1CEE137B00867624 /* Resources */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
-			AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
-			AC86BBE11D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-			28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */,
-			ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
-			AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
-			AC182A431D103A590013611E /* Main.storyboard in Resources */,
-			28143E1F1D29A17100139B0D /* Chat.storyboard in Resources */,
-			28143E231D29A18100139B0D /* Photos.storyboard in Resources */,
-			28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */,
-			AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
-			AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
-			28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */,
-			AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
-			AC182A411D103A420013611E /* CreateSchool.storyboard in Resources */,
-			28143E261D29A18700139B0D /* Activities.storyboard in Resources */,
-			28143E421D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC3A161CEE137B00867624 /* Resources */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
-			AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
-			AC86BBE21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
-			28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */,
-			ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
-			AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
-			AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
-			28143E201D29A17100139B0D /* Chat.storyboard in Resources */,
-			28143E241D29A18200139B0D /* Photos.storyboard in Resources */,
-			28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */,
-			AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
-			AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
-			28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */,
-			AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
-			AC182A421D103A420013611E /* CreateSchool.storyboard in Resources */,
-			28143E281D29A18800139B0D /* Activities.storyboard in Resources */,
-			28143E431D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
+		ACEC39C31CEE128B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC39D31CEE128B00867624 /* LaunchScreen.storyboard in Resources */,
+				ACEC39D01CEE128B00867624 /* Assets.xcassets in Resources */,
+				AC86BBE31D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+				ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */,
+				AC86BBF51D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				AC86BBDD1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				AC86BBE91D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				AC86BBEF1D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				AC86BBD71D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39D71CEE128B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC86BBD81D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
+				AC86BBDE1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				AC86BBF01D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				AC86BBEA1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				AC86BBF61D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				AC86BBE41D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39E21CEE128B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC86BBD91D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
+				AC86BBDF1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				AC86BBF11D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				AC86BBEB1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				AC86BBF71D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				AC86BBE51D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39F81CEE137A00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */,
+				28143E271D29A18800139B0D /* Activities.storyboard in Resources */,
+				ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */,
+				288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
+				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
+				28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */,
+				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
+				28143E411D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
+				AC182A401D103A420013611E /* CreateUser.storyboard in Resources */,
+				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+				ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
+				AC86BBF81D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				AC86BBE01D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				AC86BBEC1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				AC86BBF21D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				28143E221D29A18000139B0D /* Photos.storyboard in Resources */,
+				28143E101D299F4E00139B0D /* StudentProfile.storyboard in Resources */,
+				AC86BBDA1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A0B1CEE137B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
+				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
+				AC86BBE11D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */,
+				ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
+				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				AC182A431D103A590013611E /* Main.storyboard in Resources */,
+				28143E1F1D29A17100139B0D /* Chat.storyboard in Resources */,
+				28143E231D29A18100139B0D /* Photos.storyboard in Resources */,
+				28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */,
+				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */,
+				AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+				AC182A411D103A420013611E /* CreateUser.storyboard in Resources */,
+				28143E261D29A18700139B0D /* Activities.storyboard in Resources */,
+				28143E421D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A161CEE137B00867624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
+				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
+				AC86BBE21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */,
+				ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
+				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
+				28143E201D29A17100139B0D /* Chat.storyboard in Resources */,
+				28143E241D29A18200139B0D /* Photos.storyboard in Resources */,
+				28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */,
+				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
+				28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */,
+				AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
+				AC182A421D103A420013611E /* CreateUser.storyboard in Resources */,
+				28143E281D29A18800139B0D /* Activities.storyboard in Resources */,
+				28143E431D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-	074DB686AE543EF90D8DA6BD /* [CP] Copy Pods Resources */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Copy Pods Resources";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NinoUITests/Pods-NinoUITests-resources.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	077C7DAB1CEF73C4008EC0E1 /* ShellScript */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-	};
-	1437A3E837089AC86DDFB428 /* [CP] Check Pods Manifest.lock */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Check Pods Manifest.lock";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		showEnvVarsInLog = 0;
-	};
-	56AEA9D36D164780AA9AB8A2 /* [CP] Check Pods Manifest.lock */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Check Pods Manifest.lock";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		showEnvVarsInLog = 0;
-	};
-	5C2CFFA0856974C796F0594E /* [CP] Copy Pods Resources */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Copy Pods Resources";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NinoTests/Pods-NinoTests-resources.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	5D699E22DCD5E384F482B13C /* [CP] Embed Pods Frameworks */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Embed Pods Frameworks";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola-frameworks.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	60914CE87C5E70075EA3DD79 /* [CP] Copy Pods Resources */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Copy Pods Resources";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola-resources.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	7CAF7259B4146D04A0519669 /* [CP] Check Pods Manifest.lock */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Check Pods Manifest.lock";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		showEnvVarsInLog = 0;
-	};
-	9C850F21B2B9426863BDEF57 /* [CP] Embed Pods Frameworks */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Embed Pods Frameworks";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NinoTests/Pods-NinoTests-frameworks.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	ABDC9737E438A58B561608E2 /* [CP] Check Pods Manifest.lock */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Check Pods Manifest.lock";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		showEnvVarsInLog = 0;
-	};
-	ACCEF66E1CF0262500D0B8DD /* ShellScript */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-	};
-	AD5BCD29E9D36A73B5E273B7 /* [CP] Copy Pods Resources */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Copy Pods Resources";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino/Pods-Nino-resources.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	B5C8432A791B9B3F296C11EB /* [CP] Embed Pods Frameworks */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Embed Pods Frameworks";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino EscolaTests/Pods-Nino EscolaTests-frameworks.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	BA9BADF3E7C83B2CF3C949C7 /* [CP] Check Pods Manifest.lock */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Check Pods Manifest.lock";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		showEnvVarsInLog = 0;
-	};
-	CC4CA0E713B4FADC780B80E3 /* [CP] Check Pods Manifest.lock */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Check Pods Manifest.lock";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		showEnvVarsInLog = 0;
-	};
-	CCC46C7A4F35FBA355ABA998 /* [CP] Embed Pods Frameworks */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Embed Pods Frameworks";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino/Pods-Nino-frameworks.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	DFE974225ABC068C07C1AA36 /* [CP] Copy Pods Resources */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Copy Pods Resources";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino EscolaTests/Pods-Nino EscolaTests-resources.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
-	E72DB4626901972E63006360 /* [CP] Copy Pods Resources */ = {
-		isa = PBXShellScriptBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-		);
-		inputPaths = (
-		);
-		name = "[CP] Copy Pods Resources";
-		outputPaths = (
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-		shellPath = /bin/sh;
-		shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino EscolaUITests/Pods-Nino EscolaUITests-resources.sh\"\n";
-		showEnvVarsInLog = 0;
-	};
+		074DB686AE543EF90D8DA6BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NinoUITests/Pods-NinoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		077C7DAB1CEF73C4008EC0E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		1437A3E837089AC86DDFB428 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		56AEA9D36D164780AA9AB8A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5C2CFFA0856974C796F0594E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NinoTests/Pods-NinoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D699E22DCD5E384F482B13C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60914CE87C5E70075EA3DD79 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CAF7259B4146D04A0519669 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C850F21B2B9426863BDEF57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NinoTests/Pods-NinoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABDC9737E438A58B561608E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ACCEF66E1CF0262500D0B8DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		AD5BCD29E9D36A73B5E273B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino/Pods-Nino-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5C8432A791B9B3F296C11EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino EscolaTests/Pods-Nino EscolaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA9BADF3E7C83B2CF3C949C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CC4CA0E713B4FADC780B80E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CCC46C7A4F35FBA355ABA998 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino/Pods-Nino-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFE974225ABC068C07C1AA36 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino EscolaTests/Pods-Nino EscolaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E72DB4626901972E63006360 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nino EscolaUITests/Pods-Nino EscolaUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-	ACEC39C11CEE128B00867624 /* Sources */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			AC410BCF1D05ACD1003EB66B /* ErrorBO.swift in Sources */,
-			AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */,
-			AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */,
-			AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
-			AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
-			28A0466B1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
-			AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
-			AC89BAC51CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
-			ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
-			AC529EEA1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
-			ACE6E1571D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
-			AC0CDEF01D05EA700000ECE9 /* MenuBO.swift in Sources */,
-			AC0CDEEB1D05E2800000ECE9 /* KeyBO.swift in Sources */,
-			AC9F99E51CEF722C001B53E8 /* Phase.swift in Sources */,
-			AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
-			AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
-			AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */,
-			AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */,
-			AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
-			AC9CA6381D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
-			AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
-			AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */,
-			AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */,
-			AC529EE11CF48422003C1063 /* CreationError.swift in Sources */,
-			AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */,
-			AC0CDEFA1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
-			AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */,
-			AC9CA6331D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
-			AC529EF01CF4A25B003C1063 /* EducatorBO.swift in Sources */,
-			28A046A01D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
-			AC0CDEE61D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
-			AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */,
-			AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */,
-			ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */,
-			285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
-			AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
-			28A046621D254C30007E0053 /* NinoFont.swift in Sources */,
-			AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */,
-			AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
-			AC9F99D91CEF7136001B53E8 /* Guardian.swift in Sources */,
-			AC0CDEF51D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
-			ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
-			AC9F99D61CEF712D001B53E8 /* School.swift in Sources */,
-			AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
-			28A046711D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC39D51CEE128B00867624 /* Sources */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			28A046631D254C30007E0053 /* NinoFont.swift in Sources */,
-			AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */,
-			AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
-			AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */,
-			AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */,
-			ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
-			AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
-			AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
-			AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
-			ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
-			28A0466C1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
-			AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
-			AC9CA6341D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
-			AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
-			AC9CA6391D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
-			AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
-			28A046771D25597F007E0053 /* Gender.swift in Sources */,
-			28A046A11D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
-			28A046721D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
-			AC9EC7141D2418B200D54857 /* DefaultAlerts.swift in Sources */,
-			ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC39E01CEE128B00867624 /* Sources */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
-			28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
-			ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
-			28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
-			28A046A21D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
-			AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
-			ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
-			28A046781D255980007E0053 /* Gender.swift in Sources */,
-			28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC39F61CEE137A00867624 /* Sources */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			AC410BD11D05ACD1003EB66B /* ErrorBO.swift in Sources */,
-			AC0CDEE31D05D8680000ECE9 /* PhaseBO.swift in Sources */,
-			AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */,
-			AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
-			AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
-			AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
-			AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
-			AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
-			AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
-			AC0CDEF21D05EA700000ECE9 /* MenuBO.swift in Sources */,
-			AC0CDEED1D05E2800000ECE9 /* KeyBO.swift in Sources */,
-			AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
-			AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
-			288DE3551D22BF800052A35D /* StudentProfileListController.swift in Sources */,
-			ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
-			AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
-			AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
-			AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
-			28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
-			AC9CA63A1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
-			AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
-			AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
-			AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
-			AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
-			AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
-			28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
-			AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
-			AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
-			ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
-			AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */,
-			AC9CA6351D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
-			AC86BC001D0F43F8005282E7 /* LoginViewController.swift in Sources */,
-			AC7BFD6A1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
-			AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
-			AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
-			AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
-			AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
-			288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
-			ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */,
-			AC7BFD661D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */,
-			285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
-			AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
-			AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
-			28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
-			28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
-			AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
-			28A046A71D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
-			283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */,
-			AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
-			28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
-			AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
-			AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
-			ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
-			AC9F99D71CEF712D001B53E8 /* School.swift in Sources */,
-			AC529EE51CF48A93003C1063 /* StudentBO.swift in Sources */,
-		);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	ACEC3A091CEE137B00867624 /* Sources */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-			AC0CDEEE1D05E2800000ECE9 /* KeyBO.swift in Sources */,
-			283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
-			28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
-			28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
-			28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
-			ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
-			AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
-			AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
-			28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
-			AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
-			AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
-			AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
-			28A046791D255981007E0053 /* Gender.swift in Sources */,
-			AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */,
-			AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
-			AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
-			ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */,
-			AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
-			AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
-			288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
-			AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
-			AC7BFD671D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */,
-			AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
-			ACE6E1541D10C64C00A11E6A /* CreateSchoolViewController.swift in Sources */,
-			28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
-			288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
-			AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
-			AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
-			AC9EC7091D240CA200D54857 /* CreateUserViewController.swift in Sources */,
+		ACEC39C11CEE128B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC410BCF1D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */,
+				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
+				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
+				28A0466B1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
+				AC89BAC51CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
+				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
+				AC529EEA1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
+				ACE6E1571D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC0CDEF01D05EA700000ECE9 /* MenuBO.swift in Sources */,
+				AC0CDEEB1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				AC9F99E51CEF722C001B53E8 /* Phase.swift in Sources */,
+				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
+				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
+				AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */,
+				AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				AC9CA6381D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
+				AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
+				AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */,
+				AC529EE11CF48422003C1063 /* CreationError.swift in Sources */,
+				AC9F99E21CEF7225001B53E8 /* Post.swift in Sources */,
+				AC0CDEFA1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
+				AC9F99D31CEF711F001B53E8 /* Student.swift in Sources */,
+				AC9CA6331D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
+				AC529EF01CF4A25B003C1063 /* EducatorBO.swift in Sources */,
+				28A046A01D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				AC0CDEE61D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
+				AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */,
+				AC9F99F41CEF725B001B53E8 /* Calendar.swift in Sources */,
+				ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */,
+				285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
+				AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
+				28A046621D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC9F99F11CEF7252001B53E8 /* Menu.swift in Sources */,
+				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
+				AC9F99D91CEF7136001B53E8 /* Guardian.swift in Sources */,
+				AC0CDEF51D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
+				AC9F99D61CEF712D001B53E8 /* School.swift in Sources */,
+				AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
+				28A046711D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39D51CEE128B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28A046631D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */,
+				ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
+				AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
+				AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
+				28A0466C1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
+				AC9CA6341D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
+				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				AC9CA6391D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
+				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
+				28A046771D25597F007E0053 /* Gender.swift in Sources */,
+				28A046A11D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				28A046721D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				AC9EC7141D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39E01CEE128B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
+				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
+				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				28A046A21D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				28A046781D255980007E0053 /* Gender.swift in Sources */,
+				28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC39F61CEE137A00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC410BD11D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC0CDEE31D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */,
+				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
+				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
+				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
+				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
+				AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
+				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
+				AC0CDEF21D05EA700000ECE9 /* MenuBO.swift in Sources */,
+				AC0CDEED1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
+				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
+				288DE3551D22BF800052A35D /* StudentProfileListController.swift in Sources */,
+				ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
+				AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
+				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC9CA63A1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
+				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
+				AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
+				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
+				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
+				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
+				AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
+				ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				AC9F99D41CEF711F001B53E8 /* Student.swift in Sources */,
+				AC9CA6351D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
+				AC86BC001D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				AC7BFD6A1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
+				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
+				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
+				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
+				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
+				288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
+				ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */,
+				AC7BFD661D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
+				AC4D2E2C1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
+				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
+				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
+				AC9F99F21CEF7252001B53E8 /* Menu.swift in Sources */,
+				28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
+				28A046A71D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
+				283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */,
+				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
+				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
+				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
+				AC9F99D71CEF712D001B53E8 /* School.swift in Sources */,
+				AC529EE51CF48A93003C1063 /* StudentBO.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC3A091CEE137B00867624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC0CDEEE1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
+				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
+				28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
+				ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
+				28A046791D255981007E0053 /* Gender.swift in Sources */,
+				AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */,
+				AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
+				AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */,
+				AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
+				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
+				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
+				AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
+				AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
+				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
+				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
+				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
+				AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
+				AC9EC7091D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
@@ -1581,11 +1587,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC7BFD681D254AB50086B495 /* ConfirmEmailViewController.swift in Sources */,
+				AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
@@ -1668,12 +1675,12 @@
 			name = DefaultEmptyState.storyboard;
 			sourceTree = "<group>";
 		};
-		AC182A3E1D103A420013611E /* CreateSchool.storyboard */ = {
+		AC182A3E1D103A420013611E /* CreateUser.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AC182A3F1D103A420013611E /* Base */,
 			);
-			name = CreateSchool.storyboard;
+			name = CreateUser.storyboard;
 			sourceTree = "<group>";
 		};
 		ACEC39CC1CEE128B00867624 /* Main.storyboard */ = {

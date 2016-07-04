@@ -14,11 +14,13 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet var textFields: [UITextField]!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
 //MARK: View methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.passwordTextField.delegate = self
+        self.view.backgroundColor = CustomizeColor.defaultBackgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +30,22 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
 //MARK: Button methods
     @IBAction func continueAction(sender: UIButton) {
         self.registerPassword()
+    }
+    
+    /**
+     The property enable of all text fields becomes false
+     */
+    private func blockButtons() {
+        self.continueButton.alpha = 0.4
+        self.continueButton.enabled = false
+    }
+    
+    /**
+     The property enable of all text fields becomes true
+     */
+    private func enableButtons() {
+        self.continueButton.alpha = 1
+        self.continueButton.enabled = true
     }
     
 //MARK: TextField methods
@@ -95,7 +113,21 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
     
 //MARK: Register password method
     private func registerPassword() {
-        
+        self.hideKeyboard()
+        if self.checkIfEmpty() {
+            let alert = DefaultAlerts.emptyField()
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        self.blockTextFields()
+        self.blockButtons()
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        //TODO: Server integration
+        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier("createSchool", sender: nil)
+        }
     }
 
 }
