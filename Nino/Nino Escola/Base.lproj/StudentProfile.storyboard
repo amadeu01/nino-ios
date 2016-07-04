@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUX-fE-rfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927.25" y="-1363"/>
+            <point key="canvasLocation" x="2547" y="-1347"/>
         </scene>
         <!--Profile Top Bar View Controller-->
         <scene sceneID="iSM-ba-ewP">
@@ -403,7 +403,7 @@
         <!--Student Profile View Controller-->
         <scene sceneID="xsp-tX-ycc">
             <objects>
-                <viewController id="yqi-2Q-5Lu" customClass="StudentProfileViewController" customModule="Nino" sceneMemberID="viewController">
+                <viewController id="yqi-2Q-5Lu" customClass="StudentProfileViewController" customModule="Nino_Escola" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MgL-ib-cWB"/>
                         <viewControllerLayoutGuide type="bottom" id="o7g-EN-0gj"/>

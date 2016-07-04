@@ -33,7 +33,6 @@ class StudentProfileListController: UITableViewController {
     }
     //MARK: TableView Data Source
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("Did get inside cellForRowAtIndexPath")
         let cell = self.studentProfileTableView.dequeueReusableCellWithIdentifier("profileTableViewCell") as? StudentProfileTableViewCell
         guard let thisCell = cell else {
             return StudentProfileTableViewCell()

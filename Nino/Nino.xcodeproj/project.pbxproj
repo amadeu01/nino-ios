@@ -22,6 +22,14 @@
 		28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E131D29A0D100139B0D /* MyDay.storyboard */; };
 		28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E131D29A0D100139B0D /* MyDay.storyboard */; };
 		28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E131D29A0D100139B0D /* MyDay.storyboard */; };
+		28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */; };
+		28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */; };
+		28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
+		28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
+		28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
+		28143E411D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E401D2AD98C00139B0D /* SchoolManagement.storyboard */; };
+		28143E421D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E401D2AD98C00139B0D /* SchoolManagement.storyboard */; };
+		28143E431D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E401D2AD98C00139B0D /* SchoolManagement.storyboard */; };
 		283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
 		283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
 		283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
@@ -290,6 +298,8 @@
 		28143E161D29A0FA00139B0D /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
 		28143E191D29A11600139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Photos.storyboard; sourceTree = "<group>"; };
 		28143E1C1D29A15E00139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
+		28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolManagementTableViewController.swift; sourceTree = "<group>"; };
+		28143E401D2AD98C00139B0D /* SchoolManagement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SchoolManagement.storyboard; sourceTree = "<group>"; };
 		283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		283C29811D299E0F00DF7DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StudentProfile.storyboard; sourceTree = "<group>"; };
 		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
@@ -525,6 +535,7 @@
 				28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */,
 				28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */,
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
+				28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -533,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEC3A001CEE137A00867624 /* Main.storyboard */,
+				28143E401D2AD98C00139B0D /* SchoolManagement.storyboard */,
 				283C29801D299E0F00DF7DCC /* StudentProfile.storyboard */,
 				28143E1B1D29A15E00139B0D /* Chat.storyboard */,
 				28143E181D29A11600139B0D /* Photos.storyboard */,
@@ -996,6 +1008,7 @@
 				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
 				28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
+				28143E411D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
 				AC182A401D103A420013611E /* CreateSchool.storyboard in Resources */,
 				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
@@ -1022,12 +1035,14 @@
 				AC182A431D103A590013611E /* Main.storyboard in Resources */,
 				28143E1F1D29A17100139B0D /* Chat.storyboard in Resources */,
 				28143E231D29A18100139B0D /* Photos.storyboard in Resources */,
+				28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */,
 				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */,
 				AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				AC182A411D103A420013611E /* CreateSchool.storyboard in Resources */,
 				28143E261D29A18700139B0D /* Activities.storyboard in Resources */,
+				28143E421D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,12 +1059,14 @@
 				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
 				28143E201D29A17100139B0D /* Chat.storyboard in Resources */,
 				28143E241D29A18200139B0D /* Photos.storyboard in Resources */,
+				28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */,
 				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */,
 				AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				AC182A421D103A420013611E /* CreateSchool.storyboard in Resources */,
 				28143E281D29A18800139B0D /* Activities.storyboard in Resources */,
+				28143E431D2AD98C00139B0D /* SchoolManagement.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1417,6 +1434,7 @@
 				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				28A046781D255980007E0053 /* Gender.swift in Sources */,
+				28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1449,6 +1467,7 @@
 				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
+				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
 				AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
@@ -1509,6 +1528,7 @@
 				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* ServerResponse.swift in Sources */,
 				AC9EC7091D240CA200D54857 /* CreateUserViewController.swift in Sources */,
+				28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
