@@ -8,6 +8,7 @@ pod 'SwiftKeychainWrapper'
 pod 'IQKeyboardManagerSwift', '4.0.0'
 pod 'TOCropViewController'
 pod 'QBImagePickerController'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 
 target 'NinoTests' do
@@ -23,6 +24,7 @@ pod 'SwiftKeychainWrapper'
 pod 'TOCropViewController'
 pod 'IQKeyboardManagerSwift', '4.0.0'
 pod 'QBImagePickerController'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 
 target 'Nino EscolaTests' do

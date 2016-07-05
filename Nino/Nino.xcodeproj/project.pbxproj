@@ -235,6 +235,12 @@
 		AC9F99F81CEF7270001B53E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F61CEF7270001B53E8 /* Activity.swift */; };
 		AC9F99FA1CEF72CB001B53E8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F91CEF72CB001B53E8 /* Event.swift */; };
 		AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99F91CEF72CB001B53E8 /* Event.swift */; };
+		ACA6A9711D2BE71C0009F158 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */; };
+		ACA6A9721D2BE71C0009F158 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */; };
+		ACA6A9731D2BE71C0009F158 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */; };
+		ACA6A9741D2BE71C0009F158 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */; };
+		ACA6A9751D2BE71C0009F158 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */; };
+		ACA6A9761D2BE71C0009F158 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */; };
 		ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7E0C61D22AD690014F76D /* GenderSelector.xib */; };
 		ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7E0C61D22AD690014F76D /* GenderSelector.xib */; };
 		ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7E0C61D22AD690014F76D /* GenderSelector.xib */; };
@@ -390,6 +396,7 @@
 		AC9F99F31CEF725B001B53E8 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		AC9F99F61CEF7270001B53E8 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		AC9F99F91CEF72CB001B53E8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiManager.swift; sourceTree = "<group>"; };
 		ACB7E0C61D22AD690014F76D /* GenderSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderSelector.xib; sourceTree = "<group>"; };
 		ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderSelector.swift; sourceTree = "<group>"; };
 		ACE6E14C1D108FA200A11E6A /* Pods_Nino.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Nino.framework; path = "Pods/../build/Debug-iphoneos/Pods_Nino.framework"; sourceTree = "<group>"; };
@@ -664,6 +671,7 @@
 				AC9CA6371D0CB516007AAAA6 /* ServerResponse.swift */,
 				285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */,
 				AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */,
+				ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -1404,6 +1412,7 @@
 				AC9F99E51CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EE1CEF7245001B53E8 /* Error.swift in Sources */,
 				AC9F99EB1CEF723F001B53E8 /* Key.swift in Sources */,
+				ACA6A9711D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */,
 				AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
@@ -1458,6 +1467,7 @@
 				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				28A046771D25597F007E0053 /* Gender.swift in Sources */,
 				28A046A11D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				ACA6A9721D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				28A046721D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC9EC7141D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACEC39DE1CEE128B00867624 /* NinoTests.swift in Sources */,
@@ -1476,6 +1486,7 @@
 				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				28A046781D255980007E0053 /* Gender.swift in Sources */,
+				ACA6A9731D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1510,6 +1521,7 @@
 				AC9F99FB1CEF72CB001B53E8 /* Event.swift in Sources */,
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
 				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
+				ACA6A9741D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
 				AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
@@ -1569,6 +1581,7 @@
 				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
+				ACA6A9751D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
@@ -1605,6 +1618,7 @@
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				28A046A51D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				ACA6A9761D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
