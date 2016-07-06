@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="S1u-X8-RYH">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--ManageClassrooms-->
+        <scene sceneID="NcG-n9-iqt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ManageClassrooms" id="K1b-FT-YtW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycI-3F-1Zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1952.625" y="322"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hqG-Cs-Ubl">
+            <objects>
+                <viewController id="cuC-t4-QvF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DS5-ZD-W4u"/>
+                        <viewControllerLayoutGuide type="bottom" id="rsR-wC-QUg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eUt-la-Pf0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qxq-lj-TNb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7O0-gu-skI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2510.25" y="735"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3uh-mh-goj">
+            <objects>
+                <navigationController id="S1u-X8-RYH" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IfS-Gt-Kyd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cuC-t4-QvF" kind="relationship" relationship="rootViewController" id="uFo-2k-egd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Pq-n8-bnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772.25" y="735"/>
+        </scene>
+    </scenes>
+</document>

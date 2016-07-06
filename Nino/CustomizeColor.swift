@@ -46,4 +46,24 @@ class CustomizeColor: UIColor {
     static func defaultBackgroundColor() -> UIColor {
         return UIColor(patternImage: UIImage(named: "backgroundBolas")!)
     }
+    
+
+}
+
+extension UIViewController {
+    
+    /**
+     Adds an image to the View Controller Background
+     
+     - parameter image: image that should fill the background
+     */
+    func addBackgroundWithImage(image: UIImage?) {
+        guard let image = image else{
+            return
+        }
+        let backGround = UIImageView(image: image)
+        backGround.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(backGround)
+        self.view.sendSubviewToBack(backGround)
+    }
 }
