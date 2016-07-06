@@ -96,8 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navController = window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("passwordNavigation") as? UINavigationController
         window?.rootViewController = navController
         let viewController = navController?.viewControllers[0] as? ConfirmEmailViewController
-        //TODO: handle token here
-        viewController?.validateEmail("abc")
+        let token = url.query?.componentsSeparatedByString("=").last
+        viewController?.validateEmail(token!)
         return true
     }
 }
