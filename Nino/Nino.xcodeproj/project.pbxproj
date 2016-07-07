@@ -96,6 +96,9 @@
 		28A046A71D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */; };
 		28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */; };
 		28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */; };
+		28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
+		28F366EF1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
+		28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		92D16C6331EEA46F4B30AE64 /* Pods_Nino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59FC1F84350D209590087D4 /* Pods_Nino.framework */; };
 		AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */; };
 		AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */; };
@@ -355,6 +358,7 @@
 		28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluentConstraintSet.swift; sourceTree = "<group>"; };
 		28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTopBarViewController.swift; sourceTree = "<group>"; };
 		28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileNavigationController.swift; sourceTree = "<group>"; };
+		28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorProfileViewController.swift; sourceTree = "<group>"; };
 		359D6E4261859B42C5C73C6C /* Pods_Nino_Escola.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino_Escola.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1DFD4ECA4E03B0582A1948 /* Pods_NinoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NinoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F3D123CB8DE04FF458B6F1 /* Pods-Nino Escola.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino Escola.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino Escola/Pods-Nino Escola.debug.xcconfig"; sourceTree = "<group>"; };
@@ -608,6 +612,7 @@
 				AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */,
 				284A333A1D2C4B8600030773 /* ManageEducatorsViewController.swift */,
 				287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */,
+				28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1562,6 +1567,7 @@
 				ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC9F99EC1CEF723F001B53E8 /* Key.swift in Sources */,
 				AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
+				28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
 				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
@@ -1634,6 +1640,7 @@
 				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
+				ACA6A9751D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
 				AC0CDEE41D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
@@ -1642,6 +1649,7 @@
 				AC9CA63B1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
 				AC9EC7091D240CA200D54857 /* CreateUserViewController.swift in Sources */,
+				28F366EF1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
 				28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
@@ -1673,6 +1681,7 @@
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				28A046A51D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
 				ACA6A9761D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 			);

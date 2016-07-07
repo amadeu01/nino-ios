@@ -66,4 +66,8 @@ extension UIViewController {
         self.view.addSubview(backGround)
         self.view.sendSubviewToBack(backGround)
     }
+    
+    func addNinoDefaultBackGround(){
+        addBackgroundWithImage(UIImage(named: "backgroundBolas"))
+    }
 }

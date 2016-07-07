@@ -73,7 +73,8 @@ class SchoolManagementTableViewController: UITableViewController {
     
     
    func configureSections() {
-        self.sections.append(DataStructure(section: "Administração",rows: ["Cadastrar Aluno","Gerenciar Educadores","Gerenciar Turmas" /*"Recuperar Senha"*/],icons: [UIImage(named: "Becke_Adicionar-bebe")!,UIImage(named: "Becke_Darth-Vader")!, UIImage(named: "iconPlaceholder")!]))
+        self.sections.append(DataStructure(section: "Dia-a-dia", rows: ["Calendário", "Cardápio"], icons: [UIImage(named: "iconPlaceholder")!, UIImage(named: "iconPlaceholder")!]))
+        self.sections.append(DataStructure(section: "Administração", rows: ["Cadastrar Aluno", "Gerenciar Educadores", "Gerenciar Turmas" /*"Recuperar Senha"*/], icons: [UIImage(named: "Becke_Adicionar-bebe")!, UIImage(named: "Becke_Darth-Vader")!, UIImage(named: "iconPlaceholder")!]))
         self.sections.append(DataStructure(section: "Sobre", rows: ["Legal"], icons: [UIImage(named: "Becke_Creditos-pais")!]))
         self.sections.append(DataStructure(section: "Conta", rows: ["Sair"], icons: [UIImage(named: "Becke_Sair")!]))
     }
@@ -86,64 +87,32 @@ class SchoolManagementTableViewController: UITableViewController {
             }
         }
         self.selectedRow += indexPath.row
-
-        self.performSegueWithIdentifier("showManageEducatorsViewController", sender: indexPath)
         
-        
+        switch selectedRow {
+        case 0: //Schedule
+            self.performSegueWithIdentifier("showScheduleViewController", sender: indexPath)
+        case 1: //Meals Menus
+            self.performSegueWithIdentifier("showMealMenuViewController", sender: indexPath)
+        case 2: //Register Student
+            self.performSegueWithIdentifier("showRegisterStudentViewController", sender: indexPath)
+        case 3: //Manage Educator
+            self.performSegueWithIdentifier("showManageEducatorsViewController", sender: indexPath)
+        case 4: //Manage Classrooms
+            self.performSegueWithIdentifier("showManageClassroomsViewController", sender: indexPath)
+        case 5: //Legal Stuff
+            self.performSegueWithIdentifier("showLegalStuffViewController", sender: indexPath)
+        case 6: //Logout
+            logOut()
+        default: //Just do nothing
+            print("Error: A cell was selected but the app does not know what to do with it. What's going on, Nino?")
+        }
     }
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    //MARK: Handling function:
+    
+    func logOut(){
+        //TODO: Should prompt the user if he would like to logg
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
