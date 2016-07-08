@@ -8,6 +8,7 @@
 
 import UIKit
 
+//FIXME: translate texts 
 class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
     
 //MARK: Outlets
@@ -15,6 +16,9 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+//MARK: Variables
+    var userHash: String?
 
 //MARK: View methods
     override func viewDidLoad() {
@@ -123,11 +127,25 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
         self.blockButtons()
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
-        //TODO: Server integration
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.performSegueWithIdentifier("createSchool", sender: nil)
+        //unexpected error
+        guard let confirmHash = self.userHash else {
+            let alertView = UIAlertController(title: "Falha no cadastro", message: "Ocorreu uma falha no cadastro da senha, tente novamente através do email recebido.", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: { (action) in
+                self.performSegueWithIdentifier("backToLogin", sender: nil)
+            })
+            return
         }
+        AccountBO.registerPassword(confirmHash, password: self.passwordTextField.text!) { (register) in
+            do {
+                try register()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.performSegueWithIdentifier("createSchool", sender: nil)
+                })
+            } catch {
+                //TODO:handle error
+            }
+        }
+        
     }
 
 }

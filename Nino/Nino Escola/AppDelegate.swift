@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navController
         let viewController = navController?.viewControllers[0] as? ConfirmEmailViewController
         let token = url.query?.componentsSeparatedByString("=").last
-        viewController?.validateEmail(token!)
+        viewController?.isValidHash(token!)
         return true
     }
 }

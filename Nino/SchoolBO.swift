@@ -37,15 +37,15 @@ class SchoolBO: NSObject {
             throw CreationError.InvalidEmail
         }
         
-        SchoolMechanism.createSchool(name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars) { (userID, error, data) in
+        SchoolMechanism.createSchool(name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars) { (schoolID, error, data) in
             if let errorType = error {
                 //TODO: handle error data
                 completionHandler(getSchool: { () -> School in
                     throw ErrorBO.decodeServerError(errorType)
                 })
-            } else if let user = userID {
+            } else if let school = schoolID {
                 completionHandler(getSchool: { () -> School in
-                    return School(id: user, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
+                    return School(id: school, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
                 })
             } else {
                 completionHandler(getSchool: { () -> School in
