@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pKN-Kp-8Uh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pKN-Kp-8Uh">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -66,7 +66,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="273.5" y="188" width="253" height="40"/>
+			    <rect key="frame" x="273.5" y="188" width="253" height="40"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                     <rect key="frame" x="264" y="189" width="274" height="40"/>
@@ -317,7 +317,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxk-59-Bb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2101.125" y="655"/>
+            <point key="canvasLocation" x="1250.625" y="1235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oNt-y6-Iuk">
@@ -448,7 +448,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBf-eY-xtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153.25" y="-1351"/>
+            <point key="canvasLocation" x="2606.25" y="-1371"/>
         </scene>
         <!--Configurações-->
         <scene sceneID="vUD-JV-RZT">
@@ -476,7 +476,12 @@
                     <tabBarItem key="tabBarItem" title="Configurações" image="6578A4DD-7DA6-4F0E-A9F1-2CF66868E1C0" id="2Wq-IE-ywI"/>
                     <connections>
                         <outlet property="schoolManagementTableView" destination="zKZ-CT-Eyc" id="uwZ-W0-mac"/>
-                        <segue destination="XPD-XL-uii" kind="showDetail" id="whQ-He-bZi"/>
+                        <segue destination="qx5-TE-qkp" kind="showDetail" identifier="showRegisterStudentViewController" animates="NO" id="zum-Mm-Cbc"/>
+                        <segue destination="W8X-Gb-5uM" kind="showDetail" identifier="showManageEducatorsViewController" id="w3p-qJ-c35"/>
+                        <segue destination="K1b-FT-YtW" kind="showDetail" identifier="showManageClassroomsViewController" animates="NO" id="fPD-QV-vEm"/>
+                        <segue destination="gG9-Jd-kn8" kind="showDetail" identifier="showLegalStuffViewController" animates="NO" id="Nhf-L4-icl"/>
+                        <segue destination="I7e-ob-xAN" kind="showDetail" identifier="showMealMenuViewController" animates="NO" id="wBq-TS-IUG"/>
+                        <segue destination="0Ta-kP-4o6" kind="showDetail" identifier="showScheduleViewController" animates="NO" id="Cre-5F-THi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeN-AM-wxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -519,14 +524,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2B-7q-EO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2927.25" y="-1363"/>
-        </scene>
-        <!--SchoolManagement-->
-        <scene sceneID="90g-5l-MSk">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SchoolManagement" id="XPD-XL-uii" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VCf-F4-6yx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1779" y="246"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c21-T7-pkD">
@@ -1187,6 +1184,54 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1743" y="2021"/>
+        </scene>
+        <!--RegisterStudent-->
+        <scene sceneID="6Uj-AZ-UpC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RegisterStudent" id="qx5-TE-qkp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GJK-dh-YXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628.625" y="-174"/>
+        </scene>
+        <!--ManageEducators-->
+        <scene sceneID="PLZ-Ys-XTF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ManageEducators" id="W8X-Gb-5uM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O6V-04-0eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1632.375" y="-113"/>
+        </scene>
+        <!--ManageClassrooms-->
+        <scene sceneID="NcG-n9-iqt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ManageClassrooms" id="K1b-FT-YtW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycI-3F-1Zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636.125" y="-55"/>
+        </scene>
+        <!--LegalStuff-->
+        <scene sceneID="WJA-T0-mcX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LegalStuff" id="gG9-Jd-kn8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ue-ua-B97" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615.5" y="-4"/>
+        </scene>
+        <!--MealMenu-->
+        <scene sceneID="XKg-hh-bgw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MealMenu" id="I7e-ob-xAN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="za3-8n-HXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615.125" y="-226"/>
+        </scene>
+        <!--Schedule-->
+        <scene sceneID="Dn8-bu-v5y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Schedule" id="0Ta-kP-4o6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9E-dE-Pl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612.875" y="-288"/>
         </scene>
     </scenes>
     <resources>
