@@ -58,7 +58,7 @@ extension UIViewController {
      - parameter image: image that should fill the background
      */
     func addBackgroundWithImage(image: UIImage?) {
-        guard let image = image else{
+        guard let image = image else {
             return
         }
         let backGround = UIImageView(image: image)
@@ -67,7 +67,7 @@ extension UIViewController {
         self.view.sendSubviewToBack(backGround)
     }
     
-    func addNinoDefaultBackGround(){
+    func addNinoDefaultBackGround() {
         addBackgroundWithImage(UIImage(named: "backgroundBolas"))
     }
 }

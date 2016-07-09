@@ -334,9 +334,9 @@
 		ACFBADD91D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
 		ACFBADDA1D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
 		ACFBADDB1D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
-		ACFBADDC1D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
 		ACFBADDD1D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
 		ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
+		ACFFA0FD1D31B17F007DE324 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
 		AEF54DDC26BEC490A5B40805 /* Pods_NinoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976C8F0D8C2644724AD3806 /* Pods_NinoTests.framework */; };
 		B13992DE8FA3FBC76EF7C7ED /* Pods_NinoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1DFD4ECA4E03B0582A1948 /* Pods_NinoUITests.framework */; };
 		BAFDC64155250A7930756189 /* Pods_Nino_EscolaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB19A87C8F4920010EB8751A /* Pods_Nino_EscolaUITests.framework */; };
@@ -1652,6 +1652,7 @@
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
 				AC0CDEF21D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC0CDEED1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				ACFFA0FD1D31B17F007DE324 /* ServerRoutes.swift in Sources */,
 				AC9F99E61CEF722C001B53E8 /* Phase.swift in Sources */,
 				AC9F99EF1CEF7245001B53E8 /* Error.swift in Sources */,
 				288DE3551D22BF800052A35D /* StudentProfileListController.swift in Sources */,
