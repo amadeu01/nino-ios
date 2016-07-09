@@ -10,7 +10,7 @@ import UIKit
 import QBImagePickerController
 import TOCropViewController
 
-class CreateSchoolViewController: UIViewController, UITextFieldDelegate, QBImagePickerControllerDelegate, TOCropViewControllerDelegate {
+class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoImagePickerDelegate, NinoImagePickerDataSource {
     
 //MARK: Outlets
     @IBOutlet weak var logoImageView: UIImageView!
@@ -24,8 +24,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, QBImage
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
 //MARK: Variables
-    //FIXME: change button labels to localized strings
-    var qbImagePickerController: QBImagePickerController?
+    let ninoImagePicker = NinoImagePicker()
     
 //MARK: View methods
     override func viewDidLoad() {
@@ -38,6 +37,9 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, QBImage
         for tf in self.textFields {
             tf.delegate = self
         }
+        
+        self.ninoImagePicker.delegate = self
+        self.ninoImagePicker.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -145,95 +147,38 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, QBImage
         }
     }
     
-//MARK: QBImagePicker methods
-    /**
-     Instantiates one new imagePicker
-     */
-    private func setupImagePicker() {
-        self.qbImagePickerController = QBImagePickerController()
-        guard let imagePicker = self.qbImagePickerController else {
-            return
-        }
-        imagePicker.delegate = self
-        imagePicker.allowsMultipleSelection = true
-        imagePicker.maximumNumberOfSelection = 1
-        imagePicker.showsNumberOfSelectedAssets = false
-        imagePicker.mediaType = QBImagePickerMediaType.Image
-    }
-    
-    private func changeIcon() {
-        self.setupImagePicker()
-        guard let imagePicker = self.qbImagePickerController else {
-            return
-        }
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    /**
-     Delegate method called when the user cancels the selection
-     
-     */
-    func qb_imagePickerControllerDidCancel(imagePickerController: QBImagePickerController!) {
-        imagePickerController.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    /**
-     Delegate method called when the user finishes the selection
-     
-     */
-    func qb_imagePickerController(imagePickerController: QBImagePickerController!, didFinishPickingAssets assets: [AnyObject]!) {
-        imagePickerController.dismissViewControllerAnimated(true, completion: nil)
-        guard let asset = assets[0] as? PHAsset else {
-            return
-        }
-        imagePickerController.dismissViewControllerAnimated(true, completion: nil)
-        self.presentCropViewController(self.getImageFromAsset(asset))
-    }
-    
-    /**
-     Gets one asset and returns their image
-     
-     - parameter asset: original asset
-     
-     - returns: UIImage
-     */
-    private func getImageFromAsset(asset: PHAsset) -> UIImage {
-        let manager = PHImageManager.defaultManager()
-        let option = PHImageRequestOptions()
-        var image = UIImage()
-        option.synchronous = true
-        manager.requestImageForAsset(asset, targetSize: CGSize(width: self.logoImageView.frame.width, height: self.logoImageView.frame.height), contentMode: .AspectFit, options: option, resultHandler: {(result, info) -> Void in
-            guard let img = result else {
-                return
-            }
-            image = img
-        })
-        return image
-    }
-    
-//MARK: TOCropViewController methods
-    /**
-     Presents TOCropViewController for crop the image
-     
-     - parameter image: image to be cropped
-     */
-    func presentCropViewController(image: UIImage) {
-        let toCropViewController = TOCropViewController(image: image)
-        toCropViewController.delegate = self
-        toCropViewController.defaultAspectRatio = TOCropViewControllerAspectRatio.RatioSquare
-        presentViewController(toCropViewController, animated: true, completion: nil)
-    }
-    
-    /**
-     Delegate method called when the user finishes to crop the image
-     
-     */
-    func cropViewController(cropViewController: TOCropViewController!, didCropToImage image: UIImage!, withRect cropRect: CGRect, angle: Int) {
-        cropViewController.dismissViewControllerAnimated(true, completion: nil)
+//MARK: NinoImagePicker delegate and datasource methods
+    func didFinishPickingImages(images: NSMutableArray) {
+        let image = images.firstObject as? UIImage
         self.logoImageView.image = image
     }
     
-//MARK: Create School method
+    func allowsMultipleSelection() -> Bool {
+        return true
+    }
+    
+    func maximumNumberOfSelection() -> UInt {
+        return 1
+    }
+    
+    func showsNumberOfSelectedAssets() -> Bool {
+        return false
+    }
+    
+    func mustCropImage() -> Bool {
+        return true
+    }
+    
+    func imageTargetSize() -> CGSize {
+        return CGSize(width: self.logoImageView.frame.width, height: self.logoImageView.frame.height)
+    }
+    
+    
+//MARK: Class methods
+    private func changeIcon() {
+        self.ninoImagePicker.instantiateImagePicker(self)
+    }
+    
     private func createSchool() {
         self.hideKeyboard()
         //checks if there are empty data
