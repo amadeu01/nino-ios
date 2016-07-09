@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ManageClassroomsViewController: UINavigationController, UITableViewDelegate, UITableViewDataSource {
+class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addNinoDefaultBackGround()
-        tableView.backgroundColor = UIColor.clearColor()
+        //self.addNinoDefaultBackGround()
+        //tableView.backgroundColor = UIColor.clearColor()
         //tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
 
         // Do any additional setup after loading the view.
@@ -49,7 +49,7 @@ class ManageClassroomsViewController: UINavigationController, UITableViewDelegat
             newClassroomCell.backgroundColor = CustomizeColor.lessStrongBackgroundNino()
             return newClassroomCell
         } else {
-            guard let classroomCell = tableView.dequeueReusableCellWithIdentifier("clasroomProfileTableViewCell") else {
+            guard let classroomCell = tableView.dequeueReusableCellWithIdentifier("classroomProfileTableViewCell") else {
                 print("Error inside ManageClassroomsViewController -> cellForRowAtIndexPath, cell identifier not found")
                 return UITableViewCell()
             }

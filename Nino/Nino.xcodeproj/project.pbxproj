@@ -51,6 +51,12 @@
 		284A33411D2C528200030773 /* ManageEducators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284A33271D2C3A2200030773 /* ManageEducators.storyboard */; };
 		284A33421D2C528300030773 /* ManageEducators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284A33271D2C3A2200030773 /* ManageEducators.storyboard */; };
 		284A33431D2C528400030773 /* ManageEducators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284A33271D2C3A2200030773 /* ManageEducators.storyboard */; };
+		284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */; };
+		284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */; };
+		284C5FEB1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */; };
+		284C5FED1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */; };
+		284C5FEE1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */; };
+		284C5FEF1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */; };
 		285D7EA61CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
@@ -359,6 +365,8 @@
 		284A33321D2C3ED900030773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MealMenu.storyboard; sourceTree = "<group>"; };
 		284A33361D2C3F5000030773 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		284A333A1D2C4B8600030773 /* ManageEducatorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageEducatorsViewController.swift; sourceTree = "<group>"; };
+		284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewClassroomViewController.swift; sourceTree = "<group>"; };
+		284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomProfileViewController.swift; sourceTree = "<group>"; };
 		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewEducatorViewController.swift; sourceTree = "<group>"; };
 		288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -640,6 +648,7 @@
 				AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */,
 				AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */,
 				28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */,
+				284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */,
 				28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */,
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
 				AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */,
@@ -648,6 +657,7 @@
 				28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */,
 				28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */,
 				28F367031D2FE36500A0743B /* ManageClassroomsViewController.swift */,
+				284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1592,6 +1602,7 @@
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
+				284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
@@ -1627,6 +1638,7 @@
 				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
 				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
+				284C5FED1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
 				284A333B1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
@@ -1667,6 +1679,7 @@
 				28F366F71D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				AC89BAC21CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				284C5FEE1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
@@ -1675,6 +1688,7 @@
 				AC0CDEF31D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
+				284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				28F366F31D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				28F366FF1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */,
@@ -1709,11 +1723,13 @@
 				28F367061D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
+				284C5FEB1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
+				284C5FEF1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,

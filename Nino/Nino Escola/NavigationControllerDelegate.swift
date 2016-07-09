@@ -14,26 +14,19 @@ UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-    
-        if operation == UINavigationControllerOperation.Push {
             if fromVC as? RegisterNewEducatorViewController != nil {
                 return GoDownAnimator()
-            }
-        } else if operation == UINavigationControllerOperation.Push {
-            if toVC as? RegisterNewEducatorViewController != nil {
+            } else if toVC as? RegisterNewEducatorViewController != nil {
                 return ComeUpAnimator()
             }
-        }
         return nil //if other type of segue
-    }
 }
-
-
+}
 class GoDownAnimator: NSObject,
 UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.2
+        return 0.35
     }
     
     func animateTransition(
@@ -66,7 +59,7 @@ class ComeUpAnimator: NSObject,
 UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.2
+        return 0.35
     }
     
     func animateTransition(
