@@ -185,6 +185,12 @@
 		AC74E10D1D2E8749004281F3 /* AccountBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1091D2E8749004281F3 /* AccountBO.swift */; };
 		AC74E10E1D2E8749004281F3 /* AccountBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1091D2E8749004281F3 /* AccountBO.swift */; };
 		AC74E10F1D2E8749004281F3 /* AccountBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1091D2E8749004281F3 /* AccountBO.swift */; };
+		AC74E1111D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC74E1121D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC74E1131D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC74E1141D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC7BFD661D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
 		AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
 		AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
@@ -428,6 +434,7 @@
 		AC529EF51CF4AC69003C1063 /* PostBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBO.swift; sourceTree = "<group>"; };
 		AC74E1021D2D4908004281F3 /* RouteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteError.swift; sourceTree = "<group>"; };
 		AC74E1091D2E8749004281F3 /* AccountBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBO.swift; sourceTree = "<group>"; };
+		AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoImagePicker.swift; sourceTree = "<group>"; };
 		AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitEmailViewController.swift; sourceTree = "<group>"; };
 		AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
 		AC7BFDAC1D256E400086B495 /* Nino-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nino-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -770,6 +777,7 @@
 				AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */,
 				ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */,
 				ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */,
+				AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -1534,6 +1542,7 @@
 				AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC9CA6381D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
+				AC74E1111D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				AC9F99E81CEF7233001B53E8 /* Room.swift in Sources */,
 				AC74E10A1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */,
@@ -1578,6 +1587,7 @@
 				AC74E10B1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
+				AC74E1121D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
 				28A0466C1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
@@ -1600,6 +1610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC74E1131D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
 				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
@@ -1664,6 +1675,7 @@
 				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */,
 				AC9F99F51CEF725B001B53E8 /* Calendar.swift in Sources */,
+				AC74E1141D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				284A333B1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */,
@@ -1696,6 +1708,7 @@
 				284A333C1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				AC0CDEEE1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
+				AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
 				28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
@@ -1762,6 +1775,7 @@
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
+				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				28F366F81D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				28A0467A1D255981007E0053 /* Gender.swift in Sources */,
