@@ -165,6 +165,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
                 do {
                     //tries to get the educator
                     let educator = try getEducator()
+                    //FIXME: clear user
                     NinoSession.sharedInstance.setEducator(educator)
                     //gets the main queue to make UI changes
                     dispatch_async(dispatch_get_main_queue(), { 

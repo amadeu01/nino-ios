@@ -230,7 +230,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 //MARK: Segue methods
     /**
-     Unwind from create school view
+     Unwind to login
      
      - parameter segue: unwind segue
      */

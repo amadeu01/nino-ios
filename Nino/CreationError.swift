@@ -21,4 +21,5 @@ enum CreationError: ErrorType {
     case ContentNotFound
     case InvalidBirthDate
     case InvalidEmail
+    case InvalidHash
 }

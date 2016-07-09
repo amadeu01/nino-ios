@@ -10,18 +10,9 @@ import Foundation
 import SwiftyJSON
 
 /**
- Model of server responses
- 
- - parameter userID:    optional userID
- - parameter error:     optional error
- - parameter data:      optional extra information about the error
- */
-typealias ServerResponse = (userID: Int?, error: Int?, data: String?) -> Void
-
-/**
  Model of request responses
  
  - parameter json:      JSON with response
  - parameter error:     optional error
  */
-typealias ServiceResponse = (json: JSON, error: NSError?) -> Void
+typealias ServiceResponse = (json: JSON, error: NSError?, statusCode: Int?) -> Void
