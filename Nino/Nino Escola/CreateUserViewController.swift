@@ -28,8 +28,6 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
         self.view.backgroundColor = CustomizeColor.defaultBackgroundColor()
         self.genderSelector.delegate = self
         self.genderSelector.dataSource = self
-        //redrawing the view
-        self.genderSelector.setNeedsDisplay()
         for tf in self.textFields {
             tf.delegate = self
         }
@@ -184,4 +182,5 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
             self.presentViewController(alertView, animated: true, completion: nil)
         }
     }
+
 }

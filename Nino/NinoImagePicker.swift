@@ -148,6 +148,7 @@ class NinoImagePicker: NSObject, QBImagePickerControllerDelegate, TOCropViewCont
         let toCropViewController = TOCropViewController(image: image)
         toCropViewController.delegate = self
         toCropViewController.defaultAspectRatio = TOCropViewControllerAspectRatio.RatioSquare
+        toCropViewController.aspectRatioLocked = true
         return toCropViewController
     }
     

@@ -27,7 +27,7 @@ enum ServerRoutes {
             guard let hash = param where hash.count > 0 else {
                 throw RouteError.MissingParameter
             }
-            return "accounts/confirmation/" + hash[0]
+            return "accounts/authentication/" + hash[0]
         case .CreateSchool:
             return "schools"
         }

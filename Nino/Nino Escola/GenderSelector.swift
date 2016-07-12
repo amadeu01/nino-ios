@@ -12,7 +12,11 @@ import UIKit
 class GenderSelector: UIView, UIGestureRecognizerDelegate {
 
 //MARK: DataSource and Delegate
-    var dataSource: GenderSelectorDataSource?
+    var dataSource: GenderSelectorDataSource? {
+        didSet {
+            self.changeLabels()
+        }
+    }
     var delegate: GenderSelectorDelegate?
     
 //MARK: Outlets
@@ -33,11 +37,9 @@ class GenderSelector: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    /**
-     Should be called when you want to reload the view. To do this, use view.setNeedsLayout()
-     */
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    
+//MARK: DataSource updates
+    private func changeLabels() {
         if let maleLabel = dataSource?.changeMaleLabel() {
             self.maleLabel.text = maleLabel
         }
@@ -46,6 +48,7 @@ class GenderSelector: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+//MARK: Button methods
     /**
      Handles when the user taps male
      
@@ -78,7 +81,7 @@ class GenderSelector: UIView, UIGestureRecognizerDelegate {
     
     
 }
-
+//MARK: Delegate and DataSource
 /**
  *  Delegate to notify when the user selects one gender
  */
