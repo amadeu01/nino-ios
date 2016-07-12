@@ -13,23 +13,21 @@ enum ServerRoutes {
     case CheckIfValidated
     case ConfirmAccount
     case CreateSchool
+    case Login
     
     func description(param: [String]?) throws -> String {
         switch self {
         case .CreateUser:
             return "accounts"
-        case .CheckIfValidated:
-            guard let hash = param where hash.count > 0 else {
-                throw RouteError.MissingParameter
-            }
-            return "accounts/authentication/" + hash[0]
-        case .ConfirmAccount:
+        case .CheckIfValidated, .ConfirmAccount:
             guard let hash = param where hash.count > 0 else {
                 throw RouteError.MissingParameter
             }
             return "accounts/authentication/" + hash[0]
         case .CreateSchool:
             return "schools"
+        case .Login:
+            return "accounts/authentication"
         }
     }
 }

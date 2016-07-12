@@ -337,6 +337,12 @@
 		ACFBADDD1D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
 		ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
 		ACFFA0FD1D31B17F007DE324 /* ServerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */; };
+		ACFFA0FF1D353644007DE324 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFA0FE1D353644007DE324 /* MD5.swift */; };
+		ACFFA1001D353644007DE324 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFA0FE1D353644007DE324 /* MD5.swift */; };
+		ACFFA1011D353644007DE324 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFA0FE1D353644007DE324 /* MD5.swift */; };
+		ACFFA1021D353644007DE324 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFA0FE1D353644007DE324 /* MD5.swift */; };
+		ACFFA1031D353644007DE324 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFA0FE1D353644007DE324 /* MD5.swift */; };
+		ACFFA1041D353644007DE324 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFA0FE1D353644007DE324 /* MD5.swift */; };
 		AEF54DDC26BEC490A5B40805 /* Pods_NinoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976C8F0D8C2644724AD3806 /* Pods_NinoTests.framework */; };
 		B13992DE8FA3FBC76EF7C7ED /* Pods_NinoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1DFD4ECA4E03B0582A1948 /* Pods_NinoUITests.framework */; };
 		BAFDC64155250A7930756189 /* Pods_Nino_EscolaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB19A87C8F4920010EB8751A /* Pods_Nino_EscolaUITests.framework */; };
@@ -513,6 +519,7 @@
 		ACEC3A1E1CEE137B00867624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF1943B1D060D3200F1E68A /* EventBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventBO.swift; sourceTree = "<group>"; };
 		ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRoutes.swift; sourceTree = "<group>"; };
+		ACFFA0FE1D353644007DE324 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		C5E573E73EFEC88E93E8E4D7 /* Pods-Nino EscolaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino EscolaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino EscolaTests/Pods-Nino EscolaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB19A87C8F4920010EB8751A /* Pods_Nino_EscolaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nino_EscolaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF79A308ACD0B62849AB05A /* Pods-Nino EscolaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nino EscolaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nino EscolaUITests/Pods-Nino EscolaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -788,6 +795,7 @@
 				ACA6A9701D2BE71C0009F158 /* RestApiManager.swift */,
 				ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */,
 				AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */,
+				ACFFA0FE1D353644007DE324 /* MD5.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -1537,6 +1545,7 @@
 				AC9F99DC1CEF7146001B53E8 /* Educator.swift in Sources */,
 				28A0466B1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC9F99DF1CEF721C001B53E8 /* Credential.swift in Sources */,
+				ACFFA0FF1D353644007DE324 /* MD5.swift in Sources */,
 				AC89BAC51CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				ACFBADD91D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
@@ -1600,6 +1609,7 @@
 				AC74E1121D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
+				ACFFA1001D353644007DE324 /* MD5.swift in Sources */,
 				28A0466C1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6341D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
@@ -1630,6 +1640,7 @@
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				28A046781D255980007E0053 /* Gender.swift in Sources */,
 				ACA6A9731D2BE71C0009F158 /* RestApiManager.swift in Sources */,
+				ACFFA1011D353644007DE324 /* MD5.swift in Sources */,
 				ACFBADDB1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
 				AC74E10C1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
@@ -1674,6 +1685,7 @@
 				AC74E1061D2D4908004281F3 /* RouteError.swift in Sources */,
 				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				AC74E10D1D2E8749004281F3 /* AccountBO.swift in Sources */,
+				ACFFA1021D353644007DE324 /* MD5.swift in Sources */,
 				ACA6A9741D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				AC9F99E31CEF7225001B53E8 /* Post.swift in Sources */,
 				AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
@@ -1743,6 +1755,7 @@
 				284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				28F366F31D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				28F366FF1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
+				ACFFA1031D353644007DE324 /* MD5.swift in Sources */,
 				ACF1943F1D060D3200F1E68A /* EventBO.swift in Sources */,
 				AC0CDEFD1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
@@ -1779,6 +1792,7 @@
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC74E10F1D2E8749004281F3 /* AccountBO.swift in Sources */,
+				ACFFA1041D353644007DE324 /* MD5.swift in Sources */,
 				ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,

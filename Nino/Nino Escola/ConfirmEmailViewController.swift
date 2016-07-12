@@ -44,13 +44,24 @@ class ConfirmEmailViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue(), { 
                         let alertView = UIAlertController(title: "Falha de validação", message: "Já existe uma senha cadastrada para esse email.", preferredStyle: .Alert)
                         let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
+                            //FIXME: segue doesn't work
                             self.performSegueWithIdentifier("backToLoginSegue", sender: self)
                         }
                         alertView.addAction(action)
+                        self.presentViewController(alertView, animated: true, completion: nil)
                     })
                 }
-            } catch {
+            } catch let error {
                 //TODO: handle error
+                if error as? ServerError == ServerError.Timeout {
+                    let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in
+                        self.performSegueWithIdentifier("backToLoginSegue", sender: self)
+                    })
+                    let alertView = DefaultAlerts.timeout(action)
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        self.presentViewController(alertView, animated: true, completion: nil)
+                    })
+                }
             }
         }
     }

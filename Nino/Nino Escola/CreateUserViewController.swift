@@ -162,19 +162,30 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
             try EducatorBO.createEducator(self.nameTextField.text!, surname: self.surnameTextField.text!, gender: userGender, email: self.emailTextField.text!, school: nil, phases: nil, rooms: nil) { (getEducator) in
                 do {
                     //tries to get the educator
-                    let educator = try getEducator()
-                    //FIXME: clear user
-                    NinoSession.sharedInstance.setEducator(educator)
+                    try getEducator()
                     //gets the main queue to make UI changes
                     dispatch_async(dispatch_get_main_queue(), { 
                         self.activityIndicator.stopAnimating()
                         self.performSegueWithIdentifier("waitEmail", sender: self)
                     })
                 } catch let internalError {
-                    //TODO: handle error
+                    //TODO: handle error threw by the server
+                    guard let error = internalError as? ServerError else {
+                        return
+                    }
+                    //connection error
+                    if error == ServerError.CouldNotConnectToTheServer || error == ServerError.InternetConnectionOffline {
+                        let alert = DefaultAlerts.connectionError(error, customAction: nil)
+                        dispatch_async(dispatch_get_main_queue(), { 
+                            self.activityIndicator.stopAnimating()
+                            self.enableButtons()
+                            self.enableTextFields()
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
+                    }
                 }
             }
-        } catch _ {
+        } catch {
             self.activityIndicator.stopAnimating()
             self.enableButtons()
             self.enableTextFields()

@@ -133,19 +133,21 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
             let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: { (action) in
                 self.performSegueWithIdentifier("backToLogin", sender: nil)
             })
+            alertView.addAction(okAction)
+            self.presentViewController(alertView, animated: true, completion: nil)
             return
         }
         AccountBO.registerPassword(confirmHash, password: self.passwordTextField.text!) { (register) in
             do {
-                try register()
-                dispatch_async(dispatch_get_main_queue(), { 
+                let token = try register()
+                print(token)
+                dispatch_async(dispatch_get_main_queue(), {
                     self.performSegueWithIdentifier("createSchool", sender: nil)
                 })
             } catch {
                 //TODO:handle error
             }
         }
-        
     }
 
 }

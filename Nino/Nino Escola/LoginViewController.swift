@@ -129,6 +129,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         case ServerError.NotFound:
             title = "Dados inválidos"
             message = "Usuário ou senha inválidos."
+        case .InternetConnectionOffline, .CouldNotConnectToTheServer:
+            let alert = DefaultAlerts.connectionError(error, customAction: nil)
+            title = alert.title
+            message = alert.message
         default:
             title = "Falha no login"
             message = "Tente novamente."

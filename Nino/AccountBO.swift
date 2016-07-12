@@ -45,24 +45,24 @@ class AccountBO: NSObject {
      - parameter password:          user password
      - parameter completionHandler: completionHandler with other inside. The completionHandler from inside can throws ServerError or returns a boolean indicating that the account was confirmed.
      */
-    static func registerPassword(hash: String, password: String, completionHandler: (register: () throws -> Bool) -> Void) {
-        AccountMechanism.confirmAccount(password, hash: hash) { (done, error, data) in
+    static func registerPassword(hash: String, password: String, completionHandler: (register: () throws -> String) -> Void) {
+        AccountMechanism.confirmAccount(password, hash: hash) { (token, error, data) in
             //TODO: handle error data
             if let error = error {
-                completionHandler(register: { () -> Bool in
+                completionHandler(register: { () -> String in
                     throw ErrorBO.decodeServerError(error)
                 })
             }
             //Unexpected case
-            guard let done = done else {
-                completionHandler(register: { () -> Bool in
+            guard let userToken = token else {
+                completionHandler(register: { () -> String in
                     throw ServerError.Timeout
                 })
                 return
             }
             //success
-            completionHandler(register: { () -> Bool in
-                return done
+            completionHandler(register: { () -> String in
+                return userToken
             })
         }
     }

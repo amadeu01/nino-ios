@@ -4,3 +4,4 @@
 
 #import <QBImagePickerController/QBImagePickerController.h>
 #import <TOCropViewController/TOCropViewController.h>
+#import <CommonCrypto/CommonCrypto.h>

@@ -20,10 +20,38 @@ class AccountMechanism: NSObject {
      */
     static func login(key: Key, completionHandler: (accessToken: String?, error: Int?) -> Void) {
         
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            completionHandler(accessToken: "fdsf", error: nil)
+//        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
+//        dispatch_after(time, dispatch_get_main_queue()) {
+//            completionHandler(accessToken: "fdsf", error: nil)
+//        }
+        let passwordMD5 = MD5.digest(key.password)
+        guard let passwd = passwordMD5 else {
+            //FIXME: md5 failed
+            return
         }
+        let body: [String: AnyObject] = ["user": key.email, "password": passwd]
+        do {
+            let route = try ServerRoutes.Login.description(nil)
+            RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(accessToken: nil, error: error?.code)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    let error = json["error"].int
+                    completionHandler(accessToken: nil, error: error)
+                }
+                    //success
+                else {
+                    let token = json["data"]["token"].string
+                    completionHandler(accessToken: token, error: nil)
+                }
+            })
+        } catch {
+            //Never will be reached
+        }
+        
     }
     
     /**
@@ -42,19 +70,20 @@ class AccountMechanism: NSObject {
             let route = try ServerRoutes.CreateUser.description(nil)
             RestApiManager.makeHTTPPostRequest(route, body: body) { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    //TODO: handle nil status code
-                    completionHandler(userID: nil, error: nil, data: nil)
+                    completionHandler(userID: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
                 if statusCode != 200 {
+                    //FIXME: data is a json, needs to be interpreted
                     let data = json["data"].string
                     let error = json["error"].int
                     completionHandler(userID: nil, error: error, data: data)
+                    
                 }
                 //success
                 else {
-                    let userID = json["profile"]["id"].int
+                    let userID = json["data"]["profile"]["id"].int
                     completionHandler(userID: userID, error: nil, data: nil)
                 }
             }
@@ -70,8 +99,7 @@ class AccountMechanism: NSObject {
             let route = try ServerRoutes.CheckIfValidated.description([hash])
             RestApiManager.makeHTTPGetRequest(route, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    //TODO: handle nil status code
-                    completionHandler(validated: nil, error: nil, data: nil)
+                    completionHandler(validated: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
@@ -82,34 +110,39 @@ class AccountMechanism: NSObject {
                 }
                 //success
                 else {
-                    let validated = json["account"]["validated"].bool
+                    let validated = json["data"]["account"]["confirmed"].bool
                     completionHandler(validated: validated, error: nil, data: nil)
                 }
             })
         } catch {
-            //TODO: Handle missing parameter error
+            //FIXME: send an email to contato@ninoapp.com.br notifying the route error
         }
     }
     
-    static func confirmAccount(password: String, hash: String, completionHandler: (done: Bool?, error: Int?, data: String?) -> Void) {
-        let body: [String: AnyObject] = ["password": password]
+    static func confirmAccount(password: String, hash: String, completionHandler: (token: String?, error: Int?, data: String?) -> Void) {
+        let passwordMD5 = MD5.digest(password)
+        guard let passwd = passwordMD5 else {
+            //FIXME: md5 failed
+            return
+        }
+        let body: [String: AnyObject] = ["password": passwd]
         do {
             let route = try ServerRoutes.ConfirmAccount.description([hash])
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    //TODO: handle nil status code
-                    completionHandler(done: nil, error: nil, data: nil)
+                    completionHandler(token: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
                 if statusCode != 200 {
                     let data = json["data"].string
                     let error = json["error"].int
-                    completionHandler(done: nil, error: error, data: data)
+                    completionHandler(token: nil, error: error, data: data)
                 }
                 //success
                 else {
-                    completionHandler(done: true, error: nil, data: nil)
+                    let token = json["data"]["token"].string
+                    completionHandler(token: token, error: nil, data: nil)
                 }
             })
         } catch {

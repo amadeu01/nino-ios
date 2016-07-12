@@ -33,7 +33,7 @@ class EducatorBO: NSObject {
         
         AccountMechanism.createAccount(name, surname: surname, gender: gender, email: email) { (userID, error, data) in
             if let errorType = error {
-                //TODO: Handle error data
+                //TODO: Handle error data and code
                 completionHandler(getEducator: { () -> Educator in
                     throw ErrorBO.decodeServerError(errorType)
                 })
@@ -41,7 +41,9 @@ class EducatorBO: NSObject {
                 completionHandler(getEducator: { () -> Educator in
                     return Educator(id: user, name: name, surname: surname, gender: gender, email: email, school: school, phases: phases, rooms: rooms)
                 })
-            } else {
+            }
+            //unexpected case
+            else {
                 completionHandler(getEducator: { () -> Educator in
                     throw ServerError.Timeout
                 })

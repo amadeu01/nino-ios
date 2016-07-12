@@ -21,6 +21,10 @@ class ErrorBO: NSObject {
     static func decodeServerError(code: Int) -> ServerError {
         var error: ServerError
         switch code {
+        case -1009:
+            error = ServerError.InternetConnectionOffline
+        case -1004:
+            error = ServerError.CouldNotConnectToTheServer
         case 400:
            error = ServerError.BadRequest
         case 401:
@@ -36,4 +40,9 @@ class ErrorBO: NSObject {
         }
         return error
     }
+    
+    static func decodeNSURLError(error: NSError) {
+        
+    }
+    
 }

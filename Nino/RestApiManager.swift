@@ -11,7 +11,8 @@ import SwiftyJSON
 
 class RestApiManager: NSObject {
 
-    private static let baseURL = "api.ninoapp.com.br/"
+//    private static let baseURL = "api.ninoapp.com.br/"
+    private static let baseURL = "https://www.ninoapp.com.br:5000/"
     
     /**
      Makes GET request to api.ninoapp.com.br/
@@ -25,9 +26,8 @@ class RestApiManager: NSObject {
         request.HTTPMethod = "GET"
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            //FIXME: Test here with and without internet connection
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
-                onCompletion(json: nil, error: nil, statusCode: nil)
+                onCompletion(json: nil, error: error, statusCode: nil)
                 return
             }
             if let jsonData = data {
@@ -52,13 +52,13 @@ class RestApiManager: NSObject {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.HTTPMethod = "POST"
         do {
-            let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions(rawValue:0))
+            let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
             request.HTTPBody = jsonBody
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-                //FIXME: Test here with and without internet connection
                 guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
-                    onCompletion(json: nil, error: nil, statusCode: nil)
+                    onCompletion(json: nil, error: error, statusCode: nil)
                     return
                 }
                 guard let jsonData = data else {
