@@ -33,7 +33,7 @@ class ManagePhasesViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 1 {// Add new Phase
             return 1
         }
         return 6
@@ -41,20 +41,20 @@ class ManagePhasesViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Configure cell
-        if indexPath.section == 0 {
-            guard let newEducatorCell = tableView.dequeueReusableCellWithIdentifier("addNewEducator") else {
-                print("Error inside ManageEducatorsViewController -> cellForRowAtIndexPath, cell identifier not found")
+        if indexPath.section == 1 {
+            guard let newPhaseCell = tableView.dequeueReusableCellWithIdentifier("addNewPhase") else {
+                print("Error inside ManagePhasesViewController -> cellForRowAtIndexPath, cell identifier not found")
                 return UITableViewCell()
             }
-            newEducatorCell.backgroundColor = CustomizeColor.lessStrongBackgroundNino()
-            return newEducatorCell
+            newPhaseCell.backgroundColor = CustomizeColor.lessStrongBackgroundNino()
+            return newPhaseCell
         } else {
-            guard let educatorCell = tableView.dequeueReusableCellWithIdentifier("educatorProfileTableViewCell") else {
-                print("Error inside ManageEducatorsViewController -> cellForRowAtIndexPath, cell identifier not found")
+            guard let phaseCell = tableView.dequeueReusableCellWithIdentifier("phaseProfileTableViewCell") else {
+                print("Error inside ManagePhasesViewController -> cellForRowAtIndexPath, cell identifier not found")
                 return UITableViewCell()
             }
-            educatorCell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            return educatorCell
+            phaseCell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            return phaseCell
         }
     }
     
@@ -70,7 +70,7 @@ class ManagePhasesViewController: UIViewController {
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 {
-            // Configure add new educator cell
+            // Configure add new phase cell
         }
     }
     
@@ -84,17 +84,17 @@ class ManagePhasesViewController: UIViewController {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
-            performSegueWithIdentifier("showRegisterNewEducatorViewController", sender: self)
+            performSegueWithIdentifier("showRegisterNewPhaseViewController", sender: self)
             
         } else {
-            self.performSegueWithIdentifier("showEducatorProfileViewController", sender: self)
+            self.performSegueWithIdentifier("showPhaseProfileViewController", sender: self)
         }
     }
     
     
     // MARK: Navigation
     
-    @IBAction func cancelRegisterNewEducator(segue: UIStoryboardSegue) {
+    @IBAction func cancelRegisterNewPhase(segue: UIStoryboardSegue) {
     }
     
     @IBAction func goBack(segue: UIStoryboardSegue) {

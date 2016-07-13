@@ -167,7 +167,7 @@
                     <connections>
                         <outlet property="tableView" destination="oKK-xm-Bdb" id="e0x-0E-reo"/>
                         <segue destination="iwn-Rj-b13" kind="show" id="bYT-bA-fRY"/>
-                        <segue destination="2AL-Vd-XeD" kind="show" id="ZSf-1l-Pxi"/>
+                        <segue destination="2AL-Vd-XeD" kind="show" identifier="showRegisterNewPhaseViewController" id="ZSf-1l-Pxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uF-5T-f7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1426,7 +1426,7 @@
                     <connections>
                         <outlet property="tableView" destination="q6q-v7-Lrp" id="hRA-FS-1Uy"/>
                         <segue destination="Zhz-Ep-EZU" kind="show" id="Pys-bX-6ll"/>
-                        <segue destination="TAK-Vd-BWa" kind="show" id="P8F-0k-esb"/>
+                        <segue destination="TAK-Vd-BWa" kind="show" identifier="registerNewClassroomViewController" id="P8F-0k-esb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPu-Dg-E3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
