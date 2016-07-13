@@ -105,15 +105,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
 //MARK: Alert methods
-    /**
-     Shows one alert telling the user that one or more fields are empty
-     */
-    private func emptyField() {
-        let alertView = UIAlertController(title: "Campo vazio", message: "Nenhum campo pode estar vazio.", preferredStyle:.Alert)
-        let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
-        alertView.addAction(okAction)
-        self.presentViewController(alertView, animated: true, completion: nil)
-    }
     
     /**
      Handles the error and shows one alert
@@ -125,14 +116,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var message: String?
         switch error {
         case ServerError.BadRequest:
-            self.emptyField()
+            let alert = DefaultAlerts.emptyField()
+            self.presentViewController(alert, animated: true, completion: nil)
         case ServerError.NotFound:
             title = "Dados inválidos"
             message = "Usuário ou senha inválidos."
         case .InternetConnectionOffline, .CouldNotConnectToTheServer:
             let alert = DefaultAlerts.connectionError(error, customAction: nil)
-            title = alert.title
-            message = alert.message
+            self.presentViewController(alert, animated: true, completion: nil)
         default:
             title = "Falha no login"
             message = "Tente novamente."
@@ -191,7 +182,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private func login() {
         self.hideKeyboard()
         if self.checkIfEmpty() {
-            self.emptyField()
+            let alert = DefaultAlerts.emptyField()
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         //all textFields are filled
         else {
@@ -205,7 +197,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 do {
                     //tries to get the credential
                     let credential = try getCredential()
-                    //TODO: save active educator on NinoSession
+                    //TODO: decode JWT and save active educator on NinoSession
                     NinoSession.sharedInstance.setCredential(credential)
                     //gets main queue to make UI changes
                     dispatch_async(dispatch_get_main_queue(), { 
@@ -226,6 +218,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         if let serverError = error as? ServerError {
                             self.errorAlert(serverError)
                         }
+                        self.passwordTextField.text = ""
                     })
                 }
             })

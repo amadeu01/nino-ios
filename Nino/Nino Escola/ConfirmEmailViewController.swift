@@ -55,6 +55,7 @@ class ConfirmEmailViewController: UIViewController {
                 //TODO: handle error
                 if error as? ServerError == ServerError.Timeout {
                     let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in
+                        //FIXME: segue doesn't work
                         self.performSegueWithIdentifier("backToLoginSegue", sender: self)
                     })
                     let alertView = DefaultAlerts.timeout(action)
