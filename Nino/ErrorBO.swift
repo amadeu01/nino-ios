@@ -23,6 +23,8 @@ class ErrorBO: NSObject {
         switch code {
         case -1009:
             error = ServerError.InternetConnectionOffline
+        case -1005:
+            error = ServerError.LostNetworkConnection
         case -1004:
             error = ServerError.CouldNotConnectToTheServer
         case 400:

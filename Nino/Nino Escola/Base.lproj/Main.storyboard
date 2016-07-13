@@ -472,7 +472,7 @@
                             <outlet property="delegate" destination="Jbt-AK-Zyp" id="ygy-G8-HSM"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Configurações" image="855988A3-C072-4E40-A33D-A33E6E03E35B" id="2Wq-IE-ywI"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="EFB2067E-F206-49BD-9DAD-D9C5ACD57A9C" id="2Wq-IE-ywI"/>
                     <connections>
                         <outlet property="schoolManagementTableView" destination="zKZ-CT-Eyc" id="uwZ-W0-mac"/>
                         <segue destination="qx5-TE-qkp" kind="showDetail" identifier="showRegisterStudentViewController" animates="NO" id="zum-Mm-Cbc"/>
@@ -838,7 +838,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="| Telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYo-eY-IRj">
                                         <rect key="frame" x="0.0" y="54" width="298" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="go"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="next"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                 <color key="value" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -858,17 +858,17 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="| CNPJ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FSP-wD-RgV">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="| Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FSP-wD-RgV">
                                         <rect key="frame" x="306" y="8" width="409" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="go"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                 <color key="value" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKF-fs-jMe">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKF-fs-jMe">
                                         <rect key="frame" x="306" y="38" width="409" height="2"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1108,7 +1108,7 @@
                                     <color key="titleColor" red="0.32615384460000002" green="0.75371456150000005" blue="0.78024578089999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hVn-hA-UrF" kind="unwind" unwindAction="unwindToLogin:" id="T5B-Mx-yNg"/>
+                                    <action selector="backToLoginAction:" destination="d0H-CD-S6m" eventType="touchUpInside" id="azj-Ss-Mh1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1163,6 +1163,7 @@
                         <outlet property="addressTextField" destination="9Z7-y4-mo3" id="fZc-h9-dcP"/>
                         <outlet property="changeLogoButton" destination="bLu-XA-GSw" id="kPu-El-nRt"/>
                         <outlet property="confirmButton" destination="IcN-5s-Zdu" id="spI-DG-NGh"/>
+                        <outlet property="emailTextField" destination="FSP-wD-RgV" id="QI5-c3-k47"/>
                         <outlet property="logoImageView" destination="bLp-L2-372" id="tjK-3i-QeT"/>
                         <outlet property="phoneTextField" destination="dYo-eY-IRj" id="YGc-sE-Rsx"/>
                         <outlet property="schoolNameTextField" destination="m4C-gP-a4a" id="wb6-hL-CUP"/>
@@ -1171,6 +1172,7 @@
                         <outletCollection property="textFields" destination="dYo-eY-IRj" collectionClass="NSMutableArray" id="7tB-eJ-yfH"/>
                         <outletCollection property="buttons" destination="bLu-XA-GSw" collectionClass="NSMutableArray" id="zUc-DU-uSH"/>
                         <outletCollection property="buttons" destination="IcN-5s-Zdu" collectionClass="NSMutableArray" id="xgu-MJ-89z"/>
+                        <outletCollection property="textFields" destination="FSP-wD-RgV" collectionClass="NSMutableArray" id="IPT-o6-s4W"/>
                         <segue destination="hVn-hA-UrF" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLogin:" id="g7U-C0-Fmu"/>
                     </connections>
                 </viewController>
@@ -1234,7 +1236,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="855988A3-C072-4E40-A33D-A33E6E03E35B" width="30" height="30">
+        <image name="EFB2067E-F206-49BD-9DAD-D9C5ACD57A9C" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

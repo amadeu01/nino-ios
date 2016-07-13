@@ -44,8 +44,7 @@ class ConfirmEmailViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue(), { 
                         let alertView = UIAlertController(title: "Falha de validação", message: "Já existe uma senha cadastrada para esse email.", preferredStyle: .Alert)
                         let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
-                            //FIXME: segue doesn't work
-                            self.performSegueWithIdentifier("backToLoginSegue", sender: self)
+                            self.segueToLogin()
                         }
                         alertView.addAction(action)
                         self.presentViewController(alertView, animated: true, completion: nil)
@@ -55,7 +54,7 @@ class ConfirmEmailViewController: UIViewController {
                 //TODO: handle error
                 if error as? ServerError == ServerError.Timeout {
                     let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in
-                        self.performSegueWithIdentifier("backToLoginSegue", sender: self)
+                        self.segueToLogin()
                     })
                     let alertView = DefaultAlerts.timeout(action)
                     dispatch_async(dispatch_get_main_queue(), { 
@@ -71,6 +70,13 @@ class ConfirmEmailViewController: UIViewController {
         if segue.identifier == "registerPasssword" {
             let destVC = segue.destinationViewController as? RegisterPasswordViewController
             destVC?.userHash = self.userHash
+        }
+    }
+    
+    private func segueToLogin() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.loggedIn = false
+            delegate.setupRootViewController(true)
         }
     }
     

@@ -19,14 +19,9 @@ class AccountMechanism: NSObject {
      - parameter completionHandler:  completionHandler with optional accessToken and optional error
      */
     static func login(key: Key, completionHandler: (accessToken: String?, error: Int?) -> Void) {
-        
-//        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 4 * Int64(NSEC_PER_SEC))
-//        dispatch_after(time, dispatch_get_main_queue()) {
-//            completionHandler(accessToken: "fdsf", error: nil)
-//        }
         let passwordMD5 = MD5.digest(key.password)
         guard let passwd = passwordMD5 else {
-            //FIXME: md5 failed
+            completionHandler(accessToken: nil, error: nil)
             return
         }
         let body: [String: AnyObject] = ["user": key.email, "password": passwd]
@@ -88,9 +83,8 @@ class AccountMechanism: NSObject {
                 }
             }
         }
-        //path error - in this case, never will be reached
         catch {
-            
+            //path error - in this case, never will be reached
         }
     }
     
@@ -104,6 +98,7 @@ class AccountMechanism: NSObject {
                 }
                 //error
                 if statusCode != 200 {
+                    //FIXME: data is a json, needs to be interpreted
                     let data = json["data"].string
                     let error = json["error"].int
                     completionHandler(validated: nil, error: error, data: data)
@@ -122,7 +117,7 @@ class AccountMechanism: NSObject {
     static func confirmAccount(password: String, hash: String, completionHandler: (token: String?, error: Int?, data: String?) -> Void) {
         let passwordMD5 = MD5.digest(password)
         guard let passwd = passwordMD5 else {
-            //FIXME: md5 failed
+            completionHandler(token: nil, error: nil, data: nil)
             return
         }
         let body: [String: AnyObject] = ["password": passwd]
@@ -135,6 +130,7 @@ class AccountMechanism: NSObject {
                 }
                 //error
                 if statusCode != 200 {
+                    //FIXME: data is a json, needs to be interpreted
                     let data = json["data"].string
                     let error = json["error"].int
                     completionHandler(token: nil, error: error, data: data)

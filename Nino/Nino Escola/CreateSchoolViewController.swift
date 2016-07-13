@@ -18,6 +18,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
     @IBOutlet weak var schoolNameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet var buttons: [UIButton]!
@@ -83,6 +84,9 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
         self.createSchool()
     }
     
+    @IBAction func backToLoginAction(sender: UIButton) {
+        
+    }
     
 //MARK: TextField methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -192,12 +196,12 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         do {
-            //gets the current user
-            guard let educator = NinoSession.sharedInstance.educator else {
+//            gets the current user credential
+            guard let credential = NinoSession.sharedInstance.credential else {
                 self.activityIndicator.stopAnimating()
                 self.enableButtons()
                 self.enableTextFields()
-                let alertView = DefaultAlerts.usedDidNotLoggedIn(self)
+                let alertView = DefaultAlerts.usedDidNotLoggedIn()
                 self.presentViewController(alertView, animated: true, completion: nil)
                 return
             }
@@ -213,7 +217,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
                     }
                 }
             }
-            try SchoolBO.createSchool(self.schoolNameTextField.text!, address: self.addressTextField.text!, cnpj: nil, telephone: self.phoneTextField.text!, email: educator.email, owner: educator.id, logo: image, phases: nil, educators: nil, students: nil, menus: nil, activities: nil, calendars: nil) { (getSchool) in
+            try SchoolBO.createSchool(credential.token, name: self.schoolNameTextField.text!, address: self.addressTextField.text!, cnpj: nil, telephone: self.phoneTextField.text!, email: self.emailTextField.text!, owner: nil, logo: image, phases: nil, educators: nil, students: nil, menus: nil, activities: nil, calendars: nil) { (getSchool) in
                 do {
                     let school = try getSchool()
                     NinoSession.sharedInstance.setSchool(school)

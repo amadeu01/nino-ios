@@ -20,7 +20,7 @@ struct School {
     var cnpj: Int?
     let telephone: String
     let email: String
-    let owner: Int
+    var owner: Int?
     var logo: NSData?
     var phases: [Phase]?
     var educators: [Educator]?
@@ -39,7 +39,7 @@ struct School {
      - parameter cnpj:       optional school's legal number
      - parameter telephone:  school's phone
      - parameter email:      school's main email
-     - parameter owner:      id of the owner of the school
+     - parameter owner:      optional id of the owner of the school
      - parameter logo:       optional school's logo
      - parameter phases:     optional list of phases
      - parameter educators:  optional list of educators
@@ -50,7 +50,7 @@ struct School {
 
      - returns: struct VO of School type
      */
-    init(id: Int, name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) {
+    init(id: Int, name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int?, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) {
         self.id = id
         self.name = name
         self.address = address
@@ -59,7 +59,9 @@ struct School {
         }
         self.email = email
         self.telephone = telephone
-        self.owner = owner
+        if let ownerID = owner {
+            self.owner = ownerID
+        }
         if let picture = logo {
             self.logo = picture
         }

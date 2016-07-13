@@ -131,7 +131,7 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
         guard let confirmHash = self.userHash else {
             let alertView = UIAlertController(title: "Falha no cadastro", message: "Ocorreu uma falha no cadastro da senha, tente novamente através do email recebido.", preferredStyle: .Alert)
             let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: { (action) in
-                self.performSegueWithIdentifier("backToLogin", sender: nil)
+                self.segueToLogin()
             })
             alertView.addAction(okAction)
             self.presentViewController(alertView, animated: true, completion: nil)
@@ -140,13 +140,23 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
         AccountBO.registerPassword(confirmHash, password: self.passwordTextField.text!) { (register) in
             do {
                 let token = try register()
-                print(token)
+                //TODO: decode JWT
+                let credential = CredentialBO.createCredential(token)
+                NinoSession.sharedInstance.setCredential(credential)
                 dispatch_async(dispatch_get_main_queue(), {
                     self.performSegueWithIdentifier("createSchool", sender: nil)
                 })
             } catch {
                 //TODO:handle error
             }
+        }
+    }
+    
+//MARK: Segue Methods
+    private func segueToLogin() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.loggedIn = false
+            delegate.setupRootViewController(true)
         }
     }
 

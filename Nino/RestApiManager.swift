@@ -55,6 +55,7 @@ class RestApiManager: NSObject {
             let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
             request.HTTPBody = jsonBody
             request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A", forHTTPHeaderField: "User-Agent")
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
                 guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {

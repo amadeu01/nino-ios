@@ -13,6 +13,13 @@ class DefaultAlerts: NSObject {
     
     static private let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
     
+    static private func segueToLogin() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.loggedIn = false
+            delegate.setupRootViewController(true)
+        }
+    }
+    
     /**
      Default alert to be used when one or more fields are empty
      
@@ -41,10 +48,10 @@ class DefaultAlerts: NSObject {
      
      - returns: UIAlertController ready to be presented
      */
-    static func usedDidNotLoggedIn(from: UIViewController) -> UIAlertController {
+    static func usedDidNotLoggedIn() -> UIAlertController {
         let alertView = UIAlertController(title: "Usuário não logado", message: "Você precisa estar logado no sistema para continuar", preferredStyle: .Alert)
         let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
-            from.performSegueWithIdentifier("backToLoginSegue", sender: self)
+            self.segueToLogin()
         }
         alertView.addAction(action)
         return alertView
