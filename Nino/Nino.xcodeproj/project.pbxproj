@@ -62,6 +62,9 @@
 		287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
+		288B271C1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */; };
+		288B271D1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */; };
+		288B271E1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */; };
 		288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
 		288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
 		288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
@@ -399,6 +402,7 @@
 		284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomProfileViewController.swift; sourceTree = "<group>"; };
 		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewEducatorViewController.swift; sourceTree = "<group>"; };
+		288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagePhasesViewController.swift; sourceTree = "<group>"; };
 		288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileTableViewCell.swift; sourceTree = "<group>"; };
 		288DE3501D22B7500052A35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DefaultEmptyState.storyboard; sourceTree = "<group>"; };
 		288DE3541D22BF800052A35D /* StudentProfileListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileListController.swift; sourceTree = "<group>"; };
@@ -694,6 +698,7 @@
 				28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */,
 				28F367031D2FE36500A0743B /* ManageClassroomsViewController.swift */,
 				284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */,
+				288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -751,7 +756,7 @@
 			name = VO;
 			sourceTree = "<group>";
 		};
-		AC9F99CC1CEF3901001B53E8 /* Business */ = {
+		AC9F99CC1CEF3901001B53E8 /* bb   */ = {
 			isa = PBXGroup;
 			children = (
 				AC74E1091D2E8749004281F3 /* AccountBO.swift */,
@@ -771,7 +776,7 @@
 				AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */,
 				ACF1943B1D060D3200F1E68A /* EventBO.swift */,
 			);
-			name = Business;
+			name = "bb  ";
 			sourceTree = "<group>";
 		};
 		AC9F99CD1CEF3918001B53E8 /* Persistence */ = {
@@ -834,7 +839,7 @@
 			children = (
 				AC9F99CE1CEF3924001B53E8 /* Mechanisms */,
 				AC9F99CD1CEF3918001B53E8 /* Persistence */,
-				AC9F99CC1CEF3901001B53E8 /* Business */,
+				AC9F99CC1CEF3901001B53E8 /* bb   */,
 				AC9F99CB1CEF38FB001B53E8 /* VO */,
 				AC9F99D11CEF395A001B53E8 /* Pais */,
 				AC9F99CF1CEF3937001B53E8 /* Escola */,
@@ -1657,6 +1662,7 @@
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC9F99DD1CEF7146001B53E8 /* Educator.swift in Sources */,
 				AC9F99E01CEF721C001B53E8 /* Credential.swift in Sources */,
+				288B271C1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
@@ -1744,6 +1750,7 @@
 				284C5FEE1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				288B271D1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				ACFBADDD1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
@@ -1806,6 +1813,7 @@
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
+				288B271E1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				28F366F81D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				28A0467A1D255981007E0053 /* Gender.swift in Sources */,
