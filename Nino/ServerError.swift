@@ -17,4 +17,5 @@ enum ServerError: ErrorType {
     case ServerError
     case CouldNotConnectToTheServer
     case InternetConnectionOffline
+    case LostNetworkConnection
 }

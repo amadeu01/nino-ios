@@ -625,6 +625,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC33F47B1D3673C4009D10B5 /* Create User */ = {
+			isa = PBXGroup;
+			children = (
+				AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */,
+				AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */,
+				AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */,
+				AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */,
+				AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */,
+			);
+			name = "Create User";
+			sourceTree = "<group>";
+		};
 		AC529EDF1CF483D6003C1063 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,16 +690,12 @@
 			isa = PBXGroup;
 			children = (
 				28F367021D2FE28C00A0743B /* Master */,
+				AC33F47B1D3673C4009D10B5 /* Create User */,
 				AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */,
-				AC9EC7071D240CA200D54857 /* CreateUserViewController.swift */,
-				AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */,
-				AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */,
-				AC07C4381D29EF7B0044B80A /* RegisterPasswordViewController.swift */,
 				28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */,
 				284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */,
 				28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */,
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
-				AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */,
 				284A333A1D2C4B8600030773 /* ManageEducatorsViewController.swift */,
 				287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */,
 				28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */,

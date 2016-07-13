@@ -14,12 +14,13 @@ class SchoolBO: NSObject {
     /**
      Tries to create a school
      
+     - parameter token:             user token
      - parameter name:              school's name
      - parameter address:           school's address
      - parameter cnpj:              optional school's legal number
      - parameter telephone:         school's phone
      - parameter email:             school's main email
-     - parameter owner:             id of the owner of the school
+     - parameter owner:             optional id of the owner of the school
      - parameter logo:              optional school's logo
      - parameter phases:            optional list of phases
      - parameter educators:         optional list of educators
@@ -31,13 +32,13 @@ class SchoolBO: NSObject {
      
      - throws: error of CreationError.InvalidEmail type
      */
-    static func createSchool(name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
+    static func createSchool(token: String, name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int?, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
 
         if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
         
-        SchoolMechanism.createSchool(name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars) { (schoolID, error, data) in
+        SchoolMechanism.createSchool(token, name: name, address: address, telephone: telephone, email: email, logo: logo) { (schoolID, error, data) in
             if let errorType = error {
                 //TODO: handle error data
                 completionHandler(getSchool: { () -> School in
@@ -56,8 +57,5 @@ class SchoolBO: NSObject {
         
     }
     
-    static func teste() {
-        self
-    }
     
 }
