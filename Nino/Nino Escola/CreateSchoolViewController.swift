@@ -85,7 +85,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
     }
     
     @IBAction func backToLoginAction(sender: UIButton) {
-        self.lo
+        
     }
     
 //MARK: TextField methods
