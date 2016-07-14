@@ -49,4 +49,29 @@ class SchoolMechanism: NSObject {
             //never will be reached
         }
     }
+    
+    static func sendProfileImage(token: String, imageData: NSData, schoolID: Int, completionHandler: (success: Bool?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.SendSchoolLogo.description([String(schoolID)])
+            RestApiManager.makeHTTPPostUploadRequest(route, token: token, data: imageData, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(success: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(success: false, error: error, data: data)
+                }
+                //success
+                else {
+                    completionHandler(success: true, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
 }

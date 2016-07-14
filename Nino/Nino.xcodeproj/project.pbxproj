@@ -212,6 +212,8 @@
 		AC7BB7921D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
 		AC7BB7931D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
 		AC7BB7941D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
+		AC7BB7951D37F64C0044ABE0 /* MechanismsResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA6371D0CB516007AAAA6 /* MechanismsResponses.swift */; };
+		AC7BB7961D37F64D0044ABE0 /* MechanismsResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA6371D0CB516007AAAA6 /* MechanismsResponses.swift */; };
 		AC7BFD661D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
 		AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
 		AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
@@ -1674,6 +1676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC7BB7951D37F64C0044ABE0 /* MechanismsResponses.swift in Sources */,
 				AC74E1131D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
@@ -1859,6 +1862,7 @@
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
+				AC7BB7961D37F64D0044ABE0 /* MechanismsResponses.swift in Sources */,
 				28F366F81D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				28A0467A1D255981007E0053 /* Gender.swift in Sources */,

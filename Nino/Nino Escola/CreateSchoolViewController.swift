@@ -207,9 +207,11 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
             }
             var image: NSData? = nil
             //FIXME: change placeholder image for the correct image (waiting Camila)
-            let placeholderImage = UIImageJPEGRepresentation(UIImage(named: "Logo-Nino")!, 1.0)
-            let schoolImage = UIImageJPEGRepresentation(self.logoImageView.image!, 1.0)
-            //checks if the user changes the image
+//            let placeholderImage = UIImageJPEGRepresentation(UIImage(named: "Logo-Nino")!, 1.0)
+//            let schoolImage = UIImageJPEGRepresentation(self.logoImageView.image!, 1.0)
+            let placeholderImage = UIImagePNGRepresentation(UIImage(named: "Logo-Nino")!)
+            let schoolImage = UIImagePNGRepresentation(self.logoImageView.image!)
+            //checks if the user changed the image
             if let imageBefore = placeholderImage {
                 if let newImage = schoolImage {
                     if !imageBefore.isEqualToData(newImage) {
