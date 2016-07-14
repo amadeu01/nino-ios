@@ -27,15 +27,32 @@ class DateSelector: UIView {
     
 //MARK: Variables
     /// Real date
-    var today: NSDate
+    private var today: NSDate
     /// 1 day afte current day
-    var tomorrow: NSDate
+    private var tomorrow: NSDate
     /// 1 day before current day
-    var yesterday: NSDate
+    private var yesterday: NSDate
     /// day displayed by the component
-    var currentDay: NSDate
+    private var currentDay: NSDate
+    private let datePicker = UIDatePicker()
+    override var inputView: UIView? {
+        datePicker.datePickerMode = .Date
+        datePicker.addTarget(self, action: #selector(self.handleDatePicker), forControlEvents: .ValueChanged)
+        return datePicker
+    }
+    override var inputAccessoryView: UIView? {
+        let barButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.resignFirstResponder))
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+        let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
+        toolbar.items = [space, barButton]
+        return toolbar
+    }
     
 //MARK: View initialization
+    @objc private func function() {
+        print("hey")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         self.today = NSDate()
         self.currentDay = self.today
@@ -55,34 +72,22 @@ class DateSelector: UIView {
     private func setInitialDate() {
         let date = dataSource?.setInitialDate()
         if let newDate = date {
-            self.currentDay = newDate
-            self.setTomorrow()
-            self.setYesterday()
-            self.setLabels()
-            self.checkDate()
+            self.changeDate(newDate)
         }
     }
 
 //MARK: Button Actions
     @IBAction func didTapDateAction(sender: UITapGestureRecognizer) {
+        self.datePicker.date = self.currentDay
+        self.becomeFirstResponder()
     }
     
     @IBAction func didTapRightAction(sender: UIButton) {
-        self.currentDay = self.tomorrow
-        self.setYesterday()
-        self.setTomorrow()
-        self.setLabels()
-        self.checkDate()
-        self.delegate?.dateDidChange(self.currentDay)
+        self.changeDate(self.tomorrow)
     }
     
     @IBAction func didTapLeftAction(sender: UIButton) {
-        self.currentDay = self.yesterday
-        self.setYesterday()
-        self.setTomorrow()
-        self.setLabels()
-        self.checkDate()
-        self.delegate?.dateDidChange(self.currentDay)
+        self.changeDate(self.yesterday)
     }
     
 //MARK: Internal methods
@@ -97,12 +102,19 @@ class DateSelector: UIView {
         self.dayLabel.text = String(day)
         self.monthLabel.text = monthString
         self.yearLabel.text = String(year)
+        self.delegate?.dateDidChange(self.currentDay)
     }
     
     private func checkDate() {
-        if self.tomorrow.compare(self.today) == NSComparisonResult.OrderedDescending {
+        let order = NSCalendar.currentCalendar().compareDate(self.tomorrow, toDate: self.today, toUnitGranularity: .Day)
+        if order == NSComparisonResult.OrderedDescending {
             self.rightButton.enabled = false
             self.rightButton.alpha = 0.4
+            //checks if the date selected by datePicker is earlier in time than today
+            let newOrder = NSCalendar.currentCalendar().compareDate(self.currentDay, toDate: self.today, toUnitGranularity: .Day)
+            if newOrder == NSComparisonResult.OrderedDescending {
+                self.changeDate(self.today)
+            }
         } else {
             self.rightButton.enabled = true
             self.rightButton.alpha = 1
@@ -117,6 +129,23 @@ class DateSelector: UIView {
         self.yesterday = self.currentDay.dateByAddingTimeInterval(-60*60*24*1)
     }
 
+    @objc private func handleDatePicker() {
+        self.changeDate(self.datePicker.date)
+    }
+    
+    private func changeDate(newDate: NSDate) {
+        self.currentDay = newDate
+        self.setYesterday()
+        self.setTomorrow()
+        self.setLabels()
+        self.checkDate()
+    }
+
+//MARK: UIResponder methods
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
 }
 //MARK: Delegate and DataSource
 /**

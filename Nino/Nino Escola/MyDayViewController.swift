@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyDayViewController: UIViewController, DateSelectorDelegate {
+class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorDataSource {
 
     @IBOutlet weak var dateSelector: DateSelector!
     
@@ -16,6 +16,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate {
         super.viewDidLoad()
         self.addNinoDefaultBackGround()
         self.dateSelector.delegate = self
+        self.dateSelector.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +24,12 @@ class MyDayViewController: UIViewController, DateSelectorDelegate {
     }
     
     func dateDidChange(date: NSDate) {
+        //TODO: gets the agenda for the selected day
         print(date)
+    }
+    
+    func setInitialDate() -> NSDate {
+        return NSDate().dateByAddingTimeInterval(-60*60*24*2)
     }
 
 }
