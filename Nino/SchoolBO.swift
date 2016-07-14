@@ -50,7 +50,7 @@ class SchoolBO: NSObject {
                 })
             } else {
                 completionHandler(getSchool: { () -> School in
-                    throw ServerError.Timeout
+                    throw ServerError.UnexpectedCase
                 })
             }
         }

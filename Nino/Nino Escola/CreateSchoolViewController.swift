@@ -85,7 +85,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
     }
     
     @IBAction func backToLoginAction(sender: UIButton) {
-        
+        self.segueToLogin()
     }
     
 //MARK: TextField methods
@@ -239,6 +239,14 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
             self.enableTextFields()
             let alertView = DefaultAlerts.invalidEmail()
             self.presentViewController(alertView, animated: true, completion: nil)
+        }
+    }
+    
+//MARK: Segue Methods
+    private func segueToLogin() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.loggedIn = false
+            delegate.setupRootViewController(true)
         }
     }
 }

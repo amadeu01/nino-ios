@@ -26,7 +26,7 @@ class AccountBO: NSObject {
             //Unexpected case
             guard let validated = validated else {
                 completionHandler(checkHash: { () -> Bool in
-                    throw ServerError.Timeout
+                    throw ServerError.UnexpectedCase
                 })
                 return
             }
@@ -56,7 +56,7 @@ class AccountBO: NSObject {
             //Unexpected case
             guard let userToken = token else {
                 completionHandler(register: { () -> String in
-                    throw ServerError.Timeout
+                    throw ServerError.UnexpectedCase
                 })
                 return
             }

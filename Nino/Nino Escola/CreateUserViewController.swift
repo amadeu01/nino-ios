@@ -169,20 +169,18 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
                         self.performSegueWithIdentifier("waitEmail", sender: self)
                     })
                 } catch let internalError {
-                    //TODO: handle error threw by the server
+                    //TODO: handle error data threw by the server
                     guard let error = internalError as? ServerError else {
                         return
                     }
-                    //connection error
-                    if error == ServerError.CouldNotConnectToTheServer || error == ServerError.InternetConnectionOffline {
-                        let alert = DefaultAlerts.connectionError(error, customAction: nil)
-                        dispatch_async(dispatch_get_main_queue(), { 
-                            self.activityIndicator.stopAnimating()
-                            self.enableButtons()
-                            self.enableTextFields()
-                            self.presentViewController(alert, animated: true, completion: nil)
-                        })
-                    }
+                    let title = "Falha no cadastro do usuário"
+                    let alert = DefaultAlerts.serverErrorAlert(error, title: title, customAction: nil)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.activityIndicator.stopAnimating()
+                        self.enableButtons()
+                        self.enableTextFields()
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    })
                 }
             }
         } catch {

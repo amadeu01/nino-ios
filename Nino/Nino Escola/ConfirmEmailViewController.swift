@@ -52,15 +52,16 @@ class ConfirmEmailViewController: UIViewController {
                 }
             } catch let error {
                 //TODO: handle error
-                if error as? ServerError == ServerError.Timeout {
+                guard let serverError = error as? ServerError else {
+                    return
+                }
+                dispatch_async(dispatch_get_main_queue(), {
                     let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in
                         self.segueToLogin()
                     })
-                    let alertView = DefaultAlerts.timeout(action)
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        self.presentViewController(alertView, animated: true, completion: nil)
-                    })
-                }
+                    let alertView = DefaultAlerts.serverErrorAlert(serverError, title: "Falha na confirmação", customAction: action)
+                    self.presentViewController(alertView, animated: true, completion: nil)
+                })
             }
         }
     }
