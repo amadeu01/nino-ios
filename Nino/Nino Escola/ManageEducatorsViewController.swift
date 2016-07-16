@@ -27,6 +27,7 @@ class ManageEducatorsViewController: UIViewController, UITableViewDelegate, UITa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     // MARK: TAbleView Data Source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -115,5 +116,3 @@ class ManageEducatorsViewController: UIViewController, UITableViewDelegate, UITa
      */
     
 }
-
-

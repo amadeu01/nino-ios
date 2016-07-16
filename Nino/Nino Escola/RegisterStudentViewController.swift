@@ -46,6 +46,15 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .Bordered, target: self, action: #selector (didPressToCancel))
+    }
+    
+    func didPressToCancel(){
+        performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
+    }
     
 //MARK: Button methods
     @IBAction func didTapProfilePicture(sender: UITapGestureRecognizer) {

@@ -74,7 +74,7 @@ class SchoolManagementTableViewController: UITableViewController {
     
    func configureSections() {
         self.sections.append(DataStructure(section: "Dia-a-dia", rows: ["Calendário", "Cardápio"], icons: [UIImage(named: "iconPlaceholder")!, UIImage(named: "iconPlaceholder")!]))
-        self.sections.append(DataStructure(section: "Administração", rows: ["Gerenciar Turmas", "Gerenciar Educaroes" /*"Recuperar Senha"*/], icons: [UIImage(named: "Becke_Darth-Vader")!, UIImage(named: "iconPlaceholder")!]))
+        self.sections.append(DataStructure(section: "Administração", rows: ["Gerenciar Educadores", "Gerenciar Turmas" /*"Recuperar Senha"*/], icons: [UIImage(named: "Becke_Darth-Vader")!, UIImage(named: "iconPlaceholder")!]))
         self.sections.append(DataStructure(section: "Sobre", rows: ["Legal"], icons: [UIImage(named: "Becke_Creditos-pais")!]))
         self.sections.append(DataStructure(section: "Conta", rows: ["Sair"], icons: [UIImage(named: "Becke_Sair")!]))
     }
