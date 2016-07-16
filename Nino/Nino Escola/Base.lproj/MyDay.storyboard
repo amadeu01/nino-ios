@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="afj-1E-Ytj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="afj-1E-Ytj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaRoundedLT-Bold.otf">
+            <string>HelveticaRoundedLT-Bold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--My Day View Controller-->
         <scene sceneID="JXw-tr-mQI">
             <objects>
-                <viewController id="afj-1E-Ytj" sceneMemberID="viewController">
+                <viewController id="afj-1E-Ytj" customClass="MyDayViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Es-Us-dmO"/>
                         <viewControllerLayoutGuide type="bottom" id="LCm-e4-HNG"/>
@@ -17,34 +25,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="456"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Day View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B05-Ko-44R">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Nd-ARg">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n79-Il-Ff3">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gaj-31-lrA">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mC7-tE-Hfn" customClass="DateSelector" customModule="Nino_Escola" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gee-HN-UUT"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gee-HN-UUT"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="gee-HN-UUT"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDI-fd-9qu">
+                                <rect key="frame" x="304" y="382" width="152" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="14"/>
+                                <state key="normal" title="CONTINUAR :)">
+                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="341" y="419" width="101" height="29"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="B05-Ko-44R" firstAttribute="centerX" secondItem="txA-km-km0" secondAttribute="centerX" id="5Z8-m5-I6J"/>
-                            <constraint firstItem="B05-Ko-44R" firstAttribute="centerY" secondItem="txA-km-km0" secondAttribute="centerY" id="txg-HQ-vWP"/>
+                            <constraint firstItem="fdk-Nd-ARg" firstAttribute="top" secondItem="mC7-tE-Hfn" secondAttribute="bottom" constant="16" id="9tD-Pe-PCn"/>
+                            <constraint firstItem="mC7-tE-Hfn" firstAttribute="top" secondItem="5Es-Us-dmO" secondAttribute="bottom" constant="16" id="BAy-HZ-4sA"/>
+                            <constraint firstItem="fdk-Nd-ARg" firstAttribute="height" secondItem="txA-km-km0" secondAttribute="height" multiplier="0.75" id="IB6-Dc-mVi">
+                                <variation key="widthClass=regular" constant="1"/>
+                            </constraint>
+                            <constraint firstItem="mC7-tE-Hfn" firstAttribute="centerX" secondItem="txA-km-km0" secondAttribute="centerX" id="ONA-ep-jzF"/>
+                            <constraint firstItem="fdk-Nd-ARg" firstAttribute="trailing" secondItem="txA-km-km0" secondAttribute="trailingMargin" id="PFa-oc-c5p"/>
+                            <constraint firstItem="fdk-Nd-ARg" firstAttribute="leading" secondItem="txA-km-km0" secondAttribute="leadingMargin" id="RSt-7m-QgT"/>
+                            <constraint firstItem="fdk-Nd-ARg" firstAttribute="centerY" secondItem="txA-km-km0" secondAttribute="centerY" id="dVE-Qo-TBv"/>
+                            <constraint firstItem="fdk-Nd-ARg" firstAttribute="centerX" secondItem="txA-km-km0" secondAttribute="centerX" id="ey6-PN-tdx"/>
+                            <constraint firstItem="mC7-tE-Hfn" firstAttribute="width" secondItem="txA-km-km0" secondAttribute="width" multiplier="0.4" id="xnl-vp-B82"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="B05-Ko-44R"/>
+                                <exclude reference="fdk-Nd-ARg"/>
+                                <exclude reference="mC7-tE-Hfn"/>
+                                <exclude reference="uDI-fd-9qu"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5Z8-m5-I6J"/>
-                                <exclude reference="txg-HQ-vWP"/>
+                                <exclude reference="9tD-Pe-PCn"/>
+                                <exclude reference="IB6-Dc-mVi"/>
+                                <exclude reference="PFa-oc-c5p"/>
+                                <exclude reference="RSt-7m-QgT"/>
+                                <exclude reference="dVE-Qo-TBv"/>
+                                <exclude reference="ey6-PN-tdx"/>
+                                <exclude reference="BAy-HZ-4sA"/>
+                                <exclude reference="ONA-ep-jzF"/>
+                                <exclude reference="xnl-vp-B82"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="subviews">
-                                <include reference="B05-Ko-44R"/>
+                                <include reference="fdk-Nd-ARg"/>
+                                <include reference="mC7-tE-Hfn"/>
+                                <include reference="uDI-fd-9qu"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5Z8-m5-I6J"/>
-                                <include reference="txg-HQ-vWP"/>
+                                <include reference="9tD-Pe-PCn"/>
+                                <include reference="IB6-Dc-mVi"/>
+                                <include reference="PFa-oc-c5p"/>
+                                <include reference="RSt-7m-QgT"/>
+                                <exclude reference="dVE-Qo-TBv"/>
+                                <include reference="ey6-PN-tdx"/>
+                                <include reference="BAy-HZ-4sA"/>
+                                <include reference="ONA-ep-jzF"/>
+                                <include reference="xnl-vp-B82"/>
                             </mask>
                         </variation>
                     </view>
@@ -55,10 +133,13 @@
                         <size key="portraitSize" width="456" height="800"/>
                         <size key="landscapeSize" width="800" height="456"/>
                     </fixedSimulatedSizeMetrics>
+                    <connections>
+                        <outlet property="dateSelector" destination="mC7-tE-Hfn" id="Jmw-RA-Rw9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6A-to-B41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5208.75" y="-851"/>
+            <point key="canvasLocation" x="4524.75" y="-610"/>
         </scene>
     </scenes>
 </document>

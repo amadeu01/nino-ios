@@ -45,12 +45,28 @@ class SchoolBO: NSObject {
                     throw ErrorBO.decodeServerError(errorType)
                 })
             } else if let school = schoolID {
-                completionHandler(getSchool: { () -> School in
-                    return School(id: school, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
-                })
+                if let imageData = logo {
+                    SchoolMechanism.sendProfileImage(token, imageData: imageData, schoolID: school, completionHandler: { (success, error, data) in
+                        if let err = error {
+                            completionHandler(getSchool: { () -> School in
+                                throw ErrorBO.decodeServerError(err)
+                            })
+                        } else if let success = success {
+                            if success {
+                                completionHandler(getSchool: { () -> School in
+                                    return School(id: school, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
+                                })
+                            }
+                        } else {
+                            completionHandler(getSchool: { () -> School in
+                                throw ServerError.UnexpectedCase
+                            })
+                        }
+                    })
+                }
             } else {
                 completionHandler(getSchool: { () -> School in
-                    throw ServerError.Timeout
+                    throw ServerError.UnexpectedCase
                 })
             }
         }

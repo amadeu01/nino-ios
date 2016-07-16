@@ -29,7 +29,7 @@ class LoginBO: NSObject {
                 })
             } else {
                 completionHandler(getCredential: { () -> Credential in
-                    throw ServerError.Timeout
+                    throw ServerError.UnexpectedCase
                 })
             }
         }

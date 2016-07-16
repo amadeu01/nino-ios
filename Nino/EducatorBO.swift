@@ -45,7 +45,7 @@ class EducatorBO: NSObject {
             //unexpected case
             else {
                 completionHandler(getEducator: { () -> Educator in
-                    throw ServerError.Timeout
+                    throw ServerError.UnexpectedCase
                 })
             }
         }

@@ -27,24 +27,14 @@ class ErrorBO: NSObject {
             error = ServerError.LostNetworkConnection
         case -1004:
             error = ServerError.CouldNotConnectToTheServer
-        case 400:
-           error = ServerError.BadRequest
-        case 401:
-            error = ServerError.Unauthorized
-        case 403:
-            error = ServerError.Forbidden
-        case 404:
-            error = ServerError.NotFound
-        case 500:
-            error = ServerError.ServerError
+        case 100:
+            error = ServerError.InexistentRegister
+        case 101:
+            error = ServerError.DeletedRegister
         default:
-            error = ServerError.ServerError
+            error = ServerError.UnexpectedCase
         }
         return error
-    }
-    
-    static func decodeNSURLError(error: NSError) {
-        
     }
     
 }

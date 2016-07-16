@@ -58,46 +58,19 @@ class DefaultAlerts: NSObject {
     }
     
     /**
-     Default alert to be used when the response from one request is ServerError.Timeout
+     Default alert to be used when one request returns an error
      
-     - parameter customAction: Custom action to be added to the AlertController
-     
-     - returns: UIAlertController ready to be presented
-     */
-    static func timeout(customAction: UIAlertAction?) -> UIAlertController {
-        let alertView = UIAlertController(title: "Tempo excedido", message: "Cheque sua conexão com a internet e tente novamente. Se o problema persistir, entre em contato através de contato@ninoapp.com.br", preferredStyle: .Alert)
-        if let action = customAction {
-            alertView.addAction(action)
-        } else {
-            alertView.addAction(self.okAction)
-        }
-        return alertView
-    }
-    
-    /**
-     Default alert to be used when the response from one request is .InternetConnectionOffline or .CouldNotConnectToTheServer
-     
-     - parameter error:        ServerError response
-     - parameter customAction: Custom action to be added to the AlertController
+     - parameter error:        ServerError returned
+     - parameter title:        Alert title
+     - parameter customAction: Optional custom action
      
      - returns: UIAlertController ready to be presented
      */
-    static func connectionError(error: ServerError, customAction: UIAlertAction?) -> UIAlertController {
-        var title: String?
-        var message: String?
-        switch error {
-        case .InternetConnectionOffline:
-            title = "Sem internet"
-            message = "Sua conexão com a internet parece estar offline. Cheque-a e tente novamente."
-        case .CouldNotConnectToTheServer:
-            title = "Problema interno"
-            message = "Seu problema foi reportado, aguarde cerca de 5 minutos e tente novamente."
-        //FIXME: send email notifying the server problem
-        default:
-            title = "Falha"
-            message = "Tente novamente."
+    static func serverErrorAlert(error: ServerError, title: String, customAction: UIAlertAction?) -> UIAlertController {
+        if error == ServerError.CouldNotConnectToTheServer {
+            //TODO: send email notifying the server error
         }
-        let alertView = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let alertView = UIAlertController(title: title, message: error.description(), preferredStyle: .Alert)
         if let action = customAction {
             alertView.addAction(action)
         } else {

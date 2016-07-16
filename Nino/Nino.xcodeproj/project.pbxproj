@@ -344,6 +344,14 @@
 		AC74E1141D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC7BB78F1D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
+		AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
+		AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
+		AC7BB7921D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
+		AC7BB7931D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
+		AC7BB7941D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
+		AC7BB7951D37F64C0044ABE0 /* MechanismsResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA6371D0CB516007AAAA6 /* MechanismsResponses.swift */; };
+		AC7BB7961D37F64D0044ABE0 /* MechanismsResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA6371D0CB516007AAAA6 /* MechanismsResponses.swift */; };
 		AC7BFD661D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
 		AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
 		AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */; };
@@ -558,6 +566,9 @@
 		AC182A3C1D10362D0013611E /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = "Pods/../build/Debug-iphoneos/SwiftKeychainWrapper.framework"; sourceTree = "<group>"; };
 		AC182A3F1D103A420013611E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateUser.storyboard; sourceTree = "<group>"; };
 		AC238B941CEFDABA00B10F75 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayViewController.swift; sourceTree = "<group>"; };
+		AC33F4861D36D2AE009D10B5 /* DateSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateSelector.xib; sourceTree = "<group>"; };
+		AC33F48A1D36D317009D10B5 /* DateSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSelector.swift; sourceTree = "<group>"; };
 		AC410BC91D05A880003EB66B /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBO.swift; sourceTree = "<group>"; };
 		AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
@@ -572,6 +583,7 @@
 		AC74E1021D2D4908004281F3 /* RouteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteError.swift; sourceTree = "<group>"; };
 		AC74E1091D2E8749004281F3 /* AccountBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBO.swift; sourceTree = "<group>"; };
 		AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoImagePicker.swift; sourceTree = "<group>"; };
+		AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCodeError.swift; sourceTree = "<group>"; };
 		AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitEmailViewController.swift; sourceTree = "<group>"; };
 		AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
 		AC7BFDAC1D256E400086B495 /* Nino-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nino-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -763,12 +775,21 @@
 			name = "Create User";
 			sourceTree = "<group>";
 		};
+		AC33F4801D36C4E7009D10B5 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		AC529EDF1CF483D6003C1063 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
 				AC529EE01CF48422003C1063 /* CreationError.swift */,
 				AC410BC91D05A880003EB66B /* ServerError.swift */,
 				AC74E1021D2D4908004281F3 /* RouteError.swift */,
+				AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */,
 			);
 			name = Errors;
 			sourceTree = "<group>";
@@ -816,6 +837,7 @@
 			isa = PBXGroup;
 			children = (
 				28F367021D2FE28C00A0743B /* Master */,
+				AC33F4801D36C4E7009D10B5 /* Detail */,
 				AC33F47B1D3673C4009D10B5 /* Create User */,
 				284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */,
 				28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */,
@@ -961,6 +983,8 @@
 			children = (
 				ACB7E0C61D22AD690014F76D /* GenderSelector.xib */,
 				ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */,
+				AC33F4861D36D2AE009D10B5 /* DateSelector.xib */,
+				AC33F48A1D36D317009D10B5 /* DateSelector.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1314,6 +1338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC33F4871D36D2AE009D10B5 /* DateSelector.xib in Resources */,
 				28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */,
 				284A332E1D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				28143E271D29A18800139B0D /* Activities.storyboard in Resources */,
@@ -1349,6 +1374,7 @@
 				AC86BBE11D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
+				AC33F4881D36D2AE009D10B5 /* DateSelector.xib in Resources */,
 				28143E471D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A431D103A590013611E /* Main.storyboard in Resources */,
@@ -1378,6 +1404,7 @@
 				AC86BBE21D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
+				AC33F4891D36D2AE009D10B5 /* DateSelector.xib in Resources */,
 				28143E481D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
@@ -1748,6 +1775,7 @@
 				ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288B27BB1D37D1AC00B47DC0 /* Post.swift in Sources */,
 				AC74E10B1D2E8749004281F3 /* AccountBO.swift in Sources */,
+				AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC74E1121D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
@@ -1787,6 +1815,7 @@
 			files = (
 				288B28021D37E0D400B47DC0 /* KeyBO.swift in Sources */,
 				28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC7BB7951D37F64C0044ABE0 /* MechanismsResponses.swift in Sources */,
 				AC74E1131D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				288B27FB1D37E0D400B47DC0 /* SchoolBO.swift in Sources */,
 				288B27AD1D37D1AB00B47DC0 /* Phase.swift in Sources */,
@@ -1844,6 +1873,7 @@
 				284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				288B279B1D37D1AA00B47DC0 /* Educator.swift in Sources */,
 				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
+				AC33F48B1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
 				288B27241D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
@@ -2018,6 +2048,7 @@
 				288B27891D37D1A900B47DC0 /* Student.swift in Sources */,
 				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC74E10F1D2E8749004281F3 /* AccountBO.swift in Sources */,
+				AC33F48D1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				ACFFA1041D353644007DE324 /* MD5.swift in Sources */,
 				288B27961D37D1A900B47DC0 /* Event.swift in Sources */,
 				288B27F01D37E0D400B47DC0 /* PostBO.swift in Sources */,

@@ -13,6 +13,7 @@ class RestApiManager: NSObject {
 
 //    private static let baseURL = "api.ninoapp.com.br/"
     private static let baseURL = "https://www.ninoapp.com.br:5000/"
+    private static let device = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
     
     /**
      Makes GET request to api.ninoapp.com.br/
@@ -55,7 +56,7 @@ class RestApiManager: NSObject {
             let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
             request.HTTPBody = jsonBody
             request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            request.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A", forHTTPHeaderField: "User-Agent")
+            request.setValue(self.device, forHTTPHeaderField: "User-Agent")
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
                 guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
@@ -73,7 +74,49 @@ class RestApiManager: NSObject {
         } catch {
             onCompletion(json: nil, error: nil, statusCode: nil)
         }
+    }
+    
+    static func makeHTTPPostUploadRequest(path: String, token: String, data: NSData, onCompletion: ServiceResponse) {
+        let url = baseURL + path
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.HTTPMethod = "PUT"
+        let boundary = self.generateBoundaryString()
         
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.setValue(self.device, forHTTPHeaderField: "User-Agent")
+        
+        let body = NSMutableData()
+        let fname = "image.png"
+        let mimetype = "image/png"
+        
+        body.appendData("--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Disposition:form-data; name=\"picture\"; filename=\"\(fname)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("Content-Type: \(mimetype)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData(data)
+        body.appendData("\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        body.appendData("--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        request.HTTPBody = body
+        
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
+                onCompletion(json: nil, error: error, statusCode: nil)
+                return
+            }
+            guard let jsonData = data else {
+                onCompletion(json: nil, error: error, statusCode: statusCode)
+                return
+            }
+            let json = JSON(data: jsonData)
+            onCompletion(json: json, error: nil, statusCode: statusCode)
+        }
+        task.resume()
+    }
+    
+    private static func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().UUIDString)"
     }
     
 }

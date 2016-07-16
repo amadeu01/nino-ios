@@ -112,30 +112,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      - parameter error: Server Error throwed by login
      */
     private func errorAlert(error: ServerError) {
-        var title: String?
-        var message: String?
-        switch error {
-        case ServerError.BadRequest:
-            let alert = DefaultAlerts.emptyField()
-            self.presentViewController(alert, animated: true, completion: nil)
-        case ServerError.NotFound:
-            title = "Dados inválidos"
-            message = "Usuário ou senha inválidos."
-        case .InternetConnectionOffline, .CouldNotConnectToTheServer:
-            let alert = DefaultAlerts.connectionError(error, customAction: nil)
-            self.presentViewController(alert, animated: true, completion: nil)
-        default:
-            title = "Falha no login"
-            message = "Tente novamente."
-        }
-        if let tt = title {
-            if let txt = message {
-                let alertView = UIAlertController(title: tt, message: txt, preferredStyle: .Alert)
-                let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
-                alertView.addAction(okAction)
-                self.presentViewController(alertView, animated: true, completion: nil)
-            }
-        }
+        let title = "Falha no login"
+        let alert = DefaultAlerts.serverErrorAlert(error, title: title, customAction: nil)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
 //MARK: Button methods

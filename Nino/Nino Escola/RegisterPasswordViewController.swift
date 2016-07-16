@@ -140,14 +140,13 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
         AccountBO.registerPassword(confirmHash, password: self.passwordTextField.text!) { (register) in
             do {
                 let token = try register()
-                //TODO: decode JWT
                 let credential = CredentialBO.createCredential(token)
                 NinoSession.sharedInstance.setCredential(credential)
                 dispatch_async(dispatch_get_main_queue(), {
                     self.performSegueWithIdentifier("createSchool", sender: nil)
                 })
             } catch {
-                //TODO:handle error
+                //TODO:handle error and error data
             }
         }
     }

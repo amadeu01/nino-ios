@@ -13,6 +13,7 @@ enum ServerRoutes {
     case CheckIfValidated
     case ConfirmAccount
     case CreateSchool
+    case SendSchoolLogo
     case Login
     
     func description(param: [String]?) throws -> String {
@@ -26,6 +27,11 @@ enum ServerRoutes {
             return "accounts/authentication/" + hash[0]
         case .CreateSchool:
             return "schools"
+        case .SendSchoolLogo:
+            guard let id = param where id.count > 0 else {
+                throw RouteError.MissingParameter
+            }
+            return "schools/" + id[0] + "/logotype"
         case .Login:
             return "accounts/authentication"
         }
