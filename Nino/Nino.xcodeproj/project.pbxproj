@@ -301,6 +301,17 @@
 		AC182A421D103A420013611E /* CreateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateUser.storyboard */; };
 		AC182A431D103A590013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
 		AC182A441D103A5A0013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
+		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
+		AC33F47D1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */; };
+		AC33F47E1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */; };
+		AC33F47F1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */; };
+		AC33F4871D36D2AE009D10B5 /* DateSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC33F4861D36D2AE009D10B5 /* DateSelector.xib */; };
+		AC33F4881D36D2AE009D10B5 /* DateSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC33F4861D36D2AE009D10B5 /* DateSelector.xib */; };
+		AC33F4891D36D2AE009D10B5 /* DateSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC33F4861D36D2AE009D10B5 /* DateSelector.xib */; };
+		AC33F48B1D36D318009D10B5 /* DateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F48A1D36D317009D10B5 /* DateSelector.swift */; };
+		AC33F48C1D36D318009D10B5 /* DateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F48A1D36D317009D10B5 /* DateSelector.swift */; };
+		AC33F48D1D36D318009D10B5 /* DateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F48A1D36D317009D10B5 /* DateSelector.swift */; };
 		AC410BCA1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
 		AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
 		AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
@@ -1748,6 +1759,8 @@
 				AC0CDEF51D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				288B27D11D37D1AD00B47DC0 /* Activity.swift in Sources */,
 				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
+				AC9F99D61CEF712D001B53E8 /* School.swift in Sources */,
+				AC7BB78F1D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				288B27C91D37D1AD00B47DC0 /* Credential.swift in Sources */,
 				AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
 				28A046711D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
@@ -1836,6 +1849,8 @@
 				288B27FF1D37E0D400B47DC0 /* PostBO.swift in Sources */,
 				288B27B41D37D1AB00B47DC0 /* Event.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
+				28A046781D255980007E0053 /* Gender.swift in Sources */,
 				288B27AB1D37D1AB00B47DC0 /* Credential.swift in Sources */,
 				288B27FD1D37E0D400B47DC0 /* EducatorBO.swift in Sources */,
 				288B27FE1D37E0D400B47DC0 /* CredentialBO.swift in Sources */,
@@ -1871,6 +1886,7 @@
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				288B271C1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
+				AC33F47D1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
 				288B279B1D37D1AA00B47DC0 /* Educator.swift in Sources */,
 				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC33F48B1D36D318009D10B5 /* DateSelector.swift in Sources */,
@@ -1936,6 +1952,8 @@
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				28A046A71D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */,
+				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
+				AC7BB7921D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				28F366FE1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
@@ -1959,6 +1977,7 @@
 				28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC33F48C1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				288B277D1D37D1A800B47DC0 /* Educator.swift in Sources */,
 				28F366F71D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A4A0181D396706003E05C2 /* StudentTableViewCell.swift in Sources */,
@@ -1994,6 +2013,7 @@
 				ACFFA1031D353644007DE324 /* MD5.swift in Sources */,
 				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
+				AC33F47E1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
 				288B27E11D37E0D300B47DC0 /* PostBO.swift in Sources */,
 				AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				288B272D1D37CB4C00B47DC0 /* ClassroomTableViewCell.swift in Sources */,
@@ -2009,6 +2029,7 @@
 				288B27E71D37E0D300B47DC0 /* CalendarBO.swift in Sources */,
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				AC7BB7931D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				288B27E81D37E0D300B47DC0 /* ActivityBO.swift in Sources */,
 				288B27841D37D1A800B47DC0 /* Menu.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
@@ -2053,6 +2074,7 @@
 				288B27961D37D1A900B47DC0 /* Event.swift in Sources */,
 				288B27F01D37E0D400B47DC0 /* PostBO.swift in Sources */,
 				ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
+				AC33F47F1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
 				288B27F51D37E0D400B47DC0 /* MenuBO.swift in Sources */,
 				288B27901D37D1A900B47DC0 /* Room.swift in Sources */,
 				288B27221D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
@@ -2083,11 +2105,13 @@
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
+				AC7BB7961D37F64D0044ABE0 /* MechanismsResponses.swift in Sources */,
 				288B278B1D37D1A900B47DC0 /* Guardian.swift in Sources */,
 				288B271E1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				28F366F81D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				28F366F41D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
+				AC7BB7941D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				288B272E1D37CB4C00B47DC0 /* ClassroomTableViewCell.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				288B27F81D37E0D400B47DC0 /* EventBO.swift in Sources */,
