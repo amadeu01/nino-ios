@@ -11,18 +11,15 @@ import UIKit
 class ManageEducatorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addBackgroundWithImage(UIImage(named: "backgroundBolas"))
         tableView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
-        
         // Do any additional setup after loading the view.
     }
     
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,7 +37,8 @@ class ManageEducatorsViewController: UIViewController, UITableViewDelegate, UITa
         }
         return 6
     }
-    
+
+    //MARK: TableView Data Source
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Configure cell
         if indexPath.section == 0 {

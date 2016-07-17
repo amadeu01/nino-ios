@@ -259,6 +259,18 @@
 		28A4A0171D396706003E05C2 /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4A0161D396706003E05C2 /* StudentTableViewCell.swift */; };
 		28A4A0181D396706003E05C2 /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4A0161D396706003E05C2 /* StudentTableViewCell.swift */; };
 		28A4A0191D396706003E05C2 /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4A0161D396706003E05C2 /* StudentTableViewCell.swift */; };
+		28AE87081D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */; };
+		28AE87091D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */; };
+		28AE870A1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */; };
+		28AE870B1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */; };
+		28AE870C1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */; };
+		28AE870D1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */; };
+		28AE87131D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
+		28AE87141D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
+		28AE87151D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
+		28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
+		28AE871C1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
+		28AE871D1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
 		28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366EF1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
@@ -301,8 +313,6 @@
 		AC182A421D103A420013611E /* CreateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC182A3E1D103A420013611E /* CreateUser.storyboard */; };
 		AC182A431D103A590013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
 		AC182A441D103A5A0013611E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A001CEE137A00867624 /* Main.storyboard */; };
-		AC238B951CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
-		AC238B961CEFDABA00B10F75 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC238B941CEFDABA00B10F75 /* Gender.swift */; };
 		AC33F47D1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */; };
 		AC33F47E1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */; };
 		AC33F47F1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */; };
@@ -550,6 +560,10 @@
 		28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTopBarViewController.swift; sourceTree = "<group>"; };
 		28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileNavigationController.swift; sourceTree = "<group>"; };
 		28A4A0161D396706003E05C2 /* StudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
+		28AE87061D3AAE6200993AF8 /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
+		28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
+		28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardManagementTableViewCell.swift; sourceTree = "<group>"; };
+		28AE871A1D3BC20E00993AF8 /* DataStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 		28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorProfileViewController.swift; sourceTree = "<group>"; };
 		28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterStudentViewController.swift; sourceTree = "<group>"; };
 		28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
@@ -733,6 +747,7 @@
 				288B27271D37CB2100B47DC0 /* PhaseTableViewCell.swift */,
 				288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */,
 				28A4A0161D396706003E05C2 /* StudentTableViewCell.swift */,
+				28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -742,6 +757,7 @@
 			children = (
 				28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */,
 				28F366FD1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift */,
+				28AE871A1D3BC20E00993AF8 /* DataStructure.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -823,6 +839,8 @@
 			children = (
 				AC86BBD01D0F4329005282E7 /* Fonts */,
 				28A046611D254C30007E0053 /* NinoFont.swift */,
+				28AE87061D3AAE6200993AF8 /* UIImageView+Letters.h */,
+				28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */,
 				ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */,
 				28A046681D254D0A007E0053 /* FluentConstraints.h */,
 				28A046691D254D0A007E0053 /* FluentConstraints.swift */,
@@ -1758,8 +1776,8 @@
 				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				AC0CDEF51D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				288B27D11D37D1AD00B47DC0 /* Activity.swift in Sources */,
+				28AE87081D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
-				AC9F99D61CEF712D001B53E8 /* School.swift in Sources */,
 				AC7BB78F1D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				288B27C91D37D1AD00B47DC0 /* Credential.swift in Sources */,
 				AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
@@ -1791,6 +1809,7 @@
 				AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
+				28AE87091D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				AC74E1121D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				288B27BF1D37D1AC00B47DC0 /* Error.swift in Sources */,
 				AC0CDEF61D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
@@ -1850,7 +1869,6 @@
 				288B27B41D37D1AB00B47DC0 /* Event.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
-				28A046781D255980007E0053 /* Gender.swift in Sources */,
 				288B27AB1D37D1AB00B47DC0 /* Credential.swift in Sources */,
 				288B27FD1D37E0D400B47DC0 /* EducatorBO.swift in Sources */,
 				288B27FE1D37E0D400B47DC0 /* CredentialBO.swift in Sources */,
@@ -1868,6 +1886,7 @@
 				288B27F91D37E0D400B47DC0 /* LoginBO.swift in Sources */,
 				288B27A71D37D1AB00B47DC0 /* Student.swift in Sources */,
 				288B27FC1D37E0D400B47DC0 /* GuardianBO.swift in Sources */,
+				28AE870A1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				288B28051D37E0D400B47DC0 /* CalendarBO.swift in Sources */,
 				288B27B31D37D1AB00B47DC0 /* Activity.swift in Sources */,
@@ -1890,6 +1909,7 @@
 				288B279B1D37D1AA00B47DC0 /* Educator.swift in Sources */,
 				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC33F48B1D36D318009D10B5 /* DateSelector.swift in Sources */,
+				28AE870B1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
 				288B27241D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
@@ -1952,13 +1972,14 @@
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				28A046A71D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */,
-				AC9F99DA1CEF7136001B53E8 /* Guardian.swift in Sources */,
 				AC7BB7921D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				28F366FE1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
+				28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				AC0CDEF71D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
+				28AE87131D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
 				28F367041D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				AC529EE51CF48A93003C1063 /* StudentBO.swift in Sources */,
 			);
@@ -1976,6 +1997,7 @@
 				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
 				28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
+				28AE870C1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC33F48C1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				288B277D1D37D1A800B47DC0 /* Educator.swift in Sources */,
@@ -1984,6 +2006,7 @@
 				288B277E1D37D1A800B47DC0 /* Credential.swift in Sources */,
 				288B27831D37D1A800B47DC0 /* Error.swift in Sources */,
 				288B27811D37D1A800B47DC0 /* Room.swift in Sources */,
+				28AE87141D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
 				288B277C1D37D1A800B47DC0 /* Guardian.swift in Sources */,
 				284C5FEE1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				288B277B1D37D1A800B47DC0 /* School.swift in Sources */,
@@ -2041,6 +2064,7 @@
 				288B27E01D37E0D300B47DC0 /* CredentialBO.swift in Sources */,
 				28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				28AE871C1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				28F367051D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				288B27DE1D37E0D300B47DC0 /* GuardianBO.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
@@ -2069,6 +2093,7 @@
 				288B27891D37D1A900B47DC0 /* Student.swift in Sources */,
 				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC74E10F1D2E8749004281F3 /* AccountBO.swift in Sources */,
+				28AE871D1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				AC33F48D1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				ACFFA1041D353644007DE324 /* MD5.swift in Sources */,
 				288B27961D37D1A900B47DC0 /* Event.swift in Sources */,
@@ -2102,9 +2127,11 @@
 				288B278E1D37D1A900B47DC0 /* Post.swift in Sources */,
 				288B27941D37D1A900B47DC0 /* Calendar.swift in Sources */,
 				288B278A1D37D1A900B47DC0 /* School.swift in Sources */,
+				28AE87151D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
+				28AE870D1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				AC7BB7961D37F64D0044ABE0 /* MechanismsResponses.swift in Sources */,
 				288B278B1D37D1A900B47DC0 /* Guardian.swift in Sources */,
 				288B271E1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,

@@ -8,26 +8,17 @@
 
 import UIKit
 
-class PhaseTableViewCell: UITableViewCell {
+class PhaseTableViewCell: StandardManagementTableViewCell {
 
     @IBOutlet weak var phaseNameLabel: UILabel!
     /// Once this variable is set, the label will change
-    internal var phaseName: String? {
-        didSet {
-            self.phaseNameLabel.text = phaseName
-            if phaseName != oldValue {
-                //TODO: Change Picture when old value changes
-            }
-        }
-    }
+    
+    @IBOutlet weak var phaseProfileImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.nameLabel = phaseNameLabel
+        self.profileImageView = phaseProfileImageView
+        
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+   
 }

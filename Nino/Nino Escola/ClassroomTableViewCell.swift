@@ -8,20 +8,17 @@
 
 import UIKit
 
-class ClassroomTableViewCell: UITableViewCell {
+class ClassroomTableViewCell: StandardManagementTableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var classroomNameLabel: UILabel!
+    @IBOutlet weak var classroomProfileImageView: UIImageView!
+    
     /// Once this variable is set, the label will change
-    internal var name: String? {
-        didSet {
-            self.nameLabel.text = name
-            if name != oldValue{
-                //TODO: Change Picture when old value changes
-            }
-        }
-    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.profileImageView = classroomProfileImageView
+        self.nameLabel = classroomNameLabel
         // Initialization code
     }
     

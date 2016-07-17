@@ -69,7 +69,8 @@
                                                         <exclude reference="1bj-Nv-pvU"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=regular">
+                                                <variation key="widthClass=regular" misplaced="YES">
+                                                    <rect key="frame" x="-586" y="10" width="1268" height="67"/>
                                                     <mask key="constraints">
                                                         <exclude reference="1bj-Nv-pvU"/>
                                                     </mask>
@@ -889,7 +890,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGS-TN-Cnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JT3-t4-XPY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3698.25" y="1030"/>
+            <point key="canvasLocation" x="3684.75" y="1182"/>
         </scene>
         <!--Manage Educators View Controller-->
         <scene sceneID="oup-we-Y21">
@@ -925,9 +926,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=regular" misplaced="YES">
-                                                        <rect key="frame" x="25" y="12" width="191" height="21"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>

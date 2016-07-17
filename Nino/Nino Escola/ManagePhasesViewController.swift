@@ -110,7 +110,9 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
             guard let phaseCell = cell as? PhaseTableViewCell else {
                 return
             }
-            phaseCell.phaseName = phasesMock[indexPath.row].name
+            phaseCell.configureCell(phasesMock[indexPath.row].name, profileImage: nil, index: indexPath.row)
+            phaseCell.accessoryType = .DisclosureIndicator
+            
         }
     }
     
