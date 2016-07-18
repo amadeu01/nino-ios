@@ -49,10 +49,6 @@ class DateSelector: UIView {
     }
     
 //MARK: View initialization
-    @objc private func function() {
-        print("hey")
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         self.today = NSDate()
         self.currentDay = self.today

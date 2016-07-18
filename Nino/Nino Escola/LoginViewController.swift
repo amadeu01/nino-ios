@@ -176,18 +176,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 do {
                     //tries to get the credential
                     let credential = try getCredential()
-                    //TODO: decode JWT and save active educator on NinoSession
                     NinoSession.sharedInstance.setCredential(credential)
-                    //gets main queue to make UI changes
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        self.activityIndicator.stopAnimating()
-                        //changes the view
-                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            delegate.loggedIn = true
-                            delegate.setupRootViewController(true)
+                    EducatorBO.getEducator(self.usernameTextField.text!, token: credential.token, completionHandler: { (getProfile) in
+                        do {
+                            //tries to get the current educator
+                            let educator = try getProfile()
+                            NinoSession.sharedInstance.setEducator(educator)
+                            //gets main queue to make UI changes
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.activityIndicator.stopAnimating()
+                                //changes the view
+                                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                    delegate.loggedIn = true
+                                    delegate.setupRootViewController(true)
+                                }
+                            })
+                        }
+                        //getEducator error
+                        catch let profileError {
+                            
                         }
                     })
-                } catch let error {
+                }
+                //login error
+                catch let error {
                     //clean userDefaults and keychain
                     KeyBO.removePasswordAndUsername()
                     dispatch_async(dispatch_get_main_queue(), { 

@@ -13,20 +13,31 @@ class RestApiManager: NSObject {
 
 //    private static let baseURL = "api.ninoapp.com.br/"
     private static let baseURL = "https://www.ninoapp.com.br:5000/"
+    //FIXME: fix device id
     private static let device = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
     
     /**
      Makes GET request to api.ninoapp.com.br/
      
+     - parameter group:        optional int to make requests in group
      - parameter path:         path to make the request
+     - parameter token:        optional user token
      - parameter onCompletion: Completion block with JSON data and NSError
      */
-    static func makeHTTPGetRequest(path: String, onCompletion: ServiceResponse) {
+    static func makeHTTPGetRequest(group: Int?, path: String, token: String?, onCompletion: ServiceResponse) {
         let url = baseURL + path
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.HTTPMethod = "GET"
+        request.setValue(self.device, forHTTPHeaderField: "User-Agent")
+        if let userToken = token {
+            request.setValue(userToken, forHTTPHeaderField: "x-access-token")
+        }
         let session = NSURLSession.sharedSession()
+        if let ninoGroup = group {
+            dispatch_group_enter(NinoDispatchGroupes.getGroup(ninoGroup))
+        }
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            print("\n\n"+response!.description+"\n\n")
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
                 onCompletion(json: nil, error: error, statusCode: nil)
                 return
@@ -36,6 +47,9 @@ class RestApiManager: NSObject {
                 onCompletion(json: json, error: error, statusCode: statusCode)
             } else {
                 onCompletion(json: nil, error: error, statusCode: statusCode)
+            }
+            if let ninoGroup = group {
+                dispatch_group_leave(NinoDispatchGroupes.getGroup(ninoGroup))
             }
         }
         task.resume()

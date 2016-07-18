@@ -14,7 +14,7 @@ import Foundation
  - Male:   Male type
  - Female: Female type
  */
-enum Gender {
+enum Gender: Int {
     case Male
     case Female
 }

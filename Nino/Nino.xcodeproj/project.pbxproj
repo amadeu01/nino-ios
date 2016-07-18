@@ -188,6 +188,10 @@
 		AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF21CF4A82F003C1063 /* CredentialBO.swift */; };
 		AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
 		AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
+		AC7143F21D3D66FF00C743A5 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
+		AC7143F31D3D66FF00C743A5 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
+		AC7143F41D3D670000C743A5 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
+		AC7143F51D3D670000C743A5 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		AC74E1031D2D4908004281F3 /* RouteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1021D2D4908004281F3 /* RouteError.swift */; };
 		AC74E1041D2D4908004281F3 /* RouteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1021D2D4908004281F3 /* RouteError.swift */; };
 		AC74E1051D2D4908004281F3 /* RouteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1021D2D4908004281F3 /* RouteError.swift */; };
@@ -259,6 +263,20 @@
 		AC86BC001D0F43F8005282E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */; };
 		AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */; };
 		AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */; };
+		AC8978231D3D081200022BDC /* Educator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DB1CEF7146001B53E8 /* Educator.swift */; };
+		AC8978241D3D081300022BDC /* Educator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DB1CEF7146001B53E8 /* Educator.swift */; };
+		AC8978251D3D081400022BDC /* Educator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DB1CEF7146001B53E8 /* Educator.swift */; };
+		AC8978261D3D081400022BDC /* Educator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F99DB1CEF7146001B53E8 /* Educator.swift */; };
+		AC8978271D3D084500022BDC /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
+		AC8978281D3D084600022BDC /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
+		AC8978291D3D08F600022BDC /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
+		AC89782A1D3D08F700022BDC /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BC91D05A880003EB66B /* ServerError.swift */; };
+		AC89782C1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */; };
+		AC89782D1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */; };
+		AC89782E1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */; };
+		AC89782F1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */; };
+		AC8978301D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */; };
+		AC8978311D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */; };
 		AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */; };
 		AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */; };
 		AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */; };
@@ -331,6 +349,12 @@
 		ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
 		ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
 		ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
+		ACE961CA1D3D0739003B3D17 /* EducatorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */; };
+		ACE961CB1D3D0739003B3D17 /* EducatorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */; };
+		ACE961CC1D3D073A003B3D17 /* EducatorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */; };
+		ACE961CD1D3D073A003B3D17 /* EducatorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */; };
+		ACE961CE1D3D0795003B3D17 /* AccountMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BAC41CF5D88A00CB3CD2 /* AccountMechanism.swift */; };
+		ACE961CF1D3D0796003B3D17 /* AccountMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC89BAC41CF5D88A00CB3CD2 /* AccountMechanism.swift */; };
 		ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39C81CEE128B00867624 /* AppDelegate.swift */; };
 		ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39CA1CEE128B00867624 /* ViewController.swift */; };
 		ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
@@ -485,6 +509,7 @@
 		AC86BBD51D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-BoldCondObl.otf"; sourceTree = "<group>"; };
 		AC86BBD61D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaRoundedLT-BoldObl.otf"; sourceTree = "<group>"; };
 		AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoDispatchGroupes.swift; sourceTree = "<group>"; };
 		AC89BABE1CF5D5D800CB3CD2 /* LoginBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBO.swift; sourceTree = "<group>"; };
 		AC89BAC41CF5D88A00CB3CD2 /* AccountMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountMechanism.swift; sourceTree = "<group>"; };
 		AC9CA6321D0CB429007AAAA6 /* SchoolMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolMechanism.swift; sourceTree = "<group>"; };
@@ -835,6 +860,7 @@
 				ACFBADD81D2D29F50060EC75 /* ServerRoutes.swift */,
 				AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */,
 				ACFFA0FE1D353644007DE324 /* MD5.swift */,
+				AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -1583,6 +1609,7 @@
 			files = (
 				AC410BCF1D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				AC89782C1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC9F99F71CEF7270001B53E8 /* Activity.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC74E1031D2D4908004281F3 /* RouteError.swift in Sources */,
@@ -1644,8 +1671,11 @@
 				AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC89BAC01CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				ACFBADDA1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
+				AC7143F21D3D66FF00C743A5 /* NinoSession.swift in Sources */,
 				AC74E1041D2D4908004281F3 /* RouteError.swift in Sources */,
+				AC89782D1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */,
+				AC8978231D3D081200022BDC /* Educator.swift in Sources */,
 				AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */,
 				ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC74E10B1D2E8749004281F3 /* AccountBO.swift in Sources */,
@@ -1660,6 +1690,7 @@
 				AC0CDEFB1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC9CA6341D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				ACE961CA1D3D0739003B3D17 /* EducatorBO.swift in Sources */,
 				AC9CA6391D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				28A046771D25597F007E0053 /* Gender.swift in Sources */,
@@ -1677,6 +1708,7 @@
 			files = (
 				28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC7BB7951D37F64C0044ABE0 /* MechanismsResponses.swift in Sources */,
+				AC8978271D3D084500022BDC /* ErrorBO.swift in Sources */,
 				AC74E1131D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
@@ -1686,12 +1718,18 @@
 				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
+				ACE961CB1D3D0739003B3D17 /* EducatorBO.swift in Sources */,
 				28A046781D255980007E0053 /* Gender.swift in Sources */,
 				ACA6A9731D2BE71C0009F158 /* RestApiManager.swift in Sources */,
+				AC89782E1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
+				ACE961CE1D3D0795003B3D17 /* AccountMechanism.swift in Sources */,
 				ACFFA1011D353644007DE324 /* MD5.swift in Sources */,
+				AC8978241D3D081300022BDC /* Educator.swift in Sources */,
 				ACFBADDB1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
+				AC7143F31D3D66FF00C743A5 /* NinoSession.swift in Sources */,
 				AC74E10C1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
+				AC8978291D3D08F600022BDC /* ServerError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1722,6 +1760,7 @@
 				AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
 				28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
 				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
+				AC89782F1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC9F99E91CEF7233001B53E8 /* Room.swift in Sources */,
@@ -1795,6 +1834,7 @@
 				AC410BD21D05ACD1003EB66B /* ErrorBO.swift in Sources */,
 				284C5FEE1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				ACE961CC1D3D073A003B3D17 /* EducatorBO.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
@@ -1805,6 +1845,7 @@
 				AC74E1071D2D4908004281F3 /* RouteError.swift in Sources */,
 				AC0CDEF81D05EBB00000ECE9 /* CalendarBO.swift in Sources */,
 				284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
+				AC7143F41D3D670000C743A5 /* NinoSession.swift in Sources */,
 				28F366F31D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				28F366FF1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				ACFFA1031D353644007DE324 /* MD5.swift in Sources */,
@@ -1822,6 +1863,7 @@
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC7BB7931D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
+				AC8978251D3D081400022BDC /* Educator.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
 				AC9EC7091D240CA200D54857 /* CreateUserViewController.swift in Sources */,
@@ -1831,6 +1873,7 @@
 				AC0CDEE91D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				28F367051D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
+				AC8978301D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1840,6 +1883,8 @@
 			files = (
 				AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
 				28F367061D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
+				ACE961CD1D3D073A003B3D17 /* EducatorBO.swift in Sources */,
+				ACE961CF1D3D0796003B3D17 /* AccountMechanism.swift in Sources */,
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				284C5FEB1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
@@ -1855,10 +1900,13 @@
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				284C5FEF1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
+				AC8978311D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC07C43B1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
+				AC8978281D3D084600022BDC /* ErrorBO.swift in Sources */,
+				AC8978261D3D081400022BDC /* Educator.swift in Sources */,
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
@@ -1872,7 +1920,9 @@
 				28A046A51D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC74E1081D2D4908004281F3 /* RouteError.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				AC89782A1D3D08F700022BDC /* ServerError.swift in Sources */,
 				28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
+				AC7143F51D3D670000C743A5 /* NinoSession.swift in Sources */,
 				ACA6A9761D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				28F367001D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,

@@ -49,6 +49,88 @@ class EducatorBO: NSObject {
                 })
             }
         }
+    }
+    
+    static func getEducator(email: String, token: String, completionHandler: (getProfile: () throws -> Educator) -> Void) {
+        
+        var userName: String?
+        var userSurname: String?
+        var userBirthDate: NSDate?
+        var userGender: Gender?
+        var profileError: Int?
+        var profileData: String?
+        var userIDs: [Int]?
+        var userSchools: [Int]?
+        var employeeError: Int?
+        var employeeData: String?
+        
+        AccountMechanism.getMyProfile(0, token: token) { (name, surname, birthDate, gender, error, data) in
+            userName = name
+            userSurname = surname
+            userBirthDate = birthDate
+            userGender = gender
+            profileError = error
+            profileData = data
+        }
+        
+        AccountMechanism.getEmployeeInformation(0, token: token) { (ids, schools, error, data) in
+            userIDs = ids
+            userSchools = schools
+            employeeError = error
+            employeeData = data
+        }
+        
+        dispatch_group_notify(NinoDispatchGroupes.getGroup(0), dispatch_get_main_queue()) {
+            //error
+            //TODO: handle error data in both cases
+            if let error = profileError {
+                completionHandler(getProfile: { () -> Educator in
+                    throw ErrorBO.decodeServerError(error)
+                })
+            }
+            if let error = employeeError {
+                completionHandler(getProfile: { () -> Educator in
+                    throw ErrorBO.decodeServerError(error)
+                })
+            }
+            //unexpected cases
+            guard let name = userName else {
+                completionHandler(getProfile: { () -> Educator in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let surname = userSurname else {
+                completionHandler(getProfile: { () -> Educator in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let gender = userGender else {
+                completionHandler(getProfile: { () -> Educator in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let userId = userIDs where userId.count > 0 else {
+                completionHandler(getProfile: { () -> Educator in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let schoolID = userSchools where schoolID.count > 0 else {
+                completionHandler(getProfile: { () -> Educator in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            //success
+            completionHandler(getProfile: { () -> Educator in
+                //FIXME: retrieve the correct id and school
+                NSUserDefaults.standardUserDefaults().setValue(schoolID.first!, forKey: "schoolID")
+                return Educator(id: userId.first!, name: name, surname: surname, gender: gender, email: email, school: nil, phases: nil, rooms: nil)
+            })
+        }
         
     }
 }
