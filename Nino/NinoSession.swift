@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftKeychainWrapper
 
 class NinoSession: NSObject {
     

@@ -1,21 +1,20 @@
 //
-//  RegisterNewClassroomViewController.swift
+//  RegisterNewPhaseViewController.swift
 //  Nino
 //
-//  Created by Alfredo Cavalcante Neto on 7/9/16.
+//  Created by Alfredo Cavalcante Neto on 7/13/16.
 //  Copyright © 2016 Danilo Becke. All rights reserved.
 //
 
 import UIKit
 
-class RegisterNewClassroomViewController: UIViewController {
+class RegisterNewPhaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,9 +26,8 @@ class RegisterNewClassroomViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func didPressCloseViewController(sender: AnyObject) {
-        performSegueWithIdentifier("goBackToManageClassroomsViewController", sender: self)
+    @IBAction func shouldCloseViewController(sender: AnyObject) {
+        self.performSegueWithIdentifier("goBackToPhasesViewController", sender: self)
     }
 
     /*

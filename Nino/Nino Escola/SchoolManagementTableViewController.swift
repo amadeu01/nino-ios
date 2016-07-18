@@ -8,11 +8,7 @@
 
 import UIKit
 
-struct DataStructure {
-    var section: String
-    var rows: NSMutableArray
-    var icons: [UIImage]
-}
+
 
 class SchoolManagementTableViewController: UITableViewController {
 
@@ -51,6 +47,7 @@ class SchoolManagementTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section].section
     }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("configCell")
@@ -69,12 +66,15 @@ class SchoolManagementTableViewController: UITableViewController {
             print(view.bounds.height)
         }
     }
-    
-    
-    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 20)
+        let headerView  = UIView(frame: frame)
+        headerView.backgroundColor = UIColor.clearColor()
+        return headerView
+    }
    func configureSections() {
         self.sections.append(DataStructure(section: "Dia-a-dia", rows: ["Calendário", "Cardápio"], icons: [UIImage(named: "iconPlaceholder")!, UIImage(named: "iconPlaceholder")!]))
-        self.sections.append(DataStructure(section: "Administração", rows: ["Cadastrar Aluno", "Gerenciar Educadores", "Gerenciar Turmas" /*"Recuperar Senha"*/], icons: [UIImage(named: "Becke_Adicionar-bebe")!, UIImage(named: "Becke_Darth-Vader")!, UIImage(named: "iconPlaceholder")!]))
+        self.sections.append(DataStructure(section: "Administração", rows: ["Gerenciar Educadores", "Gerenciar Turmas" /*"Recuperar Senha"*/], icons: [UIImage(named: "Becke_Darth-Vader")!, UIImage(named: "iconPlaceholder")!]))
         self.sections.append(DataStructure(section: "Sobre", rows: ["Legal"], icons: [UIImage(named: "Becke_Creditos-pais")!]))
         self.sections.append(DataStructure(section: "Conta", rows: ["Sair"], icons: [UIImage(named: "Becke_Sair")!]))
     }
@@ -93,15 +93,13 @@ class SchoolManagementTableViewController: UITableViewController {
             self.performSegueWithIdentifier("showScheduleViewController", sender: indexPath)
         case 1: //Meals Menus
             self.performSegueWithIdentifier("showMealMenuViewController", sender: indexPath)
-        case 2: //Register Student
-            self.performSegueWithIdentifier("showRegisterStudentViewController", sender: indexPath)
-        case 3: //Manage Educator
+        case 2: //Manage Educator
             self.performSegueWithIdentifier("showManageEducatorsViewController", sender: indexPath)
-        case 4: //Manage Classrooms
+        case 3: //Manage Phases
             self.performSegueWithIdentifier("showManageClassroomsViewController", sender: indexPath)
-        case 5: //Legal Stuff
+        case 4: //Legal Stuff
             self.performSegueWithIdentifier("showLegalStuffViewController", sender: indexPath)
-        case 6: //Logout
+        case 5: //Logout
             logOut()
         default: //Just do nothing
             print("Error: A cell was selected but the app does not know what to do with it. What's going on, Nino?")
@@ -113,6 +111,4 @@ class SchoolManagementTableViewController: UITableViewController {
     func logOut(){
         //TODO: Should prompt the user if he would like to logg
     }
-
-
 }
