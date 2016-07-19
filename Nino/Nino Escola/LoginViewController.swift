@@ -180,8 +180,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     EducatorBO.getEducator(self.usernameTextField.text!, token: credential.token, completionHandler: { (getProfile) in
                         do {
                             //tries to get the current educator
-                            let educator = try getProfile()
+                            let (educator, schoolID) = try getProfile()
                             NinoSession.sharedInstance.setEducator(educator)
+                            //get school info
+                            SchoolBO.getSchool(credential.token, schoolID: schoolID, completionHandler: { (school) in
+                                do {
+                                    let school = try school()
+                                    NinoSession.sharedInstance.setSchool(school)
+                                    //posting notification
+                                    NinoSessionNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
+                                    //get phases
+                                    PhaseBO.getPhases(credential.token, schoolID: schoolID, completionHandler: { (phases) in
+                                        do {
+                                            let phases = try phases()
+                                            NinoSession.sharedInstance.setPhasesForSchool(phases)
+                                            NinoSessionNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
+                                        } catch {
+                                            //TODO: handle getPhases error
+                                        }
+                                    })
+                                } catch {
+                                    //TODO: handle getSchool error
+                                }
+                            })
                             //gets main queue to make UI changes
                             dispatch_async(dispatch_get_main_queue(), {
                                 self.activityIndicator.stopAnimating()
@@ -194,7 +215,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         }
                         //getEducator error
                         catch let profileError {
-                            
+                            //TODO: handle profile error
                         }
                     })
                 }

@@ -74,4 +74,33 @@ class SchoolMechanism: NSObject {
             //TODO: handle missing parameter error
         }
     }
+    
+    static func getSchool(token: String, schoolID: Int, completionHandler: (name: String?, email: String?, telephone: String?, address: String?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetSchool.description([String(schoolID)])
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(name: nil, email: nil, telephone: nil, address: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(name: nil, email: nil, telephone: nil, address: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let name = json["data"]["name"].string
+                    let email = json["data"]["email"].string
+                    let telephone = json["data"]["telephone"].string
+                    let address = json["data"]["address"].string
+                    completionHandler(name: name, email: email, telephone: telephone, address: address, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
 }

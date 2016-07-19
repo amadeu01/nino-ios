@@ -51,7 +51,7 @@ class EducatorBO: NSObject {
         }
     }
     
-    static func getEducator(email: String, token: String, completionHandler: (getProfile: () throws -> Educator) -> Void) {
+    static func getEducator(email: String, token: String, completionHandler: (getProfile: () throws -> (Educator, Int)) -> Void) {
         
         var userName: String?
         var userSurname: String?
@@ -84,51 +84,50 @@ class EducatorBO: NSObject {
             //error
             //TODO: handle error data in both cases
             if let error = profileError {
-                completionHandler(getProfile: { () -> Educator in
+                completionHandler(getProfile: { () -> (Educator, Int) in
                     throw ErrorBO.decodeServerError(error)
                 })
             }
             if let error = employeeError {
-                completionHandler(getProfile: { () -> Educator in
+                completionHandler(getProfile: { () -> (Educator, Int) in
                     throw ErrorBO.decodeServerError(error)
                 })
             }
             //unexpected cases
             guard let name = userName else {
-                completionHandler(getProfile: { () -> Educator in
+                completionHandler(getProfile: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let surname = userSurname else {
-                completionHandler(getProfile: { () -> Educator in
+                completionHandler(getProfile: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let gender = userGender else {
-                completionHandler(getProfile: { () -> Educator in
+                completionHandler(getProfile: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let userId = userIDs where userId.count > 0 else {
-                completionHandler(getProfile: { () -> Educator in
+                completionHandler(getProfile: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let schoolID = userSchools where schoolID.count > 0 else {
-                completionHandler(getProfile: { () -> Educator in
+                completionHandler(getProfile: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             //success
-            completionHandler(getProfile: { () -> Educator in
+            completionHandler(getProfile: { () -> (Educator, Int) in
                 //FIXME: retrieve the correct id and school
-                NSUserDefaults.standardUserDefaults().setValue(schoolID.first!, forKey: "schoolID")
-                return Educator(id: userId.first!, name: name, surname: surname, gender: gender, email: email, school: nil, phases: nil, rooms: nil)
+                return (Educator(id: userId.first!, name: name, surname: surname, gender: gender, email: email, school: nil, phases: nil, rooms: nil), schoolID.first!)
             })
         }
         

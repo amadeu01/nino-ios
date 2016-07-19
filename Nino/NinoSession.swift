@@ -58,4 +58,13 @@ class NinoSession: NSObject {
         self._school = school
     }
     
+    /**
+     Set phases for current school
+     
+     - parameter phases: array of phases
+     */
+    func setPhasesForSchool(phases: [Phase]) {
+        self._school?.phases = phases
+    }
+    
 }

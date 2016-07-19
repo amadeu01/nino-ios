@@ -37,7 +37,6 @@ class RestApiManager: NSObject {
             dispatch_group_enter(NinoDispatchGroupes.getGroup(ninoGroup))
         }
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
-            print("\n\n"+response!.description+"\n\n")
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
                 onCompletion(json: nil, error: error, statusCode: nil)
                 return

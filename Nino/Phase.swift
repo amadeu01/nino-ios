@@ -15,7 +15,6 @@ struct Phase {
 
 //MARK: Attributes
     let id: Int
-    let school: School
     let name: String
     var rooms: [Room]?
     var menu: Menu?
@@ -26,7 +25,6 @@ struct Phase {
      Initialize one phase
 
      - parameter id:         unique identifier
-     - parameter school:     phase's owner
      - parameter name:       phase's name
      - parameter rooms:      optional list of rooms
      - parameter menu:       optional menu
@@ -34,9 +32,8 @@ struct Phase {
 
      - returns: struct VO of Phase type
      */
-    init(id: Int, school: School, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?) {
+    init(id: Int, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?) {
         self.id = id
-        self.school = school
         self.name = name
         if let places = rooms {
             self.rooms = places

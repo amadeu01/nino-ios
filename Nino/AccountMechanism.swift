@@ -82,8 +82,7 @@ class AccountMechanism: NSObject {
                     completionHandler(userID: userID, error: nil, data: nil)
                 }
             }
-        }
-        catch {
+        } catch {
             //path error - in this case, never will be reached
         }
     }

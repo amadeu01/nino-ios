@@ -18,6 +18,10 @@ class StudentProfileListController: UITableViewController {
         self.studentProfileTableView.dataSource = self
         self.studentProfileTableView.delegate = self
         
+        //registering for notification
+        NinoSessionNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
+        NinoSessionNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
+        
         //self.studentProfileTableView.reloadData()
     }
     override func viewWillAppear(animated: Bool) {
@@ -63,5 +67,16 @@ class StudentProfileListController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showStudentProfile", sender: self)
+    }
+    
+    //MARK: Notification Manager methods
+    @objc private func schoolUpdated() {
+        //TODO: update school label
+        print("School notification working!")
+    }
+    
+    @objc private func phasesUpdated() {
+        //TODO: update phases buttons
+        print("Phases notification working!")
     }
 }

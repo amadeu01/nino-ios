@@ -70,8 +70,45 @@ class SchoolBO: NSObject {
                 })
             }
         }
-        
     }
     
-    
+    static func getSchool(token: String, schoolID: Int, completionHandler: (school: () throws -> School) -> Void) {
+        SchoolMechanism.getSchool(token, schoolID: schoolID) { (name, email, telephone, address, error, data) in
+            //TODO: handle error data
+            if let error = error {
+                completionHandler(school: { () -> School in
+                    throw ErrorBO.decodeServerError(error)
+                })
+            }
+            //Unexpected cases
+            guard let schoolName = name else {
+                completionHandler(school: { () -> School in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let schoolEmail = email else {
+                completionHandler(school: { () -> School in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let schoolPhone = telephone else {
+                completionHandler(school: { () -> School in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let schoolAddr = address else {
+                completionHandler(school: { () -> School in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            //success
+            completionHandler(school: { () -> School in
+                return School(id: schoolID, name: schoolName, address: schoolAddr, cnpj: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil, phases: nil, educators: nil, students: nil, menus: nil, activities: nil, calendars: nil)
+            })
+        }
+    }
 }
