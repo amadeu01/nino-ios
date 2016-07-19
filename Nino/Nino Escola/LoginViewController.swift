@@ -193,7 +193,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     PhaseBO.getPhases(credential.token, schoolID: schoolID, completionHandler: { (phases) in
                                         do {
                                             let phases = try phases()
-                                            NinoSession.sharedInstance.setPhasesForSchool(phases)
+                                            NinoSession.sharedInstance.addPhasesForSchool(phases)
                                             NinoSessionNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
                                         } catch {
                                             //TODO: handle getPhases error

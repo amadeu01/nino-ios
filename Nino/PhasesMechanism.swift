@@ -47,4 +47,32 @@ class PhasesMechanism: NSObject {
             //TODO: handle route error
         }
     }
+    
+    static func createPhase(token: String, schoolID: Int, name: String, completionHandler: (id: Int?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.CreatePhase.description([String(schoolID)])
+            let body: [String: AnyObject] = ["token": token, "class_name": name]
+            RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(id: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(id: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let id = json["data"]["class"]["id"].int
+                    completionHandler(id: id, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle route error
+        }
+    }
+    
 }

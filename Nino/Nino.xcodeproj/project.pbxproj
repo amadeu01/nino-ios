@@ -24,7 +24,6 @@
 		28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E131D29A0D100139B0D /* MyDay.storyboard */; };
 		28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */; };
 		28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */; };
-		28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
 		28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
 		28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
 		28143E461D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E441D2BF4B300139B0D /* RegisterStudent.storyboard */; };
@@ -247,9 +246,6 @@
 		28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
 		28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
 		28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0466A1D254D0A007E0053 /* FluentConstraintSet.swift */; };
-		28A046A01D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
-		28A046A11D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
-		28A046A21D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
 		28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
 		28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
 		28A046A51D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */; };
@@ -329,6 +325,41 @@
 		AC410BCF1D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
 		AC410BD01D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
 		AC410BD11D05ACD1003EB66B /* ErrorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */; };
+		AC47FCC11D3E644D00FB3CB6 /* MySleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBB1D3E644D00FB3CB6 /* MySleep.swift */; };
+		AC47FCC21D3E644D00FB3CB6 /* MySleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBB1D3E644D00FB3CB6 /* MySleep.swift */; };
+		AC47FCC31D3E644D00FB3CB6 /* MySleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBB1D3E644D00FB3CB6 /* MySleep.swift */; };
+		AC47FCC41D3E644D00FB3CB6 /* MySleep.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCBC1D3E644D00FB3CB6 /* MySleep.xib */; };
+		AC47FCC51D3E644D00FB3CB6 /* MySleep.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCBC1D3E644D00FB3CB6 /* MySleep.xib */; };
+		AC47FCC61D3E644D00FB3CB6 /* MySleep.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCBC1D3E644D00FB3CB6 /* MySleep.xib */; };
+		AC47FCC71D3E644D00FB3CB6 /* MyHygiene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBD1D3E644D00FB3CB6 /* MyHygiene.swift */; };
+		AC47FCC81D3E644D00FB3CB6 /* MyHygiene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBD1D3E644D00FB3CB6 /* MyHygiene.swift */; };
+		AC47FCC91D3E644D00FB3CB6 /* MyHygiene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBD1D3E644D00FB3CB6 /* MyHygiene.swift */; };
+		AC47FCCA1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCBE1D3E644D00FB3CB6 /* MyHygiene.xib */; };
+		AC47FCCB1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCBE1D3E644D00FB3CB6 /* MyHygiene.xib */; };
+		AC47FCCC1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCBE1D3E644D00FB3CB6 /* MyHygiene.xib */; };
+		AC47FCCD1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBF1D3E644D00FB3CB6 /* MyAlimentation.swift */; };
+		AC47FCCE1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBF1D3E644D00FB3CB6 /* MyAlimentation.swift */; };
+		AC47FCCF1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FCBF1D3E644D00FB3CB6 /* MyAlimentation.swift */; };
+		AC47FCD01D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCC01D3E644D00FB3CB6 /* MyAlimentation.xib */; };
+		AC47FCD11D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCC01D3E644D00FB3CB6 /* MyAlimentation.xib */; };
+		AC47FCD21D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC47FCC01D3E644D00FB3CB6 /* MyAlimentation.xib */; };
+		AC47FCDE1D3E64E100FB3CB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A081CEE137A00867624 /* Info.plist */; };
+		AC47FCDF1D3E64E200FB3CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FC1CEE137A00867624 /* AppDelegate.swift */; };
+		AC47FCE01D3E64E200FB3CB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A081CEE137A00867624 /* Info.plist */; };
+		AC47FCE11D3E64E300FB3CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FC1CEE137A00867624 /* AppDelegate.swift */; };
+		AC47FCE21D3E64E300FB3CB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A081CEE137A00867624 /* Info.plist */; };
+		AC47FCE31D3E64E300FB3CB6 /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
+		AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A031CEE137A00867624 /* Assets.xcassets */; };
+		AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A031CEE137A00867624 /* Assets.xcassets */; };
+		AC47FD331D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD321D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift */; };
+		AC47FD341D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD321D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift */; };
+		AC47FD351D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD321D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift */; };
+		AC47FD371D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD361D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift */; };
+		AC47FD381D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD361D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift */; };
+		AC47FD391D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD361D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift */; };
+		AC47FD3B1D3E679500FB3CB6 /* Mamadeira.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD3A1D3E679500FB3CB6 /* Mamadeira.swift */; };
+		AC47FD3C1D3E679500FB3CB6 /* Mamadeira.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD3A1D3E679500FB3CB6 /* Mamadeira.swift */; };
+		AC47FD3D1D3E679500FB3CB6 /* Mamadeira.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47FD3A1D3E679500FB3CB6 /* Mamadeira.swift */; };
 		AC4D2E2C1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
 		AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
 		AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
@@ -627,6 +658,15 @@
 		AC33F48A1D36D317009D10B5 /* DateSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSelector.swift; sourceTree = "<group>"; };
 		AC410BC91D05A880003EB66B /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		AC410BCE1D05ACD1003EB66B /* ErrorBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBO.swift; sourceTree = "<group>"; };
+		AC47FCBB1D3E644D00FB3CB6 /* MySleep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySleep.swift; sourceTree = "<group>"; };
+		AC47FCBC1D3E644D00FB3CB6 /* MySleep.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySleep.xib; sourceTree = "<group>"; };
+		AC47FCBD1D3E644D00FB3CB6 /* MyHygiene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHygiene.swift; sourceTree = "<group>"; };
+		AC47FCBE1D3E644D00FB3CB6 /* MyHygiene.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHygiene.xib; sourceTree = "<group>"; };
+		AC47FCBF1D3E644D00FB3CB6 /* MyAlimentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlimentation.swift; sourceTree = "<group>"; };
+		AC47FCC01D3E644D00FB3CB6 /* MyAlimentation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAlimentation.xib; sourceTree = "<group>"; };
+		AC47FD321D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayCollectionViewLayout.swift; sourceTree = "<group>"; };
+		AC47FD361D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardNinoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC47FD3A1D3E679500FB3CB6 /* Mamadeira.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mamadeira.swift; sourceTree = "<group>"; };
 		AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
 		AC529EE01CF48422003C1063 /* CreationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationError.swift; sourceTree = "<group>"; };
 		AC529EE31CF48A93003C1063 /* StudentBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentBO.swift; sourceTree = "<group>"; };
@@ -839,9 +879,33 @@
 		AC33F4801D36C4E7009D10B5 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */,
+				AC47FD311D3E663B00FB3CB6 /* My Day */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		AC47FD301D3E65FD00FB3CB6 /* MyDay cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC47FD361D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift */,
+				AC47FCBB1D3E644D00FB3CB6 /* MySleep.swift */,
+				AC47FCBC1D3E644D00FB3CB6 /* MySleep.xib */,
+				AC47FCBD1D3E644D00FB3CB6 /* MyHygiene.swift */,
+				AC47FCBE1D3E644D00FB3CB6 /* MyHygiene.xib */,
+				AC47FCBF1D3E644D00FB3CB6 /* MyAlimentation.swift */,
+				AC47FCC01D3E644D00FB3CB6 /* MyAlimentation.xib */,
+			);
+			name = "MyDay cells";
+			sourceTree = "<group>";
+		};
+		AC47FD311D3E663B00FB3CB6 /* My Day */ = {
+			isa = PBXGroup;
+			children = (
+				AC47FD321D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift */,
+				AC47FD301D3E65FD00FB3CB6 /* MyDay cells */,
+				AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */,
+			);
+			name = "My Day";
 			sourceTree = "<group>";
 		};
 		AC529EDF1CF483D6003C1063 /* Errors */ = {
@@ -1046,6 +1110,7 @@
 		ACE6E1651D10CC9D00A11E6A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AC47FD3A1D3E679500FB3CB6 /* Mamadeira.swift */,
 				ACB7E0C61D22AD690014F76D /* GenderSelector.xib */,
 				ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */,
 				AC33F4861D36D2AE009D10B5 /* DateSelector.xib */,
@@ -1405,6 +1470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC33F4871D36D2AE009D10B5 /* DateSelector.xib in Resources */,
+				AC47FCCA1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
 				28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */,
 				284A332E1D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				28143E271D29A18800139B0D /* Activities.storyboard in Resources */,
@@ -1412,6 +1478,7 @@
 				288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				28143E461D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				284A33331D2C3ED900030773 /* MealMenu.storyboard in Resources */,
+				AC47FCC41D3E644D00FB3CB6 /* MySleep.xib in Resources */,
 				ACEC3A071CEE137A00867624 /* LaunchScreen.storyboard in Resources */,
 				28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
@@ -1422,7 +1489,9 @@
 				284A33371D2C3F5000030773 /* Schedule.storyboard in Resources */,
 				AC86BBE01D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBEC1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				AC47FCDE1D3E64E100FB3CB6 /* Info.plist in Resources */,
 				284A333E1D2C527C00030773 /* ManageClassrooms.storyboard in Resources */,
+				AC47FCD01D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */,
 				AC86BBF21D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				28143E221D29A18000139B0D /* Photos.storyboard in Resources */,
 				284A33411D2C528200030773 /* ManageEducators.storyboard in Resources */,
@@ -1446,15 +1515,20 @@
 				AC182A431D103A590013611E /* Main.storyboard in Resources */,
 				28143E1F1D29A17100139B0D /* Chat.storyboard in Resources */,
 				28143E231D29A18100139B0D /* Photos.storyboard in Resources */,
+				AC47FCC51D3E644D00FB3CB6 /* MySleep.xib in Resources */,
+				AC47FCD11D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */,
 				28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */,
 				284A332F1D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */,
+				AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */,
 				AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				284A33421D2C528300030773 /* ManageEducators.storyboard in Resources */,
+				AC47FCE01D3E64E200FB3CB6 /* Info.plist in Resources */,
 				284A33341D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A411D103A420013611E /* CreateUser.storyboard in Resources */,
+				AC47FCCB1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
 				284A333F1D2C527C00030773 /* ManageClassrooms.storyboard in Resources */,
 				28143E261D29A18700139B0D /* Activities.storyboard in Resources */,
 				284A33381D2C3F5000030773 /* Schedule.storyboard in Resources */,
@@ -1476,15 +1550,20 @@
 				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
 				28143E201D29A17100139B0D /* Chat.storyboard in Resources */,
 				28143E241D29A18200139B0D /* Photos.storyboard in Resources */,
+				AC47FCC61D3E644D00FB3CB6 /* MySleep.xib in Resources */,
+				AC47FCD21D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */,
 				28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */,
 				284A33301D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */,
+				AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */,
 				AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				284A33431D2C528400030773 /* ManageEducators.storyboard in Resources */,
+				AC47FCE21D3E64E300FB3CB6 /* Info.plist in Resources */,
 				284A33351D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A421D103A420013611E /* CreateUser.storyboard in Resources */,
+				AC47FCCC1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
 				284A33401D2C527D00030773 /* ManageClassrooms.storyboard in Resources */,
 				28143E281D29A18800139B0D /* Activities.storyboard in Resources */,
 				284A33391D2C3F5000030773 /* Schedule.storyboard in Resources */,
@@ -1805,7 +1884,6 @@
 				288B27D31D37D1AD00B47DC0 /* Gender.swift in Sources */,
 				AC9CA6331D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC529EF01CF4A25B003C1063 /* EducatorBO.swift in Sources */,
-				28A046A01D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC0CDEE61D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */,
 				288B27CB1D37D1AD00B47DC0 /* Phase.swift in Sources */,
@@ -1874,7 +1952,6 @@
 				AC9CA6391D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				288B27B81D37D1AC00B47DC0 /* Guardian.swift in Sources */,
-				28A046A11D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				ACA6A9721D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				28A046721D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				288B280A1D37E0D500B47DC0 /* GuardianBO.swift in Sources */,
@@ -1905,7 +1982,6 @@
 				288B28041D37E0D400B47DC0 /* MenuBO.swift in Sources */,
 				AC74E1051D2D4908004281F3 /* RouteError.swift in Sources */,
 				288B28031D37E0D400B47DC0 /* ErrorBO.swift in Sources */,
-				28A046A21D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC7144041D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
 				288B28061D37E0D400B47DC0 /* ActivityBO.swift in Sources */,
 				288B27B21D37D1AB00B47DC0 /* Calendar.swift in Sources */,
@@ -1939,7 +2015,6 @@
 				288B27A71D37D1AB00B47DC0 /* Student.swift in Sources */,
 				288B27FC1D37E0D400B47DC0 /* GuardianBO.swift in Sources */,
 				28AE870A1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
-				28143E381D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				AC8978291D3D08F600022BDC /* ServerError.swift in Sources */,
 				288B28051D37E0D400B47DC0 /* CalendarBO.swift in Sources */,
 				288B27B31D37D1AB00B47DC0 /* Activity.swift in Sources */,
@@ -1963,6 +2038,7 @@
 				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC33F48B1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				28AE870B1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
+				AC47FD3B1D3E679500FB3CB6 /* Mamadeira.swift in Sources */,
 				AC89BAC71CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC529EEB1CF49A9B003C1063 /* StringsValidation.swift in Sources */,
 				288B27241D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
@@ -1976,14 +2052,17 @@
 				ACE6E15A1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */,
 				28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
+				AC47FCC11D3E644D00FB3CB6 /* MySleep.swift in Sources */,
 				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC89782F1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
+				AC47FD371D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
 				288B27A01D37D1AA00B47DC0 /* Key.swift in Sources */,
 				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
 				288B279A1D37D1AA00B47DC0 /* Guardian.swift in Sources */,
 				288B279E1D37D1AA00B47DC0 /* Phase.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				AC47FCC71D3E644D00FB3CB6 /* MyHygiene.swift in Sources */,
 				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
 				28F366F21D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
@@ -1994,6 +2073,7 @@
 				AC74E10D1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				288B279D1D37D1AA00B47DC0 /* Post.swift in Sources */,
 				288B27A61D37D1AA00B47DC0 /* Gender.swift in Sources */,
+				AC47FCCD1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
 				288B279F1D37D1AA00B47DC0 /* Room.swift in Sources */,
 				288B27A11D37D1AA00B47DC0 /* Error.swift in Sources */,
 				ACFFA1021D353644007DE324 /* MD5.swift in Sources */,
@@ -2012,6 +2092,7 @@
 				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
 				28A4A0171D396706003E05C2 /* StudentTableViewCell.swift in Sources */,
 				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
+				AC47FD331D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */,
 				284C5FED1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
 				AC74E1141D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				284A333B1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
@@ -2060,6 +2141,7 @@
 				28F366F71D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A4A0181D396706003E05C2 /* StudentTableViewCell.swift in Sources */,
 				288B277E1D37D1A800B47DC0 /* Credential.swift in Sources */,
+				AC47FCC21D3E644D00FB3CB6 /* MySleep.swift in Sources */,
 				AC7144061D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
 				288B27831D37D1A800B47DC0 /* Error.swift in Sources */,
 				288B27811D37D1A800B47DC0 /* Room.swift in Sources */,
@@ -2074,6 +2156,7 @@
 				288B27801D37D1A800B47DC0 /* Phase.swift in Sources */,
 				288B27DF1D37E0D300B47DC0 /* EducatorBO.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
+				AC47FCC81D3E644D00FB3CB6 /* MyHygiene.swift in Sources */,
 				AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				288B27DC1D37E0D300B47DC0 /* StudentBO.swift in Sources */,
 				288B27211D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
@@ -2085,10 +2168,13 @@
 				AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC74E1071D2D4908004281F3 /* RouteError.swift in Sources */,
 				288B27871D37D1A800B47DC0 /* Event.swift in Sources */,
+				AC47FCCE1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
+				AC47FD341D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */,
 				284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				AC7143F41D3D670000C743A5 /* NinoSession.swift in Sources */,
 				28F366F31D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				288B280E1D37E12200B47DC0 /* NinoSession.swift in Sources */,
+				AC47FD381D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
 				28F366FF1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				288B27881D37D1A800B47DC0 /* Gender.swift in Sources */,
 				288B27E31D37E0D300B47DC0 /* RoomBO.swift in Sources */,
@@ -2102,6 +2188,7 @@
 				AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
 				ACA6A9751D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				288B27DD1D37E0D300B47DC0 /* SchoolBO.swift in Sources */,
+				AC47FCDF1D3E64E200FB3CB6 /* AppDelegate.swift in Sources */,
 				287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
 				288B27E61D37E0D300B47DC0 /* MenuBO.swift in Sources */,
 				288B27E41D37E0D300B47DC0 /* KeyBO.swift in Sources */,
@@ -2124,6 +2211,7 @@
 				288B27E01D37E0D300B47DC0 /* CredentialBO.swift in Sources */,
 				28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				AC47FD3C1D3E679500FB3CB6 /* Mamadeira.swift in Sources */,
 				28AE871C1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				28F367051D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				288B27DE1D37E0D300B47DC0 /* GuardianBO.swift in Sources */,
@@ -2163,6 +2251,7 @@
 				ACFFA1041D353644007DE324 /* MD5.swift in Sources */,
 				288B27961D37D1A900B47DC0 /* Event.swift in Sources */,
 				288B27F01D37E0D400B47DC0 /* PostBO.swift in Sources */,
+				AC47FCC31D3E644D00FB3CB6 /* MySleep.swift in Sources */,
 				ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
 				AC33F47F1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
 				288B27F51D37E0D400B47DC0 /* MenuBO.swift in Sources */,
@@ -2171,6 +2260,7 @@
 				288B27971D37D1A900B47DC0 /* Gender.swift in Sources */,
 				288B27261D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
+				AC47FCC91D3E644D00FB3CB6 /* MyHygiene.swift in Sources */,
 				288B27931D37D1A900B47DC0 /* Menu.swift in Sources */,
 				288B27921D37D1A900B47DC0 /* Error.swift in Sources */,
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
@@ -2180,14 +2270,19 @@
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				288B27ED1D37E0D400B47DC0 /* GuardianBO.swift in Sources */,
 				288B278F1D37D1A900B47DC0 /* Phase.swift in Sources */,
+				AC47FD351D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */,
 				284C5FEF1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
+				AC47FCCF1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
 				28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				AC8978311D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
+				AC47FD391D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
 				287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
+				AC47FCE11D3E64E300FB3CB6 /* AppDelegate.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288B27911D37D1A900B47DC0 /* Key.swift in Sources */,
 				AC07C43B1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				288B27EA1D37E0D400B47DC0 /* LoginBO.swift in Sources */,
+				AC47FCE31D3E64E300FB3CB6 /* SchoolManagementTableViewController.swift in Sources */,
 				288B27F11D37E0D400B47DC0 /* PhaseBO.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC8978281D3D084600022BDC /* ErrorBO.swift in Sources */,
@@ -2217,6 +2312,7 @@
 				AC74E1081D2D4908004281F3 /* RouteError.swift in Sources */,
 				288B278C1D37D1A900B47DC0 /* Educator.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				AC47FD3D1D3E679500FB3CB6 /* Mamadeira.swift in Sources */,
 				AC89782A1D3D08F700022BDC /* ServerError.swift in Sources */,
 				28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
 				AC7143F51D3D670000C743A5 /* NinoSession.swift in Sources */,

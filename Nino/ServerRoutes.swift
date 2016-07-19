@@ -19,6 +19,7 @@ enum ServerRoutes {
     case GetEmployeeInformation
     case GetSchool
     case GetPhases
+    case CreatePhase
     
     func description(param: [String]?) throws -> String {
         switch self {
@@ -47,7 +48,7 @@ enum ServerRoutes {
                 throw RouteError.MissingParameter
             }
             return "schools/" + id[0]
-        case .GetPhases:
+        case .GetPhases, .CreatePhase:
             guard let id = param where id.count > 0 else {
                 throw RouteError.MissingParameter
             }

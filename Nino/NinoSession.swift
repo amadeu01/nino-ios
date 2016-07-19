@@ -59,12 +59,14 @@ class NinoSession: NSObject {
     }
     
     /**
-     Set phases for current school
+     Add phases for current school
      
      - parameter phases: array of phases
      */
-    func setPhasesForSchool(phases: [Phase]) {
-        self._school?.phases = phases
+    func addPhasesForSchool(phases: [Phase]) {
+        for phase in phases {
+            self._school?.phases?.append(phase)
+        }
     }
     
 }

@@ -17,11 +17,12 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
 
     @IBOutlet weak var tableView: UITableView!
     var phases = [Phase]()
-    var phasesMock = [PhaseMock]()
+//    var phasesMock = [PhaseMock]()
     var selectedPhaseIndex = 0
     //Define sections numbers
     let phaseSec = 0
     let addNewPhase = 1
+    var newPhaseTextField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +44,35 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
         let alert = UIAlertController(title: "Adicionar nova fase", message: "Digite o nome da nova fase", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "ex: Berçário, Pré-Escola..."
+            self.newPhaseTextField = textField
         }
         let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
             //Did press cancel.
         }
         let submitAction = UIAlertAction(title: "Criar", style: .Default) { (alert) in
-            //TODO: Create New phase
+            let credential = NinoSession.sharedInstance.credential
+            guard let token = credential?.token else {
+                //TODO: back to login
+                return
+            }
+            let school = NinoSession.sharedInstance.school
+            guard let id = school?.id else {
+                //TODO: go to create school
+                return
+            }
+            guard let name = self.newPhaseTextField?.text else {
+                //TODO: show default alert for empty field
+                return
+            }
+            PhaseBO.createPhase(token, schoolID: id, name: name, rooms: nil, menu: nil, activities: nil, completionHandler: { (phase) in
+                do {
+                    let newPhase = try phase()
+                    NinoSession.sharedInstance.addPhasesForSchool([newPhase])
+                    self.updateData()
+                } catch {
+                    //TODO: handle newPhase error
+                }
+            })
         }
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
@@ -58,8 +82,16 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     func updateData() {
     //TODO: Persistence
     //create phases
-        phasesMock.append(PhaseMock(name: "Berçário", id: 1))
-        phasesMock.append(PhaseMock(name: "Pré Escola", id: 2))
+        guard let newPhases = NinoSession.sharedInstance.school?.phases else {
+            return
+        }
+        for phase in newPhases {
+            self.phases.append(phase)
+        }
+        
+        self.tableView.reloadData()
+//        phasesMock.append(PhaseMock(name: "Berçário", id: 1))
+//        phasesMock.append(PhaseMock(name: "Pré Escola", id: 2))
 
     }
     // MARK: TableView Data Source
@@ -72,7 +104,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
         if section == addNewPhase {// Add new Phase
             return 1
         } else if section == phaseSec {
-            return phasesMock.count
+            return phases.count
         }
         return 0
     }
@@ -110,7 +142,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
             guard let phaseCell = cell as? PhaseTableViewCell else {
                 return
             }
-            phaseCell.configureCell(phasesMock[indexPath.row].name, profileImage: nil, index: indexPath.row)
+            phaseCell.configureCell(phases[indexPath.row].name, profileImage: nil, index: indexPath.row)
             phaseCell.accessoryType = .DisclosureIndicator
             
         }
@@ -153,7 +185,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         // Title that will bedisplayed in the navigation bar    
-        toVC.title = phasesMock[selectedPhaseIndex].name
+        toVC.title = phases[selectedPhaseIndex].name
         }
     }
     /*

@@ -54,7 +54,13 @@ class SchoolBO: NSObject {
                         } else if let success = success {
                             if success {
                                 completionHandler(getSchool: { () -> School in
-                                    return School(id: school, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
+                                    var phasesArray: [Phase]?
+                                    if let phs = phases {
+                                        phasesArray = phs
+                                    } else {
+                                        phasesArray = [Phase]()
+                                    }
+                                    return School(id: school, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phasesArray, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
                                 })
                             }
                         } else {

@@ -68,21 +68,33 @@ struct School {
 
         if let classes = phases {
             self.phases = classes
+        } else {
+            self.phases = [Phase]()
         }
         if let caretakers = educators {
             self.educators = caretakers
+        } else {
+            self.educators = [Educator]()
         }
         if let babies = students {
             self.students = babies
+        } else {
+            self.students = [Student]()
         }
         if let card = menus {
             self.menus = card
+        } else {
+            self.menus = [Menu]()
         }
         if let exercises = activities {
             self.activities = exercises
+        } else {
+            self.activities = [Activity]()
         }
         if let agendas = calendars {
             self.calendars = agendas
+        } else {
+            self.calendars = [Calendar]()
         }
     }
 }

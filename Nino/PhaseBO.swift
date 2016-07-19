@@ -22,8 +22,23 @@ class PhaseBO: NSObject {
      
      - returns: Phase VO
      */
-    static func createPhase(id: Int, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?) -> Phase {
-        return Phase(id: id, name: name, rooms: rooms, menu: menu, activities: activities)
+    static func createPhase(token: String, schoolID: Int, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?, completionHandler: (phase: () throws -> Phase) -> Void) {
+        PhasesMechanism.createPhase(token, schoolID: schoolID, name: name) { (id, error, data) in
+            if let error = error {
+                //TODO: handle error data
+                completionHandler(phase: { () -> Phase in
+                    throw ErrorBO.decodeServerError(error)
+                })
+            } else if let phaseID = id {
+                completionHandler(phase: { () -> Phase in
+                    return Phase(id: phaseID, name: name, rooms: rooms, menu: menu, activities: activities)
+                })
+            } else {
+                completionHandler(phase: { () -> Phase in
+                    throw ServerError.UnexpectedCase
+                })
+            }
+        }
     }
     
     static func getPhases(token: String, schoolID: Int, completionHandler: (phases: () throws -> [Phase]) -> Void) {
