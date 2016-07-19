@@ -82,8 +82,7 @@ class AccountMechanism: NSObject {
                     completionHandler(userID: userID, error: nil, data: nil)
                 }
             }
-        }
-        catch {
+        } catch {
             //path error - in this case, never will be reached
         }
     }
@@ -91,7 +90,7 @@ class AccountMechanism: NSObject {
     static func checkIfValidated(hash: String, completionHandler: (validated: Bool?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CheckIfValidated.description([hash])
-            RestApiManager.makeHTTPGetRequest(route, onCompletion: { (json, error, statusCode) in
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: nil, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
                     completionHandler(validated: nil, error: error?.code, data: nil)
                     return
@@ -139,6 +138,78 @@ class AccountMechanism: NSObject {
                 else {
                     let token = json["data"]["token"].string
                     completionHandler(token: token, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
+    static func getMyProfile(group: Int?, token: String, completionHandler: (name: String?, surname: String?, birthDate: NSDate?, gender: Gender?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetMyProfile.description(nil)
+            RestApiManager.makeHTTPGetRequest(group, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(name: nil, surname: nil, birthDate: nil, gender: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: data is a json, needs to be interpreted
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(name: nil, surname: nil, birthDate: nil, gender: nil, error: error, data: data)
+                }
+                //success
+                else {
+                    let name = json["data"]["name"].string
+                    let surname = json["data"]["surname"].string
+                    //FIXME: check if is working
+                    let birthdate = json["data"]["birthdate"].object as? NSDate
+                    let genderInt = json["data"]["gender"].int
+                    var gender: Gender?
+                    if let genderInt = genderInt {
+                        gender = Gender(rawValue: genderInt)
+                    } else {
+                        gender = nil
+                    }
+                    completionHandler(name: name, surname: surname, birthDate: birthdate, gender: gender, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
+    static func getEmployeeInformation(group: Int?, token: String, completionHandler: (ids: [Int]?, schools: [Int]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetEmployeeInformation.description(nil)
+            RestApiManager.makeHTTPGetRequest(group, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(ids: nil, schools: nil, error: error?.code, data: nil)
+                    return
+                }
+                if statusCode != 200 {
+                    //FIXME: data is a json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(ids: nil, schools: nil, error: error, data: data)
+                }
+                //success
+                else {
+                    let schools =  json["data"].array
+                    //FIXME: get other schools
+                    let firstSchool = schools?.first?["school"].int
+                    let firstEducatorID = schools?.first?["id"].int
+                    guard let schoolID = firstSchool else {
+                        completionHandler(ids: nil, schools: nil, error: nil, data: nil)
+                        return
+                    }
+                    guard let educatorID = firstEducatorID else{
+                        completionHandler(ids: nil, schools: nil, error: nil, data: nil)
+                        return
+                    }
+                    completionHandler(ids: [educatorID], schools: [schoolID], error: nil, data: nil)
                 }
             })
         } catch {

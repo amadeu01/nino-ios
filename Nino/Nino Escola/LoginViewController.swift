@@ -176,18 +176,51 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 do {
                     //tries to get the credential
                     let credential = try getCredential()
-                    //TODO: decode JWT and save active educator on NinoSession
                     NinoSession.sharedInstance.setCredential(credential)
-                    //gets main queue to make UI changes
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        self.activityIndicator.stopAnimating()
-                        //changes the view
-                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            delegate.loggedIn = true
-                            delegate.setupRootViewController(true)
+                    EducatorBO.getEducator(self.usernameTextField.text!, token: credential.token, completionHandler: { (getProfile) in
+                        do {
+                            //tries to get the current educator
+                            let (educator, schoolID) = try getProfile()
+                            NinoSession.sharedInstance.setEducator(educator)
+                            //get school info
+                            SchoolBO.getSchool(credential.token, schoolID: schoolID, completionHandler: { (school) in
+                                do {
+                                    let school = try school()
+                                    NinoSession.sharedInstance.setSchool(school)
+                                    //posting notification
+                                    NinoSessionNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
+                                    //get phases
+                                    PhaseBO.getPhases(credential.token, schoolID: schoolID, completionHandler: { (phases) in
+                                        do {
+                                            let phases = try phases()
+                                            NinoSession.sharedInstance.setPhasesForSchool(phases)
+                                            NinoSessionNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
+                                        } catch {
+                                            //TODO: handle getPhases error
+                                        }
+                                    })
+                                } catch {
+                                    //TODO: handle getSchool error
+                                }
+                            })
+                            //gets main queue to make UI changes
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.activityIndicator.stopAnimating()
+                                //changes the view
+                                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                    delegate.loggedIn = true
+                                    delegate.setupRootViewController(true)
+                                }
+                            })
+                        }
+                        //getEducator error
+                        catch let profileError {
+                            //TODO: handle profile error
                         }
                     })
-                } catch let error {
+                }
+                //login error
+                catch let error {
                     //clean userDefaults and keychain
                     KeyBO.removePasswordAndUsername()
                     dispatch_async(dispatch_get_main_queue(), { 

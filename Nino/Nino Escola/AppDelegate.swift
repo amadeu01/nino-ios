@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     //states whether the user is logged in
-    var loggedIn =  true
+    var loggedIn = false
     
 
 
