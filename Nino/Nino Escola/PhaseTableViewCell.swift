@@ -18,7 +18,6 @@ class PhaseTableViewCell: StandardManagementTableViewCell {
         super.awakeFromNib()
         self.nameLabel = phaseNameLabel
         self.profileImageView = phaseProfileImageView
-        
     }
    
 }

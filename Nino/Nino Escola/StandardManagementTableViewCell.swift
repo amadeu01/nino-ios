@@ -10,9 +10,8 @@ import UIKit
 
 class StandardManagementTableViewCell: UITableViewCell  {
     
-    @IBOutlet weak var nameLabel: UILabel?
-    
-    @IBOutlet weak var profileImageView: UIImageView?
+    var nameLabel: UILabel?
+    var profileImageView: UIImageView?
     internal var profileImage: UIImage? {
         didSet {
             //self.profileImageView.image = profileImage
@@ -36,6 +35,7 @@ class StandardManagementTableViewCell: UITableViewCell  {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
         
     }
     func configureCell(name: String?, profileImage: UIImage?, index: Int) {
@@ -62,14 +62,16 @@ class StandardManagementTableViewCell: UITableViewCell  {
             guard let thisimageView = profileImageView else {
                 return
             }
+            thisimageView.layoutIfNeeded()
             thisimageView.setImageWithString(self.name, color: color, circular: true)
         }
     }
+
+    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
-    
 }

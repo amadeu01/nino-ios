@@ -7,26 +7,25 @@
 //
 
 import UIKit
-struct ClassMock{
+struct ClassMock {
     var name: String?
     var id: Int!
 }
 
-struct ExtraPhaseOption{
-    var name: String?
-    var value: String?
-}
+
 class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var selectedClassroomIndex = 0
     //Define section
     let classroomSec = 0
-    let classroomInfoSec = 1
-    let classroomDeleteSec = 2
+    let phaseInfoSec = 1
+    let phaseDeleteSec = 2
+    //Names
     var phaseName = "Berçário"
     var goBackButtonName = "Fases"
     var classes = [ClassMock]()
-    var extraRows = [ExtraPhaseOption]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +46,6 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     func didPressToAddNewClassroom() {
         let alert = UIAlertController(title: "Adicionar nova turma", message: "Digite o nome da nova turma", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
@@ -75,9 +73,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
         self.presentViewController(alert, animated: true, completion: nil)
-        
     }
-    
     func didPressToChangePhaseName() {
         let alert = UIAlertController(title: "Alterar o nome da fase", message: "Digite um novo nome para a fase \(self.title!)", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
@@ -100,11 +96,11 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == classroomSec{
+        if section == classroomSec {
             return 2
-        }else if section == classroomInfoSec {
+        }else if section == phaseInfoSec {
             return 1
-        } else if section == classroomDeleteSec {
+        } else if section == phaseDeleteSec {
             return 1
         }
         return 0
@@ -118,7 +114,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                 return UITableViewCell()
             }
             return classroomCell
-        } else if indexPath.section == classroomInfoSec {
+        } else if indexPath.section == phaseInfoSec {
             guard let infoCell = tableView.dequeueReusableCellWithIdentifier("nameOfTheClassroomCell") else {
             return UITableViewCell(style: .Value1, reuseIdentifier: "nameOfTheClassroomCell")
             }
@@ -150,13 +146,13 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                     return
                 }
                 classroomCell.configureCell(classes[indexPath.row].name, profileImage: nil, index: indexPath.row)
-        } else if indexPath.section == classroomInfoSec {
+        } else if indexPath.section == phaseInfoSec {
             // configure info cell
             if indexPath.row == 0 {
                 cell.detailTextLabel?.text = self.title
                 cell.textLabel?.text = "Nome"
             }
-            } else if indexPath.section == classroomDeleteSec {
+            } else if indexPath.section == phaseDeleteSec {
                 if indexPath.row == 0 {
                     cell.textLabel?.text = "Deletar Fase \(self.title!)"
                     cell.textLabel?.textColor = UIColor.redColor()
@@ -180,18 +176,30 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == classroomSec {
+            selectedClassroomIndex = indexPath.row
             self.performSegueWithIdentifier("showClassroomProfileViewController", sender: self)
-        } else if indexPath.section == classroomDeleteSec {
+        } else if indexPath.section == phaseDeleteSec {
             self.didPressToDeletePhase()
-        } else if indexPath.section == classroomInfoSec {
+        } else if indexPath.section == phaseInfoSec {
             self.didPressToChangePhaseName()
         }
     }
     
-    
     // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showClassroomProfileViewController" {
+            let backButton = UIBarButtonItem()
+            backButton.title = "Turmas"
+            navigationItem.backBarButtonItem = backButton
+            
+            guard let toVC = segue.destinationViewController as? ManageStudentsViewController else {
+                return
+            }
+            // Title that will bedisplayed in the navigation bar
+            toVC.title = classes[selectedClassroomIndex].name
+        }
+    }
     
     @IBAction func goBackToManageClassroomsViewController(segue: UIStoryboardSegue) {
-        
     }
 }
