@@ -134,7 +134,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
             }
         } else if indexPath.section == classroomDeleteSec {
             if indexPath.row == 0 {
-                cell.textLabel?.text = "Deletar  \(self.title!)"
+                cell.textLabel?.text = "Deletar \(self.title!)"
                 cell.textLabel?.textColor = UIColor.redColor()
             }
         }
@@ -156,7 +156,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == studentSec {
             self.selectedStudentIndex = indexPath.row
-            self.performSegueWithIdentifier("showRegisterStudentViewController", sender: self)
+            self.performSegueWithIdentifier("showStudentInfoViewController", sender: self)
         }else if indexPath.section == classroomDeleteSec {
             self.didPressToDeleteClassroom()
         } else if indexPath.section == classroomInfoSec {
