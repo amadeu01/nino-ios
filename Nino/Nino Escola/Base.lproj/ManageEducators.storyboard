@@ -444,14 +444,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KoN-fT-OTr" firstAttribute="top" secondItem="IaX-PX-m6o" secondAttribute="bottom" id="69L-7Q-dYM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YBH-SM-qgy" secondAttribute="trailing" id="6Dh-e9-Jwh"/>
-                            <constraint firstItem="YBH-SM-qgy" firstAttribute="top" secondItem="IaX-PX-m6o" secondAttribute="bottom" constant="56" id="NG0-YD-Yns">
-                                <variation key="widthClass=regular" constant="50"/>
-                            </constraint>
+                            <constraint firstItem="YBH-SM-qgy" firstAttribute="top" secondItem="IaX-PX-m6o" secondAttribute="bottom" constant="50" id="KDd-yd-vTp"/>
                             <constraint firstAttribute="leadingMargin" secondItem="KoN-fT-OTr" secondAttribute="leading" id="Uuz-hI-hJC"/>
-                            <constraint firstItem="KoN-fT-OTr" firstAttribute="top" secondItem="IaX-PX-m6o" secondAttribute="bottom" constant="-8" id="dnN-4d-DLN">
-                                <variation key="widthClass=regular" constant="0.0"/>
-                            </constraint>
                             <constraint firstItem="YBH-SM-qgy" firstAttribute="height" secondItem="ciM-8c-2LS" secondAttribute="height" multiplier="0.4" id="gps-wE-4lE"/>
                             <constraint firstAttribute="leadingMargin" secondItem="YBH-SM-qgy" secondAttribute="leading" id="pp9-0K-AYP"/>
                         </constraints>
@@ -461,9 +457,7 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Uuz-hI-hJC"/>
-                                <exclude reference="dnN-4d-DLN"/>
                                 <exclude reference="6Dh-e9-Jwh"/>
-                                <exclude reference="NG0-YD-Yns"/>
                                 <exclude reference="gps-wE-4lE"/>
                                 <exclude reference="pp9-0K-AYP"/>
                             </mask>
@@ -474,9 +468,7 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="Uuz-hI-hJC"/>
-                                <include reference="dnN-4d-DLN"/>
                                 <include reference="6Dh-e9-Jwh"/>
-                                <include reference="NG0-YD-Yns"/>
                                 <include reference="gps-wE-4lE"/>
                                 <include reference="pp9-0K-AYP"/>
                             </mask>
@@ -926,6 +918,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="25" y="12" width="191" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>

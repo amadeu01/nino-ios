@@ -27,7 +27,7 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     //Constraints
-     @IBOutlet weak var widthOfContainerView: NSLayoutConstraint!
+    @IBOutlet weak var widthOfContainerView: NSLayoutConstraint!
     
     // Global variables
     var guardians = [GuardiansMock]()
@@ -36,12 +36,11 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     //Global constants
     let studentInfoSec = 0
     let guardianInfoSec = 1
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
-        profileImageView.clipsToBounds = true
+        
         updateStudentInfo()
         updateGuardiansInfo()
         updateExtraSection()
@@ -52,6 +51,8 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
         // Do any additional setup after loading the view.
     }
     override func viewDidLayoutSubviews() {
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.clipsToBounds = true
         super.viewDidLayoutSubviews()
         widthOfContainerView.constant = self.view.frame.width
         heightOfContentView.constant = tableView.contentSize.height + distanceTopTableToTopSuperView.constant + 30
@@ -97,7 +98,7 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
         if indexPath.section == studentInfoSec {
             guard let studentInfoCell = tableView.dequeueReusableCellWithIdentifier("studentInfoCell") else {
                 let cell = UITableViewCell(style: .Value1, reuseIdentifier: "studentInfoCell")
-                cell.userInteractionEnabled = false
+                //cell.userInteractionEnabled = false
                 return cell
             }
             return studentInfoCell
@@ -117,30 +118,48 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
         if section == 1 {
             return "Responsáveis"
         }
-        return nil
+        return ""
     }
+    
     //MARK: Table View Delegate
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {//Deletes the blank space below the cell
         if section == studentInfoSec {
-        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 35)
+            let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 80)
             guard let headerView  = StudentInfoSectionTableViewHeader.instanceFromNib() else {
                 return nil
             }
-        headerView.frame = frame
-        headerView.backgroundColor = CustomizeColor.lessStrongBackgroundNino()
-        return headerView
+            headerView.frame = frame
+            headerView.backgroundColor = CustomizeColor.lessStrongBackgroundNino()
+            return headerView
         }
-        //Clear Background
-        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 20)
+        return nil
+    }
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == studentInfoSec {
+            return 40
+        } else if section == guardianInfoSec {
+            return 30
+        }
+        return 0
+    }
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.backgroundView!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
+        }
+    }
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50)
         let headerView  = UIView(frame: frame)
         headerView.backgroundColor = UIColor.clearColor()
         return headerView
     }
-    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == studentInfoSec {
             cell.detailTextLabel?.text = studentInfos[indexPath.row].value
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
             cell.textLabel?.text = studentInfos[indexPath.row].title
+            cell.textLabel?.textColor = UIColor.grayColor()
         } else if indexPath.section == guardianInfoSec {
             guard let guardianCell = cell as? GuardianTableViewCell else {
                 return
@@ -148,22 +167,35 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
             guardianCell.configureCell(guardians[indexPath.row].name, profileImage: nil, index: indexPath.row)
         } else {
             cell.textLabel?.text = extraSection[indexPath.section - 2]
-            print("Numero \(indexPath.section - 2)")
+            if indexPath.row == 0 {
+                cell.accessoryType = UITableViewCellAccessoryType.None
+            }
         }
-        
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == studentInfoSec {
-            return 50
+            return 40
         }
         return 70
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == studentInfoSec {
-            return 50
+            return 40
         }
         return 70
     }
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 2 {
+            performSegueWithIdentifier("showRegisterGuardianViewController", sender: self)
+        }
+    }
+    
+    //MARK: NAvigation
+    
+    @IBAction func goBackToManageStudentInfoViewController(segue: UIStoryboardSegue) {
+        
+    }
+    
 }

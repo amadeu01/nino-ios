@@ -36,6 +36,9 @@
 		28143E461D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E441D2BF4B300139B0D /* RegisterStudent.storyboard */; };
 		28143E471D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E441D2BF4B300139B0D /* RegisterStudent.storyboard */; };
 		28143E481D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E441D2BF4B300139B0D /* RegisterStudent.storyboard */; };
+		28218D921D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */; };
+		28218D931D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */; };
+		28218D941D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */; };
 		283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
 		283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
 		283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */; };
@@ -578,6 +581,7 @@
 		28143E1C1D29A15E00139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolManagementTableViewController.swift; sourceTree = "<group>"; };
 		28143E451D2BF4B300139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RegisterStudent.storyboard; sourceTree = "<group>"; };
+		28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterGuardianViewController.swift; sourceTree = "<group>"; };
 		283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		283C29811D299E0F00DF7DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StudentProfile.storyboard; sourceTree = "<group>"; };
 		284A33281D2C3A2200030773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ManageEducators.storyboard; sourceTree = "<group>"; };
@@ -919,23 +923,24 @@
 			isa = PBXGroup;
 			children = (
 				28F367021D2FE28C00A0743B /* Master */,
-				AC33F4801D36C4E7009D10B5 /* Detail */,
-				AC33F47B1D3673C4009D10B5 /* Create User */,
 				284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */,
 				28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */,
 				AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */,
 				28F367031D2FE36500A0743B /* ManageClassroomsViewController.swift */,
 				284A333A1D2C4B8600030773 /* ManageEducatorsViewController.swift */,
 				288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */,
-				288B27231D36C51300B47DC0 /* ManageStudentsViewController.swift */,
 				280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */,
+				288B27231D36C51300B47DC0 /* ManageStudentsViewController.swift */,
 				28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */,
+				28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */,
 				284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */,
 				287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */,
 				288B271F1D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift */,
 				28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */,
 				28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */,
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
+				AC33F47B1D3673C4009D10B5 /* Create User */,
+				AC33F4801D36C4E7009D10B5 /* Detail */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2045,6 +2050,7 @@
 				AC7BFD661D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
 				AC4D2E2C1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
 				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
+				28218D921D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */,
 				288B27991D37D1AA00B47DC0 /* School.swift in Sources */,
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
@@ -2143,6 +2149,7 @@
 				AC7BB7931D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				AC8978251D3D081400022BDC /* Educator.swift in Sources */,
 				288B27E81D37E0D300B47DC0 /* ActivityBO.swift in Sources */,
+				28218D931D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */,
 				288B27841D37D1A800B47DC0 /* Menu.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
@@ -2238,6 +2245,7 @@
 				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				28F366F41D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				AC7BB7941D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
+				28218D941D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */,
 				288B272E1D37CB4C00B47DC0 /* ClassroomTableViewCell.swift in Sources */,
 				ACEC3A1D1CEE137B00867624 /* Nino_EscolaUITests.swift in Sources */,
 				288B27F81D37E0D400B47DC0 /* EventBO.swift in Sources */,

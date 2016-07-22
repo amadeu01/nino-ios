@@ -63,14 +63,7 @@ class SchoolManagementTableViewController: UITableViewController {
         if let view = view as? UITableViewHeaderFooterView {
             view.backgroundView!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
-            print(view.bounds.height)
         }
-    }
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 20)
-        let headerView  = UIView(frame: frame)
-        headerView.backgroundColor = UIColor.clearColor()
-        return headerView
     }
    func configureSections() {
         self.sections.append(DataStructure(section: "Dia-a-dia", rows: ["Calendário", "Cardápio"], icons: [UIImage(named: "iconPlaceholder")!, UIImage(named: "iconPlaceholder")!]))

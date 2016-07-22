@@ -61,9 +61,7 @@ class ManageEducatorsViewController: UIViewController, UITableViewDelegate, UITa
     //MARK: Table View Delegate
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 20)
-        
         let headerView  = UIView(frame: frame)
-        
         headerView.backgroundColor = UIColor.clearColor()
         return headerView
     }
