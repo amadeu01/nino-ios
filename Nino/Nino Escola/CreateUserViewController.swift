@@ -159,12 +159,12 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         do {
-            try EducatorBO.createEducator(self.nameTextField.text!, surname: self.surnameTextField.text!, gender: userGender, email: self.emailTextField.text!, school: nil, phases: nil, rooms: nil) { (getEducator) in
+            try AccountBO.createAccount(self.nameTextField.text!, surname: self.surnameTextField.text!, gender: userGender, email: self.emailTextField.text!, completionHandler: { (getAccount) in
                 do {
-                    //tries to get the educator
-                    try getEducator()
+                    //tries to create an account
+                    try getAccount()
                     //gets the main queue to make UI changes
-                    dispatch_async(dispatch_get_main_queue(), { 
+                    dispatch_async(dispatch_get_main_queue(), {
                         self.activityIndicator.stopAnimating()
                         self.performSegueWithIdentifier("waitEmail", sender: self)
                     })
@@ -182,7 +182,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
                         self.presentViewController(alert, animated: true, completion: nil)
                     })
                 }
-            }
+            })
         } catch {
             self.activityIndicator.stopAnimating()
             self.enableButtons()

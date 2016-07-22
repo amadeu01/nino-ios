@@ -10,6 +10,13 @@ import UIKit
 
 class PhasesMechanism: NSObject {
 
+    /**
+     Gets phases information
+     
+     - parameter token:             access token
+     - parameter schoolID:          school id
+     - parameter completionHandler: completion handler with optional: array of dictionaries - id?, name?, menu? -, error and error data
+     */
     static func getPhases(token: String, schoolID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetPhases.description([String(schoolID)])
@@ -48,6 +55,14 @@ class PhasesMechanism: NSObject {
         }
     }
     
+    /**
+     Creates a new phase
+     
+     - parameter token:             access token
+     - parameter schoolID:          school id
+     - parameter name:              phase name
+     - parameter completionHandler: completion handler with optional: phaseID, error and erro data
+     */
     static func createPhase(token: String, schoolID: Int, name: String, completionHandler: (id: Int?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CreatePhase.description([String(schoolID)])

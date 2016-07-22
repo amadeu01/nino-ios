@@ -7,11 +7,6 @@
 //
 
 import UIKit
-struct ClassMock {
-    var name: String?
-    var id: Int!
-}
-
 
 class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,18 +17,18 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     let phaseInfoSec = 1
     let phaseDeleteSec = 2
     //Names
-    var phaseName = "Berçário"
     var goBackButtonName = "Fases"
-    var classes = [ClassMock]()
-
+    var rooms = [Room]()
+    var phaseID: String?
+    
+    var newRoomTextField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNinoDefaultBackGround()
         tableView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
-        classes.append(ClassMock(name: "Manhã", id: 1))
-        classes.append(ClassMock(name: "Tarde", id: 2))
+        self.updateRooms()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
@@ -46,16 +41,71 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateRooms() {
+        
+        guard let id = phaseID else {
+            //TODO: return to phases manager
+            return
+        }
+        
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            //TODO: go to login
+            return
+        }
+        
+        RoomBO.getRooms(token, phaseID: id) { (rooms) in
+            do {
+                let rooms = try rooms()
+                self.rooms.removeAll()
+                for room in rooms {
+                    self.rooms.append(room)
+                }
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.tableView.reloadData()
+                })
+            } catch {
+                //TODO: handle getRoom errors
+            }
+        }
+    }
+    
     func didPressToAddNewClassroom() {
         let alert = UIAlertController(title: "Adicionar nova turma", message: "Digite o nome da nova turma", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.placeholder = "ex: Turma A, Tarde..."
+            self.newRoomTextField = textField
+            
         }
         let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
             //Did press cancel.
         }
         let submitAction = UIAlertAction(title: "Criar", style: .Default) { (alert) in
-            //TODO: Create New phase
+            guard let name = self.newRoomTextField?.text else {
+                //TODO: empty field default alert
+                return
+            }
+            guard let token = NinoSession.sharedInstance.credential?.token else {
+                //TODO: back to login
+                return
+            }
+            guard let currentPhase = self.phaseID else {
+                //TODO: back to phases manager
+                return
+            }
+            RoomBO.createRoom(token, phaseID: currentPhase, name: name, completionHandler: { (room) in
+                do {
+                    let room = try room()
+                    try RoomBO.addRoomsInPhase([room], phase: currentPhase)
+                    self.rooms.append(room)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
+                } catch let error {
+                    //TODO: handle createRoom error
+                    print("createRoom error: " + ((error as? ServerError)?.description())!)
+                }
+            })
         }
         alert.addAction(cancelAction)
         alert.addAction(submitAction)
@@ -68,7 +118,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
             //Did press cancel.
         }
         let deleteAction = UIAlertAction(title: "Deletar", style: .Destructive) { (alert) in
-            //TODO: Create New phase
+            //TODO: Delete phase
         }
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
@@ -83,7 +133,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
             //Did press cancel.
         }
         let changeAction = UIAlertAction(title: "Alterar", style: .Default) { (alert) in
-            //TODO: Create New phase
+            //TODO: change phase name
         }
         alert.addAction(cancelAction)
         alert.addAction(changeAction)
@@ -97,8 +147,8 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == classroomSec {
-            return 2
-        }else if section == phaseInfoSec {
+            return self.rooms.count
+        } else if section == phaseInfoSec {
             return 1
         } else if section == phaseDeleteSec {
             return 1
@@ -145,7 +195,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                 guard let classroomCell = cell as? ClassroomTableViewCell else {
                     return
                 }
-                classroomCell.configureCell(classes[indexPath.row].name, profileImage: nil, index: indexPath.row)
+                classroomCell.configureCell(rooms[indexPath.row].name, profileImage: nil, index: indexPath.row)
         } else if indexPath.section == phaseInfoSec {
             // configure info cell
             if indexPath.row == 0 {
@@ -196,7 +246,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                 return
             }
             // Title that will bedisplayed in the navigation bar
-            toVC.title = classes[selectedClassroomIndex].name
+            toVC.title = rooms[selectedClassroomIndex].name
         }
     }
     

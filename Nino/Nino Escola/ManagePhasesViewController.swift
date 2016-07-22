@@ -8,16 +8,10 @@
 
 import UIKit
 
-struct PhaseMock {
-    var name: String?
-    var id: Int?
-}
-
 class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     var phases = [Phase]()
-//    var phasesMock = [PhaseMock]()
     var selectedPhaseIndex = 0
     //Define sections numbers
     let phaseSec = 0
@@ -55,22 +49,25 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
                 //TODO: back to login
                 return
             }
-            let school = NinoSession.sharedInstance.school
-            guard let id = school?.id else {
-                //TODO: go to create school
+            let school = NinoSession.sharedInstance.schoolID
+            guard let schoolID = school else {
+                //TODO: back to login
                 return
             }
             guard let name = self.newPhaseTextField?.text else {
                 //TODO: show default alert for empty field
                 return
             }
-            PhaseBO.createPhase(token, schoolID: id, name: name, rooms: nil, menu: nil, activities: nil, completionHandler: { (phase) in
+            PhaseBO.createPhase(token, schoolID: schoolID, name: name, rooms: nil, menu: nil, activities: nil, completionHandler: { (phase) in
                 do {
                     let newPhase = try phase()
-                    NinoSession.sharedInstance.addPhasesForSchool([newPhase])
-                    self.updateData()
+                    try PhaseBO.addPhasesInSchool([newPhase])
+                    self.phases.append(newPhase)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.tableView.reloadData()
+                    })
                 } catch {
-                    //TODO: handle newPhase error
+                    //TODO: handle newPhase errors
                 }
             })
         }
@@ -80,19 +77,29 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     }
     //MARK: Data
     func updateData() {
-    //TODO: Persistence
-    //create phases
-        guard let newPhases = NinoSession.sharedInstance.school?.phases else {
+    //get phases
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            //TODO: go to login
             return
         }
-        for phase in newPhases {
-            self.phases.append(phase)
+        guard let school = NinoSession.sharedInstance.schoolID else {
+            //TODO: go to login
+            return
         }
-        
-        self.tableView.reloadData()
-//        phasesMock.append(PhaseMock(name: "Berçário", id: 1))
-//        phasesMock.append(PhaseMock(name: "Pré Escola", id: 2))
-
+        PhaseBO.getPhases(token, schoolID: school, completionHandler: { (phases) in
+            do {
+                let newPhases = try phases()
+                self.phases.removeAll()
+                for phase in newPhases {
+                    self.phases.append(phase)
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
+            } catch {
+                //TODO: handle getPhases error
+            }
+        })
     }
     // MARK: TableView Data Source
     
@@ -186,15 +193,8 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
         }
         // Title that will bedisplayed in the navigation bar    
         toVC.title = phases[selectedPhaseIndex].name
+        toVC.phaseID = phases[selectedPhaseIndex].id
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 }

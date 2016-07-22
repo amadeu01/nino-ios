@@ -8,15 +8,14 @@
 
 import UIKit
 
-protocol MyDayCollectionViewLayoutDelegate
-{
-    func collectionView(collectionView:UICollectionView, heightForBoxAtIndexPath indexPath:NSIndexPath, withWidth:CGFloat) -> CGFloat
+protocol MyDayCollectionViewLayoutDelegate {
+    func collectionView(collectionView: UICollectionView, heightForBoxAtIndexPath indexPath: NSIndexPath, withWidth: CGFloat) -> CGFloat
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
 }
 
 class MyDayCollectionViewLayout: UICollectionViewLayout {
     
-    var delegate : MyDayCollectionViewLayoutDelegate!
+    var delegate: MyDayCollectionViewLayoutDelegate!
     
     var numberOfColumns = 2
     var cellPadding: CGFloat = 10.0
@@ -64,8 +63,7 @@ class MyDayCollectionViewLayout: UICollectionViewLayout {
             contentHeight = max(contentHeight, CGRectGetMaxY(frame))
             yOffset[column] = yOffset[column] + height
             
-            if yOffset[column] >= (column == 1 ? yOffset[0] : yOffset[1])
-            {
+            if yOffset[column] >= (column == 1 ? yOffset[0] : yOffset[1]) {
                 column = column >= (numberOfColumns - 1) ? 0 : ++column
             }
         }

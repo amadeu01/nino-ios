@@ -177,26 +177,39 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     //tries to get the credential
                     let credential = try getCredential()
                     NinoSession.sharedInstance.setCredential(credential)
-                    EducatorBO.getEducator(self.usernameTextField.text!, token: credential.token, completionHandler: { (getProfile) in
+                    //get educator info and school ID
+                    EducatorBO.getEducator(self.usernameTextField.text!, token: credential.token, completionHandler: { (getProfileAndSchoolID) in
                         do {
                             //tries to get the current educator
-                            let (educator, schoolID) = try getProfile()
-                            NinoSession.sharedInstance.setEducator(educator)
+                            let (educator, schoolID) = try getProfileAndSchoolID()
+                            NinoSession.sharedInstance.setEducator(educator.id)
                             //get school info
-                            SchoolBO.getSchool(credential.token, schoolID: schoolID, completionHandler: { (school) in
+                            SchoolBO.getSchool(credential.token, schoolServerID: schoolID, completionHandler: { (school) in
                                 do {
                                     let school = try school()
-                                    NinoSession.sharedInstance.setSchool(school)
+                                    NinoSession.sharedInstance.setSchool(school.id)
                                     //posting notification
                                     NinoSessionNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
                                     //get phases
-                                    PhaseBO.getPhases(credential.token, schoolID: schoolID, completionHandler: { (phases) in
+                                    PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
                                         do {
                                             let phases = try phases()
-                                            NinoSession.sharedInstance.addPhasesForSchool(phases)
+                                            try PhaseBO.addPhasesInSchool(phases)
                                             NinoSessionNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
+                                            for phase in phases {
+                                                //get rooms for each phase
+                                                RoomBO.getRooms(credential.token, phaseID: phase.id, completionHandler: { (rooms) in
+                                                    do {
+                                                        let allRooms = try rooms()
+                                                        try RoomBO.addRoomsInPhase(allRooms, phase: phase.id)
+                                                    } catch let error {
+                                                        //TODO: handle getRoom and addRooms errors
+                                                        print("getRoom error: " + ((error as? ServerError)?.description())!)
+                                                    }
+                                                })
+                                            }
                                         } catch {
-                                            //TODO: handle getPhases error
+                                            //TODO: handle getPhases and addPhases error
                                         }
                                     })
                                 } catch {

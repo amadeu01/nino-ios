@@ -25,56 +25,38 @@ class EducatorBO: NSObject {
      
      - throws: error of CreationError.InvalidEmail type
      */
-    static func createEducator(name: String, surname: String, gender: Gender, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?, completionHandler: (getEducator: () throws -> Educator) -> Void) throws {
-
-        if !StringsValidation.isValidEmail(email) {
-            throw CreationError.InvalidEmail
-        }
-        
-        AccountMechanism.createAccount(name, surname: surname, gender: gender, email: email) { (userID, error, data) in
-            if let errorType = error {
-                //TODO: Handle error data and code
-                completionHandler(getEducator: { () -> Educator in
-                    throw ErrorBO.decodeServerError(errorType)
-                })
-            } else if let user = userID {
-                completionHandler(getEducator: { () -> Educator in
-                    return Educator(id: user, name: name, surname: surname, gender: gender, email: email, school: school, phases: phases, rooms: rooms)
-                })
-            }
-            //unexpected case
-            else {
-                completionHandler(getEducator: { () -> Educator in
-                    throw ServerError.UnexpectedCase
-                })
-            }
-        }
-    }
+//    static func createEducator(name: String, surname: String, gender: Gender, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?, completionHandler: (getEducator: () throws -> Educator) -> Void) throws {
+//
+//        if !StringsValidation.isValidEmail(email) {
+//            throw CreationError.InvalidEmail
+//        }
+//
+//    }
     
-    static func getEducator(email: String, token: String, completionHandler: (getProfile: () throws -> (Educator, Int)) -> Void) {
+    static func getEducator(email: String, token: String, completionHandler: (getProfileAndSchoolID: () throws -> (Educator, Int)) -> Void) {
         
         var userName: String?
         var userSurname: String?
         var userBirthDate: NSDate?
-        var userGender: Gender?
+        var userGender: Int?
         var profileError: Int?
         var profileData: String?
-        var userIDs: [Int]?
+        var userID: Int?
         var userSchools: [Int]?
         var employeeError: Int?
         var employeeData: String?
         
-        AccountMechanism.getMyProfile(0, token: token) { (name, surname, birthDate, gender, error, data) in
+        AccountMechanism.getMyProfile(0, token: token) { (profileID, name, surname, birthDate, gender, error, data) in
             userName = name
             userSurname = surname
             userBirthDate = birthDate
             userGender = gender
             profileError = error
             profileData = data
+            userID = profileID
         }
         
-        AccountMechanism.getEmployeeInformation(0, token: token) { (ids, schools, error, data) in
-            userIDs = ids
+        AccountMechanism.getEmployeeInformation(0, token: token) { (schools, error, data) in
             userSchools = schools
             employeeError = error
             employeeData = data
@@ -84,50 +66,56 @@ class EducatorBO: NSObject {
             //error
             //TODO: handle error data in both cases
             if let error = profileError {
-                completionHandler(getProfile: { () -> (Educator, Int) in
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                     throw ErrorBO.decodeServerError(error)
                 })
             }
             if let error = employeeError {
-                completionHandler(getProfile: { () -> (Educator, Int) in
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                     throw ErrorBO.decodeServerError(error)
                 })
             }
             //unexpected cases
             guard let name = userName else {
-                completionHandler(getProfile: { () -> (Educator, Int) in
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let surname = userSurname else {
-                completionHandler(getProfile: { () -> (Educator, Int) in
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
-            guard let gender = userGender else {
-                completionHandler(getProfile: { () -> (Educator, Int) in
+            guard let genderInt = userGender else {
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
-            guard let userId = userIDs where userId.count > 0 else {
-                completionHandler(getProfile: { () -> (Educator, Int) in
+            guard let gender = Gender(rawValue: genderInt) else {
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                    throw ServerError.UnexpectedCase
+                })
+                return
+            }
+            guard let profID = userID else {
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let schoolID = userSchools where schoolID.count > 0 else {
-                completionHandler(getProfile: { () -> (Educator, Int) in
+                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             //success
-            completionHandler(getProfile: { () -> (Educator, Int) in
-                //FIXME: retrieve the correct id and school
-                return (Educator(id: userId.first!, name: name, surname: surname, gender: gender, email: email, school: nil, phases: nil, rooms: nil), schoolID.first!)
+            completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                //FIXME: retrieve the correct school
+                return (Educator(profileID: profID, name: name, surname: surname, gender: gender, email: email, rooms: nil), schoolID.first!)
             })
         }
         

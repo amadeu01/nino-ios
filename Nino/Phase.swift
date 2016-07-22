@@ -14,35 +14,24 @@ import Foundation
 struct Phase {
 
 //MARK: Attributes
-    let id: Int
+    let id: String
+    var phaseID: Int?
     let name: String
-    var rooms: [Room]?
-    var menu: Menu?
-    var activities: [Activity]?
 
 //MARK: Initializer
     /**
      Initialize one phase
 
-     - parameter id:         unique identifier
+     - parameter phaseID:    server unique identifier
      - parameter name:       phase's name
-     - parameter rooms:      optional list of rooms
-     - parameter menu:       optional menu
-     - parameter activities: optional list of activities
 
      - returns: struct VO of Phase type
      */
-    init(id: Int, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?) {
-        self.id = id
+    init(phaseID: Int?, name: String) {
+        self.id = NSUUID().UUIDString
         self.name = name
-        if let places = rooms {
-            self.rooms = places
-        }
-        if let card = menu {
-            self.menu = card
-        }
-        if let exercises = activities {
-            self.activities = exercises
+        if let phID = phaseID {
+            self.phaseID = phID
         }
     }
 }

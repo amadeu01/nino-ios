@@ -9,6 +9,6 @@
 import UIKit
 
 class StandardNinoCollectionViewCell: UICollectionViewCell {
-    var baby : Student!
-    func updateWithBaby(baby: Student){}
+    var baby: Student!
+    func updateWithBaby(baby: Student) {}
 }

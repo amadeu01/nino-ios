@@ -10,7 +10,7 @@ import UIKit
 
 class MyHygiene: StandardNinoCollectionViewCell {
 
-    let circleDiameter : CGFloat = 8
+    let circleDiameter: CGFloat = 8
     
     @IBOutlet var secOne: [UIButton]!
     var circlesOne = [UIView]()

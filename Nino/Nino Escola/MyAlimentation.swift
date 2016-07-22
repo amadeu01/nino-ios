@@ -11,7 +11,7 @@ import UIKit
 class MyAlimentation: StandardNinoCollectionViewCell {
 
     @IBOutlet weak var addBottleButton: UIButton!
-    let circleDiameter : CGFloat = 8
+    let circleDiameter: CGFloat = 8
     
     @IBOutlet var secOne: [UIButton]!
     var circlesOne = [UIView]()
@@ -49,8 +49,7 @@ class MyAlimentation: StandardNinoCollectionViewCell {
     var selectedSecFour = 0
     
     
-    func excludeBottle(sender: AnyObject?)
-    {
+    func excludeBottle(sender: AnyObject?) {
 //        self.bottlesMl.popLast()
         //TODO REMOVE ALL BOTTLES, just like when the screen loads
 //        ScheduleServices.setFood(self.baby, bootles: self.bottlesMl)

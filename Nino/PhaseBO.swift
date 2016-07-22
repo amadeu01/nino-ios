@@ -22,64 +22,83 @@ class PhaseBO: NSObject {
      
      - returns: Phase VO
      */
-    static func createPhase(token: String, schoolID: Int, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?, completionHandler: (phase: () throws -> Phase) -> Void) {
-        PhasesMechanism.createPhase(token, schoolID: schoolID, name: name) { (id, error, data) in
-            if let error = error {
-                //TODO: handle error data
-                completionHandler(phase: { () -> Phase in
-                    throw ErrorBO.decodeServerError(error)
-                })
-            } else if let phaseID = id {
-                completionHandler(phase: { () -> Phase in
-                    return Phase(id: phaseID, name: name, rooms: rooms, menu: menu, activities: activities)
-                })
-            } else {
-                completionHandler(phase: { () -> Phase in
-                    throw ServerError.UnexpectedCase
-                })
+    static func createPhase(token: String, schoolID: String, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?, completionHandler: (phase: () throws -> Phase) -> Void) {
+        do {
+            let school = try SchoolBO.getIdForSchool(schoolID)
+            PhasesMechanism.createPhase(token, schoolID: school, name: name) { (id, error, data) in
+                if let error = error {
+                    //TODO: handle error data
+                    completionHandler(phase: { () -> Phase in
+                        throw ErrorBO.decodeServerError(error)
+                    })
+                } else if let phaseID = id {
+                    completionHandler(phase: { () -> Phase in
+                        return Phase(phaseID: phaseID, name: name)
+                    })
+                } else {
+                    completionHandler(phase: { () -> Phase in
+                        throw ServerError.UnexpectedCase
+                    })
+                }
             }
+        } catch {
+            //TODO: throw school not found error
         }
     }
     
-    static func getPhases(token: String, schoolID: Int, completionHandler: (phases: () throws -> [Phase]) -> Void) {
-        PhasesMechanism.getPhases(token, schoolID: schoolID) { (info, error, data) in
-            if let errorType = error {
-                //TODO: Handle error data and code
-                completionHandler(phases: { () -> [Phase] in
-                    throw ErrorBO.decodeServerError(errorType)
-                })
-            } else if let phasesInfo = info {
-                var phases = [Phase]()
-                for dict in phasesInfo {
-                    let phaseID = dict["id"] as? Int
-                    let phaseName = dict["name"] as? String
-                    let phaseMenu = dict["menu"] as? Int
-                    guard let id = phaseID else {
-                        completionHandler(phases: { () -> [Phase] in
-                            throw ServerError.UnexpectedCase
-                        })
-                        return
+    static func getPhases(token: String, schoolID: String, completionHandler: (phases: () throws -> [Phase]) -> Void) {
+        do {
+            let school = try SchoolBO.getIdForSchool(schoolID)
+            PhasesMechanism.getPhases(token, schoolID: school) { (info, error, data) in
+                if let errorType = error {
+                    //TODO: Handle error data and code
+                    completionHandler(phases: { () -> [Phase] in
+                        throw ErrorBO.decodeServerError(errorType)
+                    })
+                } else if let phasesInfo = info {
+                    var phases = [Phase]()
+                    for dict in phasesInfo {
+                        let phaseID = dict["id"] as? Int
+                        let phaseName = dict["name"] as? String
+                        let phaseMenu = dict["menu"] as? Int
+                        guard let id = phaseID else {
+                            completionHandler(phases: { () -> [Phase] in
+                                throw ServerError.UnexpectedCase
+                            })
+                            return
+                        }
+                        guard let name = phaseName else {
+                            completionHandler(phases: { () -> [Phase] in
+                                throw ServerError.UnexpectedCase
+                            })
+                            return
+                        }
+                        //TODO: save phaseMenu ids in somewhere
+                        let phase = Phase(phaseID: id, name: name)
+                        phases.append(phase)
                     }
-                    guard let name = phaseName else {
-                        completionHandler(phases: { () -> [Phase] in
-                            throw ServerError.UnexpectedCase
-                        })
-                        return
-                    }
-                    //TODO: save phaseMenu ids in somewhere
-                    let phase = Phase(id: id, name: name, rooms: nil, menu: nil, activities: nil)
-                    phases.append(phase)
+                    completionHandler(phases: { () -> [Phase] in
+                        return phases
+                    })
                 }
-                completionHandler(phases: { () -> [Phase] in
-                    return phases
-                })
+                    //unexpected case
+                else {
+                    completionHandler(phases: { () -> [Phase] in
+                        throw ServerError.UnexpectedCase
+                    })
+                }
             }
-                //unexpected case
-            else {
-                completionHandler(phases: { () -> [Phase] in
-                    throw ServerError.UnexpectedCase
-                })
-            }
+        } catch {
+            //TODO: throw school not found error
         }
+    }
+    
+    static func addPhasesInSchool(phases: [Phase]) throws {
+        //TODO: call DAO or throw school not found error
+    }
+    
+    static func getIdForPhase(phase: String) throws -> Int {
+        //TODO: call DAO and look for schoolID
+        return 1
     }
 }

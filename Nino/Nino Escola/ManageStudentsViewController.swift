@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct StudentMock{
+struct StudentMock {
     var name: String?
     var id: Int?
 }
@@ -157,7 +157,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
         if indexPath.section == studentSec {
             self.selectedStudentIndex = indexPath.row
             self.performSegueWithIdentifier("showRegisterStudentViewController", sender: self)
-        }else if indexPath.section == classroomDeleteSec {
+        } else if indexPath.section == classroomDeleteSec {
             self.didPressToDeleteClassroom()
         } else if indexPath.section == classroomInfoSec {
             self.didPressToChangeClassroomName()

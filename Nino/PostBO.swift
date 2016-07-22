@@ -38,6 +38,20 @@ class PostBO: NSObject {
         if school == nil && students == nil && phases == nil && rooms == nil {
             throw CreationError.TargetNotFound
         }
-        return Post(id: id, type: type, date: date, educator: educator, message: message, attachment: attachment, school: school, students: students, phases: phases, rooms: rooms, read: read)
+        
+        let targets: [Any?] = [school, students, phases, rooms]
+        var numberOfTargets = 0
+        
+        for target in targets {
+            if target != nil {
+                numberOfTargets += 1
+            }
+        }
+        
+        if numberOfTargets > 1 {
+            throw CreationError.MultipleTargets
+        }
+        
+        return Post(postID: id, type: 0, date: nil, authorsProfileID: nil, message: "asd", attachment: nil, schoolID: nil, studentsProfileID: nil, phaseID: 213, roomID: nil, readProfileIDs: nil)
     }
 }
