@@ -14,13 +14,13 @@ class SchoolMechanism: NSObject {
     /**
      Tries to create an school
      
-     - parameter token:
+     - parameter token:      access token
      - parameter name:       school's name
      - parameter address:    school's address
      - parameter telephone:  school's phone
      - parameter email:      school's main email
      - parameter logo:       optional school's logo
-     - parameter completionHandler: completionHandler with optional userID, optional error and optional extra information about the error
+     - parameter completionHandler: completionHandler with optional schoolID, optional error and optional extra information about the error
      */
     static func createSchool(token: String, name: String, address: String, telephone: String, email: String, logo: NSData?, completionHandler: (schoolID: Int?, error: Int?, data: String?) -> Void) {
         //FIXME: send logo
@@ -50,6 +50,14 @@ class SchoolMechanism: NSObject {
         }
     }
     
+    /**
+     Send profile image
+     
+     - parameter token:             access token
+     - parameter imageData:         NSData of the image
+     - parameter schoolID:          school id
+     - parameter completionHandler: completion handler with optional: success, error and error data
+     */
     static func sendProfileImage(token: String, imageData: NSData, schoolID: Int, completionHandler: (success: Bool?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.SendSchoolLogo.description([String(schoolID)])
@@ -75,6 +83,13 @@ class SchoolMechanism: NSObject {
         }
     }
     
+    /**
+     Gets information about the school
+     
+     - parameter token:             access token
+     - parameter schoolID:          school id
+     - parameter completionHandler: completion handler with optional: name, email, telephone, address, error and error data
+     */
     static func getSchool(token: String, schoolID: Int, completionHandler: (name: String?, email: String?, telephone: String?, address: String?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetSchool.description([String(schoolID)])

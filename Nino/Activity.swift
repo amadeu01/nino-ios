@@ -14,33 +14,37 @@ import Foundation
 struct Activity {
 
 //MARK: Attributes
-    let id: Int
+    let id: String
+    var activityID: Int?
     let name: String
     let school: School
     var description: String?
-    var phases: [Phase]?
+    var phasesID: [Int]?
 
 //MARK: Initializer
     /**
      Initialize one activity
 
-     - parameter id:          unique identifier
+     - parameter activityID:  server unique identifier
      - parameter name:        activity name
-     - parameter school:      activity school
+     - parameter school:      activity school id
      - parameter description: optional description
-     - parameter phases:      optional list of phases
+     - parameter phasesID:    optional list of phases ids
 
      - returns: struct VO of Activity type
      */
-    init(id: Int, name: String, school: School, description: String?, phases: [Phase]?) {
-        self.id = id
+    init(activityID: Int?, name: String, school: School, description: String?, phasesID: [Int]?) {
+        self.id = NSUUID().UUIDString
         self.name = name
         self.school = school
         if let text = description {
             self.description = text
         }
-        if let classes = phases {
-            self.phases = classes
+        if let classes = phasesID {
+            self.phasesID = classes
+        }
+        if let actID = activityID {
+            self.activityID = actID
         }
     }
 }

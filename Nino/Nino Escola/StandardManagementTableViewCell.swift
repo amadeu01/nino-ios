@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StandardManagementTableViewCell: UITableViewCell  {
+class StandardManagementTableViewCell: UITableViewCell {
     
     var nameLabel: UILabel?
     var profileImageView: UIImageView?
@@ -22,7 +22,7 @@ class StandardManagementTableViewCell: UITableViewCell  {
     internal var name: String? {
         didSet {
             
-            guard let nameLabel = nameLabel else{
+            guard let nameLabel = nameLabel else {
                 return
             }
             nameLabel.text = name

@@ -14,48 +14,40 @@ import Foundation
 struct School {
 
 //MARK: Attributes
-    let id: Int
+    let id: String
+    var schoolID: Int?
     let name: String
     let address: String
-    var cnpj: Int?
+    var legalNumber: String?
     let telephone: String
     let email: String
     var owner: Int?
     var logo: NSData?
-    var phases: [Phase]?
-    var educators: [Educator]?
-    var students: [Student]?
-    var menus: [Menu]?
-    var activities: [Activity]?
-    var calendars: [Calendar]?
 
 //MARK: Initializer
     /**
      Initialize one school
 
-     - parameter id:         unique identifier
+     - parameter schoolId:   server unique identifier
      - parameter name:       school's name
      - parameter address:    school's address
-     - parameter cnpj:       optional school's legal number
+     - parameter legalNumber:optional school's legal number
      - parameter telephone:  school's phone
      - parameter email:      school's main email
      - parameter owner:      optional id of the owner of the school
      - parameter logo:       optional school's logo
-     - parameter phases:     optional list of phases
-     - parameter educators:  optional list of educators
-     - parameter students:   optional list of students
-     - parameter menus:      optional list of menus
-     - parameter activities: optional list of activities
-     - parameter calendars:  optional list of calendars
 
      - returns: struct VO of School type
      */
-    init(id: Int, name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int?, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?) {
-        self.id = id
+    init(schoolId: Int?, name: String, address: String, legalNumber: String?, telephone: String, email: String, owner: Int?, logo: NSData?) {
+        self.id = NSUUID().UUIDString
+        if let schID = schoolID {
+            self.schoolID = schID
+        }
         self.name = name
         self.address = address
-        if let legalNumber = cnpj {
-            self.cnpj = legalNumber
+        if let cnpj = legalNumber {
+            self.legalNumber = cnpj
         }
         self.email = email
         self.telephone = telephone
@@ -64,25 +56,6 @@ struct School {
         }
         if let picture = logo {
             self.logo = picture
-        }
-
-        if let classes = phases {
-            self.phases = classes
-        }
-        if let caretakers = educators {
-            self.educators = caretakers
-        }
-        if let babies = students {
-            self.students = babies
-        }
-        if let card = menus {
-            self.menus = card
-        }
-        if let exercises = activities {
-            self.activities = exercises
-        }
-        if let agendas = calendars {
-            self.calendars = agendas
         }
     }
 }

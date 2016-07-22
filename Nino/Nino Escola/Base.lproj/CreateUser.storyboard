@@ -444,12 +444,12 @@
                                 <exclude reference="Gry-0s-QGw"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9Uq-Gy-YcM"/>
+                                <exclude reference="bmL-hb-dDC"/>
                                 <exclude reference="Tl3-Xj-9c1"/>
                                 <exclude reference="qbi-7j-dWh"/>
                                 <exclude reference="Ji3-kk-2Kz"/>
                                 <exclude reference="fph-uD-Xqi"/>
-                                <exclude reference="9Uq-Gy-YcM"/>
-                                <exclude reference="bmL-hb-dDC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -459,12 +459,12 @@
                                 <include reference="Gry-0s-QGw"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="9Uq-Gy-YcM"/>
+                                <include reference="bmL-hb-dDC"/>
                                 <include reference="Tl3-Xj-9c1"/>
                                 <include reference="qbi-7j-dWh"/>
                                 <include reference="Ji3-kk-2Kz"/>
                                 <include reference="fph-uD-Xqi"/>
-                                <include reference="9Uq-Gy-YcM"/>
-                                <include reference="bmL-hb-dDC"/>
                             </mask>
                         </variation>
                     </view>

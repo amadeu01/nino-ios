@@ -46,10 +46,10 @@ class CustomizeColor: UIColor {
     static func defaultBackgroundColor() -> UIColor {
         return UIColor(patternImage: UIImage(named: "backgroundBolas")!)
     }
-    static func lightPink() -> UIColor{
+    static func lightPink() -> UIColor {
          return UIColor(red: 247/255, green: 170/255, blue: 226/255, alpha: 1)
     }
-    static func strongPink() -> UIColor{
+    static func strongPink() -> UIColor {
         return UIColor(red: 148/255, green: 0/255, blue: 104/255, alpha: 1)
     }
     

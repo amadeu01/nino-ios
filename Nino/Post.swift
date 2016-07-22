@@ -14,61 +14,75 @@ import Foundation
 struct Post {
 
 //MARK: Attributes
-    let id: Int
-    let type: String
-    let date: NSDate
-    let educator: Educator
+    let id: String
+    var postID: Int?
+    let type: Int
+    var date: NSDate?
+    var authorsProfileID: [Int]?
     var message: String?
     var attachment: NSData?
-    var school: School?
-    var students: [Student]?
-    var phases: [Phase]?
-    var rooms: [Room]?
-    var read: [Guardian]?
+    var studentsProfileID: [Int]?
+    var schoolID: Int?
+    var phaseID: Int?
+    var roomID: Int?
+    var readProfileIDs: [Int]?
 
 //MARK: Initializer
     /**
      Initialize one post
 
-     - parameter id:         unique identifier
-     - parameter type:       type of the post
-     - parameter date:       date of the post
-     - parameter educator:   creator of the post
-     - parameter message:    optional message
-     - parameter attachment: optional attachment
-     - parameter school:     optional target of school type
-     - parameter students:   optional target of student type
-     - parameter phases:     optional target of phase type
-     - parameter rooms:      optional target of room type
-     - parameter read:       optional list of guardians who read
+     - parameter postID:             server unique identifier
+     - parameter type:               type of the post
+     - parameter date:               date of the post
+     - parameter authorsProfileID:   creator of the post
+     - parameter message:            optional message
+     - parameter attachment:         optional attachment
+     - parameter schoolID:           optional target of school type
+     - parameter studentsProfileID:  optional target of student type
+     - parameter phaphaseIDses:      optional target of phase type
+     - parameter roomID:             optional target of room type
+     - parameter readProfileIDs:     optional list of profiles IDs who read
 
      - returns: struct VO of Post type
      */
-    init(id: Int, type: String, date: NSDate, educator: Educator, message: String?, attachment: NSData?, school: School?, students: [Student]?, phases: [Phase]?, rooms: [Room]?, read: [Guardian]?) {
-        self.id = id
+    init(postID: Int?, type: Int, date: NSDate?, authorsProfileID: [Int]?, message: String?, attachment: NSData?, schoolID: Int?, studentsProfileID: [Int]?, phaseID: Int?, roomID: Int?, readProfileIDs: [Int]?) {
+        self.id = NSUUID().UUIDString
+        if let ptID = postID {
+            self.postID = ptID
+        }
         self.type = type
-        self.date = date
-        self.educator = educator
+        if let dt = date {
+            self.date = dt
+        }
+        if let autProfileID = authorsProfileID {
+            self.authorsProfileID = autProfileID
+        } else {
+            self.authorsProfileID = [Int]()
+        }
         if let text = message {
             self.message = text
         }
         if let attc = attachment {
             self.attachment = attc
         }
-        if let institution = school {
-            self.school = institution
+        if let institution = schoolID {
+            self.schoolID = institution
         }
-        if let babies = students {
-            self.students = babies
+        if let babies = studentsProfileID {
+            self.studentsProfileID = babies
+        } else {
+            self.studentsProfileID = [Int]()
         }
-        if let classes = phases {
-            self.phases = classes
+        if let phase = phaseID {
+            self.phaseID = phase
         }
-        if let places = rooms {
-            self.rooms = places
+        if let places = roomID {
+            self.roomID = places
         }
-        if let guardians = read {
-            self.read = guardians
+        if let guardians = readProfileIDs {
+            self.readProfileIDs = guardians
+        } else {
+            self.readProfileIDs = [Int]()
         }
     }
 }

@@ -219,11 +219,11 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
                     }
                 }
             }
-            try SchoolBO.createSchool(credential.token, name: self.schoolNameTextField.text!, address: self.addressTextField.text!, cnpj: nil, telephone: self.phoneTextField.text!, email: self.emailTextField.text!, owner: nil, logo: image, phases: nil, educators: nil, students: nil, menus: nil, activities: nil, calendars: nil) { (getSchool) in
+            try SchoolBO.createSchool(credential.token, name: self.schoolNameTextField.text!, address: self.addressTextField.text!, telephone: self.phoneTextField.text!, email: self.emailTextField.text!, logo: image, completionHandler: { (getSchool) in
                 do {
                     let school = try getSchool()
-                    NinoSession.sharedInstance.setSchool(school)
-                    dispatch_async(dispatch_get_main_queue(), { 
+                    NinoSession.sharedInstance.setSchool(school.id)
+                    dispatch_async(dispatch_get_main_queue(), {
                         self.activityIndicator.stopAnimating()
                         //changes the view
                         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
@@ -234,7 +234,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
                 } catch let internalError {
                     //TODO: handle error
                 }
-            }
+            })
         } catch _ {
             self.activityIndicator.stopAnimating()
             self.enableButtons()

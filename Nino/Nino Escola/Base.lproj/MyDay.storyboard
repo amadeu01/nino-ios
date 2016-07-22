@@ -11,6 +11,9 @@
         <mutableArray key="HelveticaRoundedLT-Bold.otf">
             <string>HelveticaRoundedLT-Bold</string>
         </mutableArray>
+        <mutableArray key="HelveticaRoundedLT-BoldCond.otf">
+            <string>HelveticaRoundedLT-BoldCond</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--My Day View Controller-->
@@ -25,27 +28,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="456"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Nd-ARg">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n79-Il-Ff3">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gaj-31-lrA">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mC7-tE-Hfn" customClass="DateSelector" customModule="Nino_Escola" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -74,6 +56,119 @@
                                     <rect key="frame" x="341" y="419" width="101" height="29"/>
                                 </variation>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Nd-ARg">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <collectionViewLayout key="collectionViewLayout" id="NaJ-8X-jws" customClass="MyDayCollectionViewLayout" customModule="Nino_Escola" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gaj-31-lrA">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQj-kf-mAx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="25"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyDayCellType" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0y-fj-KdH">
+                                                            <rect key="frame" x="0.0" y="2" width="250" height="22"/>
+                                                            <accessibility key="accessibilityConfiguration">
+                                                                <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                            </accessibility>
+                                                            <fontDescription key="fontDescription" name="HelveticaRoundedLT-BoldCond" family="Helvetica Rounded LT" pointSize="18"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.070588235289999995" green="0.56470588239999997" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="K0y-fj-KdH" firstAttribute="width" secondItem="PQj-kf-mAx" secondAttribute="width" id="0kX-SH-Bez"/>
+                                                        <constraint firstItem="K0y-fj-KdH" firstAttribute="centerY" secondItem="PQj-kf-mAx" secondAttribute="centerY" id="UMa-HS-8dO"/>
+                                                        <constraint firstItem="K0y-fj-KdH" firstAttribute="centerX" secondItem="PQj-kf-mAx" secondAttribute="centerX" id="kLu-90-XM3"/>
+                                                        <constraint firstAttribute="height" constant="25" id="zea-TT-wGQ"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fo9-cz-eUY">
+                                                    <rect key="frame" x="0.0" y="24" width="250" height="226"/>
+                                                    <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="PQj-kf-mAx" firstAttribute="top" secondItem="gaj-31-lrA" secondAttribute="topMargin" constant="-8" id="1T6-hj-hwf"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="fo9-cz-eUY" secondAttribute="bottom" constant="-8" id="3me-DC-ynE"/>
+                                            <constraint firstItem="fo9-cz-eUY" firstAttribute="top" secondItem="K0y-fj-KdH" secondAttribute="bottom" id="4EJ-g7-QUD"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="fo9-cz-eUY" secondAttribute="bottom" constant="-8" id="Dwh-D8-3hA"/>
+                                            <constraint firstItem="fo9-cz-eUY" firstAttribute="centerX" secondItem="gaj-31-lrA" secondAttribute="centerX" id="Iod-le-k7R"/>
+                                            <constraint firstItem="fo9-cz-eUY" firstAttribute="leading" secondItem="gaj-31-lrA" secondAttribute="leadingMargin" constant="-8" id="SpA-Fk-B7O"/>
+                                            <constraint firstItem="PQj-kf-mAx" firstAttribute="centerX" secondItem="gaj-31-lrA" secondAttribute="centerX" id="amw-Rl-qgV"/>
+                                            <constraint firstItem="fo9-cz-eUY" firstAttribute="width" secondItem="gaj-31-lrA" secondAttribute="width" id="ia3-jc-8ar"/>
+                                            <constraint firstItem="PQj-kf-mAx" firstAttribute="width" secondItem="gaj-31-lrA" secondAttribute="width" id="lYG-9e-81b"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="fo9-cz-eUY" secondAttribute="trailing" constant="-8" id="uCu-fi-R57"/>
+                                        </constraints>
+                                        <size key="customSize" width="250" height="250"/>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="PQj-kf-mAx"/>
+                                                <exclude reference="fo9-cz-eUY"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="1T6-hj-hwf"/>
+                                                <exclude reference="amw-Rl-qgV"/>
+                                                <exclude reference="lYG-9e-81b"/>
+                                                <exclude reference="3me-DC-ynE"/>
+                                                <exclude reference="4EJ-g7-QUD"/>
+                                                <exclude reference="Dwh-D8-3hA"/>
+                                                <exclude reference="Iod-le-k7R"/>
+                                                <exclude reference="SpA-Fk-B7O"/>
+                                                <exclude reference="ia3-jc-8ar"/>
+                                                <exclude reference="uCu-fi-R57"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=regular">
+                                            <mask key="subviews">
+                                                <include reference="PQj-kf-mAx"/>
+                                                <include reference="fo9-cz-eUY"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <include reference="1T6-hj-hwf"/>
+                                                <include reference="amw-Rl-qgV"/>
+                                                <include reference="lYG-9e-81b"/>
+                                                <include reference="3me-DC-ynE"/>
+                                                <include reference="4EJ-g7-QUD"/>
+                                                <exclude reference="Dwh-D8-3hA"/>
+                                                <include reference="Iod-le-k7R"/>
+                                                <exclude reference="SpA-Fk-B7O"/>
+                                                <include reference="ia3-jc-8ar"/>
+                                                <exclude reference="uCu-fi-R57"/>
+                                            </mask>
+                                        </variation>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WZh-LI-yei">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VTQ-2L-2iA">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="afj-1E-Ytj" id="z5u-bR-lnW"/>
+                                    <outlet property="delegate" destination="afj-1E-Ytj" id="eCt-RS-KnP"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -91,9 +186,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="fdk-Nd-ARg"/>
                                 <exclude reference="mC7-tE-Hfn"/>
                                 <exclude reference="uDI-fd-9qu"/>
+                                <exclude reference="fdk-Nd-ARg"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9tD-Pe-PCn"/>
@@ -109,9 +204,9 @@
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="subviews">
-                                <include reference="fdk-Nd-ARg"/>
                                 <include reference="mC7-tE-Hfn"/>
                                 <include reference="uDI-fd-9qu"/>
+                                <include reference="fdk-Nd-ARg"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="9tD-Pe-PCn"/>

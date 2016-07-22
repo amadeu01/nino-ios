@@ -14,44 +14,40 @@ import Foundation
 struct Educator {
 
 //MARK: Attributes
-    let id: Int
+    let id: String
+    var profileID: Int?
     let name: String
     let surname: String
     let gender: Gender
     let email: String
-    var schools: [School]?
-    var phases: [Phase]?
-    var rooms: [Room]?
+    var rooms: [String]?
 
 //MARK: Initializer
     /**
      Initialize one educator
 
-     - parameter id:      unique identifier
-     - parameter name:    educator's name
-     - parameter surname: educator's surname
-     - parameter gender:  educator's gender
-     - parameter email:   educator's email
-     - parameter school:  optional list of schools
-     - parameter phases:  optional list of phases
-     - parameter rooms:   optional list of rooms
+     - parameter profileID:     server profile unique identifier
+     - parameter name:          educator's name
+     - parameter surname:       educator's surname
+     - parameter gender:        educator's gender
+     - parameter email:         educator's email
+     - parameter rooms:         optional list of rooms ids
 
      - returns: struct VO of Guardian type
      */
-    init(id: Int, name: String, surname: String, gender: Gender, email: String, school: [School]?, phases: [Phase]?, rooms: [Room]?) {
-        self.id = id
+    init(profileID: Int?, name: String, surname: String, gender: Gender, email: String, rooms: [String]?) {
+        self.id = NSUUID().UUIDString
         self.name = name
         self.surname = surname
         self.gender = gender
         self.email = email
-        if let institution = school {
-            self.schools = institution
-        }
-        if let classes = phases {
-            self.phases = classes
-        }
         if let place = rooms {
             self.rooms = place
+        } else {
+            self.rooms = [String]()
+        }
+        if let profID = profileID {
+            self.profileID = profID
         }
     }
 }

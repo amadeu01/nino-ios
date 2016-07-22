@@ -14,38 +14,27 @@ import Foundation
 struct Room {
 
 //MARK: Attributes
-    let id: Int
-    let phase: Phase
+    let id: String
+    var roomID: Int?
+    let phaseID: Int
     let name: String
-    var educators: [Educator]?
-    var calendar: Calendar?
-    var students: [Student]?
 
 //MARK: Initializer
     /**
      Initialize one room
 
-     - parameter id:         unique identifier
-     - parameter phase:      room's phase
+     - parameter roomID:     server unique identifier
+     - parameter phaseID:    room's phase
      - parameter name:       room's name
-     - parameter educators:  optional list of educators
-     - parameter calendar:   optional calendar
-     - parameter students:   optional list of students
 
      - returns: struct VO of Room type
      */
-    init(id: Int, phase: Phase, name: String, educators: [Educator]?, calendar: Calendar?, students: [Student]?) {
-        self.id = id
-        self.phase = phase
+    init(roomID: Int?, phaseID: Int, name: String) {
+        self.id = NSUUID().UUIDString
+        self.phaseID = phaseID
         self.name = name
-        if let caretakers = educators {
-            self.educators = caretakers
-        }
-        if let schedule = calendar {
-            self.calendar = schedule
-        }
-        if let babies = students {
-            self.students = babies
+        if let rmID = roomID {
+            self.roomID = rmID
         }
     }
 }

@@ -51,7 +51,7 @@ class SchoolManagementTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("configCell")
-        cell!.textLabel!.text = self.sections[indexPath.section].rows[indexPath.row] as? String
+        cell!.textLabel!.text = self.sections[indexPath.section].rows[indexPath.row]
         cell!.imageView!.image = self.sections[indexPath.section].icons[indexPath.row]
         if indexPath.section != 2 {
             cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -101,7 +101,7 @@ class SchoolManagementTableViewController: UITableViewController {
     
     //MARK: Handling function:
     
-    func logOut(){
+    func logOut() {
         //TODO: Should prompt the user if he would like to logg
     }
 }

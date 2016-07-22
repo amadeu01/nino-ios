@@ -17,44 +17,42 @@ class SchoolBO: NSObject {
      - parameter token:             user token
      - parameter name:              school's name
      - parameter address:           school's address
-     - parameter cnpj:              optional school's legal number
      - parameter telephone:         school's phone
      - parameter email:             school's main email
-     - parameter owner:             optional id of the owner of the school
      - parameter logo:              optional school's logo
-     - parameter phases:            optional list of phases
-     - parameter educators:         optional list of educators
-     - parameter students:          optional list of students
-     - parameter menus:             optional list of menus
-     - parameter activities:        optional list of activities
-     - parameter calendars:         ptional list of calendars
      - parameter completionHandler: completionHandler with other inside. The completionHandler from inside can throws ServerError or returns a School
      
      - throws: error of CreationError.InvalidEmail type
      */
-    static func createSchool(token: String, name: String, address: String, cnpj: Int?, telephone: String, email: String, owner: Int?, logo: NSData?, phases: [Phase]?, educators: [Educator]?, students: [Student]?, menus: [Menu]?, activities: [Activity]?, calendars: [Calendar]?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
+    static func createSchool(token: String, name: String, address: String, telephone: String, email: String, logo: NSData?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
 
         if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
-        
+        //tries to create a school
         SchoolMechanism.createSchool(token, name: name, address: address, telephone: telephone, email: email, logo: logo) { (schoolID, error, data) in
             if let errorType = error {
                 //TODO: handle error data
                 completionHandler(getSchool: { () -> School in
                     throw ErrorBO.decodeServerError(errorType)
                 })
-            } else if let school = schoolID {
+            }
+            //success
+            else if let school = schoolID {
+                //has profile image
                 if let imageData = logo {
+                    //tries to send the profile image
                     SchoolMechanism.sendProfileImage(token, imageData: imageData, schoolID: school, completionHandler: { (success, error, data) in
                         if let err = error {
                             completionHandler(getSchool: { () -> School in
                                 throw ErrorBO.decodeServerError(err)
                             })
-                        } else if let success = success {
+                        }
+                        //success
+                        else if let success = success {
                             if success {
                                 completionHandler(getSchool: { () -> School in
-                                    return School(id: school, name: name, address: address, cnpj: cnpj, telephone: telephone, email: email, owner: owner, logo: logo, phases: phases, educators: educators, students: students, menus: menus, activities: activities, calendars: calendars)
+                                    return School(schoolId: school, name: name, address: address, legalNumber: nil, telephone: telephone, email: email, owner: nil, logo: logo)
                                 })
                             }
                         } else {
@@ -64,7 +62,15 @@ class SchoolBO: NSObject {
                         }
                     })
                 }
-            } else {
+                //without profile image
+                else {
+                    completionHandler(getSchool: { () -> School in
+                        return School(schoolId: school, name: name, address: address, legalNumber: nil, telephone: telephone, email: email, owner: nil, logo: nil)
+                    })
+                }
+            }
+            //unexpected case
+            else {
                 completionHandler(getSchool: { () -> School in
                     throw ServerError.UnexpectedCase
                 })
@@ -72,8 +78,8 @@ class SchoolBO: NSObject {
         }
     }
     
-    static func getSchool(token: String, schoolID: Int, completionHandler: (school: () throws -> School) -> Void) {
-        SchoolMechanism.getSchool(token, schoolID: schoolID) { (name, email, telephone, address, error, data) in
+    static func getSchool(token: String, schoolServerID: Int, completionHandler: (school: () throws -> School) -> Void) {
+        SchoolMechanism.getSchool(token, schoolID: schoolServerID) { (name, email, telephone, address, error, data) in
             //TODO: handle error data
             if let error = error {
                 completionHandler(school: { () -> School in
@@ -107,8 +113,13 @@ class SchoolBO: NSObject {
             }
             //success
             completionHandler(school: { () -> School in
-                return School(id: schoolID, name: schoolName, address: schoolAddr, cnpj: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil, phases: nil, educators: nil, students: nil, menus: nil, activities: nil, calendars: nil)
+                return School(schoolId: schoolServerID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
             })
         }
+    }
+    
+    static func getIdForSchool(school: String) throws -> Int {
+        //TODO: call DAO and look for schoolID
+        return 2
     }
 }

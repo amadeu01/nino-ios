@@ -26,4 +26,3 @@ class StudentTableViewCell: StandardManagementTableViewCell {
         // Configure the view for the selected state
     }
 }
-

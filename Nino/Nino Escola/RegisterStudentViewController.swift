@@ -52,7 +52,7 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .Bordered, target: self, action: #selector (didPressToCancel))
     }
     
-    func didPressToCancel(){
+    func didPressToCancel() {
         performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
     }
     

@@ -14,34 +14,40 @@ import Foundation
 struct Guardian {
 
 //MARK: Attributes
-    let id: Int
+    let id: String
+    var profileID: Int?
     let name: String
     let surname: String
     let gender: Gender
     let email: String
-    var students: [Student]?
+    var students: [String]?
 
 //MARK: Initializer
     /**
      Initialize one guardian
 
-     - parameter id:       unique identifier
-     - parameter name:     guardian's name
-     - parameter surname:  guardian's surname
-     - parameter gender:   guardian's gender
-     - parameter email:    guardian's email
-     - parameter students: optional list of students
+     - parameter profileID:     server profile unique identifier
+     - parameter name:          guardian's name
+     - parameter surname:       guardian's surname
+     - parameter gender:        guardian's gender
+     - parameter email:         guardian's email
+     - parameter students:      optional list of students idsguardianID
 
      - returns: struct VO of Guardian type
      */
-    init(id: Int, name: String, surname: String, gender: Gender, email: String, students: [Student]?) {
-        self.id = id
+    init(profileID: Int?, name: String, surname: String, gender: Gender, email: String, students: [String]?) {
+        self.id = NSUUID().UUIDString
         self.name = name
         self.surname = surname
         self.gender = gender
         self.email = email
         if let babies = students {
             self.students = babies
+        } else {
+            self.students = [String]()
+        }
+        if let profID = profileID {
+            self.profileID = profID
         }
     }
 }

@@ -18,6 +18,7 @@ import Foundation
  */
 enum CreationError: ErrorType {
     case TargetNotFound
+    case MultipleTargets
     case ContentNotFound
     case InvalidBirthDate
     case InvalidEmail

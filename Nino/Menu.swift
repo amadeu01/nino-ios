@@ -14,30 +14,34 @@ import Foundation
 struct Menu {
 
 //MARK: Attributes
-    let id: Int
-    var description: String
-    var school: School?
-    var phase: [Phase]?
+    let id: String
+    var menuID: Int?
+    let description: String
+    var schoolID: Int?
+    var phasesID: [Int]?
 
 //MARK: Initializer
     /**
-     Initialize one error
+     Initialize one menu
 
-     - parameter id:          unique identifier
+     - parameter menuID:         server unique identifier
      - parameter description: menu's description
-     - parameter school:      optional school
-     - parameter phase:       optional list of phases
+     - parameter schoolID:      optional school
+     - parameter phasesID:       optional list of phases
 
      - returns: struct VO of Menu type
      */
-    init(id: Int, description: String, school: School?, phase: [Phase]?) {
-        self.id = id
+    init(menuID: Int?, description: String, schoolID: Int?, phasesID: [Int]?) {
+        self.id = NSUUID().UUIDString
         self.description = description
-        if let institution = school {
-            self.school = institution
+        if let mnID = menuID {
+            self.menuID = mnID
         }
-        if let stage = phase {
-            self.phase = stage
+        if let institution = schoolID {
+            self.schoolID = institution
+        }
+        if let stage = phasesID {
+            self.phasesID = stage
         }
     }
 }

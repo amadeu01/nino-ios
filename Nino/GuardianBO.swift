@@ -30,6 +30,6 @@ class GuardianBO: NSObject {
         if !StringsValidation.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
-        return Guardian(id: id, name: name, surname: surname, gender: gender, email: email, students: students)
+        return Guardian(profileID: id, name: name, surname: surname, gender: gender, email: email, students: nil)
     }
 }

@@ -23,6 +23,6 @@ class EventBO: NSObject {
      - returns: Event VO
      */
     static func createEvent(id: Int, description: String, date: NSDate, title: String, confirmation: [Guardian]?) -> Event {
-        return Event(id: id, description: description, date: date, title: title, confirmation: confirmation)
+        return Event(eventID: id, description: description, date: date, title: title, confirmedProfileIDs: nil, schoolID: nil, phaseID: nil, roomID: 123)
     }
 }

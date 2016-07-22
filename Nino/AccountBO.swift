@@ -9,6 +9,46 @@
 import UIKit
 
 class AccountBO: NSObject {
+    
+    /**
+     Creates a new account
+     
+     - parameter name:              user name
+     - parameter surname:           user surname
+     - parameter gender:            user gender
+     - parameter email:             user email
+     - parameter completionHandler: completion handler with a function that can throw a Server or a Creation error or return a profileID
+     
+     - throws:  CreationError.InvalidEmail
+     */
+    static func createAccount(name: String, surname: String, gender: Gender, email: String, completionHandler: (getAccount: () throws -> Int) -> Void) throws {
+        
+        if !StringsValidation.isValidEmail(email) {
+            throw CreationError.InvalidEmail
+        }
+        
+        AccountMechanism.createAccount(name, surname: surname, gender: gender.rawValue, email: email) { (profileID, error, data) in
+            if let errorType = error {
+                //TODO: Handle error data and code
+                completionHandler(getAccount: { () -> Int in
+                    throw ErrorBO.decodeServerError(errorType)
+                })
+            } else if let user = profileID {
+                completionHandler(getAccount: { () -> Int in
+                    return user
+                })
+            }
+                //unexpected case
+            else {
+                completionHandler(getAccount: { () -> Int in
+                    throw ServerError.UnexpectedCase
+                })
+            }
+        }
+    }
+    
+    
+    
     /**
      Checks if the user hash is valid
      

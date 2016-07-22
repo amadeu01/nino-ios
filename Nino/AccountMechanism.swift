@@ -15,16 +15,17 @@ class AccountMechanism: NSObject {
     /**
      Tries to generate a credential
      
-     - parameter key:                key with login information
+     - parameter email:              user email
+     - parameter password:           user password
      - parameter completionHandler:  completionHandler with optional accessToken and optional error
      */
-    static func login(key: Key, completionHandler: (accessToken: String?, error: Int?) -> Void) {
-        let passwordMD5 = MD5.digest(key.password)
+    static func login(email: String, password: String, completionHandler: (accessToken: String?, error: Int?) -> Void) {
+        let passwordMD5 = MD5.digest(password)
         guard let passwd = passwordMD5 else {
             completionHandler(accessToken: nil, error: nil)
             return
         }
-        let body: [String: AnyObject] = ["user": key.email, "password": passwd]
+        let body: [String: AnyObject] = ["user": email, "password": passwd]
         do {
             let route = try ServerRoutes.Login.description(nil)
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
@@ -54,18 +55,18 @@ class AccountMechanism: NSObject {
      
      - parameter name:              person name
      - parameter surname:           person surname
-     - parameter gender:            person gender
-     - parameter key:               key with login information
-     - parameter completionHandler: completionHandler with optional userID, optional error and optional extra information about the error
+     - parameter gender:            person gender.rawValue
+     - parameter email:             user eamil
+     - parameter completionHandler: completionHandler with optional profileID, optional error and optional extra information about the error
      */
-    static func createAccount(name: String, surname: String, gender: Gender, email: String, completionHandler: (userID: Int?, error: Int?, data: String?) -> Void) {
+    static func createAccount(name: String, surname: String, gender: Int, email: String, completionHandler: (profileID: Int?, error: Int?, data: String?) -> Void) {
         
-        let body: [String: AnyObject] = ["name": name, "surname": surname, "email": email, "gender": gender.hashValue]
+        let body: [String: AnyObject] = ["name": name, "surname": surname, "email": email, "gender": gender]
         do {
             let route = try ServerRoutes.CreateUser.description(nil)
             RestApiManager.makeHTTPPostRequest(route, body: body) { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    completionHandler(userID: nil, error: error?.code, data: nil)
+                    completionHandler(profileID: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
@@ -73,13 +74,13 @@ class AccountMechanism: NSObject {
                     //FIXME: data is a json, needs to be interpreted
                     let data = json["data"].string
                     let error = json["error"].int
-                    completionHandler(userID: nil, error: error, data: data)
+                    completionHandler(profileID: nil, error: error, data: data)
                     
                 }
                 //success
                 else {
                     let userID = json["data"]["profile"]["id"].int
-                    completionHandler(userID: userID, error: nil, data: nil)
+                    completionHandler(profileID: userID, error: nil, data: nil)
                 }
             }
         } catch {
@@ -87,6 +88,12 @@ class AccountMechanism: NSObject {
         }
     }
     
+    /**
+     Checks if the hash still valid
+     
+     - parameter hash:              user hash
+     - parameter completionHandler: completionHandler with optional validated - false, if the hash is valid; optional error and optional extra information about the error
+     */
     static func checkIfValidated(hash: String, completionHandler: (validated: Bool?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CheckIfValidated.description([hash])
@@ -113,6 +120,13 @@ class AccountMechanism: NSObject {
         }
     }
     
+    /**
+     Register password for the account
+     
+     - parameter password:          new password
+     - parameter hash:              user hash
+     - parameter completionHandler: completion handler with optional access token, optional error and optional data about the error
+     */
     static func confirmAccount(password: String, hash: String, completionHandler: (token: String?, error: Int?, data: String?) -> Void) {
         let passwordMD5 = MD5.digest(password)
         guard let passwd = passwordMD5 else {
@@ -145,12 +159,20 @@ class AccountMechanism: NSObject {
         }
     }
     
-    static func getMyProfile(group: Int?, token: String, completionHandler: (name: String?, surname: String?, birthDate: NSDate?, gender: Gender?, error: Int?, data: String?) -> Void) {
+    
+    /**
+     Gets information about the user profile
+     
+     - parameter group:             optional group for parallel requests
+     - parameter token:             access token
+     - parameter completionHandler: completion handler with optional: profileID; name, surname, birthDate, gender.rawValue, error and error data
+     */
+    static func getMyProfile(group: Int?, token: String, completionHandler: (profileID: Int?, name: String?, surname: String?, birthDate: NSDate?, gender: Int?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetMyProfile.description(nil)
             RestApiManager.makeHTTPGetRequest(group, path: route, token: token, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    completionHandler(name: nil, surname: nil, birthDate: nil, gender: nil, error: error?.code, data: nil)
+                    completionHandler(profileID: nil, name: nil, surname: nil, birthDate: nil, gender: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
@@ -158,7 +180,7 @@ class AccountMechanism: NSObject {
                     //FIXME: data is a json, needs to be interpreted
                     let data = json["data"].string
                     let error = json["error"].int
-                    completionHandler(name: nil, surname: nil, birthDate: nil, gender: nil, error: error, data: data)
+                    completionHandler(profileID: nil, name: nil, surname: nil, birthDate: nil, gender: nil, error: error, data: data)
                 }
                 //success
                 else {
@@ -167,13 +189,8 @@ class AccountMechanism: NSObject {
                     //FIXME: check if is working
                     let birthdate = json["data"]["birthdate"].object as? NSDate
                     let genderInt = json["data"]["gender"].int
-                    var gender: Gender?
-                    if let genderInt = genderInt {
-                        gender = Gender(rawValue: genderInt)
-                    } else {
-                        gender = nil
-                    }
-                    completionHandler(name: name, surname: surname, birthDate: birthdate, gender: gender, error: nil, data: nil)
+                    let profileID = json["data"]["id"].int
+                    completionHandler(profileID: profileID, name: name, surname: surname, birthDate: birthdate, gender: genderInt, error: nil, data: nil)
                 }
             })
         } catch {
@@ -181,35 +198,37 @@ class AccountMechanism: NSObject {
         }
     }
     
-    static func getEmployeeInformation(group: Int?, token: String, completionHandler: (ids: [Int]?, schools: [Int]?, error: Int?, data: String?) -> Void) {
+    /**
+     Gets information about the user school
+     
+     - parameter group:             optional group for parallel requests
+     - parameter token:             access token
+     - parameter completionHandler: completion handler with optional: array of schools ids, error and error data
+     */
+    static func getEmployeeInformation(group: Int?, token: String, completionHandler: (schools: [Int]?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetEmployeeInformation.description(nil)
             RestApiManager.makeHTTPGetRequest(group, path: route, token: token, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    completionHandler(ids: nil, schools: nil, error: error?.code, data: nil)
+                    completionHandler(schools: nil, error: error?.code, data: nil)
                     return
                 }
                 if statusCode != 200 {
                     //FIXME: data is a json
                     let data = json["data"].string
                     let error = json["error"].int
-                    completionHandler(ids: nil, schools: nil, error: error, data: data)
+                    completionHandler(schools: nil, error: error, data: data)
                 }
                 //success
                 else {
                     let schools =  json["data"].array
                     //FIXME: get other schools
                     let firstSchool = schools?.first?["school"].int
-                    let firstEducatorID = schools?.first?["id"].int
                     guard let schoolID = firstSchool else {
-                        completionHandler(ids: nil, schools: nil, error: nil, data: nil)
+                        completionHandler(schools: nil, error: nil, data: nil)
                         return
                     }
-                    guard let educatorID = firstEducatorID else{
-                        completionHandler(ids: nil, schools: nil, error: nil, data: nil)
-                        return
-                    }
-                    completionHandler(ids: [educatorID], schools: [schoolID], error: nil, data: nil)
+                    completionHandler(schools: [schoolID], error: nil, data: nil)
                 }
             })
         } catch {

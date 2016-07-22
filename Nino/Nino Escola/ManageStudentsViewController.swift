@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct StudentMock{
+struct StudentMock {
     var name: String?
     var id: Int?
 }
