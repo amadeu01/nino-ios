@@ -156,8 +156,8 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == studentSec {
             self.selectedStudentIndex = indexPath.row
-            self.performSegueWithIdentifier("showStudentInfoViewController", sender: self)
-        }else if indexPath.section == classroomDeleteSec {
+            self.performSegueWithIdentifier("showRegisterStudentViewController", sender: self)
+        } else if indexPath.section == classroomDeleteSec {
             self.didPressToDeleteClassroom()
         } else if indexPath.section == classroomInfoSec {
             self.didPressToChangeClassroomName()
