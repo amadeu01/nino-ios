@@ -58,14 +58,11 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
                 //TODO: show default alert for empty field
                 return
             }
-            PhaseBO.createPhase(token, schoolID: schoolID, name: name, rooms: nil, menu: nil, activities: nil, completionHandler: { (phase) in
+            PhaseBO.createPhase(token, schoolID: schoolID, name: name, completionHandler: { (phase) in
                 do {
                     let newPhase = try phase()
-                    try PhaseBO.addPhasesInSchool([newPhase])
                     self.phases.append(newPhase)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tableView.reloadData()
-                    })
+                    self.tableView.reloadData()
                 } catch {
                     //TODO: handle newPhase errors
                 }
@@ -93,9 +90,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
                 for phase in newPhases {
                     self.phases.append(phase)
                 }
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
+                self.tableView.reloadData()
             } catch {
                 //TODO: handle getPhases error
             }

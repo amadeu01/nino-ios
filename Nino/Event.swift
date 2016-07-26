@@ -28,6 +28,7 @@ struct Event {
     /**
      Initialize one event
      
+     - parameter id:                  event ID
      - parameter eventID:             server unique identifier
      - parameter description:         event description
      - parameter date:                event date
@@ -39,8 +40,8 @@ struct Event {
      
      - returns: struct VO of Event type
      */
-    init(eventID: Int?, description: String, date: NSDate, title: String, confirmedProfileIDs: [Int]?, schoolID: Int?, phaseID: Int?, roomID: Int?) {
-        self.id = NSUUID().UUIDString
+    init(id: String, eventID: Int?, description: String, date: NSDate, title: String, confirmedProfileIDs: [Int]?, schoolID: Int?, phaseID: Int?, roomID: Int?) {
+        self.id = id
         self.description = description
         self.date = date
         self.title = title

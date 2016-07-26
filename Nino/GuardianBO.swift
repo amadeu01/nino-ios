@@ -27,9 +27,9 @@ class GuardianBO: NSObject {
      */
     static func createGuardian(id: Int, name: String, surname: String, gender: Gender, email: String, students: [Student]?) throws -> Guardian {
 
-        if !StringsValidation.isValidEmail(email) {
+        if !StringsMechanisms.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
-        return Guardian(profileID: id, name: name, surname: surname, gender: gender, email: email, students: nil)
+        return Guardian(id: StringsMechanisms.generateID(), profileID: id, name: name, surname: surname, gender: gender, email: email, students: nil)
     }
 }

@@ -189,13 +189,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     let school = try school()
                                     NinoSession.sharedInstance.setSchool(school.id)
                                     //posting notification
-                                    NinoSessionNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
+                                    NinoNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
                                     //get phases
                                     PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
                                         do {
                                             let phases = try phases()
-                                            try PhaseBO.addPhasesInSchool(phases)
-                                            NinoSessionNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
+                                            NinoNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
                                             for phase in phases {
                                                 //get rooms for each phase
                                                 RoomBO.getRooms(credential.token, phaseID: phase.id, completionHandler: { (rooms) in

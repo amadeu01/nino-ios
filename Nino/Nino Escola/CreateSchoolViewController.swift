@@ -223,14 +223,12 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
                 do {
                     let school = try getSchool()
                     NinoSession.sharedInstance.setSchool(school.id)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.activityIndicator.stopAnimating()
-                        //changes the view
-                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            delegate.loggedIn = true
-                            delegate.setupRootViewController(true)
-                        }
-                    })
+                    self.activityIndicator.stopAnimating()
+                    //changes the view
+                    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                        delegate.loggedIn = true
+                        delegate.setupRootViewController(true)
+                    }
                 } catch let internalError {
                     //TODO: handle error
                 }

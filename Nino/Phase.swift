@@ -22,13 +22,14 @@ struct Phase {
     /**
      Initialize one phase
 
+     - parameter id:         phase ID
      - parameter phaseID:    server unique identifier
      - parameter name:       phase's name
 
      - returns: struct VO of Phase type
      */
-    init(phaseID: Int?, name: String) {
-        self.id = NSUUID().UUIDString
+    init(id: String, phaseID: Int?, name: String) {
+        self.id = id
         self.name = name
         if let phID = phaseID {
             self.phaseID = phID

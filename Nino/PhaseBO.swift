@@ -22,83 +22,177 @@ class PhaseBO: NSObject {
      
      - returns: Phase VO
      */
-    static func createPhase(token: String, schoolID: String, name: String, rooms: [Room]?, menu: Menu?, activities: [Activity]?, completionHandler: (phase: () throws -> Phase) -> Void) {
-        do {
-            let school = try SchoolBO.getIdForSchool(schoolID)
-            PhasesMechanism.createPhase(token, schoolID: school, name: name) { (id, error, data) in
-                if let error = error {
-                    //TODO: handle error data
-                    completionHandler(phase: { () -> Phase in
-                        throw ErrorBO.decodeServerError(error)
-                    })
-                } else if let phaseID = id {
-                    completionHandler(phase: { () -> Phase in
-                        return Phase(phaseID: phaseID, name: name)
-                    })
-                } else {
-                    completionHandler(phase: { () -> Phase in
-                        throw ServerError.UnexpectedCase
-                    })
-                }
+    static func createPhase(token: String, schoolID: String, name: String, completionHandler: (phase: () throws -> Phase) -> Void) {
+        SchoolBO.getIdForSchool(schoolID) { (id) in
+            do {
+                let school = try id()
+                
+                var newPhase = Phase(id: StringsMechanisms.generateID(), phaseID: nil, name: name)
+                
+                PhaseDAO.sharedInstance.createPhase(newPhase, schoolID: schoolID, completionHandler: { (write) in
+                    do {
+                        try write()
+                        PhasesMechanism.createPhase(token, schoolID: school, name: name) { (id, error, data) in
+                            if let error = error {
+                                //TODO: handle error data
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(phase: { () -> Phase in
+                                        throw ErrorBO.decodeServerError(error)
+                                    })
+                                })
+                            } else if let phaseID = id {
+                                newPhase.phaseID = phaseID
+                                PhaseDAO.sharedInstance.updatePhaseId(newPhase.id, phaseID: phaseID, completionHandler: { (update) in
+                                    do {
+                                        try update()
+                                        dispatch_async(dispatch_get_main_queue(), { 
+                                            completionHandler(phase: { () -> Phase in
+                                                return newPhase
+                                            })
+                                        })
+                                    } catch let err {
+                                        //TODO: update phaseID error
+                                    }
+                                })
+                            } else {
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(phase: { () -> Phase in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                            }
+                        }
+
+                    } catch let err {
+                        //TODO: realm create phase error
+                    }
+                })
+            } catch {
+                //TODO: waiting getIdForSchool error handling
             }
-        } catch {
-            //TODO: throw school not found error
         }
     }
     
     static func getPhases(token: String, schoolID: String, completionHandler: (phases: () throws -> [Phase]) -> Void) {
-        do {
-            let school = try SchoolBO.getIdForSchool(schoolID)
-            PhasesMechanism.getPhases(token, schoolID: school) { (info, error, data) in
-                if let errorType = error {
-                    //TODO: Handle error data and code
+        SchoolBO.getIdForSchool(schoolID) { (id) in
+            do {
+                let school = try id()
+                let localPhases = PhaseDAO.sharedInstance.getPhases()
+                dispatch_async(dispatch_get_main_queue(), { 
                     completionHandler(phases: { () -> [Phase] in
-                        throw ErrorBO.decodeServerError(errorType)
+                        return localPhases
                     })
-                } else if let phasesInfo = info {
-                    var phases = [Phase]()
-                    for dict in phasesInfo {
-                        let phaseID = dict["id"] as? Int
-                        let phaseName = dict["name"] as? String
-                        let phaseMenu = dict["menu"] as? Int
-                        guard let id = phaseID else {
-                            completionHandler(phases: { () -> [Phase] in
-                                throw ServerError.UnexpectedCase
-                            })
-                            return
+                })
+                PhasesMechanism.getPhases(token, schoolID: school) { (info, error, data) in
+                    if let errorType = error {
+                        //TODO: Handle error data and code
+                        let error = NotificationMessage()
+                        error.setServerError(ErrorBO.decodeServerError(errorType))
+                        NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                    } else if let phasesInfo = info {
+                        var serverPhases = [Phase]()
+                        for dict in phasesInfo {
+                            let phaseID = dict["id"] as? Int
+                            let phaseName = dict["name"] as? String
+                            let phaseMenu = dict["menu"] as? Int
+                            guard let id = phaseID else {
+                                let error = NotificationMessage()
+                                error.setServerError(ServerError.UnexpectedCase)
+                                NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                return
+                            }
+                            guard let name = phaseName else {
+                                let error = NotificationMessage()
+                                error.setServerError(ServerError.UnexpectedCase)
+                                NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                return
+                            }
+                            //TODO: save phaseMenu ids in somewhere
+                            let phase = Phase(id: StringsMechanisms.generateID(), phaseID: id, name: name)
+                            serverPhases.append(phase)
                         }
-                        guard let name = phaseName else {
-                            completionHandler(phases: { () -> [Phase] in
-                                throw ServerError.UnexpectedCase
+                        let comparison = self.comparePhases(serverPhases, localPhases: localPhases)
+                        let hasChanged = comparison["wasChanged"]
+                        let wasDeleted = comparison["wasDeleted"]
+                        let newPhases = comparison["newPhases"]
+                        for phase in newPhases! {
+                            PhaseDAO.sharedInstance.createPhase(phase, schoolID: schoolID, completionHandler: { (write) in
+                                do {
+                                    try write()
+                                    let message = NotificationMessage()
+                                    message.setDataToInsert([phase])
+                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: nil, info: message)
+                                } catch {
+                                    //TODO: handle realm error
+                                }
                             })
-                            return
                         }
-                        //TODO: save phaseMenu ids in somewhere
-                        let phase = Phase(phaseID: id, name: name)
-                        phases.append(phase)
+                        //TODO: phase was deleted
+                        //TODO: phase was updated
                     }
-                    completionHandler(phases: { () -> [Phase] in
-                        return phases
-                    })
-                }
                     //unexpected case
-                else {
-                    completionHandler(phases: { () -> [Phase] in
-                        throw ServerError.UnexpectedCase
-                    })
+                    else {
+                        let error = NotificationMessage()
+                        error.setServerError(ServerError.UnexpectedCase)
+                        NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                    }
                 }
+            } catch {
+                //TODO: waiting getIdForSchool error handling
             }
-        } catch {
-            //TODO: throw school not found error
         }
     }
     
-    static func addPhasesInSchool(phases: [Phase]) throws {
-        //TODO: call DAO or throw school not found error
+    static func getIdForPhase(phase: String) throws -> Int {
+        do {
+            let id = try PhaseDAO.sharedInstance.getIdForPhase(phase)
+            return id
+        } catch let error {
+            throw error
+        }
     }
     
-    static func getIdForPhase(phase: String) throws -> Int {
-        //TODO: call DAO and look for schoolID
-        return 1
+    private static func comparePhases(serverPhases: [Phase], localPhases: [Phase]) -> [String: [Phase]] {
+        var result = [String: [Phase]]()
+        var wasChanged = [Phase]()
+        var newPhases = [Phase]()
+        var wasDeleted = [Phase]()
+        //check all server phases
+        for serverPhase in serverPhases {
+            var found = false
+            //look for its similar
+            for localPhase in localPhases {
+                //found
+                if serverPhase.phaseID == localPhase.phaseID {
+                    found = true
+                    //updated
+                    if serverPhase.name != localPhase.name {
+                        wasChanged.append(serverPhase)
+                    }
+                    break
+                }
+            }
+            //not found locally
+            if !found {
+                newPhases.append(serverPhase)
+            }
+        }
+        for localPhase in localPhases {
+            var found = false
+            for serverPhase in serverPhases {
+                if localPhase.phaseID == serverPhase.phaseID {
+                    found = true
+                    break
+                }
+            }
+            if !found {
+                wasDeleted.append(localPhase)
+            }
+        }
+        
+        result["newPhases"] = newPhases
+        result["wasChanged"] = wasChanged
+        result["wasDeleted"] = wasDeleted
+        return result
     }
 }

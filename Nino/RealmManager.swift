@@ -19,24 +19,28 @@ class RealmManager: NSObject {
     
     override private init() {
         super.init()
-        do {
-            self.realm = try Realm()
-        } catch {
-            //TODO: handle create Realm error
+        dispatch_sync(self.realmQueue) { 
+            do {
+                self.realm = try Realm()
+            } catch {
+                self.realm = nil
+            }
         }
     }
     
     func writeObjects(objects: [Object], completionHandler: (write: () throws -> Void) -> Void) {
-        guard let realm = self.realm else {
-            //TODO: throw realm error
-            return
-        }
         
         dispatch_async(self.realmQueue) {
+            guard let realm = self.realm else {
+                completionHandler(write: { 
+                    throw RealmError.CouldNotCreateRealm
+                })
+                return
+            }
             do {
                 for object in objects {
                     try realm.write({
-                        realm.add(object)
+                        realm.add(object, update: true)
                     })
                 }
                 dispatch_async(self.defaultQueue, { 
@@ -45,11 +49,35 @@ class RealmManager: NSObject {
                     })
                 })
             } catch {
-                //TODO: throw creation error
+                completionHandler(write: { 
+                    throw RealmError.UnexpectedCase
+                })
             }
         }
-        
-        
+    }
+    
+    func getObjects<T>(objects: T.Type, filter: NSPredicate?, completionHandler: (retrieve: () throws -> Results<T>) -> Void) {
+
+        dispatch_async(self.realmQueue) {
+            guard let realm = self.realm else {
+                completionHandler(retrieve: { () -> Results<T> in
+                    throw RealmError.CouldNotCreateRealm
+                })
+                return
+            }
+            let results = realm.objects(objects)
+            if let predicate = filter {
+                dispatch_async(self.defaultQueue, { 
+                    completionHandler(retrieve: { () -> Results<T> in
+                        return results.filter(predicate)
+                    })
+                })
+            } else {
+                dispatch_async(self.defaultQueue, { 
+                    return results
+                })
+            }
+        }
     }
     
 }

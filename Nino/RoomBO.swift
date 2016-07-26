@@ -32,7 +32,7 @@ class RoomBO: NSObject {
                     })
                 } else if let roomID = roomID {
                     completionHandler(room: { () -> Room in
-                        return Room(roomID: roomID, phaseID: phase, name: name)
+                        return Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase, name: name)
                     })
                 } else {
                     completionHandler(room: { () -> Room in
@@ -72,7 +72,7 @@ class RoomBO: NSObject {
                             })
                             return
                         }
-                        let room =  Room(roomID: roomID, phaseID: phase, name: roomName)
+                        let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase, name: roomName)
                         rooms.append(room)
                     }
                     completionHandler(rooms: { () -> [Room] in

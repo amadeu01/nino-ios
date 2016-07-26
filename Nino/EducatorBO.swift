@@ -115,7 +115,7 @@ class EducatorBO: NSObject {
             //success
             completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
                 //FIXME: retrieve the correct school
-                return (Educator(profileID: profID, name: name, surname: surname, gender: gender, email: email, rooms: nil), schoolID.first!)
+                return (Educator(id: StringsMechanisms.generateID(), profileID: profID, name: name, surname: surname, gender: gender, email: email, rooms: nil), schoolID.first!)
             })
         }
         

@@ -30,7 +30,7 @@ struct Post {
 //MARK: Initializer
     /**
      Initialize one post
-
+     - parameter id:                 post ID
      - parameter postID:             server unique identifier
      - parameter type:               type of the post
      - parameter date:               date of the post
@@ -45,8 +45,8 @@ struct Post {
 
      - returns: struct VO of Post type
      */
-    init(postID: Int?, type: Int, date: NSDate?, authorsProfileID: [Int]?, message: String?, attachment: NSData?, schoolID: Int?, studentsProfileID: [Int]?, phaseID: Int?, roomID: Int?, readProfileIDs: [Int]?) {
-        self.id = NSUUID().UUIDString
+    init(id: String, postID: Int?, type: Int, date: NSDate?, authorsProfileID: [Int]?, message: String?, attachment: NSData?, schoolID: Int?, studentsProfileID: [Int]?, phaseID: Int?, roomID: Int?, readProfileIDs: [Int]?) {
+        self.id = id
         if let ptID = postID {
             self.postID = ptID
         }

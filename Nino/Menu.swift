@@ -24,6 +24,7 @@ struct Menu {
     /**
      Initialize one menu
 
+     - parameter id:            menu ID
      - parameter menuID:         server unique identifier
      - parameter description: menu's description
      - parameter schoolID:      optional school
@@ -31,8 +32,8 @@ struct Menu {
 
      - returns: struct VO of Menu type
      */
-    init(menuID: Int?, description: String, schoolID: Int?, phasesID: [Int]?) {
-        self.id = NSUUID().UUIDString
+    init(id: String, menuID: Int?, description: String, schoolID: Int?, phasesID: [Int]?) {
+        self.id = id
         self.description = description
         if let mnID = menuID {
             self.menuID = mnID

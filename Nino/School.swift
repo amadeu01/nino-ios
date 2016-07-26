@@ -28,6 +28,7 @@ struct School {
     /**
      Initialize one school
 
+     - parameter id:         school ID
      - parameter schoolId:   server unique identifier
      - parameter name:       school's name
      - parameter address:    school's address
@@ -39,8 +40,8 @@ struct School {
 
      - returns: struct VO of School type
      */
-    init(schoolId: Int?, name: String, address: String, legalNumber: String?, telephone: String, email: String, owner: Int?, logo: NSData?) {
-        self.id = NSUUID().UUIDString
+    init(id: String, schoolId: Int?, name: String, address: String, legalNumber: String?, telephone: String, email: String, owner: Int?, logo: NSData?) {
+        self.id = id
         if let schID = schoolID {
             self.schoolID = schID
         }

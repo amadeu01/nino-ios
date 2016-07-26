@@ -19,8 +19,8 @@ class StudentProfileListController: UITableViewController {
         self.studentProfileTableView.delegate = self
         
         //registering for notification
-        NinoSessionNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
-        NinoSessionNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
         
         //self.studentProfileTableView.reloadData()
     }

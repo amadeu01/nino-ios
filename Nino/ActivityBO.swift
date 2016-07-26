@@ -23,6 +23,6 @@ class ActivityBO: NSObject {
      - returns: Activity VO
      */
     static func createActivity(id: Int, name: String, school: School, description: String?, phases: [Phase]?) -> Activity {
-        return Activity(activityID: id, name: name, school: school, description: description, phasesID: nil)
+        return Activity(id: StringsMechanisms.generateID(), activityID: id, name: name, school: school, description: description, phasesID: nil)
     }
 }

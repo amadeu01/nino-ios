@@ -22,6 +22,6 @@ class MenuBO: NSObject {
      - returns: Menu VO
      */
     static func createMenu(id: Int, description: String, school: School?, phase: [Phase]?) -> Menu {
-        return Menu(menuID: id, description: description, schoolID: (school?.schoolID)!, phasesID: [(phase?.first?.phaseID)!])
+        return Menu(id: StringsMechanisms.generateID(), menuID: id, description: description, schoolID: (school?.schoolID)!, phasesID: [(phase?.first?.phaseID)!])
     }
 }

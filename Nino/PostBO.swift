@@ -52,6 +52,6 @@ class PostBO: NSObject {
             throw CreationError.MultipleTargets
         }
         
-        return Post(postID: id, type: 0, date: nil, authorsProfileID: nil, message: "asd", attachment: nil, schoolID: nil, studentsProfileID: nil, phaseID: 213, roomID: nil, readProfileIDs: nil)
+        return Post(id: StringsMechanisms.generateID(), postID: id, type: 0, date: nil, authorsProfileID: nil, message: "asd", attachment: nil, schoolID: nil, studentsProfileID: nil, phaseID: 213, roomID: nil, readProfileIDs: nil)
     }
 }

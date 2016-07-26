@@ -91,7 +91,7 @@ class StudentBO: NSObject {
                             })
                             return
                         }
-                        let student = Student(profileId: studentID, name: studentName, surname: studentSurname, gender: studentGender, birthDate: studentBirthDate, profilePicture: nil, roomID: room, guardians: nil)
+                        let student = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: studentGender, birthDate: studentBirthDate, profilePicture: nil, roomID: room, guardians: nil)
                         students.append(student)
                     }
                     completionHandler(students: { () -> [Student] in

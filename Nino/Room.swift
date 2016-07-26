@@ -23,14 +23,15 @@ struct Room {
     /**
      Initialize one room
 
+     - parameter id:         room ID
      - parameter roomID:     server unique identifier
      - parameter phaseID:    room's phase
      - parameter name:       room's name
 
      - returns: struct VO of Room type
      */
-    init(roomID: Int?, phaseID: Int, name: String) {
-        self.id = NSUUID().UUIDString
+    init(id: String, roomID: Int?, phaseID: Int, name: String) {
+        self.id = id
         self.phaseID = phaseID
         self.name = name
         if let rmID = roomID {

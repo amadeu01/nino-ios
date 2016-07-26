@@ -26,100 +26,194 @@ class SchoolBO: NSObject {
      */
     static func createSchool(token: String, name: String, address: String, telephone: String, email: String, logo: NSData?, completionHandler: (getSchool: () throws -> School) -> Void) throws {
 
-        if !StringsValidation.isValidEmail(email) {
+        if !StringsMechanisms.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
-        //tries to create a school
-        SchoolMechanism.createSchool(token, name: name, address: address, telephone: telephone, email: email, logo: logo) { (schoolID, error, data) in
-            if let errorType = error {
-                //TODO: handle error data
-                completionHandler(getSchool: { () -> School in
-                    throw ErrorBO.decodeServerError(errorType)
-                })
-            }
-            //success
-            else if let school = schoolID {
-                //has profile image
-                if let imageData = logo {
-                    //tries to send the profile image
-                    SchoolMechanism.sendProfileImage(token, imageData: imageData, schoolID: school, completionHandler: { (success, error, data) in
-                        if let err = error {
+        
+        var newSchool = School(id: StringsMechanisms.generateID(), schoolId: nil, name: name, address: address, legalNumber: nil, telephone: telephone, email: email, owner: nil, logo: logo)
+        
+        SchoolDAO.sharedInstance.createSchool(newSchool) { (writeSchool) in
+            do {
+                //local creation
+                try writeSchool()
+                //server creation
+                SchoolMechanism.createSchool(token, name: name, address: address, telephone: telephone, email: email, logo: logo, completionHandler: { (schoolID, error, data) in
+                    if let errorType = error {
+                        //TODO: handle error data
+                        dispatch_async(dispatch_get_main_queue(), { 
                             completionHandler(getSchool: { () -> School in
-                                throw ErrorBO.decodeServerError(err)
+                                throw ErrorBO.decodeServerError(errorType)
                             })
-                        }
-                        //success
-                        else if let success = success {
-                            if success {
-                                completionHandler(getSchool: { () -> School in
-                                    return School(schoolId: school, name: name, address: address, legalNumber: nil, telephone: telephone, email: email, owner: nil, logo: logo)
-                                })
+                        })
+                    }
+                    //success
+                    else if let school = schoolID {
+                        newSchool.schoolID = school
+                        //update local schoolID information
+                        SchoolDAO.sharedInstance.updateSchoolId(school, completionHandler: { (update) in
+                            do {
+                                try update()
+                                //has profile image
+                                if let imageData = logo {
+                                    SchoolDAO.sharedInstance.updateSchoolLogo(imageData, completionHandler: { (update) in
+                                        do {
+                                            try update()
+                                            //tries to send the profile image
+                                            SchoolMechanism.sendProfileImage(token, imageData: imageData, schoolID: school, completionHandler: { (success, error, data) in
+                                                if let err = error {
+                                                    dispatch_async(dispatch_get_main_queue(), { 
+                                                        completionHandler(getSchool: { () -> School in
+                                                            throw ErrorBO.decodeServerError(err)
+                                                        })
+                                                    })
+                                                }
+                                                //success
+                                                else if let success = success {
+                                                    if success {
+                                                        dispatch_async(dispatch_get_main_queue(), { 
+                                                            completionHandler(getSchool: { () -> School in
+                                                                newSchool.logo = imageData
+                                                                return newSchool
+                                                            })
+                                                        })
+                                                    }
+                                                } else {
+                                                    dispatch_async(dispatch_get_main_queue(), { 
+                                                        completionHandler(getSchool: { () -> School in
+                                                            throw ServerError.UnexpectedCase
+                                                        })
+                                                    })
+                                                }
+                                            })
+                                        } catch {
+                                            //TODO: update logo error
+                                        }
+                                    })
+                                }
+                                //without profile image
+                                else {
+                                    dispatch_async(dispatch_get_main_queue(), { 
+                                        completionHandler(getSchool: { () -> School in
+                                            return newSchool
+                                        })
+                                    })
+                                }
+                            } catch {
+                                //TODO: update ID error
                             }
-                        } else {
+                        })
+                    }
+                    //unexpected case
+                    else {
+                        dispatch_async(dispatch_get_main_queue(), { 
                             completionHandler(getSchool: { () -> School in
                                 throw ServerError.UnexpectedCase
                             })
-                        }
-                    })
-                }
-                //without profile image
-                else {
-                    completionHandler(getSchool: { () -> School in
-                        return School(schoolId: school, name: name, address: address, legalNumber: nil, telephone: telephone, email: email, owner: nil, logo: nil)
-                    })
-                }
-            }
-            //unexpected case
-            else {
-                completionHandler(getSchool: { () -> School in
-                    throw ServerError.UnexpectedCase
+                        })
+                    }
+
                 })
+            } catch {
+                //TODO: realm error create school
             }
         }
     }
     
     static func getSchool(token: String, schoolServerID: Int, completionHandler: (school: () throws -> School) -> Void) {
-        SchoolMechanism.getSchool(token, schoolID: schoolServerID) { (name, email, telephone, address, error, data) in
-            //TODO: handle error data
-            if let error = error {
-                completionHandler(school: { () -> School in
-                    throw ErrorBO.decodeServerError(error)
+        
+        SchoolDAO.sharedInstance.getSchool { (school) in
+            do {
+                let school = try school()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(school: { () -> School in
+                        return school
+                    })
                 })
-            }
-            //Unexpected cases
-            guard let schoolName = name else {
-                completionHandler(school: { () -> School in
-                    throw ServerError.UnexpectedCase
-                })
-                return
-            }
-            guard let schoolEmail = email else {
-                completionHandler(school: { () -> School in
-                    throw ServerError.UnexpectedCase
-                })
-                return
-            }
-            guard let schoolPhone = telephone else {
-                completionHandler(school: { () -> School in
-                    throw ServerError.UnexpectedCase
-                })
-                return
-            }
-            guard let schoolAddr = address else {
-                completionHandler(school: { () -> School in
-                    throw ServerError.UnexpectedCase
-                })
-                return
-            }
-            //success
-            completionHandler(school: { () -> School in
-                return School(schoolId: schoolServerID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
-            })
-        }
+            } catch let error {
+                if (error as? DatabaseError) == DatabaseError.NotFound {
+                    SchoolMechanism.getSchool(token, schoolID: schoolServerID) { (name, email, telephone, address, error, data) in
+                        //TODO: handle error data
+                        if let error = error {
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                completionHandler(school: { () -> School in
+                                    throw ErrorBO.decodeServerError(error)
+                                })
+                            })
+                        }
+                        //Unexpected cases
+                        guard let schoolName = name else {
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                completionHandler(school: { () -> School in
+                                    throw ServerError.UnexpectedCase
+                                })
+                            })
+                            return
+                        }
+                        guard let schoolEmail = email else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(school: { () -> School in
+                                    throw ServerError.UnexpectedCase
+                                })
+                            })
+                            return
+                        }
+                        guard let schoolPhone = telephone else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(school: { () -> School in
+                                    throw ServerError.UnexpectedCase
+                                })
+                            })
+                            return
+                        }
+                        guard let schoolAddr = address else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(school: { () -> School in
+                                    throw ServerError.UnexpectedCase
+                                })
+                            })
+                            return
+                        }
+                        //success
+                        dispatch_async(dispatch_get_main_queue(), { 
+                            completionHandler(school: { () -> School in
+                                return School(id: StringsMechanisms.generateID(), schoolId: schoolServerID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
+                            })
+                        })
+                    }//end getSchool
+                }//end school NotFound
+                //realm error
+                else {
+                    //TODO: handle realm error
+                }
+            } //end catch
+        } //end DAO getSchool
+
     }
     
-    static func getIdForSchool(school: String) throws -> Int {
-        //TODO: call DAO and look for schoolID
-        return 2
+    
+    static func getIdForSchool(school: String, completionHandler: (id: () throws -> Int) -> Void) {
+        SchoolDAO.sharedInstance.getIdForSchool(school) { (id) in
+            do {
+                let schoolID = try id()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        return schoolID
+                    })
+                })
+            } catch let error {
+                guard let databaseError = error as? DatabaseError else {
+                    //TODO: handle realm error
+                    return
+                }
+                switch databaseError {
+                case .NotFound, .ConflictingIDs:
+                    //TODO: logout
+                    break
+                case .MissingID:
+                    //TODO: getSchool
+                    break
+                }
+            }//end catch
+        }//end DAO method
     }
 }

@@ -22,8 +22,8 @@ class AccountBO: NSObject {
      - throws:  CreationError.InvalidEmail
      */
     static func createAccount(name: String, surname: String, gender: Gender, email: String, completionHandler: (getAccount: () throws -> Int) -> Void) throws {
-        
-        if !StringsValidation.isValidEmail(email) {
+
+        if !StringsMechanisms.isValidEmail(email) {
             throw CreationError.InvalidEmail
         }
         
