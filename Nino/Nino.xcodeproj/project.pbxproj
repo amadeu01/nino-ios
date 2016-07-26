@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07818C981D46E716007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
+		07818C991D46E716007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
+		07818C9A1D46E716007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
+		07818C9B1D46E725007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
+		07818C9C1D46E725007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
+		07818C9D1D46E726007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
+		07818C9F1D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
+		07818CA01D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
+		07818CA11D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
+		07818CA21D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
+		07818CA31D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
+		07818CA41D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
+		07818CA91D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */; };
+		07818CAA1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */; };
+		07818CAB1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */; };
+		07818CAD1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */; };
+		07818CAE1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */; };
+		07818CAF1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */; };
 		280A4B7B1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7C1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7D1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
@@ -681,6 +699,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07818C971D46E716007FFDE2 /* MyDayBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayBO.swift; sourceTree = "<group>"; };
+		07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayCell.swift; sourceTree = "<group>"; };
+		07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDaySectionHeader.xib; sourceTree = "<group>"; };
+		07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySectionHeader.swift; sourceTree = "<group>"; };
 		280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageStudentInfoViewController.swift; sourceTree = "<group>"; };
 		280A4B7E1D3E8B5F00AA722B /* GuardianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianTableViewCell.swift; sourceTree = "<group>"; };
 		28143E141D29A0D100139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyDay.storyboard; sourceTree = "<group>"; };
@@ -924,6 +946,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07818C961D46DC65007FFDE2 /* MyDay xibs */ = {
+			isa = PBXGroup;
+			children = (
+				07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */,
+				07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */,
+			);
+			name = "MyDay xibs";
+			sourceTree = "<group>";
+		};
 		288DE34E1D22AFA30052A35D /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1032,6 +1063,7 @@
 			isa = PBXGroup;
 			children = (
 				AC47FD321D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift */,
+				07818C961D46DC65007FFDE2 /* MyDay xibs */,
 				AC47FD301D3E65FD00FB3CB6 /* MyDay cells */,
 				AC33F47C1D36C4DE009D10B5 /* MyDayViewController.swift */,
 			);
@@ -1166,6 +1198,7 @@
 				AC9F99F61CEF7270001B53E8 /* Activity.swift */,
 				AC9F99F91CEF72CB001B53E8 /* Event.swift */,
 				AC238B941CEFDABA00B10F75 /* Gender.swift */,
+				07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */,
 			);
 			name = VO;
 			sourceTree = "<group>";
@@ -1188,6 +1221,7 @@
 				AC0CDEEF1D05EA700000ECE9 /* MenuBO.swift */,
 				AC0CDEF91D05F2E60000ECE9 /* ActivityBO.swift */,
 				ACF1943B1D060D3200F1E68A /* EventBO.swift */,
+				07818C971D46E716007FFDE2 /* MyDayBO.swift */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -1611,6 +1645,7 @@
 				28143E271D29A18800139B0D /* Activities.storyboard in Resources */,
 				ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */,
 				288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
+				07818CA91D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
 				28143E461D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				284A33331D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC47FCC41D3E644D00FB3CB6 /* MySleep.xib in Resources */,
@@ -1647,6 +1682,7 @@
 				28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC33F4881D36D2AE009D10B5 /* DateSelector.xib in Resources */,
+				07818CAA1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
 				28143E471D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A431D103A590013611E /* Main.storyboard in Resources */,
@@ -1683,6 +1719,7 @@
 				28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC33F4891D36D2AE009D10B5 /* DateSelector.xib in Resources */,
+				07818CAB1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
 				28143E481D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
@@ -2030,6 +2067,7 @@
 				AC0CDEFA1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC43B3F51D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
 				288B27D31D37D1AD00B47DC0 /* Gender.swift in Sources */,
+				07818C9F1D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
 				AC9CA6331D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC43B40E1D429E3B00A6CB5C /* PhaseDAO.swift in Sources */,
 				AC43B3BC1D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
@@ -2049,6 +2087,7 @@
 				288B27C91D37D1AD00B47DC0 /* Credential.swift in Sources */,
 				AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
 				28A046711D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				07818C9B1D46E725007FFDE2 /* MyDayBO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2087,6 +2126,7 @@
 				ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC43B3C41D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				288B27BB1D37D1AC00B47DC0 /* Post.swift in Sources */,
+				07818C9C1D46E725007FFDE2 /* MyDayBO.swift in Sources */,
 				AC74E10B1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
@@ -2101,6 +2141,7 @@
 				288B27BE1D37D1AC00B47DC0 /* Key.swift in Sources */,
 				288B27BC1D37D1AC00B47DC0 /* Phase.swift in Sources */,
 				AC43B3F61D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
+				07818CA01D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
 				288B27C31D37D1AC00B47DC0 /* Event.swift in Sources */,
 				288B27C21D37D1AC00B47DC0 /* Activity.swift in Sources */,
 				AC43B4021D41379600A6CB5C /* CreationError.swift in Sources */,
@@ -2138,6 +2179,7 @@
 				288B27FB1D37E0D400B47DC0 /* SchoolBO.swift in Sources */,
 				288B27AD1D37D1AB00B47DC0 /* Phase.swift in Sources */,
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				07818C9D1D46E726007FFDE2 /* MyDayBO.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
 				288B28071D37E0D400B47DC0 /* EventBO.swift in Sources */,
 				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
@@ -2160,6 +2202,7 @@
 				AC43B4031D41379700A6CB5C /* CreationError.swift in Sources */,
 				ACA6A9731D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				AC89782E1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
+				07818CA11D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
 				ACE961CE1D3D0795003B3D17 /* AccountMechanism.swift in Sources */,
 				AC43B3E21D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
 				AC43B3FE1D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
@@ -2234,9 +2277,11 @@
 				AC47FCC11D3E644D00FB3CB6 /* MySleep.swift in Sources */,
 				AC89BAC11CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				AC89782F1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
+				07818CAD1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */,
 				AC47FD371D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
 				288B27A01D37D1AA00B47DC0 /* Key.swift in Sources */,
 				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
+				07818CA21D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
 				288B279A1D37D1AA00B47DC0 /* Guardian.swift in Sources */,
 				288B279E1D37D1AA00B47DC0 /* Phase.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
@@ -2251,6 +2296,7 @@
 				AC74E1061D2D4908004281F3 /* RouteError.swift in Sources */,
 				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				AC74E10D1D2E8749004281F3 /* AccountBO.swift in Sources */,
+				07818C981D46E716007FFDE2 /* MyDayBO.swift in Sources */,
 				AC47FD491D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
 				AC43B3F81D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
 				288B279D1D37D1AA00B47DC0 /* Post.swift in Sources */,
@@ -2331,6 +2377,8 @@
 				ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC33F48C1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				288B277D1D37D1A800B47DC0 /* Educator.swift in Sources */,
+				07818CA31D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
+				07818C991D46E716007FFDE2 /* MyDayBO.swift in Sources */,
 				28F366F71D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A4A0181D396706003E05C2 /* StudentTableViewCell.swift in Sources */,
 				288B277E1D37D1A800B47DC0 /* Credential.swift in Sources */,
@@ -2365,6 +2413,7 @@
 				AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC43B3C01D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
 				AC74E1071D2D4908004281F3 /* RouteError.swift in Sources */,
+				07818CAE1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */,
 				288B27871D37D1A800B47DC0 /* Event.swift in Sources */,
 				AC43B3C71D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC47FCCE1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
@@ -2449,6 +2498,8 @@
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				288B272A1D37CB2100B47DC0 /* PhaseTableViewCell.swift in Sources */,
 				AC7BFD6C1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
+				07818CA41D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
+				07818C9A1D46E716007FFDE2 /* MyDayBO.swift in Sources */,
 				284C5FEB1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				28A4A0191D396706003E05C2 /* StudentTableViewCell.swift in Sources */,
 				AC9EC7181D2418B200D54857 /* DefaultAlerts.swift in Sources */,
@@ -2483,6 +2534,7 @@
 				AC43B3C11D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				288B27ED1D37E0D400B47DC0 /* GuardianBO.swift in Sources */,
+				07818CAF1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */,
 				AC43B3C81D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				288B278F1D37D1A900B47DC0 /* Phase.swift in Sources */,
 				AC43B3D71D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
