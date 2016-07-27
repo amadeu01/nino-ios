@@ -134,7 +134,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
             }
         } else if indexPath.section == classroomDeleteSec {
             if indexPath.row == 0 {
-                cell.textLabel?.text = "Deletar  \(self.title!)"
+                cell.textLabel?.text = "Deletar \(self.title!)"
                 cell.textLabel?.textColor = UIColor.redColor()
             }
         }

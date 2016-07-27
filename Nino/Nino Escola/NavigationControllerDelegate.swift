@@ -14,9 +14,9 @@ UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
-            if (fromVC as? RegisterNewEducatorViewController != nil) || (fromVC as? RegisterNewPhaseViewController != nil) || (fromVC as? RegisterNewClassroomViewController != nil) || (fromVC as? RegisterStudentViewController != nil) {
+            if (fromVC as? RegisterNewEducatorViewController != nil) || (fromVC as? RegisterNewPhaseViewController != nil) || (fromVC as? RegisterNewClassroomViewController != nil) || (fromVC as? RegisterStudentViewController != nil) || (fromVC as? RegisterGuardianViewController != nil) {
                 return GoDownAnimator()
-            } else if (toVC as? RegisterNewEducatorViewController != nil) || (toVC as? RegisterNewPhaseViewController != nil) || (toVC as? RegisterNewClassroomViewController != nil) || (toVC as? RegisterStudentViewController != nil) {
+            } else if (toVC as? RegisterNewEducatorViewController != nil) || (toVC as? RegisterNewPhaseViewController != nil) || (toVC as? RegisterNewClassroomViewController != nil) || (toVC as? RegisterStudentViewController != nil) || (toVC as? RegisterGuardianViewController != nil) {
                 return ComeUpAnimator()
             }
         
