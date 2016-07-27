@@ -1,24 +1,22 @@
 //
-//  MyDayCell.swift
+//  MyDayRow.swift
 //  Nino
 //
-//  Created by Carlos Eduardo Millani on 7/25/16.
+//  Created by Carlos Eduardo Millani on 7/27/16.
 //  Copyright © 2016 Danilo Becke. All rights reserved.
 //
 
 import Foundation
 
 /**
- *  VO representing one My Day Cell
+ *  VO representing one My Day Row
  */
 
-struct MyDayCell {
+struct MyDayRow {
     
     //MARK: Attributes
     let title: String
-    let icon: MyDaySectionIcon
-    let sections: [MyDayRow]
-    let height: CGFloat
+    let type: MyDayRowType
     
     //MARK: Initializer
     /**
@@ -30,10 +28,9 @@ struct MyDayCell {
      
      - returns: struct VO of MyDayCell type
      */
-    init(title: String, icon: MyDaySectionIcon, sections: [MyDayRow]) {
+    init(title: String, type: MyDayRowType) {
         self.title = title
-        self.height = 40
-        self.icon = icon
-        self.sections = sections
+        self.type = type
     }
 }
+

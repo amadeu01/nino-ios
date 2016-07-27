@@ -18,7 +18,11 @@ class MyDayBO: NSObject {
      
      - returns: list of MyDayCell VOs
      */
-    static func getCellsForClass(room: Int) -> [MyDayCell] {
-        return [MyDayCell(title: "One", icon: 0, sections: [1, 2, 3, 4, 5, 6]), MyDayCell(title: "Two", icon: 0, sections: [1, 2, 3, 4, 5, 6])]
+    static func getCellsForClass(room: Int) -> (left: [MyDayCell], right: [MyDayCell]) {
+        //TODO: Mocked :D
+        var left = [MyDayCell.init(title: "One", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "OneDotFive", type: MyDayRowType.IntensityCell)])]
+        left.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell)]))
+        let right = [MyDayCell.init(title: "Two", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Three", type: MyDayRowType.IntensityCell)])]
+        return (left, right)
     }
 }

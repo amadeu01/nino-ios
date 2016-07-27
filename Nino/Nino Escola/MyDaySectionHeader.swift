@@ -10,18 +10,10 @@ import UIKit
 
 class MyDaySectionHeader: UIView {
     
-    @IBOutlet weak var icon: UIImageView! {
-        didSet {
-            print("a")
-        }
-    }
-    @IBOutlet weak var label: UILabel! {
-        didSet {
-            print("a")
-        }
-    }
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var label: UILabel!
     
-    init(label: String, icon: Int) {
+    init(label: String, icon: MyDaySectionIcon) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
         let view = UINib(nibName: "MyDaySectionHeader", bundle: nil).instantiateWithOwner(self, options: nil)[0] as? UIView
