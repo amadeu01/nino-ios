@@ -40,6 +40,18 @@
 		07A272301D491ADC005079BC /* MyDayRowTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2722F1D491ADC005079BC /* MyDayRowTypes.swift */; };
 		07A272311D491ADC005079BC /* MyDayRowTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2722F1D491ADC005079BC /* MyDayRowTypes.swift */; };
 		07A272321D491ADC005079BC /* MyDayRowTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2722F1D491ADC005079BC /* MyDayRowTypes.swift */; };
+		07A272341D493E70005079BC /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272331D493E70005079BC /* SeparatorCell.swift */; };
+		07A272351D493E70005079BC /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272331D493E70005079BC /* SeparatorCell.swift */; };
+		07A272361D493E70005079BC /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272331D493E70005079BC /* SeparatorCell.swift */; };
+		07A272381D493E80005079BC /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A272371D493E80005079BC /* SeparatorCell.xib */; };
+		07A272391D493E80005079BC /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A272371D493E80005079BC /* SeparatorCell.xib */; };
+		07A2723A1D493E80005079BC /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A272371D493E80005079BC /* SeparatorCell.xib */; };
+		07A272401D494734005079BC /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A2723F1D494734005079BC /* SliderCell.xib */; };
+		07A272411D494734005079BC /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A2723F1D494734005079BC /* SliderCell.xib */; };
+		07A272421D494734005079BC /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A2723F1D494734005079BC /* SliderCell.xib */; };
+		07A272441D494750005079BC /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272431D494750005079BC /* SliderCell.swift */; };
+		07A272451D494750005079BC /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272431D494750005079BC /* SliderCell.swift */; };
+		07A272461D494750005079BC /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272431D494750005079BC /* SliderCell.swift */; };
 		280A4B7B1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7C1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7D1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
@@ -723,6 +735,10 @@
 		07A272261D49189B005079BC /* MyDayRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayRow.swift; sourceTree = "<group>"; };
 		07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySectionIcon.swift; sourceTree = "<group>"; };
 		07A2722F1D491ADC005079BC /* MyDayRowTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayRowTypes.swift; sourceTree = "<group>"; };
+		07A272331D493E70005079BC /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
+		07A272371D493E80005079BC /* SeparatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeparatorCell.xib; sourceTree = "<group>"; };
+		07A2723F1D494734005079BC /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		07A272431D494750005079BC /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageStudentInfoViewController.swift; sourceTree = "<group>"; };
 		280A4B7E1D3E8B5F00AA722B /* GuardianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianTableViewCell.swift; sourceTree = "<group>"; };
 		28143E141D29A0D100139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyDay.storyboard; sourceTree = "<group>"; };
@@ -973,6 +989,10 @@
 				07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */,
 				07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */,
 				07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */,
+				07A272371D493E80005079BC /* SeparatorCell.xib */,
+				07A272331D493E70005079BC /* SeparatorCell.swift */,
+				07A2723F1D494734005079BC /* SliderCell.xib */,
+				07A272431D494750005079BC /* SliderCell.swift */,
 			);
 			name = "MyDay xibs";
 			sourceTree = "<group>";
@@ -1671,6 +1691,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A272401D494734005079BC /* SliderCell.xib in Resources */,
 				AC33F4871D36D2AE009D10B5 /* DateSelector.xib in Resources */,
 				AC47FCCA1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
 				28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */,
@@ -1690,6 +1711,7 @@
 				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				28667DC91D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
 				ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
+				07A272381D493E80005079BC /* SeparatorCell.xib in Resources */,
 				AC86BBF81D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				284A33371D2C3F5000030773 /* Schedule.storyboard in Resources */,
 				AC86BBE01D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
@@ -1709,6 +1731,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A272411D494734005079BC /* SliderCell.xib in Resources */,
 				288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				28667DCA1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
@@ -1728,6 +1751,7 @@
 				28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */,
 				284A332F1D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				07A272391D493E80005079BC /* SeparatorCell.xib in Resources */,
 				AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */,
 				AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */,
@@ -1747,6 +1771,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A272421D494734005079BC /* SliderCell.xib in Resources */,
 				288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				28667DCB1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
@@ -1766,6 +1791,7 @@
 				28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */,
 				284A33301D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				07A2723A1D493E80005079BC /* SeparatorCell.xib in Resources */,
 				AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */,
 				AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */,
@@ -2319,6 +2345,7 @@
 				288B27A01D37D1AA00B47DC0 /* Key.swift in Sources */,
 				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
 				07818CA21D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
+				07A272441D494750005079BC /* SliderCell.swift in Sources */,
 				288B279A1D37D1AA00B47DC0 /* Guardian.swift in Sources */,
 				288B279E1D37D1AA00B47DC0 /* Phase.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
@@ -2377,6 +2404,7 @@
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC7143FE1D3D963600C743A5 /* NinoSessionNotificationManager.swift in Sources */,
+				07A272341D493E70005079BC /* SeparatorCell.swift in Sources */,
 				AC43B4111D429E3B00A6CB5C /* PhaseDAO.swift in Sources */,
 				28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC529EEE1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
@@ -2467,6 +2495,7 @@
 				28F366F31D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				288B280E1D37E12200B47DC0 /* NinoSession.swift in Sources */,
 				AC47FD381D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
+				07A272351D493E70005079BC /* SeparatorCell.swift in Sources */,
 				28F366FF1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				288B27881D37D1A800B47DC0 /* Gender.swift in Sources */,
 				288B27E31D37E0D300B47DC0 /* RoomBO.swift in Sources */,
@@ -2521,6 +2550,7 @@
 				AC43B3F21D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				288B277A1D37D1A800B47DC0 /* Student.swift in Sources */,
 				AC7143FF1D3D963600C743A5 /* NinoSessionNotificationManager.swift in Sources */,
+				07A272451D494750005079BC /* SliderCell.swift in Sources */,
 				AC43B40B1D428D8C00A6CB5C /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2592,6 +2622,7 @@
 				AC8978311D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC47FD391D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
 				287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
+				07A272361D493E70005079BC /* SeparatorCell.swift in Sources */,
 				AC47FCE11D3E64E300FB3CB6 /* AppDelegate.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288B27911D37D1A900B47DC0 /* Key.swift in Sources */,
@@ -2646,6 +2677,7 @@
 				AC43B3F31D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				28F367001D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				288B27F71D37E0D400B47DC0 /* ActivityBO.swift in Sources */,
+				07A272461D494750005079BC /* SliderCell.swift in Sources */,
 				AC43B40C1D428D8C00A6CB5C /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

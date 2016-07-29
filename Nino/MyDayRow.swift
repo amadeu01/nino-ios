@@ -17,7 +17,7 @@ struct MyDayRow {
     //MARK: Attributes
     let title: String
     let type: MyDayRowType
-    
+    let strings: [String]
     //MARK: Initializer
     /**
      Initialize a My Day Cell
@@ -28,9 +28,10 @@ struct MyDayRow {
      
      - returns: struct VO of MyDayCell type
      */
-    init(title: String, type: MyDayRowType) {
+    init(title: String, type: MyDayRowType, strings: [String]) {
         self.title = title
         self.type = type
+        self.strings = strings
     }
 }
 

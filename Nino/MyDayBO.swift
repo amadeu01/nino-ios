@@ -20,9 +20,13 @@ class MyDayBO: NSObject {
      */
     static func getCellsForClass(room: Int) -> (left: [MyDayCell], right: [MyDayCell]) {
         //TODO: Mocked :D
-        var left = [MyDayCell.init(title: "One", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "OneDotFive", type: MyDayRowType.IntensityCell)])]
-        left.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell)]))
-        let right = [MyDayCell.init(title: "Two", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Three", type: MyDayRowType.IntensityCell)])]
+        var left = [MyDayCell.init(title: "One", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "OneDotFive", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])])]
+        left.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
+        left.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"]), MyDayRow.init(title: "SlideBabySlide", type: MyDayRowType.SliderCell, strings: ["ml", "mamadeira5", "0", "100"])]))
+        var right = [MyDayCell.init(title: "Two", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Three", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"])])]
+        right.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
+        right.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
+        right.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "", type: MyDayRowType.SeparatorCell, strings: []), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
         return (left, right)
     }
 }

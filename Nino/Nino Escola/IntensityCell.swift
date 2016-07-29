@@ -12,6 +12,16 @@ class IntensityCell: UITableViewCell {
     
     @IBOutlet weak var buttonsArea: UIView!
     @IBOutlet weak var title: UILabel!
+    
+    var selectedItem: UIButton? {
+        willSet(newSelected) {
+            selectedItem?.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            selectedItem?.subviews[1].backgroundColor = UIColor.blackColor()
+            newSelected?.setTitleColor(UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1), forState: .Normal)
+            newSelected?.subviews[1].backgroundColor = UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1)
+        }
+    }
+    var buttons: [UIButton] = []
     let circleDiameter: CGFloat = 7
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,11 +51,13 @@ class IntensityCell: UITableViewCell {
         
         for string in strings {
             let button = UIButton()
+            buttons.append(button)
+            button.addTarget(self, action: #selector(self.tapAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             button.translatesAutoresizingMaskIntoConstraints = false
             
             button.setTitle(string, forState: .Normal)
             button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            button.titleLabel!.font = UIFont(name: "Helvetica Neue Thin", size: 12)
+            button.titleLabel!.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
             
             self.buttonsArea.addSubview(button)
 
@@ -66,6 +78,10 @@ class IntensityCell: UITableViewCell {
             
             offset += step
         }
+    }
+    
+    @objc private func tapAction(sender: UIButton) {
+        self.selectedItem = sender
     }
 
 }

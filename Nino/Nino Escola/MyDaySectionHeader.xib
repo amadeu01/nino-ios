@@ -45,7 +45,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.074509803921568626" green="0.5725490196078431" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="hQS-W8-XKE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1Xw-0s-TqP"/>
                 <constraint firstItem="25g-Jq-l0h" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3PA-Ok-06f"/>
@@ -63,11 +63,11 @@
                     <exclude reference="hQS-W8-XKE"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="1Xw-0s-TqP"/>
+                    <exclude reference="xYE-F9-Q9m"/>
                     <exclude reference="3PA-Ok-06f"/>
                     <exclude reference="joe-cg-wes"/>
                     <exclude reference="n0m-3X-gN7"/>
-                    <exclude reference="1Xw-0s-TqP"/>
-                    <exclude reference="xYE-F9-Q9m"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=regular">
@@ -76,11 +76,11 @@
                     <include reference="hQS-W8-XKE"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="1Xw-0s-TqP"/>
+                    <include reference="xYE-F9-Q9m"/>
                     <include reference="3PA-Ok-06f"/>
                     <include reference="joe-cg-wes"/>
                     <include reference="n0m-3X-gN7"/>
-                    <include reference="1Xw-0s-TqP"/>
-                    <include reference="xYE-F9-Q9m"/>
                 </mask>
             </variation>
         </view>

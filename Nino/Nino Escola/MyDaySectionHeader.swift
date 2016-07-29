@@ -22,6 +22,8 @@ class MyDaySectionHeader: UIView {
             header.frame = self.bounds
             
             self.label.text? = label
+            
+            self.icon.image = UIImage(named: icon.rawValue)
         }
 
     }

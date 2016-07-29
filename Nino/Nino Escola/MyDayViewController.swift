@@ -47,7 +47,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scrollViewHeight.constant = leftTableView.contentSize.height
+        scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
     }
     
 //MARK: Table View Methods
@@ -57,6 +57,8 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
         
         leftTableView.reloadData()
         rightTableView.reloadData()
+        
+        scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
         //TODO: Insert class ID
     }
     
@@ -150,7 +152,12 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
         }
         
         if let intensityCell = cellNow as? IntensityCell {
-            intensityCell.setup(rowNow.title , strings: ["Ola", "Mundo", "Hallo", "Ha"])
+            intensityCell.setup(rowNow.title, strings: rowNow.strings)
+        }
+        
+        if let sliderCell = cellNow as? SliderCell {
+            //TODO: Check for the size of strings
+            sliderCell.setup(rowNow.title, unit: rowNow.strings[0], iconName: rowNow.strings[1], sliderFloor: 0, sliderCeil: 100)
         }
         
         return cellNow

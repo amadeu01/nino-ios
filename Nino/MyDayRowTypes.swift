@@ -10,17 +10,17 @@ import Foundation
 
 enum MyDayRowType: String {
     case IntensityCell = "intensityCell"
-    case BottleCell = "bottleCell"
-    case SleepCell = "sleepCell"
+    case SliderCell = "sliderCell"
+    case SeparatorCell = "separatorCell"
     
     func height() -> CGFloat {
         switch self {
         case .IntensityCell:
             return 50
-        case .BottleCell:
-            return 50
-        case .SleepCell:
-            return 50
+        case .SliderCell:
+            return 150
+        case .SeparatorCell:
+            return 10
         }
     }
 }
