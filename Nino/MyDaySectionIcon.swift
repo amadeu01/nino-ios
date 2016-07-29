@@ -8,6 +8,14 @@
 
 import Foundation
 
+/**
+ Types of icon for a header
+ 
+ - Food:     Baby Bottle Icon
+ - Sleep:    Sleep Icon
+ - Hygiene:  Bath Icon
+ - Comments: Plus Icon
+ */
 enum MyDaySectionIcon: String {
     case Food = "icones-minha-rotina-comida"
     case Sleep = "icones-minha-rotina-sono"

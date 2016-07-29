@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Just a blue line to separate MyDay cells if needed
 class SeparatorCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {

@@ -8,6 +8,13 @@
 
 import Foundation
 
+/**
+ Types of row for a MyDay Section
+ 
+ - IntensityCell: A serie of buttons, only one selected at a time
+ - SliderCell:    A slider with items, can add items and change its value
+ - SeparatorCell: Just a line to separate things inside a sections
+ */
 enum MyDayRowType: String {
     case IntensityCell = "intensityCell"
     case SliderCell = "sliderCell"

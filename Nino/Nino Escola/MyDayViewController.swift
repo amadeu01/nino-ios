@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
 class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorDataSource, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var dateSelector: DateSelector!
@@ -19,6 +20,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     private var leftCells: [MyDayCell] = []
     private var rightCells: [MyDayCell] = []
     
+    /**
+     On load sets delegates, background and reloads the data
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNinoDefaultBackGround()
@@ -45,6 +49,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
 
 //MARK: View Methods
     
+    /**
+     Adter layout changes the scrollViewHeight to show all information
+     */
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
@@ -52,6 +59,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     
 //MARK: Table View Methods
     
+    /**
+     Gets the info from BO and reloads the tableViews data, alse updating the size of the scrollView
+     */
     func reloadData() {
         (self.leftCells, self.rightCells) = MyDayBO.getCellsForClass(0)
         
@@ -61,6 +71,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
         scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
         //TODO: Insert class ID
     }
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         switch tableView {
@@ -100,7 +111,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
         return 16
     }
     
-    //Just an empty cell
+    //Just an empty cell to separate sections
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))
     }
