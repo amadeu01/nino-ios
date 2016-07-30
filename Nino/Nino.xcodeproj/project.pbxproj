@@ -90,9 +90,6 @@
 		2868C57B1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */; };
 		2868C57C1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */; };
 		2868C57D1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */; };
-		2868C5801D4797660032591D /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C57F1D4797660032591D /* CEMKit.swift */; };
-		2868C5811D4797660032591D /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C57F1D4797660032591D /* CEMKit.swift */; };
-		2868C5821D4797660032591D /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C57F1D4797660032591D /* CEMKit.swift */; };
 		2868C5841D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
 		2868C5851D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
 		2868C5861D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
@@ -306,6 +303,9 @@
 		28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
 		28C5CB211D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
 		28C5CB221D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
+		28D2A7BB1D4C546400677DCC /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2A7BA1D4C546400677DCC /* CEMKit.swift */; };
+		28D2A7BC1D4C546400677DCC /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2A7BA1D4C546400677DCC /* CEMKit.swift */; };
+		28D2A7BD1D4C546400677DCC /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2A7BA1D4C546400677DCC /* CEMKit.swift */; };
 		28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366EF1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
@@ -747,7 +747,6 @@
 		2868C5721D46B4200032591D /* DraftAnnouncementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftAnnouncementViewController.swift; sourceTree = "<group>"; };
 		2868C5761D46B4330032591D /* SentAnnouncementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentAnnouncementViewController.swift; sourceTree = "<group>"; };
 		2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SentAnnouncement.storyboard; sourceTree = "<group>"; };
-		2868C57F1D4797660032591D /* CEMKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CEMKit.swift; path = "../../../../BEPiD/Nino/projects/escolas-iOS-nino8/ninoEscola/ninoEscola/CEMKit.swift"; sourceTree = "<group>"; };
 		2868C5831D47A1DC0032591D /* DraftNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftNavigationController.swift; sourceTree = "<group>"; };
 		287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewEducatorViewController.swift; sourceTree = "<group>"; };
 		28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseClassroomsTableViewController.swift; sourceTree = "<group>"; };
@@ -774,6 +773,7 @@
 		28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardManagementTableViewCell.swift; sourceTree = "<group>"; };
 		28AE871A1D3BC20E00993AF8 /* DataStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 		28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseClassroom.storyboard; sourceTree = "<group>"; };
+		28D2A7BA1D4C546400677DCC /* CEMKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEMKit.swift; sourceTree = "<group>"; };
 		28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorProfileViewController.swift; sourceTree = "<group>"; };
 		28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterStudentViewController.swift; sourceTree = "<group>"; };
 		28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
@@ -995,7 +995,6 @@
 		2868C57E1D4797470032591D /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				2868C57F1D4797660032591D /* CEMKit.swift */,
 			);
 			name = "Third Party";
 			sourceTree = "<group>";
@@ -1028,6 +1027,7 @@
 		28F367011D2FE23F00A0743B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				28D2A7BA1D4C546400677DCC /* CEMKit.swift */,
 				2868C5831D47A1DC0032591D /* DraftNavigationController.swift */,
 				2868C57E1D4797470032591D /* Third Party */,
 				28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */,
@@ -2348,6 +2348,7 @@
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
 				2868C5631D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */,
 				AC47FD421D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
+				28D2A7BB1D4C546400677DCC /* CEMKit.swift in Sources */,
 				AC74E1061D2D4908004281F3 /* RouteError.swift in Sources */,
 				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				AC74E10D1D2E8749004281F3 /* AccountBO.swift in Sources */,
@@ -2374,7 +2375,6 @@
 				288B27A51D37D1AA00B47DC0 /* Event.swift in Sources */,
 				AC43B3C61D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC7BFD6A1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
-				2868C5801D4797660032591D /* CEMKit.swift in Sources */,
 				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
 				28A4A0171D396706003E05C2 /* StudentTableViewCell.swift in Sources */,
 				AC0CDEE81D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
@@ -2430,6 +2430,7 @@
 				284A333C1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
+				28D2A7BC1D4C546400677DCC /* CEMKit.swift in Sources */,
 				288B27E21D37E0D300B47DC0 /* PhaseBO.swift in Sources */,
 				280A4B7C1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */,
 				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
@@ -2451,7 +2452,6 @@
 				28AE87141D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
 				288B277C1D37D1A800B47DC0 /* Guardian.swift in Sources */,
 				284C5FEE1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
-				2868C5811D4797660032591D /* CEMKit.swift in Sources */,
 				288B277B1D37D1A800B47DC0 /* School.swift in Sources */,
 				28A046751D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC47FD4A1D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
@@ -2557,6 +2557,7 @@
 				288B27F31D37E0D400B47DC0 /* KeyBO.swift in Sources */,
 				288B27951D37D1A900B47DC0 /* Activity.swift in Sources */,
 				AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
+				28D2A7BD1D4C546400677DCC /* CEMKit.swift in Sources */,
 				288B27F41D37E0D400B47DC0 /* ErrorBO.swift in Sources */,
 				288B27EC1D37E0D400B47DC0 /* SchoolBO.swift in Sources */,
 				288B27F21D37E0D400B47DC0 /* RoomBO.swift in Sources */,
@@ -2578,7 +2579,6 @@
 				AC74E10F1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				28AE871D1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				AC33F48D1D36D318009D10B5 /* DateSelector.swift in Sources */,
-				2868C5821D4797660032591D /* CEMKit.swift in Sources */,
 				ACFFA1041D353644007DE324 /* MD5.swift in Sources */,
 				288B27961D37D1A900B47DC0 /* Event.swift in Sources */,
 				288B27F01D37E0D400B47DC0 /* PostBO.swift in Sources */,
