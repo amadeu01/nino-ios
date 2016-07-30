@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaRoundedLT-Bold.otf">
+            <string>HelveticaRoundedLT-Bold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyDaySectionHeader" customModule="Nino_Escola" customModuleProvider="target">
+            <connections>
+                <outlet property="icon" destination="25g-Jq-l0h" id="jvU-aK-Lh9"/>
+                <outlet property="label" destination="hQS-W8-XKE" id="KZ3-XZ-r1O"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="25g-Jq-l0h">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="25g-Jq-l0h" secondAttribute="height" multiplier="1:1" id="tUI-Ba-h7K"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="tUI-Ba-h7K"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <mask key="constraints">
+                            <include reference="tUI-Ba-h7K"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQS-W8-XKE">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="hQS-W8-XKE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1Xw-0s-TqP"/>
+                <constraint firstItem="25g-Jq-l0h" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3PA-Ok-06f"/>
+                <constraint firstItem="25g-Jq-l0h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="joe-cg-wes">
+                    <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="25g-Jq-l0h" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="n0m-3X-gN7"/>
+                <constraint firstItem="hQS-W8-XKE" firstAttribute="leading" secondItem="25g-Jq-l0h" secondAttribute="trailing" constant="8" id="xYE-F9-Q9m"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="25g-Jq-l0h"/>
+                    <exclude reference="hQS-W8-XKE"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="1Xw-0s-TqP"/>
+                    <exclude reference="xYE-F9-Q9m"/>
+                    <exclude reference="3PA-Ok-06f"/>
+                    <exclude reference="joe-cg-wes"/>
+                    <exclude reference="n0m-3X-gN7"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="subviews">
+                    <include reference="25g-Jq-l0h"/>
+                    <include reference="hQS-W8-XKE"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="1Xw-0s-TqP"/>
+                    <include reference="xYE-F9-Q9m"/>
+                    <include reference="3PA-Ok-06f"/>
+                    <include reference="joe-cg-wes"/>
+                    <include reference="n0m-3X-gN7"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
