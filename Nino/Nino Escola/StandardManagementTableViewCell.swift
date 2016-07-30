@@ -12,11 +12,7 @@ class StandardManagementTableViewCell: UITableViewCell {
     
     var nameLabel: UILabel?
     var profileImageView: UIImageView?
-    internal var profileImage: UIImage? {
-        didSet {
-            //self.profileImageView.image = profileImage
-        }
-    }
+    internal var profileImage: UIImage? 
     internal var index = 0
     /// Once this variable is set, the label will change
     internal var name: String? {
@@ -62,6 +58,7 @@ class StandardManagementTableViewCell: UITableViewCell {
             guard let thisimageView = profileImageView else {
                 return
             }
+            thisimageView.setNeedsLayout()
             thisimageView.layoutIfNeeded()
             thisimageView.setImageWithString(self.name, color: color, circular: true)
         }
