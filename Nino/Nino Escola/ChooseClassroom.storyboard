@@ -151,11 +151,11 @@
                                             <exclude reference="PUR-Bm-Tvf"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <exclude reference="LHD-xv-1Hh"/>
+                                            <exclude reference="N8S-AM-ppl"/>
                                             <exclude reference="Jvr-mP-YSB"/>
                                             <exclude reference="V5Q-5C-JVc"/>
                                             <exclude reference="lF7-MA-0bH"/>
-                                            <exclude reference="LHD-xv-1Hh"/>
-                                            <exclude reference="N8S-AM-ppl"/>
                                             <exclude reference="3nV-re-jeC"/>
                                             <exclude reference="hqy-iT-AaF"/>
                                             <exclude reference="s9w-n4-RkZ"/>
@@ -168,11 +168,11 @@
                                             <include reference="PUR-Bm-Tvf"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <include reference="LHD-xv-1Hh"/>
+                                            <include reference="N8S-AM-ppl"/>
                                             <include reference="Jvr-mP-YSB"/>
                                             <include reference="V5Q-5C-JVc"/>
                                             <include reference="lF7-MA-0bH"/>
-                                            <include reference="LHD-xv-1Hh"/>
-                                            <include reference="N8S-AM-ppl"/>
                                             <include reference="3nV-re-jeC"/>
                                             <include reference="hqy-iT-AaF"/>
                                             <include reference="s9w-n4-RkZ"/>
@@ -188,7 +188,7 @@
                                 <rect key="frame" x="0.0" y="98" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Yu-t5-Lfy" id="DcQ-Kb-tpL">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -196,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="142" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i5Z-Ie-gxK" id="Led-BW-rWl">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

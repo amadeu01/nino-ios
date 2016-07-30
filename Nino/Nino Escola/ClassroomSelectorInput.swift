@@ -8,7 +8,7 @@
 
 import UIKit
 import TagListView
-
+//TODO: Delete this file. So far, it reminds me how to set up the TagList
 class ClassroomSelectorInput: UIView, TagListViewDelegate {
 
     @IBOutlet weak var tagListView: TagListView!{
@@ -23,22 +23,6 @@ class ClassroomSelectorInput: UIView, TagListViewDelegate {
             tagListView.selectedBorderColor = CustomizeColor.lessStrongBackgroundNino()
             tagListView.tagSelectedBackgroundColor = CustomizeColor.lessStrongBackgroundNino()
             tagListView.backgroundColor = UIColor.clearColor()
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
-            tagListView.addTag("Hello, IT WORKS")
             tagListView.addTag("Hello, IT WORKS")
             print("TagView Did Set")
         }

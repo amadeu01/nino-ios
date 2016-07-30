@@ -96,12 +96,6 @@
 		2868C5841D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
 		2868C5851D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
 		2868C5861D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
-		2868C58C1D47F2D30032591D /* ClassroomSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2868C58B1D47F2D30032591D /* ClassroomSelector.xib */; };
-		2868C58D1D47F2D30032591D /* ClassroomSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2868C58B1D47F2D30032591D /* ClassroomSelector.xib */; };
-		2868C58E1D47F2D30032591D /* ClassroomSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2868C58B1D47F2D30032591D /* ClassroomSelector.xib */; };
-		2868C5901D47F3810032591D /* ClassroomSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C58F1D47F3810032591D /* ClassroomSelector.swift */; };
-		2868C5911D47F3810032591D /* ClassroomSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C58F1D47F3810032591D /* ClassroomSelector.swift */; };
-		2868C5921D47F3810032591D /* ClassroomSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C58F1D47F3810032591D /* ClassroomSelector.swift */; };
 		287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
@@ -755,8 +749,6 @@
 		2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SentAnnouncement.storyboard; sourceTree = "<group>"; };
 		2868C57F1D4797660032591D /* CEMKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CEMKit.swift; path = "../../../../BEPiD/Nino/projects/escolas-iOS-nino8/ninoEscola/ninoEscola/CEMKit.swift"; sourceTree = "<group>"; };
 		2868C5831D47A1DC0032591D /* DraftNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftNavigationController.swift; sourceTree = "<group>"; };
-		2868C58B1D47F2D30032591D /* ClassroomSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassroomSelector.xib; sourceTree = "<group>"; };
-		2868C58F1D47F3810032591D /* ClassroomSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomSelector.swift; sourceTree = "<group>"; };
 		287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewEducatorViewController.swift; sourceTree = "<group>"; };
 		28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseClassroomsTableViewController.swift; sourceTree = "<group>"; };
 		28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableSelectableTableViewCell.swift; sourceTree = "<group>"; };
@@ -1344,8 +1336,6 @@
 				ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */,
 				AC33F4861D36D2AE009D10B5 /* DateSelector.xib */,
 				AC33F48A1D36D317009D10B5 /* DateSelector.swift */,
-				2868C58B1D47F2D30032591D /* ClassroomSelector.xib */,
-				2868C58F1D47F3810032591D /* ClassroomSelector.swift */,
 				2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */,
 				2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */,
 			);
@@ -1728,7 +1718,6 @@
 				284A333E1D2C527C00030773 /* ManageClassrooms.storyboard in Resources */,
 				AC47FCD01D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */,
 				AC86BBF21D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
-				2868C58C1D47F2D30032591D /* ClassroomSelector.xib in Resources */,
 				28143E221D29A18000139B0D /* Photos.storyboard in Resources */,
 				2868C57B1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
 				28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */,
@@ -1768,7 +1757,6 @@
 				AC47FCE01D3E64E200FB3CB6 /* Info.plist in Resources */,
 				284A33341D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A411D103A420013611E /* CreateUser.storyboard in Resources */,
-				2868C58D1D47F2D30032591D /* ClassroomSelector.xib in Resources */,
 				AC47FCCB1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
 				2868C57C1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
 				284A333F1D2C527C00030773 /* ManageClassrooms.storyboard in Resources */,
@@ -1809,7 +1797,6 @@
 				AC47FCE21D3E64E300FB3CB6 /* Info.plist in Resources */,
 				284A33351D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A421D103A420013611E /* CreateUser.storyboard in Resources */,
-				2868C58E1D47F2D30032591D /* ClassroomSelector.xib in Resources */,
 				AC47FCCC1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
 				2868C57D1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
 				284A33401D2C527D00030773 /* ManageClassrooms.storyboard in Resources */,
@@ -2379,7 +2366,6 @@
 				288B27A21D37D1AA00B47DC0 /* Menu.swift in Sources */,
 				ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC9CA6351D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
-				2868C5901D47F3810032591D /* ClassroomSelector.swift in Sources */,
 				288B27201D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
 				AC43B3DC1D4011F100A6CB5C /* MenuRealmObject.swift in Sources */,
 				AC86BC001D0F43F8005282E7 /* LoginViewController.swift in Sources */,
@@ -2525,7 +2511,6 @@
 				288B27E61D37E0D300B47DC0 /* MenuBO.swift in Sources */,
 				288B27E41D37E0D300B47DC0 /* KeyBO.swift in Sources */,
 				288B27821D37D1A800B47DC0 /* Key.swift in Sources */,
-				2868C5911D47F3810032591D /* ClassroomSelector.swift in Sources */,
 				28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288B27861D37D1A800B47DC0 /* Activity.swift in Sources */,
 				2868C5781D46B4330032591D /* SentAnnouncementViewController.swift in Sources */,
@@ -2653,7 +2638,6 @@
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				28AE870D1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
-				2868C5921D47F3810032591D /* ClassroomSelector.swift in Sources */,
 				AC7BB7961D37F64D0044ABE0 /* MechanismsResponses.swift in Sources */,
 				288B278B1D37D1A900B47DC0 /* Guardian.swift in Sources */,
 				2868C5791D46B4330032591D /* SentAnnouncementViewController.swift in Sources */,
