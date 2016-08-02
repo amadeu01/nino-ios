@@ -19,14 +19,37 @@ class MyDayBO: NSObject {
      - returns: list of MyDayCell VOs
      */
     static func getCellsForClass(room: Int) -> (left: [MyDayCell], right: [MyDayCell]) {
-        //TODO: Mocked :D
-        var left = [MyDayCell.init(title: "One", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "OneDotFive", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])])]
-        left.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
-        left.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"]), MyDayRow.init(title: "SlideBabySlide", type: MyDayRowType.SliderCell, strings: ["ml", "mamadeira5", "0", "100"])]))
-        var right = [MyDayCell.init(title: "Two", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Three", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"])])]
-        right.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
-        right.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
-        right.append(MyDayCell.init(title: "LeftTwo", icon: MyDaySectionIcon.Food, sections: [MyDayRow.init(title: "Uno", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C"]), MyDayRow.init(title: "", type: MyDayRowType.SeparatorCell, strings: []), MyDayRow.init(title: "Duo", type: MyDayRowType.IntensityCell, strings: ["A", "B", "C", "D"])]))
-        return (left, right)
+        return ([alimentationSection()], [sleepSection(), hygieneSection()])
+    }
+    
+    
+    private static func alimentationSection() -> MyDayCell {
+        var rows: [MyDayRow] = []
+        rows.append(MyDayIntensityRow(title: "Lanche da Manhã", strings: ["bem", "pouco", "não comi"], description: "No lanche da manhã eu comi %", emptyDescription: ""))
+        rows.append(MyDaySeparatorRow())
+        rows.append(MyDayIntensityRow(title: "Almoço", strings: ["bem", "pouco", "não comi"], description: "No almoço eu comi %", emptyDescription: ""))
+        rows.append(MyDaySeparatorRow())
+        rows.append(MyDayIntensityRow(title: "Lanche da Tarde", strings: ["bem", "pouco", "não comi"], description: "No lanche da tarde eu comi %", emptyDescription: ""))
+        rows.append(MyDaySeparatorRow())
+        rows.append(MyDayIntensityRow(title: "Janta", strings: ["bem", "pouco", "não comi"], description: "Na janta eu comi %", emptyDescription: ""))
+        rows.append(MyDaySeparatorRow())
+        rows.append(MyDaySliderRow(title: "Mamadeira", unit: "ml", image: .BabyBottles, floor: 0, ceil: 200, generalDescription: "Hoje eu mamei % mamadeiras", itemDescription: "Elas foram de % mls"))
+        
+        return MyDayCell(title: "Minha Alimentação", icon: .Food, sections: rows)
+    }
+    
+    private static func sleepSection() -> MyDayCell {
+        var rows: [MyDayRow] = []
+        rows.append(MyDayIntensityRow(title: "Quando", strings: ["manhã", "meio-dia", "tarde"], description: "Hoje dormi durante a %", emptyDescription: "Hoje não dormi"))
+        rows.append(MyDaySliderRow(title: "Quantidade de sono", unit: "minutos", image: .BabyBottles, floor: 0, ceil: 180, generalDescription: "Hoje eu dormi % vezes", itemDescription: "Elas foram de % minutos"))
+        return MyDayCell(title: "Meu Sono", icon: .Sleep, sections: rows)
+    }
+    
+    private static func hygieneSection() -> MyDayCell {
+        var rows: [MyDayRow] = []
+        rows.append(MyDayIntensityRow(title: "Evacuação", strings: ["Normal", "Pastosa", "Diarréia"], description: "Hoje minha evacuação foi %", emptyDescription: "Hoje não evacuei"))
+        rows.append(MyDaySeparatorRow())
+        rows.append(MyDayIntensityRow(title: "Troca de Fralda", strings: ["1 vez", "2 vezes", "3 ou mais vezes"], description: "Hoje troquei de fralda %", emptyDescription: "Hoje não troquei de fralda"))
+        return MyDayCell(title: "Minha Higiene", icon: .Hygiene, sections: rows)
     }
 }

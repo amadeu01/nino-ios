@@ -32,6 +32,7 @@
                     </constraints>
                     <connections>
                         <action selector="onSliderChange:" destination="-1" eventType="valueChanged" id="u5c-Ls-l6D"/>
+                        <action selector="onSliderEditingEnd:" destination="-1" eventType="editingDidEnd" id="uUa-hh-xZf"/>
                     </connections>
                 </slider>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TP-S4-rug">

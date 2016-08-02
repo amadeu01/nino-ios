@@ -18,7 +18,7 @@ import Foundation
  */
 enum MyDaySectionIcon: String {
     case Food = "icones-minha-rotina-comida"
-    case Sleep = "icones-minha-rotina-sono"
+    case Sleep = "icones-minha-sono"
     case Hygiene = "icones-minha-rotina-banho"
     case Comments = "maizin"
 }

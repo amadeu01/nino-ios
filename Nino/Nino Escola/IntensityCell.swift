@@ -13,6 +13,10 @@ class IntensityCell: UITableViewCell {
     
     @IBOutlet weak var buttonsArea: UIView!
     @IBOutlet weak var title: UILabel!
+    var delegate: MyDayRowDelegate?
+    var emptyDescription : String?
+    var selectedDescription: String?
+    var indexPath: NSIndexPath?
     
         /// The current selection
     var selectedItem: UIButton? {
@@ -33,7 +37,6 @@ class IntensityCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         let view = UINib(nibName: "IntensityCell", bundle: nil).instantiateWithOwner(self, options: nil)[0] as? UIView
         if let cell = view {
             self.addSubview(cell)
@@ -47,9 +50,13 @@ class IntensityCell: UITableViewCell {
      - parameter label:   The title of this cell
      - parameter strings: An array containing all the options to this cell
      */
-    func setup(label: String, strings: [String]) {
+    func setup(label: String, strings: [String], delegate: MyDayRowDelegate, description: String, emptyDescription: String, indexPath: NSIndexPath) {
         //Sets title
-        title.text = label
+        self.title.text = label
+        self.delegate = delegate
+        self.selectedDescription = description
+        self.emptyDescription = emptyDescription
+        self.indexPath = indexPath
         
         //Clears the previous cell, as TableViewCells are reusable
         self.buttonsArea.subviews.forEach({$0.removeFromSuperview()})
@@ -100,13 +107,27 @@ class IntensityCell: UITableViewCell {
         }
     }
     
+    func getStatus() -> String? {
+        return selectedItem?.titleLabel?.text
+    }
+    
     /**
      On tap of a button the selected one will change to the recently tapped
      
      - parameter sender: the button clicked
      */
     @objc private func tapAction(sender: UIButton) {
-        self.selectedItem = sender
+        if self.selectedItem == sender {
+            self.selectedItem = nil
+            if let index = self.indexPath {
+                delegate?.didChangeStatus(self.emptyDescription!, indexPath: index)
+            }
+        } else {
+            self.selectedItem = sender
+            if let index = self.indexPath {
+                delegate?.didChangeStatus(self.selectedDescription!.stringByReplacingOccurrencesOfString("%", withString: sender.titleLabel!.text!), indexPath: index)
+            }
+        }
     }
 
 }

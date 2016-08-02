@@ -50,11 +50,15 @@ class SliderCell: UITableViewCell {
         }
         
     }
+    var itemDescription: String?
+    var generalDescription: String?
     var unit: String?
     var plusIcon: UIImageView?
     var iconName: String?
     var min: Float = 0
     var max: Float = 100
+    var indexPath: NSIndexPath?
+    var delegate: MyDayRowDelegate?
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var title: UILabel!
@@ -91,8 +95,12 @@ class SliderCell: UITableViewCell {
      - parameter sliderFloor: The lowest value of Item
      - parameter sliderCeil:  The highest value of Item
      */
-    func setup (title: String, unit: String, iconName: String, sliderFloor: Float?, sliderCeil: Float?) {
-
+    func setup (title: String, unit: String, iconName: String, sliderFloor: Float?, sliderCeil: Float?, delegate: MyDayRowDelegate, generalDescription: String, itemDescription: String, indexPath: NSIndexPath) {
+        
+        self.delegate = delegate
+        self.indexPath = indexPath
+        self.generalDescription = generalDescription
+        self.itemDescription = itemDescription
         //First of all sets the min and max values, if null 0 and 100 are the default
         if let floor = sliderFloor {
             self.min = floor
@@ -196,7 +204,6 @@ class SliderCell: UITableViewCell {
                 constraint.active = true
                 self.items.last?.leadingConstraint = constraint
             }
-            
         }
         //Saves the reference to this new Item
         let newItem = Item.init(image: newIcon, label: newLabel, leadingConstraint: trailing)
@@ -264,6 +271,20 @@ class SliderCell: UITableViewCell {
         }
         //Changes the selected item to the one to the right of the plus icon
         self.selectedItem = items.last
+        
+        //Tells delegate what changed 
+//        if let index = self.indexPath {
+//            var description = ""
+//            description += self.generalDescription!.stringByReplacingOccurrencesOfString("%", withString: "\(self.items.count)\n")
+//            if (self.items.count > 0) {
+//                var items = ""
+//                for item in self.items {
+//                    items += item.label.text!
+//                }
+//                description += self.itemDescription!.stringByReplacingOccurrencesOfString("%", withString: items)
+//            }
+//            delegate?.didChangeStatus(description, indexPath: index)
+//        }
     }
     
     /**
@@ -281,7 +302,7 @@ class SliderCell: UITableViewCell {
     /**
      When the slider values change. Saves the value for the icon and changes the value being show. The show value increments 10 by 10
      
-     - parameter sender: <#sender description#>
+     - parameter sender: the slider
      */
     @IBAction func onSliderChange(sender: UISlider) {
         //There is no item on the list, should be disabled
@@ -303,5 +324,24 @@ class SliderCell: UITableViewCell {
         }
     }
     
+    /**
+     When the editing stops we tell the delegate to update
+     
+     - parameter sender: The Slider
+     */
+    @IBAction func onSliderEditingEnd(sender: UISlider) {
+//        if let index = self.indexPath {
+//            var description = ""
+//            description += self.generalDescription!.stringByReplacingOccurrencesOfString("%", withString: "\(self.items.count)\n")
+//            if (self.items.count > 0) {
+//                var items = ""
+//                for item in self.items {
+//                    items += item.label.text!
+//                }
+//                description += self.itemDescription!.stringByReplacingOccurrencesOfString("%", withString: items)
+//            }
+//            delegate?.didChangeStatus(description, indexPath: index)
+//        }
+    }
 
 }

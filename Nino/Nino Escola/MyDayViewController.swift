@@ -9,7 +9,7 @@
 import UIKit
 
 /// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
-class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorDataSource, UITableViewDataSource, UITableViewDelegate {
+class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorDataSource, UITableViewDataSource, UITableViewDelegate, MyDayRowDelegate {
 
     @IBOutlet weak var dateSelector: DateSelector!
     @IBOutlet weak var leftTableView: UITableView!
@@ -28,6 +28,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
         self.addNinoDefaultBackGround()
         self.dateSelector.delegate = self
         self.dateSelector.dataSource = self
+        
+        self.leftTableView.delegate = self
+        self.rightTableView.delegate = self
         
         self.reloadData()
     }
@@ -120,9 +123,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch tableView {
         case leftTableView:
-            return leftCells[indexPath.section].sections[indexPath.row].type.height()
+            return leftCells[indexPath.section].sections[indexPath.row].getHeight()
         case rightTableView:
-            return rightCells[indexPath.section].sections[indexPath.row].type.height()
+            return rightCells[indexPath.section].sections[indexPath.row].getHeight()
         default:
             return 0
         }
@@ -155,7 +158,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
             //TODO: Handle better
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(rowNow.type.rawValue)
+        let cell = tableView.dequeueReusableCellWithIdentifier(rowNow.getCellIdentifier())
         
         guard let cellNow = cell else {
             return tableView.dequeueReusableCellWithIdentifier("intensityCell")!
@@ -163,16 +166,22 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
         }
         
         if let intensityCell = cellNow as? IntensityCell {
-            intensityCell.setup(rowNow.title, strings: rowNow.strings)
+            if let intensityVO = rowNow as? MyDayIntensityRow {
+                intensityCell.setup(intensityVO.getTitle(), strings: intensityVO.strings, delegate: self, description: intensityVO.preDescription, emptyDescription: intensityVO.emptyDescription, indexPath: indexPath)
+            }
         }
         
         if let sliderCell = cellNow as? SliderCell {
-            //TODO: Check for the size of strings
-            sliderCell.setup(rowNow.title, unit: rowNow.strings[0], iconName: rowNow.strings[1], sliderFloor: 0, sliderCeil: 100)
+            if let sliderVO = rowNow as? MyDaySliderRow {
+                sliderCell.setup(sliderVO.getTitle(), unit: sliderVO.unit, iconName: sliderVO.image.rawValue, sliderFloor: sliderVO.floor, sliderCeil: sliderVO.ceil, delegate: self, generalDescription: sliderVO.generalDescription, itemDescription: sliderVO.itemDescription, indexPath: indexPath)
+            }
         }
         
         return cellNow
     }
+//MARK: Cell delegate
+    func didChangeStatus(status: String, indexPath: NSIndexPath) {
+        print(status)
+    }
     
-
 }

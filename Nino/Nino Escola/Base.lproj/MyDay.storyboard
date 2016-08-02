@@ -218,6 +218,9 @@
                                 <state key="normal" title="CONTINUAR :)">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="353.5" y="419" width="93" height="29"/>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
