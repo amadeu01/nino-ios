@@ -938,6 +938,9 @@
                                         <state key="normal" title="CADASTRAR ">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <variation key="widthClass=regular" misplaced="YES">
+                                            <rect key="frame" x="304" y="206" width="152" height="26"/>
+                                        </variation>
                                         <connections>
                                             <action selector="registerStudentAction:" destination="Cc5-ui-LhJ" eventType="touchUpInside" id="Yl5-fQ-kyK"/>
                                         </connections>
@@ -1905,6 +1908,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=regular" misplaced="YES">
+                                                        <rect key="frame" x="106" y="35" width="126" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KRJ-Dl-m87">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1916,8 +1922,7 @@
                                                             <exclude reference="D3k-ds-O0i"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=regular" misplaced="YES">
-                                                        <rect key="frame" x="18" y="9" width="73" height="72"/>
+                                                    <variation key="widthClass=regular">
                                                         <mask key="constraints">
                                                             <include reference="D3k-ds-O0i"/>
                                                         </mask>

@@ -35,6 +35,8 @@ class StudentInfoSectionTableViewHeader: UIView {
     class func instanceFromNib() -> UIView? {
         return UINib(nibName: "StudentInfoSectionTableViewHeader", bundle: nil).instantiateWithOwner(StudentInfoSectionTableViewHeader(), options: nil)[0] as? UIView
     }
+    
+    
 
 }
 

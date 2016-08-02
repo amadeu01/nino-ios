@@ -16,8 +16,9 @@ struct MyDayCell {
     
     //MARK: Attributes
     let title: String
-    let icon: Int
-    let sections: [Int]
+    let icon: MyDaySectionIcon
+    let sections: [MyDayRow]
+    let height: CGFloat
     
     //MARK: Initializer
     /**
@@ -29,10 +30,10 @@ struct MyDayCell {
      
      - returns: struct VO of MyDayCell type
      */
-    init(title: String, icon: Int, sections: [Int]) {
+    init(title: String, icon: MyDaySectionIcon, sections: [MyDayRow]) {
         self.title = title
+        self.height = 40
         self.icon = icon
         self.sections = sections
     }
 }
-

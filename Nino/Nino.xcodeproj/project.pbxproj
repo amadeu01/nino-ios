@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071832221D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */; };
+		071832231D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */; };
+		071832241D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */; };
+		071832261D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
+		071832271D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
+		071832281D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
+		07447C171D4D20FF00830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
+		07447C191D4D210000830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
+		07447C1A1D4D210100830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
 		07818C981D46E716007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
 		07818C991D46E716007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
 		07818C9A1D46E716007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
-		07818C9B1D46E725007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
-		07818C9C1D46E725007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
-		07818C9D1D46E726007FFDE2 /* MyDayBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C971D46E716007FFDE2 /* MyDayBO.swift */; };
-		07818C9F1D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
-		07818CA01D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
-		07818CA11D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
 		07818CA21D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
 		07818CA31D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
 		07818CA41D46E7D2007FFDE2 /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */; };
@@ -25,6 +28,35 @@
 		07818CAD1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */; };
 		07818CAE1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */; };
 		07818CAF1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */; };
+		07818CB51D47B9AD007FFDE2 /* IntensityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */; };
+		07818CB61D47B9AD007FFDE2 /* IntensityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */; };
+		07818CB71D47B9AD007FFDE2 /* IntensityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */; };
+		07818CB91D47B9FB007FFDE2 /* IntensityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */; };
+		07818CBA1D47B9FB007FFDE2 /* IntensityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */; };
+		07818CBB1D47B9FB007FFDE2 /* IntensityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */; };
+		07A272271D49189B005079BC /* MyDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272261D49189B005079BC /* MyDayRow.swift */; };
+		07A272281D49189B005079BC /* MyDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272261D49189B005079BC /* MyDayRow.swift */; };
+		07A272291D49189B005079BC /* MyDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272261D49189B005079BC /* MyDayRow.swift */; };
+		07A2722C1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */; };
+		07A2722D1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */; };
+		07A2722E1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */; };
+		07A272341D493E70005079BC /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272331D493E70005079BC /* SeparatorCell.swift */; };
+		07A272351D493E70005079BC /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272331D493E70005079BC /* SeparatorCell.swift */; };
+		07A272361D493E70005079BC /* SeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272331D493E70005079BC /* SeparatorCell.swift */; };
+		07A272381D493E80005079BC /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A272371D493E80005079BC /* SeparatorCell.xib */; };
+		07A272391D493E80005079BC /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A272371D493E80005079BC /* SeparatorCell.xib */; };
+		07A2723A1D493E80005079BC /* SeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A272371D493E80005079BC /* SeparatorCell.xib */; };
+		07A272401D494734005079BC /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A2723F1D494734005079BC /* SliderCell.xib */; };
+		07A272411D494734005079BC /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A2723F1D494734005079BC /* SliderCell.xib */; };
+		07A272421D494734005079BC /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A2723F1D494734005079BC /* SliderCell.xib */; };
+		07A272441D494750005079BC /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272431D494750005079BC /* SliderCell.swift */; };
+		07A272451D494750005079BC /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272431D494750005079BC /* SliderCell.swift */; };
+		07A272461D494750005079BC /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272431D494750005079BC /* SliderCell.swift */; };
+		07DB6AB11D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */; };
+		07DB6AB21D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */; };
+		07DB6AB31D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */; };
+		07DB6AB41D50CDE7003C07EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
+		07DB6AB51D50CDE8003C07EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
 		280A4B7B1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7C1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7D1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
@@ -83,16 +115,48 @@
 		284C5FED1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */; };
 		284C5FEE1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */; };
 		284C5FEF1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */; };
-		285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		28667DBD1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28667DBC1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift */; };
 		28667DBE1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28667DBC1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift */; };
 		28667DBF1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28667DBC1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift */; };
 		28667DC91D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28667DC81D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib */; };
 		28667DCA1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28667DC81D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib */; };
 		28667DCB1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28667DC81D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib */; };
+		2868C55B1D46A7640032591D /* Announcements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C5591D46A7640032591D /* Announcements.storyboard */; };
+		2868C55C1D46A7640032591D /* Announcements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C5591D46A7640032591D /* Announcements.storyboard */; };
+		2868C55D1D46A7640032591D /* Announcements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C5591D46A7640032591D /* Announcements.storyboard */; };
+		2868C5631D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5621D46A7FD0032591D /* AnnouncementTableViewController.swift */; };
+		2868C5641D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5621D46A7FD0032591D /* AnnouncementTableViewController.swift */; };
+		2868C5651D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5621D46A7FD0032591D /* AnnouncementTableViewController.swift */; };
+		2868C56B1D46B2AB0032591D /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C56A1D46B2AB0032591D /* AnnouncementTableViewCell.swift */; };
+		2868C56C1D46B2AB0032591D /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C56A1D46B2AB0032591D /* AnnouncementTableViewCell.swift */; };
+		2868C56D1D46B2AB0032591D /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C56A1D46B2AB0032591D /* AnnouncementTableViewCell.swift */; };
+		2868C5731D46B4200032591D /* DraftAnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5721D46B4200032591D /* DraftAnnouncementViewController.swift */; };
+		2868C5741D46B4200032591D /* DraftAnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5721D46B4200032591D /* DraftAnnouncementViewController.swift */; };
+		2868C5751D46B4200032591D /* DraftAnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5721D46B4200032591D /* DraftAnnouncementViewController.swift */; };
+		2868C5771D46B4330032591D /* SentAnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5761D46B4330032591D /* SentAnnouncementViewController.swift */; };
+		2868C5781D46B4330032591D /* SentAnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5761D46B4330032591D /* SentAnnouncementViewController.swift */; };
+		2868C5791D46B4330032591D /* SentAnnouncementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5761D46B4330032591D /* SentAnnouncementViewController.swift */; };
+		2868C57B1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */; };
+		2868C57C1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */; };
+		2868C57D1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */; };
+		2868C5841D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
+		2868C5851D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
+		2868C5861D47A1DC0032591D /* DraftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2868C5831D47A1DC0032591D /* DraftNavigationController.swift */; };
 		287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
+		28830E7B1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
+		28830E7C1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
+		28830E7D1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
+		28830E801D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */; };
+		28830E811D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */; };
+		28830E821D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */; };
+		2889CFCA1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */; };
+		2889CFCB1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */; };
+		2889CFCC1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */; };
+		2889CFCE1D480AA2000ED8BB /* ClassroomSelectorInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */; };
+		2889CFCF1D480AA2000ED8BB /* ClassroomSelectorInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */; };
+		2889CFD01D480AA2000ED8BB /* ClassroomSelectorInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */; };
 		288B271C1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */; };
 		288B271D1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */; };
 		288B271E1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */; };
@@ -228,7 +292,6 @@
 		288B280B1D37E0D500B47DC0 /* EducatorBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EEF1CF4A25B003C1063 /* EducatorBO.swift */; };
 		288B280C1D37E0D500B47DC0 /* CredentialBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF21CF4A82F003C1063 /* CredentialBO.swift */; };
 		288B280D1D37E0D500B47DC0 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
-		288B280F1D37E12200B47DC0 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		288DE34B1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
 		288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
 		288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288DE34A1D22AF9B0052A35D /* StudentProfileTableViewCell.swift */; };
@@ -277,6 +340,12 @@
 		28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
 		28AE871C1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
 		28AE871D1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
+		28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
+		28C5CB211D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
+		28C5CB221D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
+		28D2A7BB1D4C546400677DCC /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2A7BA1D4C546400677DCC /* CEMKit.swift */; };
+		28D2A7BC1D4C546400677DCC /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2A7BA1D4C546400677DCC /* CEMKit.swift */; };
+		28D2A7BD1D4C546400677DCC /* CEMKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2A7BA1D4C546400677DCC /* CEMKit.swift */; };
 		28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366EF1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
@@ -506,7 +575,6 @@
 		AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF21CF4A82F003C1063 /* CredentialBO.swift */; };
 		AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
 		AC529EF71CF4AC69003C1063 /* PostBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EF51CF4AC69003C1063 /* PostBO.swift */; };
-		AC7143F41D3D670000C743A5 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */; };
 		AC7143FE1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */; };
 		AC7143FF1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */; };
 		AC7144001D3D963600C743A5 /* NinoNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */; };
@@ -533,6 +601,12 @@
 		AC74E1141D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC79F0241D50F54400583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
+		AC79F0251D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
+		AC79F0261D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
+		AC79F0271D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
+		AC79F0281D50F55900583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
+		AC79F0291D50F55900583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
 		AC7BB78F1D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
 		AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
 		AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
@@ -719,10 +793,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansRegisterPasswordViewController.swift; sourceTree = "<group>"; };
+		071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansConfirmEmailViewController.swift; sourceTree = "<group>"; };
+		07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySliderIcon.swift; sourceTree = "<group>"; };
 		07818C971D46E716007FFDE2 /* MyDayBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayBO.swift; sourceTree = "<group>"; };
 		07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayCell.swift; sourceTree = "<group>"; };
 		07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDaySectionHeader.xib; sourceTree = "<group>"; };
 		07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySectionHeader.swift; sourceTree = "<group>"; };
+		07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntensityCell.xib; sourceTree = "<group>"; };
+		07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntensityCell.swift; sourceTree = "<group>"; };
+		07A272261D49189B005079BC /* MyDayRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayRow.swift; sourceTree = "<group>"; };
+		07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySectionIcon.swift; sourceTree = "<group>"; };
+		07A272331D493E70005079BC /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
+		07A272371D493E80005079BC /* SeparatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeparatorCell.xib; sourceTree = "<group>"; };
+		07A2723F1D494734005079BC /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		07A272431D494750005079BC /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
+		07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansLoginViewController.swift; sourceTree = "<group>"; };
 		280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageStudentInfoViewController.swift; sourceTree = "<group>"; };
 		280A4B7E1D3E8B5F00AA722B /* GuardianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianTableViewCell.swift; sourceTree = "<group>"; };
 		28143E141D29A0D100139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyDay.storyboard; sourceTree = "<group>"; };
@@ -742,10 +828,20 @@
 		284A333A1D2C4B8600030773 /* ManageEducatorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageEducatorsViewController.swift; sourceTree = "<group>"; };
 		284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewClassroomViewController.swift; sourceTree = "<group>"; };
 		284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomProfileViewController.swift; sourceTree = "<group>"; };
-		285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NinoSession.swift; path = ../NinoSession.swift; sourceTree = "<group>"; };
 		28667DBC1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfoSectionTableViewHeader.swift; sourceTree = "<group>"; };
 		28667DC81D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentInfoSectionTableViewHeader.xib; sourceTree = "<group>"; };
+		2868C55A1D46A7640032591D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Announcements.storyboard; sourceTree = "<group>"; };
+		2868C5621D46A7FD0032591D /* AnnouncementTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewController.swift; sourceTree = "<group>"; };
+		2868C56A1D46B2AB0032591D /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
+		2868C5721D46B4200032591D /* DraftAnnouncementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftAnnouncementViewController.swift; sourceTree = "<group>"; };
+		2868C5761D46B4330032591D /* SentAnnouncementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentAnnouncementViewController.swift; sourceTree = "<group>"; };
+		2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SentAnnouncement.storyboard; sourceTree = "<group>"; };
+		2868C5831D47A1DC0032591D /* DraftNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftNavigationController.swift; sourceTree = "<group>"; };
 		287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewEducatorViewController.swift; sourceTree = "<group>"; };
+		28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseClassroomsTableViewController.swift; sourceTree = "<group>"; };
+		28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableSelectableTableViewCell.swift; sourceTree = "<group>"; };
+		2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomSelectorInput.swift; sourceTree = "<group>"; };
+		2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassroomSelectorInput.xib; sourceTree = "<group>"; };
 		288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagePhasesViewController.swift; sourceTree = "<group>"; };
 		288B271F1D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterNewPhaseViewController.swift; sourceTree = "<group>"; };
 		288B27231D36C51300B47DC0 /* ManageStudentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageStudentsViewController.swift; sourceTree = "<group>"; };
@@ -765,6 +861,8 @@
 		28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardManagementTableViewCell.swift; sourceTree = "<group>"; };
 		28AE871A1D3BC20E00993AF8 /* DataStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
+		28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseClassroom.storyboard; sourceTree = "<group>"; };
+		28D2A7BA1D4C546400677DCC /* CEMKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEMKit.swift; sourceTree = "<group>"; };
 		28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorProfileViewController.swift; sourceTree = "<group>"; };
 		28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterStudentViewController.swift; sourceTree = "<group>"; };
 		28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
@@ -838,6 +936,7 @@
 		AC74E1021D2D4908004281F3 /* RouteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteError.swift; sourceTree = "<group>"; };
 		AC74E1091D2E8749004281F3 /* AccountBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBO.swift; sourceTree = "<group>"; };
 		AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoImagePicker.swift; sourceTree = "<group>"; };
+		AC79F0231D50F54400583452 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCodeError.swift; sourceTree = "<group>"; };
 		AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitEmailViewController.swift; sourceTree = "<group>"; };
 		AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
@@ -976,8 +1075,74 @@
 			children = (
 				07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */,
 				07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */,
+				07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */,
+				07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */,
+				07A272371D493E80005079BC /* SeparatorCell.xib */,
+				07A272331D493E70005079BC /* SeparatorCell.swift */,
+				07A2723F1D494734005079BC /* SliderCell.xib */,
+				07A272431D494750005079BC /* SliderCell.swift */,
 			);
 			name = "MyDay xibs";
+			sourceTree = "<group>";
+		};
+		07A2722A1D4918CA005079BC /* MyDayEnums */ = {
+			isa = PBXGroup;
+			children = (
+				07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */,
+				07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */,
+			);
+			name = MyDayEnums;
+			sourceTree = "<group>";
+		};
+		07DB6AAE1D50CA75003C07EC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC39CC1CEE128B00867624 /* Main.storyboard */,
+				ACEC39D11CEE128B00867624 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		07DB6AAF1D50CA8E003C07EC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */,
+				071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */,
+				071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2868C5581D4650680032591D /* Manage School People */ = {
+			isa = PBXGroup;
+			children = (
+				284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */,
+				28F367031D2FE36500A0743B /* ManageClassroomsViewController.swift */,
+				288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */,
+				280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */,
+				288B27231D36C51300B47DC0 /* ManageStudentsViewController.swift */,
+				28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */,
+				284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */,
+				287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */,
+				288B271F1D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift */,
+				28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */,
+			);
+			name = "Manage School People";
+			sourceTree = "<group>";
+		};
+		2868C57E1D4797470032591D /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		28830E7E1D4BD101006DB3C8 /* PopOver */ = {
+			isa = PBXGroup;
+			children = (
+				28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */,
+			);
+			name = PopOver;
 			sourceTree = "<group>";
 		};
 		288DE34E1D22AFA30052A35D /* View */ = {
@@ -991,6 +1156,8 @@
 				280A4B7E1D3E8B5F00AA722B /* GuardianTableViewCell.swift */,
 				28667DBC1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift */,
 				28667DC81D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib */,
+				2868C56A1D46B2AB0032591D /* AnnouncementTableViewCell.swift */,
+				28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -998,6 +1165,9 @@
 		28F367011D2FE23F00A0743B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				28D2A7BA1D4C546400677DCC /* CEMKit.swift */,
+				2868C5831D47A1DC0032591D /* DraftNavigationController.swift */,
+				2868C57E1D4797470032591D /* Third Party */,
 				28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */,
 				28F366FD1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift */,
 				28AE871A1D3BC20E00993AF8 /* DataStructure.swift */,
@@ -1010,6 +1180,7 @@
 			children = (
 				288DE3541D22BF800052A35D /* StudentProfileListController.swift */,
 				28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */,
+				2868C5621D46A7FD0032591D /* AnnouncementTableViewController.swift */,
 			);
 			name = Master;
 			sourceTree = "<group>";
@@ -1048,6 +1219,9 @@
 		AC33F4801D36C4E7009D10B5 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2868C5761D46B4330032591D /* SentAnnouncementViewController.swift */,
+				2868C5721D46B4200032591D /* DraftAnnouncementViewController.swift */,
+				2868C5581D4650680032591D /* Manage School People */,
 				AC47FD311D3E663B00FB3CB6 /* My Day */,
 			);
 			name = Detail;
@@ -1153,21 +1327,12 @@
 		AC86BBFB1D0F43CD005282E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				28830E7E1D4BD101006DB3C8 /* PopOver */,
 				28F367021D2FE28C00A0743B /* Master */,
-				284C5FEC1D31425B00FD83D6 /* ClassroomProfileViewController.swift */,
 				28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */,
 				AC86BBFC1D0F43F8005282E7 /* LoginViewController.swift */,
-				28F367031D2FE36500A0743B /* ManageClassroomsViewController.swift */,
 				284A333A1D2C4B8600030773 /* ManageEducatorsViewController.swift */,
-				288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */,
-				280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */,
-				288B27231D36C51300B47DC0 /* ManageStudentsViewController.swift */,
 				28A0469F1D26C214007E0053 /* ProfileTopBarViewController.swift */,
-				28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */,
-				284C5FE81D31422B00FD83D6 /* RegisterNewClassroomViewController.swift */,
-				287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */,
-				288B271F1D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift */,
-				28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */,
 				28A046A61D26D633007E0053 /* StudentProfileNavigationController.swift */,
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
 				AC33F47B1D3673C4009D10B5 /* Create User */,
@@ -1180,8 +1345,10 @@
 			isa = PBXGroup;
 			children = (
 				ACEC3A001CEE137A00867624 /* Main.storyboard */,
+				2868C5591D46A7640032591D /* Announcements.storyboard */,
 				284A33361D2C3F5000030773 /* Schedule.storyboard */,
 				284A33311D2C3ED900030773 /* MealMenu.storyboard */,
+				2868C57A1D46B6EA0032591D /* SentAnnouncement.storyboard */,
 				284A332D1D2C3E5F00030773 /* LegalStuff.storyboard */,
 				284A332A1D2C3DD600030773 /* ManageClassrooms.storyboard */,
 				284A33271D2C3A2200030773 /* ManageEducators.storyboard */,
@@ -1194,6 +1361,7 @@
 				288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */,
 				AC182A3E1D103A420013611E /* CreateUser.storyboard */,
 				ACEC3A051CEE137A00867624 /* LaunchScreen.storyboard */,
+				28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -1227,6 +1395,7 @@
 				AC9F99F91CEF72CB001B53E8 /* Event.swift */,
 				AC238B941CEFDABA00B10F75 /* Gender.swift */,
 				07818C9E1D46E7D2007FFDE2 /* MyDayCell.swift */,
+				07A272261D49189B005079BC /* MyDayRow.swift */,
 			);
 			name = VO;
 			sourceTree = "<group>";
@@ -1269,12 +1438,14 @@
 		AC9F99CE1CEF3924001B53E8 /* Mechanisms */ = {
 			isa = PBXGroup;
 			children = (
+				AC79F0231D50F54400583452 /* NinoSession.swift */,
 				AC7BFDBE1D268C4C0086B495 /* Bridging Headers */,
 				AC86BBCF1D0F431D005282E7 /* Resources */,
 				AC89BAC31CF5D87600CB3CD2 /* Server */,
 				AC529EDF1CF483D6003C1063 /* Errors */,
 				AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */,
 				ACF360341D4800D900A30922 /* NotificationMessage.swift */,
+				07A2722A1D4918CA005079BC /* MyDayEnums */,
 				AC529EE91CF49A9B003C1063 /* StringsMechanisms.swift */,
 				AC9CA6371D0CB516007AAAA6 /* MechanismsResponses.swift */,
 				AC9EC7121D2418B200D54857 /* DefaultAlerts.swift */,
@@ -1315,6 +1486,8 @@
 				ACB7E0CA1D22AD9E0014F76D /* GenderSelector.swift */,
 				AC33F4861D36D2AE009D10B5 /* DateSelector.xib */,
 				AC33F48A1D36D317009D10B5 /* DateSelector.swift */,
+				2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */,
+				2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1350,11 +1523,11 @@
 		ACEC39C71CEE128B00867624 /* Nino */ = {
 			isa = PBXGroup;
 			children = (
+				07DB6AAF1D50CA8E003C07EC /* Controllers */,
+				07DB6AAE1D50CA75003C07EC /* Storyboards */,
 				ACEC39C81CEE128B00867624 /* AppDelegate.swift */,
 				ACEC39CA1CEE128B00867624 /* ViewController.swift */,
-				ACEC39CC1CEE128B00867624 /* Main.storyboard */,
 				ACEC39CF1CEE128B00867624 /* Assets.xcassets */,
-				ACEC39D11CEE128B00867624 /* LaunchScreen.storyboard */,
 				ACEC39D41CEE128B00867624 /* Info.plist */,
 			);
 			path = Nino;
@@ -1383,7 +1556,6 @@
 			children = (
 				28F367011D2FE23F00A0743B /* Helpers */,
 				ACEC39FC1CEE137A00867624 /* AppDelegate.swift */,
-				285D7EA51CFB5E9D0080DAA3 /* NinoSession.swift */,
 				ACEC3A081CEE137A00867624 /* Info.plist */,
 				AC86BBFB1D0F43CD005282E7 /* Controllers */,
 				AC86BC031D0F4413005282E7 /* Storyboards */,
@@ -1642,6 +1814,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DB6AB41D50CDE7003C07EC /* Main.storyboard in Resources */,
 				AC86BBD81D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBDE1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBF01D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
@@ -1655,6 +1828,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DB6AB51D50CDE8003C07EC /* Main.storyboard in Resources */,
 				AC86BBD91D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBDF1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBF11D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
@@ -1668,6 +1842,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A272401D494734005079BC /* SliderCell.xib in Resources */,
 				AC33F4871D36D2AE009D10B5 /* DateSelector.xib in Resources */,
 				AC47FCCA1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
 				28143E1E1D29A17000139B0D /* Chat.storyboard in Resources */,
@@ -1676,6 +1851,7 @@
 				ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */,
 				288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				07818CA91D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
+				2868C55B1D46A7640032591D /* Announcements.storyboard in Resources */,
 				28143E461D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				284A33331D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC47FCC41D3E644D00FB3CB6 /* MySleep.xib in Resources */,
@@ -1683,9 +1859,12 @@
 				28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
 				AC182A401D103A420013611E /* CreateUser.storyboard in Resources */,
+				07818CB51D47B9AD007FFDE2 /* IntensityCell.xib in Resources */,
+				2889CFCE1D480AA2000ED8BB /* ClassroomSelectorInput.xib in Resources */,
 				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				28667DC91D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
 				ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
+				07A272381D493E80005079BC /* SeparatorCell.xib in Resources */,
 				AC86BBF81D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				284A33371D2C3F5000030773 /* Schedule.storyboard in Resources */,
 				AC86BBE01D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
@@ -1694,6 +1873,8 @@
 				AC47FCD01D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */,
 				AC86BBF21D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				28143E221D29A18000139B0D /* Photos.storyboard in Resources */,
+				2868C57B1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
+				28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */,
 				284A33411D2C528200030773 /* ManageEducators.storyboard in Resources */,
 				28143E101D299F4E00139B0D /* StudentProfile.storyboard in Resources */,
 				AC86BBDA1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
@@ -1704,6 +1885,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A272411D494734005079BC /* SliderCell.xib in Resources */,
 				288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				28667DCA1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
@@ -1712,6 +1894,7 @@
 				ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC33F4881D36D2AE009D10B5 /* DateSelector.xib in Resources */,
 				07818CAA1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
+				2868C55C1D46A7640032591D /* Announcements.storyboard in Resources */,
 				28143E471D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A431D103A590013611E /* Main.storyboard in Resources */,
@@ -1719,9 +1902,11 @@
 				28143E231D29A18100139B0D /* Photos.storyboard in Resources */,
 				AC47FCC51D3E644D00FB3CB6 /* MySleep.xib in Resources */,
 				AC47FCD11D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */,
+				07818CB61D47B9AD007FFDE2 /* IntensityCell.xib in Resources */,
 				28143E2C1D2AC57A00139B0D /* LaunchScreen.storyboard in Resources */,
 				284A332F1D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				AC86BBED1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				07A272391D493E80005079BC /* SeparatorCell.xib in Resources */,
 				AC86BBF91D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E111D299F4F00139B0D /* StudentProfile.storyboard in Resources */,
 				AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */,
@@ -1731,8 +1916,11 @@
 				284A33341D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A411D103A420013611E /* CreateUser.storyboard in Resources */,
 				AC47FCCB1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
+				2868C57C1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
 				284A333F1D2C527C00030773 /* ManageClassrooms.storyboard in Resources */,
 				28143E261D29A18700139B0D /* Activities.storyboard in Resources */,
+				28C5CB211D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */,
+				2889CFCF1D480AA2000ED8BB /* ClassroomSelectorInput.xib in Resources */,
 				284A33381D2C3F5000030773 /* Schedule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1741,6 +1929,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A272421D494734005079BC /* SliderCell.xib in Resources */,
 				288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				28667DCB1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
@@ -1749,6 +1938,7 @@
 				ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC33F4891D36D2AE009D10B5 /* DateSelector.xib in Resources */,
 				07818CAB1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
+				2868C55D1D46A7640032591D /* Announcements.storyboard in Resources */,
 				28143E481D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC182A441D103A5A0013611E /* Main.storyboard in Resources */,
@@ -1756,9 +1946,11 @@
 				28143E241D29A18200139B0D /* Photos.storyboard in Resources */,
 				AC47FCC61D3E644D00FB3CB6 /* MySleep.xib in Resources */,
 				AC47FCD21D3E644D00FB3CB6 /* MyAlimentation.xib in Resources */,
+				07818CB71D47B9AD007FFDE2 /* IntensityCell.xib in Resources */,
 				28143E2D1D2AC57B00139B0D /* LaunchScreen.storyboard in Resources */,
 				284A33301D2C3E5F00030773 /* LegalStuff.storyboard in Resources */,
 				AC86BBEE1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
+				07A2723A1D493E80005079BC /* SeparatorCell.xib in Resources */,
 				AC86BBFA1D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				28143E121D299F5000139B0D /* StudentProfile.storyboard in Resources */,
 				AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */,
@@ -1768,8 +1960,11 @@
 				284A33351D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A421D103A420013611E /* CreateUser.storyboard in Resources */,
 				AC47FCCC1D3E644D00FB3CB6 /* MyHygiene.xib in Resources */,
+				2868C57D1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
 				284A33401D2C527D00030773 /* ManageClassrooms.storyboard in Resources */,
 				28143E281D29A18800139B0D /* Activities.storyboard in Resources */,
+				28C5CB221D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */,
+				2889CFD01D480AA2000ED8BB /* ClassroomSelectorInput.xib in Resources */,
 				284A33391D2C3F5000030773 /* Schedule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2061,6 +2256,7 @@
 				AC43B3FC1D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
 				AC5128521D50C49000A2760C /* RoomDAO.swift in Sources */,
 				AC7144021D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
+				AC79F0241D50F54400583452 /* NinoSession.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC74E1031D2D4908004281F3 /* RouteError.swift in Sources */,
 				AC43B3EE1D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
@@ -2078,11 +2274,13 @@
 				288B27C71D37D1AD00B47DC0 /* Guardian.swift in Sources */,
 				AC0CDEF01D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC0CDEEB1D05E2800000ECE9 /* KeyBO.swift in Sources */,
+				071832261D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */,
 				AC43B3C31D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				ACA6A9711D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				AC43B41F1D46459C00A6CB5C /* DatabaseError.swift in Sources */,
 				AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */,
 				288B27C81D37D1AD00B47DC0 /* Educator.swift in Sources */,
+				071832221D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */,
 				AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
 				288B27D21D37D1AD00B47DC0 /* Event.swift in Sources */,
@@ -2098,7 +2296,6 @@
 				AC0CDEFA1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				AC43B3F51D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
 				288B27D31D37D1AD00B47DC0 /* Gender.swift in Sources */,
-				07818C9F1D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
 				AC9CA6331D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC43B40E1D429E3B00A6CB5C /* PhaseDAO.swift in Sources */,
 				AC43B3BC1D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
@@ -2108,6 +2305,7 @@
 				ACF3602C1D479EF600A30922 /* NinoNotificationManager.swift in Sources */,
 				ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */,
 				288B27CB1D37D1AD00B47DC0 /* Phase.swift in Sources */,
+				07DB6AB11D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */,
 				288B27CA1D37D1AD00B47DC0 /* Post.swift in Sources */,
 				AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				28A046621D254C30007E0053 /* NinoFont.swift in Sources */,
@@ -2122,7 +2320,6 @@
 				AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */,
 				AC43B4261D46973700A6CB5C /* RealmError.swift in Sources */,
 				28A046711D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
-				07818C9B1D46E725007FFDE2 /* MyDayBO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2150,6 +2347,7 @@
 				AC43B3EF1D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				AC74E1041D2D4908004281F3 /* RouteError.swift in Sources */,
 				AC43B4161D429FAA00A6CB5C /* SchoolDAO.swift in Sources */,
+				07DB6AB21D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */,
 				AC89782D1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC43B41B1D42B6BC00A6CB5C /* ErrorBO.swift in Sources */,
 				AC8978231D3D081200022BDC /* Educator.swift in Sources */,
@@ -2161,12 +2359,14 @@
 				288B280C1D37E0D500B47DC0 /* CredentialBO.swift in Sources */,
 				288B280B1D37E0D500B47DC0 /* EducatorBO.swift in Sources */,
 				AC43B4081D428D8B00A6CB5C /* RealmManager.swift in Sources */,
+				071832231D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */,
 				ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC43B3C41D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				288B27BB1D37D1AC00B47DC0 /* Post.swift in Sources */,
-				07818C9C1D46E725007FFDE2 /* MyDayBO.swift in Sources */,
+				AC79F0251D50F55800583452 /* NinoSession.swift in Sources */,
 				AC74E10B1D2E8749004281F3 /* AccountBO.swift in Sources */,
 				AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
+				071832271D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */,
 				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
 				AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				28AE87091D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
@@ -2179,7 +2379,6 @@
 				288B27BE1D37D1AC00B47DC0 /* Key.swift in Sources */,
 				288B27BC1D37D1AC00B47DC0 /* Phase.swift in Sources */,
 				AC43B3F61D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
-				07818CA01D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
 				AC5128531D50C49000A2760C /* RoomDAO.swift in Sources */,
 				288B27C31D37D1AC00B47DC0 /* Event.swift in Sources */,
 				288B27C21D37D1AC00B47DC0 /* Activity.swift in Sources */,
@@ -2218,9 +2417,9 @@
 				288B27AD1D37D1AB00B47DC0 /* Phase.swift in Sources */,
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC5128541D50C49000A2760C /* RoomDAO.swift in Sources */,
-				07818C9D1D46E726007FFDE2 /* MyDayBO.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
 				288B28071D37E0D400B47DC0 /* EventBO.swift in Sources */,
+				071832241D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */,
 				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC47FD411D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
 				288B27B51D37D1AB00B47DC0 /* Gender.swift in Sources */,
@@ -2243,7 +2442,6 @@
 				AC43B4031D41379700A6CB5C /* CreationError.swift in Sources */,
 				AC43B41D1D42B6BC00A6CB5C /* RestApiManager.swift in Sources */,
 				AC89782E1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
-				07818CA11D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
 				ACE961CE1D3D0795003B3D17 /* AccountMechanism.swift in Sources */,
 				AC43B3E21D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
 				AC43B3FE1D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
@@ -2256,6 +2454,7 @@
 				288B27B11D37D1AB00B47DC0 /* Menu.swift in Sources */,
 				288B27FA1D37E0D400B47DC0 /* StudentBO.swift in Sources */,
 				AC43B3E91D4013A600A6CB5C /* EventRealmObject.swift in Sources */,
+				071832281D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */,
 				AC43B3CD1D40115200A6CB5C /* EducatorRealmObject.swift in Sources */,
 				288B28011D37E0D400B47DC0 /* RoomBO.swift in Sources */,
 				ACF3602A1D479EF500A30922 /* NinoNotificationManager.swift in Sources */,
@@ -2275,6 +2474,8 @@
 				288B27B31D37D1AB00B47DC0 /* Activity.swift in Sources */,
 				AC47FD481D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
 				288B27A81D37D1AB00B47DC0 /* School.swift in Sources */,
+				07DB6AB31D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */,
+				AC79F0261D50F55800583452 /* NinoSession.swift in Sources */,
 				AC43B3D41D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
 				288B27AC1D37D1AB00B47DC0 /* Post.swift in Sources */,
 				AC43B3F01D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
@@ -2290,6 +2491,7 @@
 				288B27981D37D1AA00B47DC0 /* Student.swift in Sources */,
 				AC0CDEE31D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
+				07818CB91D47B9FB007FFDE2 /* IntensityCell.swift in Sources */,
 				288B271C1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				AC33F47D1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
@@ -2323,6 +2525,7 @@
 				288B27A01D37D1AA00B47DC0 /* Key.swift in Sources */,
 				28A046651D254C30007E0053 /* NinoFont.swift in Sources */,
 				07818CA21D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
+				07A272441D494750005079BC /* SliderCell.swift in Sources */,
 				288B279A1D37D1AA00B47DC0 /* Guardian.swift in Sources */,
 				288B279E1D37D1AA00B47DC0 /* Phase.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
@@ -2333,7 +2536,9 @@
 				287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
 				28F366F61D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				AC529EE21CF48422003C1063 /* CreationError.swift in Sources */,
+				2868C5631D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */,
 				AC47FD421D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
+				28D2A7BB1D4C546400677DCC /* CEMKit.swift in Sources */,
 				AC74E1061D2D4908004281F3 /* RouteError.swift in Sources */,
 				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				AC74E10D1D2E8749004281F3 /* AccountBO.swift in Sources */,
@@ -2348,17 +2553,21 @@
 				ACA6A9741D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				AC0CDEFC1D05F2E60000ECE9 /* ActivityBO.swift in Sources */,
 				288B272C1D37CB4C00B47DC0 /* ClassroomTableViewCell.swift in Sources */,
+				2868C56B1D46B2AB0032591D /* AnnouncementTableViewCell.swift in Sources */,
 				28667DBD1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift in Sources */,
 				288B27A21D37D1AA00B47DC0 /* Menu.swift in Sources */,
 				ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC9CA6351D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
+				AC79F0271D50F55800583452 /* NinoSession.swift in Sources */,
 				288B27201D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
 				AC43B3DC1D4011F100A6CB5C /* MenuRealmObject.swift in Sources */,
 				AC86BC001D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				07447C171D4D20FF00830F81 /* MyDaySliderIcon.swift in Sources */,
 				288B27A41D37D1AA00B47DC0 /* Activity.swift in Sources */,
 				AC43B40A1D428D8C00A6CB5C /* RealmManager.swift in Sources */,
 				288B27A51D37D1AA00B47DC0 /* Event.swift in Sources */,
 				ACF360381D4800D900A30922 /* NotificationMessage.swift in Sources */,
+				07A272271D49189B005079BC /* MyDayRow.swift in Sources */,
 				AC43B3C61D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC7BFD6A1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				AC529EF11CF4A25B003C1063 /* EducatorBO.swift in Sources */,
@@ -2374,12 +2583,13 @@
 				ACF1943E1D060D3200F1E68A /* EventBO.swift in Sources */,
 				AC7BFD661D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
 				AC4D2E2C1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
-				285D7EA71CFB5E9D0080DAA3 /* NinoSession.swift in Sources */,
+				07A2722C1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
 				28218D921D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */,
 				288B27991D37D1AA00B47DC0 /* School.swift in Sources */,
 				AC529EE81CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				28A0466E1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC7143FE1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */,
+				07A272341D493E70005079BC /* SeparatorCell.swift in Sources */,
 				AC43B4111D429E3B00A6CB5C /* PhaseDAO.swift in Sources */,
 				AC43B4221D46459C00A6CB5C /* DatabaseError.swift in Sources */,
 				28A046741D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
@@ -2388,16 +2598,22 @@
 				283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */,
 				AC7BB7921D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				28F366FE1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
+				2868C5841D47A1DC0032591D /* DraftNavigationController.swift in Sources */,
 				AC43B3E31D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
 				AC51285C1D50D2E400A2760C /* AccountError.swift in Sources */,
 				280A4B7F1D3E8B5F00AA722B /* GuardianTableViewCell.swift in Sources */,
+				2889CFCA1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */,
+				2868C5771D46B4330032591D /* SentAnnouncementViewController.swift in Sources */,
 				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC43B3D51D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
 				28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
+				2868C5731D46B4200032591D /* DraftAnnouncementViewController.swift in Sources */,
 				28AE87131D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
+				28830E801D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */,
 				28F367041D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
+				28830E7B1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */,
 				AC43B3FF1D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
 				AC43B4181D429FAA00A6CB5C /* SchoolDAO.swift in Sources */,
 				AC529EE51CF48A93003C1063 /* StudentBO.swift in Sources */,
@@ -2408,14 +2624,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28830E7C1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */,
 				284A333C1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
 				283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
+				28D2A7BC1D4C546400677DCC /* CEMKit.swift in Sources */,
 				288B27E21D37E0D300B47DC0 /* PhaseBO.swift in Sources */,
 				280A4B7C1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */,
 				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
 				28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
+				2868C56C1D46B2AB0032591D /* AnnouncementTableViewCell.swift in Sources */,
 				28AE870C1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				AC5128561D50C49000A2760C /* RoomDAO.swift in Sources */,
 				AC43B3F91D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
@@ -2439,14 +2658,17 @@
 				AC47FD4A1D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
 				AC43B42A1D46973700A6CB5C /* RealmError.swift in Sources */,
 				28667DBE1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift in Sources */,
+				2889CFCB1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */,
 				ACE961CC1D3D073A003B3D17 /* EducatorBO.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
+				28830E811D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */,
 				288B271D1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				288B27801D37D1A800B47DC0 /* Phase.swift in Sources */,
 				AC410BCD1D05A880003EB66B /* ServerError.swift in Sources */,
 				AC47FCC81D3E644D00FB3CB6 /* MyHygiene.swift in Sources */,
 				AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				288B27DC1D37E0D300B47DC0 /* StudentBO.swift in Sources */,
+				07A2722D1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
 				AC43B4041D41379700A6CB5C /* CreationError.swift in Sources */,
 				288B27211D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
 				288B27251D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
@@ -2458,25 +2680,30 @@
 				AC89BAC81CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				AC43B3C01D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
 				AC74E1071D2D4908004281F3 /* RouteError.swift in Sources */,
+				07A272281D49189B005079BC /* MyDayRow.swift in Sources */,
 				07818CAE1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */,
 				288B27871D37D1A800B47DC0 /* Event.swift in Sources */,
 				AC43B3C71D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC47FCCE1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
 				AC43B3D61D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
 				AC47FD341D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */,
+				2868C5851D47A1DC0032591D /* DraftNavigationController.swift in Sources */,
 				284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
-				AC7143F41D3D670000C743A5 /* NinoSession.swift in Sources */,
 				28F366F31D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				AC47FD381D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
+				07A272351D493E70005079BC /* SeparatorCell.swift in Sources */,
 				28F366FF1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				288B27881D37D1A800B47DC0 /* Gender.swift in Sources */,
 				288B27E31D37E0D300B47DC0 /* RoomBO.swift in Sources */,
 				ACFFA1031D353644007DE324 /* MD5.swift in Sources */,
+				AC79F0281D50F55900583452 /* NinoSession.swift in Sources */,
 				AC9CA6361D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
+				2868C5741D46B4200032591D /* DraftAnnouncementViewController.swift in Sources */,
 				288DE3561D22BF800052A35D /* StudentProfileListController.swift in Sources */,
 				AC33F47E1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
 				288B27E11D37E0D300B47DC0 /* PostBO.swift in Sources */,
 				AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
+				2868C5641D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */,
 				AC43B4191D429FAA00A6CB5C /* SchoolDAO.swift in Sources */,
 				288B272D1D37CB4C00B47DC0 /* ClassroomTableViewCell.swift in Sources */,
 				AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
@@ -2485,12 +2712,14 @@
 				288B27DD1D37E0D300B47DC0 /* SchoolBO.swift in Sources */,
 				AC47FCDF1D3E64E200FB3CB6 /* AppDelegate.swift in Sources */,
 				287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
+				07818CBA1D47B9FB007FFDE2 /* IntensityCell.swift in Sources */,
 				AC43B4001D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
 				288B27E61D37E0D300B47DC0 /* MenuBO.swift in Sources */,
 				288B27E41D37E0D300B47DC0 /* KeyBO.swift in Sources */,
 				288B27821D37D1A800B47DC0 /* Key.swift in Sources */,
 				28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288B27861D37D1A800B47DC0 /* Activity.swift in Sources */,
+				2868C5781D46B4330032591D /* SentAnnouncementViewController.swift in Sources */,
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC7BB7931D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
@@ -2509,6 +2738,7 @@
 				288B27DB1D37E0D300B47DC0 /* LoginBO.swift in Sources */,
 				288B277F1D37D1A800B47DC0 /* Post.swift in Sources */,
 				288B27E01D37E0D300B47DC0 /* CredentialBO.swift in Sources */,
+				07447C1A1D4D210100830F81 /* MyDaySliderIcon.swift in Sources */,
 				28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC47FD3C1D3E679500FB3CB6 /* Mamadeira.swift in Sources */,
@@ -2523,6 +2753,7 @@
 				AC43B3F21D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				288B277A1D37D1A800B47DC0 /* Student.swift in Sources */,
 				AC7143FF1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */,
+				07A272451D494750005079BC /* SliderCell.swift in Sources */,
 				AC43B40B1D428D8C00A6CB5C /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2531,14 +2762,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28830E7D1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */,
 				288B27F31D37E0D400B47DC0 /* KeyBO.swift in Sources */,
 				288B27951D37D1A900B47DC0 /* Activity.swift in Sources */,
 				AC7BFD681D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
+				28D2A7BD1D4C546400677DCC /* CEMKit.swift in Sources */,
 				288B27F41D37E0D400B47DC0 /* ErrorBO.swift in Sources */,
 				288B27EC1D37E0D400B47DC0 /* SchoolBO.swift in Sources */,
 				288B27F21D37E0D400B47DC0 /* RoomBO.swift in Sources */,
 				28F367061D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				ACE961CD1D3D073A003B3D17 /* EducatorBO.swift in Sources */,
+				2868C56D1D46B2AB0032591D /* AnnouncementTableViewCell.swift in Sources */,
 				ACE961CF1D3D0796003B3D17 /* AccountMechanism.swift in Sources */,
 				AC43B3FA1D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
 				AC86BC021D0F43F8005282E7 /* LoginViewController.swift in Sources */,
@@ -2560,8 +2794,10 @@
 				288B27961D37D1A900B47DC0 /* Event.swift in Sources */,
 				288B27F01D37E0D400B47DC0 /* PostBO.swift in Sources */,
 				AC47FCC31D3E644D00FB3CB6 /* MySleep.swift in Sources */,
+				2889CFCC1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */,
 				AC47FD4B1D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
 				ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
+				28830E821D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */,
 				AC33F47F1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
 				280A4B7D1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */,
 				288B27F51D37E0D400B47DC0 /* MenuBO.swift in Sources */,
@@ -2570,6 +2806,7 @@
 				288B27221D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
 				288B27971D37D1A900B47DC0 /* Gender.swift in Sources */,
 				AC43B4051D41379800A6CB5C /* CreationError.swift in Sources */,
+				07A2722E1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
 				288B27261D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
 				AC51285E1D50D2E400A2760C /* AccountError.swift in Sources */,
@@ -2578,43 +2815,50 @@
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288B27EF1D37E0D400B47DC0 /* CredentialBO.swift in Sources */,
 				AC5128571D50C49000A2760C /* RoomDAO.swift in Sources */,
-				288B280F1D37E12200B47DC0 /* NinoSession.swift in Sources */,
 				288B27EB1D37E0D400B47DC0 /* StudentBO.swift in Sources */,
 				AC43B3C11D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				288B27ED1D37E0D400B47DC0 /* GuardianBO.swift in Sources */,
+				07A272291D49189B005079BC /* MyDayRow.swift in Sources */,
 				07818CAF1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */,
 				AC43B3C81D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				288B278F1D37D1A900B47DC0 /* Phase.swift in Sources */,
 				AC43B3D71D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
 				AC47FD351D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */,
 				284C5FEF1D31425B00FD83D6 /* ClassroomProfileViewController.swift in Sources */,
+				2868C5861D47A1DC0032591D /* DraftNavigationController.swift in Sources */,
 				AC47FCCF1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
 				28A046A91D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				AC8978311D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC47FD391D3E66E400FB3CB6 /* StandardNinoCollectionViewCell.swift in Sources */,
 				287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
+				07A272361D493E70005079BC /* SeparatorCell.swift in Sources */,
 				AC47FCE11D3E64E300FB3CB6 /* AppDelegate.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288B27911D37D1A900B47DC0 /* Key.swift in Sources */,
 				AC07C43B1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				28667DBF1D3FC6BC009DA78F /* StudentInfoSectionTableViewHeader.swift in Sources */,
+				2868C5751D46B4200032591D /* DraftAnnouncementViewController.swift in Sources */,
 				288B27EA1D37E0D400B47DC0 /* LoginBO.swift in Sources */,
 				AC47FCE31D3E64E300FB3CB6 /* SchoolManagementTableViewController.swift in Sources */,
 				288B27F11D37E0D400B47DC0 /* PhaseBO.swift in Sources */,
 				288DE3571D22BF800052A35D /* StudentProfileListController.swift in Sources */,
+				2868C5651D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */,
 				AC43B41A1D429FAA00A6CB5C /* SchoolDAO.swift in Sources */,
 				AC8978261D3D081400022BDC /* Educator.swift in Sources */,
 				288B278E1D37D1A900B47DC0 /* Post.swift in Sources */,
 				288B278A1D37D1A900B47DC0 /* School.swift in Sources */,
 				28AE87151D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
+				07818CBB1D47B9FB007FFDE2 /* IntensityCell.swift in Sources */,
 				AC43B4011D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				28AE870D1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				AC7BB7961D37F64D0044ABE0 /* MechanismsResponses.swift in Sources */,
 				288B278B1D37D1A900B47DC0 /* Guardian.swift in Sources */,
+				2868C5791D46B4330032591D /* SentAnnouncementViewController.swift in Sources */,
+				AC79F0291D50F55900583452 /* NinoSession.swift in Sources */,
 				288B271E1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				28F366F81D2EF7D800A0743B /* NavigationControllerDelegate.swift in Sources */,
 				28A046761D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
@@ -2631,6 +2875,7 @@
 				AC43B3D01D40115200A6CB5C /* EducatorRealmObject.swift in Sources */,
 				AC43B4131D429E3B00A6CB5C /* PhaseDAO.swift in Sources */,
 				AC74E1081D2D4908004281F3 /* RouteError.swift in Sources */,
+				07447C191D4D210000830F81 /* MyDaySliderIcon.swift in Sources */,
 				ACB7E0CD1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC47FD3D1D3E679500FB3CB6 /* Mamadeira.swift in Sources */,
 				AC89782A1D3D08F700022BDC /* ServerError.swift in Sources */,
@@ -2645,6 +2890,7 @@
 				AC43B3F31D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				28F367001D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				288B27F71D37E0D400B47DC0 /* ActivityBO.swift in Sources */,
+				07A272461D494750005079BC /* SliderCell.swift in Sources */,
 				AC43B40C1D428D8C00A6CB5C /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2737,6 +2983,14 @@
 				284A33321D2C3ED900030773 /* Base */,
 			);
 			name = MealMenu.storyboard;
+			sourceTree = "<group>";
+		};
+		2868C5591D46A7640032591D /* Announcements.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2868C55A1D46A7640032591D /* Base */,
+			);
+			name = Announcements.storyboard;
 			sourceTree = "<group>";
 		};
 		288DE34F1D22B7500052A35D /* DefaultEmptyState.storyboard */ = {

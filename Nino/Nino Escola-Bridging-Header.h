@@ -6,3 +6,4 @@
 #import <TOCropViewController/TOCropViewController.h>
 #import <CommonCrypto/CommonCrypto.h>
 #import "UIImageView+Letters.h"
+#import "BEMCheckBox/BEMCheckBox.h"
