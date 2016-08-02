@@ -102,7 +102,6 @@ class DraftAnnouncementViewController: UIViewController, UITextViewDelegate, UIT
         if(announcementEdited && !announcementWillBeSent){
             self.delegate?.saveDraft(titleTextField.text, body: textView.text, key: self.key)
         }
-        
     }
     //MARK: Navigation Bar Button Handlers
     func didPressSendAnnouncement() {

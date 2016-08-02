@@ -1065,6 +1065,30 @@
 			name = PopOver;
 			sourceTree = "<group>";
 		};
+		07818C961D46DC65007FFDE2 /* MyDay xibs */ = {
+			isa = PBXGroup;
+			children = (
+				07818CA51D46F343007FFDE2 /* MyDaySectionHeader.xib */,
+				07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */,
+				07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */,
+				07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */,
+				07A272371D493E80005079BC /* SeparatorCell.xib */,
+				07A272331D493E70005079BC /* SeparatorCell.swift */,
+				07A2723F1D494734005079BC /* SliderCell.xib */,
+				07A272431D494750005079BC /* SliderCell.swift */,
+			);
+			name = "MyDay xibs";
+			sourceTree = "<group>";
+		};
+		07A2722A1D4918CA005079BC /* MyDayEnums */ = {
+			isa = PBXGroup;
+			children = (
+				07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */,
+				07A2722F1D491ADC005079BC /* MyDayRowTypes.swift */,
+			);
+			name = MyDayEnums;
+			sourceTree = "<group>";
+		};
 		288DE34E1D22AFA30052A35D /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1763,6 +1787,7 @@
 				28143E271D29A18800139B0D /* Activities.storyboard in Resources */,
 				ACB7E0C71D22AD690014F76D /* GenderSelector.xib in Resources */,
 				288DE3511D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
+				07818CA91D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
 				2868C55B1D46A7640032591D /* Announcements.storyboard in Resources */,
 				28143E461D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				284A33331D2C3ED900030773 /* MealMenu.storyboard in Resources */,
@@ -1771,6 +1796,7 @@
 				28143E291D29A18B00139B0D /* MyDay.storyboard in Resources */,
 				ACEC3A041CEE137A00867624 /* Assets.xcassets in Resources */,
 				AC182A401D103A420013611E /* CreateUser.storyboard in Resources */,
+				07818CB51D47B9AD007FFDE2 /* IntensityCell.xib in Resources */,
 				2889CFCE1D480AA2000ED8BB /* ClassroomSelectorInput.xib in Resources */,
 				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				28667DC91D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
@@ -1804,6 +1830,7 @@
 				28143E2A1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C81D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC33F4881D36D2AE009D10B5 /* DateSelector.xib in Resources */,
+				07818CAA1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
 				2868C55C1D46A7640032591D /* Announcements.storyboard in Resources */,
 				28143E471D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF31D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
@@ -1847,6 +1874,7 @@
 				28143E2B1D29A18D00139B0D /* MyDay.storyboard in Resources */,
 				ACB7E0C91D22AD690014F76D /* GenderSelector.xib in Resources */,
 				AC33F4891D36D2AE009D10B5 /* DateSelector.xib in Resources */,
+				07818CAB1D46F343007FFDE2 /* MyDaySectionHeader.xib in Resources */,
 				2868C55D1D46A7640032591D /* Announcements.storyboard in Resources */,
 				28143E481D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */,
 				AC86BBF41D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
@@ -2486,6 +2514,7 @@
 				283C297D1D289DC400DF7DCC /* StudentProfileViewController.swift in Sources */,
 				AC7BB7921D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				28F366FE1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
+				07A272301D491ADC005079BC /* MyDayRowTypes.swift in Sources */,
 				2868C5841D47A1DC0032591D /* DraftNavigationController.swift in Sources */,
 				AC43B3E31D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
 				280A4B7F1D3E8B5F00AA722B /* GuardianTableViewCell.swift in Sources */,
