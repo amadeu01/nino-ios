@@ -9,7 +9,6 @@
 import UIKit
 
 class GuardianTableViewCell: StandardManagementTableViewCell {
-    
     @IBOutlet weak var guardianNameLabel: UILabel!
     /// Once this variable is set, the label will change
     

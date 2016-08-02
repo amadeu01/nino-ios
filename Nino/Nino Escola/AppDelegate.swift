@@ -16,11 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //states whether the user is logged in
     var loggedIn = true
     
-
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+        let lagFreeField = UITextView()
+        lagFreeField.hidden = true
+//        self.window?.addSubview(lagFreeField)
+//        lagFreeField.becomeFirstResponder()
+//        lagFreeField.resignFirstResponder()
+//        lagFreeField.removeFromSuperview()
         IQKeyboardManager.sharedManager().enable = true
         self.setupRootViewController(false)
         //disabling toolbar in some views

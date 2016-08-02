@@ -447,7 +447,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBf-eY-xtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606.25" y="-1371"/>
+            <point key="canvasLocation" x="1194" y="-2319"/>
         </scene>
         <!--Configurações-->
         <scene sceneID="vUD-JV-RZT">
@@ -485,24 +485,67 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeN-AM-wxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261.5" y="-29"/>
+            <point key="canvasLocation" x="810.75" y="-421"/>
         </scene>
         <!--Avisos-->
         <scene sceneID="87b-ky-fba">
             <objects>
-                <tableViewController id="jTB-KH-0xf" sceneMemberID="viewController">
+                <tableViewController id="jTB-KH-0xf" customClass="AnnouncementTableViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0X7-Vg-K0b">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bsl-ev-qEB">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="announcementTableViewCell" rowHeight="90" id="kJ7-KZ-PmO" customClass="AnnouncementTableViewCell" customModule="Nino_Escola" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsl-ev-qEB" id="f7e-Db-xjr">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJ7-KZ-PmO" id="chJ-BE-g2P">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Announcement title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5th-zu-F9N">
+                                            <rect key="frame" x="18" y="36" width="102" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12/07/2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elb-EK-Dwn">
+                                            <rect key="frame" x="501" y="36" width="81" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rascunho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-wu-wUd">
+                                            <rect key="frame" x="518" y="65" width="64" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sem título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa4-1Q-10p">
+                                            <rect key="frame" x="18" y="36" width="102" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Elb-EK-Dwn" secondAttribute="trailing" constant="10" id="BMY-2B-4x9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="cbm-wu-wUd" secondAttribute="bottom" id="HrW-0e-AK6"/>
+                                        <constraint firstItem="aa4-1Q-10p" firstAttribute="leading" secondItem="chJ-BE-g2P" secondAttribute="leadingMargin" constant="10" id="RoB-iY-hiV"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="5th-zu-F9N" secondAttribute="leading" constant="-10" id="fb8-nM-pT3"/>
+                                        <constraint firstItem="Elb-EK-Dwn" firstAttribute="centerY" secondItem="chJ-BE-g2P" secondAttribute="centerY" id="hJF-u6-eRq"/>
+                                        <constraint firstItem="aa4-1Q-10p" firstAttribute="centerY" secondItem="chJ-BE-g2P" secondAttribute="centerY" id="hdB-oJ-JcD"/>
+                                        <constraint firstItem="cbm-wu-wUd" firstAttribute="trailing" secondItem="chJ-BE-g2P" secondAttribute="trailingMargin" constant="-10" id="iSU-Ee-hUP"/>
+                                        <constraint firstItem="5th-zu-F9N" firstAttribute="centerY" secondItem="chJ-BE-g2P" secondAttribute="centerY" id="nqm-LX-Juf"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="announcementTitle" destination="5th-zu-F9N" id="1XW-Dz-jld"/>
+                                    <outlet property="dateLabel" destination="Elb-EK-Dwn" id="9lo-sF-8DU"/>
+                                    <outlet property="draftLabel" destination="cbm-wu-wUd" id="5ZL-ak-9KE"/>
+                                    <outlet property="noTitleLabel" destination="aa4-1Q-10p" id="FwS-Em-zUg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -511,10 +554,15 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Avisos" image="icone-de-mensagens" id="rOV-la-9VS"/>
+                    <connections>
+                        <outlet property="announcementsTableView" destination="0X7-Vg-K0b" id="clC-WH-R02"/>
+                        <segue destination="5wt-ac-gpQ" kind="showDetail" identifier="draftAnnouncement" id="gPR-c4-Ui8"/>
+                        <segue destination="Lzu-Kh-JOT" kind="showDetail" identifier="sentAnnouncement" id="bRN-GD-mx6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIG-SS-SfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106.75" y="-481"/>
+            <point key="canvasLocation" x="1284.75" y="-1219"/>
         </scene>
         <!--StudentProfile-->
         <scene sceneID="dkg-KV-wL6">
@@ -522,7 +570,7 @@
                 <viewControllerPlaceholder storyboardName="StudentProfile" id="OEX-2J-Z9c" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2B-7q-EO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927.25" y="-1363"/>
+            <point key="canvasLocation" x="1499.25" y="-2319"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c21-T7-pkD">
@@ -1233,6 +1281,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9E-dE-Pl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1612.875" y="-288"/>
+        </scene>
+        <!--Announcements-->
+        <scene sceneID="rEB-g7-GAL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Announcements" id="5wt-ac-gpQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="11I-iq-SxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756.875" y="-1348"/>
+        </scene>
+        <!--SentAnnouncement-->
+        <scene sceneID="g7x-Kd-E8t">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SentAnnouncement" id="Lzu-Kh-JOT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CQS-uS-3jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758.375" y="-1175"/>
         </scene>
     </scenes>
     <resources>

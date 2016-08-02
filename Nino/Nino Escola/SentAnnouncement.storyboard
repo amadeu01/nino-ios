@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NQF-9f-bje">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Draft Navigation Controller-->
+        <scene sceneID="z4X-re-Mim">
+            <objects>
+                <navigationController id="NQF-9f-bje" customClass="DraftNavigationController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oCv-s8-HXd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bTm-Gh-Vyh" kind="relationship" relationship="rootViewController" id="vjh-cc-qtO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uoc-rP-PQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3240" y="2111"/>
+        </scene>
+        <!--Sent Annoucement View Controller-->
+        <scene sceneID="Ymg-P4-mo5">
+            <objects>
+                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="bTm-Gh-Vyh" customClass="SentAnnoucementViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YTk-8k-uKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="cys-jU-Nu2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="t0p-xw-vRc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="OtN-dv-iXD">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPA-QE-JZv">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bdV-YN-Pr1">
+                                                <rect key="frame" x="20" y="20" width="560" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="xxC-6w-WM3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="bTm-Gh-Vyh" id="TQU-OP-C2i"/>
+                                                </connections>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="bdV-YN-Pr1" secondAttribute="bottom" id="0mn-oe-wyB"/>
+                                            <constraint firstItem="bdV-YN-Pr1" firstAttribute="top" secondItem="KPA-QE-JZv" secondAttribute="top" constant="20" id="4yf-9H-mfV"/>
+                                            <constraint firstItem="bdV-YN-Pr1" firstAttribute="leading" secondItem="KPA-QE-JZv" secondAttribute="leading" constant="20" id="OZA-V7-vla"/>
+                                            <constraint firstItem="bdV-YN-Pr1" firstAttribute="top" secondItem="KPA-QE-JZv" secondAttribute="top" id="QMk-n7-427"/>
+                                            <constraint firstAttribute="trailing" secondItem="bdV-YN-Pr1" secondAttribute="trailing" constant="20" id="wju-6F-8em"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="QMk-n7-427"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="KPA-QE-JZv" firstAttribute="leading" secondItem="OtN-dv-iXD" secondAttribute="leading" id="0j4-3c-dT9"/>
+                                    <constraint firstAttribute="bottom" secondItem="KPA-QE-JZv" secondAttribute="bottom" id="PBe-Dn-t3w"/>
+                                    <constraint firstAttribute="trailing" secondItem="KPA-QE-JZv" secondAttribute="trailing" id="qtg-4h-oTW"/>
+                                    <constraint firstItem="KPA-QE-JZv" firstAttribute="top" secondItem="OtN-dv-iXD" secondAttribute="top" id="sGg-8W-tgC"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cys-jU-Nu2" firstAttribute="top" secondItem="OtN-dv-iXD" secondAttribute="bottom" id="INu-25-3dT"/>
+                            <constraint firstItem="KPA-QE-JZv" firstAttribute="width" secondItem="t0p-xw-vRc" secondAttribute="width" id="c1P-cW-D42"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OtN-dv-iXD" secondAttribute="trailing" constant="-20" id="fn4-BJ-ps6"/>
+                            <constraint firstItem="OtN-dv-iXD" firstAttribute="top" secondItem="YTk-8k-uKE" secondAttribute="bottom" id="t3D-Do-lhQ"/>
+                            <constraint firstItem="OtN-dv-iXD" firstAttribute="leading" secondItem="t0p-xw-vRc" secondAttribute="leadingMargin" constant="-20" id="tbf-40-Gmr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wrz-lA-ggL"/>
+                    <connections>
+                        <outlet property="scrollView" destination="OtN-dv-iXD" id="g9s-LC-6YG"/>
+                        <outlet property="textView" destination="bdV-YN-Pr1" id="cmL-gY-XEs"/>
+                        <outlet property="viewThatHoldsTextView" destination="KPA-QE-JZv" id="aFK-tw-WYL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XeI-oo-rX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3942.75" y="2111"/>
+        </scene>
+    </scenes>
+</document>
