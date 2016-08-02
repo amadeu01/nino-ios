@@ -12,6 +12,8 @@ private enum NinoNotifications {
     case SchoolUpdated
     case PhasesUpdated
     case PhasesFromServer
+    case RoomsUpdated
+    case RoomsFromServer
     
     func description() -> String {
         switch self {
@@ -21,6 +23,10 @@ private enum NinoNotifications {
             return "PhasesUpdatedNotification"
         case .PhasesFromServer:
             return "ServerUpdatedNotification"
+        case .RoomsUpdated:
+            return "RoomsUpdatedNotification"
+        case .RoomsFromServer:
+            return "ServerUpdatedRoomsNotification"
         }
     }
 }
@@ -50,7 +56,7 @@ class NinoNotificationManager: NSObject {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.PhasesUpdated.description(), object: nil)
     }
     
-    func addPhasesWereUpdatedFromServerNotification(sender: AnyObject?, error: AnyObject?, info: AnyObject?) {
+    func addPhasesWereUpdatedFromServerNotification(sender: AnyObject, error: AnyObject?, info: AnyObject?) {
         if let err = error {
             self.notificationCenter.postNotificationName(NinoNotifications.PhasesFromServer.description(), object: sender, userInfo: ["error": err])
         } else if let data = info {
@@ -61,4 +67,25 @@ class NinoNotificationManager: NSObject {
     func addObserverForPhasesUpdatesFromServer(observer: AnyObject, selector: Selector) {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.PhasesFromServer.description(), object: nil)
     }
+    
+    func addRoomsUpdatedNotification(sender: AnyObject) {
+        self.notificationCenter.postNotificationName(NinoNotifications.RoomsUpdated.description(), object: sender)
+    }
+    
+    func addObserverForRoomsUpdates(observer: AnyObject, selector: Selector) {
+        self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.RoomsUpdated.description(), object: nil)
+    }
+    
+    func addRoomsWereUpdatedFromServerNotification(sender: AnyObject, error: AnyObject?, info: AnyObject?) {
+        if let err = error {
+            self.notificationCenter.postNotificationName(NinoNotifications.RoomsFromServer.description(), object: sender, userInfo: ["error": err])
+        } else if let data = info {
+            self.notificationCenter.postNotificationName(NinoNotifications.RoomsFromServer.description(), object: sender, userInfo: ["info": data])
+        }
+    }
+    
+    func addObserverForRoomsUpdatesFromServer(observer: AnyObject, selector: Selector) {
+        self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.RoomsFromServer.description(), object: nil)
+    }
+    
 }

@@ -174,10 +174,18 @@ class SchoolBO: NSObject {
                             return
                         }
                         //success
+                        let currentSchool = School(id: StringsMechanisms.generateID(), schoolId: schoolServerID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
                         dispatch_async(dispatch_get_main_queue(), { 
                             completionHandler(school: { () -> School in
-                                return School(id: StringsMechanisms.generateID(), schoolId: schoolServerID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
+                                return currentSchool
                             })
+                        })
+                        SchoolDAO.sharedInstance.createSchool(currentSchool, completionHandler: { (writeSchool) in
+                            do {
+                                try writeSchool()
+                            } catch {
+                                //TODO: post notification
+                            }
                         })
                     }//end getSchool
                 }//end school NotFound
@@ -191,8 +199,8 @@ class SchoolBO: NSObject {
     }
     
     
-    static func getIdForSchool(school: String, completionHandler: (id: () throws -> Int) -> Void) {
-        SchoolDAO.sharedInstance.getIdForSchool(school) { (id) in
+    static func getIdForSchool(completionHandler: (id: () throws -> Int) -> Void) {
+        SchoolDAO.sharedInstance.getIdForSchool { (id) in
             do {
                 let schoolID = try id()
                 dispatch_async(dispatch_get_main_queue(), { 

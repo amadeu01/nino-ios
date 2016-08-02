@@ -208,10 +208,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                                 })
                                             }
                                         } catch {
+                                            print("getPhases error")
                                             //TODO: handle getPhases and addPhases error
                                         }
                                     })
                                 } catch {
+                                    print("getSchool error")
                                     //TODO: handle getSchool error
                                 }
                             })
@@ -227,6 +229,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         }
                         //getEducator error
                         catch let profileError {
+                            print("profileError")
                             //TODO: handle profile error
                         }
                     })

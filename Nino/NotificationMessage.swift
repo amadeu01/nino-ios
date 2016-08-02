@@ -10,19 +10,19 @@ import UIKit
 
 class NotificationMessage: NSObject {
     
-    private var _remove: [Any]?
-    private var _update: [Any]?
-    private var _insert: [Any]?
+    private var _remove: Any?
+    private var _update: Any?
+    private var _insert: Any?
     private var _serverError: ServerError?
     private var _databaseError: DatabaseError?
     
-    var dataToRemove: [Any]? {
+    var dataToRemove: Any? {
         return _remove
     }
-    var dataToUpdate: [Any]? {
+    var dataToUpdate: Any? {
         return _update
     }
-    var dataToInsert: [Any]? {
+    var dataToInsert: Any? {
         return _insert
     }
     
@@ -34,15 +34,15 @@ class NotificationMessage: NSObject {
         return _serverError
     }
     
-    func setDataToRemove(data: [Any]) {
+    func setDataToRemove(data: Any) {
         self._remove = data
     }
     
-    func setDataToUpdate(data: [Any]) {
+    func setDataToUpdate(data: Any) {
         self._update = data
     }
     
-    func setDataToInsert(data: [Any]) {
+    func setDataToInsert(data: Any) {
         self._insert = data
     }
     

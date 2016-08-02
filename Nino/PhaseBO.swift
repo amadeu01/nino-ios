@@ -23,13 +23,13 @@ class PhaseBO: NSObject {
      - returns: Phase VO
      */
     static func createPhase(token: String, schoolID: String, name: String, completionHandler: (phase: () throws -> Phase) -> Void) {
-        SchoolBO.getIdForSchool(schoolID) { (id) in
+        SchoolBO.getIdForSchool { (id) in
             do {
                 let school = try id()
                 
                 var newPhase = Phase(id: StringsMechanisms.generateID(), phaseID: nil, name: name)
                 
-                PhaseDAO.sharedInstance.createPhase(newPhase, schoolID: schoolID, completionHandler: { (write) in
+                PhaseDAO.sharedInstance.createPhases([newPhase], schoolID: schoolID, completionHandler: { (write) in
                     do {
                         try write()
                         PhasesMechanism.createPhase(token, schoolID: school, name: name) { (id, error, data) in
@@ -74,69 +74,83 @@ class PhaseBO: NSObject {
     }
     
     static func getPhases(token: String, schoolID: String, completionHandler: (phases: () throws -> [Phase]) -> Void) {
-        SchoolBO.getIdForSchool(schoolID) { (id) in
+        SchoolBO.getIdForSchool { (id) in
             do {
                 let school = try id()
-                let localPhases = PhaseDAO.sharedInstance.getPhases()
-                dispatch_async(dispatch_get_main_queue(), { 
-                    completionHandler(phases: { () -> [Phase] in
-                        return localPhases
-                    })
-                })
-                PhasesMechanism.getPhases(token, schoolID: school) { (info, error, data) in
-                    if let errorType = error {
-                        //TODO: Handle error data and code
-                        let error = NotificationMessage()
-                        error.setServerError(ErrorBO.decodeServerError(errorType))
-                        NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
-                    } else if let phasesInfo = info {
-                        var serverPhases = [Phase]()
-                        for dict in phasesInfo {
-                            let phaseID = dict["id"] as? Int
-                            let phaseName = dict["name"] as? String
-                            let phaseMenu = dict["menu"] as? Int
-                            guard let id = phaseID else {
-                                let error = NotificationMessage()
-                                error.setServerError(ServerError.UnexpectedCase)
-                                NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
-                                return
-                            }
-                            guard let name = phaseName else {
-                                let error = NotificationMessage()
-                                error.setServerError(ServerError.UnexpectedCase)
-                                NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
-                                return
-                            }
-                            //TODO: save phaseMenu ids in somewhere
-                            let phase = Phase(id: StringsMechanisms.generateID(), phaseID: id, name: name)
-                            serverPhases.append(phase)
-                        }
-                        let comparison = self.comparePhases(serverPhases, localPhases: localPhases)
-                        let hasChanged = comparison["wasChanged"]
-                        let wasDeleted = comparison["wasDeleted"]
-                        let newPhases = comparison["newPhases"]
-                        for phase in newPhases! {
-                            PhaseDAO.sharedInstance.createPhase(phase, schoolID: schoolID, completionHandler: { (write) in
-                                do {
-                                    try write()
-                                    let message = NotificationMessage()
-                                    message.setDataToInsert([phase])
-                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: nil, info: message)
-                                } catch {
-                                    //TODO: handle realm error
-                                }
+                PhaseDAO.sharedInstance.getPhases({ (phases) in
+                    do {
+                        let localPhases = try phases()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completionHandler(phases: { () -> [Phase] in
+                                return localPhases
                             })
-                        }
-                        //TODO: phase was deleted
-                        //TODO: phase was updated
+                        })
+                        PhasesMechanism.getPhases(token, schoolID: school, completionHandler: { (info, error, data) in
+                            if let errorType = error {
+                                //TODO: Handle error data and code
+                                let error = NotificationMessage()
+                                error.setServerError(ErrorBO.decodeServerError(errorType))
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                })
+                            } else if let phasesInfo = info {
+                                var serverPhases = [Phase]()
+                                for dict in phasesInfo {
+                                    let phaseID = dict["id"] as? Int
+                                    let phaseName = dict["name"] as? String
+                                    let phaseMenu = dict["menu"] as? Int
+                                    guard let id = phaseID else {
+                                        let error = NotificationMessage()
+                                        error.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), { 
+                                            NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let name = phaseName else {
+                                        let error = NotificationMessage()
+                                        error.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), { 
+                                            NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                        })
+                                        return
+                                    }
+                                    //TODO: save phaseMenu ids in somewhere
+                                    let phase = Phase(id: StringsMechanisms.generateID(), phaseID: id, name: name)
+                                    serverPhases.append(phase)
+                                }
+                                let comparison = self.comparePhases(serverPhases, localPhases: localPhases)
+                                let wasChanged = comparison["wasChanged"]
+                                let wasDeleted = comparison["wasDeleted"]
+                                let newPhases = comparison["newPhases"]
+                                if newPhases!.count > 0 {
+                                    PhaseDAO.sharedInstance.createPhases(newPhases!, schoolID: schoolID, completionHandler: { (write) in
+                                        do {
+                                            try write()
+                                            let message = NotificationMessage()
+                                            message.setDataToInsert(newPhases!)
+                                            dispatch_async(dispatch_get_main_queue(), { 
+                                                NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: nil, info: message)
+                                            })
+                                        } catch {
+                                            //TODO: handle realm error
+                                        }
+                                    })
+                                }
+                                //TODO: phase was deleted
+                                //TODO: phase was updated
+                            } else {
+                                let error = NotificationMessage()
+                                error.setServerError(ServerError.UnexpectedCase)
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                })
+                            }
+                        })
+                    } catch {
+                       //TODO: realm and database error
                     }
-                    //unexpected case
-                    else {
-                        let error = NotificationMessage()
-                        error.setServerError(ServerError.UnexpectedCase)
-                        NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
-                    }
-                }
+                })
             } catch {
                 //TODO: waiting getIdForSchool error handling
             }

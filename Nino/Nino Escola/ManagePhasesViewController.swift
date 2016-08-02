@@ -23,6 +23,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
         self.addNinoDefaultBackGround()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
         tableView.backgroundColor = UIColor.clearColor()
+        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdatesFromServer(self, selector: #selector(manageUpdatedPhases))
         updateData()
     }
     override func viewWillAppear(animated: Bool) {
@@ -32,6 +33,25 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func manageUpdatedPhases(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newPhases = message.dataToInsert as? [Phase] {
+                for phase in newPhases {
+                    self.phases.append(phase)
+                }
+                self.tableView.reloadData()
+            }
+            //TODO: updated phases
+            //TODO: deleted phases
+        }
     }
     
     func didPressToAddNewPhase() {
@@ -83,7 +103,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
             //TODO: go to login
             return
         }
-        PhaseBO.getPhases(token, schoolID: school, completionHandler: { (phases) in
+        PhaseBO.getPhases(token, schoolID: school) { (phases) in
             do {
                 let newPhases = try phases()
                 self.phases.removeAll()
@@ -94,7 +114,8 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
             } catch {
                 //TODO: handle getPhases error
             }
-        })
+        }
+        
     }
     // MARK: TableView Data Source
     

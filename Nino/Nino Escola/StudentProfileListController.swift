@@ -21,6 +21,7 @@ class StudentProfileListController: UITableViewController {
         //registering for notification
         NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
         NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdatesFromServer(self, selector: #selector(phasesUpdated))
         
         //self.studentProfileTableView.reloadData()
     }

@@ -32,7 +32,7 @@ class RoomBO: NSObject {
                     })
                 } else if let roomID = roomID {
                     completionHandler(room: { () -> Room in
-                        return Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase, name: name)
+                        return Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phaseID, name: name)
                     })
                 } else {
                     completionHandler(room: { () -> Room in
@@ -42,6 +42,140 @@ class RoomBO: NSObject {
             }
         } catch {
             //phase not found error
+        }
+    }
+    
+    static func getAllRooms(phases: [Phase], completionHandler: (rooms: () throws -> [Room]) -> Void) {
+        RoomDAO.sharedInstance.getAllRooms { (rooms) in
+            do {
+                //get local rooms
+                let localRooms = try rooms()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(rooms: { () -> [Room] in
+                        return localRooms
+                    })
+                })
+                guard let token = NinoSession.sharedInstance.credential?.token else {
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        completionHandler(rooms: { () -> [Room] in
+                            throw AccountError.InvalidToken
+                        })
+                    })
+                    return
+                }
+                var serverRooms = [Room]()
+                //get rooms for all phases
+                for phase in phases {
+                    if let phaseID = phase.phaseID {
+                        RoomMechanism.getRooms(token, classID: phaseID, completionHandler: { (info, error, data) in
+                            if let errorType = error {
+                                //TODO: handle error data and code
+                                let message = NotificationMessage()
+                                message.setServerError(ErrorBO.decodeServerError(errorType))
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                })
+                            } else if let roomsInfo = info {
+                                for dict in roomsInfo {
+                                    let id = dict["roomID"] as? Int
+                                    let name = dict["name"] as? String
+                                    guard let roomID = id else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let roomName = name else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase.id, name: roomName)
+                                    serverRooms.append(room)
+                                }
+                            } else {
+                                let message = NotificationMessage()
+                                message.setServerError(ServerError.UnexpectedCase)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                })
+                            }
+                        })
+                    } else {
+                        do {
+                            let phaseID = try PhaseBO.getIdForPhase(phase.id)
+                            RoomMechanism.getRooms(token, classID: phaseID, completionHandler: { (info, error, data) in
+                                if let errorType = error {
+                                    //TODO: handle error data and code
+                                    let message = NotificationMessage()
+                                    message.setServerError(ErrorBO.decodeServerError(errorType))
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                    })
+                                } else if let roomsInfo = info {
+                                    for dict in roomsInfo {
+                                        let id = dict["roomID"] as? Int
+                                        let name = dict["name"] as? String
+                                        guard let roomID = id else {
+                                            let message = NotificationMessage()
+                                            message.setServerError(ServerError.UnexpectedCase)
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                            })
+                                            return
+                                        }
+                                        guard let roomName = name else {
+                                            let message = NotificationMessage()
+                                            message.setServerError(ServerError.UnexpectedCase)
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                            })
+                                            return
+                                        }
+                                        let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase.id, name: roomName)
+                                        serverRooms.append(room)
+                                    }
+                                } else {
+                                    let message = NotificationMessage()
+                                    message.setServerError(ServerError.UnexpectedCase)
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                    })
+                                }
+                            })
+                        } catch {
+                            //TODO: handle getId error
+                        }
+                    }
+                } //end phases loop
+                let comparison = self.compareRooms(serverRooms, localRooms: localRooms)
+                let wasChanged = comparison["wasChanged"]
+                let wasDeleted = comparison["wasDeleted"]
+                let newRooms = comparison["newRooms"]
+                if newRooms!.count > 0 {
+                    RoomDAO.sharedInstance.createRooms(newRooms!, completionHandler: { (write) in
+                        do {
+                            try write()
+                            let message = NotificationMessage()
+                            message.setDataToInsert(newRooms!)
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: nil, info: message)
+                            })
+                        } catch {
+                            //TODO: handle couldNotCreateRealm
+                        }
+                    })
+                }
+                //TODO: rooms were updated
+                //TODO: rooms were deleted
+            } catch {
+                //TODO: handle couldNotCreateRealm
+            }
         }
     }
     
@@ -72,7 +206,7 @@ class RoomBO: NSObject {
                             })
                             return
                         }
-                        let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase, name: roomName)
+                        let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phaseID, name: roomName)
                         rooms.append(room)
                     }
                     completionHandler(rooms: { () -> [Room] in
@@ -98,5 +232,49 @@ class RoomBO: NSObject {
     static func getIdForRoom(room: String) throws -> Int {
         //TODO: call DAO and look for schoolID
         return 1
+    }
+    
+    private static func compareRooms(serverRooms: [Room], localRooms: [Room]) -> [String: [Room]] {
+        var result = [String: [Room]]()
+        var wasChanged = [Room]()
+        var newRooms = [Room]()
+        var wasDeleted = [Room]()
+        //check all room phases
+        for serverRoom in serverRooms {
+            var found = false
+            //look for its similar
+            for localRoom in localRooms {
+                //found
+                if serverRoom.roomID == localRoom.roomID {
+                    found = true
+                    //updated
+                    if serverRoom.name != localRoom.name {
+                        wasChanged.append(serverRoom)
+                    }
+                    break
+                }
+            }
+            //not found locally
+            if !found {
+                newRooms.append(serverRoom)
+            }
+        }
+        for localRoom in localRooms {
+            var found = false
+            for serverRoom in serverRooms {
+                if localRoom.phaseID == serverRoom.phaseID {
+                    found = true
+                    break
+                }
+            }
+            if !found {
+                wasDeleted.append(localRoom)
+            }
+        }
+        
+        result["newRooms"] = newRooms
+        result["wasChanged"] = wasChanged
+        result["wasDeleted"] = wasDeleted
+        return result
     }
 }

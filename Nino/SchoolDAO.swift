@@ -13,7 +13,7 @@ class SchoolDAO: NSObject {
 
     static let sharedInstance = SchoolDAO()
     
-    private var school: SchoolRealmObject?
+    private var school: School?
     
     private override init() {
         super.init()
@@ -21,28 +21,34 @@ class SchoolDAO: NSObject {
     
     func createSchool(school: School, completionHandler: (writeSchool: () throws -> Void) -> Void) {
         //new school attributes
-        let newSchool = SchoolRealmObject()
-        newSchool.id = school.id
-        newSchool.name = school.name
-        newSchool.address = school.address
-        newSchool.telephone = school.telephone
-        newSchool.email = school.email
-        newSchool.schoolID.value = school.schoolID
-        newSchool.legalNumber = school.legalNumber
-        newSchool.ownerID.value = school.owner
-        newSchool.logo = school.logo
-        //write object
-        RealmManager.sharedInstace.writeObjects([newSchool]) { (write) in
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            let newSchool = SchoolRealmObject()
+            newSchool.id = school.id
+            newSchool.name = school.name
+            newSchool.address = school.address
+            newSchool.telephone = school.telephone
+            newSchool.email = school.email
+            newSchool.schoolID.value = school.schoolID
+            newSchool.legalNumber = school.legalNumber
+            newSchool.ownerID.value = school.owner
+            newSchool.logo = school.logo
+            //write object
             do {
-                try write()
-                //success
-                self.school = newSchool
-                completionHandler(writeSchool: { 
-                    return
+                let realm = try Realm()
+                try realm.write({
+                    realm.add(newSchool)
                 })
-            } catch let error {
-                completionHandler(writeSchool: { 
-                    throw error
+                self.school = school
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(writeSchool: {
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(writeSchool: {
+                        throw RealmError.CouldNotCreateRealm
+                    })
                 })
             }
         }
@@ -51,174 +57,223 @@ class SchoolDAO: NSObject {
     func getSchool(completionHandler: (school: () throws -> School) -> Void) {
         guard let school = self.school else {
             //try to find in database
-            RealmManager.sharedInstace.getObjects(SchoolRealmObject.self, filter: nil, completionHandler: { (retrieve) in
+            dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
                 do {
-                    let schools = try retrieve()
+                    let realm = try Realm()
+                    let schools = realm.objects(SchoolRealmObject.self)
                     guard let school = schools.first else {
-                        completionHandler(school: { () -> School in
-                            throw DatabaseError.NotFound
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(school: { () -> School in
+                                throw DatabaseError.NotFound
+                            })
                         })
                         return
                     }
-                    self.school = school
-                    completionHandler(school: { () -> School in
-                        return School(id: school.id, schoolId: school.schoolID.value, name: school.name, address: school.address, legalNumber: school.legalNumber, telephone: school.telephone, email: school.email, owner: school.ownerID.value, logo: school.logo)
+                    self.school = School(id: school.id, schoolId: school.schoolID.value, name: school.name, address: school.address, legalNumber: school.legalNumber, telephone: school.telephone, email: school.email, owner: school.ownerID.value, logo: school.logo)
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(school: { () -> School in
+                            return self.school!
+                        })
                     })
-                } catch let error {
-                    completionHandler(school: { () -> School in
-                        throw error
+                } catch {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(school: { () -> School in
+                            throw RealmError.CouldNotCreateRealm
+                        })
                     })
                 }
-            })
+            }
             return
         }
         //school already loaded
         completionHandler { () -> School in
-            return School(id: school.id, schoolId: school.schoolID.value, name: school.name, address: school.address, legalNumber: school.legalNumber, telephone: school.telephone, email: school.email, owner: school.ownerID.value, logo: school.logo)
+            return school
         }
     }
     
-    func getIdForSchool(id: String, completionHandler: (id: () throws -> Int) -> Void) {
-        var error: ErrorType? = nil
-        //block to run before leave the method
-        defer {
-            //realm error
-            if let err = error {
-                completionHandler(id: { () -> Int in
-                    throw err
-                })
-            } else {
-                if self.school?.id == id {
-                    //has id
-                    if let serverID = self.school?.schoolID.value {
-                        completionHandler(id: { () -> Int in
-                            return serverID
-                        })
-                    }
-                    //missing id
-                    else {
-                        completionHandler(id: { () -> Int in
-                            throw DatabaseError.MissingID
-                        })
-                    }
-                }
-                //wrong id
-                else {
-                    completionHandler(id: { () -> Int in
-                        throw DatabaseError.ConflictingIDs
-                    })
-                }
-            }
-        }
-        guard self.school != nil else {
-            RealmManager.sharedInstace.getObjects(SchoolRealmObject.self, filter: nil, completionHandler: { (retrieve) in
+    func getIdForSchool(completionHandler: (id: () throws -> Int) -> Void) {
+        
+        if self.school == nil {
+            dispatch_async(RealmManager.sharedInstace.getRealmQueue(), {
                 do {
-                    let schools = try retrieve()
+                    let realm = try Realm()
+                    let schools = realm.objects(SchoolRealmObject.self)
                     guard let school = schools.first else {
-                        error = DatabaseError.NotFound
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(id: { () -> Int in
+                                throw DatabaseError.NotFound
+                            })
+                        })
                         return
                     }
-                    self.school = school
-                } catch let realmError {
-                    error = realmError
+                    guard let schoolID = school.schoolID.value else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(id: { () -> Int in
+                                throw DatabaseError.MissingID
+                            })
+                        })
+                        return
+                    }
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(id: { () -> Int in
+                            return schoolID
+                        })
+                    })
+                } catch {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(id: { () -> Int in
+                            throw RealmError.CouldNotCreateRealm
+                        })
+                    })
                 }
             })
-            return
-        } //end guard
+        } else {
+            guard let schoolID = self.school!.schoolID else {
+                //missing schoolID
+                completionHandler(id: { () -> Int in
+                    throw DatabaseError.MissingID
+                })
+                return
+            }
+            //school already loaded
+            completionHandler(id: { () -> Int in
+                return schoolID
+            })
+        }
     }
     
     func updateSchoolId(id: Int, completionHandler: (update: () throws -> Void) -> Void) {
-        var error: ErrorType? = nil
-        defer {
-            //error
-            if let err = error {
-                completionHandler(update: { 
-                    throw err
-                })
-            }
-            //success
-            else {
-                self.school?.schoolID.value = id
-                RealmManager.sharedInstace.writeObjects([self.school!], completionHandler: { (write) in
-                    do {
-                        try write()
-                        //updated
-                        completionHandler(update: { 
-                            return
-                        })
-                    }
-                    //realm error
-                    catch let err {
-                        completionHandler(update: { 
-                            throw err
-                        })
-                    }
-                })
-            }
-        }
-        guard self.school != nil else {
-            RealmManager.sharedInstace.getObjects(SchoolRealmObject.self, filter: nil, completionHandler: { (retrieve) in
+        guard var school = self.school else {
+            dispatch_async(RealmManager.sharedInstace.getRealmQueue(), {
                 do {
-                    let schools = try retrieve()
+                    let realm = try Realm()
+                    let schools = realm.objects(SchoolRealmObject.self)
                     guard let school = schools.first else {
-                        error = DatabaseError.NotFound
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(update: { 
+                                throw DatabaseError.NotFound
+                            })
+                        })
                         return
                     }
-                    self.school = school
-                    
-                } catch let realmError {
-                    error = realmError
+                    try realm.write({
+                        school.schoolID.value = id
+                        realm.add(school, update: true)
+                    })
+                    self.school = School(id: school.id, schoolId: school.schoolID.value, name: school.name, address: school.address, legalNumber: school.legalNumber, telephone: school.telephone, email: school.email, owner: school.ownerID.value, logo: school.logo)
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(update: {
+                            return
+                        })
+                    })
+                } catch {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(update: { 
+                            throw RealmError.CouldNotCreateRealm
+                        })
+                    })
                 }
             })
             return
-        }//end guard
+        }
+        school.schoolID = id
+        self.school = school
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let newSchool = SchoolRealmObject()
+                newSchool.id = school.id
+                newSchool.name = school.name
+                newSchool.address = school.address
+                newSchool.telephone = school.telephone
+                newSchool.email = school.email
+                newSchool.schoolID.value = school.schoolID
+                newSchool.legalNumber = school.legalNumber
+                newSchool.ownerID.value = school.owner
+                newSchool.logo = school.logo
+                try realm.write({
+                    realm.add(newSchool, update: true)
+                })
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
     }
     
     func updateSchoolLogo(logo: NSData, completionHandler: (update: () throws -> Void) -> Void) {
-        var error: ErrorType? = nil
-        defer {
-            //error
-            if let err = error {
-                completionHandler(update: { 
-                    throw err
-                })
-            }
-            //success
-            else {
-                self.school?.logo = logo
-                RealmManager.sharedInstace.writeObjects([self.school!], completionHandler: { (write) in
-                    do {
-                        try write()
-                        //updated
+        guard var school = self.school else {
+            dispatch_async(RealmManager.sharedInstace.getRealmQueue(), {
+                do {
+                    let realm = try Realm()
+                    let schools = realm.objects(SchoolRealmObject.self)
+                    guard let school = schools.first else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(update: { 
+                                throw DatabaseError.NotFound
+                            })
+                        })
+                        return
+                    }
+                    try realm.write({
+                        school.logo = logo
+                        realm.add(school, update: true)
+                    })
+                    self.school = School(id: school.id, schoolId: school.schoolID.value, name: school.name, address: school.address, legalNumber: school.legalNumber, telephone: school.telephone, email: school.email, owner: school.ownerID.value, logo: school.logo)
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                         completionHandler(update: {
                             return
                         })
-                    }
-                        //realm error
-                    catch let err {
+                    })
+                } catch {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                         completionHandler(update: {
-                            throw err
+                            throw RealmError.CouldNotCreateRealm
                         })
-                    }
-                })
-            }
-        }
-        guard self.school != nil else {
-            RealmManager.sharedInstace.getObjects(SchoolRealmObject.self, filter: nil, completionHandler: { (retrieve) in
-                do {
-                    let schools = try retrieve()
-                    guard let school = schools.first else {
-                        error = DatabaseError.NotFound
-                        return
-                    }
-                    self.school = school
-                    
-                } catch let realmError {
-                    error = realmError
+                    })
                 }
             })
             return
-        }//end guard
+        }
+        school.logo = logo
+        self.school = school
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let newSchool = SchoolRealmObject()
+                newSchool.id = school.id
+                newSchool.name = school.name
+                newSchool.address = school.address
+                newSchool.telephone = school.telephone
+                newSchool.email = school.email
+                newSchool.schoolID.value = school.schoolID
+                newSchool.legalNumber = school.legalNumber
+                newSchool.ownerID.value = school.owner
+                newSchool.logo = school.logo
+                try realm.write({
+                    realm.add(newSchool, update: true)
+                })
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
     }
     
 }

@@ -478,6 +478,18 @@
 		AC4D2E2C1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
 		AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
 		AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */; };
+		AC5128521D50C49000A2760C /* RoomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128511D50C49000A2760C /* RoomDAO.swift */; };
+		AC5128531D50C49000A2760C /* RoomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128511D50C49000A2760C /* RoomDAO.swift */; };
+		AC5128541D50C49000A2760C /* RoomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128511D50C49000A2760C /* RoomDAO.swift */; };
+		AC5128551D50C49000A2760C /* RoomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128511D50C49000A2760C /* RoomDAO.swift */; };
+		AC5128561D50C49000A2760C /* RoomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128511D50C49000A2760C /* RoomDAO.swift */; };
+		AC5128571D50C49000A2760C /* RoomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128511D50C49000A2760C /* RoomDAO.swift */; };
+		AC5128591D50D2E400A2760C /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128581D50D2E400A2760C /* AccountError.swift */; };
+		AC51285A1D50D2E400A2760C /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128581D50D2E400A2760C /* AccountError.swift */; };
+		AC51285B1D50D2E400A2760C /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128581D50D2E400A2760C /* AccountError.swift */; };
+		AC51285C1D50D2E400A2760C /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128581D50D2E400A2760C /* AccountError.swift */; };
+		AC51285D1D50D2E400A2760C /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128581D50D2E400A2760C /* AccountError.swift */; };
+		AC51285E1D50D2E400A2760C /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5128581D50D2E400A2760C /* AccountError.swift */; };
 		AC529EE11CF48422003C1063 /* CreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE01CF48422003C1063 /* CreationError.swift */; };
 		AC529EE21CF48422003C1063 /* CreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE01CF48422003C1063 /* CreationError.swift */; };
 		AC529EE41CF48A93003C1063 /* StudentBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE31CF48A93003C1063 /* StudentBO.swift */; };
@@ -811,6 +823,8 @@
 		AC47FD3E1D3EA66C00FB3CB6 /* RoomMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomMechanism.swift; sourceTree = "<group>"; };
 		AC47FD451D3EF70200FB3CB6 /* StudentMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMechanism.swift; sourceTree = "<group>"; };
 		AC4D2E2B1D2AF54300ECD2CF /* ConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEmailViewController.swift; sourceTree = "<group>"; };
+		AC5128511D50C49000A2760C /* RoomDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDAO.swift; sourceTree = "<group>"; };
+		AC5128581D50D2E400A2760C /* AccountError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		AC529EE01CF48422003C1063 /* CreationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationError.swift; sourceTree = "<group>"; };
 		AC529EE31CF48A93003C1063 /* StudentBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentBO.swift; sourceTree = "<group>"; };
 		AC529EE61CF497E3003C1063 /* SchoolBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolBO.swift; sourceTree = "<group>"; };
@@ -1090,6 +1104,7 @@
 				AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */,
 				AC43B41E1D46459C00A6CB5C /* DatabaseError.swift */,
 				AC43B4251D46973700A6CB5C /* RealmError.swift */,
+				AC5128581D50D2E400A2760C /* AccountError.swift */,
 			);
 			name = Errors;
 			sourceTree = "<group>";
@@ -1246,6 +1261,7 @@
 				AC43B3C91D400D6F00A6CB5C /* Realm Objects */,
 				AC43B40D1D429E3B00A6CB5C /* PhaseDAO.swift */,
 				AC43B4141D429FAA00A6CB5C /* SchoolDAO.swift */,
+				AC5128511D50C49000A2760C /* RoomDAO.swift */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -1565,7 +1581,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = N79DG9RG7K;
+						DevelopmentTeam = G52JHG5LJN;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;
@@ -2043,6 +2059,7 @@
 				AC43B3D91D4011F100A6CB5C /* MenuRealmObject.swift in Sources */,
 				AC89782C1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC43B3FC1D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
+				AC5128521D50C49000A2760C /* RoomDAO.swift in Sources */,
 				AC7144021D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				AC74E1031D2D4908004281F3 /* RouteError.swift in Sources */,
@@ -2097,6 +2114,7 @@
 				ACF360351D4800D900A30922 /* NotificationMessage.swift in Sources */,
 				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
 				288B27D11D37D1AD00B47DC0 /* Activity.swift in Sources */,
+				AC5128591D50D2E400A2760C /* AccountError.swift in Sources */,
 				28AE87081D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
 				AC7BB78F1D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
@@ -2114,6 +2132,7 @@
 			files = (
 				28A046631D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC43B4201D46459C00A6CB5C /* DatabaseError.swift in Sources */,
+				AC51285A1D50D2E400A2760C /* AccountError.swift in Sources */,
 				AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */,
 				AC43B3D31D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
 				AC47FD401D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
@@ -2161,6 +2180,7 @@
 				288B27BC1D37D1AC00B47DC0 /* Phase.swift in Sources */,
 				AC43B3F61D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
 				07818CA01D46E7D2007FFDE2 /* MyDayCell.swift in Sources */,
+				AC5128531D50C49000A2760C /* RoomDAO.swift in Sources */,
 				288B27C31D37D1AC00B47DC0 /* Event.swift in Sources */,
 				288B27C21D37D1AC00B47DC0 /* Activity.swift in Sources */,
 				AC43B4021D41379600A6CB5C /* CreationError.swift in Sources */,
@@ -2197,6 +2217,7 @@
 				288B27FB1D37E0D400B47DC0 /* SchoolBO.swift in Sources */,
 				288B27AD1D37D1AB00B47DC0 /* Phase.swift in Sources */,
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
+				AC5128541D50C49000A2760C /* RoomDAO.swift in Sources */,
 				07818C9D1D46E726007FFDE2 /* MyDayBO.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
 				288B28071D37E0D400B47DC0 /* EventBO.swift in Sources */,
@@ -2213,6 +2234,7 @@
 				AC9EC7151D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				288B27AE1D37D1AB00B47DC0 /* Room.swift in Sources */,
 				288B27FF1D37E0D400B47DC0 /* PostBO.swift in Sources */,
+				AC51285B1D50D2E400A2760C /* AccountError.swift in Sources */,
 				288B27B41D37D1AB00B47DC0 /* Event.swift in Sources */,
 				ACE6E1591D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
@@ -2272,6 +2294,7 @@
 				284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				AC33F47D1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
 				288B279B1D37D1AA00B47DC0 /* Educator.swift in Sources */,
+				AC5128551D50C49000A2760C /* RoomDAO.swift in Sources */,
 				AC43B3F11D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				AC07C4391D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				AC33F48B1D36D318009D10B5 /* DateSelector.swift in Sources */,
@@ -2366,6 +2389,7 @@
 				AC7BB7921D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				28F366FE1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift in Sources */,
 				AC43B3E31D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
+				AC51285C1D50D2E400A2760C /* AccountError.swift in Sources */,
 				280A4B7F1D3E8B5F00AA722B /* GuardianTableViewCell.swift in Sources */,
 				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC43B3D51D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
@@ -2393,6 +2417,7 @@
 				28A046A41D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				28A046A81D26D633007E0053 /* StudentProfileNavigationController.swift in Sources */,
 				28AE870C1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
+				AC5128561D50C49000A2760C /* RoomDAO.swift in Sources */,
 				AC43B3F91D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
 				ACE6E15B1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				AC33F48C1D36D318009D10B5 /* DateSelector.swift in Sources */,
@@ -2487,6 +2512,7 @@
 				28143E3A1D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC47FD3C1D3E679500FB3CB6 /* Mamadeira.swift in Sources */,
+				AC51285D1D50D2E400A2760C /* AccountError.swift in Sources */,
 				28AE871C1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				28F367051D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				AC43B3E41D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
@@ -2546,10 +2572,12 @@
 				AC43B4051D41379800A6CB5C /* CreationError.swift in Sources */,
 				288B27261D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
+				AC51285E1D50D2E400A2760C /* AccountError.swift in Sources */,
 				AC47FCC91D3E644D00FB3CB6 /* MyHygiene.swift in Sources */,
 				288B27931D37D1A900B47DC0 /* Menu.swift in Sources */,
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288B27EF1D37E0D400B47DC0 /* CredentialBO.swift in Sources */,
+				AC5128571D50C49000A2760C /* RoomDAO.swift in Sources */,
 				288B280F1D37E12200B47DC0 /* NinoSession.swift in Sources */,
 				288B27EB1D37E0D400B47DC0 /* StudentBO.swift in Sources */,
 				AC43B3C11D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,

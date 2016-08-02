@@ -42,7 +42,7 @@ struct School {
      */
     init(id: String, schoolId: Int?, name: String, address: String, legalNumber: String?, telephone: String, email: String, owner: Int?, logo: NSData?) {
         self.id = id
-        if let schID = schoolID {
+        if let schID = schoolId {
             self.schoolID = schID
         }
         self.name = name

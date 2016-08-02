@@ -16,7 +16,7 @@ struct Room {
 //MARK: Attributes
     let id: String
     var roomID: Int?
-    let phaseID: Int
+    let phaseID: String
     let name: String
 
 //MARK: Initializer
@@ -30,7 +30,7 @@ struct Room {
 
      - returns: struct VO of Room type
      */
-    init(id: String, roomID: Int?, phaseID: Int, name: String) {
+    init(id: String, roomID: Int?, phaseID: String, name: String) {
         self.id = id
         self.phaseID = phaseID
         self.name = name

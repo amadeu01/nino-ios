@@ -24,6 +24,7 @@ enum ServerRoutes {
     case CreateRoom
     case GetStudents
     case CreateStudent
+    case GetSchoolInformation
     
     func description(param: [String]?) throws -> String {
         switch self {
@@ -72,6 +73,8 @@ enum ServerRoutes {
                 throw RouteError.MissingParameter
             }
             return "students/schools/" + id[0]
+        case .GetSchoolInformation:
+            return "schools/me"
         }
     }
 }
