@@ -154,4 +154,69 @@ class RoomDAO: NSObject {
         } //realm queue
     }
     
+    func updateRoomID(room: String, roomID: Int, completionHandler: (update: () throws -> Void) -> Void) {
+        var roomToUpdate: Room?
+        var position = 0
+        for localRoom in self.classrooms {
+            if localRoom.id == room {
+                roomToUpdate = localRoom
+                break
+            }
+            position += 1
+        }
+        
+        guard var selectedRoom = roomToUpdate else {
+            completionHandler(update: {
+                throw DatabaseError.NotFound
+            })
+            return
+        }
+        
+        selectedRoom.roomID = roomID
+        let filter = NSPredicate(format: "id == %@", room)
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let rooms = realm.objects(RoomRealmObject.self)
+                let selectedRooms = rooms.filter(filter)
+                guard let realmRoom = selectedRooms.first else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(update: {
+                            RealmError.UnexpectedCase
+                        })
+                    })
+                    return
+                }
+                try realm.write({
+                    realmRoom.roomID.value = roomID
+                    realm.add(realmRoom, update: true)
+                })
+                self.classrooms.removeAtIndex(position)
+                self.classrooms.insert(selectedRoom, atIndex: position)
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(update: {
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(update: {
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
+    func getIdForRoom(roomID: String) throws -> Int {
+        for room in self.classrooms {
+            if room.id == roomID {
+                guard let serverID = room.roomID else {
+                    throw DatabaseError.MissingID
+                }
+                return serverID
+            }
+        }
+        throw DatabaseError.NotFound
+    }
 }

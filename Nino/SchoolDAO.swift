@@ -177,8 +177,7 @@ class SchoolDAO: NSObject {
             return
         }
         school.schoolID = id
-        self.school = school
-        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
                 let newSchool = SchoolRealmObject()
@@ -194,7 +193,8 @@ class SchoolDAO: NSObject {
                 try realm.write({
                     realm.add(newSchool, update: true)
                 })
-                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                self.school = school
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(update: { 
                         return
                     })
@@ -244,8 +244,7 @@ class SchoolDAO: NSObject {
             return
         }
         school.logo = logo
-        self.school = school
-        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
                 let newSchool = SchoolRealmObject()
@@ -261,7 +260,8 @@ class SchoolDAO: NSObject {
                 try realm.write({
                     realm.add(newSchool, update: true)
                 })
-                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                self.school = school
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(update: { 
                         return
                     })

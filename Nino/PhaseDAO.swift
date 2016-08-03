@@ -119,8 +119,6 @@ class PhaseDAO: NSObject {
         }
         
         selectedPhase.phaseID = phaseID
-        self.phases.removeAtIndex(position)
-        self.phases.insert(selectedPhase, atIndex: position)
         let filter = NSPredicate(format: "id == %@", phase)
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
@@ -139,6 +137,8 @@ class PhaseDAO: NSObject {
                     realmPhase.phaseID.value = phaseID
                     realm.add(realmPhase, update: true)
                 })
+                self.phases.removeAtIndex(position)
+                self.phases.insert(selectedPhase, atIndex: position)
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(update: { 
                         return
