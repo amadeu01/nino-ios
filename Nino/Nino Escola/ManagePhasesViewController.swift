@@ -23,7 +23,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
         self.addNinoDefaultBackGround()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
         tableView.backgroundColor = UIColor.clearColor()
-        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdatesFromServer(self, selector: #selector(manageUpdatedPhases))
+        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(manageUpdatedPhases))
         updateData()
     }
     override func viewWillAppear(animated: Bool) {

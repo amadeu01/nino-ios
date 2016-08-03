@@ -45,7 +45,7 @@ class RoomBO: NSObject {
         }
     }
     
-    static func getAllRooms(phases: [Phase], completionHandler: (rooms: () throws -> [Room]) -> Void) {
+    static func getAllRooms(completionHandler: (rooms: () throws -> [Room]) -> Void) {
         RoomDAO.sharedInstance.getAllRooms { (rooms) in
             do {
                 //get local rooms
@@ -63,22 +63,24 @@ class RoomBO: NSObject {
                     })
                     return
                 }
-                var serverRooms = [Room]()
-                //get rooms for all phases
-                for phase in phases {
-                    if let phaseID = phase.phaseID {
-                        RoomMechanism.getRooms(token, classID: phaseID, completionHandler: { (info, error, data) in
+                SchoolBO.getIdForSchool({ (id) in
+                    do {
+                        let schoolID = try id()
+                        var serverRooms = [Room]()
+                        //get rooms for all phases
+                        RoomMechanism.getAllRooms(token, schoolID: schoolID, completionHandler: { (info, error, data) in
                             if let errorType = error {
                                 //TODO: handle error data and code
                                 let message = NotificationMessage()
                                 message.setServerError(ErrorBO.decodeServerError(errorType))
-                                dispatch_async(dispatch_get_main_queue(), { 
+                                dispatch_async(dispatch_get_main_queue(), {
                                     NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
                                 })
                             } else if let roomsInfo = info {
                                 for dict in roomsInfo {
                                     let id = dict["roomID"] as? Int
                                     let name = dict["name"] as? String
+                                    let phaseID = dict["phaseID"] as? Int
                                     guard let roomID = id else {
                                         let message = NotificationMessage()
                                         message.setServerError(ServerError.UnexpectedCase)
@@ -95,84 +97,49 @@ class RoomBO: NSObject {
                                         })
                                         return
                                     }
-                                    let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase.id, name: roomName)
-                                    serverRooms.append(room)
+                                    guard let phase = phaseID else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    do {
+                                        let localPhaseID = try PhaseBO.getLocalIdForPhase(phase)
+                                        let room = Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: localPhaseID, name: roomName)
+                                        serverRooms.append(room)
+                                    } catch {
+                                        //TODO: phase not found error
+                                    }
+                                } // end loop
+                                let comparison = self.compareRooms(serverRooms, localRooms: localRooms)
+                                let wasChanged = comparison["wasChanged"]
+                                let wasDeleted = comparison["wasDeleted"]
+                                let newRooms = comparison["newRooms"]
+                                if newRooms!.count > 0 {
+                                    RoomDAO.sharedInstance.createRooms(newRooms!, completionHandler: { (write) in
+                                        do {
+                                            try write()
+                                            let message = NotificationMessage()
+                                            message.setDataToInsert(newRooms!)
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: nil, info: message)
+                                            })
+                                        } catch {
+                                            //TODO: handle couldNotCreateRealm
+                                        }
+                                    })
                                 }
-                            } else {
-                                let message = NotificationMessage()
-                                message.setServerError(ServerError.UnexpectedCase)
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
-                                })
+                                //TODO: rooms were updated
+                                //TODO: rooms were deleted
                             }
                         })
-                    } else {
-                        do {
-                            let phaseID = try PhaseBO.getIdForPhase(phase.id)
-                            RoomMechanism.getRooms(token, classID: phaseID, completionHandler: { (info, error, data) in
-                                if let errorType = error {
-                                    //TODO: handle error data and code
-                                    let message = NotificationMessage()
-                                    message.setServerError(ErrorBO.decodeServerError(errorType))
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
-                                    })
-                                } else if let roomsInfo = info {
-                                    for dict in roomsInfo {
-                                        let id = dict["roomID"] as? Int
-                                        let name = dict["name"] as? String
-                                        guard let roomID = id else {
-                                            let message = NotificationMessage()
-                                            message.setServerError(ServerError.UnexpectedCase)
-                                            dispatch_async(dispatch_get_main_queue(), {
-                                                NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
-                                            })
-                                            return
-                                        }
-                                        guard let roomName = name else {
-                                            let message = NotificationMessage()
-                                            message.setServerError(ServerError.UnexpectedCase)
-                                            dispatch_async(dispatch_get_main_queue(), {
-                                                NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
-                                            })
-                                            return
-                                        }
-                                        let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase.id, name: roomName)
-                                        serverRooms.append(room)
-                                    }
-                                } else {
-                                    let message = NotificationMessage()
-                                    message.setServerError(ServerError.UnexpectedCase)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: message, info: nil)
-                                    })
-                                }
-                            })
-                        } catch {
-                            //TODO: handle getId error
-                        }
+                        
+                    } catch {
+                        //getidschool error
                     }
-                } //end phases loop
-                let comparison = self.compareRooms(serverRooms, localRooms: localRooms)
-                let wasChanged = comparison["wasChanged"]
-                let wasDeleted = comparison["wasDeleted"]
-                let newRooms = comparison["newRooms"]
-                if newRooms!.count > 0 {
-                    RoomDAO.sharedInstance.createRooms(newRooms!, completionHandler: { (write) in
-                        do {
-                            try write()
-                            let message = NotificationMessage()
-                            message.setDataToInsert(newRooms!)
-                            dispatch_async(dispatch_get_main_queue(), { 
-                                NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: nil, info: message)
-                            })
-                        } catch {
-                            //TODO: handle couldNotCreateRealm
-                        }
-                    })
-                }
-                //TODO: rooms were updated
-                //TODO: rooms were deleted
+                })
             } catch {
                 //TODO: handle couldNotCreateRealm
             }

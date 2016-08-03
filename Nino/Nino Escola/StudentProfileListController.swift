@@ -13,6 +13,10 @@ class StudentProfileListController: UITableViewController {
     
     @IBOutlet weak var studentProfileTableView: UITableView!
     @IBOutlet weak var footer: UIView!
+    
+    var phases = [Phase]()
+    var rooms = [Room]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.studentProfileTableView.dataSource = self
@@ -21,7 +25,7 @@ class StudentProfileListController: UITableViewController {
         //registering for notification
         NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
         NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
-        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdatesFromServer(self, selector: #selector(phasesUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
         
         //self.studentProfileTableView.reloadData()
     }
@@ -76,8 +80,65 @@ class StudentProfileListController: UITableViewController {
         print("School notification working!")
     }
     
-    @objc private func phasesUpdated() {
-        //TODO: update phases buttons
-        print("Phases notification working!")
+    @objc private func phasesUpdated(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newPhases = message.dataToInsert as? [Phase] {
+                for phase in newPhases {
+                    self.phases.append(phase)
+                }
+            }
+            //TODO: updated phases
+            //TODO: deleted phases
+        }
+        self.getRooms()
+    }
+    
+    private func getRooms() {
+        if self.phases.count > 0 {
+            RoomBO.getAllRooms({ (rooms) in
+                do {
+                    let newRooms = try rooms()
+                    for room in newRooms {
+                        self.rooms.append(room)
+                    }
+                    self.roomsUpdated()
+                } catch {
+                    //TODO: handle error
+                }
+            })
+        }
+    }
+    
+    private func roomsUpdated() {
+        //TODO: reload rooms buttons
+        print("rooms updted!")
+        for room in self.rooms {
+            print(room.name)
+        }
+    }
+    
+    @objc private func roomsUpdatedFromServer(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newRooms = message.dataToInsert as? [Room] {
+                for room in newRooms {
+                    self.rooms.append(room)
+                }
+            }
+            //TODO: updated phases
+            //TODO: deleted phases
+        }
+        self.roomsUpdated()
     }
 }

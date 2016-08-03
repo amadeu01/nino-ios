@@ -119,7 +119,7 @@ class SchoolBO: NSObject {
         }
     }
     
-    static func getSchool(token: String, schoolServerID: Int, completionHandler: (school: () throws -> School) -> Void) {
+    static func getSchool(token: String, completionHandler: (school: () throws -> School) -> Void) {
         
         SchoolDAO.sharedInstance.getSchool { (school) in
             do {
@@ -131,17 +131,17 @@ class SchoolBO: NSObject {
                 })
             } catch let error {
                 if (error as? DatabaseError) == DatabaseError.NotFound {
-                    SchoolMechanism.getSchool(token, schoolID: schoolServerID) { (name, email, telephone, address, error, data) in
+                    SchoolMechanism.getSchool(token, completionHandler: { (info, error, data) in
                         //TODO: handle error data
                         if let error = error {
-                            dispatch_async(dispatch_get_main_queue(), { 
+                            dispatch_async(dispatch_get_main_queue(), {
                                 completionHandler(school: { () -> School in
                                     throw ErrorBO.decodeServerError(error)
                                 })
                             })
                         }
-                        //Unexpected cases
-                        guard let schoolName = name else {
+                        //FIXME: handle other schools
+                        guard let firstSchool = info?.first else {
                             dispatch_async(dispatch_get_main_queue(), { 
                                 completionHandler(school: { () -> School in
                                     throw ServerError.UnexpectedCase
@@ -149,7 +149,8 @@ class SchoolBO: NSObject {
                             })
                             return
                         }
-                        guard let schoolEmail = email else {
+                        //Unexpected cases
+                        guard let schoolID = (firstSchool["id"] as? Int) else {
                             dispatch_async(dispatch_get_main_queue(), {
                                 completionHandler(school: { () -> School in
                                     throw ServerError.UnexpectedCase
@@ -157,7 +158,7 @@ class SchoolBO: NSObject {
                             })
                             return
                         }
-                        guard let schoolPhone = telephone else {
+                        guard let schoolName = (firstSchool["name"] as? String) else {
                             dispatch_async(dispatch_get_main_queue(), {
                                 completionHandler(school: { () -> School in
                                     throw ServerError.UnexpectedCase
@@ -165,7 +166,23 @@ class SchoolBO: NSObject {
                             })
                             return
                         }
-                        guard let schoolAddr = address else {
+                        guard let schoolEmail = (firstSchool["email"] as? String) else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(school: { () -> School in
+                                    throw ServerError.UnexpectedCase
+                                })
+                            })
+                            return
+                        }
+                        guard let schoolPhone = (firstSchool["telephone"] as? String) else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(school: { () -> School in
+                                    throw ServerError.UnexpectedCase
+                                })
+                            })
+                            return
+                        }
+                        guard let schoolAddr = (firstSchool["address"] as? String) else {
                             dispatch_async(dispatch_get_main_queue(), {
                                 completionHandler(school: { () -> School in
                                     throw ServerError.UnexpectedCase
@@ -174,8 +191,8 @@ class SchoolBO: NSObject {
                             return
                         }
                         //success
-                        let currentSchool = School(id: StringsMechanisms.generateID(), schoolId: schoolServerID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
-                        dispatch_async(dispatch_get_main_queue(), { 
+                        let currentSchool = School(id: StringsMechanisms.generateID(), schoolId: schoolID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
+                        dispatch_async(dispatch_get_main_queue(), {
                             completionHandler(school: { () -> School in
                                 return currentSchool
                             })
@@ -187,7 +204,7 @@ class SchoolBO: NSObject {
                                 //TODO: post notification
                             }
                         })
-                    }//end getSchool
+                    }) //end get school
                 }//end school NotFound
                 //realm error
                 else {

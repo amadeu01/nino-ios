@@ -33,7 +33,7 @@ class EducatorBO: NSObject {
 //
 //    }
     
-    static func getEducator(email: String, token: String, completionHandler: (getProfileAndSchoolID: () throws -> (Educator, Int)) -> Void) {
+    static func getEducator(email: String, schoolID: Int, token: String, completionHandler: (getProfile: () throws -> Educator) -> Void) {
         
         var userName: String?
         var userSurname: String?
@@ -42,9 +42,6 @@ class EducatorBO: NSObject {
         var profileError: Int?
         var profileData: String?
         var userID: Int?
-        var userSchools: [Int]?
-        var employeeError: Int?
-        var employeeData: String?
         
         AccountMechanism.getMyProfile(0, token: token) { (profileID, name, surname, birthDate, gender, error, data) in
             userName = name
@@ -55,67 +52,50 @@ class EducatorBO: NSObject {
             profileData = data
             userID = profileID
         }
-        
-        AccountMechanism.getEmployeeInformation(0, token: token) { (schools, error, data) in
-            userSchools = schools
-            employeeError = error
-            employeeData = data
-        }
+
         
         dispatch_group_notify(NinoDispatchGroupes.getGroup(0), dispatch_get_main_queue()) {
             //error
             //TODO: handle error data in both cases
             if let error = profileError {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
-                    throw ErrorBO.decodeServerError(error)
-                })
-            }
-            if let error = employeeError {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                completionHandler(getProfile: { () -> Educator in
                     throw ErrorBO.decodeServerError(error)
                 })
             }
             //unexpected cases
             guard let name = userName else {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                completionHandler(getProfile: { () -> Educator in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let surname = userSurname else {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                completionHandler(getProfile: { () -> Educator in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let genderInt = userGender else {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                completionHandler(getProfile: { () -> Educator in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let gender = Gender(rawValue: genderInt) else {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                completionHandler(getProfile: { () -> Educator in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             guard let profID = userID else {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
-                    throw ServerError.UnexpectedCase
-                })
-                return
-            }
-            guard let schoolID = userSchools where schoolID.count > 0 else {
-                completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
+                completionHandler(getProfile: { () -> Educator in
                     throw ServerError.UnexpectedCase
                 })
                 return
             }
             //success
-            completionHandler(getProfileAndSchoolID: { () -> (Educator, Int) in
-                //FIXME: retrieve the correct school
-                return (Educator(id: StringsMechanisms.generateID(), profileID: profID, name: name, surname: surname, gender: gender, email: email, rooms: nil), schoolID.first!)
+            completionHandler(getProfile: { () -> Educator in
+                return Educator(id: StringsMechanisms.generateID(), profileID: profID, name: name, surname: surname, gender: gender, email: email, rooms: nil)
             })
         }
         

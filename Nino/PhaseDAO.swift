@@ -165,4 +165,13 @@ class PhaseDAO: NSObject {
         }
         throw DatabaseError.NotFound
     }
+    
+    func getLocalIdForPhase(phaseID: Int) throws -> String {
+        for phase in self.phases {
+            if phase.phaseID == phaseID {
+                return phase.id
+            }
+        }
+        throw DatabaseError.NotFound
+    }
 }

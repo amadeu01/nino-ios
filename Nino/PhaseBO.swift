@@ -91,7 +91,7 @@ class PhaseBO: NSObject {
                                 let error = NotificationMessage()
                                 error.setServerError(ErrorBO.decodeServerError(errorType))
                                 dispatch_async(dispatch_get_main_queue(), { 
-                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: error, info: nil)
                                 })
                             } else if let phasesInfo = info {
                                 var serverPhases = [Phase]()
@@ -103,7 +103,7 @@ class PhaseBO: NSObject {
                                         let error = NotificationMessage()
                                         error.setServerError(ServerError.UnexpectedCase)
                                         dispatch_async(dispatch_get_main_queue(), { 
-                                            NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                            NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: error, info: nil)
                                         })
                                         return
                                     }
@@ -111,7 +111,7 @@ class PhaseBO: NSObject {
                                         let error = NotificationMessage()
                                         error.setServerError(ServerError.UnexpectedCase)
                                         dispatch_async(dispatch_get_main_queue(), { 
-                                            NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                            NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: error, info: nil)
                                         })
                                         return
                                     }
@@ -130,7 +130,7 @@ class PhaseBO: NSObject {
                                             let message = NotificationMessage()
                                             message.setDataToInsert(newPhases!)
                                             dispatch_async(dispatch_get_main_queue(), { 
-                                                NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: nil, info: message)
+                                                NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
                                             })
                                         } catch {
                                             //TODO: handle realm error
@@ -143,7 +143,7 @@ class PhaseBO: NSObject {
                                 let error = NotificationMessage()
                                 error.setServerError(ServerError.UnexpectedCase)
                                 dispatch_async(dispatch_get_main_queue(), { 
-                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedFromServerNotification(self, error: error, info: nil)
+                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: error, info: nil)
                                 })
                             }
                         })
@@ -160,6 +160,15 @@ class PhaseBO: NSObject {
     static func getIdForPhase(phase: String) throws -> Int {
         do {
             let id = try PhaseDAO.sharedInstance.getIdForPhase(phase)
+            return id
+        } catch let error {
+            throw error
+        }
+    }
+    
+    static func getLocalIdForPhase(phaseID: Int) throws -> String {
+        do {
+            let id = try PhaseDAO.sharedInstance.getLocalIdForPhase(phaseID)
             return id
         } catch let error {
             throw error

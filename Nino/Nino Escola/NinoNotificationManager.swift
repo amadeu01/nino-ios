@@ -48,15 +48,15 @@ class NinoNotificationManager: NSObject {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.SchoolUpdated.description(), object: nil)
     }
     
-    func addPhasesUpdatedNotification(sender: AnyObject?) {
-        self.notificationCenter.postNotificationName(NinoNotifications.PhasesUpdated.description(), object: sender)
-    }
+//    func addPhasesUpdatedNotification(sender: AnyObject?) {
+//        self.notificationCenter.postNotificationName(NinoNotifications.PhasesUpdated.description(), object: sender)
+//    }
+//    
+//    func addObserverForPhasesUpdates(observer: AnyObject, selector: Selector) {
+//        self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.PhasesUpdated.description(), object: nil)
+//    }
     
-    func addObserverForPhasesUpdates(observer: AnyObject, selector: Selector) {
-        self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.PhasesUpdated.description(), object: nil)
-    }
-    
-    func addPhasesWereUpdatedFromServerNotification(sender: AnyObject, error: AnyObject?, info: AnyObject?) {
+    func addPhasesWereUpdatedNotification(sender: AnyObject, error: AnyObject?, info: AnyObject?) {
         if let err = error {
             self.notificationCenter.postNotificationName(NinoNotifications.PhasesFromServer.description(), object: sender, userInfo: ["error": err])
         } else if let data = info {
@@ -64,7 +64,7 @@ class NinoNotificationManager: NSObject {
         }
     }
     
-    func addObserverForPhasesUpdatesFromServer(observer: AnyObject, selector: Selector) {
+    func addObserverForPhasesUpdates(observer: AnyObject, selector: Selector) {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.PhasesFromServer.description(), object: nil)
     }
     

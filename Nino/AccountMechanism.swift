@@ -197,42 +197,4 @@ class AccountMechanism: NSObject {
             //TODO: handle missing parameter error
         }
     }
-    
-    /**
-     Gets information about the user school
-     
-     - parameter group:             optional group for parallel requests
-     - parameter token:             access token
-     - parameter completionHandler: completion handler with optional: array of schools ids, error and error data
-     */
-    static func getEmployeeInformation(group: Int?, token: String, completionHandler: (schools: [Int]?, error: Int?, data: String?) -> Void) {
-        do {
-            let route = try ServerRoutes.GetEmployeeInformation.description(nil)
-            RestApiManager.makeHTTPGetRequest(group, path: route, token: token, onCompletion: { (json, error, statusCode) in
-                guard let statusCode = statusCode else {
-                    completionHandler(schools: nil, error: error?.code, data: nil)
-                    return
-                }
-                if statusCode != 200 {
-                    //FIXME: data is a json
-                    let data = json["data"].string
-                    let error = json["error"].int
-                    completionHandler(schools: nil, error: error, data: data)
-                }
-                //success
-                else {
-                    let schools =  json["data"].array
-                    //FIXME: get other schools
-                    let firstSchool = schools?.first?["school"].int
-                    guard let schoolID = firstSchool else {
-                        completionHandler(schools: nil, error: nil, data: nil)
-                        return
-                    }
-                    completionHandler(schools: [schoolID], error: nil, data: nil)
-                }
-            })
-        } catch {
-            //TODO: handle missing parameter error
-        }
-    }
 }

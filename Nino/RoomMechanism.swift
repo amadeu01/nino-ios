@@ -65,7 +65,7 @@ class RoomMechanism: NSObject {
     static func createRoom(token: String, classID: Int, roomName: String, completionHandler: (roomID: Int?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CreateRoom.description([String(classID)])
-            let body = ["token": token, "room_name": roomName]
+            let body: [String: AnyObject] = ["token": token, "room_name": roomName]
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
                     completionHandler(roomID: nil, error: error?.code, data: nil)
@@ -88,6 +88,45 @@ class RoomMechanism: NSObject {
         } catch {
             //TODO: missing parameter error
         }
+    }
+    
+    static func getAllRooms(token: String, schoolID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetAllRooms.description([String(schoolID)])
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(info: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(info: nil, error: error, data: data)
+                }
+                //success
+                else {
+                    let data = json["data"].array
+                    guard let datajson = data else {
+                        completionHandler(info: nil, error: nil, data: nil)
+                        return
+                    }
+                    var roomsDict = [[String: AnyObject?]]()
+                    for subjson in datajson {
+                        let id = subjson["id"].int
+                        let name = subjson["name"].string
+                        let phaseID = subjson["class"].int
+                        let dict: [String: AnyObject?] = ["roomID": id, "name": name, "phaseID": phaseID]
+                        roomsDict.append(dict)
+                    }
+                    completionHandler(info: roomsDict, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+        
     }
     
 }

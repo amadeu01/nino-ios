@@ -107,6 +107,7 @@ class RoomDAO: NSObject {
                         if room.phaseID == phaseID {
                             let thisRoom = roomsToAdd.removeAtIndex(i)
                             roomsOfPhase.append(thisRoom)
+                            continue
                         }
                         i += 1
                     }
