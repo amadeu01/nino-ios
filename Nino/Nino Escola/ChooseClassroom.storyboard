@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Choose Classrooms Table View Controller-->
         <scene sceneID="63Q-Xa-noN">
             <objects>
                 <tableViewController storyboardIdentifier="ChooseClassroomsTableViewController" id="Ype-Yb-p7b" customClass="ChooseClassroomsTableViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="l1g-CV-8sf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="l1g-CV-8sf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,26 +26,9 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZa-Zm-Lzl">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwl-6d-vPt" customClass="BEMCheckBox">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="mwl-6d-vPt" secondAttribute="height" id="QvX-al-cfX"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="QvX-al-cfX"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular">
-                                                <mask key="constraints">
-                                                    <include reference="QvX-al-cfX"/>
-                                                </mask>
-                                            </variation>
-                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks1-jJ-bus">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <constraints>
@@ -73,25 +54,25 @@
                                                 <action selector="thisButtonWorked:" destination="Pfs-KX-0vu" eventType="touchUpInside" id="JXh-b9-c8O"/>
                                             </connections>
                                         </button>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9PF-qB-xqA">
+                                            <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                        </switch>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="mwl-6d-vPt" firstAttribute="centerY" secondItem="i8x-XB-MrH" secondAttribute="centerY" id="3nV-re-jeC"/>
                                         <constraint firstItem="ks1-jJ-bus" firstAttribute="leading" secondItem="bZa-Zm-Lzl" secondAttribute="trailing" constant="55" id="Guq-yN-UVQ"/>
+                                        <constraint firstItem="9PF-qB-xqA" firstAttribute="centerY" secondItem="i8x-XB-MrH" secondAttribute="centerY" id="Lcu-hz-idV"/>
                                         <constraint firstItem="bZa-Zm-Lzl" firstAttribute="centerY" secondItem="i8x-XB-MrH" secondAttribute="centerY" id="N8S-AM-ppl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9PF-qB-xqA" secondAttribute="trailing" constant="10" id="P3j-SM-3uQ"/>
                                         <constraint firstItem="ks1-jJ-bus" firstAttribute="centerY" secondItem="i8x-XB-MrH" secondAttribute="centerY" id="ZKd-Gz-94b"/>
                                         <constraint firstItem="ks1-jJ-bus" firstAttribute="leading" secondItem="i8x-XB-MrH" secondAttribute="leadingMargin" constant="16" id="bYV-ai-gUr"/>
                                         <constraint firstItem="bZa-Zm-Lzl" firstAttribute="leading" secondItem="ks1-jJ-bus" secondAttribute="trailing" constant="16" id="dF7-qk-cmj"/>
                                         <constraint firstItem="ks1-jJ-bus" firstAttribute="centerY" secondItem="bZa-Zm-Lzl" secondAttribute="centerY" id="hMO-uu-WRF"/>
-                                        <constraint firstItem="mwl-6d-vPt" firstAttribute="height" secondItem="i8x-XB-MrH" secondAttribute="height" multiplier="0.5" id="hqy-iT-AaF"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="mwl-6d-vPt" secondAttribute="trailing" constant="207" id="s9w-n4-RkZ">
-                                            <variation key="heightClass=regular" constant="15"/>
-                                        </constraint>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="bZa-Zm-Lzl"/>
-                                            <exclude reference="mwl-6d-vPt"/>
                                             <exclude reference="ks1-jJ-bus"/>
+                                            <exclude reference="9PF-qB-xqA"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="Guq-yN-UVQ"/>
@@ -100,16 +81,15 @@
                                             <exclude reference="hMO-uu-WRF"/>
                                             <exclude reference="N8S-AM-ppl"/>
                                             <exclude reference="dF7-qk-cmj"/>
-                                            <exclude reference="3nV-re-jeC"/>
-                                            <exclude reference="hqy-iT-AaF"/>
-                                            <exclude reference="s9w-n4-RkZ"/>
+                                            <exclude reference="Lcu-hz-idV"/>
+                                            <exclude reference="P3j-SM-3uQ"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular">
                                         <mask key="subviews">
                                             <include reference="bZa-Zm-Lzl"/>
-                                            <include reference="mwl-6d-vPt"/>
                                             <include reference="ks1-jJ-bus"/>
+                                            <include reference="9PF-qB-xqA"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="Guq-yN-UVQ"/>
@@ -118,15 +98,15 @@
                                             <exclude reference="hMO-uu-WRF"/>
                                             <include reference="N8S-AM-ppl"/>
                                             <include reference="dF7-qk-cmj"/>
-                                            <include reference="3nV-re-jeC"/>
-                                            <include reference="hqy-iT-AaF"/>
-                                            <include reference="s9w-n4-RkZ"/>
+                                            <include reference="Lcu-hz-idV"/>
+                                            <include reference="P3j-SM-3uQ"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="arrowButton" destination="ks1-jJ-bus" id="U50-0B-BFo"/>
-                                    <outlet property="checkBox" destination="mwl-6d-vPt" id="z2P-G8-MVd"/>
+                                    <outlet property="identationDistance" destination="bYV-ai-gUr" id="bSq-Ez-uP8"/>
+                                    <outlet property="thisSwitch" destination="9PF-qB-xqA" id="kkn-rO-ZYE"/>
                                     <outlet property="title" destination="bZa-Zm-Lzl" id="ldI-ix-0An"/>
                                 </connections>
                             </tableViewCell>

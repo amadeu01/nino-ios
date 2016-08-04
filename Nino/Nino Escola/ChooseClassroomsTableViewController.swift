@@ -13,21 +13,45 @@ class IndentationCell {
     var sons: [IndentationCell]?
     var isExpanded: Bool
     var infoHier: Int
+    var isSelected: Bool
     
-    convenience init(value: String, sons: [IndentationCell]?, isExpanded: Bool){
-        self.init(value: value, sons: sons, isExpanded: isExpanded, infoHier: -1)
+    init(value: String, parent: IndentationCell?) {
+        self.value  = value
+        self.infoHier = 0
+        self.isExpanded = false
+        self.isSelected = false
+        if let parent = parent {
+            self.infoHier = parent.infoHier + 1
+            if (parent.sons) != nil {//This parents already has sons
+                parent.sons!.append(self)
+            } else{
+                parent.sons = [IndentationCell]()
+                parent.sons!.append(self)
+            }
+        } else{ //No parent
+            self.infoHier = 0
+        }
     }
-    init(value: String, sons: [IndentationCell]?, isExpanded: Bool, infoHier: Int) {
-        self.value = value
-        self.sons = sons
-        self.isExpanded = isExpanded
-        self.infoHier = infoHier
-    }
-    
-    func addSon(sons: [IndentationCell]){
+    func addSon(sons: [IndentationCell]) {
         self.sons = sons
         for son in sons {
             son.infoHier = self.infoHier + 1
+        }
+    }
+    func setSelection(selected: Bool){
+        self.isSelected = selected
+        if let theseSons = self.sons {
+            for son in theseSons{
+                son.setSelection(selected)
+            }
+        }
+    }
+    func setExpansion(expanded: Bool) {
+        self.isExpanded = expanded
+        if let theseSons = self.sons {
+            for son in theseSons {
+                son.setSelection(expanded)
+            }
         }
     }
 }
@@ -69,6 +93,10 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
             print("Could not find identifier")
             return UITableViewCell()
         }
+        let result = whatsOn(indexPath.row, cells: indentationCells, level: 0)
+        if let cellData = result.cell {
+            cell.indentationLevel =  cellData.infoHier
+        }
         //self.classroomsTableView.registerNib(UINib(nibName: "ExpandableSelectableTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpandableSelectableTableViewCell")
         
         cell.delegate = self//Sets the delegate
@@ -83,6 +111,7 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
         }
         thisCell.value = thisDataIndCell.value
         thisCell.infoHier = thisDataIndCell.infoHier
+        thisCell.checkBoxSelected = thisDataIndCell.isSelected
         //thisCell.delegate = self
         if thisDataIndCell.sons == nil {
             thisCell.hasSons = false
@@ -122,25 +151,43 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
                     //found it
                     return result
                 } else {
-                    thisIndexWanted -= result.membersLeft// fixes the index
+                    thisIndexWanted = a + result.membersLeft// fixes the index
                 }
-            }else {//No sons, check next
+            }    //No sons, check next
                 a += 1
-            }
+            
         }
         //If it gets here, there are no more sons and we went over the limit
-        return (nil, thisIndexWanted  - a, level - 1)
+        return (nil, thisIndexWanted  - a + 1, level - 1) //+1
     }
     //MARK: Logic functions
     func loadData() {
-        let classroomA = IndentationCell(value: "Turma A", sons: nil, isExpanded: false)
-        let classroomB = IndentationCell(value: "Turma B", sons: nil, isExpanded: false)
-        let firstCell = IndentationCell(value: "Pré Escola", sons: [classroomA, classroomB], isExpanded: false)
-        self.indentationCells.append(firstCell)
-        let classroom1 = IndentationCell(value: "Turma 1", sons: nil, isExpanded: false)
-        let classroom2 = IndentationCell(value: "Turma 2", sons: nil, isExpanded: false)
-        let secondCell = IndentationCell(value: "Berçário", sons: [classroom1, classroom2], isExpanded: false)
-        self.indentationCells.append(secondCell)
+        let firstCell = IndentationCell(value: "Pré Escola", parent: nil)
+        let classroomA = IndentationCell(value: "Turma A", parent: firstCell)
+        let classroomB = IndentationCell(value: "Turma B", parent: firstCell)
+        let secondCell = IndentationCell(value: "Berçário", parent: nil)
+        let classroom1 = IndentationCell(value: "Turma 1", parent: secondCell)
+        let classroom2 = IndentationCell(value: "Turma 2", parent: secondCell)
+        indentationCells.append(firstCell)
+        indentationCells.append(secondCell)
+        let p1 = IndentationCell(value: "João", parent: classroomB)
+        let p2 = IndentationCell(value: "Mirna", parent: classroomB)
+        let p3 = IndentationCell(value: "Flavio", parent: classroomB)
+        
+        let p11 = IndentationCell(value: "João", parent: p1)
+        let p12 = IndentationCell(value: "Mirna", parent: p1)
+        let p13 = IndentationCell(value: "Flavio", parent: p3)
+        
+        let b1 = IndentationCell(value: "João", parent: classroomA)
+        let b2 = IndentationCell(value: "Mirna", parent: classroomA)
+        let b3 = IndentationCell(value: "Flavio", parent: classroomA)
+        
+        let b11 = IndentationCell(value: "João", parent: b1)
+        let b12 = IndentationCell(value: "Mirna", parent: b1)
+        let b13 = IndentationCell(value: "Flavio", parent: b1)
+        
+        
+        
     }
     func getNumberOfVisibleRows(indCells: [IndentationCell]) -> Int {
         var numberOfVisibleRows = 0
@@ -160,16 +207,25 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
     func didExpand(cell: ExpandableSelectableTableViewCell) {
         //Cell was clicked. It has to expand.
         guard let index = self.classroomsTableView.indexPathForCell(cell) else {
-            print("Error. Could not find inde")
+            print("Error. Could not find index")
             return
         }
         let dataIndCell = whatsOn(index.row, cells: self.indentationCells, level: 0)
         let formerNumber = getNumberOfVisibleRows(self.indentationCells)
-        dataIndCell.cell?.isExpanded = true
+        dataIndCell.cell?.isExpanded = false
+        guard let thisCell = dataIndCell.cell else {
+            return //Cell should not be nill
+        }
+        thisCell.setExpansion(true)
+        
         let currentNumber = getNumberOfVisibleRows(self.indentationCells)
         
         let dif = currentNumber - formerNumber
         var newPaths = [NSIndexPath]()
+        if dif < 1 {
+            print("Error Here")// Should not try to expand.
+            return
+        }
         for a in 1...dif {
             newPaths.append(NSIndexPath(forRow: a + index.row, inSection: 0))
         }
@@ -179,7 +235,62 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
     }
     func didCollapse(cell: ExpandableSelectableTableViewCell) {
         //Cell should collapse
+        //Cell was clicked. It has to expand.
+        guard let index = self.classroomsTableView.indexPathForCell(cell) else {
+            print("Error. Could not find index")
+            return
+        }
+        let dataIndCell = whatsOn(index.row, cells: self.indentationCells, level: 0)
+        let formerNumber = getNumberOfVisibleRows(self.indentationCells)
+        dataIndCell.cell?.isExpanded = false
+        guard let thisCell = dataIndCell.cell else {
+            return //Cell should not be nill
+        }
+        thisCell.setExpansion(false)
+        let currentNumber = getNumberOfVisibleRows(self.indentationCells)
+        
+        let dif = formerNumber - currentNumber
+        var newPaths = [NSIndexPath]()
+        if dif < 1 {
+            print("Error Here")// Should not try to expand.
+            return
+        }
+        for a in 1...dif {
+            newPaths.append(NSIndexPath(forRow: a + index.row, inSection: 0))
+        }
+        self.classroomsTableView.beginUpdates()
+        self.classroomsTableView.deleteRowsAtIndexPaths(newPaths , withRowAnimation: UITableViewRowAnimation.Fade)
+        self.classroomsTableView.endUpdates()
     }
+    func didSelect(cell: ExpandableSelectableTableViewCell) {
+        //Should update
+        guard let index = self.classroomsTableView.indexPathForCell(cell) else {
+            print("Error. Could not find index")
+            return
+        }
+        let dataIndCell = whatsOn(index.row, cells: self.indentationCells, level: 0)
+        
+        guard let selectedCell = dataIndCell.cell else {
+            return //This should not happen. Error.
+        }
+        selectedCell.setSelection(true)// The data model is set-up. Now we should fix the view
+        self.classroomsTableView.reloadData()
+    }
+    func didUnselect(cell: ExpandableSelectableTableViewCell) {
+        guard let index = self.classroomsTableView.indexPathForCell(cell) else {
+            print("Error. Could not find index")
+            return
+        }
+        let dataIndCell = whatsOn(index.row, cells: self.indentationCells, level: 0)
+        
+        guard let selectedCell = dataIndCell.cell else {
+            return //This should not happen. Error.
+        }
+        selectedCell.setSelection(false)// The data model is set-up. Now we should fix the view
+        self.classroomsTableView.reloadData()
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
