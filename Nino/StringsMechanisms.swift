@@ -1,5 +1,5 @@
 //
-//  StringsValidation.swift
+//  StringsMechanisms.swift
 //  Nino
 //
 //  Created by Danilo Becke on 24/05/16.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// Mechanism designed to check if a string is valid
-class StringsValidation: NSObject {
+/// Mechanism designed to handle string services
+class StringsMechanisms: NSObject {
 
     /**
      Checks if an email is valid
@@ -23,5 +23,14 @@ class StringsValidation: NSObject {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
 
         return emailTest.evaluateWithObject(email)
+    }
+    
+    /**
+     Generates an unique identifier
+     
+     - returns: unique identifier
+     */
+    static func generateID() -> String {
+        return NSUUID().UUIDString
     }
 }

@@ -23,6 +23,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
         self.addNinoDefaultBackGround()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
         tableView.backgroundColor = UIColor.clearColor()
+        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(manageUpdatedPhases))
         updateData()
     }
     override func viewWillAppear(animated: Bool) {
@@ -32,6 +33,25 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func manageUpdatedPhases(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newPhases = message.dataToInsert as? [Phase] {
+                for phase in newPhases {
+                    self.phases.append(phase)
+                }
+                self.tableView.reloadData()
+            }
+            //TODO: updated phases
+            //TODO: deleted phases
+        }
     }
     
     func didPressToAddNewPhase() {
@@ -58,14 +78,11 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
                 //TODO: show default alert for empty field
                 return
             }
-            PhaseBO.createPhase(token, schoolID: schoolID, name: name, rooms: nil, menu: nil, activities: nil, completionHandler: { (phase) in
+            PhaseBO.createPhase(token, schoolID: schoolID, name: name, completionHandler: { (phase) in
                 do {
                     let newPhase = try phase()
-                    try PhaseBO.addPhasesInSchool([newPhase])
                     self.phases.append(newPhase)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tableView.reloadData()
-                    })
+                    self.tableView.reloadData()
                 } catch {
                     //TODO: handle newPhase errors
                 }
@@ -86,20 +103,19 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
             //TODO: go to login
             return
         }
-        PhaseBO.getPhases(token, schoolID: school, completionHandler: { (phases) in
+        PhaseBO.getPhases(token, schoolID: school) { (phases) in
             do {
                 let newPhases = try phases()
                 self.phases.removeAll()
                 for phase in newPhases {
                     self.phases.append(phase)
                 }
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                })
+                self.tableView.reloadData()
             } catch {
                 //TODO: handle getPhases error
             }
-        })
+        }
+        
     }
     // MARK: TableView Data Source
     

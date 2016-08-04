@@ -25,6 +25,7 @@ struct Activity {
     /**
      Initialize one activity
 
+     - parameter id:          activity ID
      - parameter activityID:  server unique identifier
      - parameter name:        activity name
      - parameter school:      activity school id
@@ -33,8 +34,8 @@ struct Activity {
 
      - returns: struct VO of Activity type
      */
-    init(activityID: Int?, name: String, school: School, description: String?, phasesID: [Int]?) {
-        self.id = NSUUID().UUIDString
+    init(id: String, activityID: Int?, name: String, school: School, description: String?, phasesID: [Int]?) {
+        self.id = id
         self.name = name
         self.school = school
         if let text = description {

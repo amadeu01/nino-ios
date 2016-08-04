@@ -13,43 +13,31 @@ class RealmManager: NSObject {
 
     static let sharedInstace = RealmManager()
     
-    private var realm: Realm?
-    private let realmQueue = dispatch_queue_create("br.com.ninoapp.realmQueue", DISPATCH_QUEUE_CONCURRENT)
+    private let realmQueue = dispatch_queue_create("br.com.ninoapp.realmQueue", DISPATCH_QUEUE_SERIAL)
     private let defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     
     override private init() {
         super.init()
-        do {
-            self.realm = try Realm()
-        } catch {
-            //TODO: handle create Realm error
-        }
     }
     
-    func writeObjects(objects: [Object], completionHandler: (write: () throws -> Void) -> Void) {
-        guard let realm = self.realm else {
-            //TODO: throw realm error
-            return
-        }
-        
-        dispatch_async(self.realmQueue) {
+    func getRealmQueue() -> dispatch_queue_t {
+        return self.realmQueue
+    }
+    
+    func getDefaultQueue() -> dispatch_queue_t {
+        return self.defaultQueue
+    }
+    
+    func deleteAll() {
+        dispatch_async(self.realmQueue) { 
             do {
-                for object in objects {
-                    try realm.write({
-                        realm.add(object)
-                    })
+                let realm = try Realm()
+                try realm.write {
+                    realm.deleteAll()
                 }
-                dispatch_async(self.defaultQueue, { 
-                    completionHandler(write: { 
-                        return
-                    })
-                })
             } catch {
-                //TODO: throw creation error
+                
             }
         }
-        
-        
     }
-    
 }

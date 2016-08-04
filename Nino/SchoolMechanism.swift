@@ -88,14 +88,14 @@ class SchoolMechanism: NSObject {
      
      - parameter token:             access token
      - parameter schoolID:          school id
-     - parameter completionHandler: completion handler with optional: name, email, telephone, address, error and error data
+     - parameter completionHandler: completion handler
      */
-    static func getSchool(token: String, schoolID: Int, completionHandler: (name: String?, email: String?, telephone: String?, address: String?, error: Int?, data: String?) -> Void) {
+    static func getSchool(token: String, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
         do {
-            let route = try ServerRoutes.GetSchool.description([String(schoolID)])
+            let route = try ServerRoutes.GetSchool.description(nil)
             RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    completionHandler(name: nil, email: nil, telephone: nil, address: nil, error: error?.code, data: nil)
+                    completionHandler(info: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
@@ -103,19 +103,30 @@ class SchoolMechanism: NSObject {
                     //FIXME: decode data as json
                     let data = json["data"].string
                     let error = json["error"].int
-                    completionHandler(name: nil, email: nil, telephone: nil, address: nil, error: error, data: data)
+                    completionHandler(info: nil, error: error, data: data)
                 }
                     //success
                 else {
-                    let name = json["data"]["name"].string
-                    let email = json["data"]["email"].string
-                    let telephone = json["data"]["telephone"].string
-                    let address = json["data"]["address"].string
-                    completionHandler(name: name, email: email, telephone: telephone, address: address, error: nil, data: nil)
+                    let data = json["data"].array
+                    guard let datajson = data else {
+                        completionHandler(info: nil, error: nil, data: nil)
+                        return
+                    }
+                    var schoolsDict = [[String: AnyObject?]]()
+                    for subjson in datajson {
+                        let id = subjson["id"].int
+                        let name = subjson["name"].string
+                        let email = subjson["email"].string
+                        let telephone = subjson["telephone"].string
+                        let address = subjson["address"].string
+                        let dict: [String: AnyObject?] = ["id": id, "name": name, "email": email, "telephone": telephone, "address": address]
+                        schoolsDict.append(dict)
+                    }
+                    completionHandler(info: schoolsDict, error: nil, data: nil)
                 }
             })
         } catch {
-            //TODO: handle missing parameter error
+            //TODO: never will be reached
         }
     }
 }

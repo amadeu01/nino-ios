@@ -26,6 +26,7 @@ struct Educator {
     /**
      Initialize one educator
 
+     - parameter id:            educator ID
      - parameter profileID:     server profile unique identifier
      - parameter name:          educator's name
      - parameter surname:       educator's surname
@@ -35,8 +36,8 @@ struct Educator {
 
      - returns: struct VO of Guardian type
      */
-    init(profileID: Int?, name: String, surname: String, gender: Gender, email: String, rooms: [String]?) {
-        self.id = NSUUID().UUIDString
+    init(id: String,profileID: Int?, name: String, surname: String, gender: Gender, email: String, rooms: [String]?) {
+        self.id = id
         self.name = name
         self.surname = surname
         self.gender = gender

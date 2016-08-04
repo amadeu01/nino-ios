@@ -28,6 +28,7 @@ struct Student {
     /**
      Initialize one student
 
+     - parameter id:             student ID
      - parameter profileID:      server profile identifier
      - parameter name:           student's first name
      - parameter surname:        student's surname
@@ -39,8 +40,8 @@ struct Student {
 
      - returns: struct VO of Student type
      */
-    init(profileId: Int?, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, roomID: Int, guardians: [String]?) {
-        self.id = NSUUID().UUIDString
+    init(id: String, profileId: Int?, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, roomID: Int, guardians: [String]?) {
+        self.id = id
         if let profID = profileId {
             self.profileID = profID
         }

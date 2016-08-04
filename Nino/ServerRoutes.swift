@@ -16,10 +16,12 @@ enum ServerRoutes {
     case SendSchoolLogo
     case Login
     case GetMyProfile
-    case GetEmployeeInformation
     case GetSchool
     case GetPhases
     case CreatePhase
+    
+    case GetAllRooms
+    
     case GetRooms
     case CreateRoom
     case GetStudents
@@ -45,13 +47,8 @@ enum ServerRoutes {
             return "accounts/authentication"
         case .GetMyProfile:
             return "profiles/me"
-        case .GetEmployeeInformation:
-            return "employees/me"
         case .GetSchool:
-            guard let id = param where id.count > 0 else {
-                throw RouteError.MissingParameter
-            }
-            return "schools/" + id[0]
+            return "schools/me"
         case .GetPhases, .CreatePhase:
             guard let id = param where id.count > 0 else {
                 throw RouteError.MissingParameter
@@ -72,6 +69,11 @@ enum ServerRoutes {
                 throw RouteError.MissingParameter
             }
             return "students/schools/" + id[0]
+        case .GetAllRooms:
+            guard let id = param where id.count > 0 else {
+                throw RouteError.MissingParameter
+            }
+            return "rooms/schools/" + id[0]
         }
     }
 }

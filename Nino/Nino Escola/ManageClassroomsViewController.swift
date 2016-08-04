@@ -28,8 +28,8 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         self.addNinoDefaultBackGround()
         tableView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
+        NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
         self.updateRooms()
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,12 +49,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
             return
         }
         
-        guard let token = NinoSession.sharedInstance.credential?.token else {
-            //TODO: go to login
-            return
-        }
-        
-        RoomBO.getRooms(token, phaseID: id) { (rooms) in
+        RoomBO.getRooms(id) { (rooms) in
             do {
                 let rooms = try rooms()
                 self.rooms.removeAll()
@@ -67,6 +62,25 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
             } catch {
                 //TODO: handle getRoom errors
             }
+        }
+    }
+    
+    @objc private func roomsUpdatedFromServer(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newRooms = message.dataToInsert as? [Room] {
+                for room in newRooms {
+                    self.rooms.append(room)
+                }
+                self.tableView.reloadData()
+            }
+            //TODO: updated rooms
+            //TODO: deleted rooms
         }
     }
     
@@ -93,14 +107,11 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                 //TODO: back to phases manager
                 return
             }
-            RoomBO.createRoom(token, phaseID: currentPhase, name: name, completionHandler: { (room) in
+            RoomBO.createRoom(currentPhase, name: name, completionHandler: { (room) in
                 do {
                     let room = try room()
-                    try RoomBO.addRoomsInPhase([room], phase: currentPhase)
                     self.rooms.append(room)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tableView.reloadData()
-                    })
+                    self.tableView.reloadData()
                 } catch let error {
                     //TODO: handle createRoom error
                     print("createRoom error: " + ((error as? ServerError)?.description())!)

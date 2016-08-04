@@ -177,58 +177,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     //tries to get the credential
                     let credential = try getCredential()
                     NinoSession.sharedInstance.setCredential(credential)
-                    //get educator info and school ID
-                    EducatorBO.getEducator(self.usernameTextField.text!, token: credential.token, completionHandler: { (getProfileAndSchoolID) in
+                    SchoolBO.getSchool(credential.token, completionHandler: { (school) in
                         do {
-                            //tries to get the current educator
-                            let (educator, schoolID) = try getProfileAndSchoolID()
-                            NinoSession.sharedInstance.setEducator(educator.id)
-                            //get school info
-                            SchoolBO.getSchool(credential.token, schoolServerID: schoolID, completionHandler: { (school) in
+                            let school = try school()
+                            NinoSession.sharedInstance.setSchool(school.id)
+                            NinoNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
+                            EducatorBO.getEducator(self.usernameTextField.text!, schoolID: school.schoolID!, token: credential.token, completionHandler: { (getProfile) in
                                 do {
-                                    let school = try school()
-                                    NinoSession.sharedInstance.setSchool(school.id)
-                                    //posting notification
-                                    NinoSessionNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
-                                    //get phases
-                                    PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
-                                        do {
-                                            let phases = try phases()
-                                            try PhaseBO.addPhasesInSchool(phases)
-                                            NinoSessionNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
-                                            for phase in phases {
-                                                //get rooms for each phase
-                                                RoomBO.getRooms(credential.token, phaseID: phase.id, completionHandler: { (rooms) in
-                                                    do {
-                                                        let allRooms = try rooms()
-                                                        try RoomBO.addRoomsInPhase(allRooms, phase: phase.id)
-                                                    } catch let error {
-                                                        //TODO: handle getRoom and addRooms errors
-                                                        print("getRoom error: " + ((error as? ServerError)?.description())!)
-                                                    }
-                                                })
-                                            }
-                                        } catch {
-                                            //TODO: handle getPhases and addPhases error
+                                    let educator = try getProfile()
+                                    NinoSession.sharedInstance.setEducator(educator.id)
+                                    //gets main queue to make UI changes
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        self.activityIndicator.stopAnimating()
+                                        //changes the view
+                                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                            delegate.loggedIn = true
+                                            delegate.setupRootViewController(true)
                                         }
                                     })
                                 } catch {
-                                    //TODO: handle getSchool error
+                                    print("profileError")
+                                    //TODO: handle profile error
                                 }
                             })
-                            //gets main queue to make UI changes
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.activityIndicator.stopAnimating()
-                                //changes the view
-                                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                    delegate.loggedIn = true
-                                    delegate.setupRootViewController(true)
+                            PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
+                                do {
+                                    let phases = try phases()
+                                    if phases.count > 0 {
+                                        let message = NotificationMessage()
+                                        message.setDataToInsert(phases)
+                                        NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
+                                    }
+                                } catch {
+                                    print("getPhases error")
+                                    //TODO: handle getPhases and addPhases error
                                 }
                             })
-                        }
-                        //getEducator error
-                        catch let profileError {
-                            //TODO: handle profile error
+                        } catch {
+                            print("getSchool error")
+                            //TODO: handle getSchool error
                         }
                     })
                 }
