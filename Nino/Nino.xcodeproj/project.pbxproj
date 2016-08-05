@@ -607,6 +607,40 @@
 		AC79F0271D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
 		AC79F0281D50F55900583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
 		AC79F0291D50F55900583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
+		AC79F02B1D53B25100583452 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02A1D53B25100583452 /* PhotosViewController.swift */; };
+		AC79F02C1D53B25100583452 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02A1D53B25100583452 /* PhotosViewController.swift */; };
+		AC79F02D1D53B25100583452 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02A1D53B25100583452 /* PhotosViewController.swift */; };
+		AC79F02F1D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */; };
+		AC79F0301D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */; };
+		AC79F0311D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */; };
+		AC79F0321D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */; };
+		AC79F0331D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */; };
+		AC79F0341D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */; };
+		AC79F0361D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0351D53B47D00583452 /* AddPhotoCollectionViewCell.swift */; };
+		AC79F0371D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0351D53B47D00583452 /* AddPhotoCollectionViewCell.swift */; };
+		AC79F0381D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0351D53B47D00583452 /* AddPhotoCollectionViewCell.swift */; };
+		AC79F0391D54D6CE00583452 /* StringsMechanisms.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE91CF49A9B003C1063 /* StringsMechanisms.swift */; };
+		AC79F03A1D54D6CF00583452 /* StringsMechanisms.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE91CF49A9B003C1063 /* StringsMechanisms.swift */; };
+		AC79F03B1D54D6D000583452 /* StringsMechanisms.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE91CF49A9B003C1063 /* StringsMechanisms.swift */; };
+		AC79F03C1D54D6D000583452 /* StringsMechanisms.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC529EE91CF49A9B003C1063 /* StringsMechanisms.swift */; };
+		AC79F03E1D54DEDD00583452 /* GuardianMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */; };
+		AC79F03F1D54DEDD00583452 /* GuardianMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */; };
+		AC79F0401D54DEDD00583452 /* GuardianMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */; };
+		AC79F0411D54DEDD00583452 /* GuardianMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */; };
+		AC79F0421D54DEDD00583452 /* GuardianMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */; };
+		AC79F0431D54DEDD00583452 /* GuardianMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */; };
+		AC79F0451D54FC4500583452 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0441D54FC4500583452 /* StudentDAO.swift */; };
+		AC79F0461D54FC4500583452 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0441D54FC4500583452 /* StudentDAO.swift */; };
+		AC79F0471D54FC4500583452 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0441D54FC4500583452 /* StudentDAO.swift */; };
+		AC79F0481D54FC4500583452 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0441D54FC4500583452 /* StudentDAO.swift */; };
+		AC79F0491D54FC4500583452 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0441D54FC4500583452 /* StudentDAO.swift */; };
+		AC79F04A1D54FC4500583452 /* StudentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0441D54FC4500583452 /* StudentDAO.swift */; };
+		AC79F04C1D551BBC00583452 /* GuardianDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F04B1D551BBC00583452 /* GuardianDAO.swift */; };
+		AC79F04D1D551BBC00583452 /* GuardianDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F04B1D551BBC00583452 /* GuardianDAO.swift */; };
+		AC79F04E1D551BBC00583452 /* GuardianDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F04B1D551BBC00583452 /* GuardianDAO.swift */; };
+		AC79F04F1D551BBC00583452 /* GuardianDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F04B1D551BBC00583452 /* GuardianDAO.swift */; };
+		AC79F0501D551BBC00583452 /* GuardianDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F04B1D551BBC00583452 /* GuardianDAO.swift */; };
+		AC79F0511D551BBC00583452 /* GuardianDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F04B1D551BBC00583452 /* GuardianDAO.swift */; };
 		AC7BB78F1D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
 		AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
 		AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */; };
@@ -937,6 +971,12 @@
 		AC74E1091D2E8749004281F3 /* AccountBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBO.swift; sourceTree = "<group>"; };
 		AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoImagePicker.swift; sourceTree = "<group>"; };
 		AC79F0231D50F54400583452 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
+		AC79F02A1D53B25100583452 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC79F0351D53B47D00583452 /* AddPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianMechanism.swift; sourceTree = "<group>"; };
+		AC79F0441D54FC4500583452 /* StudentDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentDAO.swift; sourceTree = "<group>"; };
+		AC79F04B1D551BBC00583452 /* GuardianDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianDAO.swift; sourceTree = "<group>"; };
 		AC7BB78E1D37C1220044ABE0 /* StatusCodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCodeError.swift; sourceTree = "<group>"; };
 		AC7BFD651D254AB50086B495 /* WaitEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitEmailViewController.swift; sourceTree = "<group>"; };
 		AC7BFD691D2558D30086B495 /* CreateSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSchoolViewController.swift; sourceTree = "<group>"; };
@@ -1223,6 +1263,7 @@
 				2868C5721D46B4200032591D /* DraftAnnouncementViewController.swift */,
 				2868C5581D4650680032591D /* Manage School People */,
 				AC47FD311D3E663B00FB3CB6 /* My Day */,
+				AC79F02A1D53B25100583452 /* PhotosViewController.swift */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -1374,6 +1415,7 @@
 				AC7144011D3DA6BE00C743A5 /* PhasesMechanism.swift */,
 				AC47FD3E1D3EA66C00FB3CB6 /* RoomMechanism.swift */,
 				AC47FD451D3EF70200FB3CB6 /* StudentMechanism.swift */,
+				AC79F03D1D54DEDD00583452 /* GuardianMechanism.swift */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -1431,6 +1473,8 @@
 				AC43B40D1D429E3B00A6CB5C /* PhaseDAO.swift */,
 				AC43B4141D429FAA00A6CB5C /* SchoolDAO.swift */,
 				AC5128511D50C49000A2760C /* RoomDAO.swift */,
+				AC79F0441D54FC4500583452 /* StudentDAO.swift */,
+				AC79F04B1D551BBC00583452 /* GuardianDAO.swift */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -1454,6 +1498,7 @@
 				AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */,
 				ACFFA0FE1D353644007DE324 /* MD5.swift */,
 				AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */,
+				AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -1554,6 +1599,7 @@
 		ACEC39FB1CEE137A00867624 /* Nino Escola */ = {
 			isa = PBXGroup;
 			children = (
+				AC79F0351D53B47D00583452 /* AddPhotoCollectionViewCell.swift */,
 				28F367011D2FE23F00A0743B /* Helpers */,
 				ACEC39FC1CEE137A00867624 /* AppDelegate.swift */,
 				ACEC3A081CEE137A00867624 /* Info.plist */,
@@ -2266,9 +2312,11 @@
 				ACFBADD91D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
 				ACEC39CB1CEE128B00867624 /* ViewController.swift in Sources */,
 				AC529EEA1CF49A9B003C1063 /* StringsMechanisms.swift in Sources */,
+				AC79F04C1D551BBC00583452 /* GuardianDAO.swift in Sources */,
 				288B27CC1D37D1AD00B47DC0 /* Room.swift in Sources */,
 				288B27CD1D37D1AD00B47DC0 /* Key.swift in Sources */,
 				ACE6E1571D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
+				AC79F03E1D54DEDD00583452 /* GuardianMechanism.swift in Sources */,
 				AC43B3E71D4013A600A6CB5C /* EventRealmObject.swift in Sources */,
 				288B27CF1D37D1AD00B47DC0 /* Menu.swift in Sources */,
 				288B27C71D37D1AD00B47DC0 /* Guardian.swift in Sources */,
@@ -2280,6 +2328,7 @@
 				AC43B41F1D46459C00A6CB5C /* DatabaseError.swift in Sources */,
 				AC529EF61CF4AC69003C1063 /* PostBO.swift in Sources */,
 				288B27C81D37D1AD00B47DC0 /* Educator.swift in Sources */,
+				AC79F0451D54FC4500583452 /* StudentDAO.swift in Sources */,
 				071832221D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */,
 				AC9EC7131D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC89BABF1CF5D5D800CB3CD2 /* LoginBO.swift in Sources */,
@@ -2306,6 +2355,7 @@
 				ACF1943C1D060D3200F1E68A /* EventBO.swift in Sources */,
 				288B27CB1D37D1AD00B47DC0 /* Phase.swift in Sources */,
 				07DB6AB11D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */,
+				AC79F02F1D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */,
 				288B27CA1D37D1AD00B47DC0 /* Post.swift in Sources */,
 				AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
 				28A046621D254C30007E0053 /* NinoFont.swift in Sources */,
@@ -2328,6 +2378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28A046631D254C30007E0053 /* NinoFont.swift in Sources */,
+				AC79F0391D54D6CE00583452 /* StringsMechanisms.swift in Sources */,
 				AC43B4201D46459C00A6CB5C /* DatabaseError.swift in Sources */,
 				AC51285A1D50D2E400A2760C /* AccountError.swift in Sources */,
 				AC0CDEEC1D05E2800000ECE9 /* KeyBO.swift in Sources */,
@@ -2351,6 +2402,7 @@
 				AC89782D1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC43B41B1D42B6BC00A6CB5C /* ErrorBO.swift in Sources */,
 				AC8978231D3D081200022BDC /* Educator.swift in Sources */,
+				AC79F04D1D551BBC00583452 /* GuardianDAO.swift in Sources */,
 				288B27BA1D37D1AC00B47DC0 /* Credential.swift in Sources */,
 				288B27C41D37D1AC00B47DC0 /* Gender.swift in Sources */,
 				AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */,
@@ -2368,11 +2420,13 @@
 				AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				071832271D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */,
 				AC0CDEF11D05EA700000ECE9 /* MenuBO.swift in Sources */,
+				AC79F03F1D54DEDD00583452 /* GuardianMechanism.swift in Sources */,
 				AC89BAC61CF5D88A00CB3CD2 /* AccountMechanism.swift in Sources */,
 				28AE87091D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				AC74E1121D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				AC43B3E11D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
 				288B27B61D37D1AC00B47DC0 /* Student.swift in Sources */,
+				AC79F0461D54FC4500583452 /* StudentDAO.swift in Sources */,
 				ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
 				ACFFA1001D353644007DE324 /* MD5.swift in Sources */,
 				288B27BD1D37D1AC00B47DC0 /* Room.swift in Sources */,
@@ -2392,6 +2446,7 @@
 				288B27C01D37D1AC00B47DC0 /* Menu.swift in Sources */,
 				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC9CA6391D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
+				AC79F0301D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */,
 				AC0CDEE71D05DBFE0000ECE9 /* RoomBO.swift in Sources */,
 				288B27B81D37D1AC00B47DC0 /* Guardian.swift in Sources */,
 				ACA6A9721D2BE71C0009F158 /* RestApiManager.swift in Sources */,
@@ -2411,9 +2466,11 @@
 				288B28021D37E0D400B47DC0 /* KeyBO.swift in Sources */,
 				28A046641D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC7BB7951D37F64C0044ABE0 /* MechanismsResponses.swift in Sources */,
+				AC79F03A1D54D6CF00583452 /* StringsMechanisms.swift in Sources */,
 				AC8978271D3D084500022BDC /* ErrorBO.swift in Sources */,
 				AC74E1131D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
 				288B27FB1D37E0D400B47DC0 /* SchoolBO.swift in Sources */,
+				AC79F0311D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */,
 				288B27AD1D37D1AB00B47DC0 /* Phase.swift in Sources */,
 				28A046731D254D0A007E0053 /* FluentConstraintSet.swift in Sources */,
 				AC5128541D50C49000A2760C /* RoomDAO.swift in Sources */,
@@ -2439,6 +2496,8 @@
 				AC7BB7911D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				AC43B4211D46459C00A6CB5C /* DatabaseError.swift in Sources */,
 				ACE961CB1D3D0739003B3D17 /* EducatorBO.swift in Sources */,
+				AC79F04E1D551BBC00583452 /* GuardianDAO.swift in Sources */,
+				AC79F0401D54DEDD00583452 /* GuardianMechanism.swift in Sources */,
 				AC43B4031D41379700A6CB5C /* CreationError.swift in Sources */,
 				AC43B41D1D42B6BC00A6CB5C /* RestApiManager.swift in Sources */,
 				AC89782E1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
@@ -2470,6 +2529,7 @@
 				288B27FC1D37E0D400B47DC0 /* GuardianBO.swift in Sources */,
 				28AE870A1D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				AC8978291D3D08F600022BDC /* ServerError.swift in Sources */,
+				AC79F0471D54FC4500583452 /* StudentDAO.swift in Sources */,
 				AC43B3DB1D4011F100A6CB5C /* MenuRealmObject.swift in Sources */,
 				288B27B31D37D1AB00B47DC0 /* Activity.swift in Sources */,
 				AC47FD481D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
@@ -2490,8 +2550,11 @@
 				AC43B3BF1D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
 				288B27981D37D1AA00B47DC0 /* Student.swift in Sources */,
 				AC0CDEE31D05D8680000ECE9 /* PhaseBO.swift in Sources */,
+				AC79F0321D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */,
 				AC529EF41CF4A82F003C1063 /* CredentialBO.swift in Sources */,
+				AC79F0361D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */,
 				07818CB91D47B9FB007FFDE2 /* IntensityCell.swift in Sources */,
+				AC79F04F1D551BBC00583452 /* GuardianDAO.swift in Sources */,
 				288B271C1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				284C5FE91D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
 				AC33F47D1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
@@ -2531,6 +2594,7 @@
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
 				AC47FCC71D3E644D00FB3CB6 /* MyHygiene.swift in Sources */,
+				AC79F02B1D53B25100583452 /* PhotosViewController.swift in Sources */,
 				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
 				28F366F21D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
 				287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */,
@@ -2607,7 +2671,9 @@
 				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC43B3D51D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
 				28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
+				AC79F0411D54DEDD00583452 /* GuardianMechanism.swift in Sources */,
 				AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
+				AC79F0481D54FC4500583452 /* StudentDAO.swift in Sources */,
 				ACEC39FD1CEE137A00867624 /* AppDelegate.swift in Sources */,
 				2868C5731D46B4200032591D /* DraftAnnouncementViewController.swift in Sources */,
 				28AE87131D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
@@ -2626,9 +2692,12 @@
 			files = (
 				28830E7C1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */,
 				284A333C1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
+				AC79F0421D54DEDD00583452 /* GuardianMechanism.swift in Sources */,
 				283C297E1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */,
+				AC79F0331D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */,
 				28D2A7BC1D4C546400677DCC /* CEMKit.swift in Sources */,
+				AC79F0371D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */,
 				288B27E21D37E0D300B47DC0 /* PhaseBO.swift in Sources */,
 				280A4B7C1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */,
 				28A046661D254C30007E0053 /* NinoFont.swift in Sources */,
@@ -2669,6 +2738,7 @@
 				AC07C43A1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,
 				288B27DC1D37E0D300B47DC0 /* StudentBO.swift in Sources */,
 				07A2722D1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
+				AC79F02C1D53B25100583452 /* PhotosViewController.swift in Sources */,
 				AC43B4041D41379700A6CB5C /* CreationError.swift in Sources */,
 				288B27211D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
 				288B27251D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
@@ -2705,6 +2775,7 @@
 				AC7BFD6B1D2558D30086B495 /* CreateSchoolViewController.swift in Sources */,
 				2868C5641D46A7FD0032591D /* AnnouncementTableViewController.swift in Sources */,
 				AC43B4191D429FAA00A6CB5C /* SchoolDAO.swift in Sources */,
+				AC79F0491D54FC4500583452 /* StudentDAO.swift in Sources */,
 				288B272D1D37CB4C00B47DC0 /* ClassroomTableViewCell.swift in Sources */,
 				AC7BFD671D254AB50086B495 /* WaitEmailViewController.swift in Sources */,
 				ACA6A9751D2BE71C0009F158 /* RestApiManager.swift in Sources */,
@@ -2727,6 +2798,8 @@
 				AC47FD431D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
 				288B27E81D37E0D300B47DC0 /* ActivityBO.swift in Sources */,
 				28218D931D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */,
+				AC79F03B1D54D6D000583452 /* StringsMechanisms.swift in Sources */,
+				AC79F0501D551BBC00583452 /* GuardianDAO.swift in Sources */,
 				288B27841D37D1A800B47DC0 /* Menu.swift in Sources */,
 				AC9CA63B1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC4D2E2D1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
@@ -2770,6 +2843,7 @@
 				288B27F41D37E0D400B47DC0 /* ErrorBO.swift in Sources */,
 				288B27EC1D37E0D400B47DC0 /* SchoolBO.swift in Sources */,
 				288B27F21D37E0D400B47DC0 /* RoomBO.swift in Sources */,
+				AC79F0511D551BBC00583452 /* GuardianDAO.swift in Sources */,
 				28F367061D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				ACE961CD1D3D073A003B3D17 /* EducatorBO.swift in Sources */,
 				2868C56D1D46B2AB0032591D /* AnnouncementTableViewCell.swift in Sources */,
@@ -2804,8 +2878,10 @@
 				ACF3603A1D4800D900A30922 /* NotificationMessage.swift in Sources */,
 				288B27901D37D1A900B47DC0 /* Room.swift in Sources */,
 				288B27221D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
+				AC79F03C1D54D6D000583452 /* StringsMechanisms.swift in Sources */,
 				288B27971D37D1A900B47DC0 /* Gender.swift in Sources */,
 				AC43B4051D41379800A6CB5C /* CreationError.swift in Sources */,
+				AC79F0381D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */,
 				07A2722E1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
 				288B27261D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
@@ -2815,6 +2891,7 @@
 				28A046701D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288B27EF1D37E0D400B47DC0 /* CredentialBO.swift in Sources */,
 				AC5128571D50C49000A2760C /* RoomDAO.swift in Sources */,
+				AC79F0341D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */,
 				288B27EB1D37E0D400B47DC0 /* StudentBO.swift in Sources */,
 				AC43B3C11D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
@@ -2850,6 +2927,7 @@
 				288B278A1D37D1A900B47DC0 /* School.swift in Sources */,
 				28AE87151D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */,
 				284A333D1D2C4B8600030773 /* ManageEducatorsViewController.swift in Sources */,
+				AC79F02D1D53B25100583452 /* PhotosViewController.swift in Sources */,
 				07818CBB1D47B9FB007FFDE2 /* IntensityCell.swift in Sources */,
 				AC43B4011D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
 				AC9EC70A1D240CA200D54857 /* CreateUserViewController.swift in Sources */,
@@ -2882,7 +2960,9 @@
 				AC43B42B1D46973700A6CB5C /* RealmError.swift in Sources */,
 				28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */,
 				AC43B3E51D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
+				AC79F0431D54DEDD00583452 /* GuardianMechanism.swift in Sources */,
 				AC43B4241D46459C00A6CB5C /* DatabaseError.swift in Sources */,
+				AC79F04A1D54FC4500583452 /* StudentDAO.swift in Sources */,
 				ACA6A9761D2BE71C0009F158 /* RestApiManager.swift in Sources */,
 				288DE34D1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				288B278D1D37D1A900B47DC0 /* Credential.swift in Sources */,

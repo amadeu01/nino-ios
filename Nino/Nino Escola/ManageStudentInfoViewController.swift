@@ -7,17 +7,15 @@
 //
 
 import UIKit
-struct GuardiansMock {
-    var name: String?
-    var id: Int?
-}
-struct StudentInfoMock {
+
+struct StudentInfo {
     var title: String?
     var value: String?
 }
 class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     
+    @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var heightOfContentView: NSLayoutConstraint!
     @IBOutlet weak var distanceTopTableToTopSuperView: NSLayoutConstraint!
     @IBOutlet weak var topDistanceToProfilePic: NSLayoutConstraint!
@@ -30,19 +28,19 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var widthOfContainerView: NSLayoutConstraint!
     
     // Global variables
-    var guardians = [GuardiansMock]()
-    var studentInfos = [StudentInfoMock]()
-    var extraSection = [String]()
+    var mustReloadGuardians = false
+    var guardians = [Guardian]()
+    private var studentInfos = [StudentInfo]()
+    private var extraSection = [String]()
     //Global constants
-    let studentInfoSec = 0
-    let guardianInfoSec = 1
-    
+    private let studentInfoSec = 0
+    private let guardianInfoSec = 1
+    var student: Student?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateStudentInfo()
-        updateGuardiansInfo()
         updateExtraSection()
         tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.scrollEnabled = false
@@ -62,17 +60,24 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     func updateStudentInfo() {
-        studentInfos.append(StudentInfoMock(title: "Nome", value: "Abélia Cristina Souza"))
-        studentInfos.append(StudentInfoMock(title: "Data de Nascimento", value: "18 de Outubro de 2015"))
-        studentInfos.append(StudentInfoMock(title: "Gênero", value: "Menina"))
+        guard let selectedStudent = self.student else {
+            //TODO: back to students
+            return
+        }
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        studentInfos.append(StudentInfo(title: "Nome", value: selectedStudent.name + " " + selectedStudent.surname))
+        studentInfos.append(StudentInfo(title: "Data de Nascimento", value: formatter.stringFromDate(selectedStudent.birthDate)))
+        studentInfos.append(StudentInfo(title: "Gênero", value: selectedStudent.gender.description()))
+        if let image = selectedStudent.profilePicture {
+            self.profileImageView.image = UIImage(data: image)
+        } else {
+            self.profileImageView.image = UIImage(named: "icone-cadastrar-bebe")
+        }
+        self.studentName.text = selectedStudent.name + " " + selectedStudent.surname
+        //TODO: get guardians for student
     }
-    func updateGuardiansInfo() {
-        guardians.append(GuardiansMock(name: "João Augusto", id: 1))
-        guardians.append(GuardiansMock(name: "Priscila Souza", id: 2))
-        guardians.append(GuardiansMock(name: "Tia Irma", id: 3))
-        guardians.append(GuardiansMock(name: "Vovó", id: 4))
-        
-    }
+    
     func updateExtraSection() {
         extraSection.append("Adicionar Responsável")
         extraSection.append("Alterar Turma")
@@ -195,7 +200,19 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     //MARK: NAvigation
     
     @IBAction func goBackToManageStudentInfoViewController(segue: UIStoryboardSegue) {
-        
+        if self.mustReloadGuardians {
+            self.mustReloadGuardians = false
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showRegisterGuardianViewController" {
+            let vc = segue.destinationViewController as? RegisterGuardianViewController
+            if let guardianVC = vc {
+                guardianVC.studentID = self.student?.id
+            }
+        }
     }
     
 }

@@ -17,4 +17,13 @@ import Foundation
 enum Gender: Int {
     case Male
     case Female
+    
+    func description() -> String {
+        switch self {
+        case .Male:
+            return "Masculino"
+        case .Female:
+            return "Feminino"
+        }
+    }
 }

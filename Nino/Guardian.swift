@@ -18,9 +18,9 @@ struct Guardian {
     var profileID: Int?
     let name: String
     let surname: String
-    let gender: Gender
+    var gender: Gender?
     let email: String
-    var students: [String]?
+    var students: [String]
 
 //MARK: Initializer
     /**
@@ -36,17 +36,15 @@ struct Guardian {
 
      - returns: struct VO of Guardian type
      */
-    init(id: String, profileID: Int?, name: String, surname: String, gender: Gender, email: String, students: [String]?) {
+    init(id: String, profileID: Int?, name: String, surname: String, gender: Gender?, email: String, students: [String]) {
         self.id = id
         self.name = name
         self.surname = surname
-        self.gender = gender
-        self.email = email
-        if let babies = students {
-            self.students = babies
-        } else {
-            self.students = [String]()
+        if let gender = gender {
+            self.gender = gender
         }
+        self.email = email
+        self.students = students
         if let profID = profileID {
             self.profileID = profID
         }

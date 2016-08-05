@@ -87,6 +87,8 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     func didPressToAddNewClassroom() {
         let alert = UIAlertController(title: "Adicionar nova turma", message: "Digite o nome da nova turma", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.autocapitalizationType = UITextAutocapitalizationType.Words
+            textField.autocorrectionType = UITextAutocorrectionType.Default
             textField.placeholder = "ex: Turma A, Tarde..."
             self.newRoomTextField = textField
             
@@ -258,6 +260,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
             }
             // Title that will bedisplayed in the navigation bar
             toVC.title = rooms[selectedClassroomIndex].name
+            toVC.roomID = rooms[selectedClassroomIndex].id
         }
     }
     

@@ -44,9 +44,9 @@ class StudentMechanism: NSObject {
                         let id = subjson["id"].int
                         let name = subjson["name"].string
                         let surname = subjson["surname"].string
-                        let birthDate = subjson["birthdate"].object as? NSDate
+                        let birthDate = subjson["birthdate"].string
                         let gender = subjson["gender"].int
-                        let dict: [String: AnyObject?] = ["profileID": id, "name": name, "surname": surname, "birthdate": birthDate, "gender": gender]
+                        let dict: [String: AnyObject?] = ["profileID": id, "name": name, "surname": surname, "birthdate": StringsMechanisms.dateFromString(birthDate!), "gender": gender]
                         studentsDict.append(dict)
                     }
                     completionHandler(info: studentsDict, error: nil, data: nil)
@@ -72,7 +72,8 @@ class StudentMechanism: NSObject {
     static func createStudent(token: String, schoolID: Int, roomID: Int, name: String, surname: String, birthDate: NSDate, gender: Int, completionHandler: (profileID: Int?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CreateStudent.description([String(schoolID)])
-            let body: [String: AnyObject] = ["token": token, "room_id": roomID, "name": name, "surname": surname, "birthdate": birthDate, "gender": gender]
+            let date = StringsMechanisms.convertDate(birthDate)
+            let body: [String: AnyObject] = ["token": token, "room_id": roomID, "name": name, "surname": surname, "birthdate": date, "gender": gender]
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
                     completionHandler(profileID: nil, error: error?.code, data: nil)

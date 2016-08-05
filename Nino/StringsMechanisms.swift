@@ -11,6 +11,8 @@ import UIKit
 /// Mechanism designed to handle string services
 class StringsMechanisms: NSObject {
 
+    private static let formatter = NSDateFormatter()
+    
     /**
      Checks if an email is valid
 
@@ -32,5 +34,20 @@ class StringsMechanisms: NSObject {
      */
     static func generateID() -> String {
         return NSUUID().UUIDString
+    }
+    
+    static func convertDate(date: NSDate) -> String {
+        self.formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
+        self.formatter.timeZone = NSTimeZone(name: "GMT")
+        return self.formatter.stringFromDate(date)
+    }
+    
+    static func dateFromString(date: String) -> NSDate {
+        self.formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
+        self.formatter.timeZone = NSTimeZone(name: "GMT")
+        guard let newDate = formatter.dateFromString(date) else {
+            return NSDate()
+        }
+        return newDate
     }
 }

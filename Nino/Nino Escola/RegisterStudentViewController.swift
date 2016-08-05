@@ -16,7 +16,6 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
     @IBOutlet weak var birthDateTextField: UITextField!
-    @IBOutlet weak var phaseTextField: UITextField!
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -26,6 +25,8 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
     private var gender: Gender?
     private let datePicker = UIDatePicker()
     private let dateFormatter = NSDateFormatter()
+    var roomID: String?
+    private var student: Student?
     
 //MARK: View methods
     override func viewDidLoad() {
@@ -41,6 +42,10 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
         self.birthDateTextField.inputView = datePicker
         self.datePicker.addTarget(self, action: #selector(self.handleDatePicker), forControlEvents: .ValueChanged)
         self.dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        if self.roomID == nil {
+            performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -214,6 +219,12 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
+        let birthDate = self.dateFormatter.dateFromString(self.birthDateTextField.text!)
+        guard let birthday = birthDate else {
+            let alert = DefaultAlerts.emptyField()
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
         self.blockTextFields()
         self.blockButtons()
         self.activityIndicator.hidden = false
@@ -221,11 +232,32 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
         var image: NSData? = nil
         let placeholderImage = UIImageJPEGRepresentation(UIImage(named: "Becke_Adicionar-bebe")!, 1.0)
         let profileImage = UIImageJPEGRepresentation(self.profilePictureImageView.image!, 1.0)
-        //checks if the user changes the image
+        //checks if the user changed the image
         if let imageBefore = placeholderImage {
             if let newImage = profileImage {
                 if !imageBefore.isEqualToData(newImage) {
                     image = NSData(data: newImage)
+                }
+            }
+        }
+        StudentBO.createStudent(self.roomID!, name: self.nameTextField.text!, surname: self.surnameTextField.text!, birthDate: birthday, gender: userGender, profilePictue: image) { (student) in
+            do {
+                let newStudent = try student()
+                self.student = newStudent
+                self.performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
+            } catch {
+                //TODO: handle error
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goBackToManageStudentsViewController" {
+            let dest = segue.destinationViewController as? ManageStudentsViewController
+            if let manageStudents = dest {
+                if self.student != nil {
+                    manageStudents.mustRealoadData = true
+                    manageStudents.students.append(self.student!)
                 }
             }
         }

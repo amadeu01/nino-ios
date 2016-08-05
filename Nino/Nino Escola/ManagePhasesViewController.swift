@@ -57,6 +57,8 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     func didPressToAddNewPhase() {
         let alert = UIAlertController(title: "Adicionar nova fase", message: "Digite o nome da nova fase", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.autocapitalizationType = UITextAutocapitalizationType.Words
+            textField.autocorrectionType = UITextAutocorrectionType.Default
             textField.placeholder = "ex: Berçário, Pré-Escola..."
             self.newPhaseTextField = textField
         }

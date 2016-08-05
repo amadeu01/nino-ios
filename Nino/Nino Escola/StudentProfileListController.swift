@@ -117,10 +117,6 @@ class StudentProfileListController: UITableViewController {
     
     private func roomsUpdated() {
         //TODO: reload rooms buttons
-        print("rooms updted!")
-        for room in self.rooms {
-            print(room.name)
-        }
     }
     
     @objc private func roomsUpdatedFromServer(notification: NSNotification) {

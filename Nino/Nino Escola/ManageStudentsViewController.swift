@@ -8,29 +8,31 @@
 
 import UIKit
 
-struct StudentMock {
-    var name: String?
-    var id: Int?
-}
 class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //Define sections
     let studentSec = 0
     let classroomInfoSec = 1
     let classroomDeleteSec = 2
     //Define global variables
-    var students = [StudentMock]()
+    var students = [Student]()
     var selectedStudentIndex = 0
+    var roomID: String?
+    var mustRealoadData = false
+    
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.addNinoDefaultBackGround()
         tableView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
-        students.append(StudentMock(name: "Miriam", id: 1))
-        students.append(StudentMock(name: "Abélia", id: 2))
-        // Do any additional setup after loading the view.
+        
+        NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(studentsUpdated))
+        
+        self.updateData()
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Novo Aluno", style: .Plain, target: self, action: #selector (didPressToAddNewNewStudent))
@@ -41,6 +43,42 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    @objc private func studentsUpdated(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newStudents = message.dataToInsert as? [Student] {
+                for student in newStudents {
+                    self.students.append(student)
+                }
+                self.tableView.reloadData()
+            }
+            //TODO: updated students
+            //TODO: deleted students
+        }
+    }
+    
+    func updateData() {
+        guard let room = self.roomID else {
+            //TODO: back to phases
+            return
+        }
+        StudentBO.getStudent(room) { (students) in
+            do {
+                let localStudents = try students()
+                for student in localStudents {
+                    self.students.append(student)
+                }
+                self.tableView.reloadData()
+            } catch {
+                //TODO: getStudents error
+            }
+        }
+    }
 
     func didPressToAddNewNewStudent() {
         self.performSegueWithIdentifier("showRegisterStudentViewController", sender: self)
@@ -52,7 +90,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
             //Did press cancel.
         }
         let deleteAction = UIAlertAction(title: "Deletar", style: .Destructive) { (alert) in
-            //TODO: Create New phase
+            //TODO: delete room
         }
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
@@ -156,7 +194,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == studentSec {
             self.selectedStudentIndex = indexPath.row
-            self.performSegueWithIdentifier("showRegisterStudentViewController", sender: self)
+            self.performSegueWithIdentifier("showStudentInfoViewController", sender: self)
         } else if indexPath.section == classroomDeleteSec {
             self.didPressToDeleteClassroom()
         } else if indexPath.section == classroomInfoSec {
@@ -166,11 +204,27 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: Navigation
 
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showRegisterStudentViewController" {
+            let dest = segue.destinationViewController as? RegisterStudentViewController
+            if let register = dest {
+                register.roomID = self.roomID
+            }
+        }
+        if segue.identifier == "showStudentInfoViewController" {
+            let dest = segue.destinationViewController as? ManageStudentInfoViewController
+            if let info = dest {
+                info.student = self.students[selectedStudentIndex]
+            }
+        }
+    }
 
     
     @IBAction func goBackToManageStudentsViewController(segue: UIStoryboardSegue) {
-        
+        if self.mustRealoadData {
+            self.tableView.reloadData()
+            self.mustRealoadData = false
+        }
     }
     
 }

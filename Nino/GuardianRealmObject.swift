@@ -15,12 +15,12 @@ class GuardianRealmObject: Object {
     dynamic var id: String = ""
     dynamic var name: String = ""
     dynamic var surname: String = ""
-    dynamic var gender: Int = -1
     dynamic var email: String = ""
     
 //MARK: Optional Attributes
     let profileID = RealmOptional<Int>()
     let students = List<StudentRealmObject>()
+    let gender = RealmOptional<Int>()
     
 //MARK: Methods
     override static func primaryKey() -> String? {
