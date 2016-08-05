@@ -10,6 +10,7 @@ import UIKit
 import BEMCheckBox
 
 class ExpandableSelectableTableViewCell: UITableViewCell {
+    @IBOutlet weak var identationDistance: NSLayoutConstraint!
     
     //@IBOutlet weak var arrow: UIView! {
     @IBOutlet weak var arrowButton: UIButton! {
@@ -17,18 +18,26 @@ class ExpandableSelectableTableViewCell: UITableViewCell {
             arrowButton.imageView?.contentMode = UIViewContentMode.Center
         }
     }
-    @IBOutlet weak var checkBox: UIView! {
+//    @IBOutlet weak var checkBox: UIView! {
+//        didSet {
+//            let blu = (checkBox as? BEMCheckBox)
+//            blu?.onFillColor = CustomizeColor.lessStrongBackgroundNino()
+//            blu?.onCheckColor = UIColor.whiteColor()
+//            blu?.onTintColor = CustomizeColor.lessStrongBackgroundNino()
+//            blu?.animationDuration = 0.3
+//            blu?.onAnimationType = .Fill
+//            blu?.offAnimationType = .Fill
+//            blu?.delegate = self
+//        }
+//    }
+    
+    @IBOutlet weak var thisSwitch: UISwitch! {
         didSet {
-            let blu = (checkBox as? BEMCheckBox)
-            blu?.onFillColor = CustomizeColor.lessStrongBackgroundNino()
-            blu?.onCheckColor = UIColor.whiteColor()
-            blu?.onTintColor = CustomizeColor.lessStrongBackgroundNino()
-            blu?.animationDuration = 0.3
-            blu?.onAnimationType = .Fill
-            blu?.offAnimationType = .Fill
+            thisSwitch.addTarget(self, action: #selector(didChangeSwitch), forControlEvents: UIControlEvents.ValueChanged)
         }
     }
-    @IBOutlet weak var title: UILabel!
+    
+        @IBOutlet weak var title: UILabel!
     weak var delegate: ExpandableSelectableTableViewCellDelegate?
     var value: String? {
         didSet {
@@ -39,20 +48,40 @@ class ExpandableSelectableTableViewCell: UITableViewCell {
     var infoHier: Int {
         didSet {
             self.indentationLevel = infoHier
+            self.identationDistance.constant = 16 + (CGFloat)(infoHier) * 20
         }
     }
-    var hasSons: Bool //Indicates whether the cell has sons
+    var hasSons: Bool {
+        didSet {
+            self.arrowButton.hidden = !(hasSons)
+        }
+    }//Indicates whether the cell has sons
     var isExpanded: Bool
+    var checkBoxSelected = false {
+        didSet {
+//            guard let blu = (checkBox as? BEMCheckBox) else {
+//                return
+//            }
+//            if oldValue != checkBoxSelected {
+//               blu.setOn(checkBoxSelected, animated: true)
+//            }
+            //checkBox.layoutSubviews()
+            //checkBox.layoutIfNeeded()
+            thisSwitch.setOn(checkBoxSelected, animated: true)
+        }
+    }
     required init?(coder aDecoder: NSCoder) {
         self.infoHier = 0
         self.value = nil
         self.hasSons = false
         self.isExpanded = false
+        self.checkBoxSelected = false
         super.init(coder: aDecoder)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        self.indentationWidth = 30
+        self.indentationLevel = 4
         //let clickInArrow = UITapGestureRecognizer(target: arrow, action: #selector(self.didClickInArrow))
         //clickInArrow.numberOfTapsRequired = 1
         //arrow.addGestureRecognizer(clickInArrow)
@@ -65,11 +94,11 @@ class ExpandableSelectableTableViewCell: UITableViewCell {
         }
         
     }
-    func configureCell(value: String, profileImage: UIImage?, infoHier: Int, hasSons: Bool) {
-        self.value = value
-        self.infoHier = infoHier
-        self.hasSons = hasSons
-    }
+//    func configureCell(value: String, profileImage: UIImage?, infoHier: Int, hasSons: Bool) {
+//        self.value = value
+//        self.infoHier = infoHier
+//        self.hasSons = hasSons
+//    }
     func shouldExpand() {
         if hasSons == false {
             print("Trying to expand a cell which does not has sons")
@@ -116,8 +145,6 @@ class ExpandableSelectableTableViewCell: UITableViewCell {
             print("Did rotate")
         }
     }
-    
-    
     func trianglePathFromView (view: UIView) -> CAShapeLayer  {
         let drawPath = UIBezierPath()
         drawPath.moveToPoint(CGPoint(x: 0, y: 0))
@@ -146,8 +173,26 @@ class ExpandableSelectableTableViewCell: UITableViewCell {
         }
         
     }
+    
+    //MARK: BEMCheckBox Delegate
+    
+    func didTapCheckBox(checkBox: BEMCheckBox) {
+        if checkBox.on {
+            self.delegate?.didSelect(self)
+        }else{
+            self.delegate?.didUnselect(self)
+        }
+    }
+    func didChangeSwitch(sender: UISwitch) {
+        if thisSwitch.on {
+            self.delegate?.didSelect(self)
+        } else {
+            self.delegate?.didUnselect(self)        }
+    }
 }
 protocol ExpandableSelectableTableViewCellDelegate: class {
     func didExpand(cell: ExpandableSelectableTableViewCell)
     func didCollapse(cell: ExpandableSelectableTableViewCell)
+    func didSelect(cell: ExpandableSelectableTableViewCell)
+    func didUnselect(cell: ExpandableSelectableTableViewCell)
 }
