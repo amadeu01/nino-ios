@@ -15,6 +15,7 @@ private enum NinoNotifications {
     case RoomsUpdated
     case RoomsFromServer
     case StudentsFromServer
+    case GuardiansFromServer
     
     func description() -> String {
         switch self {
@@ -30,6 +31,8 @@ private enum NinoNotifications {
             return "ServerUpdatedRoomsNotification"
         case .StudentsFromServer:
             return "ServerUpdatedStudentsNotification"
+        case .GuardiansFromServer:
+            return "ServerUpdatedGuardiansNotification"
         }
     }
 }
@@ -101,5 +104,17 @@ class NinoNotificationManager: NSObject {
     
     func addObserverForStudentsUpdates(observer: AnyObject, selector: Selector) {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.StudentsFromServer.description(), object: nil)
+    }
+    
+    func addObserverForGuardiansUpdates(observer: AnyObject, selector: Selector) {
+        self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.GuardiansFromServer.description(), object: nil)
+    }
+    
+    func addGuardiansUpdatedNotification(sender: AnyObject, error: AnyObject?, info: AnyObject?) {
+        if let err = error {
+            self.notificationCenter.postNotificationName(NinoNotifications.GuardiansFromServer.description(), object: sender, userInfo: ["error": err])
+        } else if let data = info {
+            self.notificationCenter.postNotificationName(NinoNotifications.GuardiansFromServer.description(), object: sender, userInfo: ["info": data])
+        }
     }
 }

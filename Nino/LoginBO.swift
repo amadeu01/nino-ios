@@ -20,16 +20,22 @@ class LoginBO: NSObject {
     static func login(key: Key, completionHandler: (getCredential: () throws -> Credential) -> Void) {
         AccountMechanism.login(key.email, password: key.password) { (accessToken, error) in
             if let errorType = error {
-                completionHandler(getCredential: { () -> Credential in
-                    throw ErrorBO.decodeServerError(errorType)
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getCredential: { () -> Credential in
+                        throw ErrorBO.decodeServerError(errorType)
+                    })
                 })
             } else if let token = accessToken {
-                completionHandler(getCredential: { () -> Credential in
-                    return CredentialBO.createCredential(token)
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getCredential: { () -> Credential in
+                        return CredentialBO.createCredential(token)
+                    })
                 })
             } else {
-                completionHandler(getCredential: { () -> Credential in
-                    throw ServerError.UnexpectedCase
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getCredential: { () -> Credential in
+                        throw ServerError.UnexpectedCase
+                    })
                 })
             }
         }

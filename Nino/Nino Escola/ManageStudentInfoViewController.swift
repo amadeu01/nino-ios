@@ -40,6 +40,7 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NinoNotificationManager.sharedInstance.addObserverForGuardiansUpdates(self, selector: #selector(guardiansUpdated))
         updateStudentInfo()
         updateExtraSection()
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -75,7 +76,32 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
             self.profileImageView.image = UIImage(named: "icone-cadastrar-bebe")
         }
         self.studentName.text = selectedStudent.name + " " + selectedStudent.surname
-        //TODO: get guardians for student
+        GuardianBO.getGuardiansForStudent(selectedStudent.id) { (getGuardians) in
+            do {
+                let guardians = try getGuardians()
+                self.guardians.appendContentsOf(guardians)
+                self.tableView.reloadSections(NSIndexSet(index: self.guardianInfoSec), withRowAnimation: UITableViewRowAnimation.Automatic)
+            } catch {
+                //TODO: handle error
+            }
+        }
+    }
+    
+    @objc private func guardiansUpdated(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newGuardians = message.dataToInsert as? [Guardian] {
+                self.guardians.appendContentsOf(newGuardians)
+                self.tableView.reloadSections(NSIndexSet(index: self.guardianInfoSec), withRowAnimation: UITableViewRowAnimation.Automatic)
+            }
+            //TODO: updated guardians
+            //TODO: deleted guardians
+        }
     }
     
     func updateExtraSection() {

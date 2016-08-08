@@ -163,11 +163,8 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
                 do {
                     //tries to create an account
                     try getAccount()
-                    //gets the main queue to make UI changes
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.activityIndicator.stopAnimating()
-                        self.performSegueWithIdentifier("waitEmail", sender: self)
-                    })
+                    self.activityIndicator.stopAnimating()
+                    self.performSegueWithIdentifier("waitEmail", sender: self)
                 } catch let internalError {
                     //TODO: handle error data threw by the server
                     guard let error = internalError as? ServerError else {
@@ -175,12 +172,10 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
                     }
                     let title = "Falha no cadastro do usuário"
                     let alert = DefaultAlerts.serverErrorAlert(error, title: title, customAction: nil)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.activityIndicator.stopAnimating()
-                        self.enableButtons()
-                        self.enableTextFields()
-                        self.presentViewController(alert, animated: true, completion: nil)
-                    })
+                    self.activityIndicator.stopAnimating()
+                    self.enableButtons()
+                    self.enableTextFields()
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
             })
         } catch {

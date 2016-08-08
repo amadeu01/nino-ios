@@ -36,29 +36,23 @@ class GuardiansConfirmEmailViewController: UIViewController {
             do {
                 let isValid = try checkHash()
                 if isValid {
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.userHash = hash
-                        self.performSegueWithIdentifier("registerPasssword", sender: nil)
-                    })
+                    self.userHash = hash
+                    self.performSegueWithIdentifier("registerPasssword", sender: nil)
                 } else {
-                    dispatch_async(dispatch_get_main_queue(), {
-                        let alertView = UIAlertController(title: "Falha de validação", message: "Já existe uma senha cadastrada para esse email.", preferredStyle: .Alert)
-                        let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
-                            self.segueToLogin()
-                        }
-                        alertView.addAction(action)
-                        self.presentViewController(alertView, animated: true, completion: nil)
-                    })
+                    let alertView = UIAlertController(title: "Falha de validação", message: "Já existe uma senha cadastrada para esse email.", preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
+                        self.segueToLogin()
+                    }
+                    alertView.addAction(action)
+                    self.presentViewController(alertView, animated: true, completion: nil)
                 }
             } catch let error {
                 //TODO: handle error
                 guard let serverError = error as? ServerError else {
                     return
                 }
-                dispatch_async(dispatch_get_main_queue(), {
-                    let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in
-                        self.segueToLogin()
-                    })
+                let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in
+                    self.segueToLogin()
                     let alertView = DefaultAlerts.serverErrorAlert(serverError, title: "Falha na confirmação", customAction: action)
                     self.presentViewController(alertView, animated: true, completion: nil)
                 })

@@ -186,15 +186,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 do {
                                     let educator = try getProfile()
                                     NinoSession.sharedInstance.setEducator(educator.id)
-                                    //gets main queue to make UI changes
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        self.activityIndicator.stopAnimating()
-                                        //changes the view
-                                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                            delegate.loggedIn = true
-                                            delegate.setupRootViewController(true)
-                                        }
-                                    })
+                                    self.activityIndicator.stopAnimating()
+                                    //changes the view
+                                    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                        delegate.loggedIn = true
+                                        delegate.setupRootViewController(true)
+                                    }
                                 } catch {
                                     print("profileError")
                                     //TODO: handle profile error
@@ -223,15 +220,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 catch let error {
                     //clean userDefaults and keychain
                     KeyBO.removePasswordAndUsername()
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        self.activityIndicator.stopAnimating()
-                        self.enableTextFields()
-                        self.enableButtons()
-                        if let serverError = error as? ServerError {
-                            self.errorAlert(serverError)
-                        }
-                        self.passwordTextField.text = ""
-                    })
+                    self.activityIndicator.stopAnimating()
+                    self.enableTextFields()
+                    self.enableButtons()
+                    if let serverError = error as? ServerError {
+                        self.errorAlert(serverError)
+                    }
+                    self.passwordTextField.text = ""
                 }
             })
         }

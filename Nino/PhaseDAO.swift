@@ -21,13 +21,11 @@ class PhaseDAO: NSObject {
 
     func createPhases(phases: [Phase], schoolID: String, completionHandler: (write: () throws -> Void) -> Void) {
         
-        let schoolFilter = NSPredicate(format: "id == %@", schoolID)
-        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
-                let schools = realm.objects(SchoolRealmObject.self)
-                let realmSchools = schools.filter(schoolFilter)
-                guard let school = realmSchools.first else {
+                let realmShool = realm.objectForPrimaryKey(SchoolRealmObject.self, key: schoolID)
+                guard let school = realmShool else {
                     dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                         completionHandler(write: { 
                             throw DatabaseError.ConflictingIDs
@@ -119,13 +117,11 @@ class PhaseDAO: NSObject {
         }
         
         selectedPhase.phaseID = phaseID
-        let filter = NSPredicate(format: "id == %@", phase)
-        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
-                let phases = realm.objects(PhaseRealmObject.self)
-                let selectedPhases = phases.filter(filter)
-                guard let realmPhase = selectedPhases.first else {
+                let selectedRealmPhase = realm.objectForPrimaryKey(PhaseRealmObject.self, key: phase)
+                guard let realmPhase = selectedRealmPhase else {
                     dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                         completionHandler(update: { 
                             RealmError.UnexpectedCase

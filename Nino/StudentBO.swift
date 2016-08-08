@@ -232,21 +232,26 @@ class StudentBO: NSObject {
                     //updated
                     if serverStudent.name != localStudent.name {
                         wasChanged.append(serverStudent)
-                    }
-                    if serverStudent.birthDate != localStudent.birthDate {
-                        wasChanged.append(serverStudent)
-                    }
-                    if serverStudent.gender != localStudent.gender {
-                        wasChanged.append(serverStudent)
-                    }
-                    if serverStudent.profilePicture != localStudent.profilePicture {
-                        wasChanged.append(serverStudent)
-                    }
-                    if serverStudent.roomID != localStudent.roomID {
-                        wasChanged.append(serverStudent)
-                    }
-                    if serverStudent.surname != localStudent.surname {
-                        wasChanged.append(serverStudent)
+                    } else {
+                        if serverStudent.birthDate != localStudent.birthDate {
+                            wasChanged.append(serverStudent)
+                        } else {
+                            if serverStudent.gender != localStudent.gender {
+                                wasChanged.append(serverStudent)
+                            } else {
+                                if serverStudent.profilePicture != localStudent.profilePicture {
+                                    wasChanged.append(serverStudent)
+                                } else {
+                                    if serverStudent.roomID != localStudent.roomID {
+                                        wasChanged.append(serverStudent)
+                                    } else {
+                                        if serverStudent.surname != localStudent.surname {
+                                            wasChanged.append(serverStudent)
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     break
                 }

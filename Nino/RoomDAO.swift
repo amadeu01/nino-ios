@@ -173,13 +173,11 @@ class RoomDAO: NSObject {
         }
         
         selectedRoom.roomID = roomID
-        let filter = NSPredicate(format: "id == %@", room)
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
-                let rooms = realm.objects(RoomRealmObject.self)
-                let selectedRooms = rooms.filter(filter)
-                guard let realmRoom = selectedRooms.first else {
+                let selectedRealmRoom = realm.objectForPrimaryKey(RoomRealmObject.self, key: room)
+                guard let realmRoom = selectedRealmRoom else {
                     dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                         completionHandler(update: {
                             RealmError.UnexpectedCase

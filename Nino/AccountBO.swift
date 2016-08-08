@@ -30,18 +30,24 @@ class AccountBO: NSObject {
         AccountMechanism.createAccount(name, surname: surname, gender: gender.rawValue, email: email) { (profileID, error, data) in
             if let errorType = error {
                 //TODO: Handle error data and code
-                completionHandler(getAccount: { () -> Int in
-                    throw ErrorBO.decodeServerError(errorType)
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getAccount: { () -> Int in
+                        throw ErrorBO.decodeServerError(errorType)
+                    })
                 })
             } else if let user = profileID {
-                completionHandler(getAccount: { () -> Int in
-                    return user
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getAccount: { () -> Int in
+                        return user
+                    })
                 })
             }
                 //unexpected case
             else {
-                completionHandler(getAccount: { () -> Int in
-                    throw ServerError.UnexpectedCase
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getAccount: { () -> Int in
+                        throw ServerError.UnexpectedCase
+                    })
                 })
             }
         }
@@ -59,21 +65,27 @@ class AccountBO: NSObject {
         AccountMechanism.checkIfValidated(hash) { (validated, error, data) in
             //TODO: Handle error data
             if let error = error {
-                completionHandler(checkHash: { () -> Bool in
-                    throw ErrorBO.decodeServerError(error)
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(checkHash: { () -> Bool in
+                        throw ErrorBO.decodeServerError(error)
+                    })
                 })
             }
             //Unexpected case
             guard let validated = validated else {
-                completionHandler(checkHash: { () -> Bool in
-                    throw ServerError.UnexpectedCase
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(checkHash: { () -> Bool in
+                        throw ServerError.UnexpectedCase
+                    })
                 })
                 return
             }
             //success
-            completionHandler(checkHash: { () -> Bool in
-                //returns true if is valid
-                return !validated
+            dispatch_async(dispatch_get_main_queue(), { 
+                completionHandler(checkHash: { () -> Bool in
+                    //returns true if is valid
+                    return !validated
+                })
             })
         }
     }
@@ -89,20 +101,26 @@ class AccountBO: NSObject {
         AccountMechanism.confirmAccount(password, hash: hash) { (token, error, data) in
             //TODO: handle error data
             if let error = error {
-                completionHandler(register: { () -> String in
-                    throw ErrorBO.decodeServerError(error)
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(register: { () -> String in
+                        throw ErrorBO.decodeServerError(error)
+                    })
                 })
             }
             //Unexpected case
             guard let userToken = token else {
-                completionHandler(register: { () -> String in
-                    throw ServerError.UnexpectedCase
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(register: { () -> String in
+                        throw ServerError.UnexpectedCase
+                    })
                 })
                 return
             }
             //success
-            completionHandler(register: { () -> String in
-                return userToken
+            dispatch_async(dispatch_get_main_queue(), { 
+                completionHandler(register: { () -> String in
+                    return userToken
+                })
             })
         }
     }

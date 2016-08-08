@@ -40,6 +40,11 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
         }
         self.datePicker.datePickerMode = .Date
         self.birthDateTextField.inputView = datePicker
+        let barButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.hideKeyboard))
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+        let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
+        toolbar.items = [space, barButton]
+        self.birthDateTextField.inputAccessoryView = toolbar
         self.datePicker.addTarget(self, action: #selector(self.handleDatePicker), forControlEvents: .ValueChanged)
         self.dateFormatter.dateFormat = "dd/MM/yyyy"
         
@@ -169,7 +174,7 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
     /**
      Hides the keyboard
      */
-    private func hideKeyboard() {
+    @objc private func hideKeyboard() {
         for tf in self.textFields {
             tf.resignFirstResponder()
         }
@@ -203,6 +208,7 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
     
 //MARK: GenderSelector methods
     func genderWasSelected(gender: Gender) {
+        self.hideKeyboard()
         self.gender = gender
     }
     

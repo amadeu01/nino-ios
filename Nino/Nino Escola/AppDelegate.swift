@@ -31,7 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //disabling toolbar in some views
         IQKeyboardManager.sharedManager().disableToolbarInViewControllerClass(CreateUserViewController)
         IQKeyboardManager.sharedManager().disableToolbarInViewControllerClass(CreateSchoolViewController)
-
+        IQKeyboardManager.sharedManager().disableToolbarInViewControllerClass(RegisterGuardianViewController)
+        IQKeyboardManager.sharedManager().disableToolbarInViewControllerClass(RegisterStudentViewController)
+        
         return true
     }
 
