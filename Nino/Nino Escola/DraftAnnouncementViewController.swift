@@ -11,6 +11,7 @@ import UIKit
 
 class DraftAnnouncementViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate{
     
+    @IBOutlet weak var tags: UIView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewThatHoldsTextView: UIView!
@@ -102,6 +103,10 @@ class DraftAnnouncementViewController: UIViewController, UITextViewDelegate, UIT
         if(announcementEdited && !announcementWillBeSent){
             self.delegate?.saveDraft(titleTextField.text, body: textView.text, key: self.key)
         }
+    }
+    //MARK: Tag List View
+    func configureTagList(){
+        
     }
     //MARK: Navigation Bar Button Handlers
     func didPressSendAnnouncement() {

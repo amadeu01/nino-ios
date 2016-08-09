@@ -73,6 +73,9 @@
                             </textField>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-26-wsp">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="391" y="363" width="20" height="20"/>
+                                </variation>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-Bh-lcj">
                                 <rect key="frame" x="230" y="431" width="140" height="34"/>
@@ -246,6 +249,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="17"/>
                                 <color key="textColor" red="0.32549019607843138" green="0.75294117647058822" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="340" y="560" width="120" height="20"/>
+                                </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Suf-jl-dKL">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -340,7 +346,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="mJH-Cl-Jvg" kind="relationship" relationship="viewControllers" id="Ots-2U-bDM"/>
-                        <segue destination="jTB-KH-0xf" kind="relationship" relationship="viewControllers" id="zyJ-gN-fjX"/>
                         <segue destination="Jbt-AK-Zyp" kind="relationship" relationship="viewControllers" id="YiK-tp-MNi"/>
                     </connections>
                 </tabBarController>
@@ -508,12 +513,18 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="widthClass=regular" misplaced="YES">
+                                                <rect key="frame" x="301" y="35" width="81" height="20"/>
+                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rascunho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-wu-wUd">
                                             <rect key="frame" x="518" y="65" width="64" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="widthClass=regular" misplaced="YES">
+                                                <rect key="frame" x="318" y="65" width="64" height="17"/>
+                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sem título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa4-1Q-10p">
                                             <rect key="frame" x="18" y="36" width="102" height="20"/>
@@ -556,7 +567,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIG-SS-SfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284.75" y="-1219"/>
+            <point key="canvasLocation" x="1452" y="-1219"/>
         </scene>
         <!--StudentProfile-->
         <scene sceneID="dkg-KV-wL6">
