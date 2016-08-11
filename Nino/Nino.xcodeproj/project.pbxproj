@@ -145,8 +145,6 @@
 		287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
-		287F31951D5CFB6400DF2E1C /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
-		287F31961D5CFB6500DF2E1C /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
 		28830E7B1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
 		28830E7C1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
 		28830E7D1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
@@ -339,7 +337,6 @@
 		28AE87131D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
 		28AE87141D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
 		28AE87151D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
-		28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
 		28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
 		28C5CB211D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
 		28C5CB221D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
@@ -909,7 +906,6 @@
 		28AE87061D3AAE6200993AF8 /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
 		28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardManagementTableViewCell.swift; sourceTree = "<group>"; };
-		28AE871A1D3BC20E00993AF8 /* DataStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 		28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseClassroom.storyboard; sourceTree = "<group>"; };
 		28D2A7BA1D4C546400677DCC /* CEMKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEMKit.swift; sourceTree = "<group>"; };
 		28E2D7651D5A7E0C00023D35 /* StudentProfileListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileListHeader.swift; sourceTree = "<group>"; };
@@ -1234,7 +1230,6 @@
 				2868C57E1D4797470032591D /* Third Party */,
 				28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */,
 				28F366FD1D2FDD9100A0743B /* ManageClassroomsNavigationControllerDelegate.swift */,
-				28AE871A1D3BC20E00993AF8 /* DataStructure.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -2703,7 +2698,6 @@
 				2868C5771D46B4330032591D /* SentAnnouncementViewController.swift in Sources */,
 				28A046A31D26C214007E0053 /* ProfileTopBarViewController.swift in Sources */,
 				AC43B3D51D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
-				28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				AC79F0411D54DEDD00583452 /* GuardianMechanism.swift in Sources */,
 				AC9EC7081D240CA200D54857 /* CreateUserViewController.swift in Sources */,
 				AC79F0481D54FC4500583452 /* StudentDAO.swift in Sources */,
@@ -2790,7 +2784,6 @@
 				AC43B3C71D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC47FCCE1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
 				AC43B3D61D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
-				287F31951D5CFB6400DF2E1C /* DataStructure.swift in Sources */,
 				AC47FD341D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */,
 				2868C5851D47A1DC0032591D /* DraftNavigationController.swift in Sources */,
 				284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
@@ -2909,7 +2902,6 @@
 				ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
 				28830E821D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */,
 				AC33F47F1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
-				287F31961D5CFB6500DF2E1C /* DataStructure.swift in Sources */,
 				280A4B7D1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */,
 				288B27F51D37E0D400B47DC0 /* MenuBO.swift in Sources */,
 				ACF3603A1D4800D900A30922 /* NotificationMessage.swift in Sources */,
