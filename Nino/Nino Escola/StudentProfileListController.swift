@@ -8,8 +8,7 @@
 
 import UIKit
 
-class StudentProfileListController: UITableViewController {
-
+class StudentProfileListController: UITableViewController, StudentProfileListHeaderDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var studentProfileTableView: UITableView!
     @IBOutlet weak var footer: UIView!
@@ -21,14 +20,18 @@ class StudentProfileListController: UITableViewController {
         super.viewDidLoad()
         self.studentProfileTableView.dataSource = self
         self.studentProfileTableView.delegate = self
-        
         //registering for notification
         NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
         NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
         NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
-        
+        //xrschoolNameLabel.text = "DID WORK"
+        //self.tableView.registerNib(UINib(nibName: "StudentProfileListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
+        let nib = UINib(nibName: "StudentProfileListHeader", bundle: nil)
+        tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
+        self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         //self.studentProfileTableView.reloadData()
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -39,6 +42,21 @@ class StudentProfileListController: UITableViewController {
     }
     override func didReceiveMemoryWarning() {
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Table View Delegate
+
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 120
+    }
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // Dequeue with the reuse identifier
+        let cell = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier("StudentProfileListHeader")
+//swiftlint:disable force_cast
+        let header = cell as! StudentProfileListHeader
+        header.delegate = self
+        header.schoolNameLabel.text = "Escola Nino"
+        return cell
     }
     //MARK: TableView Data Source
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -118,7 +136,6 @@ class StudentProfileListController: UITableViewController {
     private func roomsUpdated() {
         //TODO: reload rooms buttons
     }
-    
     @objc private func roomsUpdatedFromServer(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             //TODO: Unexpected case
@@ -136,5 +153,22 @@ class StudentProfileListController: UITableViewController {
             //TODO: deleted phases
         }
         self.roomsUpdated()
+    }
+    //MARK: Student Profile List Header Delegate
+    func didTapPhaseButton(sender: UIButton) {
+        let storyboard : UIStoryboard = UIStoryboard(
+            name: "SelectClassroom",
+            bundle: nil)
+        
+        var menuViewController: SelectClassroomTableViewController = storyboard.instantiateViewControllerWithIdentifier("SelectClassroomTableViewController") as! SelectClassroomTableViewController
+        menuViewController.modalPresentationStyle = .Popover
+        menuViewController.preferredContentSize = CGSizeMake(300, 400)
+        let popoverMenuViewController = menuViewController.popoverPresentationController
+        popoverMenuViewController?.permittedArrowDirections = .Left
+        popoverMenuViewController?.delegate = self
+        popoverMenuViewController?.sourceView = sender
+        popoverMenuViewController?.sourceRect = CGRect(x: sender.frame.width,y: sender.frame.height/2,width: 1,height: 1)
+        presentViewController(menuViewController,animated: true,completion: nil)
+        
     }
 }

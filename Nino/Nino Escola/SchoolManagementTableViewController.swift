@@ -47,8 +47,13 @@ class SchoolManagementTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section].section
     }
-
     
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let view = view as? UITableViewHeaderFooterView {
+            view.backgroundView!.backgroundColor = UIColor.clearColor()
+            view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
+        }
+    }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("configCell")
         cell!.textLabel!.text = self.sections[indexPath.section].rows[indexPath.row]
@@ -57,13 +62,6 @@ class SchoolManagementTableViewController: UITableViewController {
             cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
         return cell!
-    }
-    
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let view = view as? UITableViewHeaderFooterView {
-            view.backgroundView!.backgroundColor = UIColor.clearColor()
-            view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
-        }
     }
    func configureSections() {
         self.sections.append(DataStructure(section: "Dia-a-dia", rows: ["Calendário", "Cardápio"], icons: [UIImage(named: "iconPlaceholder")!, UIImage(named: "iconPlaceholder")!]))

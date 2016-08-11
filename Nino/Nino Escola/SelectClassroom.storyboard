@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Classroom Table View Controller-->
+        <scene sceneID="VsB-i0-uah">
+            <objects>
+                <tableViewController storyboardIdentifier="SelectClassroomTableViewController" id="SBL-5g-acx" customClass="SelectClassroomTableViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bwk-t6-wkT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9Oh-A6-N5x">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Oh-A6-N5x" id="J9s-wQ-0M1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectClassroomTableViewCell" rowHeight="60" id="by0-Ad-v5F" customClass="SelectClassroomTableViewCell" customModule="Nino_Escola" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="by0-Ad-v5F" id="2Bs-d4-aIP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v8o-QR-8sX">
+                                            <rect key="frame" x="17" y="10" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="v8o-QR-8sX" secondAttribute="height" id="mnd-V3-aaK"/>
+                                                <constraint firstAttribute="height" constant="40" id="wwP-Df-bGu"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Sala" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4K-GC-2cq">
+                                            <rect key="frame" x="87" y="19" width="106" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="v8o-QR-8sX" firstAttribute="centerY" secondItem="2Bs-d4-aIP" secondAttribute="centerY" id="AQd-44-vbX"/>
+                                        <constraint firstItem="v8o-QR-8sX" firstAttribute="leading" secondItem="2Bs-d4-aIP" secondAttribute="leadingMargin" constant="9" id="K09-eK-gRN"/>
+                                        <constraint firstItem="R4K-GC-2cq" firstAttribute="centerY" secondItem="2Bs-d4-aIP" secondAttribute="centerY" id="LNy-nX-vzW"/>
+                                        <constraint firstItem="R4K-GC-2cq" firstAttribute="leading" secondItem="v8o-QR-8sX" secondAttribute="trailing" constant="30" id="tKn-KM-oFt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="classroomNameLabel" destination="R4K-GC-2cq" id="7uu-Dz-ZJZ"/>
+                                    <outlet property="classroomProfileImageView" destination="v8o-QR-8sX" id="1RZ-nv-kJJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SBL-5g-acx" id="RTO-2O-hcr"/>
+                            <outlet property="delegate" destination="SBL-5g-acx" id="qkb-ct-8KH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nfQ-RO-fP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="191" y="22"/>
+        </scene>
+    </scenes>
+</document>
