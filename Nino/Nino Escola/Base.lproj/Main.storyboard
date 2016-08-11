@@ -462,7 +462,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="configCell" id="bJQ-Cy-lcX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="configCell" rowHeight="70" id="bJQ-Cy-lcX">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJQ-Cy-lcX" id="5Ls-lt-Fsr">
@@ -572,7 +572,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIG-SS-SfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1452" y="-1219"/>
+            <point key="canvasLocation" x="1344" y="-1183"/>
         </scene>
         <!--StudentProfile-->
         <scene sceneID="dkg-KV-wL6">
@@ -1298,7 +1298,7 @@
                 <viewControllerPlaceholder storyboardName="Announcements" id="5wt-ac-gpQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11I-iq-SxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756.875" y="-1348"/>
+            <point key="canvasLocation" x="1933.125" y="-1330"/>
         </scene>
         <!--SentAnnouncement-->
         <scene sceneID="g7x-Kd-E8t">
@@ -1306,7 +1306,7 @@
                 <viewControllerPlaceholder storyboardName="SentAnnouncement" id="Lzu-Kh-JOT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQS-uS-3jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758.375" y="-1175"/>
+            <point key="canvasLocation" x="1941" y="-1092"/>
         </scene>
     </scenes>
     <resources>

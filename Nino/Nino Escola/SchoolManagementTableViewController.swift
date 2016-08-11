@@ -65,8 +65,8 @@ class SchoolManagementTableViewController: UITableViewController {
         //return self.sections[section].section
         return self.theseSecs[section].name
     }
-    
-    override func tableView(tableView: UITableView, willDisplayHeaderVdatiew view: UIView, forSection section: Int) {
+
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
             view.backgroundView!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
@@ -82,8 +82,14 @@ class SchoolManagementTableViewController: UITableViewController {
         }
         return cell!
     }
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
    func configureSections() {
-    let adminSecRows = [DataRow(name: "Gerenciar Educadores", image: UIImage(named: "Becke_Darth-Vader")!, identifier: "showManageEducatorsViewController"), DataRow(name: "Gerenciar Turmas", image: UIImage(named: "iconPlaceholder")!, identifier: "showManageClassroomsViewController")]
+    let adminSecRows = [DataRow(name: "Gerenciar Turmas", image: UIImage(named: "iconPlaceholder")!, identifier: "showManageClassroomsViewController")]
     theseSecs.append(DataSection(name: "Administração", rows: adminSecRows))
     let accountSecRows = [DataRow(name: "Sair", image: UIImage(named: "Becke_Sair")!, identifier: "shouldLogOut")]
     theseSecs.append(DataSection(name: "Conta", rows: accountSecRows))
