@@ -47,7 +47,9 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     //MARK: Table View Delegate
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 120
+        
+        let headerHeight = self.view.frame.height * 0.15
+        return headerHeight
     }
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // Dequeue with the reuse identifier

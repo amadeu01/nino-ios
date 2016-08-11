@@ -10,13 +10,26 @@ import UIKit
 
 class ProfileTopBarViewController: UIViewController {
     weak var delegate: StudentProfileNavigationController?
+    
+    @IBOutlet weak var myDayButton: UIButton!
+    @IBOutlet weak var photosButton: UIButton!
+    @IBOutlet weak var activitiesButton: UIButton!
+    @IBOutlet weak var chatButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        myDayButton.hidden = true
+        photosButton.hidden = true
+        activitiesButton.hidden = true
+        chatButton.hidden = true
+        
         // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        CustomizeColor.borderColourNino()
         // Dispose of any resources that can be recreated.
     }
     

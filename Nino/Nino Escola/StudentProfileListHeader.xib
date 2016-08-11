@@ -39,12 +39,22 @@
                             <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="23"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0S8-RM-Zhb">
+                            <rect key="frame" x="0.0" y="185" width="600" height="2"/>
+                            <color key="backgroundColor" red="0.43529411759999997" green="0.90196078430000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="Mph-gI-ODy"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="z37-BT-3Z8" firstAttribute="top" secondItem="IkW-96-idr" secondAttribute="top" constant="17" id="3MY-u4-mQc"/>
+                        <constraint firstAttribute="bottom" secondItem="0S8-RM-Zhb" secondAttribute="bottom" id="4bn-AW-nhb"/>
                         <constraint firstAttribute="bottom" secondItem="ahS-Li-snC" secondAttribute="bottom" constant="20" id="5Pb-nr-oA0"/>
                         <constraint firstItem="ahS-Li-snC" firstAttribute="leading" secondItem="IkW-96-idr" secondAttribute="leading" constant="10" id="7b0-9O-eSW"/>
+                        <constraint firstItem="0S8-RM-Zhb" firstAttribute="leading" secondItem="IkW-96-idr" secondAttribute="leading" id="Ltq-yD-xdX"/>
+                        <constraint firstAttribute="trailing" secondItem="0S8-RM-Zhb" secondAttribute="trailing" id="U3w-iP-hVk"/>
                         <constraint firstItem="z37-BT-3Z8" firstAttribute="leading" secondItem="IkW-96-idr" secondAttribute="leading" constant="10" id="fc5-UK-ige"/>
                         <constraint firstItem="z37-BT-3Z8" firstAttribute="centerX" secondItem="IkW-96-idr" secondAttribute="centerX" id="kLw-wT-fYa"/>
                         <constraint firstAttribute="trailing" secondItem="ahS-Li-snC" secondAttribute="trailing" constant="10" id="r3g-Aw-x1h"/>

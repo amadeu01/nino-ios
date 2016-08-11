@@ -145,6 +145,8 @@
 		287E8B8F1D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B901D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
 		287E8B911D2D552A00C58507 /* RegisterNewEducatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E8B8E1D2D552A00C58507 /* RegisterNewEducatorViewController.swift */; };
+		287F31951D5CFB6400DF2E1C /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
+		287F31961D5CFB6500DF2E1C /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
 		28830E7B1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
 		28830E7C1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
 		28830E7D1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */; };
@@ -338,8 +340,6 @@
 		28AE87141D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
 		28AE87151D3B0A2500993AF8 /* StandardManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */; };
 		28AE871B1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
-		28AE871C1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
-		28AE871D1D3BC20E00993AF8 /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE871A1D3BC20E00993AF8 /* DataStructure.swift */; };
 		28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
 		28C5CB211D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
 		28C5CB221D4AA605003629E3 /* ChooseClassroom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */; };
@@ -2790,6 +2790,7 @@
 				AC43B3C71D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC47FCCE1D3E644D00FB3CB6 /* MyAlimentation.swift in Sources */,
 				AC43B3D61D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
+				287F31951D5CFB6400DF2E1C /* DataStructure.swift in Sources */,
 				AC47FD341D3E665D00FB3CB6 /* MyDayCollectionViewLayout.swift in Sources */,
 				2868C5851D47A1DC0032591D /* DraftNavigationController.swift in Sources */,
 				284C5FEA1D31422B00FD83D6 /* RegisterNewClassroomViewController.swift in Sources */,
@@ -2851,7 +2852,6 @@
 				ACB7E0CC1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
 				AC47FD3C1D3E679500FB3CB6 /* Mamadeira.swift in Sources */,
 				AC51285D1D50D2E400A2760C /* AccountError.swift in Sources */,
-				28AE871C1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				28F367051D2FE36500A0743B /* ManageClassroomsViewController.swift in Sources */,
 				AC43B3E41D40120400A6CB5C /* ActivityRealmObject.swift in Sources */,
 				28E2D77F1D5B775C00023D35 /* SelectClassroomTableViewController.swift in Sources */,
@@ -2899,7 +2899,6 @@
 				28A046671D254C30007E0053 /* NinoFont.swift in Sources */,
 				AC7144071D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
 				AC74E10F1D2E8749004281F3 /* AccountBO.swift in Sources */,
-				28AE871D1D3BC20E00993AF8 /* DataStructure.swift in Sources */,
 				AC33F48D1D36D318009D10B5 /* DateSelector.swift in Sources */,
 				ACFFA1041D353644007DE324 /* MD5.swift in Sources */,
 				288B27961D37D1A900B47DC0 /* Event.swift in Sources */,
@@ -2910,6 +2909,7 @@
 				ACFBADDE1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
 				28830E821D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */,
 				AC33F47F1D36C4DE009D10B5 /* MyDayViewController.swift in Sources */,
+				287F31961D5CFB6500DF2E1C /* DataStructure.swift in Sources */,
 				280A4B7D1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */,
 				288B27F51D37E0D400B47DC0 /* MenuBO.swift in Sources */,
 				ACF3603A1D4800D900A30922 /* NotificationMessage.swift in Sources */,

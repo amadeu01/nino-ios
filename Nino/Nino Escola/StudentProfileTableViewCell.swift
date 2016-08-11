@@ -74,7 +74,7 @@ class StudentProfileTableViewCell: UITableViewCell {
         border.translatesAutoresizingMaskIntoConstraints = false
         border.backgroundColor = CustomizeColor.borderColourNino()
         self.addSubview(border)
-        let borderConstraints = [FluentConstraint(border).top.equalTo(self).top.activate(), FluentConstraint(border).trailing.equalTo(self).trailing.activate(), FluentConstraint(border).height.equalTo(1).activate(), FluentConstraint(border).leading.plus(-90).equalTo(self).leading.activate()]
+        let borderConstraints = [FluentConstraint(border).bottom.equalTo(self).bottom.activate(), FluentConstraint(border).trailing.equalTo(self).trailing.activate(), FluentConstraint(border).height.equalTo(1).activate(), FluentConstraint(border).leading.plus(-90).equalTo(self).leading.activate()]
         self.addConstraints(borderConstraints)
     }
     
