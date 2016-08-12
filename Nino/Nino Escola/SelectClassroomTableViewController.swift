@@ -7,19 +7,43 @@
 //
 
 import UIKit
-struct ClassroomMock {
-    let name: String
+
+private class SelectorRoom {
+    var name: String
+    var id: String
+    
+    init(name: String, id: String) {
+        self.id = id
+        self.name = name
+    }
 }
-struct PhaseMock {
-    let name: String
-    let classrooms: [ClassroomMock]
+
+private class SelectorPhase {
+    var name: String
+    var rooms: [SelectorRoom]
+    var id: String
+    init(name: String, id: String) {
+        self.id = id
+        self.name = name
+        self.rooms = [SelectorRoom]()
+    }
 }
+
+protocol ChooseClassroomDelegate {
+    func didChangeSelectedPhase(newTitle: String, phase: String, room: String)
+}
+
 class SelectClassroomTableViewController: UITableViewController {
     
-    var phases = [PhaseMock]()
+    private var phases = [SelectorPhase]()
+    var delegate: ChooseClassroomDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdated))
+        
         reloadData()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)// Removes empty cells
         self.preferredContentSize = CGSize(width: tableView.frame.width, height: tableView.frame.height + 15 )
@@ -27,23 +51,7 @@ class SelectClassroomTableViewController: UITableViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        guard let firstCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) else {
-            return
-        }
-        let allSecsHeight = tableView.sectionHeaderHeight * CGFloat(self.tableView.numberOfSections)
-        print("All Sections Height is\(allSecsHeight)")
-        var numberOfRows = 0
-        var secNum = 0
-        while (secNum < tableView.numberOfSections) {
-            numberOfRows += tableView.numberOfRowsInSection(secNum)
-            secNum += 1
-        }
-        let allRowsHeight = CGFloat(numberOfRows) * firstCell.frame.height
-        print("All Row Height is\(allSecsHeight)")
-        self.preferredContentSize = CGSize(width: 300, height: allRowsHeight + allSecsHeight)
-        print("All Row Height is\(allSecsHeight)")
-        //self.preferredContentSize = CGSize(width: 200, height: 200)
-        print("Is this real life")
+        self.resizeView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,15 +67,22 @@ class SelectClassroomTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return phases[section].classrooms.count
+        return phases[section].rooms.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("selectClassroomTableViewCell", forIndexPath: indexPath)
 
-
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.dismiss {
+            let phase = self.phases[indexPath.section]
+            let room = self.phases[indexPath.section].rooms[indexPath.item]
+            self.delegate?.didChangeSelectedPhase(phase.name.uppercaseString + " | " + room.name, phase: phase.id, room: room.id)
+        }
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -75,7 +90,7 @@ class SelectClassroomTableViewController: UITableViewController {
             guard let phaseCell = cell as? SelectClassroomTableViewCell else {
                 return
             }
-            phaseCell.configureCell(phases[indexPath.section].classrooms[indexPath.row].name, profileImage: nil, index: indexPath.row)
+            phaseCell.configureCell(phases[indexPath.section].rooms[indexPath.row].name, profileImage: nil, index: indexPath.row)
             phaseCell.accessoryType = .None
             
     }
@@ -89,13 +104,106 @@ class SelectClassroomTableViewController: UITableViewController {
             view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
         }
     }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))
+    }
+    
     func reloadData() {
-        var classroomsBaby = [ClassroomMock]()
-        classroomsBaby.append(ClassroomMock(name: "Tarde"))
-        classroomsBaby.append(ClassroomMock(name: "Manhã"))
-        phases.append(PhaseMock(name: "Berçário", classrooms: classroomsBaby))
-        phases.append(PhaseMock(name: "Pré-Escola", classrooms: classroomsBaby))
-        phases.append(PhaseMock(name: "Ninão", classrooms: classroomsBaby))
+        self.phases.removeAll()
+        if let token = NinoSession.sharedInstance.credential?.token {
+            if let schoolID = NinoSession.sharedInstance.schoolID {
+                PhaseBO.getPhases(token, schoolID: schoolID, completionHandler: { (phases) in
+                    do {
+                        let phases = try phases()
+                        for phase in phases {
+                            RoomBO.getRooms(phase.id, completionHandler: { (rooms) in
+                                do {
+                                    let rooms = try rooms()
+                                    let thisPhase = SelectorPhase(name: phase.name, id: phase.id)
+                                    for room in rooms {
+                                        thisPhase.rooms.append(SelectorRoom(name: room.name, id: room.id))
+                                    }
+                                    self.phases.append(thisPhase)
+                                    self.tableView.reloadData()
+                                    self.resizeView()
+                                } catch {
+                                    //TODO: HANDLE ERROR AGAIN
+                                }
+                            })
+                        }
+                    } catch {
+                        //TODO: HANDLE ERROR AGAIN
+                    }
+                })
+            }
+        }
+    }
+    
+    func resizeView() {
+        guard let firstCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) else {
+            self.preferredContentSize = CGSize(width: 300, height: 100)
+            return
+        }
+        let allSecsHeight = (tableView.sectionHeaderHeight + 10) * CGFloat(self.tableView.numberOfSections)
+        
+        var numberOfRows = 0
+        var secNum = 0
+        while secNum < tableView.numberOfSections {
+            numberOfRows += tableView.numberOfRowsInSection(secNum)
+            secNum += 1
+        }
+        let allRowsHeight = CGFloat(numberOfRows) * firstCell.frame.height
+        
+        self.preferredContentSize = CGSize(width: 300, height: allRowsHeight + allSecsHeight)
+        
+        //self.preferredContentSize = CGSize(width: 200, height: 200)
+        
+    }
+    
+    // MARK: Notifications
+    
+    func roomsUpdated (notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO:
+            return
+        }
+        
+        if let error = userInfo["error"] {
+            //TODO:
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newPhases = message.dataToInsert as? [Phase] {
+                if newPhases.count > 0 {
+                    reloadData()
+                }
+            }
+        }
+        
+        //TODO: DELETED
+        //TODO: UPDATED
+    }
+    
+    func phasesUpdated (notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO:
+            return
+        }
+        
+        if let error = userInfo["error"] {
+            //TODO:
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newRooms = message.dataToInsert as? [Room] {
+                if newRooms.count > 0 {
+                    reloadData()
+                }
+            }
+        }
+        
+        //TODO: DELETED
+        //TODO: UPDATED
     }
 
 }
