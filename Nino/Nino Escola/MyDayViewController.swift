@@ -215,6 +215,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         let cell = self.cellForIndexPath(indexPath, sections: section)
         let newCell = MyDayBO.cellDidChange(value, cell: cell)
         self.changeCellInSide(indexPath, isLeft: isLeftCell, newCell: newCell)
+        MyDayBO.updateDraft("df", left: self.leftCells, right: self.rightCells) { (update) in
+            
+        }
     }
     
 //MAARK: Private methods
@@ -255,9 +258,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             sum -= row.cells.count
             var cells = row.cells
             cells[indexPath.item - sum] = newCell
-            let newRow = MyDayRow(cells: cells, description: row.description, emptyDescription: row.emptyDescription)
+            let newRow = MyDayRow(id: row.id, cells: cells, description: row.description, emptyDescription: row.emptyDescription)
             rows[rowIndex] = newRow
-            let newSection = MyDaySection(title: sections[indexPath.section].title, icon: sections[indexPath.section].icon, rows: rows)
+            let newSection = MyDaySection(id: sections[indexPath.section].id, title: sections[indexPath.section].title, icon: sections[indexPath.section].icon, rows: rows)
             if isLeft {
                 self.leftCells[indexPath.section] = newSection
             } else {
