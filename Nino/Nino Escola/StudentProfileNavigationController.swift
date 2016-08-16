@@ -52,11 +52,6 @@ class StudentProfileNavigationController: UINavigationController {
         performSegueWithIdentifier("showChatViewController", sender: self)
     }
     
-    
-
-
-    
-    
     /*
      // MARK: - Navigation
      

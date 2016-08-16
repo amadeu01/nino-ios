@@ -8,14 +8,6 @@
 
 import UIKit
 
-private class StudentSource {
-    var name: String
-    
-    init(name: String) {
-        self.name = name
-    }
-}
-
 class StudentProfileListController: UITableViewController, StudentProfileListHeaderDelegate, UIPopoverPresentationControllerDelegate, ChooseClassroomDelegate {
     
     @IBOutlet weak var studentProfileTableView: UITableView!
@@ -28,8 +20,9 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     
     var currentRoom: String?
     var currentPhase: String?
+    var currentStudent: String?
     
-    private var students = [StudentSource]()
+    private var students = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +87,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
             return StudentProfileTableViewCell()
         }
         
-        thisCell.studentName = students[indexPath.item].name
+        thisCell.studentID = students[indexPath.item]
         
         return thisCell
     }
@@ -120,6 +113,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        SchoolSession.currentStudent = students[indexPath.item]
         self.performSegueWithIdentifier("showStudentProfile", sender: self)
     }
     
@@ -179,7 +173,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                 do {
                     let students = try students()
                     for student in students {
-                        self.students.append(StudentSource(name: student.name))
+                        self.students.append(student.id)
                     }
                     self.studentProfileTableView.reloadData()
                 } catch {

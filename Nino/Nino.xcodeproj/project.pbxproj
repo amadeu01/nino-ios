@@ -34,6 +34,9 @@
 		07818CB91D47B9FB007FFDE2 /* IntensityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */; };
 		07818CBA1D47B9FB007FFDE2 /* IntensityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */; };
 		07818CBB1D47B9FB007FFDE2 /* IntensityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */; };
+		078F59A41D63B9190030007A /* SchoolSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59A31D63B9190030007A /* SchoolSession.swift */; };
+		078F59A51D63B9190030007A /* SchoolSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59A31D63B9190030007A /* SchoolSession.swift */; };
+		078F59A61D63B9190030007A /* SchoolSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59A31D63B9190030007A /* SchoolSession.swift */; };
 		07A272271D49189B005079BC /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272261D49189B005079BC /* MyDayCell.swift */; };
 		07A272281D49189B005079BC /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272261D49189B005079BC /* MyDayCell.swift */; };
 		07A272291D49189B005079BC /* MyDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A272261D49189B005079BC /* MyDayCell.swift */; };
@@ -869,6 +872,7 @@
 		07818CAC1D46F37A007FFDE2 /* MyDaySectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySectionHeader.swift; sourceTree = "<group>"; };
 		07818CB41D47B9AD007FFDE2 /* IntensityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntensityCell.xib; sourceTree = "<group>"; };
 		07818CB81D47B9FB007FFDE2 /* IntensityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntensityCell.swift; sourceTree = "<group>"; };
+		078F59A31D63B9190030007A /* SchoolSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSession.swift; sourceTree = "<group>"; };
 		07A272261D49189B005079BC /* MyDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayCell.swift; sourceTree = "<group>"; };
 		07A2722B1D491A7A005079BC /* MyDaySectionIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySectionIcon.swift; sourceTree = "<group>"; };
 		07A272331D493E70005079BC /* SeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorCell.swift; sourceTree = "<group>"; };
@@ -1535,6 +1539,7 @@
 				ACFFA0FE1D353644007DE324 /* MD5.swift */,
 				AC89782B1D3D159D00022BDC /* NinoDispatchGroupes.swift */,
 				AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */,
+				078F59A31D63B9190030007A /* SchoolSession.swift */,
 			);
 			name = Mechanisms;
 			sourceTree = "<group>";
@@ -2686,6 +2691,7 @@
 				288B27A21D37D1AA00B47DC0 /* Menu.swift in Sources */,
 				28E2D7821D5B798700023D35 /* SelectClassroomTableViewCell.swift in Sources */,
 				ACB7E0CB1D22AD9E0014F76D /* GenderSelector.swift in Sources */,
+				078F59A41D63B9190030007A /* SchoolSession.swift in Sources */,
 				AC9CA6351D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				AC79F0271D50F55800583452 /* NinoSession.swift in Sources */,
 				288B27201D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
@@ -2806,6 +2812,7 @@
 				07A2722D1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
 				AC79F02C1D53B25100583452 /* PhotosViewController.swift in Sources */,
 				AC43B4041D41379700A6CB5C /* CreationError.swift in Sources */,
+				078F59A51D63B9190030007A /* SchoolSession.swift in Sources */,
 				288B27211D36ADA600B47DC0 /* RegisterNewPhaseViewController.swift in Sources */,
 				288B27251D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
 				ACFBADDD1D2D29F50060EC75 /* ServerRoutes.swift in Sources */,
@@ -2979,6 +2986,7 @@
 				28E2D7841D5B798700023D35 /* SelectClassroomTableViewCell.swift in Sources */,
 				07A272361D493E70005079BC /* SeparatorCell.swift in Sources */,
 				AC47FCE11D3E64E300FB3CB6 /* AppDelegate.swift in Sources */,
+				078F59A61D63B9190030007A /* SchoolSession.swift in Sources */,
 				ACE6E15C1D10CBF400A11E6A /* CustomizeColor.swift in Sources */,
 				288B27911D37D1A900B47DC0 /* Key.swift in Sources */,
 				AC07C43B1D29EF7B0044B80A /* RegisterPasswordViewController.swift in Sources */,

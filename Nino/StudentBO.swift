@@ -205,12 +205,37 @@ class StudentBO: NSObject {
         StudentDAO.sharedInstance.getStudentID(student) { (id) in
             do {
                 let studentID = try id()
-                completionHandler(id: { () -> Int in
-                    return studentID
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(id: { () -> Int in
+                        return studentID
+                    })
                 })
             } catch let error {
-                completionHandler(id: { () -> Int in
-                    throw error
+                //TODO: Handle error
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(id: { () -> Int in
+                        throw error
+                    })
+                })
+            }
+        }
+    }
+    
+    static func getStudentForID(student: String, completionHandler: (student: () throws -> Student) -> Void) {
+        StudentDAO.sharedInstance.getStudentForId(student) { (student) in
+            do {
+                let student = try student()
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(student: { () -> Student in
+                        return student
+                    })
+                })
+            } catch let error {
+                //TODO: Handle Error
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(student: { () -> Student in
+                        throw error
+                    })
                 })
             }
         }

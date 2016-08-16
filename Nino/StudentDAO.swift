@@ -136,6 +136,45 @@ class StudentDAO: NSObject {
         }
     }
     
+    func getStudentForId(id: String, completionHandler: (student: () throws -> Student) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let realmStudent = realm.objectForPrimaryKey(StudentRealmObject.self, key: id)
+                guard let student = realmStudent else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(student: { () -> Student in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                
+                var guardians: [String]?
+                for guardian in student.guardians {
+                    if guardians == nil {
+                        guardians = [String]()
+                    }
+                    guardians?.append(guardian.id)
+                }
+                let studentVO = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: Gender(rawValue: student.gender)!, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: student.room!.id, guardians: guardians)
+
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(student: { () -> Student in
+                        return studentVO
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(student: { () -> Student in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+
+    }
+    
     func getStudentID(student: String, completionHandler: (id: () throws -> Int) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {

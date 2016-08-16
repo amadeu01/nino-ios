@@ -16,6 +16,9 @@ class ProfileTopBarViewController: UIViewController {
     @IBOutlet weak var activitiesButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     
+    @IBOutlet weak var birthdate: UILabel!
+    @IBOutlet weak var name: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +26,22 @@ class ProfileTopBarViewController: UIViewController {
         photosButton.hidden = true
         activitiesButton.hidden = true
         chatButton.hidden = true
-        
         // Do any additional setup after loading the view.
+        
+        if let studentID = SchoolSession.currentStudent {
+            StudentBO.getStudentForID(studentID, completionHandler: { (student) in
+                do {
+                    let student = try student()
+                    self.name.text = student.name + " " + student.surname
+                    let formatter = NSDateFormatter()
+                    formatter.dateFormat = "dd/MM/yyyy"
+                    self.birthdate.text = "Nascimento: " + formatter.stringFromDate(student.birthDate)
+                } catch {
+                    //TODO: handle error
+                }
+            })
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
