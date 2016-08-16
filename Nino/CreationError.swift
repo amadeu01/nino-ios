@@ -23,4 +23,5 @@ enum CreationError: ErrorType {
     case InvalidBirthDate
     case InvalidEmail
     case InvalidHash
+    case EmptyField
 }

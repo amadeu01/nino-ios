@@ -239,6 +239,29 @@ class MyDayBO: NSObject {
     }
     
     static func shouldAddNewItem(row: MyDayRow) throws -> MyDayRow {
-        
+        for cell in row.cells {
+            if cell.values.last == -1 {
+                throw CreationError.EmptyField
+            }
+        }
+        var cells = [MyDayCell]()
+        for cell in row.cells {
+            let newCell: MyDayCell
+            if let intensity = cell as? MyDayIntensityCell {
+                var values = intensity.values
+                values.append(-1)
+                let current = intensity.current + 1
+                newCell = MyDayIntensityCell(title: intensity.getTitle(), buttons: intensity.buttons, values: values, current: current)
+            } else if let slider = cell as? MyDaySliderCell {
+                var values = slider.values
+                values.append(-1)
+                let current = slider.current + 1
+                newCell = MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: values, current: current)
+            } else {
+                newCell = MyDayIntensityCell(title: "Hey", buttons: [["title": "1", "preffix": "", "suffix": ""], ["title": "2", "preffix": "", "suffix": ""]], values: nil, current: nil)
+            }
+            cells.append(newCell)
+        }
+        return MyDayRow(id: row.id, cells: cells, description: row.description, emptyDescription: row.emptyDescription)
     }
 }

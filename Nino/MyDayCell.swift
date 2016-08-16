@@ -18,6 +18,11 @@ protocol MyDayCellDelegate {
     func didChangeStatus(value: Int, indexPath: NSIndexPath, isLeftCell: Bool)
 }
 
+protocol MyDaySliderCellDelegate {
+    func shouldAddItem(indexPath: NSIndexPath, isLeftCell: Bool)
+    func changeSelected(indexPath: NSIndexPath, isLeftCell: Bool)
+}
+
 import Foundation
 
 /**
