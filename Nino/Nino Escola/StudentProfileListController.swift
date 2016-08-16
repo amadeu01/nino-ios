@@ -38,6 +38,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         //registering for notification
         NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
         NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(reloadData))
         NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
         //xrschoolNameLabel.text = "DID WORK"
         //self.tableView.registerNib(UINib(nibName: "StudentProfileListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
@@ -174,7 +175,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         self.reloadData()
     }
     
-    func reloadData() {
+    @objc private func reloadData() {
         self.students.removeAll()
         if let room = self.currentRoom {
             StudentBO.getStudent(room) { (students) in
