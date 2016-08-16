@@ -217,4 +217,33 @@ class RoomDAO: NSObject {
         }
         throw DatabaseError.NotFound
     }
+    
+    func getRoomWithID(roomID: String, completionHandler: (getRoom: () throws -> Room) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let realmRoom = realm.objectForPrimaryKey(RoomRealmObject.self, key: roomID)
+                guard let room = realmRoom else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(getRoom: { () -> Room in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let roomVO = Room(id: room.id, roomID: room.roomID.value, phaseID: room.phase!.id, name: room.name)
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(getRoom: { () -> Room in
+                        return roomVO
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(getRoom: { () -> Room in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
 }

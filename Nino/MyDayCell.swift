@@ -2,38 +2,118 @@
 //  MyDayCell.swift
 //  Nino
 //
-//  Created by Carlos Eduardo Millani on 7/25/16.
+//  Created by Carlos Eduardo Millani on 7/27/16.
 //  Copyright © 2016 Danilo Becke. All rights reserved.
 //
+
+protocol MyDayCell {
+    var values: [Int] {get}
+    var current: Int {get}
+    func getTitle() -> String
+    func getHeight() -> CGFloat
+    func getCellIdentifier() -> String
+}
+
+protocol MyDayCellDelegate {
+    func didChangeStatus(value: Int, indexPath: NSIndexPath, isLeftCell: Bool)
+}
 
 import Foundation
 
 /**
- *  VO representing one My Day Cell
+ *  VOs representing My Day Rows
  */
 
-struct MyDayCell {
+struct MyDayIntensityCell: MyDayCell {
     
     //MARK: Attributes
-    let title: String
-    let icon: MyDaySectionIcon
-    let sections: [MyDayRow]
-    let height: CGFloat
+    private let title: String
+    let buttons: [[String: String]]
+    let values: [Int]
+    let current: Int
     
-    //MARK: Initializer
-    /**
-     Initialize a My Day Cell
-     
-     - parameter title: cell's title
-     - parameter icon:  cell's icon by index
-     - parameter sections:  cell's sections by index
-     
-     - returns: struct VO of MyDayCell type
-     */
-    init(title: String, icon: MyDaySectionIcon, sections: [MyDayRow]) {
+    init(title: String, buttons: [[String: String]], values: [Int]?, current: Int?) {
         self.title = title
-        self.height = 40
-        self.icon = icon
-        self.sections = sections
+        self.buttons = buttons
+        if let array = values {
+            self.values = array
+        } else {
+            self.values = [-1]
+        }
+        if let value = current {
+            self.current = value
+        } else {
+            self.current = 0
+        }
+    }
+    
+    func getTitle() -> String {
+        return self.title
+    }
+    
+    func getHeight() -> CGFloat {
+        return 50
+    }
+    
+    func getCellIdentifier() -> String {
+        return "intensityCell"
+    }
+}
+
+struct MyDaySliderCell: MyDayCell {
+    private let title: String
+    let floor: Float
+    let ceil: Float
+    let image: MyDaySliderIcon
+    let unit: String
+    let values: [Int]
+    let current: Int
+    
+    init(title: String, unit: String, image: MyDaySliderIcon, floor: Int, ceil: Int, values: [Int]?, current: Int?) {
+        self.unit = unit
+        self.title = title
+        self.floor = Float(floor)
+        self.ceil = Float(ceil)
+        self.image = image
+        if let array = values {
+            self.values = array
+        } else {
+            self.values = [-1]
+        }
+        if let value = current {
+            self.current = value
+        } else {
+            self.current = 0
+        }
+    }
+    
+    func getTitle() -> String {
+        return self.title
+    }
+    
+    func getHeight() -> CGFloat {
+        return 150
+    }
+    
+    func getCellIdentifier() -> String {
+        return "sliderCell"
+    }
+}
+
+struct MyDaySeparatorCell: MyDayCell {
+    
+    let values = [Int]()
+    let current = -1
+    
+    func getTitle() -> String {
+        return ""
+    }
+    
+    func getHeight() -> CGFloat {
+        return 10
+    }
+    
+    func getCellIdentifier() -> String {
+        return "separatorCell"
     }
 }

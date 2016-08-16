@@ -76,8 +76,7 @@ class StudentProfileListController: UITableViewController {
     
     //MARK: Notification Manager methods
     @objc private func schoolUpdated() {
-        //TODO: update school label
-        print("School notification working!")
+        print("School notification working")
     }
     
     @objc private func phasesUpdated(notification: NSNotification) {
@@ -89,9 +88,7 @@ class StudentProfileListController: UITableViewController {
             //TODO: handle error
         } else if let message = userInfo["info"] as? NotificationMessage {
             if let newPhases = message.dataToInsert as? [Phase] {
-                for phase in newPhases {
-                    self.phases.append(phase)
-                }
+                self.phases.appendContentsOf(newPhases)
             }
             //TODO: updated phases
             //TODO: deleted phases

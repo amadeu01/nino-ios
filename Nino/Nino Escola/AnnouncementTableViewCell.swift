@@ -41,14 +41,13 @@ class AnnouncementTableViewCell: UITableViewCell {
     /**
      Hides the draft symbol if the announcement is not a draft
      */
-    func sentAnnouncement(sent:Bool){
+    func sentAnnouncement(sent: Bool) {
         draftLabel.hidden = sent
         self.sent = sent
     }
     
-    func withTitle(present:Bool){
+    func withTitle(present: Bool) {
         noTitleLabel.hidden = present// Shows a placeholder if there's no title
     }
     
 }
-

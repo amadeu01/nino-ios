@@ -13,18 +13,22 @@ class IntensityCell: UITableViewCell {
     
     @IBOutlet weak var buttonsArea: UIView!
     @IBOutlet weak var title: UILabel!
-    var delegate: MyDayRowDelegate?
-    var emptyDescription : String?
-    var selectedDescription: String?
+    var delegate: MyDayCellDelegate?
     var indexPath: NSIndexPath?
+    private var cellValues: [[String: String]]?
+    var isLeftCell: Bool?
+    private var values = [-1]
+    private var current = 0
     
-        /// The current selection
+    /// The current selection
     var selectedItem: UIButton? {
         willSet(newSelected) {
             //Sets the one selected before back to black
+            selectedItem?.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
             selectedItem?.setTitleColor(UIColor.blackColor(), forState: .Normal)
             selectedItem?.subviews[1].backgroundColor = UIColor.blackColor()
             //Sets the new selected item to the nino color
+            newSelected?.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
             newSelected?.setTitleColor(UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1), forState: .Normal)
             newSelected?.subviews[1].backgroundColor = UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1)
         }
@@ -50,13 +54,19 @@ class IntensityCell: UITableViewCell {
      - parameter label:   The title of this cell
      - parameter strings: An array containing all the options to this cell
      */
-    func setup(label: String, strings: [String], delegate: MyDayRowDelegate, description: String, emptyDescription: String, indexPath: NSIndexPath) {
+    func setup(label: String, buttonsStrings: [[String: String]], delegate: MyDayCellDelegate, indexPath: NSIndexPath, isLeftCell: Bool, values: [Int]?, current: Int?) {
         //Sets title
         self.title.text = label
         self.delegate = delegate
-        self.selectedDescription = description
-        self.emptyDescription = emptyDescription
         self.indexPath = indexPath
+        self.cellValues = buttonsStrings
+        self.isLeftCell = isLeftCell
+        if let array = values {
+            self.values = array
+        }
+        if let value = current {
+            self.current = value
+        }
         
         //Clears the previous cell, as TableViewCells are reusable
         self.buttonsArea.subviews.forEach({$0.removeFromSuperview()})
@@ -64,34 +74,47 @@ class IntensityCell: UITableViewCell {
         //Sets variables for buttons positioning
         let avaiableArea = self.frame.width //As the self is already with the final size, we use it
         var offset: CGFloat = 4
-        let step = (avaiableArea-8)/CGFloat(strings.count) //The step is according to the number of options
+        let step = (avaiableArea-8)/CGFloat(buttonsStrings.count) //The step is according to the number of options
         
         //Gets the margin of the cell
         let leftAnchor = self.buttonsArea.layoutMarginsGuide.leadingAnchor
         let centerAnchor = self.buttonsArea.layoutMarginsGuide.centerYAnchor
         
         //For each string we position a button it and add a circle to its left
-        for string in strings {
+        var position = 0
+        for buttonDict in buttonsStrings {
             //Creates the button and adds the target function for clicks
             let button = UIButton()
+            button.tag = position
             buttons.append(button)
             button.addTarget(self, action: #selector(self.tapAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             button.translatesAutoresizingMaskIntoConstraints = false
             
             //Sets the Visuals of the button
-            button.setTitle(string, forState: .Normal)
+            guard let title = buttonDict["title"] else {
+                //never will be reached, I hope
+                //TODO: handle missing button title
+                return
+            }
+            button.setTitle(title, forState: .Normal)
             button.setTitleColor(UIColor.blackColor(), forState: .Normal)
             button.titleLabel!.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
-            
+            button.titleLabel?.minimumScaleFactor = 0.2
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            button.contentHorizontalAlignment = .Left
             self.buttonsArea.addSubview(button)
 
             //Positions it
             button.leadingAnchor.constraintEqualToAnchor(leftAnchor, constant: offset + 2 * circleDiameter).active = true
             button.centerYAnchor.constraintEqualToAnchor(centerAnchor).active = true
+            button.widthAnchor.constraintEqualToConstant(step - 2 * circleDiameter).active = true
+            
+
+
             
             //Creates and adds the circle
-            let circle = UIView.init(frame: CGRectMake(0, 0, circleDiameter, circleDiameter))
-            circle.layer.cornerRadius = circle.layer.frame.width/2
+            let circle = UIView()
+            circle.layer.cornerRadius = circleDiameter/2
             circle.backgroundColor = UIColor.blackColor()
             circle.translatesAutoresizingMaskIntoConstraints = false
             
@@ -104,7 +127,9 @@ class IntensityCell: UITableViewCell {
             circle.heightAnchor.constraintEqualToAnchor(nil, constant: circleDiameter-1).active = true
             
             offset += step
+            position += 1
         }
+        self.initializeValues()
     }
     
     func getStatus() -> String? {
@@ -120,12 +145,27 @@ class IntensityCell: UITableViewCell {
         if self.selectedItem == sender {
             self.selectedItem = nil
             if let index = self.indexPath {
-                delegate?.didChangeStatus(self.emptyDescription!, indexPath: index)
+                if let isLeft = self.isLeftCell {
+                    delegate?.didChangeStatus(-1, indexPath: index, isLeftCell: isLeft)
+                }
             }
         } else {
             self.selectedItem = sender
             if let index = self.indexPath {
-                delegate?.didChangeStatus(self.selectedDescription!.stringByReplacingOccurrencesOfString("%", withString: sender.titleLabel!.text!), indexPath: index)
+                if let isLeft = self.isLeftCell {
+                    delegate?.didChangeStatus(sender.tag, indexPath: index, isLeftCell: isLeft)
+                }
+            }
+        }
+    }
+    
+    private func initializeValues() {
+        let tag = self.values[current]
+        if tag != -1 {
+            for button in self.buttons {
+                if button.tag == tag {
+                    self.selectedItem = button
+                }
             }
         }
     }

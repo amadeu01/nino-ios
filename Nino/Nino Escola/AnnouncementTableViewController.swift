@@ -8,20 +8,20 @@
 
 import UIKit
 
-enum AnnouncementType{
+enum AnnouncementType {
     case Draft
     case Sent
 }
 
-public class AnnouncementInfo: NSObject{
-    var key:String?
+public class AnnouncementInfo: NSObject {
+    var key: String?
     var body: String?
     var title: String?
     var date: NSDate!
-    var index:Int?
+    var index: Int?
     var announcementType: AnnouncementType!
     
-    init(key: String!,  body: String?, title: String?, date: NSDate!, index: Int?, type: AnnouncementType!){
+    init(key: String!, body: String?, title: String?, date: NSDate!, index: Int?, type: AnnouncementType!) {
         self.key = key
         self.body = body
         self.title = title
@@ -64,10 +64,10 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
-    func presentNoAnnouncementsEmptyState (b: Bool){
+    func presentNoAnnouncementsEmptyState(b: Bool) {
         self.announcementsTableView.backgroundView?.hidden = !b
     }
-    func reloadAnnouncementsInMainThread(){
+    func reloadAnnouncementsInMainThread() {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             print("Will announcements in the tableView (if there are any)")
             self.sortAnnouncements()
@@ -76,7 +76,7 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
         })
     }
     //MARK: Reload Data
-    func reloadData(){
+    func reloadData() {
         let key = "sampleKey"
         let body = "Hi there"
         let title = "Sample"
@@ -95,7 +95,7 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
     //MARK: TabeView Data Source
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.announcementsTableView.dequeueReusableCellWithIdentifier(announcementCellIdentifier) as? AnnouncementTableViewCell
-        if cell == nil{
+        if cell == nil {
             cell = AnnouncementTableViewCell()
         }
         
@@ -103,7 +103,7 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
             self.userPressedDeleteAnnouncement(((self.announcements[indexPath.row] as? AnnouncementInfo)?.key)!, completionHandler: { (confirmation) in
                 if confirmation {
                     
-                } else{
+                } else {
                     
                 }
             })
@@ -122,17 +122,17 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
         thisCell.dateLabel.text = dateFormatter.stringFromDate(currentAnnouncement.date)
         thisCell.tag = indexPath.row// Tags the cell so we know when it gets selected. TODO: Fix tag.
         thisCell.announcementTitle.text = currentAnnouncement.title
-        if (currentAnnouncement.title == nil || currentAnnouncement.title == ""){
+        if currentAnnouncement.title == nil || currentAnnouncement.title == "" {
             thisCell.withTitle(false)
-        }else{
+        } else {
             thisCell.withTitle(true)
         }
         
         currentAnnouncement.index = indexPath.row// TODO: Check whether this is useful.
         
-        if currentAnnouncement.announcementType == AnnouncementType.Draft{
+        if currentAnnouncement.announcementType == AnnouncementType.Draft {
             thisCell.sentAnnouncement(false)
-        }else {
+        } else {
             thisCell.sentAnnouncement(true)// Shows the draft symbol if the announcement is a draft and gives a boolean value
         }
     }
@@ -140,7 +140,7 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
         let numberOfAnnouncements = announcements.count
         if numberOfAnnouncements == 0 {
             presentNoAnnouncementsEmptyState(true)
-        }else{
+        } else {
             presentNoAnnouncementsEmptyState(false)
         }
         return announcements.count
@@ -166,37 +166,37 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         openAnnouncement(indexPath.row)
     }
-    func openAnnouncement(index: Int!){
+    func openAnnouncement(index: Int!) {
         guard let announcement = announcements[index] as? AnnouncementInfo else {
             return
         }
-        if announcement.announcementType == AnnouncementType.Draft{
+        if announcement.announcementType == AnnouncementType.Draft {
             self.performSegueWithIdentifier("draftAnnouncement", sender: announcement)
-        }else if announcement.announcementType == AnnouncementType.Sent{
+        } else if announcement.announcementType == AnnouncementType.Sent {
             self.performSegueWithIdentifier("sentAnnouncement", sender: announcement)
         }
     }
     //MARK: - Select Cell
-    func selectAndMoveToCellAtIndex(index: Int!){
+    func selectAndMoveToCellAtIndex(index: Int!) {
         announcementsTableView.selectRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: true, scrollPosition: .Top)
         openAnnouncement(index)
     }
     //MARK: - New announcement
-    func didPressNewAnnouncement(button: UIButton, indicator: UIActivityIndicatorView){
+    func didPressNewAnnouncement(button: UIButton, indicator: UIActivityIndicatorView) {
         
         self.announcementsTableView.beginUpdates()
         let key = generateKey()
         let date = NSDate()
         let newDraft = AnnouncementInfo(key: key, body: "", title: "", date: date, index: 0, type: .Draft)
         self.announcements.insertObject(newDraft, atIndex: 0)
-        self.announcementsTableView.insertRowsAtIndexPaths( [NSIndexPath(forItem: 0, inSection: 0) ]   , withRowAnimation: UITableViewRowAnimation.Right)
+        self.announcementsTableView.insertRowsAtIndexPaths( [NSIndexPath(forItem: 0, inSection: 0) ], withRowAnimation: UITableViewRowAnimation.Right)
         self.announcementsTableView.endUpdates()
         self.announcementsTableView.selectRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: true, scrollPosition: .Top)//Selects the editable row
         self.performSegueWithIdentifier("draftAnnouncement", sender: newDraft)
     }
     // MARK: - Delete Cell
-    func userPressedDeleteAnnouncement(key: String, completionHandler: (confirmation: Bool) -> Void){
-        let alertView = UIAlertController(title: "Deseja apagar a mensagem?",message: "" as String, preferredStyle:.Alert)
+    func userPressedDeleteAnnouncement(key: String, completionHandler: (confirmation: Bool) -> Void) {
+        let alertView = UIAlertController(title: "Deseja apagar a mensagem?", message: "" as String, preferredStyle:.Alert)
         let deleteAction = UIAlertAction(title: "Apagar", style: UIAlertActionStyle.Destructive) { (delete) -> Void in
             
             completionHandler(confirmation: true)//user confirmed he wants to delete announcement
@@ -208,7 +208,7 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
         self.announcementsTableView.deleteRowsAtIndexPaths([NSIndexPath(forItem: deletedIndex!, inSection: 0)], withRowAnimation: .Automatic)
         self.announcementsTableView.endUpdates()
         
-        if(self.selectedAnnouncementKey == key){//Means we are showing the announcement that was deleted
+        if self.selectedAnnouncementKey == key {//Means we are showing the announcement that was deleted
             self.performSegueWithIdentifier("emptyState", sender: self)
         }
         
@@ -228,9 +228,9 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
         
         //func deleteDraft(title: String!, body: String!, key: String!, completionHandler: (confirmation:Bool) -> Void)
         self.userPressedDeleteAnnouncement(selectedAnnouncement.key!) { (confirmation) -> Void in
-            if confirmation{
+            if confirmation {
                 print("User confirmed the announcement should be deleted")
-            }else{
+            } else {
                 print("User confirmed the announcement should NOT be deleted")
             }
         }
@@ -278,21 +278,21 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
         }
     }
     //MARK: Announcements Helper
-    func getIndexFromKey(key: String!) -> Int?{
+    func getIndexFromKey(key: String!) -> Int? {
         var index = 0
-        for announcement in self.announcements{
+        for announcement in self.announcements {
             guard let thisAnnouncement = announcement as? AnnouncementInfo else {
                 continue
             }
-            if thisAnnouncement == key{
+            if thisAnnouncement == key {
                 return index
-            }else{
+            } else {
                 index += 1
             }
         }
         return nil// key not found
     }
-    func sortAnnouncements(){
+    func sortAnnouncements() {
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         announcements.sortUsingDescriptors([sortDescriptor])
     }

@@ -36,7 +36,7 @@ struct Educator {
 
      - returns: struct VO of Guardian type
      */
-    init(id: String,profileID: Int?, name: String, surname: String, gender: Gender, email: String, rooms: [String]?) {
+    init(id: String, profileID: Int?, name: String, surname: String, gender: Gender, email: String, rooms: [String]?) {
         self.id = id
         self.name = name
         self.surname = surname

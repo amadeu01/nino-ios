@@ -278,6 +278,25 @@ class RoomBO: NSObject {
         }
     }
     
+    static func getRoomWithID(room: String, completionHandler: (getRoom: () throws -> Room) -> Void) {
+        RoomDAO.sharedInstance.getRoomWithID(room) { (getRoom) in
+            do {
+                let roomVO = try getRoom()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getRoom: { () -> Room in
+                        return roomVO
+                    })
+                })
+            } catch {
+                //TODO: could not create realm or not found error
+            }
+        }
+    }
+    
+    static func getAgendaIDForRoom(roomID: String, completionHandler: (getAgenda: () throws -> Int) -> Void) {
+        
+    }
+    
     private static func compareRooms(serverRooms: [Room], localRooms: [Room]) -> [String: [Room]] {
         var result = [String: [Room]]()
         var wasChanged = [Room]()

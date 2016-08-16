@@ -16,40 +16,148 @@ class MyDayBO: NSObject {
      
      - parameter room: The room id
      
-     - returns: list of MyDayCell VOs
+     - returns: lists of MyDaySection
      */
-    static func getCellsForClass(room: Int) -> (left: [MyDayCell], right: [MyDayCell]) {
-        return ([alimentationSection()], [sleepSection(), hygieneSection()])
-    }
-    
-    
-    private static func alimentationSection() -> MyDayCell {
-        var rows: [MyDayRow] = []
-        rows.append(MyDayIntensityRow(title: "Lanche da Manhã", strings: ["bem", "pouco", "não comi"], description: "No lanche da manhã eu comi %", emptyDescription: ""))
-        rows.append(MyDaySeparatorRow())
-        rows.append(MyDayIntensityRow(title: "Almoço", strings: ["bem", "pouco", "não comi"], description: "No almoço eu comi %", emptyDescription: ""))
-        rows.append(MyDaySeparatorRow())
-        rows.append(MyDayIntensityRow(title: "Lanche da Tarde", strings: ["bem", "pouco", "não comi"], description: "No lanche da tarde eu comi %", emptyDescription: ""))
-        rows.append(MyDaySeparatorRow())
-        rows.append(MyDayIntensityRow(title: "Janta", strings: ["bem", "pouco", "não comi"], description: "Na janta eu comi %", emptyDescription: ""))
-        rows.append(MyDaySeparatorRow())
-        rows.append(MyDaySliderRow(title: "Mamadeira", unit: "ml", image: .BabyBottles, floor: 0, ceil: 200, generalDescription: "Hoje eu mamei % mamadeiras", itemDescription: "Elas foram de % mls"))
+    static func getCellsForRoom(room: String) throws -> (left: [MyDaySection], right: [MyDaySection]) {
         
-        return MyDayCell(title: "Minha Alimentação", icon: .Food, sections: rows)
+        let (agendaLeft, agendaRight) = AgendaMechanism.getSectionsForAgenda(0)
+        do {
+            let left = try self.createSections(agendaLeft)
+            let right = try self.createSections(agendaRight)
+            return (left, right)
+        } catch let error {
+            throw error
+        }
+        
+//        return ([alimentationSection()], [sleepSection(), hygieneSection()])
     }
     
-    private static func sleepSection() -> MyDayCell {
-        var rows: [MyDayRow] = []
-        rows.append(MyDayIntensityRow(title: "Quando", strings: ["manhã", "meio-dia", "tarde"], description: "Hoje dormi durante a %", emptyDescription: "Hoje não dormi"))
-        rows.append(MyDaySliderRow(title: "Quantidade de sono", unit: "minutos", image: .BabyBottles, floor: 0, ceil: 180, generalDescription: "Hoje eu dormi % vezes", itemDescription: "Elas foram de % minutos"))
-        return MyDayCell(title: "Meu Sono", icon: .Sleep, sections: rows)
+    private static func createSections(sectionsInt: [Int]) throws -> [MyDaySection] {
+        var sections = [MyDaySection]()
+        for section in sectionsInt {
+            let sec = SectionMechanism.getRowsForSection(section)
+            let title = sec["title"] as? String
+            let icon = sec["icon"] as? String
+            let rows = sec["rows"] as? [Int]
+            guard let sectionTitle = title else {
+                //TODO: handle missing section title error
+                throw ServerError.UnexpectedCase
+                
+            }
+            guard let sectionIcon = icon else {
+                //TODO: handle missing section icon error
+                throw ServerError.UnexpectedCase
+            }
+            guard let sectionRowsInt = rows else {
+                //TODO: handle missing section rows error
+                throw ServerError.UnexpectedCase
+            }
+            guard let currentIcon = MyDaySectionIcon(rawValue: sectionIcon) else {
+                //TODO: handle wrong icon error
+                throw ServerError.UnexpectedCase
+            }
+            var sectionRows = [MyDayRow]()
+            for row in sectionRowsInt {
+                let currentRowDict = RowMechanism.getRowsWithID(row)
+                let rowCells = currentRowDict["cells"] as? [[String: AnyObject]]
+                let rowDescription = currentRowDict["description"] as? String
+                let rowEmptyDescription = currentRowDict["emptyDescription"] as? String
+                guard let cells = rowCells else {
+                    //TODO: handle missing cells error
+                    throw ServerError.UnexpectedCase
+                }
+                guard let description = rowDescription else {
+                    //TODO: handle missing description error
+                    throw ServerError.UnexpectedCase
+                }
+                guard let emptyDescription = rowEmptyDescription else {
+                    //TODO: handle missing emptyDescription error
+                    throw ServerError.UnexpectedCase
+                }
+                var currentCells = [MyDayCell]()
+                for cell in cells {
+                    do {
+                        let currentCell = try self.createCell(cell)
+                        currentCells.append(currentCell)
+                    } catch let error {
+                        //TODO: handle create cell error
+                        throw error
+                    }
+                }
+                let currentRow = MyDayRow(cells: currentCells, description: description, emptyDescription: emptyDescription)
+                sectionRows.append(currentRow)
+                let separatorCell = MyDaySeparatorCell()
+                let separatorRow = MyDayRow(cells: [separatorCell], description: "", emptyDescription: "")
+                sectionRows.append(separatorRow)
+            }
+            sectionRows.removeLast()
+            let currentSection = MyDaySection(title: sectionTitle, icon: currentIcon, rows: sectionRows)
+            sections.append(currentSection)
+        }
+        return sections
     }
     
-    private static func hygieneSection() -> MyDayCell {
-        var rows: [MyDayRow] = []
-        rows.append(MyDayIntensityRow(title: "Evacuação", strings: ["Normal", "Pastosa", "Diarréia"], description: "Hoje minha evacuação foi %", emptyDescription: "Hoje não evacuei"))
-        rows.append(MyDaySeparatorRow())
-        rows.append(MyDayIntensityRow(title: "Troca de Fralda", strings: ["1 vez", "2 vezes", "3 ou mais vezes"], description: "Hoje troquei de fralda %", emptyDescription: "Hoje não troquei de fralda"))
-        return MyDayCell(title: "Minha Higiene", icon: .Hygiene, sections: rows)
+    private static func createCell(cell: [String: AnyObject]) throws -> MyDayCell {
+        let type = cell["type"] as? String
+        let title = cell["title"] as? String
+        guard let cellType = type else {
+            //TODO: handle missing cell type error
+            throw ServerError.UnexpectedCase
+        }
+        guard let cellTitle = title else {
+            //TODO: handle missing cell title error
+            throw ServerError.UnexpectedCase
+        }
+        if cellType == CellType.Intensity.rawValue {
+            let buttons = cell["buttons"] as? [[String: String]]
+            guard let cellButtons = buttons else {
+                //TODO: handle missing cell buttons error
+                throw ServerError.UnexpectedCase
+            }
+            return MyDayIntensityCell(title: cellTitle, buttons: cellButtons, values: [1], current: 0)
+        } else if cellType == CellType.Slider.rawValue {
+            let floor = cell["floor"] as? Int
+            let ceil = cell["ceil"] as? Int
+            let unity = cell["unity"] as? String
+            let image = cell["image"] as? String
+            guard let cellFloor = floor else {
+                //TODO: handle missing cell floor error
+                throw ServerError.UnexpectedCase
+            }
+            guard let cellCeil = ceil else {
+                //TODO: handle missing cell ceil error
+                throw ServerError.UnexpectedCase
+            }
+            guard let cellUnity = unity else {
+                //TODO: handle missing cell unity error
+                throw ServerError.UnexpectedCase
+            }
+            guard let cellImage = image else {
+                //TODO: handle missing cell image error
+                throw ServerError.UnexpectedCase
+            }
+            guard let cellIcon = MyDaySliderIcon(rawValue: cellImage) else {
+                //TODO: handle missing icon error
+                throw ServerError.UnexpectedCase
+            }
+            return MyDaySliderCell(title: cellTitle, unit: cellUnity, image: cellIcon, floor: cellFloor, ceil: cellCeil, values: [10, 20, 30, -1], current: 1)
+        } else {
+            //TODO: handle wrong cell type error
+            throw ServerError.UnexpectedCase
+        }
+    }
+    
+    static func cellDidChange(value: Int, cell: MyDayCell) -> MyDayCell {
+        if let intensity = cell as? MyDayIntensityCell {
+            var values = intensity.values
+            values[intensity.current] = value
+            return MyDayIntensityCell(title: intensity.getTitle(), buttons: intensity.buttons, values: values, current: intensity.current)
+        } else if let slider = cell as? MyDaySliderCell {
+            var values = slider.values
+            values[slider.current] = value
+            return MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: values, current: slider.current)
+        } else {
+            return MyDayIntensityCell(title: "Hey", buttons: [["title": "1", "preffix": "", "suffix": ""], ["title": "2", "preffix": "", "suffix": ""]], values: nil, current: nil)
+        }
     }
 }

@@ -25,10 +25,13 @@ private class Item {
      
      - returns: new Item
      */
-    init(image: UIImageView, label: UILabel, leadingConstraint: NSLayoutConstraint) {
+    init(image: UIImageView, label: UILabel, leadingConstraint: NSLayoutConstraint, value: Float?) {
         self.image = image
         self.label = label
         self.leadingConstraint = leadingConstraint
+        if let initialValue = value {
+            self.value = initialValue
+        }
     }
 }
 
@@ -36,12 +39,15 @@ private class Item {
 class SliderCell: UITableViewCell {
 
     private var items: [Item] = []
+    var current = 0
     
     //On the change of the selected item the colors and slider value are changed
     private var selectedItem: Item? {
         willSet(newItem) {
             selectedItem?.label.textColor = UIColor.blackColor()
+            selectedItem?.label.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
             newItem?.label.textColor = UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1)
+            newItem?.label.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
             if let sliderValue = newItem?.value {
                 self.slider.value = sliderValue
             } else {
@@ -50,15 +56,14 @@ class SliderCell: UITableViewCell {
         }
         
     }
-    var itemDescription: String?
-    var generalDescription: String?
     var unit: String?
     var plusIcon: UIImageView?
     var iconName: String?
     var min: Float = 0
     var max: Float = 100
     var indexPath: NSIndexPath?
-    var delegate: MyDayRowDelegate?
+    var delegate: MyDayCellDelegate?
+    var isLeftCell: Bool?
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var title: UILabel!
@@ -95,12 +100,10 @@ class SliderCell: UITableViewCell {
      - parameter sliderFloor: The lowest value of Item
      - parameter sliderCeil:  The highest value of Item
      */
-    func setup (title: String, unit: String, iconName: String, sliderFloor: Float?, sliderCeil: Float?, delegate: MyDayRowDelegate, generalDescription: String, itemDescription: String, indexPath: NSIndexPath) {
+    func setup (title: String, unit: String, iconName: String, sliderFloor: Float?, sliderCeil: Float?, delegate: MyDayCellDelegate, indexPath: NSIndexPath, isLeftCell: Bool, values: [Int]?, current: Int?) {
         
         self.delegate = delegate
         self.indexPath = indexPath
-        self.generalDescription = generalDescription
-        self.itemDescription = itemDescription
         //First of all sets the min and max values, if null 0 and 100 are the default
         if let floor = sliderFloor {
             self.min = floor
@@ -114,13 +117,15 @@ class SliderCell: UITableViewCell {
         self.title.text = title
         self.unit = unit
         self.iconName = iconName
+        self.isLeftCell = isLeftCell
         
         //Cleans the superview from all children
         self.availableArea.subviews.forEach({$0.removeFromSuperview()})
         
         //Creates the plus Icon
         self.plusIcon = UIImageView(image: UIImage(named: "maizin"))
-
+        self.plusIcon?.contentMode = .Center
+        
         if let icon = self.plusIcon {
             //If everything ok, adds the icon to the view and adds the tap recognizer
             self.availableArea.addSubview(icon)
@@ -133,14 +138,23 @@ class SliderCell: UITableViewCell {
             icon.heightAnchor.constraintEqualToAnchor(self.availableArea.heightAnchor, multiplier: 0.60).active = true
             icon.widthAnchor.constraintEqualToAnchor(icon.heightAnchor).active = true
             icon.topAnchor.constraintEqualToAnchor(self.availableArea.topAnchor).active = true
+            
+            self.bringSubviewToFront(self.availableArea)
         }
+        if let selected = current {
+            self.current = selected
+        }
+        if let array = values {
+            for item in array {
+                if item != -1 {
+                    self.addItemWithValue(Float(item))
+                }
+            }
+        }
+        
     }
     
-    /**
-     Adds a new item to the list on this cell
-     */
-    @objc private func addItem() {
-        
+    private func addItemWithValue(value: Float?) {
         //Make sure all variables are here
         guard let iconName = iconName else {
             return
@@ -170,6 +184,9 @@ class SliderCell: UITableViewCell {
         let deleteGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.removeItem(_:)))
         let selectGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectItem(_:)))
         
+        selectGesture.delegate = self
+        
+        
         //Configures both views
         newLabel.translatesAutoresizingMaskIntoConstraints = false
         newLabel.userInteractionEnabled = true
@@ -178,12 +195,16 @@ class SliderCell: UITableViewCell {
         newIcon.userInteractionEnabled = true
         newIcon.addGestureRecognizer(deleteGesture)
         newIcon.addGestureRecognizer(selectGesture)
+        newIcon.superview?.bringSubviewToFront(newIcon)
         
         //Positions the Label
         newLabel.widthAnchor.constraintEqualToAnchor(newIcon.widthAnchor).active = true
         newLabel.centerXAnchor.constraintEqualToAnchor(newIcon.centerXAnchor).active = true
         newLabel.topAnchor.constraintEqualToAnchor(newIcon.bottomAnchor).active = true
         newLabel.heightAnchor.constraintEqualToAnchor(self.availableArea.heightAnchor, multiplier: 0.4)
+        
+        newLabel.minimumScaleFactor = 0.2
+        newLabel.adjustsFontSizeToFitWidth = true
         
         //We save the trailing constraint of the image in order to change it later, making it possible to add other items and delete too
         let trailing = newIcon.leadingAnchor.constraintEqualToAnchor(plus.trailingAnchor, constant: self.itemSpacing)
@@ -205,14 +226,26 @@ class SliderCell: UITableViewCell {
                 self.items.last?.leadingConstraint = constraint
             }
         }
+        var newValue: Float?
+        if let initialValue = value {
+            newValue = (initialValue - self.min)/self.max
+        }
         //Saves the reference to this new Item
-        let newItem = Item.init(image: newIcon, label: newLabel, leadingConstraint: trailing)
+        let newItem = Item.init(image: newIcon, label: newLabel, leadingConstraint: trailing, value: newValue)
         self.selectedItem = newItem
         self.items.append(newItem)
         self.containerWidth.constant = CGFloat(self.items.count + 1) * (self.itemSpacing + plus.frame.width)
         
         //Enables the slider
         self.slider.enabled = true
+    }
+    
+    
+    /**
+     Adds a new item to the list on this cell
+     */
+    @objc private func addItem() {
+        self.addItemWithValue(nil)
     }
     
     /**
@@ -330,18 +363,15 @@ class SliderCell: UITableViewCell {
      - parameter sender: The Slider
      */
     @IBAction func onSliderEditingEnd(sender: UISlider) {
-//        if let index = self.indexPath {
-//            var description = ""
-//            description += self.generalDescription!.stringByReplacingOccurrencesOfString("%", withString: "\(self.items.count)\n")
-//            if (self.items.count > 0) {
-//                var items = ""
-//                for item in self.items {
-//                    items += item.label.text!
-//                }
-//                description += self.itemDescription!.stringByReplacingOccurrencesOfString("%", withString: items)
-//            }
-//            delegate?.didChangeStatus(description, indexPath: index)
-//        }
+        if let index = self.indexPath {
+            if let leftCell = self.isLeftCell {
+                if let value = selectedItem?.value {
+                    var intValue = Int(value * (self.max - self.min) + self.min)
+                    intValue = intValue - intValue%10
+                    delegate?.didChangeStatus(intValue, indexPath: index, isLeftCell: leftCell)
+                }
+            }
+        }
     }
 
 }
