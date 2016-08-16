@@ -9,12 +9,25 @@
 import UIKit
 
 
+struct DataSection {
+    var name: String
+    var rows: [DataRow]
+}
+struct DataRow {
+    var name: String
+    var image: UIImage
+    var identifier: String
+}
+
+
+
 
 class SchoolManagementTableViewController: UITableViewController {
 
-    var sections = [DataStructure]()
+    //var sections = [DataStructure]()
+
     var selectedRow = 0
-    
+    var theseSecs = [DataSection]()
     @IBOutlet var schoolManagementTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,71 +49,61 @@ class SchoolManagementTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.sections.count
+        //return self.sections.count
+        return self.theseSecs.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.sections[section].rows.count
+        //return self.sections[section].rows.count
+        let a = theseSecs[section].rows
+        
+        return a.count
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sections[section].section
+        //return self.sections[section].section
+        return self.theseSecs[section].name
     }
 
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("configCell")
-        cell!.textLabel!.text = self.sections[indexPath.section].rows[indexPath.row]
-        cell!.imageView!.image = self.sections[indexPath.section].icons[indexPath.row]
-        if indexPath.section != 2 {
-            cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        }
-        return cell!
-    }
-    
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
             view.backgroundView!.backgroundColor = UIColor.clearColor()
             view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
         }
     }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("configCell")
+        let data = theseSecs[indexPath.section].rows[indexPath.row]
+        cell?.textLabel?.text = data.name
+        cell?.imageView?.image = data.image
+        if indexPath.section != 2 {
+            cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        }
+        return cell!
+    }
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
    func configureSections() {
-        self.sections.append(DataStructure(section: "Dia-a-dia", rows: ["Calendário", "Cardápio"], icons: [UIImage(named: "iconPlaceholder")!, UIImage(named: "iconPlaceholder")!]))
-        self.sections.append(DataStructure(section: "Administração", rows: ["Gerenciar Educadores", "Gerenciar Turmas" /*"Recuperar Senha"*/], icons: [UIImage(named: "Becke_Darth-Vader")!, UIImage(named: "iconPlaceholder")!]))
-        self.sections.append(DataStructure(section: "Sobre", rows: ["Legal"], icons: [UIImage(named: "Becke_Creditos-pais")!]))
-        self.sections.append(DataStructure(section: "Conta", rows: ["Sair"], icons: [UIImage(named: "Becke_Sair")!]))
+    let adminSecRows = [DataRow(name: "Gerenciar Turmas", image: UIImage(named: "iconPlaceholder")!, identifier: "showManageClassroomsViewController")]
+    theseSecs.append(DataSection(name: "Administração", rows: adminSecRows))
+    let accountSecRows = [DataRow(name: "Sair", image: UIImage(named: "Becke_Sair")!, identifier: "shouldLogOut")]
+    theseSecs.append(DataSection(name: "Conta", rows: accountSecRows))
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.selectedRow = 0
-        if indexPath.section > 0 {
-            for index in 0...(indexPath.section - 1) {
-                self.selectedRow += self.sections[index].rows.count
-            }
-        }
-        self.selectedRow += indexPath.row
-        
-        switch selectedRow {
-        case 0: //Schedule
-            self.performSegueWithIdentifier("showScheduleViewController", sender: indexPath)
-        case 1: //Meals Menus
-            self.performSegueWithIdentifier("showMealMenuViewController", sender: indexPath)
-        case 2: //Manage Educator
-            self.performSegueWithIdentifier("showManageEducatorsViewController", sender: indexPath)
-        case 3: //Manage Phases
-            self.performSegueWithIdentifier("showManageClassroomsViewController", sender: indexPath)
-        case 4: //Legal Stuff
-            self.performSegueWithIdentifier("showLegalStuffViewController", sender: indexPath)
-        case 5: //Logout
+        let identifier = self.theseSecs[indexPath.section].rows[indexPath.row].identifier
+        if identifier == "shouldLogOut" {
             logOut()
-        default: //Just do nothing
-            print("Error: A cell was selected but the app does not know what to do with it. What's going on, Nino?")
+        } else {
+            performSegueWithIdentifier(identifier, sender: self)
         }
     }
-    
     //MARK: Handling function:
-    
     func logOut() {
         //TODO: Should prompt the user if he would like to logg
     }

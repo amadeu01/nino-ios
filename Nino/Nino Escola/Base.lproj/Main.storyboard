@@ -73,6 +73,9 @@
                             </textField>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-26-wsp">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="391" y="363" width="20" height="20"/>
+                                </variation>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-Bh-lcj">
                                 <rect key="frame" x="230" y="431" width="140" height="34"/>
@@ -246,6 +249,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="17"/>
                                 <color key="textColor" red="0.32549019607843138" green="0.75294117647058822" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="340" y="560" width="120" height="20"/>
+                                </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Suf-jl-dKL">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -315,11 +321,16 @@
         <!--Navigation Controller-->
         <scene sceneID="oNt-y6-Iuk">
             <objects>
-                <navigationController id="fta-RG-ToO" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="currentContext" navigationBarHidden="YES" id="fta-RG-ToO" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LIM-6F-GAQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="7pw-Eu-cra">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="4lJ-8U-d0c" kind="relationship" relationship="rootViewController" id="axd-2T-Fkv"/>
                     </connections>
@@ -340,7 +351,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="mJH-Cl-Jvg" kind="relationship" relationship="viewControllers" id="Ots-2U-bDM"/>
-                        <segue destination="jTB-KH-0xf" kind="relationship" relationship="viewControllers" id="zyJ-gN-fjX"/>
                         <segue destination="Jbt-AK-Zyp" kind="relationship" relationship="viewControllers" id="YiK-tp-MNi"/>
                     </connections>
                 </tabBarController>
@@ -357,13 +367,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="pzz-Zo-2ax">
-                            <rect key="frame" x="0.0" y="183" width="600" height="128"/>
+                            <rect key="frame" x="0.0" y="119" width="600" height="128"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileTableViewCell" rowHeight="91" id="g1a-lf-ocT" customClass="StudentProfileTableViewCell" customModule="Nino_Escola" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="91"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g1a-lf-ocT" id="1OG-KF-fuf">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
@@ -447,13 +457,13 @@
         <scene sceneID="vUD-JV-RZT">
             <objects>
                 <tableViewController id="Jbt-AK-Zyp" customClass="SchoolManagementTableViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zKZ-CT-Eyc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zKZ-CT-Eyc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="configCell" id="bJQ-Cy-lcX">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="configCell" rowHeight="70" id="bJQ-Cy-lcX">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJQ-Cy-lcX" id="5Ls-lt-Fsr">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -491,7 +501,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="announcementTableViewCell" rowHeight="90" id="kJ7-KZ-PmO" customClass="AnnouncementTableViewCell" customModule="Nino_Escola" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJ7-KZ-PmO" id="chJ-BE-g2P">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
@@ -508,12 +518,18 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="widthClass=regular" misplaced="YES">
+                                                <rect key="frame" x="301" y="35" width="81" height="20"/>
+                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rascunho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-wu-wUd">
                                             <rect key="frame" x="518" y="65" width="64" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="widthClass=regular" misplaced="YES">
+                                                <rect key="frame" x="318" y="65" width="64" height="17"/>
+                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sem título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa4-1Q-10p">
                                             <rect key="frame" x="18" y="36" width="102" height="20"/>
@@ -556,7 +572,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIG-SS-SfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284.75" y="-1219"/>
+            <point key="canvasLocation" x="1344" y="-1183"/>
         </scene>
         <!--StudentProfile-->
         <scene sceneID="dkg-KV-wL6">
@@ -1282,7 +1298,7 @@
                 <viewControllerPlaceholder storyboardName="Announcements" id="5wt-ac-gpQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11I-iq-SxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756.875" y="-1348"/>
+            <point key="canvasLocation" x="1933.125" y="-1330"/>
         </scene>
         <!--SentAnnouncement-->
         <scene sceneID="g7x-Kd-E8t">
@@ -1290,7 +1306,7 @@
                 <viewControllerPlaceholder storyboardName="SentAnnouncement" id="Lzu-Kh-JOT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQS-uS-3jG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758.375" y="-1175"/>
+            <point key="canvasLocation" x="1941" y="-1092"/>
         </scene>
     </scenes>
     <resources>

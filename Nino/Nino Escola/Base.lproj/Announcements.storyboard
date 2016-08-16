@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j9z-8S-ao0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j9z-8S-ao0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaRoundedLT-Bold.otf">
+            <string>HelveticaRoundedLT-Bold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="bS7-lp-ujp">
@@ -76,83 +81,139 @@
                                                     <outlet property="delegate" destination="uGc-Fi-PSt" id="pfw-Ni-P8N"/>
                                                 </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNw-fa-zXc">
+                                                <rect key="frame" x="304" y="382" width="152" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="71" id="d8i-v3-TFf">
+                                                        <variation key="widthClass=regular" constant="80"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="height" constant="29" id="qNf-bo-iGQ">
+                                                        <variation key="widthClass=regular" constant="30"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="14"/>
+                                                <state key="normal" title="DESTINO:">
+                                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="d8i-v3-TFf"/>
+                                                        <exclude reference="qNf-bo-iGQ"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=regular">
+                                                    <mask key="constraints">
+                                                        <include reference="d8i-v3-TFf"/>
+                                                        <include reference="qNf-bo-iGQ"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="didPressToAddSenders:" destination="uGc-Fi-PSt" eventType="touchUpInside" id="vDe-tS-M6O"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U89-zj-DUD" customClass="TagListView" customModule="TagListView">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                                        <real key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.0" green="0.63529411759999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.0" green="0.63529411759999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
+                                                        <color key="value" red="0.0" green="0.63529411759999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tagHighlightedBackgroundColor">
+                                                        <color key="value" red="0.0" green="0.63529411759999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tagSelectedBackgroundColor">
+                                                        <color key="value" red="0.0" green="0.63529411759999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="removeButtonIconSize">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableRemoveButton" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YY8-LQ-Djv">
                                                 <rect key="frame" x="20" y="45" width="560" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="f72-mh-uYd"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="20" y="84" width="760" height="200"/>
-                                                </variation>
                                                 <connections>
                                                     <outlet property="delegate" destination="uGc-Fi-PSt" id="oCW-2H-Bh0"/>
                                                 </connections>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvc-w9-cWK">
-                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dw6-l3-UqU">
-                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                                <variation key="widthClass=regular" fixedFrame="YES">
-                                                    <rect key="frame" x="87" y="51" width="46" height="30"/>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="didPressToAddSenders:" destination="uGc-Fi-PSt" eventType="touchUpInside" id="9Uf-6d-c8E"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="U89-zj-DUD" firstAttribute="top" secondItem="fNw-fa-zXc" secondAttribute="top" id="4ZG-a6-yS2"/>
                                             <constraint firstItem="YY8-LQ-Djv" firstAttribute="leading" secondItem="3my-0R-8Xr" secondAttribute="leading" constant="20" id="56W-qW-UZw"/>
                                             <constraint firstAttribute="trailing" secondItem="YY8-LQ-Djv" secondAttribute="trailing" constant="20" id="BHW-XH-0ka"/>
                                             <constraint firstItem="7qD-11-ftq" firstAttribute="leading" secondItem="ntR-Yd-vZz" secondAttribute="trailing" constant="14" id="Ej3-Yr-cHb">
                                                 <variation key="widthClass=regular" constant="15"/>
                                             </constraint>
-                                            <constraint firstItem="YY8-LQ-Djv" firstAttribute="top" secondItem="fvc-w9-cWK" secondAttribute="bottom" constant="9" id="Izd-vH-VCh">
-                                                <variation key="widthClass=regular" constant="5"/>
-                                            </constraint>
                                             <constraint firstItem="ntR-Yd-vZz" firstAttribute="leading" secondItem="YY8-LQ-Djv" secondAttribute="leading" constant="20" id="Jyv-6X-8js"/>
+                                            <constraint firstItem="YY8-LQ-Djv" firstAttribute="top" secondItem="U89-zj-DUD" secondAttribute="bottom" constant="20" id="Lln-Iv-Mnn"/>
                                             <constraint firstItem="7qD-11-ftq" firstAttribute="centerY" secondItem="ntR-Yd-vZz" secondAttribute="centerY" id="NGs-EJ-djy"/>
+                                            <constraint firstItem="fNw-fa-zXc" firstAttribute="top" secondItem="ntR-Yd-vZz" secondAttribute="bottom" constant="11" id="Nok-Xd-cfz"/>
                                             <constraint firstItem="YY8-LQ-Djv" firstAttribute="top" secondItem="ntR-Yd-vZz" secondAttribute="bottom" constant="5" id="SGv-eB-RrI"/>
+                                            <constraint firstItem="U89-zj-DUD" firstAttribute="leading" secondItem="fNw-fa-zXc" secondAttribute="trailing" constant="8" id="XQz-OP-a4a"/>
                                             <constraint firstItem="YY8-LQ-Djv" firstAttribute="top" secondItem="3my-0R-8Xr" secondAttribute="top" id="fm3-5m-8ev"/>
                                             <constraint firstItem="ntR-Yd-vZz" firstAttribute="top" secondItem="3my-0R-8Xr" secondAttribute="top" constant="20" id="hOf-Gg-23q"/>
-                                            <constraint firstItem="fvc-w9-cWK" firstAttribute="top" secondItem="ntR-Yd-vZz" secondAttribute="bottom" constant="5" id="la9-Dc-Abl">
-                                                <variation key="widthClass=regular" constant="15"/>
+                                            <constraint firstItem="YY8-LQ-Djv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fNw-fa-zXc" secondAttribute="bottom" id="mav-0n-1fz">
+                                                <variation key="widthClass=regular" constant="20"/>
                                             </constraint>
+                                            <constraint firstItem="fNw-fa-zXc" firstAttribute="leading" secondItem="ntR-Yd-vZz" secondAttribute="leading" id="qjH-OQ-nxh"/>
                                             <constraint firstAttribute="bottom" secondItem="YY8-LQ-Djv" secondAttribute="bottom" id="vLa-xr-vfR"/>
-                                            <constraint firstItem="fvc-w9-cWK" firstAttribute="leading" secondItem="ntR-Yd-vZz" secondAttribute="leading" id="yrR-GZ-PLD"/>
                                             <constraint firstAttribute="trailing" secondItem="7qD-11-ftq" secondAttribute="trailing" constant="20" id="ysM-bX-632"/>
                                             <constraint firstItem="ntR-Yd-vZz" firstAttribute="top" secondItem="YY8-LQ-Djv" secondAttribute="top" constant="20" id="zum-mU-G12"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
-                                                <exclude reference="fvc-w9-cWK"/>
-                                                <exclude reference="dw6-l3-UqU"/>
+                                                <exclude reference="fNw-fa-zXc"/>
+                                                <exclude reference="U89-zj-DUD"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="la9-Dc-Abl"/>
-                                                <exclude reference="yrR-GZ-PLD"/>
                                                 <exclude reference="zum-mU-G12"/>
-                                                <exclude reference="Izd-vH-VCh"/>
+                                                <exclude reference="Nok-Xd-cfz"/>
+                                                <exclude reference="qjH-OQ-nxh"/>
+                                                <exclude reference="Lln-Iv-Mnn"/>
                                                 <exclude reference="fm3-5m-8ev"/>
+                                                <exclude reference="mav-0n-1fz"/>
+                                                <exclude reference="4ZG-a6-yS2"/>
+                                                <exclude reference="XQz-OP-a4a"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=regular" misplaced="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="800" height="245"/>
                                             <mask key="subviews">
-                                                <include reference="fvc-w9-cWK"/>
-                                                <include reference="dw6-l3-UqU"/>
+                                                <include reference="fNw-fa-zXc"/>
+                                                <include reference="U89-zj-DUD"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="la9-Dc-Abl"/>
-                                                <include reference="yrR-GZ-PLD"/>
-                                                <include reference="Izd-vH-VCh"/>
+                                                <include reference="Nok-Xd-cfz"/>
+                                                <include reference="qjH-OQ-nxh"/>
+                                                <include reference="Lln-Iv-Mnn"/>
                                                 <exclude reference="SGv-eB-RrI"/>
+                                                <include reference="mav-0n-1fz"/>
+                                                <include reference="4ZG-a6-yS2"/>
+                                                <include reference="XQz-OP-a4a"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -209,6 +270,7 @@
                         <outlet property="saveButton" destination="cSJ-8n-CcV" id="Lll-SZ-nG5"/>
                         <outlet property="scrollView" destination="dEp-J2-YW4" id="6vY-TO-N7U"/>
                         <outlet property="sendButton" destination="Lbr-1I-x59" id="T7r-9E-rcV"/>
+                        <outlet property="tags" destination="3my-0R-8Xr" id="cax-eL-pl8"/>
                         <outlet property="textView" destination="YY8-LQ-Djv" id="WIK-R0-SYF"/>
                         <outlet property="titleTextField" destination="7qD-11-ftq" id="yKR-Hr-CcP"/>
                         <outlet property="trashButton" destination="jfy-ep-3Xf" id="DtA-UO-KbW"/>

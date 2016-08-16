@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaRoundedLT-Bold.otf">
+            <string>HelveticaRoundedLT-Bold</string>
+            <string>HelveticaRoundedLT-Bold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="owC-ZY-naT" customClass="StudentProfileListHeader" customModule="Nino_Escola" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" restorationIdentifier="StudentProfileListHeader" translatesAutoresizingMaskIntoConstraints="NO" id="IkW-96-idr">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ahS-Li-snC">
+                            <rect key="frame" x="10" y="69" width="580" height="98"/>
+                            <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="14"/>
+                            <state key="normal" title="Selecionar Turma">
+                                <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <variation key="widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="354" y="419" width="93" height="29"/>
+                            </variation>
+                            <connections>
+                                <action selector="didSelectToChangeLabel:" destination="owC-ZY-naT" eventType="touchUpInside" id="1k0-mB-C7z"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escola Nino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z37-BT-3Z8">
+                            <rect key="frame" x="10" y="17" width="580" height="28"/>
+                            <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="23"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0S8-RM-Zhb">
+                            <rect key="frame" x="0.0" y="185" width="600" height="2"/>
+                            <color key="backgroundColor" red="0.43529411759999997" green="0.90196078430000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="Mph-gI-ODy"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="z37-BT-3Z8" firstAttribute="top" secondItem="IkW-96-idr" secondAttribute="top" constant="17" id="3MY-u4-mQc"/>
+                        <constraint firstAttribute="bottom" secondItem="0S8-RM-Zhb" secondAttribute="bottom" id="4bn-AW-nhb"/>
+                        <constraint firstAttribute="bottom" secondItem="ahS-Li-snC" secondAttribute="bottom" constant="20" id="5Pb-nr-oA0"/>
+                        <constraint firstItem="ahS-Li-snC" firstAttribute="leading" secondItem="IkW-96-idr" secondAttribute="leading" constant="10" id="7b0-9O-eSW"/>
+                        <constraint firstItem="0S8-RM-Zhb" firstAttribute="leading" secondItem="IkW-96-idr" secondAttribute="leading" id="Ltq-yD-xdX"/>
+                        <constraint firstAttribute="trailing" secondItem="0S8-RM-Zhb" secondAttribute="trailing" id="U3w-iP-hVk"/>
+                        <constraint firstItem="z37-BT-3Z8" firstAttribute="leading" secondItem="IkW-96-idr" secondAttribute="leading" constant="10" id="fc5-UK-ige"/>
+                        <constraint firstItem="z37-BT-3Z8" firstAttribute="centerX" secondItem="IkW-96-idr" secondAttribute="centerX" id="kLw-wT-fYa"/>
+                        <constraint firstAttribute="trailing" secondItem="ahS-Li-snC" secondAttribute="trailing" constant="10" id="r3g-Aw-x1h"/>
+                        <constraint firstItem="z37-BT-3Z8" firstAttribute="centerY" secondItem="IkW-96-idr" secondAttribute="centerY" id="s8L-lc-vHM"/>
+                        <constraint firstItem="ahS-Li-snC" firstAttribute="top" secondItem="z37-BT-3Z8" secondAttribute="bottom" constant="24" id="urf-5V-K8C"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="s8L-lc-vHM"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="IkW-96-idr" firstAttribute="top" secondItem="owC-ZY-naT" secondAttribute="top" id="8wE-W0-nVV"/>
+                <constraint firstAttribute="trailing" secondItem="IkW-96-idr" secondAttribute="trailing" id="e59-hk-ckf"/>
+                <constraint firstAttribute="bottom" secondItem="IkW-96-idr" secondAttribute="bottom" id="niT-Gy-Lqr"/>
+                <constraint firstItem="IkW-96-idr" firstAttribute="leading" secondItem="owC-ZY-naT" secondAttribute="leading" id="yS1-8r-0W2"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="classroomButton" destination="ahS-Li-snC" id="mkv-yr-Mgk"/>
+                <outlet property="schoolNameLabel" destination="z37-BT-3Z8" id="6bj-GT-z6w"/>
+            </connections>
+            <point key="canvasLocation" x="406" y="729.5"/>
+        </view>
+    </objects>
+</document>

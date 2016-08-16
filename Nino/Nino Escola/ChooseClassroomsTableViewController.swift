@@ -11,6 +11,7 @@ import UIKit
 class IndentationCell {
     var value: String
     var sons: [IndentationCell]?
+    var parent: IndentationCell?
     var isExpanded: Bool
     var infoHier: Int
     var isSelected: Bool
@@ -21,6 +22,7 @@ class IndentationCell {
         self.isExpanded = false
         self.isSelected = false
         if let parent = parent {
+            self.parent = parent
             self.infoHier = parent.infoHier + 1
             if (parent.sons) != nil {//This parents already has sons
                 parent.sons!.append(self)
@@ -32,12 +34,6 @@ class IndentationCell {
             self.infoHier = 0
         }
     }
-    func addSon(sons: [IndentationCell]) {
-        self.sons = sons
-        for son in sons {
-            son.infoHier = self.infoHier + 1
-        }
-    }
     func setSelection(selected: Bool){
         self.isSelected = selected
         if let theseSons = self.sons {
@@ -45,14 +41,39 @@ class IndentationCell {
                 son.setSelection(selected)
             }
         }
+        if !(selected) {
+            unselectParents(self)
+        } else { //check if parents should be checked
+            checkSelectionForParent (self)
+        }
+    }
+    func checkSelectionForParent (indentationCell: IndentationCell) {
+        guard let parent = indentationCell.parent else {
+            return
+        }
+        var shouldSelect = true
+        if let brothers = parent.sons {
+            for brother in brothers {
+                if !(brother.isSelected) {
+                    shouldSelect = false
+                }
+            }
+        }
+        if shouldSelect {
+            parent.isSelected = true
+            checkSelectionForParent(parent)
+        }
+        return
+    }
+    func unselectParents(indentationCell: IndentationCell) {
+        guard let parent = indentationCell.parent else {
+            return// No more parents
+        }
+        parent.isSelected = false
+        unselectParents(parent)
     }
     func setExpansion(expanded: Bool) {
         self.isExpanded = expanded
-        if let theseSons = self.sons {
-            for son in theseSons {
-                son.setSelection(expanded)
-            }
-        }
     }
 }
 
@@ -120,18 +141,7 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
         }
         
     }
-//    func getIndentationCellForIndexPath(index: NSIndexPath) -> IndentationCell?{
-//        let rowIndex = index.row
-//        if index < 0{
-//            return nil // cannot have index less than 0
-//        }
-//        
-//        let a = 0
-//        
-//        for thisCell in self.indentationCells{
-//            if thisCell.isExpanded
-//        }
-//    }
+
     func whatsOn(indexWanted: Int, cells: [IndentationCell], level: Int) -> (cell: IndentationCell?, membersLeft: Int, level: Int) {
         var thisIndexWanted = indexWanted
         var a = 0
@@ -170,10 +180,10 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
         let classroom2 = IndentationCell(value: "Turma 2", parent: secondCell)
         indentationCells.append(firstCell)
         indentationCells.append(secondCell)
+        
         let p1 = IndentationCell(value: "João", parent: classroomB)
         let p2 = IndentationCell(value: "Mirna", parent: classroomB)
         let p3 = IndentationCell(value: "Flavio", parent: classroomB)
-        
         let p11 = IndentationCell(value: "João", parent: p1)
         let p12 = IndentationCell(value: "Mirna", parent: p1)
         let p13 = IndentationCell(value: "Flavio", parent: p3)
@@ -289,53 +299,4 @@ class ChooseClassroomsTableViewController: UITableViewController, ExpandableSele
         selectedCell.setSelection(false)// The data model is set-up. Now we should fix the view
         self.classroomsTableView.reloadData()
     }
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
-
 }
