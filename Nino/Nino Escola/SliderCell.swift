@@ -154,6 +154,13 @@ class SliderCell: UITableViewCell {
         
     }
     
+    override func layoutSubviews() {
+        if let plus = self.plusIcon {
+            self.containerWidth.constant = CGFloat(self.items.count + 1) * (self.itemSpacing + plus.frame.width)
+        }
+        super.layoutSubviews()
+    }
+    
     private func addItemWithValue(value: Float?) {
         //Make sure all variables are here
         guard let iconName = iconName else {
@@ -172,7 +179,14 @@ class SliderCell: UITableViewCell {
         }
         
         //Default values for the label
-        newLabel.text = "\(self.min)\n\(labelUnit)"
+        
+        var newValue: Float?
+        if let initialValue = value {
+            newValue = (initialValue - self.min)/self.max
+            newLabel.text = "\(Int(initialValue))\n\(labelUnit)"
+        } else {
+            newLabel.text = "\(Int(self.min))\n\(labelUnit)"
+        }
         newLabel.textAlignment = NSTextAlignment.Center
         newLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
         newLabel.numberOfLines = 2
@@ -226,10 +240,7 @@ class SliderCell: UITableViewCell {
                 self.items.last?.leadingConstraint = constraint
             }
         }
-        var newValue: Float?
-        if let initialValue = value {
-            newValue = (initialValue - self.min)/self.max
-        }
+        
         //Saves the reference to this new Item
         let newItem = Item.init(image: newIcon, label: newLabel, leadingConstraint: trailing, value: newValue)
         self.selectedItem = newItem
