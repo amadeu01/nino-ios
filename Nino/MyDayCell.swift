@@ -6,6 +6,9 @@
 //  Copyright © 2016 Danilo Becke. All rights reserved.
 //
 
+import UIKit
+import Foundation
+
 protocol MyDayCell {
     var values: [Int] {get}
     var current: Int {get}
@@ -17,8 +20,6 @@ protocol MyDayCell {
 protocol MyDayCellDelegate {
     func didChangeStatus(value: Int, indexPath: NSIndexPath, isLeftCell: Bool)
 }
-
-import Foundation
 
 /**
  *  VOs representing My Day Rows

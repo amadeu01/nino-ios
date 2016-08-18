@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  *  VO representing one My Day Cell
