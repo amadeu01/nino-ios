@@ -64,6 +64,7 @@ class SliderCell: UITableViewCell {
     var indexPath: NSIndexPath?
     var delegate: MyDayCellDelegate?
     var isLeftCell: Bool?
+    var sliderDelegate: MyDaySliderCellDelegate?
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var title: UILabel!
@@ -100,10 +101,11 @@ class SliderCell: UITableViewCell {
      - parameter sliderFloor: The lowest value of Item
      - parameter sliderCeil:  The highest value of Item
      */
-    func setup (title: String, unit: String, iconName: String, sliderFloor: Float?, sliderCeil: Float?, delegate: MyDayCellDelegate, indexPath: NSIndexPath, isLeftCell: Bool, values: [Int]?, current: Int?) {
+    func setup (title: String, unit: String, iconName: String, sliderFloor: Float?, sliderCeil: Float?, delegate: MyDayCellDelegate, indexPath: NSIndexPath, isLeftCell: Bool, values: [Int]?, current: Int?, sliderDelegate: MyDaySliderCellDelegate) {
         
         self.delegate = delegate
         self.indexPath = indexPath
+        self.sliderDelegate = sliderDelegate
         //First of all sets the min and max values, if null 0 and 100 are the default
         if let floor = sliderFloor {
             self.min = floor
@@ -131,7 +133,7 @@ class SliderCell: UITableViewCell {
             self.availableArea.addSubview(icon)
             icon.translatesAutoresizingMaskIntoConstraints = false
             icon.userInteractionEnabled = true
-            icon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.addItem)))
+            icon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shouldAddItem)))
             
             //Positions it
             icon.leadingAnchor.constraintEqualToAnchor(self.availableArea.leadingAnchor, constant: itemSpacing).active = true
@@ -146,7 +148,9 @@ class SliderCell: UITableViewCell {
         }
         if let array = values {
             for item in array {
-                if item != -1 {
+                if item == -1 {
+                    self.addNewItem()
+                } else {
                     self.addItemWithValue(Float(item))
                 }
             }
@@ -255,7 +259,15 @@ class SliderCell: UITableViewCell {
     /**
      Adds a new item to the list on this cell
      */
-    @objc private func addItem() {
+    @objc private func shouldAddItem() {
+        if let isLeft = self.isLeftCell {
+            if let index = self.indexPath {
+                sliderDelegate?.shouldAddItem(index, isLeftCell: isLeft)
+            }
+        }
+    }
+    
+    func addNewItem() {
         self.addItemWithValue(nil)
     }
     
@@ -341,6 +353,11 @@ class SliderCell: UITableViewCell {
             return
         }
         self.selectedItem = items[target]
+        if let index = self.indexPath {
+            if let isLeft = self.isLeftCell {
+                sliderDelegate?.changeSelected(index, isLeftCell: isLeft)
+            }
+        }
     }
     
     /**

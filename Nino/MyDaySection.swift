@@ -16,6 +16,7 @@ import UIKit
 struct MyDaySection {
     
     //MARK: Attributes
+    let id: Int
     let title: String
     let icon: MyDaySectionIcon
     let rows: [MyDayRow]
@@ -31,7 +32,8 @@ struct MyDaySection {
      
      - returns: struct VO of MyDayCell type
      */
-    init(title: String, icon: MyDaySectionIcon, rows: [MyDayRow]) {
+    init(id: Int, title: String, icon: MyDaySectionIcon, rows: [MyDayRow]) {
+        self.id = id
         self.title = title
         self.height = 40
         self.icon = icon

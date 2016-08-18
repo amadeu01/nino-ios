@@ -9,7 +9,7 @@
 import UIKit
 
 /// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
-class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate {
+class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate, MyDaySliderCellDelegate {
 
     @IBOutlet weak var dateSelector: DateSelector!
     @IBOutlet weak var leftTableView: UITableView!
@@ -197,7 +197,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         
         if let sliderCell = tableCellNow as? SliderCell {
             if let sliderVO = cellNow as? MyDaySliderCell {
-                sliderCell.setup(sliderVO.getTitle(), unit: sliderVO.unit, iconName: sliderVO.image.rawValue, sliderFloor: sliderVO.floor, sliderCeil: sliderVO.ceil, delegate: self, indexPath: indexPath, isLeftCell: isLeft, values: sliderVO.values, current: sliderVO.current)
+                sliderCell.setup(sliderVO.getTitle(), unit: sliderVO.unit, iconName: sliderVO.image.rawValue, sliderFloor: sliderVO.floor, sliderCeil: sliderVO.ceil, delegate: self, indexPath: indexPath, isLeftCell: isLeft, values: sliderVO.values, current: sliderVO.current, sliderDelegate: self)
             }
         }
         
@@ -215,6 +215,28 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         let cell = self.cellForIndexPath(indexPath, sections: section)
         let newCell = MyDayBO.cellDidChange(value, cell: cell)
         self.changeCellInSide(indexPath, isLeft: isLeftCell, newCell: newCell)
+        MyDayBO.updateDraft("df", left: self.leftCells, right: self.rightCells) { (update) in
+            
+        }
+    }
+    
+    func shouldAddItem(indexPath: NSIndexPath, isLeftCell: Bool) {
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        do {
+            let row = try MyDayBO.shouldAddNewItem(row)
+            self.changeRowInSide(indexPath, isLeft: isLeftCell, newRow: row)
+            let tableView = isLeftCell ? self.leftTableView: self.rightTableView
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            if let slider = cell as? SliderCell {
+                slider.addNewItem()
+            }
+        } catch let error {
+            print("error")
+        }
+    }
+    
+    func changeSelected(indexPath: NSIndexPath, isLeftCell: Bool) {
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
     }
     
 //MAARK: Private methods
@@ -255,9 +277,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             sum -= row.cells.count
             var cells = row.cells
             cells[indexPath.item - sum] = newCell
-            let newRow = MyDayRow(cells: cells, description: row.description, emptyDescription: row.emptyDescription)
+            let newRow = MyDayRow(id: row.id, cells: cells, description: row.description, emptyDescription: row.emptyDescription)
             rows[rowIndex] = newRow
-            let newSection = MyDaySection(title: sections[indexPath.section].title, icon: sections[indexPath.section].icon, rows: rows)
+            let newSection = MyDaySection(id: sections[indexPath.section].id, title: sections[indexPath.section].title, icon: sections[indexPath.section].icon, rows: rows)
             if isLeft {
                 self.leftCells[indexPath.section] = newSection
             } else {
@@ -265,6 +287,45 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             }
         } else {
             
+        }
+    }
+    
+    private func rowForIndexPath(indexPath: NSIndexPath, isLeft: Bool) -> MyDayRow {
+        let sections = isLeft ? self.leftCells: self.rightCells
+        var currentRow: MyDayRow?
+        var sum = 0
+        for row in sections[indexPath.section].rows {
+            currentRow = row
+            sum += currentRow!.cells.count
+            if sum > indexPath.item {
+                break
+            }
+        }
+        if let row = currentRow {
+            return row
+        } else {
+            return MyDayRow(id: 0, cells: [], description: "", emptyDescription: "")
+        }
+    }
+    
+    private func changeRowInSide(indexPath: NSIndexPath, isLeft: Bool, newRow: MyDayRow) {
+        let sections = isLeft ? self.leftCells: self.rightCells
+        var sum = 0
+        var rowIndex = 0
+        for row in sections[indexPath.section].rows {
+            sum += row.cells.count
+            if sum > indexPath.item {
+                break
+            }
+            rowIndex += 1
+        }
+        var rows = sections[indexPath.section].rows
+        rows[rowIndex] = newRow
+        let newSection = MyDaySection(id: sections[indexPath.section].id, title: sections[indexPath.section].title, icon: sections[indexPath.section].icon, rows: rows)
+        if isLeft {
+            self.leftCells[indexPath.section] = newSection
+        } else {
+            self.rightCells[indexPath.section] = newSection
         }
     }
 }

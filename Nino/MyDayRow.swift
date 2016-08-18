@@ -9,11 +9,13 @@
 import Foundation
 
 struct MyDayRow {
+    let id: Int
     let description: String
     let emptyDescription: String
     let cells: [MyDayCell]
     
-    init(cells: [MyDayCell], description: String, emptyDescription: String) {
+    init(id: Int, cells: [MyDayCell], description: String, emptyDescription: String) {
+        self.id = id
         self.cells = cells
         self.description = description
         self.emptyDescription = emptyDescription
