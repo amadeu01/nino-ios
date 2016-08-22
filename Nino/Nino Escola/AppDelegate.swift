@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        lagFreeField.resignFirstResponder()
 //        lagFreeField.removeFromSuperview()
         IQKeyboardManager.sharedManager().enable = true
-        self.setupRootViewController(false)
+        self.setupRootViewController(loggedIn)
         //disabling toolbar in some views
         IQKeyboardManager.sharedManager().disableToolbarInViewControllerClass(CreateUserViewController)
         IQKeyboardManager.sharedManager().disableToolbarInViewControllerClass(CreateSchoolViewController)

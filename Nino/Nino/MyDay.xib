@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaRoundedLT-BoldCond.otf">
+            <string>HelveticaRoundedLT-BoldCond</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="276" id="1xy-LV-h78" customClass="MyDay" customModule="Nino" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="276"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xy-LV-h78" id="Ha3-AR-bD8">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="275.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVI-Kl-OvJ">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="276"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rV-iI-B1g">
+                                <rect key="frame" x="0.0" y="0.0" width="330" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minha Rotina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPK-CU-uZJ">
+                                        <rect key="frame" x="15" y="5" width="109" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="LwU-lj-1AG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaRoundedLT-BoldCond" family="Helvetica Rounded LT" pointSize="22"/>
+                                        <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 de maio de 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJz-YW-bhU">
+                                        <rect key="frame" x="201" y="6" width="116" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="1tD-yv-nFp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hPK-CU-uZJ" firstAttribute="centerY" secondItem="8rV-iI-B1g" secondAttribute="centerY" id="3Mr-dy-0pU"/>
+                                    <constraint firstAttribute="trailing" secondItem="FJz-YW-bhU" secondAttribute="trailing" constant="13" id="Feh-IF-IE1"/>
+                                    <constraint firstItem="hPK-CU-uZJ" firstAttribute="leading" secondItem="8rV-iI-B1g" secondAttribute="leading" constant="15" id="RhA-4g-eFZ"/>
+                                    <constraint firstItem="FJz-YW-bhU" firstAttribute="centerY" secondItem="8rV-iI-B1g" secondAttribute="centerY" id="a5d-jT-fnc"/>
+                                    <constraint firstItem="hPK-CU-uZJ" firstAttribute="centerX" secondItem="8rV-iI-B1g" secondAttribute="centerX" id="gPx-2r-Uu4"/>
+                                    <constraint firstAttribute="height" constant="30" id="xDJ-RT-QcO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gPx-2r-Uu4"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvO-Nv-QH1">
+                                <rect key="frame" x="10" y="40" width="310" height="226"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kvO-Nv-QH1" firstAttribute="leading" secondItem="8rV-iI-B1g" secondAttribute="leading" constant="10" id="71L-OR-m77"/>
+                            <constraint firstItem="8rV-iI-B1g" firstAttribute="top" secondItem="NVI-Kl-OvJ" secondAttribute="top" id="GMB-EG-rZv"/>
+                            <constraint firstAttribute="trailing" secondItem="8rV-iI-B1g" secondAttribute="trailing" id="l93-3S-sep"/>
+                            <constraint firstItem="kvO-Nv-QH1" firstAttribute="centerX" secondItem="NVI-Kl-OvJ" secondAttribute="centerX" id="odx-Ck-auu"/>
+                            <constraint firstAttribute="bottom" secondItem="kvO-Nv-QH1" secondAttribute="bottom" constant="10" id="p6w-CY-J6Y"/>
+                            <constraint firstItem="kvO-Nv-QH1" firstAttribute="top" secondItem="8rV-iI-B1g" secondAttribute="bottom" constant="10" id="vWk-cE-91G"/>
+                            <constraint firstItem="8rV-iI-B1g" firstAttribute="leading" secondItem="NVI-Kl-OvJ" secondAttribute="leading" id="yRd-dP-krH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="NVI-Kl-OvJ" secondAttribute="trailing" id="5Fu-Nt-Agf"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NVI-Kl-OvJ" secondAttribute="bottomMargin" id="Hge-aP-QII"/>
+                    <constraint firstItem="NVI-Kl-OvJ" firstAttribute="top" secondItem="Ha3-AR-bD8" secondAttribute="top" id="QNR-wg-Ei6"/>
+                    <constraint firstItem="NVI-Kl-OvJ" firstAttribute="leading" secondItem="Ha3-AR-bD8" secondAttribute="leading" id="vQK-bS-sqW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="date" destination="FJz-YW-bhU" id="DTL-BR-rE4"/>
+                <outlet property="myDayOverView" destination="kvO-Nv-QH1" id="nOn-i8-wkh"/>
+            </connections>
+            <point key="canvasLocation" x="433" y="1167"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     //states whether the user is logged in
-    var loggedIn = false
+    var loggedIn = true
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     transition = UIViewAnimationOptions.TransitionNone
                 }
             } else {
-                if let splitViewController = window.rootViewController!.storyboard!.instantiateInitialViewController() as? UISplitViewController {
-                    newRootViewController = splitViewController
+                if let tabBarViewController = window.rootViewController!.storyboard!.instantiateInitialViewController() as? UITabBarController {
+                    newRootViewController = tabBarViewController
                     transition = .TransitionFlipFromRight
                 } else {
                     transition = UIViewAnimationOptions.TransitionNone
