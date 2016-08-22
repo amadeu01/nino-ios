@@ -9,7 +9,7 @@
 import UIKit
 
 /// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
-class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorDataSource, UITableViewDataSource, UITableViewDelegate, MyDayRowDelegate {
+class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate, MyDaySliderCellDelegate {
 
     @IBOutlet weak var dateSelector: DateSelector!
     @IBOutlet weak var leftTableView: UITableView!
@@ -17,8 +17,11 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     
-    private var leftCells: [MyDayCell] = []
-    private var rightCells: [MyDayCell] = []
+    private var leftCells: [MyDaySection] = []
+    private var rightCells: [MyDaySection] = []
+
+    
+    var student: Student?
     
     /**
      On load sets delegates, background and reloads the data
@@ -27,7 +30,6 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
         super.viewDidLoad()
         self.addNinoDefaultBackGround()
         self.dateSelector.delegate = self
-        self.dateSelector.dataSource = self
         
         self.leftTableView.delegate = self
         self.rightTableView.delegate = self
@@ -44,10 +46,6 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     func dateDidChange(date: NSDate) {
         //TODO: gets the agenda for the selected day
         print(date)
-    }
-    
-    func setInitialDate() -> NSDate {
-        return NSDate()
     }
 
 //MARK: View Methods
@@ -66,13 +64,25 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
      Gets the info from BO and reloads the tableViews data, alse updating the size of the scrollView
      */
     func reloadData() {
-        (self.leftCells, self.rightCells) = MyDayBO.getCellsForClass(0)
+//        guard let currentStudent = self.student else {
+//            //TODO: handle missing student
+//            return
+//        }
         
-        leftTableView.reloadData()
-        rightTableView.reloadData()
+        do {
+            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom("sad"/*currentStudent.roomID*/)
+            
+            leftTableView.reloadData()
+            rightTableView.reloadData()
+            
+            scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
+            //TODO: Insert class ID
+
+        } catch {
+            //TODO: handle error
+        }
         
-        scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
-        //TODO: Insert class ID
+        
     }
     
     
@@ -123,9 +133,11 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch tableView {
         case leftTableView:
-            return leftCells[indexPath.section].sections[indexPath.row].getHeight()
+            let cell = self.cellForIndexPath(indexPath, sections: self.leftCells)
+            return cell.getHeight()
         case rightTableView:
-            return rightCells[indexPath.section].sections[indexPath.row].getHeight()
+            let cell = self.cellForIndexPath(indexPath, sections: self.rightCells)
+            return cell.getHeight()
         default:
             return 0
         }
@@ -134,54 +146,186 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, DateSelectorD
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case leftTableView:
-            return leftCells[section].sections.count
+            var number = 0
+            for row in leftCells[section].rows {
+                number += row.cells.count
+            }
+            return number
         case rightTableView:
-            return rightCells[section].sections.count
+            var number = 0
+            for row in rightCells[section].rows {
+                number += row.cells.count
+            }
+            return number
         default:
             return 0
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var row: MyDayRow?
+        var cell: MyDayCell?
+        var isLeft: Bool
         switch tableView {
         case leftTableView:
-            row = leftCells[indexPath.section].sections[indexPath.row]
+            cell = self.cellForIndexPath(indexPath, sections: self.leftCells)
+            isLeft = true
         case rightTableView:
-            row = rightCells[indexPath.section].sections[indexPath.row]
+            cell = self.cellForIndexPath(indexPath, sections: self.rightCells)
+            isLeft = false
         default:
-            row = nil
+            cell = nil
+            isLeft = true
         }
-        
-        guard let rowNow = row else {
-            return tableView.dequeueReusableCellWithIdentifier("intensityCell")!
-            //TODO: Handle better
-        }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(rowNow.getCellIdentifier())
         
         guard let cellNow = cell else {
             return tableView.dequeueReusableCellWithIdentifier("intensityCell")!
             //TODO: Handle better
         }
         
-        if let intensityCell = cellNow as? IntensityCell {
-            if let intensityVO = rowNow as? MyDayIntensityRow {
-                intensityCell.setup(intensityVO.getTitle(), strings: intensityVO.strings, delegate: self, description: intensityVO.preDescription, emptyDescription: intensityVO.emptyDescription, indexPath: indexPath)
+        let tableCell = tableView.dequeueReusableCellWithIdentifier(cellNow.getCellIdentifier())
+        
+        guard let tableCellNow = tableCell else {
+            return tableView.dequeueReusableCellWithIdentifier("intensityCell")!
+            //TODO: Handle better
+        }
+        
+        if let intensityCell = tableCellNow as? IntensityCell {
+            if let intensityVO = cellNow as? MyDayIntensityCell {
+                intensityCell.setup(intensityVO.getTitle(), buttonsStrings: intensityVO.buttons, delegate: self, indexPath: indexPath, isLeftCell: isLeft, values: intensityVO.values, current: intensityVO.current)
             }
         }
         
-        if let sliderCell = cellNow as? SliderCell {
-            if let sliderVO = rowNow as? MyDaySliderRow {
-                sliderCell.setup(sliderVO.getTitle(), unit: sliderVO.unit, iconName: sliderVO.image.rawValue, sliderFloor: sliderVO.floor, sliderCeil: sliderVO.ceil, delegate: self, generalDescription: sliderVO.generalDescription, itemDescription: sliderVO.itemDescription, indexPath: indexPath)
+        if let sliderCell = tableCellNow as? SliderCell {
+            if let sliderVO = cellNow as? MyDaySliderCell {
+                sliderCell.setup(sliderVO.getTitle(), unit: sliderVO.unit, iconName: sliderVO.image.rawValue, sliderFloor: sliderVO.floor, sliderCeil: sliderVO.ceil, delegate: self, indexPath: indexPath, isLeftCell: isLeft, values: sliderVO.values, current: sliderVO.current, sliderDelegate: self)
             }
         }
         
-        return cellNow
-    }
-//MARK: Cell delegate
-    func didChangeStatus(status: String, indexPath: NSIndexPath) {
-        print(status)
+        return tableCellNow
     }
     
+//MARK: Cell delegate
+    func didChangeStatus(value: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        var section: [MyDaySection]
+        if isLeftCell {
+            section = self.leftCells
+        } else {
+            section = self.rightCells
+        }
+        let cell = self.cellForIndexPath(indexPath, sections: section)
+        let newCell = MyDayBO.cellDidChange(value, cell: cell)
+        self.changeCellInSide(indexPath, isLeft: isLeftCell, newCell: newCell)
+        MyDayBO.updateDraft("df", left: self.leftCells, right: self.rightCells) { (update) in
+            
+        }
+    }
+    
+    func shouldAddItem(indexPath: NSIndexPath, isLeftCell: Bool) {
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        do {
+            let row = try MyDayBO.shouldAddNewItem(row)
+            self.changeRowInSide(indexPath, isLeft: isLeftCell, newRow: row)
+            let tableView = isLeftCell ? self.leftTableView: self.rightTableView
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            if let slider = cell as? SliderCell {
+                slider.addNewItem()
+            }
+        } catch let error {
+            print("error")
+        }
+    }
+    
+    func changeSelected(indexPath: NSIndexPath, isLeftCell: Bool) {
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+    }
+    
+//MAARK: Private methods
+    private func cellForIndexPath(indexPath: NSIndexPath, sections: [MyDaySection]) -> MyDayCell {
+        
+        var currentRow: MyDayRow?
+        var sum = 0
+        for row in sections[indexPath.section].rows {
+            currentRow = row
+            sum += currentRow!.cells.count
+            if sum > indexPath.item {
+                break
+            }
+        }
+        if let row = currentRow {
+            sum -= row.cells.count
+            return row.cells[indexPath.item - sum]
+        } else {
+            return MyDayIntensityCell(title: "", buttons: [[String : String]](), values: nil, current: nil)
+        }
+    }
+    
+    private func changeCellInSide(indexPath: NSIndexPath, isLeft: Bool, newCell: MyDayCell) {
+        let sections = isLeft ? self.leftCells: self.rightCells
+        var rows = sections[indexPath.section].rows
+        var currentRow: MyDayRow?
+        var sum = 0
+        var rowIndex = 0
+        for row in sections[indexPath.section].rows {
+            currentRow = row
+            sum += currentRow!.cells.count
+            if sum > indexPath.item {
+                break
+            }
+            rowIndex += 1
+        }
+        if let row = currentRow {
+            sum -= row.cells.count
+            var cells = row.cells
+            cells[indexPath.item - sum] = newCell
+            let newRow = MyDayRow(id: row.id, cells: cells, description: row.description, emptyDescription: row.emptyDescription)
+            rows[rowIndex] = newRow
+            let newSection = MyDaySection(id: sections[indexPath.section].id, title: sections[indexPath.section].title, icon: sections[indexPath.section].icon, rows: rows)
+            if isLeft {
+                self.leftCells[indexPath.section] = newSection
+            } else {
+                self.rightCells[indexPath.section] = newSection
+            }
+        } else {
+            
+        }
+    }
+    
+    private func rowForIndexPath(indexPath: NSIndexPath, isLeft: Bool) -> MyDayRow {
+        let sections = isLeft ? self.leftCells: self.rightCells
+        var currentRow: MyDayRow?
+        var sum = 0
+        for row in sections[indexPath.section].rows {
+            currentRow = row
+            sum += currentRow!.cells.count
+            if sum > indexPath.item {
+                break
+            }
+        }
+        if let row = currentRow {
+            return row
+        } else {
+            return MyDayRow(id: 0, cells: [], description: "", emptyDescription: "")
+        }
+    }
+    
+    private func changeRowInSide(indexPath: NSIndexPath, isLeft: Bool, newRow: MyDayRow) {
+        let sections = isLeft ? self.leftCells: self.rightCells
+        var sum = 0
+        var rowIndex = 0
+        for row in sections[indexPath.section].rows {
+            sum += row.cells.count
+            if sum > indexPath.item {
+                break
+            }
+            rowIndex += 1
+        }
+        var rows = sections[indexPath.section].rows
+        rows[rowIndex] = newRow
+        let newSection = MyDaySection(id: sections[indexPath.section].id, title: sections[indexPath.section].title, icon: sections[indexPath.section].icon, rows: rows)
+        if isLeft {
+            self.leftCells[indexPath.section] = newSection
+        } else {
+            self.rightCells[indexPath.section] = newSection
+        }
+    }
 }

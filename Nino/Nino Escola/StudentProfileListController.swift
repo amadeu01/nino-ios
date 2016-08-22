@@ -8,13 +8,21 @@
 
 import UIKit
 
-class StudentProfileListController: UITableViewController, StudentProfileListHeaderDelegate, UIPopoverPresentationControllerDelegate {
+class StudentProfileListController: UITableViewController, StudentProfileListHeaderDelegate, UIPopoverPresentationControllerDelegate, ChooseClassroomDelegate {
     
     @IBOutlet weak var studentProfileTableView: UITableView!
     @IBOutlet weak var footer: UIView!
     
     var phases = [Phase]()
     var rooms = [Room]()
+    
+    var currentHeader: StudentProfileListHeader?
+    
+    var currentRoom: String?
+    var currentPhase: String?
+    var currentStudent: String?
+    
+    private var students = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +31,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         //registering for notification
         NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
         NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(reloadData))
         NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
         //xrschoolNameLabel.text = "DID WORK"
         //self.tableView.registerNib(UINib(nibName: "StudentProfileListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
@@ -56,8 +65,19 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         let cell = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier("StudentProfileListHeader")
 //swiftlint:disable force_cast
         let header = cell as! StudentProfileListHeader
+        self.currentHeader = header
         header.delegate = self
-        header.schoolNameLabel.text = "Escola Nino"
+        if let token = NinoSession.sharedInstance.credential?.token {
+            SchoolBO.getSchool(token, completionHandler: { (school) in
+                do {
+                    let school = try school()
+                    header.schoolNameLabel.text = school.name
+                } catch {
+                    //TODO: Handle error
+                }
+            })
+        }
+        header.schoolNameLabel.text = ""
         return cell
     }
     //MARK: TableView Data Source
@@ -66,6 +86,8 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         guard let thisCell = cell else {
             return StudentProfileTableViewCell()
         }
+        
+        thisCell.studentID = students[indexPath.item]
         
         return thisCell
     }
@@ -76,12 +98,12 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
             //Not a StudentProfileTableViewCell
             return
         }
-        thisCell.profileImageView.image = UIImage(named: "baby1")
-        thisCell.guardianFirstNames = ["Carlos", "Danilo"]
-        thisCell.studentName = "Amanda"
+//        thisCell.profileImageView.image = UIImage(named: "baby1")
+//        thisCell.guardianFirstNames = ["Carlos", "Danilo"]
+//        thisCell.studentName = "Amanda"
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return students.count
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1 //Only one section
@@ -91,13 +113,13 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        SchoolSession.currentStudent = students[indexPath.item]
         self.performSegueWithIdentifier("showStudentProfile", sender: self)
     }
     
     //MARK: Notification Manager methods
     @objc private func schoolUpdated() {
-        //TODO: update school label
-        print("School notification working!")
+        print("School notification working")
     }
     
     @objc private func phasesUpdated(notification: NSNotification) {
@@ -109,9 +131,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
             //TODO: handle error
         } else if let message = userInfo["info"] as? NotificationMessage {
             if let newPhases = message.dataToInsert as? [Phase] {
-                for phase in newPhases {
-                    self.phases.append(phase)
-                }
+                self.phases.appendContentsOf(newPhases)
             }
             //TODO: updated phases
             //TODO: deleted phases
@@ -138,6 +158,32 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     private func roomsUpdated() {
         //TODO: reload rooms buttons
     }
+    
+    func didChangeSelectedPhase(newTitle: String, phase: String, room: String) {
+        self.currentRoom = room
+        self.currentPhase = phase
+        self.currentHeader?.classroomButton.setTitle(newTitle, forState: .Normal)
+        self.reloadData()
+    }
+    
+    @objc private func reloadData() {
+        self.students.removeAll()
+        if let room = self.currentRoom {
+            StudentBO.getStudent(room) { (students) in
+                do {
+                    let students = try students()
+                    for student in students {
+                        self.students.append(student.id)
+                    }
+                    self.studentProfileTableView.reloadData()
+                } catch {
+                    //TODO: HANDLE
+                }
+                
+            }
+        }
+    }
+    
     @objc private func roomsUpdatedFromServer(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
             //TODO: Unexpected case
@@ -165,6 +211,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         var menuViewController: SelectClassroomTableViewController = storyboard.instantiateViewControllerWithIdentifier("SelectClassroomTableViewController") as! SelectClassroomTableViewController
         menuViewController.modalPresentationStyle = .Popover
         menuViewController.preferredContentSize = CGSizeMake(300, 400)
+        menuViewController.delegate = self
         let popoverMenuViewController = menuViewController.popoverPresentationController
         popoverMenuViewController?.permittedArrowDirections = .Left
         popoverMenuViewController?.delegate = self

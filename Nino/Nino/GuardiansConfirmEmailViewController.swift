@@ -56,6 +56,9 @@ class GuardiansConfirmEmailViewController: UIViewController {
                     let alertView = DefaultAlerts.serverErrorAlert(serverError, title: "Falha na confirmação", customAction: act)
                     self.presentViewController(alertView, animated: true, completion: nil)
                 })
+                let alertView = DefaultAlerts.serverErrorAlert(serverError, title: "Falha na confirmação", customAction: action)
+                self.presentViewController(alertView, animated: true, completion: nil)
+                
             }
         }
     }

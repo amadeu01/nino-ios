@@ -30,6 +30,23 @@ class StudentProfileTableViewCell: UITableViewCell {
         }
     }
     
+    var studentID: String? {
+        didSet {
+            if let studentID = self.studentID {
+                StudentBO.getStudentForID(studentID, completionHandler: { (student) in
+                    do {
+                        let student = try student()
+                        self.studentName = student.name
+//                        self.guardianFirstNames = student.
+                        self.guardianFirstNames = student.guardians
+                    } catch {
+                        //TODO: handle error
+                    }
+                })
+            }
+        }
+    }
+    
     //internal var baby: Baby!
     
     // Sets the text according to the sponsors' names.

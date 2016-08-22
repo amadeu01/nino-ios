@@ -25,7 +25,6 @@ class StudentProfileListHeader: UITableViewHeaderFooterView {
     }
 }
 
-
 protocol StudentProfileListHeaderDelegate {
     func didTapPhaseButton(sender: UIButton)
 }
