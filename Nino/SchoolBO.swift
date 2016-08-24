@@ -48,7 +48,6 @@ class SchoolBO: NSObject {
                     }
                     //success
                     else if let school = schoolID {
-                        newSchool.schoolID = school
                         //update local schoolID information
                         SchoolDAO.sharedInstance.updateSchoolId(school, completionHandler: { (update) in
                             do {
@@ -72,8 +71,7 @@ class SchoolBO: NSObject {
                                                     if success {
                                                         dispatch_async(dispatch_get_main_queue(), { 
                                                             completionHandler(getSchool: { () -> School in
-                                                                newSchool.logo = imageData
-                                                                return newSchool
+                                                                return School(id: newSchool.id, schoolId: school, name: newSchool.name, address: newSchool.address, legalNumber: newSchool.legalNumber, telephone: newSchool.telephone, email: newSchool.email, owner: newSchool.owner, logo: imageData)
                                                             })
                                                         })
                                                     }
@@ -94,7 +92,7 @@ class SchoolBO: NSObject {
                                 else {
                                     dispatch_async(dispatch_get_main_queue(), { 
                                         completionHandler(getSchool: { () -> School in
-                                            return newSchool
+                                            return School(id: newSchool.id, schoolId: school, name: newSchool.name, address: newSchool.address, legalNumber: newSchool.legalNumber, telephone: newSchool.telephone, email: newSchool.email, owner: newSchool.owner, logo: newSchool.logo)
                                         })
                                     })
                                 }
@@ -201,6 +199,7 @@ class SchoolBO: NSObject {
                             do {
                                 try writeSchool()
                             } catch {
+                                print("realm school error")
                                 //TODO: post notification
                             }
                         })
@@ -208,6 +207,7 @@ class SchoolBO: NSObject {
                 }//end school NotFound
                 //realm error
                 else {
+                    print("realm error")
                     //TODO: handle realm error
                 }
             } //end catch

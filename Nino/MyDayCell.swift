@@ -12,6 +12,7 @@ protocol MyDayCell {
     func getTitle() -> String
     func getHeight() -> CGFloat
     func getCellIdentifier() -> String
+    func isEqualTo(rhs: MyDayCell) -> Bool
 }
 
 protocol MyDayCellDelegate {
@@ -20,7 +21,9 @@ protocol MyDayCellDelegate {
 
 protocol MyDaySliderCellDelegate {
     func shouldAddItem(indexPath: NSIndexPath, isLeftCell: Bool)
-    func changeSelected(indexPath: NSIndexPath, isLeftCell: Bool)
+    func changeSelected(toValue: Int, indexPath: NSIndexPath, isLeftCell: Bool)
+    func shouldDeleteItem(target: Int, indexPath: NSIndexPath, isLeftCell: Bool)
+    func deleteItem(item: Int, indexPath: NSIndexPath, isLeftCell: Bool)
 }
 
 import Foundation
@@ -63,6 +66,14 @@ struct MyDayIntensityCell: MyDayCell {
     func getCellIdentifier() -> String {
         return "intensityCell"
     }
+    
+    func isEqualTo(rhs: MyDayCell) -> Bool {
+        if let cell = rhs as? MyDayIntensityCell {
+            return self.title == cell.getTitle() && self.buttons == cell.buttons
+        } else {
+            return false
+        }
+    }
 }
 
 struct MyDaySliderCell: MyDayCell {
@@ -103,6 +114,14 @@ struct MyDaySliderCell: MyDayCell {
     func getCellIdentifier() -> String {
         return "sliderCell"
     }
+    
+    func isEqualTo(rhs: MyDayCell) -> Bool {
+        if let cell = rhs as? MyDaySliderCell {
+            return self.title == cell.getTitle() && self.unit == cell.unit && self.ceil == cell.ceil && self.floor == cell.floor
+        } else {
+            return false
+        }
+    }
 }
 
 struct MyDaySeparatorCell: MyDayCell {
@@ -120,5 +139,9 @@ struct MyDaySeparatorCell: MyDayCell {
     
     func getCellIdentifier() -> String {
         return "separatorCell"
+    }
+    
+    func isEqualTo(rhs: MyDayCell) -> Bool {
+        return false
     }
 }

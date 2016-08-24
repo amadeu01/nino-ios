@@ -15,14 +15,14 @@ struct Student {
     
 //MARK: Attributes
     let id: String
-    var profileID: Int?
+    let profileID: Int?
     let name: String
     let surname: String
     let gender: Gender
     let birthDate: NSDate
-    var profilePicture: NSData?
+    let profilePicture: NSData?
     let roomID: String
-    var guardians: [String]?
+    let guardians: [String]?
     
 //MARK: Initializer
     /**
@@ -42,16 +42,12 @@ struct Student {
      */
     init(id: String, profileId: Int?, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, roomID: String, guardians: [String]?) {
         self.id = id
-        if let profID = profileId {
-            self.profileID = profID
-        }
+        self.profileID = profileId
         self.name = name
         self.surname = surname
         self.gender = gender
         self.birthDate = birthDate
-        if let picture = profilePicture {
-            self.profilePicture = picture
-        }
+        self.profilePicture = profilePicture
         self.roomID = roomID
         if let guardianList = guardians {
             self.guardians = guardianList

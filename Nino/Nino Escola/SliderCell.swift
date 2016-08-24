@@ -248,7 +248,9 @@ class SliderCell: UITableViewCell {
         //Saves the reference to this new Item
         let newItem = Item.init(image: newIcon, label: newLabel, leadingConstraint: trailing, value: newValue)
         self.selectedItem = newItem
+        self.current = self.items.count
         self.items.append(newItem)
+        
         self.containerWidth.constant = CGFloat(self.items.count + 1) * (self.itemSpacing + plus.frame.width)
         
         //Enables the slider
@@ -285,7 +287,14 @@ class SliderCell: UITableViewCell {
         guard let target = items.indexOf({$0.image == sender.view}) else {
             return
         }
-        
+        if let left = self.isLeftCell {
+            if let index = self.indexPath {
+                sliderDelegate?.shouldDeleteItem(target, indexPath: index, isLeftCell: left)
+            }
+        }
+    }
+    
+    func deleteItem(target: Int) {
         //Gets items arount this one
         var right: Item?
         let this = items[target]
@@ -327,20 +336,13 @@ class SliderCell: UITableViewCell {
         }
         //Changes the selected item to the one to the right of the plus icon
         self.selectedItem = items.last
+        self.current = self.items.count - 1
         
-        //Tells delegate what changed 
-//        if let index = self.indexPath {
-//            var description = ""
-//            description += self.generalDescription!.stringByReplacingOccurrencesOfString("%", withString: "\(self.items.count)\n")
-//            if (self.items.count > 0) {
-//                var items = ""
-//                for item in self.items {
-//                    items += item.label.text!
-//                }
-//                description += self.itemDescription!.stringByReplacingOccurrencesOfString("%", withString: items)
-//            }
-//            delegate?.didChangeStatus(description, indexPath: index)
-//        }
+        if let index = self.indexPath {
+            if let isLeft = self.isLeftCell {
+                sliderDelegate?.deleteItem(target, indexPath: index, isLeftCell: isLeft)
+            }
+        }
     }
     
     /**
@@ -355,7 +357,8 @@ class SliderCell: UITableViewCell {
         self.selectedItem = items[target]
         if let index = self.indexPath {
             if let isLeft = self.isLeftCell {
-                sliderDelegate?.changeSelected(index, isLeftCell: isLeft)
+                self.current = target
+                sliderDelegate?.changeSelected(target, indexPath: index, isLeftCell: isLeft)
             }
         }
     }
@@ -394,9 +397,17 @@ class SliderCell: UITableViewCell {
         if let index = self.indexPath {
             if let leftCell = self.isLeftCell {
                 if let value = selectedItem?.value {
-                    var intValue = Int(value * (self.max - self.min) + self.min)
-                    intValue = intValue - intValue%10
-                    delegate?.didChangeStatus(intValue, indexPath: index, isLeftCell: leftCell)
+                    if value == self.min {
+                        if self.items.count > 1 {
+                            self.deleteItem(self.current)
+                        } else {
+                            delegate?.didChangeStatus(-1, indexPath: index, isLeftCell: leftCell)
+                        }
+                    } else {
+                        var intValue = Int(value * (self.max - self.min) + self.min)
+                        intValue = intValue - intValue%10
+                        delegate?.didChangeStatus(intValue, indexPath: index, isLeftCell: leftCell)
+                    }
                 }
             }
         }

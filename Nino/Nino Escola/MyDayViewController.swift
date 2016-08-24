@@ -226,18 +226,61 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             let row = try MyDayBO.shouldAddNewItem(row)
             self.changeRowInSide(indexPath, isLeft: isLeftCell, newRow: row)
             let tableView = isLeftCell ? self.leftTableView: self.rightTableView
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if let slider = cell as? SliderCell {
-                slider.addNewItem()
+            for cell in row.cells {
+                let index = self.indexPathForCell(isLeftCell, cell: cell)
+                let tableCell = tableView.cellForRowAtIndexPath(index)
+                if let slider = tableCell as? SliderCell {
+                    slider.addNewItem()
+                }
+                if let intensity = tableCell as? IntensityCell {
+                    intensity.addItem()
+                }
             }
         } catch let error {
             print("error")
         }
     }
     
-    func changeSelected(indexPath: NSIndexPath, isLeftCell: Bool) {
+    func changeSelected(toValue: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
         let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        let tableView = isLeftCell ? self.leftTableView: self.rightTableView
+        let sections = isLeftCell ? self.leftCells : self.rightCells
+        for cell in row.cells {
+            let index = self.indexPathForCell(isLeftCell, cell: cell)
+            let tableCell = tableView.cellForRowAtIndexPath(index)
+            if let intensity = tableCell as? IntensityCell {
+                intensity.changeSelected(toValue)
+            }
+            let cellVO = self.cellForIndexPath(index, sections: sections)
+            let newCell = self.changeCurrent(cellVO, current: toValue)
+            self.changeCellInSide(index, isLeft: isLeftCell, newCell: newCell)
+        }
     }
+    
+    func deleteItem(item: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        let tableView = isLeftCell ? self.leftTableView : self.rightTableView
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        let sections = isLeftCell ? self.leftCells : self.rightCells
+        for cell in row.cells {
+            let index = self.indexPathForCell(isLeftCell, cell: cell)
+            let tableCell = tableView.cellForRowAtIndexPath(index)
+            if let intensity = tableCell as? IntensityCell {
+                intensity.deleteItem(item)
+            }
+            let cellVO = self.cellForIndexPath(index, sections: sections)
+            let newCell = self.deleteItemInVO(item, cell: cellVO)
+            self.changeCellInSide(index, isLeft: isLeftCell, newCell: newCell)
+        }
+    }
+    
+    func shouldDeleteItem(target: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        let sections = isLeftCell ? self.leftCells : self.rightCells
+        let cell = self.cellForIndexPath(indexPath, sections: sections)
+        if let slider = cell as? SliderCell {
+            slider.deleteItem(target)
+        }
+    }
+    
     
 //MAARK: Private methods
     private func cellForIndexPath(indexPath: NSIndexPath, sections: [MyDaySection]) -> MyDayCell {
@@ -327,5 +370,51 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         } else {
             self.rightCells[indexPath.section] = newSection
         }
+    }
+    
+    private func indexPathForCell(isLeft: Bool, cell: MyDayCell) -> NSIndexPath {
+        let sections = isLeft ? self.leftCells : self.rightCells
+        var secIndex = 0
+        var itemIndex = 0
+        for section in sections {
+            for row in section.rows {
+                for internalCell in row.cells {
+                    if internalCell.isEqualTo(cell) {
+                        return NSIndexPath(forItem: itemIndex, inSection: secIndex)
+                    }
+                    itemIndex += 1
+                }
+            }
+            secIndex += 1
+        }
+        return NSIndexPath()
+    }
+    
+    private func changeCurrent(cell: MyDayCell, current: Int) -> MyDayCell {
+        if let intensity = cell as? MyDayIntensityCell {
+            let newCell = MyDayIntensityCell(title: intensity.getTitle(), buttons: intensity.buttons, values: intensity.values, current: current)
+            return newCell
+        }
+        if let slider = cell as? MyDaySliderCell {
+            let newCell = MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: slider.values, current: current)
+            return newCell
+        }
+        return MyDayIntensityCell(title: "Hey", buttons: [["1":"2"]], values: nil, current: nil)
+    }
+    
+    private func deleteItemInVO(item: Int, cell: MyDayCell) -> MyDayCell {
+        if let intensity = cell as? MyDayIntensityCell {
+            var newValues = intensity.values
+            newValues.removeAtIndex(item)
+            let newCell = MyDayIntensityCell(title: intensity.getTitle(), buttons: intensity.buttons, values: newValues, current: newValues.count - 1)
+            return newCell
+        }
+        if let slider = cell as? MyDaySliderCell {
+            var newValues = slider.values
+            newValues.removeAtIndex(item)
+            let newCell = MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: newValues, current: newValues.count - 1)
+            return newCell
+        }
+        return MyDayIntensityCell(title: "Hey", buttons: [["1":"2"]], values: nil, current: nil)
     }
 }

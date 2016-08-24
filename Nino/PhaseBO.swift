@@ -41,13 +41,12 @@ class PhaseBO: NSObject {
                                     })
                                 })
                             } else if let phaseID = id {
-                                newPhase.phaseID = phaseID
                                 PhaseDAO.sharedInstance.updatePhaseId(newPhase.id, phaseID: phaseID, completionHandler: { (update) in
                                     do {
                                         try update()
                                         dispatch_async(dispatch_get_main_queue(), { 
                                             completionHandler(phase: { () -> Phase in
-                                                return newPhase
+                                                return Phase(id: newPhase.id, phaseID: phaseID, name: newPhase.name)
                                             })
                                         })
                                     } catch let err {

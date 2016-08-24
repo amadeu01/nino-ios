@@ -165,14 +165,13 @@ class RoomDAO: NSObject {
             position += 1
         }
         
-        guard var selectedRoom = roomToUpdate else {
+        guard let localRoom = roomToUpdate else {
             completionHandler(update: {
                 throw DatabaseError.NotFound
             })
             return
         }
-        
-        selectedRoom.roomID = roomID
+        let selectedRoom = Room(id: localRoom.id, roomID: roomID, phaseID: localRoom.phaseID, name: localRoom.name)
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()

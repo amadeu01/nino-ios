@@ -23,8 +23,6 @@ class RoomRealmObject: Object {
     let students = LinkingObjects(fromType: StudentRealmObject.self, property: "room")
     let events = LinkingObjects(fromType: EventRealmObject.self, property: "room")
     let educators = LinkingObjects(fromType: EducatorRealmObject.self, property: "rooms")
-    let posts = LinkingObjects(fromType: PostRealmObject.self, property: "roomPost")
-    let drafts = LinkingObjects(fromType: PostRealmObject.self, property: "roomDraft")
     
 //MARK: Methods
     override static func primaryKey() -> String? {

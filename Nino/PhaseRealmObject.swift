@@ -24,8 +24,6 @@ class PhaseRealmObject: Object {
     let activities = LinkingObjects(fromType: ActivityRealmObject.self, property: "phases")
     let menus = LinkingObjects(fromType: MenuRealmObject.self, property: "phases")
     let rooms = LinkingObjects(fromType: RoomRealmObject.self, property: "phase")
-    let posts = LinkingObjects(fromType: PostRealmObject.self, property: "phasePost")
-    let drafts = LinkingObjects(fromType: PostRealmObject.self, property: "phaseDraft")
     
 //MARK: Methods
     override static func primaryKey() -> String? {

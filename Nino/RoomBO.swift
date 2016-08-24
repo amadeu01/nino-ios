@@ -48,10 +48,9 @@ class RoomBO: NSObject {
                             RoomDAO.sharedInstance.updateRoomID(room.id, roomID: roomID, completionHandler: { (update) in
                                 do {
                                     try update()
-                                    room.roomID = roomID
                                     dispatch_async(dispatch_get_main_queue(), { 
                                         completionHandler(room: { () -> Room in
-                                            return room
+                                            return Room(id: room.id, roomID: roomID, phaseID: room.phaseID, name: room.name)
                                         })
                                     })
                                 } catch {

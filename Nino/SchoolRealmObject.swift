@@ -29,8 +29,6 @@ class SchoolRealmObject: Object {
     let menus = LinkingObjects(fromType: MenuRealmObject.self, property: "school")
     let activities = LinkingObjects(fromType: ActivityRealmObject.self, property: "school")
     let events = LinkingObjects(fromType: EventRealmObject.self, property: "school")
-    let posts = LinkingObjects(fromType: PostRealmObject.self, property: "schoolPost")
-    let drafts = LinkingObjects(fromType: PostRealmObject.self, property: "schoolDraft")
     
 //MARK: Methods
     override static func primaryKey() -> String? {

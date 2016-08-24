@@ -240,8 +240,10 @@ class MyDayBO: NSObject {
     
     static func shouldAddNewItem(row: MyDayRow) throws -> MyDayRow {
         for cell in row.cells {
-            if cell.values.last == -1 {
-                throw CreationError.EmptyField
+            for value in cell.values {
+                if value == -1 {
+                    throw CreationError.EmptyField
+                }
             }
         }
         var cells = [MyDayCell]()

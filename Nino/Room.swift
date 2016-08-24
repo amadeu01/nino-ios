@@ -15,7 +15,7 @@ struct Room {
 
 //MARK: Attributes
     let id: String
-    var roomID: Int?
+    let roomID: Int?
     let phaseID: String
     let name: String
 
@@ -34,8 +34,6 @@ struct Room {
         self.id = id
         self.phaseID = phaseID
         self.name = name
-        if let rmID = roomID {
-            self.roomID = rmID
-        }
+        self.roomID = roomID
     }
 }

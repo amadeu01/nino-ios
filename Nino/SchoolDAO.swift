@@ -143,7 +143,7 @@ class SchoolDAO: NSObject {
     }
     
     func updateSchoolId(id: Int, completionHandler: (update: () throws -> Void) -> Void) {
-        guard var school = self.school else {
+        guard let localSchool = self.school else {
             dispatch_async(RealmManager.sharedInstace.getRealmQueue(), {
                 do {
                     let realm = try Realm()
@@ -176,7 +176,7 @@ class SchoolDAO: NSObject {
             })
             return
         }
-        school.schoolID = id
+        let school = School(id: localSchool.id, schoolId: id, name: localSchool.name, address: localSchool.address, legalNumber: localSchool.legalNumber, telephone: localSchool.telephone, email: localSchool.email, owner: localSchool.owner, logo: localSchool.logo)
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
@@ -210,7 +210,7 @@ class SchoolDAO: NSObject {
     }
     
     func updateSchoolLogo(logo: NSData, completionHandler: (update: () throws -> Void) -> Void) {
-        guard var school = self.school else {
+        guard let localSchool = self.school else {
             dispatch_async(RealmManager.sharedInstace.getRealmQueue(), {
                 do {
                     let realm = try Realm()
@@ -243,7 +243,7 @@ class SchoolDAO: NSObject {
             })
             return
         }
-        school.logo = logo
+        let school = School(id: localSchool.id, schoolId: localSchool.schoolID, name: localSchool.name, address: localSchool.address, legalNumber: localSchool.legalNumber, telephone: localSchool.telephone, email: localSchool.email, owner: localSchool.owner, logo: logo)
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
