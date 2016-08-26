@@ -160,7 +160,7 @@ class MyDayBO: NSObject {
     }
     
     static func updateDraft(student: String, left: [MyDaySection], right: [MyDaySection], completionHandler: (update: () throws -> Void) -> Void) {
-        let dict = self.getDictByAgenda(Agenda(leftSections: left, rightSections: right))
+        let dict = self.getDictFromAgenda(Agenda(leftSections: left, rightSections: right))
         let leftArray = dict["left"] as? [[String: AnyObject]]
         for array in leftArray! {
             let id = array["id"] as? Int
@@ -191,7 +191,7 @@ class MyDayBO: NSObject {
         }
     }
     
-    static private func getDictByAgenda(agenda: Agenda) -> [String: AnyObject] {
+    static private func getDictFromAgenda(agenda: Agenda) -> [String: AnyObject] {
         let left = agenda.left
         let right = agenda.right
         var sections = [[String: AnyObject]]()
@@ -265,5 +265,21 @@ class MyDayBO: NSObject {
             cells.append(newCell)
         }
         return MyDayRow(id: row.id, cells: cells, description: row.description, emptyDescription: row.emptyDescription)
+    }
+    
+    static func deleteItem(item: Int, cell: MyDayCell) -> MyDayCell {
+        if let intensity = cell as? MyDayIntensityCell {
+            var newValues = intensity.values
+            newValues.removeAtIndex(item)
+            let newCell = MyDayIntensityCell(title: intensity.getTitle(), buttons: intensity.buttons, values: newValues, current: newValues.count - 1)
+            return newCell
+        }
+        if let slider = cell as? MyDaySliderCell {
+            var newValues = slider.values
+            newValues.removeAtIndex(item)
+            let newCell = MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: newValues, current: newValues.count - 1)
+            return newCell
+        }
+        return MyDayIntensityCell(title: "Hey", buttons: [["1":"2"]], values: nil, current: nil)
     }
 }
