@@ -200,7 +200,7 @@ class SliderCell: UITableViewCell {
         
         //Creates the delete and select gesture to be put on the Items images
         let deleteGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.removeItem(_:)))
-        let selectGesture = UITapGestureRecognizer(target: self, action: #selector(self.selectItem(_:)))
+        let selectGesture = UITapGestureRecognizer(target: self, action: #selector(self.shouldSelectItem(_:)))
         
         selectGesture.delegate = self
         
@@ -345,22 +345,26 @@ class SliderCell: UITableViewCell {
         }
     }
     
+    @objc private func shouldSelectItem(sender: UITapGestureRecognizer) {
+        guard let target = items.indexOf({$0.image == sender.view}) else {
+            return
+        }
+        if let index = self.indexPath {
+            if let left = self.isLeftCell {
+                sliderDelegate?.shouldChangeSelected(self.current, target: target, indexPath: index, isLeftCell: left)
+            }
+        }
+    }
+    
     /**
      Change the selected item, that will be affected by the slider
      
      - parameter sender: The one touched
      */
-    @objc private func selectItem(sender: UITapGestureRecognizer) {
-        guard let target = items.indexOf({$0.image == sender.view}) else {
-            return
-        }
+    func selectItem(target: Int, isLeftCell: Bool, indexPath: NSIndexPath) {
         self.selectedItem = items[target]
-        if let index = self.indexPath {
-            if let isLeft = self.isLeftCell {
-                self.current = target
-                sliderDelegate?.changeSelected(target, indexPath: index, isLeftCell: isLeft)
-            }
-        }
+        self.current = target
+        sliderDelegate?.changeSelected(target, indexPath: indexPath, isLeftCell: isLeftCell)
     }
     
     /**

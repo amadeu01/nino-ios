@@ -300,6 +300,23 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    func shouldChangeSelected(current: Int, target: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        let (shouldChange, item) = MyDayBO.shouldChangeSelected(row, selected: current)
+        if shouldChange {
+            let tableview = isLeftCell ? self.leftTableView : self.rightTableView
+            let cell = tableview.cellForRowAtIndexPath(indexPath)
+            if let slider = cell as? SliderCell {
+                slider.selectItem(target, isLeftCell: isLeftCell, indexPath: indexPath)
+            }
+        } else {
+            let title = row.cells[item!].getTitle()
+            let alert = UIAlertController(title: "Item vazio", message: "Você não pode mudar de item pois o campo \"\(title)\" está vazio.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Entendi", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     
 //MAARK: Private methods
     private func cellForIndexPath(indexPath: NSIndexPath, sections: [MyDaySection]) -> MyDayCell {

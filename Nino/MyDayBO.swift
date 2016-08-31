@@ -282,4 +282,15 @@ class MyDayBO: NSObject {
         }
         return MyDayIntensityCell(title: "Hey", buttons: [["1":"2"]], values: nil, current: nil)
     }
+    
+    static func shouldChangeSelected(row: MyDayRow, selected: Int) -> (should: Bool, field: Int?) {
+        var index = 0
+        for cell in row.cells {
+            if cell.values[selected] == -1 {
+                return (false, index)
+            }
+            index += 1
+        }
+        return (true, nil)
+    }
 }
