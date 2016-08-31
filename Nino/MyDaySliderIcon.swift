@@ -14,5 +14,6 @@ import Foundation
  - BabyBottles: A full Baby Bottle
  */
 enum MyDaySliderIcon: String {
-    case BabyBottles = "mamadeira5"
+    case BabyBottles = "icon_babyBottle"
+    case BabySleep = "icon_sleep"
 }
