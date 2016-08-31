@@ -16,7 +16,7 @@ class IntensityCell: UITableViewCell {
     var delegate: MyDayCellDelegate?
     var indexPath: NSIndexPath?
     private var cellValues: [[String: String]]?
-    var isLeftCell: Bool?
+    private var isLeftCell: Bool?
     private var values = [-1]
     private var current = 0
     
@@ -146,6 +146,7 @@ class IntensityCell: UITableViewCell {
             self.selectedItem = nil
             if let index = self.indexPath {
                 if let isLeft = self.isLeftCell {
+                    self.values[self.current] = -1
                     delegate?.didChangeStatus(-1, indexPath: index, isLeftCell: isLeft)
                 }
             }
@@ -153,6 +154,7 @@ class IntensityCell: UITableViewCell {
             self.selectedItem = sender
             if let index = self.indexPath {
                 if let isLeft = self.isLeftCell {
+                    self.values[self.current] = sender.tag
                     delegate?.didChangeStatus(sender.tag, indexPath: index, isLeftCell: isLeft)
                 }
             }
@@ -167,7 +169,26 @@ class IntensityCell: UITableViewCell {
                     self.selectedItem = button
                 }
             }
+        } else {
+            selectedItem = nil
         }
+    }
+    
+    func addItem() {
+        self.current = self.values.count
+        self.values.append(-1)
+        self.initializeValues()
+    }
+    
+    func changeSelected(current: Int) {
+        self.current = current
+        self.initializeValues()
+    }
+    
+    func deleteItem(position: Int) {
+        self.values.removeAtIndex(position)
+        self.current = self.values.count - 1
+        self.initializeValues()
     }
 
 }

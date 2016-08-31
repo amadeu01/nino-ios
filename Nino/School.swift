@@ -15,14 +15,14 @@ struct School {
 
 //MARK: Attributes
     let id: String
-    var schoolID: Int?
+    let schoolID: Int?
     let name: String
     let address: String
-    var legalNumber: String?
+    let legalNumber: String?
     let telephone: String
     let email: String
-    var owner: Int?
-    var logo: NSData?
+    let owner: Int?
+    let logo: NSData?
 
 //MARK: Initializer
     /**
@@ -42,21 +42,13 @@ struct School {
      */
     init(id: String, schoolId: Int?, name: String, address: String, legalNumber: String?, telephone: String, email: String, owner: Int?, logo: NSData?) {
         self.id = id
-        if let schID = schoolId {
-            self.schoolID = schID
-        }
+        self.schoolID = schoolId
         self.name = name
         self.address = address
-        if let cnpj = legalNumber {
-            self.legalNumber = cnpj
-        }
+        self.legalNumber = legalNumber
         self.email = email
         self.telephone = telephone
-        if let ownerID = owner {
-            self.owner = ownerID
-        }
-        if let picture = logo {
-            self.logo = picture
-        }
+        self.owner = owner
+        self.logo = logo
     }
 }

@@ -15,12 +15,12 @@ struct Guardian {
 
 //MARK: Attributes
     let id: String
-    var profileID: Int?
+    let profileID: Int?
     let name: String
     let surname: String
-    var gender: Gender?
+    let gender: Gender?
     let email: String
-    var students: [String]
+    let students: [String]
 
 //MARK: Initializer
     /**
@@ -40,13 +40,9 @@ struct Guardian {
         self.id = id
         self.name = name
         self.surname = surname
-        if let gender = gender {
-            self.gender = gender
-        }
+        self.gender = gender
         self.email = email
         self.students = students
-        if let profID = profileID {
-            self.profileID = profID
-        }
+        self.profileID = profileID
     }
 }

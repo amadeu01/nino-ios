@@ -27,8 +27,8 @@ class StudentRealmObject: Object {
     let profileID = RealmOptional<Int>()
     dynamic var profilePicture: NSData? = nil
     let guardians = LinkingObjects(fromType: GuardianRealmObject.self, property: "students")
-    let posts = LinkingObjects(fromType: PostRealmObject.self, property: "studentsPost")
-    let drafts = LinkingObjects(fromType: PostRealmObject.self, property: "studentsDraft")
+    let posts = LinkingObjects(fromType: PostRealmObject.self, property: "targetsPost")
+    let drafts = LinkingObjects(fromType: PostRealmObject.self, property: "targetsDraft")
     
 //MARK: Methods
     override static func primaryKey() -> String? {

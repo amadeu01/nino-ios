@@ -15,7 +15,7 @@ struct Phase {
 
 //MARK: Attributes
     let id: String
-    var phaseID: Int?
+    let phaseID: Int?
     let name: String
 
 //MARK: Initializer
@@ -31,8 +31,6 @@ struct Phase {
     init(id: String, phaseID: Int?, name: String) {
         self.id = id
         self.name = name
-        if let phID = phaseID {
-            self.phaseID = phID
-        }
+        self.phaseID = phaseID
     }
 }

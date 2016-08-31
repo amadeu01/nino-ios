@@ -15,12 +15,12 @@ struct Educator {
 
 //MARK: Attributes
     let id: String
-    var profileID: Int?
+    let profileID: Int?
     let name: String
     let surname: String
     let gender: Gender
     let email: String
-    var rooms: [String]?
+    let rooms: [String]?
 
 //MARK: Initializer
     /**
@@ -47,8 +47,6 @@ struct Educator {
         } else {
             self.rooms = [String]()
         }
-        if let profID = profileID {
-            self.profileID = profID
-        }
+        self.profileID = profileID
     }
 }

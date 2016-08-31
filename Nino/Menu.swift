@@ -15,10 +15,10 @@ struct Menu {
 
 //MARK: Attributes
     let id: String
-    var menuID: Int?
+    let menuID: Int?
     let description: String
-    var schoolID: Int?
-    var phasesID: [Int]?
+    let schoolID: Int?
+    let phasesID: [Int]?
 
 //MARK: Initializer
     /**
@@ -35,14 +35,8 @@ struct Menu {
     init(id: String, menuID: Int?, description: String, schoolID: Int?, phasesID: [Int]?) {
         self.id = id
         self.description = description
-        if let mnID = menuID {
-            self.menuID = mnID
-        }
-        if let institution = schoolID {
-            self.schoolID = institution
-        }
-        if let stage = phasesID {
-            self.phasesID = stage
-        }
+        self.menuID = menuID
+        self.schoolID = schoolID
+        self.phasesID = phasesID
     }
 }

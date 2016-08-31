@@ -49,10 +49,9 @@ class GuardianBO: NSObject {
                                         GuardianDAO.sharedInstance.updateGuardianID(guardian.id, id: guardianID, completionHandler: { (update) in
                                             do {
                                                 try update()
-                                                guardian.profileID = guardianID
                                                 dispatch_async(dispatch_get_main_queue(), { 
                                                     completionHandler(guardian: { () -> Guardian in
-                                                        return guardian
+                                                        return Guardian(id: guardian.id, profileID: guardianID, name: guardian.name, surname: guardian.surname, gender: guardian.gender, email: guardian.email, students: guardian.students)
                                                     })
                                                 })
                                             } catch {

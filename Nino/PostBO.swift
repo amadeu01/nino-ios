@@ -11,47 +11,75 @@ import UIKit
 /// Class which manages all services of post
 class PostBO: NSObject {
 
-    /**
-     Tries to creat a post
-
-     - parameter id:         unique identifier
-     - parameter type:       type of the post
-     - parameter date:       date of the post
-     - parameter educator:   creator of the post
-     - parameter message:    optional message
-     - parameter attachment: optional attachment
-     - parameter school:     optional target of school type
-     - parameter students:   optional target of student type
-     - parameter phases:     optional target of phase type
-     - parameter rooms:      optional target of room type
-     - parameter read:       optional list of guardians who read
-
-     - throws: error of CreationError.ContentNotFound or CreationError.TargetNotFound type
-
-     - returns: struct VO of Post type
-     */
-    static func createPost(id: Int, type: String, date: NSDate, educator: Educator, message: String?, attachment: NSData?, school: School?, students: [Student]?, phases: [Phase]?, rooms: [Room]?, read: [Guardian]?) throws -> Post {
-
-        if message == nil && attachment == nil {
-            throw CreationError.ContentNotFound
+    static func createPost(type: Int, message: String, targets: [String], metadata: NSDictionary?, attachment: NSData?, completionHandler: (create: () throws -> Post) -> Void) -> Void {
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            completionHandler(create: { () -> Post in
+                throw AccountError.InvalidToken
+            })
+            return
         }
-        if school == nil && students == nil && phases == nil && rooms == nil {
-            throw CreationError.TargetNotFound
-        }
-        
-        let targets: [Any?] = [school, students, phases, rooms]
-        var numberOfTargets = 0
-        
+        var profiles = [Int]()
         for target in targets {
-            if target != nil {
-                numberOfTargets += 1
+            StudentBO.getIdForStudent(target, completionHandler: { (id) in
+                do {
+                    let userID = try id()
+                    profiles.append(userID)
+                } catch let error {
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        completionHandler(create: { () -> Post in
+                            throw error
+                        })
+                    })
+                    return
+                }
+            })
+        }
+        
+        let post = Post(id: StringsMechanisms.generateID(), postID: nil, type: type, date: nil, message: message, attachment: attachment, targets: targets, readProfileIDs: nil, metadata: metadata)
+        PostDAO.sharedInstance.createPost(post) { (write) in
+            do {
+                try write()
+                //FIXME: fix attachment
+                PostMechanism.createPost(token, message: message, type: type, profiles: profiles, metadata: metadata, attachment: nil, completionHandler: { (postID, error, data) in
+                    if let err = error {
+                        //handle error data
+                        dispatch_async(dispatch_get_main_queue(), { 
+                            completionHandler(create: { () -> Post in
+                                throw ErrorBO.decodeServerError(err)
+                            })
+                        })
+                    } else if let postServerID = postID {
+                        PostDAO.sharedInstance.upatePostID(post.id, serverID: postServerID, completionHandler: { (update) in
+                            do {
+                                try update()
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(create: { () -> Post in
+                                        return Post(id: post.id, postID: postServerID, type: post.type, date: post.date, message: post.message, attachment: post.attachment, targets: post.targets, readProfileIDs: post.readProfileIDs, metadata: post.metadata)
+                                    })
+                                })
+                            } catch let error {
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(create: { () -> Post in
+                                        throw error
+                                    })
+                                })
+                            }
+                        })
+                    } else {
+                        dispatch_async(dispatch_get_main_queue(), { 
+                            completionHandler(create: { () -> Post in
+                                throw ServerError.UnexpectedCase
+                            })
+                        })
+                    }
+                })
+            } catch let error {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(create: { () -> Post in
+                        throw error
+                    })
+                })
             }
         }
-        
-        if numberOfTargets > 1 {
-            throw CreationError.MultipleTargets
-        }
-        
-        return Post(id: StringsMechanisms.generateID(), postID: id, type: 0, date: nil, authorsProfileID: nil, message: "asd", attachment: nil, schoolID: nil, studentsProfileID: nil, phaseID: 213, roomID: nil, readProfileIDs: nil)
     }
 }

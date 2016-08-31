@@ -47,10 +47,9 @@ class StudentBO: NSObject {
                                 StudentDAO.sharedInstance.updateStudentID(student.id, profileID: studentID, completionHandler: { (update) in
                                     do {
                                         try update()
-                                        student.profileID = studentID
                                         dispatch_async(dispatch_get_main_queue(), {
                                             completionHandler(student: { () -> Student in
-                                                return student
+                                                return Student(id: student.id, profileId: studentID, name: student.name, surname: student.surname, gender: student.gender, birthDate: student.birthDate, profilePicture: student.profilePicture, roomID: student.roomID, guardians: student.guardians)
                                             })
                                         })
                                     } catch {

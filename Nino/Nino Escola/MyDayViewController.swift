@@ -226,18 +226,80 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             let row = try MyDayBO.shouldAddNewItem(row)
             self.changeRowInSide(indexPath, isLeft: isLeftCell, newRow: row)
             let tableView = isLeftCell ? self.leftTableView: self.rightTableView
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if let slider = cell as? SliderCell {
-                slider.addNewItem()
+            for cell in row.cells {
+                let index = self.indexPathForCell(isLeftCell, cell: cell)
+                let tableCell = tableView.cellForRowAtIndexPath(index)
+                if let slider = tableCell as? SliderCell {
+                    slider.addNewItem()
+                }
+                if let intensity = tableCell as? IntensityCell {
+                    intensity.addItem()
+                }
             }
-        } catch let error {
-            print("error")
+        } catch {
+            for cell in row.cells {
+                for value in cell.values {
+                    if value == -1 {
+                        let alert = UIAlertController(title: "Item vazio", message: "Você não pode adicionar um novo item pois o campo \"\(cell.getTitle())\" está vazio.", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Entendi", style: .Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                }
+            }
         }
     }
     
-    func changeSelected(indexPath: NSIndexPath, isLeftCell: Bool) {
+    func changeSelected(toValue: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
         let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        let tableView = isLeftCell ? self.leftTableView: self.rightTableView
+        let sections = isLeftCell ? self.leftCells : self.rightCells
+        for cell in row.cells {
+            let index = self.indexPathForCell(isLeftCell, cell: cell)
+            let tableCell = tableView.cellForRowAtIndexPath(index)
+            if let intensity = tableCell as? IntensityCell {
+                intensity.changeSelected(toValue)
+            }
+            let cellVO = self.cellForIndexPath(index, sections: sections)
+            let newCell = self.changeCurrent(cellVO, current: toValue)
+            self.changeCellInSide(index, isLeft: isLeftCell, newCell: newCell)
+        }
     }
+    
+    func deleteItem(item: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        let tableView = isLeftCell ? self.leftTableView : self.rightTableView
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        let sections = isLeftCell ? self.leftCells : self.rightCells
+        for cell in row.cells {
+            let index = self.indexPathForCell(isLeftCell, cell: cell)
+            let tableCell = tableView.cellForRowAtIndexPath(index)
+            if let intensity = tableCell as? IntensityCell {
+                intensity.deleteItem(item)
+            }
+            let cellVO = self.cellForIndexPath(index, sections: sections)
+            let newCell = MyDayBO.deleteItem(item, cell: cellVO)
+            self.changeCellInSide(index, isLeft: isLeftCell, newCell: newCell)
+        }
+    }
+    
+    func shouldDeleteItem(target: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        let cellVO = self.cellForIndexPath(indexPath, sections: isLeftCell ? self.leftCells : self.rightCells)
+        var alert: UIAlertController
+        if cellVO.values.count < 2 {
+            alert = UIAlertController(title: "Item único", message: "Você não pode deletar esse item.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Entendi", style: .Default, handler: nil))
+        } else {
+            let deleteAction = UIAlertAction(title: "Confirmar", style: .Destructive) { (act) in
+                let tableview = isLeftCell ? self.leftTableView : self.rightTableView
+                let cell = tableview.cellForRowAtIndexPath(indexPath)
+                if let slider = cell as? SliderCell {
+                    slider.deleteItem(target)
+                }
+            }
+            alert = DefaultAlerts.shouldDeleteAlert(deleteAction, customCancelAction: nil)
+        }
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     
 //MAARK: Private methods
     private func cellForIndexPath(indexPath: NSIndexPath, sections: [MyDaySection]) -> MyDayCell {
@@ -327,5 +389,35 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         } else {
             self.rightCells[indexPath.section] = newSection
         }
+    }
+    
+    private func indexPathForCell(isLeft: Bool, cell: MyDayCell) -> NSIndexPath {
+        let sections = isLeft ? self.leftCells : self.rightCells
+        var secIndex = 0
+        var itemIndex = 0
+        for section in sections {
+            for row in section.rows {
+                for internalCell in row.cells {
+                    if internalCell.isEqualTo(cell) {
+                        return NSIndexPath(forItem: itemIndex, inSection: secIndex)
+                    }
+                    itemIndex += 1
+                }
+            }
+            secIndex += 1
+        }
+        return NSIndexPath()
+    }
+    
+    private func changeCurrent(cell: MyDayCell, current: Int) -> MyDayCell {
+        if let intensity = cell as? MyDayIntensityCell {
+            let newCell = MyDayIntensityCell(title: intensity.getTitle(), buttons: intensity.buttons, values: intensity.values, current: current)
+            return newCell
+        }
+        if let slider = cell as? MyDaySliderCell {
+            let newCell = MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: slider.values, current: current)
+            return newCell
+        }
+        return MyDayIntensityCell(title: "Hey", buttons: [["1":"2"]], values: nil, current: nil)
     }
 }

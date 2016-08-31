@@ -18,20 +18,14 @@ class PostRealmObject: Object {
 //MARK: Optional Attributes
     let postID = RealmOptional<Int>()
     dynamic var date: NSDate? = nil
-    let authorsProfile = List<EducatorRealmObject>()
-    dynamic var message: String? = nil
+    dynamic var message: String = ""
     dynamic var attachment: NSData? = nil
     let readGuardians = List<GuardianRealmObject>()
+    dynamic var metadata: NSData? = nil
     
 //MARK: Targets
-    dynamic var schoolPost: SchoolRealmObject?
-    dynamic var schoolDraft: SchoolRealmObject?
-    dynamic var phasePost: PhaseRealmObject?
-    dynamic var phaseDraft: PhaseRealmObject?
-    dynamic var roomPost: RoomRealmObject?
-    dynamic var roomDraft: RoomRealmObject?
-    let studentsPost = List<StudentRealmObject>()
-    let studentsDraft = List<StudentRealmObject>()
+    let targetsPost = List<StudentRealmObject>()
+    let targetsDraft = List<StudentRealmObject>()
     
 //MARK: Methods
     override static func primaryKey() -> String? {

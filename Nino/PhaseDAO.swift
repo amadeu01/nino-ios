@@ -109,14 +109,14 @@ class PhaseDAO: NSObject {
             position += 1
         }
         
-        guard var selectedPhase = phaseToUpdate else {
+        guard let localPhase = phaseToUpdate else {
             completionHandler(update: {
                 throw DatabaseError.NotFound
             })
             return
         }
         
-        selectedPhase.phaseID = phaseID
+        let selectedPhase = Phase(id: localPhase.id, phaseID: phaseID, name: localPhase.name)
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
