@@ -89,7 +89,7 @@ class SchoolManagementTableViewController: UITableViewController {
         return 70
     }
    func configureSections() {
-    let adminSecRows = [DataRow(name: "Gerenciar Turmas", image: UIImage(named: "iconPlaceholder")!, identifier: "showManageClassroomsViewController")]
+    let adminSecRows = [DataRow(name: "Gerenciar Turmas", image: UIImage(named: "icon_classroomManagement")!, identifier: "showManageClassroomsViewController")]
     theseSecs.append(DataSection(name: "Administração", rows: adminSecRows))
     let accountSecRows = [DataRow(name: "Sair", image: UIImage(named: "Becke_Sair")!, identifier: "shouldLogOut")]
     theseSecs.append(DataSection(name: "Conta", rows: accountSecRows))

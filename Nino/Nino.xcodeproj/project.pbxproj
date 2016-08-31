@@ -370,6 +370,9 @@
 		28E2D7821D5B798700023D35 /* SelectClassroomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2D7811D5B798700023D35 /* SelectClassroomTableViewCell.swift */; };
 		28E2D7831D5B798700023D35 /* SelectClassroomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2D7811D5B798700023D35 /* SelectClassroomTableViewCell.swift */; };
 		28E2D7841D5B798700023D35 /* SelectClassroomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2D7811D5B798700023D35 /* SelectClassroomTableViewCell.swift */; };
+		28F20CA21D706B8500FBD332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F20CA11D706B8500FBD332 /* SettingsViewController.swift */; };
+		28F20CA31D706B8500FBD332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F20CA11D706B8500FBD332 /* SettingsViewController.swift */; };
+		28F20CA41D706B8500FBD332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F20CA11D706B8500FBD332 /* SettingsViewController.swift */; };
 		28F366EE1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366EF1D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
 		28F366F01D2ED0B400A0743B /* EducatorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */; };
@@ -950,6 +953,7 @@
 		28E2D7751D5B6E7D00023D35 /* SelectClassroom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectClassroom.storyboard; sourceTree = "<group>"; };
 		28E2D77D1D5B775C00023D35 /* SelectClassroomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassroomTableViewController.swift; sourceTree = "<group>"; };
 		28E2D7811D5B798700023D35 /* SelectClassroomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassroomTableViewCell.swift; sourceTree = "<group>"; };
+		28F20CA11D706B8500FBD332 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		28F366ED1D2ED0B400A0743B /* EducatorProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducatorProfileViewController.swift; sourceTree = "<group>"; };
 		28F366F11D2EF70600A0743B /* RegisterStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterStudentViewController.swift; sourceTree = "<group>"; };
 		28F366F51D2EF7D800A0743B /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
@@ -1202,6 +1206,7 @@
 				071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */,
 				071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */,
 				287F31A01D5DFF9400DF2E1C /* TimelineViewController.swift */,
+				28F20CA11D706B8500FBD332 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1862,7 +1867,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = G52JHG5LJN;
+						DevelopmentTeam = N79DG9RG7K;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;
@@ -2369,6 +2374,7 @@
 				AC7144021D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
 				AC79F0241D50F54400583452 /* NinoSession.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
+				28F20CA21D706B8500FBD332 /* SettingsViewController.swift in Sources */,
 				AC74E1031D2D4908004281F3 /* RouteError.swift in Sources */,
 				AC43B3EE1D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				28A0466B1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
@@ -2475,6 +2481,7 @@
 				AC74E1041D2D4908004281F3 /* RouteError.swift in Sources */,
 				AC43B4161D429FAA00A6CB5C /* SchoolDAO.swift in Sources */,
 				07DB6AB21D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */,
+				28F20CA31D706B8500FBD332 /* SettingsViewController.swift in Sources */,
 				AC89782D1D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				AC6405221D5A4A89008D91F5 /* Agenda.swift in Sources */,
 				AC43B41B1D42B6BC00A6CB5C /* ErrorBO.swift in Sources */,
@@ -2602,6 +2609,7 @@
 				AC43B3C51D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC8978241D3D081300022BDC /* Educator.swift in Sources */,
 				288B27AB1D37D1AB00B47DC0 /* Credential.swift in Sources */,
+				28F20CA41D706B8500FBD332 /* SettingsViewController.swift in Sources */,
 				AC43B4281D46973700A6CB5C /* RealmError.swift in Sources */,
 				288B27FE1D37E0D400B47DC0 /* CredentialBO.swift in Sources */,
 				288B27B11D37D1AB00B47DC0 /* Menu.swift in Sources */,

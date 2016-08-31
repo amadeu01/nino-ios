@@ -74,7 +74,7 @@
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-26-wsp">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <variation key="widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="391" y="363" width="20" height="20"/>
+                                    <rect key="frame" x="391" y="365" width="20" height="20"/>
                                 </variation>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-Bh-lcj">
@@ -249,9 +249,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="17"/>
                                 <color key="textColor" red="0.32549019607843138" green="0.75294117647058822" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="340" y="560" width="120" height="20"/>
-                                </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Suf-jl-dKL">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -379,12 +376,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cG7-04-QMc">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_defaultStudentProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="cG7-04-QMc">
                                             <rect key="frame" x="13" y="16" width="60" height="60"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="cG7-04-QMc" secondAttribute="height" multiplier="1:1" id="JXo-Tp-yea"/>
                                                 <constraint firstAttribute="width" priority="750" constant="60" id="dbg-mk-Lwc"/>
                                                 <constraint firstAttribute="height" priority="750" constant="60" id="eoO-2W-Q2Q"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="JXo-Tp-yea"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="JXo-Tp-yea"/>
+                                                    <exclude reference="eoO-2W-Q2Q"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Aluno" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssq-Jh-DN5">
                                             <rect key="frame" x="103" y="18" width="118" height="21"/>
@@ -408,10 +417,9 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="39b-EJ-TiV" firstAttribute="top" secondItem="ssq-Jh-DN5" secondAttribute="bottom" constant="8" id="09n-fD-tyx"/>
-                                        <constraint firstItem="39b-EJ-TiV" firstAttribute="leading" secondItem="ssq-Jh-DN5" secondAttribute="leading" id="7fq-MV-CHM"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="39b-EJ-TiV" secondAttribute="bottom" constant="14.5" id="GHy-aC-bA1"/>
-                                        <constraint firstItem="39b-EJ-TiV" firstAttribute="trailing" secondItem="ssq-Jh-DN5" secondAttribute="trailing" id="Knb-C0-FPD"/>
+                                        <constraint firstItem="cG7-04-QMc" firstAttribute="height" secondItem="1OG-KF-fuf" secondAttribute="height" multiplier="0.6" id="7vv-wy-99P">
+                                            <variation key="widthClass=regular" constant="1"/>
+                                        </constraint>
                                         <constraint firstItem="39b-EJ-TiV" firstAttribute="leading" secondItem="cG7-04-QMc" secondAttribute="trailing" constant="30" id="OUy-q1-zbM"/>
                                         <constraint firstItem="39b-EJ-TiV" firstAttribute="top" secondItem="ssq-Jh-DN5" secondAttribute="bottom" constant="8" id="SU2-KM-GTo"/>
                                         <constraint firstItem="cG7-04-QMc" firstAttribute="centerY" secondItem="1OG-KF-fuf" secondAttribute="centerY" id="SiV-RQ-Top"/>
@@ -422,10 +430,12 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="09n-fD-tyx"/>
-                                            <exclude reference="7fq-MV-CHM"/>
-                                            <exclude reference="GHy-aC-bA1"/>
-                                            <exclude reference="Knb-C0-FPD"/>
+                                            <exclude reference="7vv-wy-99P"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=regular">
+                                        <mask key="constraints">
+                                            <include reference="7vv-wy-99P"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -1312,6 +1322,7 @@
     <resources>
         <image name="Logo-Nino" width="400" height="400"/>
         <image name="backgroundBolas" width="1267" height="1496"/>
+        <image name="icon_defaultStudentProfileImage" width="201" height="201"/>
         <image name="icone-de-mensagens" width="30" height="30"/>
         <image name="icone_configuracao" width="30" height="30"/>
         <image name="icone_selecao_alunos" width="30" height="30"/>
