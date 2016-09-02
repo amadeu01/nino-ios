@@ -34,7 +34,7 @@ class RoomBO: NSObject {
             do {
                 let phase = try id()
                 let room = Room(id: StringsMechanisms.generateID(), roomID: nil, phaseID: phaseID, name: name)
-                RoomDAO.sharedInstance.createRooms([room]) { (write) in
+                RoomDAO.createRooms([room]) { (write) in
                     do {
                         try write()
                         RoomMechanism.createRoom(token, classID: phase, roomName: name, completionHandler: { (roomID, error, data) in
@@ -46,7 +46,7 @@ class RoomBO: NSObject {
                                     })
                                 })
                             } else if let roomID = roomID {
-                                RoomDAO.sharedInstance.updateRoomID(room.id, roomID: roomID, completionHandler: { (update) in
+                                RoomDAO.updateRoomID(room.id, roomID: roomID, completionHandler: { (update) in
                                     do {
                                         try update()
                                         dispatch_async(dispatch_get_main_queue(), {
@@ -81,7 +81,7 @@ class RoomBO: NSObject {
     }
     
     static func getAllRooms(completionHandler: (rooms: () throws -> [Room]) -> Void) {
-        RoomDAO.sharedInstance.getAllRooms { (rooms) in
+        RoomDAO.getAllRooms { (rooms) in
             do {
                 //get local rooms
                 let localRooms = try rooms()
@@ -155,7 +155,7 @@ class RoomBO: NSObject {
                                 let wasDeleted = comparison["wasDeleted"]
                                 let newRooms = comparison["newRooms"]
                                 if newRooms!.count > 0 {
-                                    RoomDAO.sharedInstance.createRooms(newRooms!, completionHandler: { (write) in
+                                    RoomDAO.createRooms(newRooms!, completionHandler: { (write) in
                                         do {
                                             try write()
                                             let message = NotificationMessage()
@@ -185,7 +185,7 @@ class RoomBO: NSObject {
     
     static func getRooms(phaseID: String, completionHandler: (rooms: () throws -> [Room]) -> Void) {
         
-        RoomDAO.sharedInstance.getRoomsForPhase(phaseID) { (rooms) in
+        RoomDAO.getRoomsForPhase(phaseID) { (rooms) in
             do {
                 let localRooms = try rooms()
                 dispatch_async(dispatch_get_main_queue(), { 
@@ -241,7 +241,7 @@ class RoomBO: NSObject {
                                 let wasDeleted = comparison["wasDeleted"]
                                 let newRooms = comparison["newRooms"]
                                 if newRooms!.count > 0 {
-                                    RoomDAO.sharedInstance.createRooms(newRooms!, completionHandler: { (write) in
+                                    RoomDAO.createRooms(newRooms!, completionHandler: { (write) in
                                         do {
                                             try write()
                                             let message = NotificationMessage()
@@ -274,17 +274,27 @@ class RoomBO: NSObject {
         }
     }
     
-    static func getIdForRoom(room: String) throws -> Int {
-        do {
-            let id = try RoomDAO.sharedInstance.getIdForRoom(room)
-            return id
-        } catch let error {
-            throw error
+    static func getIdForRoom(room: String, completionHandler: (id: () throws -> Int) -> Void) {
+        RoomDAO.getIdForRoom(room) { (get) in
+            do {
+                let id = try get()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        return id
+                    })
+                })
+            } catch let error {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        throw error
+                    })
+                })
+            }
         }
     }
     
     static func getRoomWithID(room: String, completionHandler: (getRoom: () throws -> Room) -> Void) {
-        RoomDAO.sharedInstance.getRoomWithID(room) { (getRoom) in
+        RoomDAO.getRoomWithID(room) { (getRoom) in
             do {
                 let roomVO = try getRoom()
                 dispatch_async(dispatch_get_main_queue(), { 
