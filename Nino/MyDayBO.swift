@@ -293,4 +293,56 @@ class MyDayBO: NSObject {
         }
         return (true, nil)
     }
+    
+//    static func sendSchedule(leftSections: [MyDaySection], rightSections: [MyDaySection], completionHandler: (send: () throws -> Void) -> Void) throws {
+//        let (description, error) = self.generateDescription(leftSections, rightSections: rightSections)
+//        if let errDict = error {
+//            
+//        } else {
+//            
+//        }
+//    }
+//    
+//    private static func generateDescription(leftSections: [MyDaySection], rightSections: [MyDaySection]) -> (description: String?, error: [String: [String: Int]]?) {
+//        var description: String
+//        for section in leftSections {
+//            for row in section.rows {
+//                
+//            }
+//        }
+//    }
+//    
+//    private static func rowDescription(row: MyDayRow) -> (description: String?, error: [String: [String: Int]]?) {
+//        if row.cells.count > 1 {
+//            
+//        }
+//        //only one cell
+//        else {
+//            if row.cells.first?.values.first == -1 {
+//                return row.emptyDescription
+//            } else {
+//                var desc = row.description
+//                let range = desc.rangeOfString("%")
+//                if let strRange = range {
+//                    var cell = desc.substringWithRange()
+//                }
+//            }
+//        }
+//        
+//        
+//        
+//        var cellCount = 0
+//        for cell in row.cells {
+//            if cell.values.count == 1 {
+//                //empty cell -> empty row
+//                if cell.values.first == -1 {
+//                    return (row.emptyDescription, nil)
+//                }
+//            }
+//            //it means not empty
+//            else {
+//                
+//            }
+//        }
+//    }
 }
