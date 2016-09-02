@@ -27,6 +27,7 @@ protocol MyDaySliderCellDelegate {
     func changeSelected(toValue: Int, indexPath: NSIndexPath, isLeftCell: Bool)
     func shouldDeleteItem(target: Int, indexPath: NSIndexPath, isLeftCell: Bool)
     func deleteItem(item: Int, indexPath: NSIndexPath, isLeftCell: Bool)
+    func shouldChangeSelected(current: Int, target: Int, indexPath: NSIndexPath, isLeftCell: Bool)
 }
 
 import Foundation

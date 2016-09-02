@@ -29,13 +29,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.newUserButton.layer.cornerRadius = 5
         self.textFields.append(self.usernameTextField)
         self.textFields.append(self.passwordTextField)
-        
         self.buttons.append(loginButton)
         self.buttons.append(newUserButton)
         
         for tf in self.textFields {
             tf.delegate = self
         }
+        tryToAutoLogIn()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if (nextResponder != nil) && (nextResponder as? UITextField)?.text?.isEmpty == true {
             nextResponder?.becomeFirstResponder()
         } else {
-            self.login()
+            self.userTriedToLogin()
         }
         return false
     }
@@ -139,8 +139,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doLogin(sender: UIButton) {
-        self.login()
+        userTriedToLogin()
     }
+    func userTriedToLogin(){
+        if self.checkIfEmpty() {
+            let alert = DefaultAlerts.emptyField()
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else{
+            guard let username = usernameTextField.text else {
+                return
+            }
+            guard let password = passwordTextField.text else {
+                return
+            }
+            self.login(username, password: password)
+            self.hideKeyboard()
+        }
+
+    }
+    
     
     /**
      Shows the page designed to creat new user without animations
@@ -149,6 +166,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      */
     @IBAction func doNewUser(sender: UIButton) {
         //if you wanna present with animation, change the attribute at the storyboard
+        self.hideKeyboard()
         performSegueWithIdentifier("createNewUser", sender: self)
     }
     
@@ -158,20 +176,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     /**
      makes the login
      */
-    private func login() {
+    func login(username: String, password: String) {
+        
         self.hideKeyboard()
-        if self.checkIfEmpty() {
-            let alert = DefaultAlerts.emptyField()
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
         //all textFields are filled
-        else {
             self.blockTextFields()
             self.blockButtons()
             self.activityIndicator.hidden = false
             self.activityIndicator.startAnimating()
             //creates a key and saves the login parameters at userDefaults and keychain
-            let key = KeyBO.createKey(self.usernameTextField.text!, password: self.passwordTextField.text!)
+            let key = KeyBO.createKey(username, password: password)
             LoginBO.login(key, completionHandler: { (getCredential) in
                 do {
                     //tries to get the credential
@@ -182,7 +196,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             let school = try school()
                             NinoSession.sharedInstance.setSchool(school.id)
                             NinoNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
-                            EducatorBO.getEducator(self.usernameTextField.text!, schoolID: school.schoolID!, token: credential.token, completionHandler: { (getProfile) in
+                            EducatorBO.getEducator(username, schoolID: school.schoolID!, token: credential.token, completionHandler: { (getProfile) in
                                 do {
                                     let educator = try getProfile()
                                     NinoSession.sharedInstance.setEducator(educator.id)
@@ -234,7 +248,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.passwordTextField.text = ""
                 }
             })
+        
+    }
+    func tryToAutoLogIn(){
+        guard let username = KeyBO.getUsername() else {
+            return
         }
+        guard let password = KeyBO.getPassword() else {
+            return
+        }
+        login(username, password: password)
     }
     
 //MARK: Segue methods

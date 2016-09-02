@@ -236,8 +236,16 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                     intensity.addItem()
                 }
             }
-        } catch let error {
-            print("error")
+        } catch {
+            for cell in row.cells {
+                for value in cell.values {
+                    if value == -1 {
+                        let alert = UIAlertController(title: "Item vazio", message: "Você não pode adicionar um novo item pois o campo \"\(cell.getTitle())\" está vazio.", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Entendi", style: .Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                }
+            }
         }
     }
     
@@ -268,16 +276,44 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                 intensity.deleteItem(item)
             }
             let cellVO = self.cellForIndexPath(index, sections: sections)
-            let newCell = self.deleteItemInVO(item, cell: cellVO)
+            let newCell = MyDayBO.deleteItem(item, cell: cellVO)
             self.changeCellInSide(index, isLeft: isLeftCell, newCell: newCell)
         }
     }
     
     func shouldDeleteItem(target: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
-        let sections = isLeftCell ? self.leftCells : self.rightCells
-        let cell = self.cellForIndexPath(indexPath, sections: sections)
-        if let slider = cell as? SliderCell {
-            slider.deleteItem(target)
+        let cellVO = self.cellForIndexPath(indexPath, sections: isLeftCell ? self.leftCells : self.rightCells)
+        var alert: UIAlertController
+        if cellVO.values.count < 2 {
+            alert = UIAlertController(title: "Item único", message: "Você não pode deletar esse item.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Entendi", style: .Default, handler: nil))
+        } else {
+            let deleteAction = UIAlertAction(title: "Confirmar", style: .Destructive) { (act) in
+                let tableview = isLeftCell ? self.leftTableView : self.rightTableView
+                let cell = tableview.cellForRowAtIndexPath(indexPath)
+                if let slider = cell as? SliderCell {
+                    slider.deleteItem(target)
+                }
+            }
+            alert = DefaultAlerts.shouldDeleteAlert(deleteAction, customCancelAction: nil)
+        }
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func shouldChangeSelected(current: Int, target: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
+        let (shouldChange, item) = MyDayBO.shouldChangeSelected(row, selected: current)
+        if shouldChange {
+            let tableview = isLeftCell ? self.leftTableView : self.rightTableView
+            let cell = tableview.cellForRowAtIndexPath(indexPath)
+            if let slider = cell as? SliderCell {
+                slider.selectItem(target, isLeftCell: isLeftCell, indexPath: indexPath)
+            }
+        } else {
+            let title = row.cells[item!].getTitle()
+            let alert = UIAlertController(title: "Item vazio", message: "Você não pode mudar de item pois o campo \"\(title)\" está vazio.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Entendi", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -397,22 +433,6 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         }
         if let slider = cell as? MyDaySliderCell {
             let newCell = MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: slider.values, current: current)
-            return newCell
-        }
-        return MyDayIntensityCell(title: "Hey", buttons: [["1":"2"]], values: nil, current: nil)
-    }
-    
-    private func deleteItemInVO(item: Int, cell: MyDayCell) -> MyDayCell {
-        if let intensity = cell as? MyDayIntensityCell {
-            var newValues = intensity.values
-            newValues.removeAtIndex(item)
-            let newCell = MyDayIntensityCell(title: intensity.getTitle(), buttons: intensity.buttons, values: newValues, current: newValues.count - 1)
-            return newCell
-        }
-        if let slider = cell as? MyDaySliderCell {
-            var newValues = slider.values
-            newValues.removeAtIndex(item)
-            let newCell = MyDaySliderCell(title: slider.getTitle(), unit: slider.unit, image: slider.image, floor: Int(slider.floor), ceil: Int(slider.ceil), values: newValues, current: newValues.count - 1)
             return newCell
         }
         return MyDayIntensityCell(title: "Hey", buttons: [["1":"2"]], values: nil, current: nil)

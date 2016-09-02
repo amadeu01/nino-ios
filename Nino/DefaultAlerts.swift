@@ -78,4 +78,11 @@ class DefaultAlerts: NSObject {
         }
         return alertView
     }
+    
+    static func shouldDeleteAlert(confirmAction: UIAlertAction, customCancelAction: UIAlertAction?) -> UIAlertController {
+        let alertView = UIAlertController(title: "Apagar Item", message: "Esse item será apagado permanentemente.", preferredStyle: .Alert)
+        alertView.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
+        alertView.addAction(confirmAction)
+        return alertView
+    }
 }
