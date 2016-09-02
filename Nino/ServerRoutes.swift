@@ -27,6 +27,7 @@ enum ServerRoutes {
     case CreateGuardian
     case GetGuardians
     case CreatePost
+    case Logout
 
 // swiftlint:disable cyclomatic_complexity
     func description(param: [String]?) throws -> String {
@@ -85,6 +86,8 @@ enum ServerRoutes {
             return "guardians/students/" + id[0]
         case .CreatePost:
             return "posts"
+        case .Logout:
+            return "accounts/authentication"
         }
     }
 }
