@@ -224,6 +224,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     //TODO: handle getPhases and addPhases error
                                 }
                             })
+                            
+                            DraftMechanism.getDrafts(credential.token, schoolID: 1, studentID: 2, completionHandler: { (info, error, data) in
+                                
+                            })
+                            
                         } catch {
                             print("getSchool error")
                             //TODO: handle getSchool error

@@ -1,19 +1,19 @@
 //
-//  PostMechanism.swift
+//  DraftMechanism.swift
 //  Nino
 //
-//  Created by Danilo Becke on 22/08/16.
+//  Created by Carlos Eduardo Millani on 8/24/16.
 //  Copyright © 2016 Danilo Becke. All rights reserved.
 //
 
 import UIKit
 
-class PostMechanism: NSObject {
+class DraftMechanism: NSObject {
     
-    static func createPost(token: String, message: String, type: Int, profiles: [Int], metadata: NSDictionary?, attachment: String?, completionHandler: (postID: Int?, error: Int?, data: String?) -> Void) {
+    static func createDraft(token: String, schoolID: Int, message: String, type: Int, profiles: [Int], metadata: NSDictionary?, attachment: String?, completionHandler: (postID: Int?, error: Int?, data: String?) -> Void) {
         do {
-            let route = try ServerRoutes.CreatePost.description(nil)
-            var body: [String: AnyObject] = ["token": token, "message": message, "type": type, "profiles": profiles]
+            let route = try ServerRoutes.CreateDraft.description(nil)
+            var body: [String: AnyObject] = ["token": token, "message": message, "type": type, "profiles": profiles, "school": schoolID]
             if let meta = metadata {
                 body["metadata"] = meta
             }
@@ -35,7 +35,7 @@ class PostMechanism: NSObject {
                     //success
                 else {
                     //FIXME: decode json to get id
-                    let id = json["data"]["post"]["id"].int
+                    let id = json["data"]["draft"]["id"].int
                     completionHandler(postID: id, error: nil, data: nil)
                 }
             })
@@ -44,9 +44,9 @@ class PostMechanism: NSObject {
         }
     }
     
-    static func getPosts(token: String, schoolID: Int, studentID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
+    static func getDrafts(token: String, schoolID: Int, studentID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
         do {
-            let route = try ServerRoutes.GetStudentPostsForSchool.description([String(schoolID), String(studentID)])
+            let route = try ServerRoutes.GetStudentDraftsForSchool.description([String(schoolID), String(studentID)])
             RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
                     completionHandler(info: nil, error: error?.code, data: nil)
@@ -72,9 +72,8 @@ class PostMechanism: NSObject {
                         let message = subjson["message"].string
                         let metadata = subjson["metadata"].object
                         let attachment = subjson["attachment"].string
-                        let date = subjson["date"].string
                         let type = subjson["type"].int
-                        let dict: [String: AnyObject?] = ["draftID": id, "message": message, "metadata": metadata, "attachment": attachment, "date": StringsMechanisms.dateFromString(date!), "type": type]
+                        let dict: [String: AnyObject?] = ["draftID": id, "message": message, "metadata": metadata, "attachment": attachment, "type": type]
                         draftsDict.append(dict)
                     }
                     completionHandler(info: draftsDict, error: nil, data: nil)
@@ -84,5 +83,4 @@ class PostMechanism: NSObject {
             //never SHOULD be reached
         }
     }
-
 }
