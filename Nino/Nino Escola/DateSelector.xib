@@ -267,20 +267,22 @@
                         <outletCollection property="gestureRecognizers" destination="Gd6-nT-g5K" appends="YES" id="UHQ-IF-AMR"/>
                     </connections>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANH-1q-0Ba">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANH-1q-0Ba">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <state key="normal" title="〈">
+                    <state key="normal" image="leftArrow">
                         <color key="titleColor" red="0.0" green="0.63529411764705879" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="didTapLeftAction:" destination="-1" eventType="touchUpInside" id="Kfz-tA-2QH"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-JK-n4U">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-JK-n4U">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <state key="normal" title="〉">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" image="rightArrow">
                         <color key="titleColor" red="0.0" green="0.63529411764705879" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <variation key="widthClass=regular"/>
                     <connections>
                         <action selector="didTapRightAction:" destination="-1" eventType="touchUpInside" id="mbl-Tv-EzU"/>
                     </connections>
@@ -299,9 +301,13 @@
                 <constraint firstItem="JH2-u0-Asu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gmo-V5-pzD"/>
                 <constraint firstItem="ANH-1q-0Ba" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="i1D-Yf-HN7"/>
                 <constraint firstAttribute="bottom" secondItem="ANH-1q-0Ba" secondAttribute="bottom" id="icb-SX-yoE"/>
-                <constraint firstItem="JH2-u0-Asu" firstAttribute="leading" secondItem="ANH-1q-0Ba" secondAttribute="trailing" id="uVA-YJ-IY7"/>
+                <constraint firstItem="JH2-u0-Asu" firstAttribute="leading" secondItem="ANH-1q-0Ba" secondAttribute="trailing" id="uVA-YJ-IY7">
+                    <variation key="widthClass=regular" constant="5"/>
+                </constraint>
                 <constraint firstItem="JH2-u0-Asu" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="wyE-0h-bmP"/>
-                <constraint firstItem="ckb-JK-n4U" firstAttribute="leading" secondItem="JH2-u0-Asu" secondAttribute="trailing" id="yrb-xk-rd5"/>
+                <constraint firstItem="ckb-JK-n4U" firstAttribute="leading" secondItem="JH2-u0-Asu" secondAttribute="trailing" id="yrb-xk-rd5">
+                    <variation key="widthClass=regular" constant="5"/>
+                </constraint>
                 <constraint firstAttribute="bottom" secondItem="JH2-u0-Asu" secondAttribute="bottom" id="z02-kd-TZX"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -362,4 +368,8 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="leftArrow" width="82" height="136"/>
+        <image name="rightArrow" width="82" height="136"/>
+    </resources>
 </document>

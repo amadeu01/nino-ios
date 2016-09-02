@@ -23,7 +23,7 @@ class RowMechanism: NSObject {
         case 4:
             return ["cells": [["type": CellType.Slider.rawValue, "title": "Mamadeira", "floor": 0, "ceil": 200, "unity": "ml", "image": MyDaySliderIcon.BabyBottles.rawValue]], "description": "Hoje eu mamei %1.count mamadeira(s).<each> Uma de %1.item.</each>", "emptyDescription": "Hoje eu não mamei."]
         case 5:
-            return ["cells": [["type": CellType.Intensity.rawValue, "title": "Quando", "buttons": self.sleep()], ["type": CellType.Slider.rawValue, "title": "Tempo Dormido", "floor": 0, "ceil": 180, "unity": "minutos", "image": MyDaySliderIcon.BabyBottles.rawValue]], "description": "Hoje eu dormi %1.count vez(es).<each> Dormi %2.item durante a %1.item.</each>", "emptyDescription": "Hoje eu não dormi."]
+            return ["cells": [["type": CellType.Intensity.rawValue, "title": "Quando", "buttons": self.sleep()], ["type": CellType.Slider.rawValue, "title": "Tempo Dormido", "floor": 0, "ceil": 180, "unity": "minutos", "image": MyDaySliderIcon.BabySleep.rawValue]], "description": "Hoje eu dormi %1.count vez(es).<each> Dormi %2.item durante a %1.item.</each>", "emptyDescription": "Hoje eu não dormi."]
         case 6:
             return ["cells": [["type": CellType.Intensity.rawValue, "title": "Evacuação", "buttons": self.evacuation()]], "description": "Hoje %1.item.", "emptyDescription": "Hoje não evacuei."]
         case 7:

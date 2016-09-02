@@ -232,6 +232,7 @@ class SliderCell: UITableViewCell {
         newIcon.centerYAnchor.constraintEqualToAnchor(plus.centerYAnchor).active = true
         newIcon.heightAnchor.constraintEqualToAnchor(plus.heightAnchor).active = true
         newIcon.widthAnchor.constraintEqualToAnchor(plus.widthAnchor).active = true
+        newIcon.contentMode = UIViewContentMode.ScaleAspectFill
         
         //If not the first, it means that we need to open space for this item
         if self.items.count > 0 {

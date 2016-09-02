@@ -105,7 +105,7 @@ class StudentProfileTableViewCell: UITableViewCell {
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
         self.profileImageView.clipsToBounds = true
         self.profileImageView.contentMode = .ScaleAspectFit
-        self.profileImageView.layer.borderColor = CustomizeColor.whiteColor().CGColor
+        self.profileImageView.layer.borderColor = CustomizeColor.lessStrongBackgroundNino().CGColor
         self.profileImageView.layer.borderWidth = 2.0
         
     }

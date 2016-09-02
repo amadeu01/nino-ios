@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="974" y="608"/>
         </scene>
-        <!--Timeline-->
+        <!--Configurações-->
         <scene sceneID="xAA-sm-MR1">
             <objects>
-                <viewController id="dSI-PI-F5k" sceneMemberID="viewController">
+                <viewController id="dSI-PI-F5k" customClass="SettingsViewController" customModule="Nino" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m7k-wA-I9F"/>
                         <viewControllerLayoutGuide type="bottom" id="iKg-Oe-1z1"/>
@@ -73,15 +73,62 @@
                     <view key="view" contentMode="scaleToFill" id="SiE-EW-IOX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3P2-01-uEy">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dSI-PI-F5k" id="yPy-fn-Crq"/>
+                                    <outlet property="delegate" destination="dSI-PI-F5k" id="kAG-O6-RqI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3P2-01-uEy" firstAttribute="top" secondItem="m7k-wA-I9F" secondAttribute="bottom" constant="270" id="Z5G-7F-uw2">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="3P2-01-uEy" firstAttribute="leading" secondItem="SiE-EW-IOX" secondAttribute="leadingMargin" id="dhC-Q9-07q">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="3P2-01-uEy" secondAttribute="trailing" id="kXE-aD-lGW">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="iKg-Oe-1z1" firstAttribute="top" secondItem="3P2-01-uEy" secondAttribute="bottom" id="yip-hq-cDr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="3P2-01-uEy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Z5G-7F-uw2"/>
+                                <exclude reference="dhC-Q9-07q"/>
+                                <exclude reference="kXE-aD-lGW"/>
+                                <exclude reference="yip-hq-cDr"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="3P2-01-uEy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Z5G-7F-uw2"/>
+                                <include reference="dhC-Q9-07q"/>
+                                <include reference="kXE-aD-lGW"/>
+                                <include reference="yip-hq-cDr"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timeline" image="icone_configuracao" id="Nax-10-KYe"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="icone_configuracao" id="Nax-10-KYe"/>
+                    <connections>
+                        <outlet property="tableView" destination="3P2-01-uEy" id="35p-QS-3m0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qgb-cd-F1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2427" y="-1473.75"/>
         </scene>
-        <!--Configurações-->
+        <!--Linha do tempo-->
         <scene sceneID="iDg-4v-3QT">
             <objects>
                 <viewController id="7bS-dU-nec" customClass="TimelineViewController" customModule="Nino" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,7 +168,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="75" y="29" width="117" height="23"/>
+                                                    <rect key="frame" x="74" y="29" width="117" height="23"/>
                                                 </variation>
                                             </label>
                                         </subviews>
@@ -155,7 +202,7 @@
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="105" y="0.0" width="191" height="80"/>
+                                            <rect key="frame" x="104" y="0.0" width="191" height="80"/>
                                             <mask key="subviews">
                                                 <include reference="sKw-cG-8I2"/>
                                                 <include reference="lp2-az-jRg"/>
@@ -286,7 +333,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Configurações" image="icone_configuracao" id="1oR-Xs-qoc"/>
+                    <tabBarItem key="tabBarItem" title="Linha do tempo" image="book" id="1oR-Xs-qoc"/>
                     <connections>
                         <outlet property="profileImage" destination="sKw-cG-8I2" id="n7m-ui-p1B"/>
                         <outlet property="tableView" destination="Rgb-wp-nIU" id="PrZ-gj-Ucf"/>
@@ -627,6 +674,7 @@
         <image name="Logo-Nino" width="400" height="400"/>
         <image name="backgroundBolas" width="1267" height="1496"/>
         <image name="bebe1" width="75" height="75"/>
+        <image name="book" width="30" height="30"/>
         <image name="icone_configuracao" width="30" height="30"/>
     </resources>
 </document>
