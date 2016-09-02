@@ -321,7 +321,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     }
     
     
-//MAARK: Private methods
+//MARK: Private methods
     private func cellForIndexPath(indexPath: NSIndexPath, sections: [MyDaySection]) -> MyDayCell {
         
         var currentRow: MyDayRow?
