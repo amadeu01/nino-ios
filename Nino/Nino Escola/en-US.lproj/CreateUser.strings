@@ -1,0 +1,21 @@
+
+/* Class = "UITextField"; placeholder = "| Sobrenome"; ObjectID = "3Wi-fk-4Dj"; */
+"3Wi-fk-4Dj.placeholder" = "| Surname";
+
+/* Class = "UITextField"; placeholder = "| Nome"; ObjectID = "BCh-yj-VmO"; */
+"BCh-yj-VmO.placeholder" = "| Name";
+
+/* Class = "UIButton"; normalTitle = "▼ Voltar"; ObjectID = "Gry-0s-QGw"; */
+"Gry-0s-QGw.normalTitle" = "▼ Back";
+
+/* Class = "UIButton"; normalTitle = "▼ Voltar"; ObjectID = "UZO-rX-cH4"; */
+"UZO-rX-cH4.normalTitle" = "▼ Back";
+
+/* Class = "UIButton"; normalTitle = "CONTINUAR :)"; ObjectID = "caA-HZ-SuZ"; */
+"caA-HZ-SuZ.normalTitle" = "CONTINUE :)";
+
+/* Class = "UILabel"; text = "Aguardando confirmação do email"; ObjectID = "tMd-Ds-AZQ"; */
+"tMd-Ds-AZQ.text" = "Waiting for email confirmation";
+
+/* Class = "UITextField"; placeholder = "| Email"; ObjectID = "ztr-ci-mBP"; */
+"ztr-ci-mBP.placeholder" = "| Email";

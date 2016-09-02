@@ -1,0 +1,72 @@
+/* 
+  Localizable.strings
+  Nino
+
+  Created by Carlos Eduardo Millani on 9/2/16.
+  Copyright © 2016 Danilo Becke. All rights reserved.
+*/
+
+/*Alerts*/
+
+
+/*MyDay*/
+
+
+/*Profile*/
+"PROF_INFORMATIONS"="Informations";
+"PROF_GENDER"="Gender";
+"PROF_NAME"="Name";
+"PROF_BIRTHDATE"="Birthdate";
+"PROF_GUARDIANS"="Guardians";
+"PROF_GUARDIAN"="Guardian";
+"PROF_ADD_GUARDIAN"="Add Guardian";
+"PROF_CHANGE_ROOM"="Change Room";
+"PROF_DELETE_REGISTER"="Delete Register";
+"PROF_GEN_BOY"="Boy";
+"PROF_GEN_GIRL"="Girl";
+"PROF_GEN_MALE"="Male";
+"PROF_GEN_FEMALE"="Female";
+"PROF_BIRTH"="Birth";
+
+/*Students*/
+"STU_CHANGE_ROOM"="Change Room";
+"STU_NEW"="New Student";
+
+/*Phases*/
+"PHASES"="Phases";
+"PHASES_NEW"="New Phase";
+"PHASE_DELETE"="Delete Phase";
+"PHASE_ADD"="Add new phase";
+"PHASE_INS_NAME"="Insert the name for the new phase";
+"PHASE_ADD_PH"="ex: Daycare, Preschool...";
+
+/*Classes*/
+"ROOMS"="Rooms";
+"ROOMS_NEW"="New Room";
+"ROOMS_ADMIN"="Manage Classes";
+"ROOMS_ADD"="Add new room";
+"ROOMS_INS_NAME"="Insert the name for the new room";
+"ROOM_ADD_PH"="ex: Room A, Afternoon...";
+"ROOM_SELECT"="Select Room";
+
+/*Configuration*/
+
+
+/*School*/
+
+
+/*Guardians*/
+
+
+/*Educators*/
+
+
+/*General*/
+"GENERAL_EDIT"="Edit";
+"GENERAL_CANCEL"="Cancel";
+"GENERAL_DELETE"="Delete";
+"GENERAL_DELETE_REGISTER"="Delete Register";
+"GENERAL_LOGOUT"="Logout";
+"GENERAL_ADMIN"="Administration";
+"GENERAL_ACCOUNT"="Account";
+"GENERAL_CREATE"="Create";

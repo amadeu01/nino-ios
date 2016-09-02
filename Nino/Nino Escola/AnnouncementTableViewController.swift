@@ -212,7 +212,7 @@ class AnnouncementTableViewController: UITableViewController, DraftAnnouncementD
             self.performSegueWithIdentifier("emptyState", sender: self)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel) { (cancel) -> Void in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: UIAlertActionStyle.Cancel) { (cancel) -> Void in
             completionHandler(confirmation: false)
         }
         alertView.addAction(deleteAction)

@@ -69,11 +69,11 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
     }
 
     func changeMaleLabel() -> String {
-        return "Masculino"
+        return NSLocalizedString("PROF_GEN_MALE", comment: "Male")
     }
     
     func changeFemaleLabel() -> String {
-        return "Feminino"
+        return NSLocalizedString("PROF_GEN_FEMALE", comment: "Female")
     }
     
 //MARK: TextField methods

@@ -54,14 +54,14 @@ class StudentProfileTableViewCell: UITableViewCell {
         didSet {
             guard let guardianFirstNames = guardianFirstNames where guardianFirstNames.count > 0 else {
                 // No parents.
-                self.guardianFirstNamesLabel.text = "Responsável: ?"
+                self.guardianFirstNamesLabel.text = NSLocalizedString("PROF_GUARDIAN", comment: "") + ": -"
                 return
             }
             var text: String = ""
             if guardianFirstNames.count == 0 {
-                text = "Responsável: \(guardianFirstNames[0])"
+                text = NSLocalizedString("PROF_GUARDIAN", comment: "Guardian") + ": \(guardianFirstNames[0])"
             } else {
-                text = "Responsáveis: \(guardianFirstNames[0])"
+                text = NSLocalizedString("PROF_GUARDIANS", comment: "Guardians") + ": \(guardianFirstNames[0])"
                 var i = 1
                 while i < guardianFirstNames.count {
                     if i == (guardianFirstNames.count - 1) { //Last one

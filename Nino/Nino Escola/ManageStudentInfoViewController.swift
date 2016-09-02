@@ -67,9 +67,9 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
         }
         let formatter = NSDateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        studentInfos.append(StudentInfo(title: "Nome", value: selectedStudent.name + " " + selectedStudent.surname))
-        studentInfos.append(StudentInfo(title: "Data de Nascimento", value: formatter.stringFromDate(selectedStudent.birthDate)))
-        studentInfos.append(StudentInfo(title: "Gênero", value: selectedStudent.gender.description()))
+        studentInfos.append(StudentInfo(title: NSLocalizedString("PROF_NAME", comment: "Name"), value: selectedStudent.name + " " + selectedStudent.surname))
+        studentInfos.append(StudentInfo(title: NSLocalizedString("PROF_BIRTHDATE", comment: "Birthdate"), value: formatter.stringFromDate(selectedStudent.birthDate)))
+        studentInfos.append(StudentInfo(title: NSLocalizedString("PROF_GENDER", comment: "Gender"), value: selectedStudent.gender.description()))
         if let image = selectedStudent.profilePicture {
             self.profileImageView.image = UIImage(data: image)
         } else {
@@ -105,9 +105,9 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func updateExtraSection() {
-        extraSection.append("Adicionar Responsável")
-        extraSection.append("Alterar Turma")
-        extraSection.append("Excluir Cadastro")
+        extraSection.append(NSLocalizedString("PROF_ADD_GUARDIAN", comment: "Add Guardian"))
+        extraSection.append(NSLocalizedString("STU_CHANGE_ROOM", comment: "Change Room"))
+        extraSection.append(NSLocalizedString("GENERAL_DELETE_REGISTER", comment: "Delete Register"))
     }
     
     //MARK: Table View Data Source
@@ -147,7 +147,7 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
-            return "Responsáveis"
+            return NSLocalizedString("PROF_GUARDIANS", comment: "Guardians")
         }
         return ""
     }

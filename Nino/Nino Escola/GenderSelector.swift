@@ -22,10 +22,18 @@ class GenderSelector: UIView, UIGestureRecognizerDelegate {
 //MARK: Outlets
     @IBOutlet weak var male: UIView!
     @IBOutlet weak var maleIcon: UIImageView!
-    @IBOutlet weak var maleLabel: UILabel!
+    @IBOutlet weak var maleLabel: UILabel! {
+        didSet {
+            maleLabel.text = NSLocalizedString("PROF_GEN_BOY", comment: "Boy")
+        }
+    }
     @IBOutlet weak var female: UIView!
     @IBOutlet weak var femaleIcon: UIImageView!
-    @IBOutlet weak var femaleLabel: UILabel!
+    @IBOutlet weak var femaleLabel: UILabel! {
+        didSet {
+            femaleLabel.text = NSLocalizedString("PROF_GEN_GIRL", comment: "Girl")
+        }
+    }
     
 //MARK: View initialization methods
     required init?(coder aDecoder: NSCoder) {

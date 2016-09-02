@@ -10,6 +10,16 @@ import UIKit
 
 class StudentInfoSectionTableViewHeader: UIView {
 
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = NSLocalizedString("PROF_INFORMATIONS", comment: "Informations")
+        }
+    }
+    @IBOutlet weak var pencilLabel: UIButton! {
+        didSet {
+            pencilLabel.setTitle(NSLocalizedString("GENERAL_EDIT", comment: "Edit"), forState: .Normal)
+        }
+    }
 
     @IBOutlet weak var editButton: UIButton! {
         didSet {
@@ -21,7 +31,7 @@ class StudentInfoSectionTableViewHeader: UIView {
     }
     @IBOutlet weak var pencilButton: UIButton! {
         didSet {
-            var whitePencil = self.pencilButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
+            let whitePencil = self.pencilButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
             self.pencilButton.imageView?.image = self.pencilButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate)
             pencilButton.imageView?.tintColor =  UIColor.whiteColor()
             self.pencilButton.setImage(whitePencil, forState: .Normal)
@@ -30,7 +40,6 @@ class StudentInfoSectionTableViewHeader: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("Awake from NIB")
     }
     class func instanceFromNib() -> UIView? {
         return UINib(nibName: "StudentInfoSectionTableViewHeader", bundle: nil).instantiateWithOwner(StudentInfoSectionTableViewHeader(), options: nil)[0] as? UIView

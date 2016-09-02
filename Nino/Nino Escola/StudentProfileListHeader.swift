@@ -10,7 +10,16 @@ import UIKit
 
 class StudentProfileListHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var schoolNameLabel: UILabel!
-    @IBOutlet weak var classroomButton: UIButton!
+    @IBOutlet weak var classroomButton: UIButton! {
+        didSet {
+            if (!initialized) {
+                classroomButton.setTitle(NSLocalizedString("ROOM_SELECT", comment: ""), forState: .Normal)
+                initialized = true;
+            }
+        }
+    }
+    
+    private var initialized = false
     var delegate: StudentProfileListHeaderDelegate?
     /*
     // Only override drawRect: if you perform custom drawing.

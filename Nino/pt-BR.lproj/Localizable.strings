@@ -1,0 +1,72 @@
+/* 
+  Localizable.strings
+  Nino
+
+  Created by Carlos Eduardo Millani on 9/2/16.
+  Copyright © 2016 Danilo Becke. All rights reserved.
+*/
+
+/*Alerts*/
+
+
+/*MyDay*/
+
+
+/*Profiles*/
+"PROF_INFORMATIONS"="Informações";
+"PROF_GENDER"="Gênero";
+"PROF_NAME"="Nome";
+"PROF_BIRTHDATE"="Data de Nascimento";
+"PROF_GUARDIANS"="Responsáveis";
+"PROF_GUARDIAN"="Responsável";
+"PROF_ADD_GUARDIAN"="Adicionar Responsável";
+"PROF_CHANGE_ROOM"="Alterar Turma";
+"PROF_DELETE_REGISTER"="Excluir Cadastro";
+"PROF_GEN_BOY"="Menino";
+"PROF_GEN_GIRL"="Menina";
+"PROF_GEN_MALE"="Masculino";
+"PROF_GEN_FEMALE"="Feminino";
+"PROF_BIRTH"="Nascimento";
+
+/*Students*/
+"STU_CHANGE_ROOM"="Alterar Turma";
+"STU_NEW"="Novo Aluno";
+
+/*Phases*/
+"PHASES"="Fases";
+"PHASES_NEW"="Nova Fase";
+"PHASE_DELETE"="Deletar Fase";
+"PHASE_ADD"="Adicionar nova turma";
+"PHASE_INS_NAME"="Digite o nome da nova fase";
+"PHASE_ADD_PH"="ex: Berçário, Pré-Escola...";
+
+/*Classes*/
+"ROOMS"="Turma";
+"ROOMS_NEW"="Nova Turma";
+"ROOMS_ADMIN"="Gerenciar Turmas";
+"ROOMS_ADD"="Adicionar nova turma";
+"ROOMS_INS_NAME"="Digite o nome da nova turma";
+"ROOM_ADD_PH"="ex: Turma A, Tarde...";
+"ROOM_SELECT"="Selecionar Turma";
+
+/*Configuration*/
+
+
+/*School*/
+
+
+/*Guardians*/
+
+
+/*Educators*/
+
+
+/*General*/
+"GENERAL_EDIT"="Editar";
+"GENERAL_CANCEL"="Cancelar";
+"GENERAL_DELETE"="Deletar";
+"GENERAL_DELETE_REGISTER"="Excluir Cadastro";
+"GENERAL_LOGOUT"="Sair";
+"GENERAL_ADMIN"="Administração";
+"GENERAL_ACCOUNT"="Conta";
+"GENERAL_CREATE"="Criar";

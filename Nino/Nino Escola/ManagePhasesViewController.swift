@@ -28,8 +28,8 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Nova Fase", style: .Plain, target: self, action: #selector (didPressToAddNewPhase))
-        self.title = "Fases"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("PHASES_NEW", comment: "New Phase"), style: .Plain, target: self, action: #selector (didPressToAddNewPhase))
+        self.title = NSLocalizedString("PHASES", comment: "Phases")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,17 +55,17 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func didPressToAddNewPhase() {
-        let alert = UIAlertController(title: "Adicionar nova fase", message: "Digite o nome da nova fase", preferredStyle: .Alert)
+        let alert = UIAlertController(title: NSLocalizedString("PHASE_ADD", comment: "Add new phase"), message: NSLocalizedString("PHASE_INS_NAME", comment: ""), preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.autocapitalizationType = UITextAutocapitalizationType.Words
             textField.autocorrectionType = UITextAutocorrectionType.Default
-            textField.placeholder = "ex: Berçário, Pré-Escola..."
+            textField.placeholder = NSLocalizedString("PHASE_ADD_PH", comment: "")
             self.newPhaseTextField = textField
         }
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
-        let submitAction = UIAlertAction(title: "Criar", style: .Default) { (alert) in
+        let submitAction = UIAlertAction(title: NSLocalizedString("GENERAL_CREATE", comment: ""), style: .Default) { (alert) in
             let credential = NinoSession.sharedInstance.credential
             guard let token = credential?.token else {
                 //TODO: back to login
@@ -203,7 +203,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPhaseProfileViewController" {
         let backButton = UIBarButtonItem()
-        backButton.title = "Fases"
+        backButton.title = NSLocalizedString("PHASES", comment: "Phases")
         navigationItem.backBarButtonItem = backButton
         
         guard let toVC = segue.destinationViewController as? ManageClassroomsViewController else {
