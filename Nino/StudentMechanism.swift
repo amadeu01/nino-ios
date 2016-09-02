@@ -44,6 +44,7 @@ class StudentMechanism: NSObject {
                         let id = subjson["id"].int
                         let name = subjson["name"].string
                         let surname = subjson["surname"].string
+                        //TODO: Unwrap this
                         let birthDate = subjson["birthdate"].string
                         let gender = subjson["gender"].int
                         let dict: [String: AnyObject?] = ["profileID": id, "name": name, "surname": surname, "birthdate": StringsMechanisms.dateFromString(birthDate!), "gender": gender]
