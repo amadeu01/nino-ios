@@ -10,14 +10,12 @@ import UIKit
 import RealmSwift
 
 class LoginDAO: NSObject {
-
-    static let sharedInstance = LoginDAO()
     
     override private init() {
         super.init()
     }
     
-    func logout(completionHandler: (out: () throws -> Void) -> Void) {
+    static func logout(completionHandler: (out: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()

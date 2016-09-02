@@ -11,13 +11,11 @@ import RealmSwift
 
 class GuardianDAO: NSObject {
     
-    static let sharedInstance = GuardianDAO()
-    
     private override init() {
         super.init()
     }
     
-    func createGuardians(guardians: [Guardian], completionHandler: (write: () throws -> Void) -> Void) {
+    static func createGuardians(guardians: [Guardian], completionHandler: (write: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
@@ -61,7 +59,7 @@ class GuardianDAO: NSObject {
         }
     }
 
-    func getGuardiansForStudent(student: String, completionHandler: (guardians: () throws -> [Guardian]) -> Void) {
+    static func getGuardiansForStudent(student: String, completionHandler: (guardians: () throws -> [Guardian]) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
                 let realm = try Realm()
@@ -102,7 +100,7 @@ class GuardianDAO: NSObject {
         }
     }
     
-    func updateGuardianID(guardian: String, id: Int, completionHandler: (update: () throws -> Void) -> Void) {
+    static func updateGuardianID(guardian: String, id: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
                 let realm = try Realm()

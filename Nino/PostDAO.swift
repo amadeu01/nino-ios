@@ -10,14 +10,12 @@ import UIKit
 import RealmSwift
 
 class PostDAO: NSObject {
-
-    static let sharedInstance = PostDAO()
     
     private override init() {
         super.init()
     }
     
-    func createPost(post: Post, completionHandler: (write: () throws -> Void) -> Void) {
+    static func createPost(post: Post, completionHandler: (write: () throws -> Void) -> Void) {
         var metadata: NSData?
         if let data = post.metadata {
             do {
@@ -67,7 +65,7 @@ class PostDAO: NSObject {
         }
     }
     
-    func upatePostID(id: String, serverID: Int, completionHandler: (update: () throws -> Void) -> Void) {
+    static func upatePostID(id: String, serverID: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
                 let realm = try Realm()

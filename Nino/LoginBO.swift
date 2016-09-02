@@ -42,9 +42,10 @@ class LoginBO: NSObject {
     }
     
     static func logout(completionHandler: (out: () throws -> Void) -> Void) {
-        LoginDAO.sharedInstance.logout { (out) in
+        LoginDAO.logout { (out) in
             do {
                 try out()
+                NinoSession.sharedInstance.resetSession()
                 dispatch_async(dispatch_get_main_queue(), { 
                     completionHandler(out: { 
                         return

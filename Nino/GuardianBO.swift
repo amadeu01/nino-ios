@@ -26,7 +26,7 @@ class GuardianBO: NSObject {
             return
         }
         
-        var guardian = Guardian(id: StringsMechanisms.generateID(), profileID: nil, name: name, surname: surname, gender: nil, email: email, students: [studentID])
+        let guardian = Guardian(id: StringsMechanisms.generateID(), profileID: nil, name: name, surname: surname, gender: nil, email: email, students: [studentID])
         
         SchoolBO.getIdForSchool { (id) in
             do {
@@ -34,7 +34,7 @@ class GuardianBO: NSObject {
                 StudentBO.getIdForStudent(studentID, completionHandler: { (id) in
                     do {
                         let student = try id()
-                        GuardianDAO.sharedInstance.createGuardians([guardian], completionHandler: { (write) in
+                        GuardianDAO.createGuardians([guardian], completionHandler: { (write) in
                             do {
                                 try write()
                                 GuardianMechanism.createGuardian(token, schoolID: school, studentID: student, email: email, name: name, surname: surname, completionHandler: { (profileID, error, data) in
@@ -46,7 +46,7 @@ class GuardianBO: NSObject {
                                             })
                                         })
                                     } else if let guardianID = profileID {
-                                        GuardianDAO.sharedInstance.updateGuardianID(guardian.id, id: guardianID, completionHandler: { (update) in
+                                        GuardianDAO.updateGuardianID(guardian.id, id: guardianID, completionHandler: { (update) in
                                             do {
                                                 try update()
                                                 dispatch_async(dispatch_get_main_queue(), { 
@@ -92,7 +92,7 @@ class GuardianBO: NSObject {
         StudentBO.getIdForStudent(student) { (id) in
             do {
                 let id = try id()
-                GuardianDAO.sharedInstance.getGuardiansForStudent(student, completionHandler: { (guardians) in
+                GuardianDAO.getGuardiansForStudent(student, completionHandler: { (guardians) in
                     do {
                         let localGuardians = try guardians()
                         dispatch_async(dispatch_get_main_queue(), { 
@@ -161,7 +161,7 @@ class GuardianBO: NSObject {
                                 let wasDeleted = comparison["wasDeleted"]
                                 let newGuardians = comparison["newGuardians"]
                                 if newGuardians!.count > 0 {
-                                    GuardianDAO.sharedInstance.createGuardians(newGuardians!, completionHandler: { (write) in
+                                    GuardianDAO.createGuardians(newGuardians!, completionHandler: { (write) in
                                         do {
                                             try write()
                                             let message = NotificationMessage()

@@ -36,7 +36,7 @@ class PostBO: NSObject {
         }
         
         let post = Post(id: StringsMechanisms.generateID(), postID: nil, type: type, date: nil, message: message, attachment: attachment, targets: targets, readProfileIDs: nil, metadata: metadata)
-        PostDAO.sharedInstance.createPost(post) { (write) in
+        PostDAO.createPost(post) { (write) in
             do {
                 try write()
                 //FIXME: fix attachment
@@ -49,7 +49,7 @@ class PostBO: NSObject {
                             })
                         })
                     } else if let postServerID = postID {
-                        PostDAO.sharedInstance.upatePostID(post.id, serverID: postServerID, completionHandler: { (update) in
+                        PostDAO.upatePostID(post.id, serverID: postServerID, completionHandler: { (update) in
                             do {
                                 try update()
                                 dispatch_async(dispatch_get_main_queue(), { 

@@ -31,8 +31,8 @@ class StudentBO: NSObject {
             do {
                 let school = try id()
                 let room = try RoomBO.getIdForRoom(roomID)
-                var student = Student(id: StringsMechanisms.generateID(), profileId: nil, name: name, surname: surname, gender: gender, birthDate: birthDate, profilePicture: profilePictue, roomID: roomID, guardians: nil)
-                StudentDAO.sharedInstance.createStudents([student], roomID: roomID, completionHandler: { (write) in
+                let student = Student(id: StringsMechanisms.generateID(), profileId: nil, name: name, surname: surname, gender: gender, birthDate: birthDate, profilePicture: profilePictue, roomID: roomID, guardians: nil)
+                StudentDAO.createStudents([student], roomID: roomID, completionHandler: { (write) in
                     do {
                         try write()
                         StudentMechanism.createStudent(token, schoolID: school, roomID: room, name: name, surname: surname, birthDate: birthDate, gender: gender.rawValue) { (profileID, error, data) in
@@ -44,7 +44,7 @@ class StudentBO: NSObject {
                                     })
                                 })
                             } else if let studentID = profileID {
-                                StudentDAO.sharedInstance.updateStudentID(student.id, profileID: studentID, completionHandler: { (update) in
+                                StudentDAO.updateStudentID(student.id, profileID: studentID, completionHandler: { (update) in
                                     do {
                                         try update()
                                         dispatch_async(dispatch_get_main_queue(), {
@@ -85,7 +85,7 @@ class StudentBO: NSObject {
         }
         do {
             let room = try RoomBO.getIdForRoom(roomID)
-            StudentDAO.sharedInstance.getStudentsForRoom(roomID, completionHandler: { (students) in
+            StudentDAO.getStudentsForRoom(roomID, completionHandler: { (students) in
                 do {
                     let localStudents = try students()
                     dispatch_async(dispatch_get_main_queue(), { 
@@ -165,7 +165,7 @@ class StudentBO: NSObject {
                             let wasChanged = comparison["wasChanged"]
                             let wasDeleted = comparison["wasDeleted"]
                             if newStudents!.count > 0 {
-                                StudentDAO.sharedInstance.createStudents(newStudents!, roomID: roomID, completionHandler: { (write) in
+                                StudentDAO.createStudents(newStudents!, roomID: roomID, completionHandler: { (write) in
                                     do {
                                         try write()
                                         let message = NotificationMessage()
@@ -201,7 +201,7 @@ class StudentBO: NSObject {
     }
 
     static func getIdForStudent(student: String, completionHandler: (id: () throws -> Int) -> Void) {
-        StudentDAO.sharedInstance.getStudentID(student) { (id) in
+        StudentDAO.getStudentID(student) { (id) in
             do {
                 let studentID = try id()
                 dispatch_async(dispatch_get_main_queue(), {
@@ -221,7 +221,7 @@ class StudentBO: NSObject {
     }
     
     static func getStudentForID(student: String, completionHandler: (student: () throws -> Student) -> Void) {
-        StudentDAO.sharedInstance.getStudentForId(student) { (student) in
+        StudentDAO.getStudentForId(student) { (student) in
             do {
                 let student = try student()
                 dispatch_async(dispatch_get_main_queue(), {
