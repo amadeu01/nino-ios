@@ -21,7 +21,7 @@ class RegisterGuardianViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Adicionar Responsável"
+        self.title = NSLocalizedString("PROF_ADD_GUARDIAN", comment: "Add Guardian")
         self.addNinoDefaultBackGround()
         for tf in self.textFields {
             tf.delegate = self
@@ -37,7 +37,8 @@ class RegisterGuardianViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .Plain, target: self, action: #selector (didPressToCancel))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Plain, target: self, action: #selector (didPressToCancel))
     }
     
     func didPressToCancel() {

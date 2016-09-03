@@ -39,8 +39,8 @@ class ConfirmEmailViewController: UIViewController {
                     self.userHash = hash
                     self.performSegueWithIdentifier("registerPasssword", sender: nil)
                 } else {
-                    let alertView = UIAlertController(title: "Falha de validação", message: "Já existe uma senha cadastrada para esse email.", preferredStyle: .Alert)
-                    let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
+                    let alertView = UIAlertController(title: NSLocalizedString("VALIDATION_FAILED", comment: ""), message: NSLocalizedString("ALREADY_HAS_PSSWD", comment: ""), preferredStyle: .Alert)
+                    let action = UIAlertAction(title: NSLocalizedString("GENERAL_GOTIT", comment: ""), style: .Default) { (ok) in
                         self.segueToLogin()
                     }
                     alertView.addAction(action)
@@ -51,10 +51,10 @@ class ConfirmEmailViewController: UIViewController {
                 guard let serverError = error as? ServerError else {
                     return
                 }
-                let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in
+                let action = UIAlertAction(title: NSLocalizedString("GENERAL_GOTIT", comment: ""), style: .Default, handler: { (act) in
                     self.segueToLogin()
                 })
-                let alertView = DefaultAlerts.serverErrorAlert(serverError, title: "Falha na confirmação", customAction: action)
+                let alertView = DefaultAlerts.serverErrorAlert(serverError, title: NSLocalizedString("CONFIRMATION_FAILED", comment: ""), customAction: action)
                 self.presentViewController(alertView, animated: true, completion: nil)
             }
         }

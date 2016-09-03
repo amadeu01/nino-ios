@@ -35,7 +35,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Novo Aluno", style: .Plain, target: self, action: #selector (didPressToAddNewNewStudent))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("STU_NEW", comment: "New Student"), style: .Plain, target: self, action: #selector (didPressToAddNewNewStudent))
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     override func didReceiveMemoryWarning() {
@@ -86,10 +86,10 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
     func didPressToDeleteClassroom() {
         let alert = UIAlertController(title: "Deletar Turma", message: "Deseja deletar a turma \(self.title!)?", preferredStyle: .Alert)
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
-        let deleteAction = UIAlertAction(title: "Deletar", style: .Destructive) { (alert) in
+        let deleteAction = UIAlertAction(title: NSLocalizedString("GENERAL_DELETE", comment: "Delete"), style: .Destructive) { (alert) in
             //TODO: delete room
         }
         alert.addAction(cancelAction)
@@ -101,7 +101,8 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.text = self.title
         }
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
         let changeAction = UIAlertAction(title: "Alterar", style: .Default) { (alert) in
@@ -168,11 +169,11 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
             // configure info cell
             if indexPath.row == 0 {
                 cell.detailTextLabel?.text = self.title
-                cell.textLabel?.text = "Nome"
+                cell.textLabel?.text = NSLocalizedString("PROF_NAME", comment: "Name")
             }
         } else if indexPath.section == classroomDeleteSec {
             if indexPath.row == 0 {
-                cell.textLabel?.text = "Deletar \(self.title!)"
+                cell.textLabel?.text = NSLocalizedString("GENERAL_DELETE", comment: "Delete") + " " + self.title!
                 cell.textLabel?.textColor = UIColor.redColor()
             }
         }

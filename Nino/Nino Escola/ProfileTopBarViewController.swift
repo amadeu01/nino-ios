@@ -34,8 +34,8 @@ class ProfileTopBarViewController: UIViewController {
                     let student = try student()
                     self.name.text = student.name + " " + student.surname
                     let formatter = NSDateFormatter()
-                    formatter.dateFormat = "dd/MM/yyyy"
-                    self.birthdate.text = "Nascimento: " + formatter.stringFromDate(student.birthDate)
+                    formatter.dateStyle = .ShortStyle
+                    self.birthdate.text = NSLocalizedString("PROF_BIRTH", comment: "") + ": " + formatter.stringFromDate(student.birthDate)
                 } catch {
                     //TODO: handle error
                 }

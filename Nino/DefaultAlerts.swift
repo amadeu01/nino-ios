@@ -11,7 +11,7 @@ import UIKit
 //FIXME: translate texts
 class DefaultAlerts: NSObject {
     
-    static private let okAction = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
+    static private let okAction = UIAlertAction(title: NSLocalizedString("GENERAL_GOTIT", comment: ""), style: .Default, handler: nil)
     
     static private func segueToLogin() {
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
@@ -27,7 +27,7 @@ class DefaultAlerts: NSObject {
      */
     
     static func emptyField() -> UIAlertController {
-        let alertView = UIAlertController(title: "Campo vazio", message: "Nenhum campo pode estar vazio.", preferredStyle:.Alert)
+        let alertView = UIAlertController(title: NSLocalizedString("GENERAL_EMPTY_FIELD", comment: ""), message: NSLocalizedString("GENERAL_EMPTY_FIELD", comment: ""), preferredStyle:.Alert)
         alertView.addAction(self.okAction)
         return alertView
     }
@@ -38,7 +38,7 @@ class DefaultAlerts: NSObject {
      - returns: UIAlertController ready to be presented
      */
     static func invalidEmail() -> UIAlertController {
-        let alertView = UIAlertController(title: "Email inválido", message: "Digite um email válido", preferredStyle: .Alert)
+        let alertView = UIAlertController(title: NSLocalizedString("INVALID_MAIL", comment: ""), message: "Digite um email válido", preferredStyle: .Alert)
         alertView.addAction(self.okAction)
         return alertView
     }
@@ -81,7 +81,7 @@ class DefaultAlerts: NSObject {
     
     static func shouldDeleteAlert(confirmAction: UIAlertAction, customCancelAction: UIAlertAction?) -> UIAlertController {
         let alertView = UIAlertController(title: "Apagar Item", message: "Esse item será apagado permanentemente.", preferredStyle: .Alert)
-        alertView.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
+        alertView.addAction(UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel, handler: nil))
         alertView.addAction(confirmAction)
         return alertView
     }

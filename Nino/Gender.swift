@@ -21,9 +21,9 @@ enum Gender: Int {
     func description() -> String {
         switch self {
         case .Male:
-            return "Masculino"
+            return NSLocalizedString("PROF_GEN_MALE", comment: "Male")
         case .Female:
-            return "Feminino"
+            return NSLocalizedString("PROF_GEN_FEMALE", comment: "Femail")
         }
     }
 }

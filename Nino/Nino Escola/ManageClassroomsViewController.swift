@@ -17,7 +17,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     let phaseInfoSec = 1
     let phaseDeleteSec = 2
     //Names
-    var goBackButtonName = "Fases"
+    var goBackButtonName = NSLocalizedString("PHASES", comment: "Phases")
     var rooms = [Room]()
     var phaseID: String?
     
@@ -33,7 +33,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Nova Turma", style: .Plain, target: self, action: #selector (didPressToAddNewClassroom))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("ROOMS_NEW", comment: "New Room"), style: .Plain, target: self, action: #selector (didPressToAddNewClassroom))
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
@@ -85,18 +85,18 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func didPressToAddNewClassroom() {
-        let alert = UIAlertController(title: "Adicionar nova turma", message: "Digite o nome da nova turma", preferredStyle: .Alert)
+        let alert = UIAlertController(title: NSLocalizedString("ROOMS_ADD", comment: "Add new room"), message: NSLocalizedString("ROOMS_INS_NAME", comment: ""), preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.autocapitalizationType = UITextAutocapitalizationType.Words
             textField.autocorrectionType = UITextAutocorrectionType.Default
-            textField.placeholder = "ex: Turma A, Tarde..."
+            textField.placeholder = NSLocalizedString("ROOM_ADD_PH", comment: "")
             self.newRoomTextField = textField
             
         }
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
-        let submitAction = UIAlertAction(title: "Criar", style: .Default) { (alert) in
+        let submitAction = UIAlertAction(title: NSLocalizedString("GENERAL_CREATE", comment: ""), style: .Default) { (alert) in
             guard let name = self.newRoomTextField?.text else {
                 //TODO: empty field default alert
                 return
@@ -125,12 +125,12 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         self.presentViewController(alert, animated: true, completion: nil)
     }
     func didPressToDeletePhase() {
-        let alert = UIAlertController(title: "Deletar Fase", message: "Deseja deletar a fase \(self.title!)?", preferredStyle: .Alert)
-
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
+        let alert = UIAlertController(title: NSLocalizedString("PHASE_DELETE", comment: "Delete Phase"), message: "Deseja deletar a fase \(self.title!)?", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
-        let deleteAction = UIAlertAction(title: "Deletar", style: .Destructive) { (alert) in
+        let deleteAction = UIAlertAction(title: NSLocalizedString("GENERAL_DELETE", comment: "Delete"), style: .Destructive) { (alert) in
             //TODO: Delete phase
         }
         alert.addAction(cancelAction)
@@ -142,7 +142,8 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.text = self.title
         }
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (alert) in
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
         let changeAction = UIAlertAction(title: "Alterar", style: .Default) { (alert) in
@@ -213,11 +214,11 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
             // configure info cell
             if indexPath.row == 0 {
                 cell.detailTextLabel?.text = self.title
-                cell.textLabel?.text = "Nome"
+                cell.textLabel?.text = NSLocalizedString("PROF_NAME", comment: "Name")
             }
             } else if indexPath.section == phaseDeleteSec {
                 if indexPath.row == 0 {
-                    cell.textLabel?.text = "Deletar Fase \(self.title!)"
+                    cell.textLabel?.text = NSLocalizedString("PHASE_DELETE", comment: "Delete Phase") + " \(self.title!)"
                     cell.textLabel?.textColor = UIColor.redColor()
                 }
         }
@@ -252,7 +253,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showClassroomProfileViewController" {
             let backButton = UIBarButtonItem()
-            backButton.title = "Turmas"
+            backButton.title = NSLocalizedString("ROOMS", comment: "Rooms")
             navigationItem.backBarButtonItem = backButton
             
             guard let toVC = segue.destinationViewController as? ManageStudentsViewController else {

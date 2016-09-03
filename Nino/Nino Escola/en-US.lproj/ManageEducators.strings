@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Adicionar novo educador"; ObjectID = "2hU-ob-7lC"; */
+"2hU-ob-7lC.text" = "Add new educator";
+
+/* Class = "UILabel"; text = "Mudar foto"; ObjectID = "Ag8-en-bs0"; */
+"Ag8-en-bs0.text" = "Change photo";
+
+/* Class = "UITextField"; placeholder = "| Nome"; ObjectID = "GGn-FT-4b9"; */
+"GGn-FT-4b9.placeholder" = "| Name";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "KoN-fT-OTr"; */
+"KoN-fT-OTr.normalTitle" = "X";
+
+/* Class = "UIButton"; normalTitle = "EXCLUIR CONTA"; ObjectID = "LXw-Kq-cio"; */
+"LXw-Kq-cio.normalTitle" = "DELETE ACCOUNT";
+
+/* Class = "UIButton"; normalTitle = "CADASTRAR "; ObjectID = "Qik-C3-7CM"; */
+"Qik-C3-7CM.normalTitle" = "REGISTER ";
+
+/* Class = "UITextField"; placeholder = "| Email"; ObjectID = "SKt-hI-1x4"; */
+"SKt-hI-1x4.placeholder" = "| Email";
+
+/* Class = "UILabel"; text = "Adicionar foto"; ObjectID = "anr-LQ-g5v"; */
+"anr-LQ-g5v.text" = "Add photo";
+
+/* Class = "UITextField"; placeholder = "| Nome"; ObjectID = "cL6-4R-REi"; */
+"cL6-4R-REi.placeholder" = "| Name";
+
+/* Class = "UILabel"; text = "Ativo"; ObjectID = "ddi-rV-hgc"; */
+"ddi-rV-hgc.text" = "Active";
+
+/* Class = "UITextField"; placeholder = "| Email"; ObjectID = "eL1-r1-1HC"; */
+"eL1-r1-1HC.placeholder" = "| Email";
+
+/* Class = "UIButton"; normalTitle = "<"; ObjectID = "tiA-Ec-SoL"; */
+"tiA-Ec-SoL.normalTitle" = "<";
+
+/* Class = "UITextField"; placeholder = "| Sobrenome"; ObjectID = "uy6-c4-2ue"; */
+"uy6-c4-2ue.placeholder" = "| Surname";
+
+/* Class = "UILabel"; text = "Nome do educador"; ObjectID = "yul-cZ-BV1"; */
+"yul-cZ-BV1.text" = "Educator's name";

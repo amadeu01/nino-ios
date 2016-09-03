@@ -66,6 +66,12 @@
 		07DB6AB31D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */; };
 		07DB6AB41D50CDE7003C07EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
 		07DB6AB51D50CDE8003C07EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC39CC1CEE128B00867624 /* Main.storyboard */; };
+		07F1D3DB1D7A0C9B000B66D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */; };
+		07F1D3DC1D7A0C9B000B66D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */; };
+		07F1D3DD1D7A0C9B000B66D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */; };
+		07F1D3DE1D7A0C9B000B66D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */; };
+		07F1D3DF1D7A0C9B000B66D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */; };
+		07F1D3E01D7A0C9B000B66D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */; };
 		280A4B7B1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7C1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
 		280A4B7D1D3E89E600AA722B /* ManageStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */; };
@@ -917,6 +923,38 @@
 		07A272431D494750005079BC /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		07B22B8A1D6E33980037F71B /* DraftMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftMechanism.swift; sourceTree = "<group>"; };
 		07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansLoginViewController.swift; sourceTree = "<group>"; };
+		07F1D34F1D79CA56000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Main.strings"; sourceTree = "<group>"; };
+		07F1D3501D79CA56000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		07F1D3511D79CA56000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Main.strings"; sourceTree = "<group>"; };
+		07F1D3521D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Announcements.strings"; sourceTree = "<group>"; };
+		07F1D3531D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/MealMenu.strings"; sourceTree = "<group>"; };
+		07F1D3541D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/ManageClassrooms.strings"; sourceTree = "<group>"; };
+		07F1D3551D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/ManageEducators.strings"; sourceTree = "<group>"; };
+		07F1D3561D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/RegisterStudent.strings"; sourceTree = "<group>"; };
+		07F1D3571D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/StudentProfile.strings"; sourceTree = "<group>"; };
+		07F1D3581D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Chat.strings"; sourceTree = "<group>"; };
+		07F1D3591D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Photos.strings"; sourceTree = "<group>"; };
+		07F1D35A1D79CA57000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/MyDay.strings"; sourceTree = "<group>"; };
+		07F1D35B1D79CA58000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/DefaultEmptyState.strings"; sourceTree = "<group>"; };
+		07F1D35C1D79CA58000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/CreateUser.strings"; sourceTree = "<group>"; };
+		07F1D35D1D79CA58000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		07F1D35E1D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		07F1D35F1D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		07F1D3601D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		07F1D3611D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Announcements.strings"; sourceTree = "<group>"; };
+		07F1D3621D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MealMenu.strings"; sourceTree = "<group>"; };
+		07F1D3631D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ManageClassrooms.strings"; sourceTree = "<group>"; };
+		07F1D3641D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ManageEducators.strings"; sourceTree = "<group>"; };
+		07F1D3651D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/RegisterStudent.strings"; sourceTree = "<group>"; };
+		07F1D3661D79CA62000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/StudentProfile.strings"; sourceTree = "<group>"; };
+		07F1D3671D79CA63000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Chat.strings"; sourceTree = "<group>"; };
+		07F1D3681D79CA63000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Photos.strings"; sourceTree = "<group>"; };
+		07F1D3691D79CA63000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MyDay.strings"; sourceTree = "<group>"; };
+		07F1D36A1D79CA63000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/DefaultEmptyState.strings"; sourceTree = "<group>"; };
+		07F1D36B1D79CA63000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/CreateUser.strings"; sourceTree = "<group>"; };
+		07F1D36C1D79CA63000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		07F1D3E11D7A0C9B000B66D3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		07F1D3E31D7A0C9D000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		280A4B7A1D3E89E600AA722B /* ManageStudentInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageStudentInfoViewController.swift; sourceTree = "<group>"; };
 		280A4B7E1D3E8B5F00AA722B /* GuardianTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianTableViewCell.swift; sourceTree = "<group>"; };
 		28143E141D29A0D100139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyDay.storyboard; sourceTree = "<group>"; };
@@ -1237,6 +1275,14 @@
 				28F20CA11D706B8500FBD332 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		07F1D36D1D79D673000B66D3 /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */,
+			);
+			name = i18n;
 			sourceTree = "<group>";
 		};
 		2868C5581D4650680032591D /* Manage School People */ = {
@@ -1607,6 +1653,7 @@
 		AC9F99CF1CEF3937001B53E8 /* Escola */ = {
 			isa = PBXGroup;
 			children = (
+				07F1D36D1D79D673000B66D3 /* i18n */,
 				ACEC39FB1CEE137A00867624 /* Nino Escola */,
 				ACEC3A101CEE137B00867624 /* Nino EscolaTests */,
 				ACEC3A1B1CEE137B00867624 /* Nino EscolaUITests */,
@@ -1923,6 +1970,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-US",
 			);
 			mainGroup = ACEC39BC1CEE128B00867624;
 			productRefGroup = ACEC39C61CEE128B00867624 /* Products */;
@@ -1946,6 +1994,7 @@
 			files = (
 				ACEC39D31CEE128B00867624 /* LaunchScreen.storyboard in Resources */,
 				ACEC39D01CEE128B00867624 /* Assets.xcassets in Resources */,
+				07F1D3DB1D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				AC86BBE31D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */,
 				287F319D1D5DFF1D00DF2E1C /* MyDay.xib in Resources */,
@@ -1965,6 +2014,7 @@
 				AC86BBD81D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBDE1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBF01D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				07F1D3DC1D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				AC86BBEA1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBF61D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				287F319E1D5DFF1D00DF2E1C /* MyDay.xib in Resources */,
@@ -1980,6 +2030,7 @@
 				AC86BBD91D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				AC86BBDF1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
 				AC86BBF11D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
+				07F1D3DD1D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				AC86BBEB1D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBF71D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				287F319F1D5DFF1D00DF2E1C /* MyDay.xib in Resources */,
@@ -2012,6 +2063,7 @@
 				AC86BBE61D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				28667DC91D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
 				ACEC3A021CEE137A00867624 /* Main.storyboard in Resources */,
+				07F1D3DE1D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				07A272381D493E80005079BC /* SeparatorCell.xib in Resources */,
 				AC86BBF81D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				284A33371D2C3F5000030773 /* Schedule.storyboard in Resources */,
@@ -2034,6 +2086,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07A272411D494734005079BC /* SliderCell.xib in Resources */,
+				07F1D3DF1D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				288DE3521D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDB1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				28667DCA1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
@@ -2077,6 +2130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07A272421D494734005079BC /* SliderCell.xib in Resources */,
+				07F1D3E01D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				288DE3531D22B7500052A35D /* DefaultEmptyState.storyboard in Resources */,
 				AC86BBDC1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 				28667DCB1D3FC7BD009DA78F /* StudentInfoSectionTableViewHeader.xib in Resources */,
@@ -3173,10 +3227,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		07F1D3E21D7A0C9B000B66D3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07F1D3E11D7A0C9B000B66D3 /* pt-BR */,
+				07F1D3E31D7A0C9D000B66D3 /* en-US */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		28143E131D29A0D100139B0D /* MyDay.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				28143E141D29A0D100139B0D /* Base */,
+				07F1D35A1D79CA57000B66D3 /* en-US */,
+				07F1D3691D79CA63000B66D3 /* pt-BR */,
 			);
 			name = MyDay.storyboard;
 			sourceTree = "<group>";
@@ -3185,6 +3250,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				28143E191D29A11600139B0D /* Base */,
+				07F1D3591D79CA57000B66D3 /* en-US */,
+				07F1D3681D79CA63000B66D3 /* pt-BR */,
 			);
 			name = Photos.storyboard;
 			sourceTree = "<group>";
@@ -3193,6 +3260,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				28143E1C1D29A15E00139B0D /* Base */,
+				07F1D3581D79CA57000B66D3 /* en-US */,
+				07F1D3671D79CA63000B66D3 /* pt-BR */,
 			);
 			name = Chat.storyboard;
 			sourceTree = "<group>";
@@ -3201,6 +3270,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				28143E451D2BF4B300139B0D /* Base */,
+				07F1D3561D79CA57000B66D3 /* en-US */,
+				07F1D3651D79CA62000B66D3 /* pt-BR */,
 			);
 			name = RegisterStudent.storyboard;
 			sourceTree = "<group>";
@@ -3209,6 +3280,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				283C29811D299E0F00DF7DCC /* Base */,
+				07F1D3571D79CA57000B66D3 /* en-US */,
+				07F1D3661D79CA62000B66D3 /* pt-BR */,
 			);
 			name = StudentProfile.storyboard;
 			sourceTree = "<group>";
@@ -3217,6 +3290,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				284A33281D2C3A2200030773 /* Base */,
+				07F1D3551D79CA57000B66D3 /* en-US */,
+				07F1D3641D79CA62000B66D3 /* pt-BR */,
 			);
 			name = ManageEducators.storyboard;
 			sourceTree = "<group>";
@@ -3225,6 +3300,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				284A332B1D2C3DD600030773 /* Base */,
+				07F1D3541D79CA57000B66D3 /* en-US */,
+				07F1D3631D79CA62000B66D3 /* pt-BR */,
 			);
 			name = ManageClassrooms.storyboard;
 			sourceTree = "<group>";
@@ -3233,6 +3310,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				284A33321D2C3ED900030773 /* Base */,
+				07F1D3531D79CA57000B66D3 /* en-US */,
+				07F1D3621D79CA62000B66D3 /* pt-BR */,
 			);
 			name = MealMenu.storyboard;
 			sourceTree = "<group>";
@@ -3241,6 +3320,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				2868C55A1D46A7640032591D /* Base */,
+				07F1D3521D79CA57000B66D3 /* en-US */,
+				07F1D3611D79CA62000B66D3 /* pt-BR */,
 			);
 			name = Announcements.storyboard;
 			sourceTree = "<group>";
@@ -3249,6 +3330,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				288DE3501D22B7500052A35D /* Base */,
+				07F1D35B1D79CA58000B66D3 /* en-US */,
+				07F1D36A1D79CA63000B66D3 /* pt-BR */,
 			);
 			name = DefaultEmptyState.storyboard;
 			sourceTree = "<group>";
@@ -3257,6 +3340,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				AC182A3F1D103A420013611E /* Base */,
+				07F1D35C1D79CA58000B66D3 /* en-US */,
+				07F1D36B1D79CA63000B66D3 /* pt-BR */,
 			);
 			name = CreateUser.storyboard;
 			sourceTree = "<group>";
@@ -3265,6 +3350,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				ACEC39CD1CEE128B00867624 /* Base */,
+				07F1D34F1D79CA56000B66D3 /* en-US */,
+				07F1D35E1D79CA62000B66D3 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -3273,6 +3360,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				ACEC39D21CEE128B00867624 /* Base */,
+				07F1D3501D79CA56000B66D3 /* en-US */,
+				07F1D35F1D79CA62000B66D3 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3281,6 +3370,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				ACEC3A011CEE137A00867624 /* Base */,
+				07F1D3511D79CA56000B66D3 /* en-US */,
+				07F1D3601D79CA62000B66D3 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -3289,6 +3380,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				ACEC3A061CEE137A00867624 /* Base */,
+				07F1D35D1D79CA58000B66D3 /* en-US */,
+				07F1D36C1D79CA63000B66D3 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "Atividades"; ObjectID = "1FP-6m-8t9"; */
+"1FP-6m-8t9.normalTitle" = "Activities";
+
+/* Class = "UIButton"; normalTitle = "Chat"; ObjectID = "47X-2H-Yfo"; */
+"47X-2H-Yfo.normalTitle" = "Chat";
+
+/* Class = "UILabel"; text = "Nascimento do Aluno"; ObjectID = "LRZ-AQ-evX"; */
+"LRZ-AQ-evX.text" = "Birthdate";
+
+/* Class = "UIButton"; normalTitle = "Fotos"; ObjectID = "NLu-Hm-Ihk"; */
+"NLu-Hm-Ihk.normalTitle" = "Photos";
+
+/* Class = "UIButton"; normalTitle = "Meu Dia"; ObjectID = "f0X-5L-JhS"; */
+"f0X-5L-JhS.normalTitle" = "My Day";
+
+/* Class = "UILabel"; text = "Nome do Aluno"; ObjectID = "nb3-3y-ae2"; */
+"nb3-3y-ae2.text" = "Student's Name";

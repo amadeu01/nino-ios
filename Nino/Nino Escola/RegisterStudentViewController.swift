@@ -46,7 +46,8 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
         toolbar.items = [space, barButton]
         self.birthDateTextField.inputAccessoryView = toolbar
         self.datePicker.addTarget(self, action: #selector(self.handleDatePicker), forControlEvents: .ValueChanged)
-        self.dateFormatter.dateFormat = "dd/MM/yyyy"
+//        self.dateFormatter.dateFormat = "dd/MM/yyyy"
+        self.dateFormatter.dateStyle = .ShortStyle
         
         if self.roomID == nil {
             performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
@@ -59,7 +60,7 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .Bordered, target: self, action: #selector (didPressToCancel))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Bordered, target: self, action: #selector (didPressToCancel))
     }
     
     func didPressToCancel() {
