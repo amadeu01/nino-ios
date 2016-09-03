@@ -30,9 +30,9 @@ class SchoolBO: NSObject {
             throw CreationError.InvalidEmail
         }
         
-        var newSchool = School(id: StringsMechanisms.generateID(), schoolId: nil, name: name, address: address, legalNumber: nil, telephone: telephone, email: email, owner: nil, logo: logo)
+        let newSchool = School(id: StringsMechanisms.generateID(), schoolId: nil, name: name, address: address, legalNumber: nil, telephone: telephone, email: email, owner: nil, logo: logo)
         
-        SchoolDAO.sharedInstance.createSchool(newSchool) { (writeSchool) in
+        SchoolDAO.createSchool(newSchool) { (writeSchool) in
             do {
                 //local creation
                 try writeSchool()
@@ -49,12 +49,12 @@ class SchoolBO: NSObject {
                     //success
                     else if let school = schoolID {
                         //update local schoolID information
-                        SchoolDAO.sharedInstance.updateSchoolId(school, completionHandler: { (update) in
+                        SchoolDAO.updateSchoolId(school, completionHandler: { (update) in
                             do {
                                 try update()
                                 //has profile image
                                 if let imageData = logo {
-                                    SchoolDAO.sharedInstance.updateSchoolLogo(imageData, completionHandler: { (update) in
+                                    SchoolDAO.updateSchoolLogo(imageData, completionHandler: { (update) in
                                         do {
                                             try update()
                                             //tries to send the profile image
@@ -119,7 +119,7 @@ class SchoolBO: NSObject {
     
     static func getSchool(token: String, completionHandler: (school: () throws -> School) -> Void) {
         
-        SchoolDAO.sharedInstance.getSchool { (school) in
+        SchoolDAO.getSchool { (school) in
             do {
                 let school = try school()
                 dispatch_async(dispatch_get_main_queue(), { 
@@ -195,7 +195,7 @@ class SchoolBO: NSObject {
                                 return currentSchool
                             })
                         })
-                        SchoolDAO.sharedInstance.createSchool(currentSchool, completionHandler: { (writeSchool) in
+                        SchoolDAO.createSchool(currentSchool, completionHandler: { (writeSchool) in
                             do {
                                 try writeSchool()
                             } catch {
@@ -217,7 +217,7 @@ class SchoolBO: NSObject {
     
     
     static func getIdForSchool(completionHandler: (id: () throws -> Int) -> Void) {
-        SchoolDAO.sharedInstance.getIdForSchool { (id) in
+        SchoolDAO.getIdForSchool { (id) in
             do {
                 let schoolID = try id()
                 dispatch_async(dispatch_get_main_queue(), { 

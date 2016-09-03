@@ -11,15 +11,11 @@ import RealmSwift
 
 class PhaseDAO: NSObject {
     
-    static let sharedInstance = PhaseDAO()
-    
-    private var phases = [Phase]()
-    
     override private init() {
         super.init()
     }
 
-    func createPhases(phases: [Phase], schoolID: String, completionHandler: (write: () throws -> Void) -> Void) {
+    static func createPhases(phases: [Phase], schoolID: String, completionHandler: (write: () throws -> Void) -> Void) {
         
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
@@ -47,9 +43,6 @@ class PhaseDAO: NSObject {
                         realm.add(phase)
                     }
                 })
-                for phase in phases {
-                    self.phases.append(phase)
-                }
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(write: { 
                         return
@@ -65,58 +58,33 @@ class PhaseDAO: NSObject {
         }
     }
     
-    func getPhases(completionHandler: (phases: () throws -> [Phase]) -> Void) {
-        
-        if self.phases.count > 0 {
-            completionHandler(phases: { () -> [Phase] in
-                return self.phases
-            })
-        } else {
-            //database serach
-            dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+    static func getPhases(completionHandler: (phases: () throws -> [Phase]) -> Void) {
+        //database serach
+        var phasesVO = [Phase]()
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
                 let phases = realm.objects(PhaseRealmObject.self)
                 for phase in phases {
                     let innerPhase = Phase(id: phase.id, phaseID: phase.phaseID.value, name: phase.name)
-                    self.phases.append(innerPhase)
+                    phasesVO.append(innerPhase)
                 }
-                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(phases: { () -> [Phase] in
-                        return self.phases
+                        return phasesVO
                     })
                 })
             } catch {
-                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(phases: { () -> [Phase] in
                         throw RealmError.CouldNotCreateRealm
                     })
                 })
             }
         }
-        }
     }
     
-    func updatePhaseId(phase: String, phaseID: Int, completionHandler: (update: () throws -> Void) -> Void) {
-        
-        var phaseToUpdate: Phase?
-        var position = 0
-        for localPhase in self.phases {
-            if localPhase.id == phase {
-                phaseToUpdate = localPhase
-                break
-            }
-            position += 1
-        }
-        
-        guard let localPhase = phaseToUpdate else {
-            completionHandler(update: {
-                throw DatabaseError.NotFound
-            })
-            return
-        }
-        
-        let selectedPhase = Phase(id: localPhase.id, phaseID: phaseID, name: localPhase.name)
+    static func updatePhaseId(phase: String, phaseID: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
@@ -133,8 +101,6 @@ class PhaseDAO: NSObject {
                     realmPhase.phaseID.value = phaseID
                     realm.add(realmPhase, update: true)
                 })
-                self.phases.removeAtIndex(position)
-                self.phases.insert(selectedPhase, atIndex: position)
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(update: { 
                         return
@@ -150,24 +116,72 @@ class PhaseDAO: NSObject {
         }
     }
     
-    func getIdForPhase(phaseID: String) throws -> Int {
-        for phase in self.phases {
-            if phase.id == phaseID {
-                guard let serverID = phase.phaseID else {
-                    throw DatabaseError.MissingID
+    static func getIdForPhase(phaseID: String, completionHandler: (get: () throws -> Int) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let phase = realm.objectForPrimaryKey(PhaseRealmObject.self, key: phaseID)
+                guard let realmPhase = phase else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(get: { () -> Int in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
                 }
-                return serverID
+                let id = realmPhase.phaseID.value
+                guard let idInt = id else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(get: { () -> Int in
+                            throw DatabaseError.MissingID
+                        })
+                    })
+                    return
+                }
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(get: { () -> Int in
+                        return idInt
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(get: { () -> Int in
+                        throw RealmError.UnexpectedCase
+                    })
+                })
             }
         }
-        throw DatabaseError.NotFound
     }
     
-    func getLocalIdForPhase(phaseID: Int) throws -> String {
-        for phase in self.phases {
-            if phase.phaseID == phaseID {
-                return phase.id
+    static func getLocalIdForPhase(phaseID: Int, completionHandler: (get: () throws -> String) -> Void) {
+        let filter = NSPredicate(format: "phaseID = %d", phaseID)
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let phases = realm.objects(PhaseRealmObject.self)
+                let possiblePhases = phases.filter(filter)
+                let phase = possiblePhases.first
+                guard let realmPhase = phase else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(get: { () -> String in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let id = realmPhase.id
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(get: { () -> String in
+                        return id
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(get: { () -> String in
+                        throw RealmError.UnexpectedCase
+                    })
+                })
             }
         }
-        throw DatabaseError.NotFound
     }
 }

@@ -10,87 +10,69 @@ import UIKit
 import RealmSwift
 
 class RoomDAO: NSObject {
-
-    static let sharedInstance = RoomDAO()
-    
-    private var classrooms = [Room]()
     
     private override init() {
         super.init()
     }
     
-    func getAllRooms(completionHandler: (rooms: () throws -> [Room]) -> Void) {
-        if self.classrooms.count > 0 {
-            completionHandler(rooms: { () -> [Room] in
-                return self.classrooms
-            })
-        } else {
-            dispatch_async(RealmManager.sharedInstace.getRealmQueue(), { 
-                do {
-                    let realm = try Realm()
-                    let objects = realm.objects(RoomRealmObject.self)
-                    for object in objects {
-                        let room = Room(id: object.id, roomID: object.roomID.value, phaseID: object.phase!.id, name: object.name)
-                        self.classrooms.append(room)
-                    }
-                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
-                        completionHandler(rooms: { () -> [Room] in
-                            return self.classrooms
-                        })
-                    })
-                } catch {
-                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
-                        completionHandler(rooms: { () -> [Room] in
-                            throw RealmError.CouldNotCreateRealm
-                        })
-                    })
+    static func getAllRooms(completionHandler: (rooms: () throws -> [Room]) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue(), {
+            do {
+                let realm = try Realm()
+                var classrooms = [Room]()
+                let objects = realm.objects(RoomRealmObject.self)
+                for object in objects {
+                    let room = Room(id: object.id, roomID: object.roomID.value, phaseID: object.phase!.id, name: object.name)
+                    classrooms.append(room)
                 }
-            })
-        }
-    }
-    
-    func getRoomsForPhase(phase: String, completionHandler: (rooms: () throws -> [Room]) -> Void) {
-        var phaseClassrooms = [Room]()
-        if self.classrooms.count > 0 {
-            for room in self.classrooms {
-                if room.phaseID == phase {
-                    phaseClassrooms.append(room)
-                }
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(rooms: { () -> [Room] in
+                        return classrooms
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(rooms: { () -> [Room] in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
             }
-            completionHandler(rooms: { () -> [Room] in
-                return phaseClassrooms
-            })
-        } else {
-            dispatch_async(RealmManager.sharedInstace.getRealmQueue(), { 
-                do {
-                    let realm = try Realm()
-                    let objects = realm.objects(RoomRealmObject.self)
-                    for object in objects {
-                        let room = Room(id: object.id, roomID: object.roomID.value, phaseID: object.phase!.id, name: object.name)
-                        self.classrooms.append(room)
-                    }
-                    for room in self.classrooms {
-                        if room.phaseID == phase {
-                            phaseClassrooms.append(room)
-                        }
-                    }
-                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
-                        completionHandler(rooms: { () -> [Room] in
-                            return phaseClassrooms
-                        })
-                    })
-                } catch {
-                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
-                        completionHandler(rooms: { () -> [Room] in
-                            throw RealmError.CouldNotCreateRealm
-                        })
-                    })
-                }
-            })
-        }
+        })
+        
     }
     
-    func createRooms(rooms: [Room], completionHandler: (write: () throws -> Void) -> Void) {
+    static func getRoomsForPhase(phase: String, completionHandler: (rooms: () throws -> [Room]) -> Void) {
+        var phaseClassrooms = [Room]()
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue(), {
+            do {
+                let realm = try Realm()
+                let objects = realm.objects(RoomRealmObject.self)
+                var classrooms = [Room]()
+                for object in objects {
+                    let room = Room(id: object.id, roomID: object.roomID.value, phaseID: object.phase!.id, name: object.name)
+                    classrooms.append(room)
+                }
+                for room in classrooms {
+                    if room.phaseID == phase {
+                        phaseClassrooms.append(room)
+                    }
+                }
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(rooms: { () -> [Room] in
+                        return phaseClassrooms
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(rooms: { () -> [Room] in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        })
+    }
+    
+    static func createRooms(rooms: [Room], completionHandler: (write: () throws -> Void) -> Void) {
         
         var roomsToAdd = rooms
         
@@ -135,9 +117,6 @@ class RoomDAO: NSObject {
                             realm.add(room)
                         }
                     })
-                    for room in roomsOfPhase {
-                        self.classrooms.append(room)
-                    }
                 } // while loop
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(write: {
@@ -154,24 +133,7 @@ class RoomDAO: NSObject {
         } //realm queue
     }
     
-    func updateRoomID(room: String, roomID: Int, completionHandler: (update: () throws -> Void) -> Void) {
-        var roomToUpdate: Room?
-        var position = 0
-        for localRoom in self.classrooms {
-            if localRoom.id == room {
-                roomToUpdate = localRoom
-                break
-            }
-            position += 1
-        }
-        
-        guard let localRoom = roomToUpdate else {
-            completionHandler(update: {
-                throw DatabaseError.NotFound
-            })
-            return
-        }
-        let selectedRoom = Room(id: localRoom.id, roomID: roomID, phaseID: localRoom.phaseID, name: localRoom.name)
+    static func updateRoomID(room: String, roomID: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
@@ -188,8 +150,6 @@ class RoomDAO: NSObject {
                     realmRoom.roomID.value = roomID
                     realm.add(realmRoom, update: true)
                 })
-                self.classrooms.removeAtIndex(position)
-                self.classrooms.insert(selectedRoom, atIndex: position)
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(update: {
                         return
@@ -205,19 +165,44 @@ class RoomDAO: NSObject {
         }
     }
     
-    func getIdForRoom(roomID: String) throws -> Int {
-        for room in self.classrooms {
-            if room.id == roomID {
-                guard let serverID = room.roomID else {
-                    throw DatabaseError.MissingID
+    static func getIdForRoom(roomID: String, completinHandler: (get: () throws -> Int) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let room = realm.objectForPrimaryKey(RoomRealmObject.self, key: roomID)
+                guard let realmRoom = room else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completinHandler(get: { () -> Int in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
                 }
-                return serverID
+                let optionalID = realmRoom.roomID.value
+                guard let id = optionalID else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completinHandler(get: { () -> Int in
+                            throw DatabaseError.MissingID
+                        })
+                    })
+                    return
+                }
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completinHandler(get: { () -> Int in
+                        return id
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completinHandler(get: { () -> Int in
+                        throw RealmError.UnexpectedCase
+                    })
+                })
             }
         }
-        throw DatabaseError.NotFound
     }
     
-    func getRoomWithID(roomID: String, completionHandler: (getRoom: () throws -> Room) -> Void) {
+    static func getRoomWithID(roomID: String, completionHandler: (getRoom: () throws -> Room) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
                 let realm = try Realm()

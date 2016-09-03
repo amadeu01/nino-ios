@@ -27,17 +27,4 @@ class RealmManager: NSObject {
     func getDefaultQueue() -> dispatch_queue_t {
         return self.defaultQueue
     }
-    
-    func deleteAll() {
-        dispatch_async(self.realmQueue) { 
-            do {
-                let realm = try Realm()
-                try realm.write {
-                    realm.deleteAll()
-                }
-            } catch {
-                
-            }
-        }
-    }
 }

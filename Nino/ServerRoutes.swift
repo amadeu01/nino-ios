@@ -27,6 +27,7 @@ enum ServerRoutes {
     case CreateGuardian
     case GetGuardians
     case CreatePost
+    case Logout
     case GetStudentPostsForSchool
     case CreateDraft
     case GetStudentDraftsForSchool
@@ -88,6 +89,8 @@ enum ServerRoutes {
             return "guardians/students/" + id[0]
         case .CreatePost:
             return "posts"
+        case .Logout:
+            return "accounts/authentication"
         case .GetStudentPostsForSchool:
             guard let id = param where id.count > 1 else {
                 throw RouteError.MissingParameter

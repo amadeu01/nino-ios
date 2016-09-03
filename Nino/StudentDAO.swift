@@ -10,14 +10,12 @@ import UIKit
 import RealmSwift
 
 class StudentDAO: NSObject {
-
-    static let sharedInstance = StudentDAO()
     
     override private init() {
         super.init()
     }
     
-    func createStudents(students: [Student], roomID: String, completionHandler: (write: () throws -> Void) -> Void) {
+    static func createStudents(students: [Student], roomID: String, completionHandler: (write: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
@@ -64,7 +62,7 @@ class StudentDAO: NSObject {
         }
     }
     
-    func updateStudentID(student: String, profileID: Int, completionHandler: (update: () throws -> Void) -> Void) {
+    static func updateStudentID(student: String, profileID: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
                 let realm = try Realm()
@@ -96,7 +94,7 @@ class StudentDAO: NSObject {
         }
     }
     
-    func getStudentsForRoom(roomID: String, completionHandler: (students: () throws -> [Student]) -> Void) {
+    static func getStudentsForRoom(roomID: String, completionHandler: (students: () throws -> [Student]) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
                 let realm = try Realm()
@@ -136,7 +134,7 @@ class StudentDAO: NSObject {
         }
     }
     
-    func getStudentForId(id: String, completionHandler: (student: () throws -> Student) -> Void) {
+    static func getStudentForId(id: String, completionHandler: (student: () throws -> Student) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {
                 let realm = try Realm()
@@ -175,7 +173,7 @@ class StudentDAO: NSObject {
 
     }
     
-    func getStudentID(student: String, completionHandler: (id: () throws -> Int) -> Void) {
+    static func getStudentID(student: String, completionHandler: (id: () throws -> Int) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {
                 let realm = try Realm()

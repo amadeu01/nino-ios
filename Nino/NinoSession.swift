@@ -58,4 +58,10 @@ class NinoSession: NSObject {
         self._school = school
     }
     
+    func resetSession() {
+        self._credential = nil
+        self._educator = nil
+        self._school = nil
+    }
+    
 }

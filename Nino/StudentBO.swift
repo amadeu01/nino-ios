@@ -30,42 +30,52 @@ class StudentBO: NSObject {
         SchoolBO.getIdForSchool { (id) in
             do {
                 let school = try id()
-                let room = try RoomBO.getIdForRoom(roomID)
-                var student = Student(id: StringsMechanisms.generateID(), profileId: nil, name: name, surname: surname, gender: gender, birthDate: birthDate, profilePicture: profilePictue, roomID: roomID, guardians: nil)
-                StudentDAO.sharedInstance.createStudents([student], roomID: roomID, completionHandler: { (write) in
+                RoomBO.getIdForRoom(roomID, completionHandler: { (id) in
                     do {
-                        try write()
-                        StudentMechanism.createStudent(token, schoolID: school, roomID: room, name: name, surname: surname, birthDate: birthDate, gender: gender.rawValue) { (profileID, error, data) in
-                            if let err = error {
-                                //TODO: handle error data
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    completionHandler(student: { () -> Student in
-                                        throw ErrorBO.decodeServerError(err)
-                                    })
-                                })
-                            } else if let studentID = profileID {
-                                StudentDAO.sharedInstance.updateStudentID(student.id, profileID: studentID, completionHandler: { (update) in
-                                    do {
-                                        try update()
+                        let room = try id()
+                        let student = Student(id: StringsMechanisms.generateID(), profileId: nil, name: name, surname: surname, gender: gender, birthDate: birthDate, profilePicture: profilePictue, roomID: roomID, guardians: nil)
+                        StudentDAO.createStudents([student], roomID: roomID, completionHandler: { (write) in
+                            do {
+                                try write()
+                                StudentMechanism.createStudent(token, schoolID: school, roomID: room, name: name, surname: surname, birthDate: birthDate, gender: gender.rawValue) { (profileID, error, data) in
+                                    if let err = error {
+                                        //TODO: handle error data
                                         dispatch_async(dispatch_get_main_queue(), {
                                             completionHandler(student: { () -> Student in
-                                                return Student(id: student.id, profileId: studentID, name: student.name, surname: student.surname, gender: student.gender, birthDate: student.birthDate, profilePicture: student.profilePicture, roomID: student.roomID, guardians: student.guardians)
+                                                throw ErrorBO.decodeServerError(err)
                                             })
                                         })
-                                    } catch {
-                                        //TODO: handle realm error
+                                    } else if let studentID = profileID {
+                                        StudentDAO.updateStudentID(student.id, profileID: studentID, completionHandler: { (update) in
+                                            do {
+                                                try update()
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    completionHandler(student: { () -> Student in
+                                                        return Student(id: student.id, profileId: studentID, name: student.name, surname: student.surname, gender: student.gender, birthDate: student.birthDate, profilePicture: student.profilePicture, roomID: student.roomID, guardians: student.guardians)
+                                                    })
+                                                })
+                                            } catch {
+                                                //TODO: handle realm error
+                                            }
+                                        })
+                                    } else {
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(student: { () -> Student in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
                                     }
-                                })
-                            } else {
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    completionHandler(student: { () -> Student in
-                                        throw ServerError.UnexpectedCase
-                                    })
-                                })
+                                }
+                            } catch {
+                                //TODO: handle realm error
                             }
-                        }
-                    } catch {
-                        //TODO: handle realm error
+                        })
+                    } catch let error {
+                        dispatch_async(dispatch_get_main_queue(), { 
+                            completionHandler(student: { () -> Student in
+                                throw error
+                            })
+                        })
                     }
                 })
             } catch {
@@ -76,132 +86,138 @@ class StudentBO: NSObject {
     
     static func getStudent(roomID: String, completionHandler: (students: () throws -> [Student]) -> Void) {
         guard let token = NinoSession.sharedInstance.credential?.token else {
-            dispatch_async(dispatch_get_main_queue(), { 
+            dispatch_async(dispatch_get_main_queue(), {
                 completionHandler(students: { () -> [Student] in
                     throw AccountError.InvalidToken
                 })
             })
             return
         }
-        do {
-            let room = try RoomBO.getIdForRoom(roomID)
-            StudentDAO.sharedInstance.getStudentsForRoom(roomID, completionHandler: { (students) in
-                do {
-                    let localStudents = try students()
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        completionHandler(students: { () -> [Student] in
-                            return localStudents
+        RoomBO.getIdForRoom(roomID) { (id) in
+            do {
+                let room = try id()
+                StudentDAO.getStudentsForRoom(roomID, completionHandler: { (students) in
+                    do {
+                        let localStudents = try students()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completionHandler(students: { () -> [Student] in
+                                return localStudents
+                            })
                         })
-                    })
-                    StudentMechanism.getStudents(token, roomID: room) { (info, error, data) in
-                        if let errorType = error {
-                            //TODO: Handle error data and code
-                            let message = NotificationMessage()
-                            message.setServerError(ErrorBO.decodeServerError(errorType))
-                            dispatch_async(dispatch_get_main_queue(), {
-                                NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                            })
-                        } else if let studentsInfo = info {
-                            var serverStudents = [Student]()
-                            for dict in studentsInfo {
-                                let id = dict["profileID"] as? Int
-                                let name = dict["name"] as? String
-                                let surname = dict["surname"] as? String
-                                let birthDate = dict["birthdate"] as? NSDate
-                                let gender = dict["gender"] as? Int
-                                guard let studentID = id else {
-                                    let message = NotificationMessage()
-                                    message.setServerError(ServerError.UnexpectedCase)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                                    })
-                                    return
-                                }
-                                guard let studentName = name else {
-                                    let message = NotificationMessage()
-                                    message.setServerError(ServerError.UnexpectedCase)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                                    })
-                                    return
-                                }
-                                guard let studentSurname = surname else {
-                                    let message = NotificationMessage()
-                                    message.setServerError(ServerError.UnexpectedCase)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                                    })
-                                    return
-                                }
-                                guard let studentBirthDate = birthDate else {
-                                    let message = NotificationMessage()
-                                    message.setServerError(ServerError.UnexpectedCase)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                                    })
-                                    return
-                                }
-                                guard let studentIntGender = gender else {
-                                    let message = NotificationMessage()
-                                    message.setServerError(ServerError.UnexpectedCase)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                                    })
-                                    return
-                                }
-                                guard let studentGender = Gender(rawValue: studentIntGender) else {
-                                    let message = NotificationMessage()
-                                    message.setServerError(ServerError.UnexpectedCase)
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                                    })
-                                    return
-                                }
-                                let student = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: studentGender, birthDate: studentBirthDate, profilePicture: nil, roomID: roomID, guardians: nil)
-                                serverStudents.append(student)
-                            }
-                            let comparison = self.compareStudents(serverStudents, localStudents: localStudents)
-                            let newStudents = comparison["newStudents"]
-                            let wasChanged = comparison["wasChanged"]
-                            let wasDeleted = comparison["wasDeleted"]
-                            if newStudents!.count > 0 {
-                                StudentDAO.sharedInstance.createStudents(newStudents!, roomID: roomID, completionHandler: { (write) in
-                                    do {
-                                        try write()
-                                        let message = NotificationMessage()
-                                        message.setDataToInsert(newStudents!)
-                                        dispatch_async(dispatch_get_main_queue(), { 
-                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: nil, info: message)
-                                        })
-                                    } catch {
-                                        //TODO: handle realm error
-                                    }
+                        StudentMechanism.getStudents(token, roomID: room) { (info, error, data) in
+                            if let errorType = error {
+                                //TODO: Handle error data and code
+                                let message = NotificationMessage()
+                                message.setServerError(ErrorBO.decodeServerError(errorType))
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
                                 })
+                            } else if let studentsInfo = info {
+                                var serverStudents = [Student]()
+                                for dict in studentsInfo {
+                                    let id = dict["profileID"] as? Int
+                                    let name = dict["name"] as? String
+                                    let surname = dict["surname"] as? String
+                                    let birthDate = dict["birthdate"] as? NSDate
+                                    let gender = dict["gender"] as? Int
+                                    guard let studentID = id else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let studentName = name else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let studentSurname = surname else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let studentBirthDate = birthDate else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let studentIntGender = gender else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let studentGender = Gender(rawValue: studentIntGender) else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    let student = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: studentGender, birthDate: studentBirthDate, profilePicture: nil, roomID: roomID, guardians: nil)
+                                    serverStudents.append(student)
+                                }
+                                let comparison = self.compareStudents(serverStudents, localStudents: localStudents)
+                                let newStudents = comparison["newStudents"]
+                                let wasChanged = comparison["wasChanged"]
+                                let wasDeleted = comparison["wasDeleted"]
+                                if newStudents!.count > 0 {
+                                    StudentDAO.createStudents(newStudents!, roomID: roomID, completionHandler: { (write) in
+                                        do {
+                                            try write()
+                                            let message = NotificationMessage()
+                                            message.setDataToInsert(newStudents!)
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: nil, info: message)
+                                            })
+                                        } catch {
+                                            //TODO: handle realm error
+                                        }
+                                    })
+                                }
+                                //TODO: handle updated Students
+                                //TODO: handle deleted Students
                             }
-                            //TODO: handle updated Students
-                            //TODO: handle deleted Students
+                                //unexpected case
+                            else {
+                                let message = NotificationMessage()
+                                message.setServerError(ServerError.UnexpectedCase)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                })
+                                return
+                            }
                         }
-                        //unexpected case
-                        else {
-                            let message = NotificationMessage()
-                            message.setServerError(ServerError.UnexpectedCase)
-                            dispatch_async(dispatch_get_main_queue(), {
-                                NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
-                            })
-                            return
-                        }
+                    } catch {
+                        //TODO: handle realm error
                     }
-                } catch {
-                    //TODO: handle realm error
-                }
-            })
-        } catch {
-            //TODO: throw room not found error
+                })
+            } catch let error {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(students: { () -> [Student] in
+                        throw error
+                    })
+                })
+            }
         }
     }
 
     static func getIdForStudent(student: String, completionHandler: (id: () throws -> Int) -> Void) {
-        StudentDAO.sharedInstance.getStudentID(student) { (id) in
+        StudentDAO.getStudentID(student) { (id) in
             do {
                 let studentID = try id()
                 dispatch_async(dispatch_get_main_queue(), {
@@ -221,7 +237,7 @@ class StudentBO: NSObject {
     }
     
     static func getStudentForID(student: String, completionHandler: (student: () throws -> Student) -> Void) {
-        StudentDAO.sharedInstance.getStudentForId(student) { (student) in
+        StudentDAO.getStudentForId(student) { (student) in
             do {
                 let student = try student()
                 dispatch_async(dispatch_get_main_queue(), {

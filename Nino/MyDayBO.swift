@@ -8,6 +8,20 @@
 
 import UIKit
 
+private enum CellState {
+    case Initial
+    case Complete
+    case Missing
+    case Empty
+}
+
+private enum RowState {
+    case Initial
+    case Complete
+    case Missing
+    case Empty
+}
+
 //Class to handle MyDay services
 class MyDayBO: NSObject {
     
@@ -302,7 +316,7 @@ class MyDayBO: NSObject {
 //            
 //        }
 //    }
-//    
+    
 //    private static func generateDescription(leftSections: [MyDaySection], rightSections: [MyDaySection]) -> (description: String?, error: [String: [String: Int]]?) {
 //        var description: String
 //        for section in leftSections {
@@ -311,38 +325,74 @@ class MyDayBO: NSObject {
 //            }
 //        }
 //    }
-//    
-//    private static func rowDescription(row: MyDayRow) -> (description: String?, error: [String: [String: Int]]?) {
-//        if row.cells.count > 1 {
-//            
-//        }
-//        //only one cell
-//        else {
-//            if row.cells.first?.values.first == -1 {
-//                return row.emptyDescription
-//            } else {
-//                var desc = row.description
-//                let range = desc.rangeOfString("%")
-//                if let strRange = range {
-//                    var cell = desc.substringWithRange()
-//                }
-//            }
-//        }
-//        
-//        
-//        
-//        var cellCount = 0
-//        for cell in row.cells {
-//            if cell.values.count == 1 {
-//                //empty cell -> empty row
-//                if cell.values.first == -1 {
-//                    return (row.emptyDescription, nil)
-//                }
-//            }
-//            //it means not empty
-//            else {
-//                
-//            }
-//        }
-//    }
+
+//swiftlint:disable cyclomatic_complexity
+    private static func rowDescription(row: MyDayRow) -> (description: String?, error: [String: [String: Int]]?) {
+        /// each position represents the current item for each cell
+        var current = [Int]()
+        var rowState = RowState.Initial
+        for cell in row.cells {
+            current.append(0)
+            var cellState = CellState.Initial
+            for value in cell.values {
+                if value == -1 {
+                    switch cellState {
+                    case .Complete:
+                        cellState = CellState.Missing
+                    case .Initial:
+                        cellState = CellState.Empty
+                    default:
+                        break
+                    }
+                } else {
+                    switch cellState {
+                    case .Initial:
+                        cellState = CellState.Complete
+                    case .Empty:
+                        cellState = CellState.Missing
+                    default:
+                        break
+                    }
+                }
+            }
+            if cellState == CellState.Complete {
+                switch rowState {
+                case .Initial:
+                    rowState = RowState.Complete
+                case .Empty:
+                    rowState = RowState.Missing
+                default:
+                    break
+                }
+            } else if cellState == CellState.Empty {
+                switch rowState {
+                case .Initial:
+                    rowState = RowState.Empty
+                case .Complete:
+                    rowState = RowState.Missing
+                default:
+                    break
+                }
+            } else {
+                switch rowState {
+                case .Initial:
+                    rowState = RowState.Missing
+                case .Empty, .Complete:
+                    rowState = RowState.Missing
+                default:
+                    break
+                }
+            }
+        }
+        var description = row.description
+        let emptyDescription = row.emptyDescription
+        if rowState == RowState.Empty {
+            print("row \(row.id) vazia")
+        } else if rowState == RowState.Missing {
+            print("row \(row.id) missing")
+        } else {
+            print("row \(row.id) completa")
+        }
+        return (nil, nil)
+    }
 }

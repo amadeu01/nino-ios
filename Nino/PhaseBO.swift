@@ -27,9 +27,9 @@ class PhaseBO: NSObject {
             do {
                 let school = try id()
                 
-                var newPhase = Phase(id: StringsMechanisms.generateID(), phaseID: nil, name: name)
+                let newPhase = Phase(id: StringsMechanisms.generateID(), phaseID: nil, name: name)
                 
-                PhaseDAO.sharedInstance.createPhases([newPhase], schoolID: schoolID, completionHandler: { (write) in
+                PhaseDAO.createPhases([newPhase], schoolID: schoolID, completionHandler: { (write) in
                     do {
                         try write()
                         PhasesMechanism.createPhase(token, schoolID: school, name: name) { (id, error, data) in
@@ -41,7 +41,7 @@ class PhaseBO: NSObject {
                                     })
                                 })
                             } else if let phaseID = id {
-                                PhaseDAO.sharedInstance.updatePhaseId(newPhase.id, phaseID: phaseID, completionHandler: { (update) in
+                                PhaseDAO.updatePhaseId(newPhase.id, phaseID: phaseID, completionHandler: { (update) in
                                     do {
                                         try update()
                                         dispatch_async(dispatch_get_main_queue(), { 
@@ -76,7 +76,7 @@ class PhaseBO: NSObject {
         SchoolBO.getIdForSchool { (id) in
             do {
                 let school = try id()
-                PhaseDAO.sharedInstance.getPhases({ (phases) in
+                PhaseDAO.getPhases({ (phases) in
                     do {
                         let localPhases = try phases()
                         dispatch_async(dispatch_get_main_queue(), {
@@ -123,7 +123,7 @@ class PhaseBO: NSObject {
                                 let wasDeleted = comparison["wasDeleted"]
                                 let newPhases = comparison["newPhases"]
                                 if newPhases!.count > 0 {
-                                    PhaseDAO.sharedInstance.createPhases(newPhases!, schoolID: schoolID, completionHandler: { (write) in
+                                    PhaseDAO.createPhases(newPhases!, schoolID: schoolID, completionHandler: { (write) in
                                         do {
                                             try write()
                                             let message = NotificationMessage()
@@ -156,21 +156,41 @@ class PhaseBO: NSObject {
         }
     }
     
-    static func getIdForPhase(phase: String) throws -> Int {
-        do {
-            let id = try PhaseDAO.sharedInstance.getIdForPhase(phase)
-            return id
-        } catch let error {
-            throw error
+    static func getIdForPhase(phase: String, completionHandler: (id: () throws -> Int) -> Void) {
+        PhaseDAO.getIdForPhase(phase) { (get) in
+            do {
+                let id = try get()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        return id
+                    })
+                })
+            } catch let error {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        throw error
+                    })
+                })
+            }
         }
     }
     
-    static func getLocalIdForPhase(phaseID: Int) throws -> String {
-        do {
-            let id = try PhaseDAO.sharedInstance.getLocalIdForPhase(phaseID)
-            return id
-        } catch let error {
-            throw error
+    static func getLocalIdForPhase(phaseID: Int, completionHandler: (id: () throws -> String) -> Void) {
+        PhaseDAO.getLocalIdForPhase(phaseID) { (get) in
+            do {
+                let id = try get()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> String in
+                        return id
+                    })
+                })
+            } catch let error {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> String in
+                        throw error
+                    })
+                })
+            }
         }
     }
     

@@ -41,4 +41,25 @@ class LoginBO: NSObject {
         }
     }
     
+    static func logout(completionHandler: (out: () throws -> Void) -> Void) {
+        LoginDAO.logout { (out) in
+            do {
+                try out()
+                NinoSession.sharedInstance.resetSession()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(out: { 
+                        return
+                    })
+                })
+            } catch let error {
+                //could not create realm
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(out: { 
+                        throw error
+                    })
+                })
+            }
+        }
+    }
+    
 }

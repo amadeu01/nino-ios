@@ -257,6 +257,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let password = KeyBO.getPassword() else {
             return
         }
+        self.passwordTextField.text = password
+        self.usernameTextField.text = username
         login(username, password: password)
     }
     

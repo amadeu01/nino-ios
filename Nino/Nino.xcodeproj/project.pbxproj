@@ -629,6 +629,12 @@
 		AC6405451D5A5E1E008D91F5 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6405411D5A5E1E008D91F5 /* CellType.swift */; };
 		AC6405461D5A5E1E008D91F5 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6405411D5A5E1E008D91F5 /* CellType.swift */; };
 		AC6405471D5A5E1E008D91F5 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6405411D5A5E1E008D91F5 /* CellType.swift */; };
+		AC6D80EB1D79679B0092C09E /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D80EA1D79679B0092C09E /* LoginDAO.swift */; };
+		AC6D80EC1D79679B0092C09E /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D80EA1D79679B0092C09E /* LoginDAO.swift */; };
+		AC6D80ED1D79679B0092C09E /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D80EA1D79679B0092C09E /* LoginDAO.swift */; };
+		AC6D80EE1D79679B0092C09E /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D80EA1D79679B0092C09E /* LoginDAO.swift */; };
+		AC6D80EF1D79679B0092C09E /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D80EA1D79679B0092C09E /* LoginDAO.swift */; };
+		AC6D80F01D79679B0092C09E /* LoginDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D80EA1D79679B0092C09E /* LoginDAO.swift */; };
 		AC7143FE1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */; };
 		AC7143FF1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */; };
 		AC7144001D3D963600C743A5 /* NinoNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */; };
@@ -1075,6 +1081,7 @@
 		AC64052D1D5A52E8008D91F5 /* SectionMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionMechanism.swift; sourceTree = "<group>"; };
 		AC64053A1D5A5D54008D91F5 /* RowMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowMechanism.swift; sourceTree = "<group>"; };
 		AC6405411D5A5E1E008D91F5 /* CellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		AC6D80EA1D79679B0092C09E /* LoginDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDAO.swift; sourceTree = "<group>"; };
 		AC7143FD1D3D963600C743A5 /* NinoNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NinoNotificationManager.swift; path = "Nino Escola/NinoNotificationManager.swift"; sourceTree = "<group>"; };
 		AC7144011D3DA6BE00C743A5 /* PhasesMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhasesMechanism.swift; sourceTree = "<group>"; };
 		AC74E1021D2D4908004281F3 /* RouteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteError.swift; sourceTree = "<group>"; };
@@ -1613,6 +1620,7 @@
 				AC79F0441D54FC4500583452 /* StudentDAO.swift */,
 				AC79F04B1D551BBC00583452 /* GuardianDAO.swift */,
 				ACB9C9811D6B4BED004BDCFF /* PostDAO.swift */,
+				AC6D80EA1D79679B0092C09E /* LoginDAO.swift */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -2520,6 +2528,7 @@
 				28A046621D254C30007E0053 /* NinoFont.swift in Sources */,
 				ACF360351D4800D900A30922 /* NotificationMessage.swift in Sources */,
 				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
+				AC6D80EB1D79679B0092C09E /* LoginDAO.swift in Sources */,
 				288B27D11D37D1AD00B47DC0 /* Activity.swift in Sources */,
 				07B22B8B1D6E33980037F71B /* DraftMechanism.swift in Sources */,
 				AC5128591D50D2E400A2760C /* AccountError.swift in Sources */,
@@ -2554,6 +2563,7 @@
 				ACF360361D4800D900A30922 /* NotificationMessage.swift in Sources */,
 				288B280D1D37E0D500B47DC0 /* PostBO.swift in Sources */,
 				AC43B40F1D429E3B00A6CB5C /* PhaseDAO.swift in Sources */,
+				AC6D80EC1D79679B0092C09E /* LoginDAO.swift in Sources */,
 				AC43B3FD1D40266F00A6CB5C /* PostRealmObject.swift in Sources */,
 				AC7144031D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
 				ACB9C9831D6B4BED004BDCFF /* PostDAO.swift in Sources */,
@@ -2695,6 +2705,7 @@
 				AC43B41C1D42B6BC00A6CB5C /* MD5.swift in Sources */,
 				AC43B3C51D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,
 				AC8978241D3D081300022BDC /* Educator.swift in Sources */,
+				AC6D80ED1D79679B0092C09E /* LoginDAO.swift in Sources */,
 				288B27AB1D37D1AB00B47DC0 /* Credential.swift in Sources */,
 				28F20CA41D706B8500FBD332 /* SettingsViewController.swift in Sources */,
 				AC43B4281D46973700A6CB5C /* RealmError.swift in Sources */,
@@ -2805,6 +2816,7 @@
 				07818C981D46E716007FFDE2 /* MyDayBO.swift in Sources */,
 				AC47FD491D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
 				AC43B3F81D40191700A6CB5C /* GuardianRealmObject.swift in Sources */,
+				AC6D80EE1D79679B0092C09E /* LoginDAO.swift in Sources */,
 				AC6405311D5A52E8008D91F5 /* SectionMechanism.swift in Sources */,
 				288B279D1D37D1AA00B47DC0 /* Post.swift in Sources */,
 				288B27A61D37D1AA00B47DC0 /* Gender.swift in Sources */,
@@ -2993,6 +3005,7 @@
 				288B27821D37D1A800B47DC0 /* Key.swift in Sources */,
 				28A0466F1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				288B27861D37D1A800B47DC0 /* Activity.swift in Sources */,
+				AC6D80EF1D79679B0092C09E /* LoginDAO.swift in Sources */,
 				2868C5781D46B4330032591D /* SentAnnouncementViewController.swift in Sources */,
 				288DE34C1D22AF9B0052A35D /* StudentProfileTableViewCell.swift in Sources */,
 				AC9EC7171D2418B200D54857 /* DefaultAlerts.swift in Sources */,
@@ -3106,6 +3119,7 @@
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
 				288B27ED1D37E0D400B47DC0 /* GuardianBO.swift in Sources */,
 				AC6405331D5A52E8008D91F5 /* SectionMechanism.swift in Sources */,
+				AC6D80F01D79679B0092C09E /* LoginDAO.swift in Sources */,
 				07A272291D49189B005079BC /* MyDayCell.swift in Sources */,
 				07818CAF1D46F37A007FFDE2 /* MyDaySectionHeader.swift in Sources */,
 				AC43B3C81D400D6A00A6CB5C /* PhaseRealmObject.swift in Sources */,

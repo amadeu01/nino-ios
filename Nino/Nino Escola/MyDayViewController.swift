@@ -301,6 +301,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     }
     
     func shouldChangeSelected(current: Int, target: Int, indexPath: NSIndexPath, isLeftCell: Bool) {
+        if current == target {
+            return
+        }
         let row = self.rowForIndexPath(indexPath, isLeft: isLeftCell)
         let (shouldChange, item) = MyDayBO.shouldChangeSelected(row, selected: current)
         if shouldChange {
@@ -318,7 +321,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     }
     
     
-//MAARK: Private methods
+//MARK: Private methods
     private func cellForIndexPath(indexPath: NSIndexPath, sections: [MyDaySection]) -> MyDayCell {
         
         var currentRow: MyDayRow?
