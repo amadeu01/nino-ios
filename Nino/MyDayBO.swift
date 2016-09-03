@@ -8,14 +8,7 @@
 
 import UIKit
 
-private enum CellState {
-    case Initial
-    case Complete
-    case Missing
-    case Empty
-}
-
-private enum RowState {
+private enum State {
     case Initial
     case Complete
     case Missing
@@ -330,55 +323,55 @@ class MyDayBO: NSObject {
     private static func rowDescription(row: MyDayRow) -> (description: String?, error: [String: [String: Int]]?) {
         /// each position represents the current item for each cell
         var current = [Int]()
-        var rowState = RowState.Initial
+        var rowState = State.Initial
         for cell in row.cells {
             current.append(0)
-            var cellState = CellState.Initial
+            var cellState = State.Initial
             for value in cell.values {
                 if value == -1 {
                     switch cellState {
                     case .Complete:
-                        cellState = CellState.Missing
+                        cellState = State.Missing
                     case .Initial:
-                        cellState = CellState.Empty
+                        cellState = State.Empty
                     default:
                         break
                     }
                 } else {
                     switch cellState {
                     case .Initial:
-                        cellState = CellState.Complete
+                        cellState = State.Complete
                     case .Empty:
-                        cellState = CellState.Missing
+                        cellState = State.Missing
                     default:
                         break
                     }
                 }
             }
-            if cellState == CellState.Complete {
+            if cellState == State.Complete {
                 switch rowState {
                 case .Initial:
-                    rowState = RowState.Complete
+                    rowState = State.Complete
                 case .Empty:
-                    rowState = RowState.Missing
+                    rowState = State.Missing
                 default:
                     break
                 }
-            } else if cellState == CellState.Empty {
+            } else if cellState == State.Empty {
                 switch rowState {
                 case .Initial:
-                    rowState = RowState.Empty
+                    rowState = State.Empty
                 case .Complete:
-                    rowState = RowState.Missing
+                    rowState = State.Missing
                 default:
                     break
                 }
             } else {
                 switch rowState {
                 case .Initial:
-                    rowState = RowState.Missing
+                    rowState = State.Missing
                 case .Empty, .Complete:
-                    rowState = RowState.Missing
+                    rowState = State.Missing
                 default:
                     break
                 }
@@ -386,9 +379,9 @@ class MyDayBO: NSObject {
         }
         var description = row.description
         let emptyDescription = row.emptyDescription
-        if rowState == RowState.Empty {
+        if rowState == State.Empty {
             print("row \(row.id) vazia")
-        } else if rowState == RowState.Missing {
+        } else if rowState == State.Missing {
             print("row \(row.id) missing")
         } else {
             print("row \(row.id) completa")
