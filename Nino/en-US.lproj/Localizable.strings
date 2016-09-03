@@ -6,9 +6,6 @@
   Copyright © 2016 Danilo Becke. All rights reserved.
 */
 
-/*Alerts*/
-
-
 /*MyDay*/
 
 
@@ -49,18 +46,6 @@
 "ROOM_ADD_PH"="ex: Room A, Afternoon...";
 "ROOM_SELECT"="Select Room";
 
-/*Configuration*/
-
-
-/*School*/
-
-
-/*Guardians*/
-
-
-/*Educators*/
-
-
 /*General*/
 "GENERAL_EDIT"="Edit";
 "GENERAL_CANCEL"="Cancel";
@@ -70,3 +55,14 @@
 "GENERAL_ADMIN"="Administration";
 "GENERAL_ACCOUNT"="Account";
 "GENERAL_CREATE"="Create";
+"GENERAL_GOTIT"="Got it";
+"GENERAL_EMPTY_FIELD"="Empty field";
+"GENERAL_EMPTY_FIELD_MSG"="You must fill every field";
+
+/*ConfirmEmail*/
+"ALREADY_HAS_PSSWD"="There is already a registered password for this account.";
+"VALIDATION_FAILED"="Validation failed";
+"CONFIRMATION_FAILED"="Confirmation failed";
+
+/*Registration*/
+"INVALID_MAIL"="Invalid email";
