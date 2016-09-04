@@ -16,6 +16,7 @@ private enum State {
 }
 
 //Class to handle MyDay services
+//swiftlint:disable type_body_length
 class MyDayBO: NSObject {
     
     /**
@@ -301,34 +302,87 @@ class MyDayBO: NSObject {
         return (true, nil)
     }
     
-//    static func sendSchedule(leftSections: [MyDaySection], rightSections: [MyDaySection], completionHandler: (send: () throws -> Void) -> Void) throws {
-//        let (description, error) = self.generateDescription(leftSections, rightSections: rightSections)
-//        if let errDict = error {
-//            
-//        } else {
-//            
-//        }
-//    }
+    static func sendSchedule(leftSections: [MyDaySection], rightSections: [MyDaySection], completionHandler: (send: () throws -> Void) -> Void) throws {
+        let (description, error) = self.generateDescription(leftSections, rightSections: rightSections)
+        if let errDict = error {
+            var desc = ""
+            for key in errDict.keys {
+                if errDict[key]!.count > 1 {
+                    desc += "A seção " + key + " está com os campos"
+                    for value in errDict[key]! {
+                        desc += " \"" + value + "\","
+                    }
+                    desc = desc.substringToIndex(desc.endIndex.predecessor())
+                    desc += " vazios."
+                } else {
+                    desc += "A seção " + key + " está com o campo \"" + errDict[key]!.first! + "\" vazio."
+                }
+                desc += "\n"
+            }
+            desc = desc.substringToIndex(desc.endIndex.predecessor())
+            //TODO: throw one error and send the description
+            print(desc)
+        } else {
+            print(description)
+            //TODO: send the schedule
+            completionHandler(send: { 
+                return
+            })
+        }
+    }
     
-//    private static func generateDescription(leftSections: [MyDaySection], rightSections: [MyDaySection]) -> (description: String?, error: [String: [String: Int]]?) {
-//        var description: String
-//        for section in leftSections {
-//            for row in section.rows {
-//                
-//            }
-//        }
-//    }
+    private static func generateDescription(leftSections: [MyDaySection], rightSections: [MyDaySection]) -> (description: String?, error: [String: [String]]?) {
+        var scheduleDescription: String = ""
+        var scheduleError = [String: [String]]()
+        let agenda = [leftSections, rightSections]
+        for side in agenda {
+            for section in side {
+                for row in section.rows {
+                    //ignoring separators
+                    if row.id == -1 {
+                        continue
+                    }
+                    let (description, error) = self.rowDescription(row)
+                    //complete description
+                    if error == nil {
+                        guard let desc = description else {
+                            //unexpected case
+                            return (nil, nil)
+                        }
+                        if !desc.isEmpty {
+                            let rowDesc = desc.stringByAppendingString("\n")
+                            scheduleDescription = scheduleDescription.stringByAppendingString(rowDesc)
+                        }
+                    }
+                    //missing information
+                    else {
+                        if let errorDic = error {
+                            scheduleError[section.title] = errorDic
+                        }
+                    }
+                }
+            }
+        }
+        if scheduleError.isEmpty {
+            return (scheduleDescription, nil)
+        } else {
+            return (nil, scheduleError)
+        }
+    }
 
 //swiftlint:disable cyclomatic_complexity
-    private static func rowDescription(row: MyDayRow) -> (description: String?, error: [String: [String: Int]]?) {
+//swiftlint:disable function_body_length
+    private static func rowDescription(row: MyDayRow) -> (description: String?, error: [String]?) {
         /// each position represents the current item for each cell
         var current = [Int]()
+        var error = [String]()
         var rowState = State.Initial
         for cell in row.cells {
             current.append(0)
             var cellState = State.Initial
             for value in cell.values {
                 if value == -1 {
+                    error.append(cell.getTitle())
                     switch cellState {
                     case .Complete:
                         cellState = State.Missing
@@ -380,12 +434,116 @@ class MyDayBO: NSObject {
         var description = row.description
         let emptyDescription = row.emptyDescription
         if rowState == State.Empty {
-            print("row \(row.id) vazia")
+            return (emptyDescription, nil)
         } else if rowState == State.Missing {
-            print("row \(row.id) missing")
+            return (nil, error)
         } else {
-            print("row \(row.id) completa")
+            //looking for text before, inside and after <each></each> tags
+            let strings = description.componentsSeparatedByString("<each>")
+            let before = strings.first
+            var desc = ""
+            let interStrings = before?.componentsSeparatedByString(" ")
+            for string in interStrings! {
+                if string.containsString("%") {
+                    let info = string.componentsSeparatedByString(".")
+                    let number = info.first!.substringFromIndex(info.first!.endIndex.predecessor())
+                    let cellIndex = Int(number)! - 1
+                    let type = info[1]
+                    if type == "count" {
+                        desc += "\(row.cells[cellIndex].values.count)"
+                    }
+                    if type == "item" {
+                        let cell = row.cells[cellIndex]
+                        let selectedButton = current[cellIndex]
+                        let cellSelected = cell.values[selectedButton]
+                        
+                        if let intensity = cell as? MyDayIntensityCell {
+                            let cellDict = intensity.buttons
+                            let cellPref = cellDict[cellSelected]["preffix"]
+                            let cellSuf = cellDict[cellSelected]["suffix"]
+                            let cellTitle = cellDict[cellSelected]["title"]
+                            guard let preffix = cellPref else {
+                                //Unexpected case
+                                return (nil, nil)
+                            }
+                            guard let suffix = cellSuf else {
+                                //Unexpected case
+                                return (nil, nil)
+                            }
+                            guard let title = cellTitle else {
+                                //Unexpected case
+                                return (nil, nil)
+                            }
+                            desc += preffix + title + " " + suffix
+                        }
+                        current[cellIndex] += 1
+                    }
+                    
+                } else {
+                    desc += string
+                }
+                desc += " "
+            }
+            var isSpace = desc.substringFromIndex(desc.endIndex.predecessor()) == " "
+            while isSpace {
+                desc.removeAtIndex(desc.endIndex.predecessor())
+                isSpace = desc.substringFromIndex(desc.endIndex.predecessor()) == " "
+            }
+            if strings.count > 1 {
+                let strings2 = strings[1].componentsSeparatedByString("</each>")
+                let inside = strings2.first
+                let after = strings2[1]
+                for value in row.cells.first!.values {
+                    let interStrings = inside?.componentsSeparatedByString(" ")
+                    for string in interStrings! {
+                        if string.containsString("%") {
+                            let info = string.componentsSeparatedByString(".")
+                            let number = info.first!.substringFromIndex(info.first!.endIndex.predecessor())
+                            let cellIndex = Int(number)! - 1
+                            let type = info[1]
+                            if type == "count" {
+                                desc += "\(row.cells[cellIndex].values.count)"
+                            }
+                            if type == "item" {
+                                let cell = row.cells[cellIndex]
+                                let selectedButton = current[cellIndex]
+                                let cellSelected = cell.values[selectedButton]
+                                
+                                if let intensity = cell as? MyDayIntensityCell {
+                                    let cellDict = intensity.buttons
+                                    let cellPref = cellDict[cellSelected]["preffix"]
+                                    let cellSuf = cellDict[cellSelected]["suffix"]
+                                    let cellTitle = cellDict[cellSelected]["title"]
+                                    guard let preffix = cellPref else {
+                                        //Unexpected case
+                                        return (nil, nil)
+                                    }
+                                    guard let suffix = cellSuf else {
+                                        //Unexpected case
+                                        return (nil, nil)
+                                    }
+                                    guard let title = cellTitle else {
+                                        //Unexpected case
+                                        return (nil, nil)
+                                    }
+                                    desc += preffix + title + " " + suffix
+                                }
+                                if let slider = cell as? MyDaySliderCell {
+                                    let values = slider.values
+                                    let unit = slider.unit
+                                    desc += "\(values[current[cellIndex]])" + " " + unit
+                                }
+                                current[cellIndex] += 1
+                            }
+                            
+                        } else {
+                            desc += string
+                        }
+                        desc += " "
+                    }
+                }
+            }
+            return (desc, nil)
         }
-        return (nil, nil)
     }
 }

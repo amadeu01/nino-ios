@@ -320,6 +320,20 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         }
     }
     
+//MARK: Button methods
+    @IBAction func sendScheduleAction(sender: UIButton) {
+        do {
+            try MyDayBO.sendSchedule(self.leftCells, rightSections: self.rightCells, completionHandler: { (send) in
+                do {
+                    try send()
+                } catch {
+                    //connection error
+                }
+            })
+        } catch {
+            //missing information
+        }
+    }
     
 //MARK: Private methods
     private func cellForIndexPath(indexPath: NSIndexPath, sections: [MyDaySection]) -> MyDayCell {

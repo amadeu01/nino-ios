@@ -220,6 +220,9 @@
                                 <state key="normal" title="FINALIZAR E ENVIAR">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendScheduleAction:" destination="afj-1E-Ytj" eventType="touchUpInside" id="hPq-jt-ibv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61W-86-y1I">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
