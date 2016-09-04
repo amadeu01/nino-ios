@@ -6,8 +6,6 @@
  Copyright © 2016 Danilo Becke. All rights reserved.
  */
 
-
-
 /*Beginning of MyDay*/
 "MY_FOOD"="Minha Alimentação";
 "MY_SLEEP"="Meu Sono";
@@ -68,7 +66,7 @@
 
 //Evacuation_Doughly
 "PREFIX_EVACUATION_DOUGHLY"="minha evacuação foi ";
-"TITLE_EVACUATION_DOUGHY"="pastosa";
+"TITLE_EVACUATION_DOUGHLY"="pastosa";
 "SUFFIX_EVACUATION_DOUGHLY"="";
 
 //Evacuation_Diarrhea
@@ -136,7 +134,6 @@
 "PHASE_CHANGE_NAME_ALERT_TITLE"="Alterar o nome da fase";
 "PHASE_CHANGE_NAME_ALERT_DESC"="Digite um novo nome para a fase ";
 "GENERAL_CHANGE"="Alterar";
-
 /*Classrooms*/
 "ROOMS"="Turma";
 "ROOMS_NEW"="Nova Turma";
@@ -147,7 +144,6 @@
 "ROOM_SELECT"="Selecionar Turma";
 "CLASSROOM_CHANGE_NAME_ALERT_TITLE"="Alterar o nome da turma";
 "CLASROOM_CHANGE_NAME_ALERT_DESC"="Digite um novo nome para a turma ";
-"DELETE_CLASSROOM"="Deletar Turma";
 
 /*General*/
 "GENERAL_EDIT"="Editar";
@@ -161,7 +157,6 @@
 "GENERAL_GOTIT"="Entendi";
 "GENERAL_EMPTY_FIELD"="Campo Vazio";
 "GENERAL_EMPTY_FIELD_MSG"="Nenhum campo pode estar vazio";
-"LOGOUT_CONFIRMATION"="Você deseja sair do sistema?";
 
 /*ConfirmEmail*/
 "ALREADY_HAS_PSSWD"="Já existe uma senha cadastrada para esse email.";

@@ -84,8 +84,8 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
         self.performSegueWithIdentifier("showRegisterStudentViewController", sender: self)
     }
     func didPressToDeleteClassroom() {
-        let alert = UIAlertController(title: "Deletar Turma", message: "Deseja deletar a turma \(self.title!)?", preferredStyle: .Alert)
-        
+        let alert = UIAlertController(title: NSLocalizedString("DELETE_CLASSROOM", comment: "Cancel"), message: "Deseja deletar a turma \(self.title!)?", preferredStyle: .Alert)
+        NSLocalizedString("GENERAL_CANCEL", comment: "Cancel")
         let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
@@ -97,7 +97,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
         self.presentViewController(alert, animated: true, completion: nil)
     }
     func didPressToChangeClassroomName() {
-        let alert = UIAlertController(title: "Alterar o nome da turma", message: "Digite um novo nome para a turma \(self.title!)", preferredStyle: .Alert)
+        let alert = UIAlertController(title: NSLocalizedString("CLASSROOM_CHANGE_NAME_ALERT_TITLE", comment: ""), message: "\(NSLocalizedString("CLASROOM_CHANGE_NAME_ALERT_DESC", comment: ""))\(self.title!)", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.text = self.title
         }

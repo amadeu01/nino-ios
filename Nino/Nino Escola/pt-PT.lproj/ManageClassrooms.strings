@@ -1,0 +1,87 @@
+
+/* Class = "UIButton"; normalTitle = "<"; ObjectID = "0bF-wp-Bfi"; */
+"0bF-wp-Bfi.normalTitle" = "<";
+
+/* Class = "UITextField"; placeholder = "| Nome"; ObjectID = "2Qd-7r-NUa"; */
+"2Qd-7r-NUa.placeholder" = "| Nome";
+
+/* Class = "UILabel"; text = "Adicionar novovo Aluno"; ObjectID = "4fe-36-DUN"; */
+"4fe-36-DUN.text" = "Adicionar novovo Aluno";
+
+/* Class = "UITextField"; placeholder = "| Sobrenome"; ObjectID = "8nT-bN-3z5"; */
+"8nT-bN-3z5.placeholder" = "| Sobrenome";
+
+/* Class = "UITextField"; placeholder = "| Classe"; ObjectID = "A1V-pz-RIV"; */
+"A1V-pz-RIV.placeholder" = "| Classe";
+
+/* Class = "UILabel"; text = "Abélia Cristina Souza"; ObjectID = "B49-q3-X0z"; */
+"B49-q3-X0z.text" = "Abélia Cristina Souza";
+
+/* Class = "UIButton"; normalTitle = "Adicionar foto"; ObjectID = "Dht-XA-Lso"; */
+"Dht-XA-Lso.normalTitle" = "Adicionar foto";
+
+/* Class = "UILabel"; text = "Nome do Pai"; ObjectID = "Fmo-kJ-GAm"; */
+"Fmo-kJ-GAm.text" = "Nome do Pai";
+
+/* Class = "UILabel"; text = "Nome do Aluno"; ObjectID = "MhG-Jj-7zP"; */
+"MhG-Jj-7zP.text" = "Nome do Aluno";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "OfR-BN-IF2"; */
+"OfR-BN-IF2.normalTitle" = "X";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Pa9-vU-9A6"; */
+"Pa9-vU-9A6.text" = "Title";
+
+/* Class = "UILabel"; text = "Adicione uma nova turma"; ObjectID = "VaE-Pe-Nx1"; */
+"VaE-Pe-Nx1.text" = "Adicione uma nova turma";
+
+/* Class = "UIButton"; normalTitle = "EXCLUIR CONTA"; ObjectID = "WdO-RY-EyU"; */
+"WdO-RY-EyU.normalTitle" = "EXCLUIR CONTA";
+
+/* Class = "UITextField"; placeholder = "| Nome"; ObjectID = "Wqg-6f-rL2"; */
+"Wqg-6f-rL2.placeholder" = "| Nome";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "YAx-OX-kNk"; */
+"YAx-OX-kNk.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "bec-pu-sNO"; */
+"bec-pu-sNO.text" = "Title";
+
+/* Class = "UITextField"; placeholder = "| Sobrenome"; ObjectID = "cu5-Db-fML"; */
+"cu5-Db-fML.placeholder" = "| Sobrenome";
+
+/* Class = "UILabel"; text = "Excluir"; ObjectID = "da6-zm-jpK"; */
+"da6-zm-jpK.text" = "Excluir";
+
+/* Class = "UIButton"; normalTitle = "CADASTRAR "; ObjectID = "hmx-aA-mhc"; */
+"hmx-aA-mhc.normalTitle" = "CADASTRAR ";
+
+/* Class = "UIButton"; normalTitle = "CADASTRAR "; ObjectID = "jil-bF-WeM"; */
+"jil-bF-WeM.normalTitle" = "CADASTRAR ";
+
+/* Class = "UITextField"; placeholder = "| Nome"; ObjectID = "k6S-8l-dwv"; */
+"k6S-8l-dwv.placeholder" = "| Nome";
+
+/* Class = "UILabel"; text = "Mudar foto"; ObjectID = "kXY-ro-tKd"; */
+"kXY-ro-tKd.text" = "Mudar foto";
+
+/* Class = "UILabel"; text = "Nome da  Turma"; ObjectID = "lih-4B-g0U"; */
+"lih-4B-g0U.text" = "Nome da  Turma";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "m6x-DA-msK"; */
+"m6x-DA-msK.normalTitle" = "X";
+
+/* Class = "UILabel"; text = "Nome da  Fase"; ObjectID = "poc-90-iWr"; */
+"poc-90-iWr.text" = "Nome da  Fase";
+
+/* Class = "UITextField"; placeholder = "| Data de Nascimento"; ObjectID = "qil-G1-Q8Z"; */
+"qil-G1-Q8Z.placeholder" = "| Data de Nascimento";
+
+/* Class = "UILabel"; text = "Adicione uma nova fase"; ObjectID = "sPm-rb-b3v"; */
+"sPm-rb-b3v.text" = "Adicione uma nova fase";
+
+/* Class = "UITextField"; placeholder = "| Email"; ObjectID = "xwg-Wf-kRR"; */
+"xwg-Wf-kRR.placeholder" = "| Email";
+
+/* Class = "UITextField"; placeholder = "| Email"; ObjectID = "y47-h3-A1D"; */
+"y47-h3-A1D.placeholder" = "| Email";
