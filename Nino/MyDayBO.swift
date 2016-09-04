@@ -302,7 +302,7 @@ class MyDayBO: NSObject {
         return (true, nil)
     }
     
-    static func sendSchedule(leftSections: [MyDaySection], rightSections: [MyDaySection], completionHandler: (send: () throws -> Void) -> Void) throws {
+    static func shouldSendSchedule(leftSections: [MyDaySection], rightSections: [MyDaySection]) throws -> String {
         let (description, error) = self.generateDescription(leftSections, rightSections: rightSections)
         if let errDict = error {
             var desc = ""
@@ -320,12 +320,17 @@ class MyDayBO: NSObject {
                 desc += "\n"
             }
             desc = desc.substringToIndex(desc.endIndex.predecessor())
-            //TODO: throw one error and send the description
-            print(desc)
+            let error = MyDayError(description: desc)
+            throw error
         } else {
-            print(description)
-            //TODO: send the schedule
-            completionHandler(send: { 
+            return description!
+        }
+    }
+    
+    static func sendSchedule(description: String, completionHandler: (send: () throws -> Void) -> Void) {
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            completionHandler(send: {
                 return
             })
         }
@@ -431,7 +436,7 @@ class MyDayBO: NSObject {
                 }
             }
         }
-        var description = row.description
+        let description = row.description
         let emptyDescription = row.emptyDescription
         if rowState == State.Empty {
             return (emptyDescription, nil)
@@ -493,9 +498,12 @@ class MyDayBO: NSObject {
                 let strings2 = strings[1].componentsSeparatedByString("</each>")
                 let inside = strings2.first
                 let after = strings2[1]
-                for value in row.cells.first!.values {
+                for _ in row.cells.first!.values {
                     let interStrings = inside?.componentsSeparatedByString(" ")
                     for string in interStrings! {
+                        if string == "" || string == " " {
+                            continue
+                        }
                         if string.containsString("%") {
                             let info = string.componentsSeparatedByString(".")
                             let number = info.first!.substringFromIndex(info.first!.endIndex.predecessor())
@@ -526,7 +534,7 @@ class MyDayBO: NSObject {
                                         //Unexpected case
                                         return (nil, nil)
                                     }
-                                    desc += preffix + title + " " + suffix
+                                    desc += preffix + title + " " + suffix + "."
                                 }
                                 if let slider = cell as? MyDaySliderCell {
                                     let values = slider.values

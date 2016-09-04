@@ -71,6 +71,8 @@ class SliderCell: UITableViewCell {
     @IBOutlet weak var availableArea: UIView!
     @IBOutlet weak var containerWidth: NSLayoutConstraint!
     
+    var blocked = false
+    
     //Space between each Item
     private var itemSpacing: CGFloat = 4
     
@@ -284,6 +286,9 @@ class SliderCell: UITableViewCell {
         if sender.state != UIGestureRecognizerState.Began {
             return
         }
+        if self.blocked {
+            return
+        }
         //Checks if this item really exists
         guard let target = items.indexOf({$0.image == sender.view}) else {
             return
@@ -416,6 +421,18 @@ class SliderCell: UITableViewCell {
                 }
             }
         }
+    }
+    
+    func disableInteraction() {
+        self.slider.userInteractionEnabled = false
+        self.plusIcon?.userInteractionEnabled = false
+        self.blocked = true
+    }
+    
+    func enableInteraction() {
+        self.slider.userInteractionEnabled = true
+        self.plusIcon?.userInteractionEnabled = true
+        self.blocked = false
     }
 
 }

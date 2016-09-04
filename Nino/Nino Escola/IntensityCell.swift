@@ -190,5 +190,17 @@ class IntensityCell: UITableViewCell {
         self.current = self.values.count - 1
         self.initializeValues()
     }
+    
+    func disableInteraction() {
+        for button in self.buttons {
+            button.userInteractionEnabled = false
+        }
+    }
+    
+    func enableInteraction() {
+        for button in self.buttons {
+            button.userInteractionEnabled = true
+        }
+    }
 
 }
