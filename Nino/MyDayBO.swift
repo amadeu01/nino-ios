@@ -449,11 +449,19 @@ class MyDayBO: NSObject {
             var desc = ""
             let interStrings = before?.componentsSeparatedByString(" ")
             for string in interStrings! {
+                if string == "" || string == " " {
+                    continue
+                }
                 if string.containsString("%") {
-                    let info = string.componentsSeparatedByString(".")
+                    let info = string.componentsSeparatedByString("*")
                     let number = info.first!.substringFromIndex(info.first!.endIndex.predecessor())
                     let cellIndex = Int(number)! - 1
-                    let type = info[1]
+                    var type = info[1]
+                    var char: String?
+                    if type.substringFromIndex(type.endIndex.predecessor()) == "." {
+                        char = type.substringFromIndex(type.endIndex.predecessor())
+                        type = type.substringToIndex(type.endIndex.predecessor())
+                    }
                     if type == "count" {
                         desc += "\(row.cells[cellIndex].values.count)"
                     }
@@ -479,7 +487,10 @@ class MyDayBO: NSObject {
                                 //Unexpected case
                                 return (nil, nil)
                             }
-                            desc += preffix + title + " " + suffix
+                            desc += preffix + title + suffix
+                        }
+                        if let dot = char {
+                            desc += dot
                         }
                         current[cellIndex] += 1
                     }
@@ -498,6 +509,7 @@ class MyDayBO: NSObject {
                 let strings2 = strings[1].componentsSeparatedByString("</each>")
                 let inside = strings2.first
                 let after = strings2[1]
+                desc += " "
                 for _ in row.cells.first!.values {
                     let interStrings = inside?.componentsSeparatedByString(" ")
                     for string in interStrings! {
@@ -505,10 +517,15 @@ class MyDayBO: NSObject {
                             continue
                         }
                         if string.containsString("%") {
-                            let info = string.componentsSeparatedByString(".")
+                            let info = string.componentsSeparatedByString("*")
                             let number = info.first!.substringFromIndex(info.first!.endIndex.predecessor())
                             let cellIndex = Int(number)! - 1
-                            let type = info[1]
+                            var type = info[1]
+                            var char: String?
+                            if type.substringFromIndex(type.endIndex.predecessor()) == "." {
+                                char = type.substringFromIndex(type.endIndex.predecessor())
+                                type = type.substringToIndex(type.endIndex.predecessor())
+                            }
                             if type == "count" {
                                 desc += "\(row.cells[cellIndex].values.count)"
                             }
@@ -534,12 +551,15 @@ class MyDayBO: NSObject {
                                         //Unexpected case
                                         return (nil, nil)
                                     }
-                                    desc += preffix + title + " " + suffix + "."
+                                    desc += preffix + title + suffix
                                 }
                                 if let slider = cell as? MyDaySliderCell {
                                     let values = slider.values
                                     let unit = slider.unit
                                     desc += "\(values[current[cellIndex]])" + " " + unit
+                                }
+                                if let dot = char {
+                                    desc += dot
                                 }
                                 current[cellIndex] += 1
                             }
