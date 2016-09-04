@@ -1010,6 +1010,8 @@
 		28AE87071D3AAE6200993AF8 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		28AE87121D3B0A2500993AF8 /* StandardManagementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardManagementTableViewCell.swift; sourceTree = "<group>"; };
 		28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseClassroom.storyboard; sourceTree = "<group>"; };
+		28CED71A1D7ABB0D00C95147 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		28CED71B1D7ABB1800C95147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28D2A7BA1D4C546400677DCC /* CEMKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEMKit.swift; sourceTree = "<group>"; };
 		28E2D7651D5A7E0C00023D35 /* StudentProfileListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileListHeader.swift; sourceTree = "<group>"; };
 		28E2D7691D5A7E4100023D35 /* StudentProfileListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentProfileListHeader.xib; sourceTree = "<group>"; };
@@ -3232,6 +3234,8 @@
 			children = (
 				07F1D3E11D7A0C9B000B66D3 /* pt-BR */,
 				07F1D3E31D7A0C9D000B66D3 /* en-US */,
+				28CED71A1D7ABB0D00C95147 /* en */,
+				28CED71B1D7ABB1800C95147 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

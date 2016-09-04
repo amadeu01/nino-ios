@@ -12,17 +12,17 @@ class SectionMechanism: NSObject {
     static func getRowsForSection(id: Int) -> [String: AnyObject] {
         switch id {
         case 0:
-            return ["title": "Minha Alimentação", "icon": MyDaySectionIcon.Food.rawValue, "rows": getAlimentation()]
+            return ["title": NSLocalizedString("MY_FOOD", comment: ""), "icon": MyDaySectionIcon.Food.rawValue, "rows": getAlimentation()]
         case 1:
-            return ["title": "Meu Sono", "rows": self.getSleep(), "icon": MyDaySectionIcon.Sleep.rawValue]
+            return ["title": NSLocalizedString("MY_SLEEP", comment: ""), "rows": self.getSleep(), "icon": MyDaySectionIcon.Sleep.rawValue]
         case 2:
-            return ["title": "Minha Higiene", "rows": self.getHygiene(), "icon": MyDaySectionIcon.Hygiene.rawValue]
+            return ["title": NSLocalizedString("MY_HYGIENE", comment: ""), "rows": self.getHygiene(), "icon": MyDaySectionIcon.Hygiene.rawValue]
         case 3:
             return ["title": "Minha Alimentação", "icon": MyDaySectionIcon.Food.rawValue, "rows": getPreSchoolFood()]
 //        case 4:
 //            return ["title": "Minha Alimentação", "icon": MyDaySectionIcon.Food.rawValue, "rows": getCommentaries()]
         default:
-            return ["title": "Minha Alimentação", "icon": MyDaySectionIcon.Food.rawValue, "rows": self.getAlimentation()]
+            return ["title": NSLocalizedString("MY_FOOD", comment: ""), "icon": MyDaySectionIcon.Food.rawValue, "rows": self.getAlimentation()]
         }
     }
     

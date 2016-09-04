@@ -6,8 +6,103 @@
   Copyright © 2016 Danilo Becke. All rights reserved.
 */
 
-/*MyDay*/
+/*Beginning of MyDay*/
+"MY_FOOD"="Minha Alimentação";
+"MY_SLEEP"="Meu Sono";
+"MY_HYGIENE"="Minha Higiene";
+//Meals
+//BREAKFAST
+"MEAL_BREAKFAST"="Lanche da Manhã";
+"DESC_BREAKFAST"="No lanche da manhã eu %1.item.";
+//LUNCH
+"MEAL_LUNCH"="Almoço";
+"DESC_LUNCH"="No almoço eu %1.item.";
+//AFTERNOON SNACK
+"MEAL_AFTERNOON_SNACK"="Lanche da Tarde";
+"DESC_AFTERNOON_SNACK"="No lanche da tarde eu %1.item.";
+//DINNER
+"MEAL_DINNER"="Jantar";
+"DESC_DINNER"="No jantar eu %1.item.";
+//Baby Bottle
+"TITLE_BABY_BOTTLE"="Mamadeira";
+"DESC_BABY_BOTTLE"="Hoje eu mamei %1.count mamadeira(s).<each> Uma de %1.item.</each>";
+"EMPTY_DESC_BABY_BOTTLE"="Hoje eu não mamei.";
+//Sleep
+"WHEN"="Quando";
+"TITLE_BABY_SLEEP"="Tempo dormido";
+"UNIT_BABY_SLEEP"="minutos";
+"DESC_BABY_SLEEP"="Hoje eu dormi %1.count vez(es).<each> Dormi %2.item %1.item.</each>";
+"EMPTY_DESC_BABY_SLEEP"="Hoje eu não dormi.";
 
+//Evacuation
+"TITLE_EVACUATION"="Evacuação";
+"DESC_EVACUATION"="Hoje %1.item.";
+"EMPTY_DESC_EVACUATION"="Hoje não evacuei.";
+
+//Diaper changes
+"TITLE_DIAPER_CHANGE"="Troca de Fralda";
+"DESC_DIAPER_CHANGE"="Hoje %1.item.";
+"EMPTY_DESC_DIAPER_CHANGE"="Hoje não troquei de fralda.";
+
+//Food_Well
+"PREFIX_FOOD_WELL"="comi ";
+"TITLE_FOOD_WELL"="bem";
+"SUFFIX_FOOD_WELL"="";
+
+//Food_Little
+"PREFIX_FOOD_LITTLE"="comi ";
+"TITLE_FOOD_LITTLE"="pouco";
+"SUFFIX_FOOD_LITTLE"="";
+
+//Food_Nothing
+"PREFIX_FOOD_NOTHING"="";
+"TITLE_FOOD_NOTHING"="não comi";
+"SUFFIX_FOOD_NOTHING"="";
+
+//Evacuation_Normal
+"PREFIX_EVACUATION_NORMAL"="minha evacuação foi ";
+"TITLE_EVACUATION_NORMAL"="normal";
+"SUFFIX_EVACUATION_NORMAL"="";
+
+//Evacuation_Doughly
+"PREFIX_EVACUATION_DOUGHLY"="minha evacuação foi ";
+"TITLE_EVACUATION_DOUGHLY"="pastosa";
+"SUFFIX_EVACUATION_DOUGHLY"="";
+
+//Evacuation_Diarrhea
+"PREFIX_EVACUATION_DIARRHEA"="eu tive ";
+"TITLE_EVACUATION_DIARRHEA"="diarréia";
+"SUFFIX_EVACUATION_DIARRHEA"="";
+
+//Sleep_Morning
+"PREFIX_SLEEP_MORNING"="durante a ";
+"TITLE_SLEEP_MORNING"="manhã";
+"SUFFIX_SLEEP_MORNING"="";
+
+//Sleep_Noon
+"PREFIX_SLEEP_NOON"="ao ";
+"TITLE_SLEEP_NOON"="meio-dia";
+"SUFFIX_SLEEP_NOON"="";
+
+//Sleep_Afternoon
+"PREFIX_SLEEP_AFTERNOON"="durante a ";
+"TITLE_SLEEP_AFTERNOON"="tarde";
+"SUFFIX_SLEEP_AFTERNOON"="";
+
+//DIAPER_ONE
+"PREFIX_DIAPER_ONE"="troquei de fralda ";
+"TITLE_DIAPER_ONE"="1 vez";
+"SUFFIX_DIAPER_ONE"="";
+
+//DIAPER_TWO
+"PREFIX_DIAPER_TWO"="troquei de fralda ";
+"TITLE_DIAPER_TWO"="2 vezes";
+"SUFFIX_DIAPER_TWO"="";
+
+//DIAPER_3ORMORE
+"PREFIX_DIAPER_3ORMORE"="troquei de fralda ";
+"TITLE_DIAPER_3ORMORE"="3 ou mais vezes";
+"SUFFIX_DIAPER_3ORMORE"="";
 
 /*Profiles*/
 "PROF_INFORMATIONS"="Informações";
