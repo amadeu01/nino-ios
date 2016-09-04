@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Nino
-
-  Created by Carlos Eduardo Millani on 9/2/16.
-  Copyright © 2016 Danilo Becke. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Nino
+ 
+ Created by Carlos Eduardo Millani on 9/2/16.
+ Copyright © 2016 Danilo Becke. All rights reserved.
+ */
 
 /*MyDay*/
 
@@ -120,7 +120,7 @@
 "PROF_GEN_GIRL"="Girl";
 "PROF_GEN_MALE"="Male";
 "PROF_GEN_FEMALE"="Female";
-"PROF_BIRTH"="Birthday";
+"PROF_BIRTH"="Birth";
 
 /*Students*/
 "STU_CHANGE_ROOM"="Change Room";
