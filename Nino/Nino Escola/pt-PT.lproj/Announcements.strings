@@ -1,0 +1,9 @@
+
+/* Class = "UITextField"; placeholder = "Escreva o título"; ObjectID = "7qD-11-ftq"; */
+"7qD-11-ftq.placeholder" = "Escreva o título";
+
+/* Class = "UIButton"; normalTitle = "DESTINO:"; ObjectID = "fNw-fa-zXc"; */
+"fNw-fa-zXc.normalTitle" = "DESTINO:";
+
+/* Class = "UILabel"; text = "Assunto:"; ObjectID = "ntR-Yd-vZz"; */
+"ntR-Yd-vZz.text" = "Assunto:";

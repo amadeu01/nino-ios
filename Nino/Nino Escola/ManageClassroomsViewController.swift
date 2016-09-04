@@ -138,7 +138,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         self.presentViewController(alert, animated: true, completion: nil)
     }
     func didPressToChangePhaseName() {
-        let alert = UIAlertController(title: "Alterar o nome da fase", message: "Digite um novo nome para a fase \(self.title!)", preferredStyle: .Alert)
+        let alert = UIAlertController(title: NSLocalizedString("PHASE_CHANGE_NAME_ALERT_TITLE", comment: ""), message: "\(NSLocalizedString("PHASE_CHANGE_NAME_ALERT_DESC", comment: ""))\(self.title!)", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler { (textField) in
             textField.text = self.title
         }
@@ -146,7 +146,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
         let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Cancel) { (alert) in
             //Did press cancel.
         }
-        let changeAction = UIAlertAction(title: "Alterar", style: .Default) { (alert) in
+        let changeAction = UIAlertAction(title: NSLocalizedString("GENERAL_CHANGE", comment: ""), style: .Default) { (alert) in
             //TODO: change phase name
         }
         alert.addAction(cancelAction)

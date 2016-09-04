@@ -1018,6 +1018,9 @@
 		28C5CB161D4AA43C003629E3 /* ChooseClassroom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseClassroom.storyboard; sourceTree = "<group>"; };
 		28CED71A1D7ABB0D00C95147 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28CED71B1D7ABB1800C95147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		28CED71D1D7C672B00C95147 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ManageClassrooms.strings; sourceTree = "<group>"; };
+		28CED71F1D7C67AA00C95147 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyDay.strings; sourceTree = "<group>"; };
+		28CED7211D7C681B00C95147 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		28D2A7BA1D4C546400677DCC /* CEMKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEMKit.swift; sourceTree = "<group>"; };
 		28E2D7651D5A7E0C00023D35 /* StudentProfileListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileListHeader.swift; sourceTree = "<group>"; };
 		28E2D7691D5A7E4100023D35 /* StudentProfileListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentProfileListHeader.xib; sourceTree = "<group>"; };
@@ -3260,6 +3263,7 @@
 				28143E141D29A0D100139B0D /* Base */,
 				07F1D35A1D79CA57000B66D3 /* en-US */,
 				07F1D3691D79CA63000B66D3 /* pt-BR */,
+				28CED71F1D7C67AA00C95147 /* en */,
 			);
 			name = MyDay.storyboard;
 			sourceTree = "<group>";
@@ -3320,6 +3324,7 @@
 				284A332B1D2C3DD600030773 /* Base */,
 				07F1D3541D79CA57000B66D3 /* en-US */,
 				07F1D3631D79CA62000B66D3 /* pt-BR */,
+				28CED71D1D7C672B00C95147 /* en */,
 			);
 			name = ManageClassrooms.storyboard;
 			sourceTree = "<group>";
@@ -3390,6 +3395,7 @@
 				ACEC3A011CEE137A00867624 /* Base */,
 				07F1D3511D79CA56000B66D3 /* en-US */,
 				07F1D3601D79CA62000B66D3 /* pt-BR */,
+				28CED7211D7C681B00C95147 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

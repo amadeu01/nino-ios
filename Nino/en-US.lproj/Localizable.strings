@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Nino
-
-  Created by Carlos Eduardo Millani on 9/2/16.
-  Copyright © 2016 Danilo Becke. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Nino
+ 
+ Created by Carlos Eduardo Millani on 9/2/16.
+ Copyright © 2016 Danilo Becke. All rights reserved.
+ */
 
 /*MyDay*/
 
@@ -30,10 +30,10 @@
 "DESC_BABY_BOTTLE"="Today I had %1.count baby bottle(s).<each> One of %1.item.</each>";
 "EMPTY_DESC_BABY_BOTTLE"="Today I did not have any baby bottles";
 //Sleep
-"WHEN"="Quando";
+"WHEN"="When";
 "TITLE_BABY_SLEEP"="Time slept";
 "UNIT_BABY_SLEEP"="minutes";
-"DESC_BABY_SLEEP"="Today I slept %1.count time(s).<each> I slept %2.item during the %1.item.</each>";
+"DESC_BABY_SLEEP"="Today I slept %1.count time(s).<each> I slept %2.item %1.item.</each>";
 "EMPTY_DESC_BABY_SLEEP"="Today I didn't sleep.";
 
 //Evacuation
@@ -67,9 +67,9 @@
 "SUFFIX_EVACUATION_NORMAL"="";
 
 //Evacuation_Doughly
-"PREFIX_EVACUATION_DOUGHLY"="my evacuation was  ";
-"TITLE_EVACUATION_DOUGHLY"="doughly";
-"SUFFIX_EVACUATION_DOUGHLY"="";
+"PREFIX_EVACUATION_DOUGHY"="my evacuation was  ";
+"TITLE_EVACUATION_DOUGHY"="doughy";
+"SUFFIX_EVACUATION_DOUGHY"="";
 
 //Evacuation_Diarrhea
 "PREFIX_EVACUATION_DIARRHEA"="I had ";
@@ -77,17 +77,17 @@
 "SUFFIX_EVACUATION_DIARRHEA"="";
 
 //Sleep_Morning
-"PREFIX_SLEEP_MORNING"="slept during the ";
+"PREFIX_SLEEP_MORNING"="during the ";
 "TITLE_SLEEP_MORNING"="morning";
 "SUFFIX_SLEEP_MORNING"="";
 
 //Sleep_Noon
-"PREFIX_SLEEP_NOON"="slept at ";
+"PREFIX_SLEEP_NOON"="at ";
 "TITLE_SLEEP_NOON"="noon";
 "SUFFIX_SLEEP_NOON"="";
 
 //Sleep_Afternoon
-"PREFIX_SLEEP_AFTERNOON"="slept during the ";
+"PREFIX_SLEEP_AFTERNOON"="during the ";
 "TITLE_SLEEP_AFTERNOON"="afternoon";
 "SUFFIX_SLEEP_AFTERNOON"="";
 
@@ -103,14 +103,14 @@
 
 //DIAPER_3ORMORE
 "PREFIX_DIAPER_3ORMORE"="changed my diaper ";
-"TITLE_DIAPER_3ORMORE"="3 or more times";
+"TITLE_DIAPER_3ORMORE"="3 or more";
 "SUFFIX_DIAPER_3ORMORE"="";
 
 /*Profile*/
-"PROF_INFORMATIONS"="Informations";
+"PROF_INFORMATIONS"="Info";
 "PROF_GENDER"="Gender";
 "PROF_NAME"="Name";
-"PROF_BIRTHDATE"="Birthdate";
+"PROF_BIRTHDATE"="Birthday";
 "PROF_GUARDIANS"="Guardians";
 "PROF_GUARDIAN"="Guardian";
 "PROF_ADD_GUARDIAN"="Add Guardian";
@@ -133,28 +133,35 @@
 "PHASE_ADD"="Add new phase";
 "PHASE_INS_NAME"="Insert the name for the new phase";
 "PHASE_ADD_PH"="ex: Daycare, Preschool...";
+"PHASE_CHANGE_NAME_ALERT_TITLE"="Change name of the phase";
+"PHASE_CHANGE_NAME_ALERT_DESC"="Type a new name for the phase ";
+"GENERAL_CHANGE"="Change";
 
-/*Classes*/
-"ROOMS"="Rooms";
-"ROOMS_NEW"="New Room";
-"ROOMS_ADMIN"="Manage Classes";
-"ROOMS_ADD"="Add new room";
-"ROOMS_INS_NAME"="Insert the name for the new room";
+/*Classrooms*/
+"ROOMS"="Classrooms";
+"ROOMS_NEW"="New Classroom";
+"ROOMS_ADMIN"="Manage Classrooms";
+"ROOMS_ADD"="Add new classroom";
+"ROOMS_INS_NAME"="Insert the name for the new classroom";
 "ROOM_ADD_PH"="ex: Room A, Afternoon...";
-"ROOM_SELECT"="Select Room";
+"ROOM_SELECT"="Select Classroom";
+"CLASSROOM_CHANGE_NAME_ALERT_TITLE"="Change name of the classroom";
+"CLASROOM_CHANGE_NAME_ALERT_DESC"="Type a new name for the classroom ";
+"DELETE_CLASSROOM"="Delete Classroom";
 
 /*General*/
 "GENERAL_EDIT"="Edit";
 "GENERAL_CANCEL"="Cancel";
 "GENERAL_DELETE"="Delete";
-"GENERAL_DELETE_REGISTER"="Delete Register";
+"GENERAL_DELETE_REGISTER"="Delete Record";
 "GENERAL_LOGOUT"="Logout";
 "GENERAL_ADMIN"="Administration";
 "GENERAL_ACCOUNT"="Account";
 "GENERAL_CREATE"="Create";
 "GENERAL_GOTIT"="Got it";
 "GENERAL_EMPTY_FIELD"="Empty field";
-"GENERAL_EMPTY_FIELD_MSG"="You must fill every field";
+"GENERAL_EMPTY_FIELD_MSG"="You must fill in every field";
+"LOGOUT_CONFIRMATION"="Do you want to logout?";
 
 /*ConfirmEmail*/
 "ALREADY_HAS_PSSWD"="There is already a registered password for this account.";

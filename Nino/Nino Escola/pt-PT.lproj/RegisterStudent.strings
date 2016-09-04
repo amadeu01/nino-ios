@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "CADASTRAR "; ObjectID = "6Vx-4u-SYY"; */
+"6Vx-4u-SYY.normalTitle" = "CADASTRAR ";
+
+/* Class = "UITextField"; placeholder = "| Sobrenome"; ObjectID = "BEA-bK-pAS"; */
+"BEA-bK-pAS.placeholder" = "| Sobrenome";
+
+/* Class = "UITextField"; placeholder = "| Classe"; ObjectID = "Fs4-FD-5j7"; */
+"Fs4-FD-5j7.placeholder" = "| Classe";
+
+/* Class = "UITextField"; placeholder = "| Data de Nascimento"; ObjectID = "VJj-ZD-vC8"; */
+"VJj-ZD-vC8.placeholder" = "| Data de Nascimento";
+
+/* Class = "UIButton"; normalTitle = "Adicionar foto"; ObjectID = "sWQ-et-7bg"; */
+"sWQ-et-7bg.normalTitle" = "Adicionar foto";
+
+/* Class = "UITextField"; placeholder = "| Nome"; ObjectID = "ukP-wW-3pR"; */
+"ukP-wW-3pR.placeholder" = "| Nome";

@@ -6,6 +6,8 @@
   Copyright © 2016 Danilo Becke. All rights reserved.
 */
 
+
+
 /*Beginning of MyDay*/
 "MY_FOOD"="Minha Alimentação";
 "MY_SLEEP"="Meu Sono";
@@ -66,7 +68,7 @@
 
 //Evacuation_Doughly
 "PREFIX_EVACUATION_DOUGHLY"="minha evacuação foi ";
-"TITLE_EVACUATION_DOUGHLY"="pastosa";
+"TITLE_EVACUATION_DOUGHY"="pastosa";
 "SUFFIX_EVACUATION_DOUGHLY"="";
 
 //Evacuation_Diarrhea
@@ -101,7 +103,7 @@
 
 //DIAPER_3ORMORE
 "PREFIX_DIAPER_3ORMORE"="troquei de fralda ";
-"TITLE_DIAPER_3ORMORE"="3 ou mais vezes";
+"TITLE_DIAPER_3ORMORE"="3 ou mais";
 "SUFFIX_DIAPER_3ORMORE"="";
 
 /*Profiles*/
@@ -113,7 +115,7 @@
 "PROF_GUARDIAN"="Responsável";
 "PROF_ADD_GUARDIAN"="Adicionar Responsável";
 "PROF_CHANGE_ROOM"="Alterar Turma";
-"PROF_DELETE_REGISTER"="Excluir Cadastro";
+"PROF_DELETE_REGISTER"="Excluir Profile";
 "PROF_GEN_BOY"="Menino";
 "PROF_GEN_GIRL"="Menina";
 "PROF_GEN_MALE"="Masculino";
@@ -131,8 +133,11 @@
 "PHASE_ADD"="Adicionar nova turma";
 "PHASE_INS_NAME"="Digite o nome da nova fase";
 "PHASE_ADD_PH"="ex: Berçário, Pré-Escola...";
+"PHASE_CHANGE_NAME_ALERT_TITLE"="Alterar o nome da fase";
+"PHASE_CHANGE_NAME_ALERT_DESC"="Digite um novo nome para a fase ";
+"GENERAL_CHANGE"="Alterar";
 
-/*Classes*/
+/*Classrooms*/
 "ROOMS"="Turma";
 "ROOMS_NEW"="Nova Turma";
 "ROOMS_ADMIN"="Gerenciar Turmas";
@@ -140,6 +145,9 @@
 "ROOMS_INS_NAME"="Digite o nome da nova turma";
 "ROOM_ADD_PH"="ex: Turma A, Tarde...";
 "ROOM_SELECT"="Selecionar Turma";
+"CLASSROOM_CHANGE_NAME_ALERT_TITLE"="Alterar o nome da turma";
+"CLASROOM_CHANGE_NAME_ALERT_DESC"="Digite um novo nome para a turma ";
+"DELETE_CLASSROOM"="Deletar Turma";
 
 /*General*/
 "GENERAL_EDIT"="Editar";
@@ -153,6 +161,7 @@
 "GENERAL_GOTIT"="Entendi";
 "GENERAL_EMPTY_FIELD"="Campo Vazio";
 "GENERAL_EMPTY_FIELD_MSG"="Nenhum campo pode estar vazio";
+"LOGOUT_CONFIRMATION"="Você deseja sair do sistema?";
 
 /*ConfirmEmail*/
 "ALREADY_HAS_PSSWD"="Já existe uma senha cadastrada para esse email.";
