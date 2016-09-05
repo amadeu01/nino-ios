@@ -146,7 +146,7 @@ class PhaseDAO: NSObject {
             } catch {
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(get: { () -> Int in
-                        throw RealmError.UnexpectedCase
+                        throw RealmError.CouldNotCreateRealm
                     })
                 })
             }
@@ -178,7 +178,7 @@ class PhaseDAO: NSObject {
             } catch {
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(get: { () -> String in
-                        throw RealmError.UnexpectedCase
+                        throw RealmError.CouldNotCreateRealm
                     })
                 })
             }

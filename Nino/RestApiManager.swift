@@ -12,7 +12,10 @@ import SwiftyJSON
 class RestApiManager: NSObject {
 
 //    private static let baseURL = "api.ninoapp.com.br/"
-    private static let baseURL = "https://www.ninoapp.com.br:5000/"
+//MARK: PROD_URL
+//    private static let baseURL = "https://www.ninoapp.com.br:5000/"
+//MARK: DEV_URL
+    private static let baseURL = "https://development.ninoapp.com.br:5000/"
     //FIXME: fix device id
     private static let device = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
     

@@ -33,6 +33,6 @@ class PostRealmObject: Object {
     }
     
     override static func indexedProperties() -> [String] {
-        return ["postID"]
+        return ["postID", "type"]
     }
 }

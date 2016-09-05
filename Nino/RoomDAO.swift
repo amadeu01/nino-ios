@@ -141,7 +141,7 @@ class RoomDAO: NSObject {
                 guard let realmRoom = selectedRealmRoom else {
                     dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                         completionHandler(update: {
-                            RealmError.UnexpectedCase
+                            RealmError.CouldNotCreateRealm
                         })
                     })
                     return
@@ -195,7 +195,7 @@ class RoomDAO: NSObject {
             } catch {
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completinHandler(get: { () -> Int in
-                        throw RealmError.UnexpectedCase
+                        throw RealmError.CouldNotCreateRealm
                     })
                 })
             }
