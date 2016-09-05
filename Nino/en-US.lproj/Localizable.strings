@@ -15,35 +15,35 @@
 //Meals
 //BREAKFAST
 "MEAL_BREAKFAST"="Breakfast";
-"DESC_BREAKFAST"="In the breakfast I %1.item.";
+"DESC_BREAKFAST"="In the breakfast I %1*item.";
 //LUNCH
 "MEAL_LUNCH"="Lunch";
-"DESC_LUNCH"="In the lunch I %1.item.";
+"DESC_LUNCH"="In the lunch I %1*item.";
 //AFTERNOON SNACK
 "MEAL_AFTERNOON_SNACK"="Afternoon Snack";
-"DESC_AFTERNOON_SNACK"="In the afternoon snack I %1.item.";
+"DESC_AFTERNOON_SNACK"="In the afternoon snack I %1*item.";
 //DINNER
 "MEAL_DINNER"="Dinner";
-"DESC_DINNER"="In the dinne I %1.item.";
+"DESC_DINNER"="In the dinne I %1*item.";
 //Baby Bottle
 "TITLE_BABY_BOTTLE"="Baby Bottle";
-"DESC_BABY_BOTTLE"="Today I had %1.count baby bottle(s).<each> One of %1.item.</each>";
+"DESC_BABY_BOTTLE"="Today I had %1*count baby bottle(s).<each> One of %1*item.</each>";
 "EMPTY_DESC_BABY_BOTTLE"="Today I did not have any baby bottles";
 //Sleep
 "WHEN"="When";
 "TITLE_BABY_SLEEP"="Time slept";
 "UNIT_BABY_SLEEP"="minutes";
-"DESC_BABY_SLEEP"="Today I slept %1.count time(s).<each> I slept %2.item %1.item.</each>";
+"DESC_BABY_SLEEP"="Today I slept %1*count time(s).<each> I slept %2*item %1*item.</each>";
 "EMPTY_DESC_BABY_SLEEP"="Today I didn't sleep.";
 
 //Evacuation
 "TITLE_EVACUATION"="Evacuation";
-"DESC_EVACUATION"="Today %1.item.";
+"DESC_EVACUATION"="Today %1*item.";
 "EMPTY_DESC_EVACUATION"="Today I didn't evacuate";
 
 //Diaper changes
 "TITLE_DIAPER_CHANGE"="Changes of diaper";
-"DESC_DIAPER_CHANGE"="Today %1.item.";
+"DESC_DIAPER_CHANGE"="Today %1*item.";
 "EMPTY_DESC_DIAPER_CHANGE"="Today I didn't change my diaper.";
 
 //Food_Well
@@ -104,7 +104,7 @@
 //DIAPER_3ORMORE
 "PREFIX_DIAPER_3ORMORE"="changed my diaper ";
 "TITLE_DIAPER_3ORMORE"="3 or more";
-"SUFFIX_DIAPER_3ORMORE"="";
+"SUFFIX_DIAPER_3ORMORE"=" times";
 
 /*Profile*/
 "PROF_INFORMATIONS"="Info";
