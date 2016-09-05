@@ -51,7 +51,7 @@ class RowMechanism: NSObject {
     private static func evacuation() -> [[String: String]] {
         var dict = [[String: String]]()
         dict.append(self.getButton(NSLocalizedString("TITLE_EVACUATION_NORMAL", comment: ""), preffix: NSLocalizedString("PREFIX_EVACUATION_NORMAL", comment: ""), suffix: NSLocalizedString("SUFFIX_EVACUATION_NORMAL", comment: "")))
-        dict.append(self.getButton(NSLocalizedString("TITLE_EVACUATION_DOUGHLY", comment: ""), preffix: NSLocalizedString("PREFIX_EVACUATION_DOUGHLY", comment: ""), suffix: NSLocalizedString("SUFFIX_EVACUATION_DOUGHLY", comment: "")))
+        dict.append(self.getButton(NSLocalizedString("TITLE_EVACUATION_DOUGHY", comment: ""), preffix: NSLocalizedString("PREFIX_EVACUATION_DOUGHY", comment: ""), suffix: NSLocalizedString("SUFFIX_EVACUATION_DOUGHY", comment: "")))
         dict.append(self.getButton(NSLocalizedString("TITLE_EVACUATION_DIARRHEA", comment: ""), preffix: NSLocalizedString("PREFIX_EVACUATION_DIARRHEA", comment: ""), suffix: NSLocalizedString("SUFFIX_EVACUATION_DIARRHEA", comment: "")))
         return dict
     }

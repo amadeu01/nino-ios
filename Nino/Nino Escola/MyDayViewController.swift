@@ -16,6 +16,8 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     @IBOutlet weak var rightTableView: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var leftCells: [MyDaySection] = []
     private var rightCells: [MyDaySection] = []
@@ -323,15 +325,68 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
 //MARK: Button methods
     @IBAction func sendScheduleAction(sender: UIButton) {
         do {
-            try MyDayBO.sendSchedule(self.leftCells, rightSections: self.rightCells, completionHandler: { (send) in
-                do {
-                    try send()
-                } catch {
-                    //connection error
+            let description = try MyDayBO.shouldSendSchedule(self.leftCells, rightSections: self.rightCells)
+            let alert = UIAlertController(title: "Confirmar Envio", message: description, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Confirmar", style: .Default, handler: { (act) in
+                //TODO: disable interaction in all cells
+                self.sendButton.userInteractionEnabled = false
+                self.sendButton.alpha = 0.4
+                self.activityIndicator.startAnimating()
+                self.activityIndicator.hidden = false
+                for cell in self.leftTableView.visibleCells {
+                    if let intensity = cell as? IntensityCell {
+                        intensity.disableInteraction()
+                    }
+                    if let slider = cell as? SliderCell {
+                        slider.disableInteraction()
+                    }
                 }
-            })
-        } catch {
-            //missing information
+                for cell in self.rightTableView.visibleCells {
+                    if let intensity = cell as? IntensityCell {
+                        intensity.disableInteraction()
+                    }
+                    if let slider = cell as? SliderCell {
+                        slider.disableInteraction()
+                    }
+                }
+                MyDayBO.sendSchedule(description, completionHandler: { (send) in
+                    do {
+                        try send()
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.hidden = true
+                        self.sendButton.hidden = true
+                    } catch let err {
+                        //TODO: Handle error
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.hidden = true
+                        self.sendButton.alpha = 1
+                        for cell in self.leftTableView.visibleCells {
+                            if let intensity = cell as? IntensityCell {
+                                intensity.enableInteraction()
+                            }
+                            if let slider = cell as? SliderCell {
+                                slider.enableInteraction()
+                            }
+                        }
+                        for cell in self.rightTableView.visibleCells {
+                            if let intensity = cell as? IntensityCell {
+                                intensity.enableInteraction()
+                            }
+                            if let slider = cell as? SliderCell {
+                                slider.enableInteraction()
+                            }
+                        }
+                    }
+                })
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        } catch let error {
+            if let err = error as? MyDayError {
+                let alert = UIAlertController(title: "Informações Incompletas", message: err.description, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Entendi", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
     

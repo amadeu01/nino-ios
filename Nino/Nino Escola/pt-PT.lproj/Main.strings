@@ -3,28 +3,28 @@
 "12B-7p-Kjs.text" = "nino";
 
 /* Class = "UIButton"; normalTitle = "CONTINUAR :)"; ObjectID = "2JK-Or-TbP"; */
-"2JK-Or-TbP.normalTitle" = "CONTINUE";
+"2JK-Or-TbP.normalTitle" = "CONTINUAR :)";
 
 /* Class = "UITabBarItem"; title = "Configurações"; ObjectID = "2Wq-IE-ywI"; */
-"2Wq-IE-ywI.title" = "Settings";
+"2Wq-IE-ywI.title" = "Configurações";
 
 /* Class = "UILabel"; text = "Responsável"; ObjectID = "39b-EJ-TiV"; */
-"39b-EJ-TiV.text" = "Family";
+"39b-EJ-TiV.text" = "Responsável";
 
 /* Class = "UIButton"; normalTitle = "▼ Voltar"; ObjectID = "3dK-bW-w3u"; */
-"3dK-bW-w3u.normalTitle" = "▼ Back";
+"3dK-bW-w3u.normalTitle" = "▼ Voltar";
 
 /* Class = "UILabel"; text = "Announcement title"; ObjectID = "5th-zu-F9N"; */
 "5th-zu-F9N.text" = "Announcement title";
 
 /* Class = "UITextField"; placeholder = "| Endereço"; ObjectID = "9Z7-y4-mo3"; */
-"9Z7-y4-mo3.placeholder" = "| Address";
+"9Z7-y4-mo3.placeholder" = "| Endereço";
 
 /* Class = "UITextField"; placeholder = "| Senha"; ObjectID = "Bym-Ju-GSj"; */
-"Bym-Ju-GSj.placeholder" = "| Password";
+"Bym-Ju-GSj.placeholder" = "| Senha";
 
 /* Class = "UILabel"; text = "Validando email"; ObjectID = "Cle-hl-T4f"; */
-"Cle-hl-T4f.text" = "Confirming email";
+"Cle-hl-T4f.text" = "Validando email";
 
 /* Class = "UILabel"; text = "12/07/2015"; ObjectID = "Elb-EK-Dwn"; */
 "Elb-EK-Dwn.text" = "12/07/2015";
@@ -33,40 +33,40 @@
 "FSP-wD-RgV.placeholder" = "| Email";
 
 /* Class = "UIButton"; normalTitle = "CADASTRAR :)"; ObjectID = "IcN-5s-Zdu"; */
-"IcN-5s-Zdu.normalTitle" = "REGISTER :)";
+"IcN-5s-Zdu.normalTitle" = "CADASTRAR :)";
 
 /* Class = "UITabBarItem"; title = "Alunos"; ObjectID = "Nxf-qD-uXc"; */
-"Nxf-qD-uXc.title" = "Students";
+"Nxf-qD-uXc.title" = "Alunos";
 
 /* Class = "UITextField"; placeholder = "usuário"; ObjectID = "ZRW-mP-JS5"; */
-"ZRW-mP-JS5.placeholder" = "user";
+"ZRW-mP-JS5.placeholder" = "usuário";
 
 /* Class = "UILabel"; text = "Sem título"; ObjectID = "aa4-1Q-10p"; */
-"aa4-1Q-10p.text" = "No title";
+"aa4-1Q-10p.text" = "Sem título";
 
 /* Class = "UIButton"; normalTitle = "Mudar logo"; ObjectID = "bLu-XA-GSw"; */
-"bLu-XA-GSw.normalTitle" = "Change logo";
+"bLu-XA-GSw.normalTitle" = "Mudar logo";
 
 /* Class = "UILabel"; text = "Rascunho"; ObjectID = "cbm-wu-wUd"; */
-"cbm-wu-wUd.text" = "Draft";
+"cbm-wu-wUd.text" = "Rascunho";
 
 /* Class = "UITextField"; placeholder = "| Telefone"; ObjectID = "dYo-eY-IRj"; */
-"dYo-eY-IRj.placeholder" = "| Telephone";
+"dYo-eY-IRj.placeholder" = "| Telefone";
 
 /* Class = "UITextField"; placeholder = "| Nome da Escola"; ObjectID = "m4C-gP-a4a"; */
-"m4C-gP-a4a.placeholder" = "| School's Name";
+"m4C-gP-a4a.placeholder" = "| Nome da Escola";
 
 /* Class = "UITextField"; placeholder = "senha"; ObjectID = "nfY-Di-vBa"; */
-"nfY-Di-vBa.placeholder" = "password";
+"nfY-Di-vBa.placeholder" = "senha";
 
 /* Class = "UITabBarItem"; title = "Avisos"; ObjectID = "rOV-la-9VS"; */
-"rOV-la-9VS.title" = "Announcements";
+"rOV-la-9VS.title" = "Avisos";
 
 /* Class = "UILabel"; text = "Nome do Aluno"; ObjectID = "ssq-Jh-DN5"; */
-"ssq-Jh-DN5.text" = "Student's Name";
+"ssq-Jh-DN5.text" = "Nome do Aluno";
 
 /* Class = "UIButton"; normalTitle = "Novo Usuário"; ObjectID = "u4f-Bh-lcj"; */
-"u4f-Bh-lcj.normalTitle" = "New User";
+"u4f-Bh-lcj.normalTitle" = "Novo Usuário";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "y9D-jx-6Dk"; */
 "y9D-jx-6Dk.normalTitle" = "Login";

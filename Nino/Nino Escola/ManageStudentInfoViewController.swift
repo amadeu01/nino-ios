@@ -201,6 +201,9 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
             if indexPath.row == 0 {
                 cell.accessoryType = UITableViewCellAccessoryType.None
             }
+            if indexPath.section == 4{
+                cell.textLabel?.textColor = UIColor.redColor()
+            }
         }
     }
     

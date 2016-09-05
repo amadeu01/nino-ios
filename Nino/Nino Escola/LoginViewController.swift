@@ -10,18 +10,18 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-//MARK: Outlets
+    //MARK: Outlets
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var newUserButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-//MARK: Vars
+    //MARK: Vars
     var textFields = [UITextField]()
     var buttons = [UIButton]()
     
-//MARK: View methods
+    //MARK: View methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,14 +37,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         tryToAutoLogIn()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-//MARK: TextField methods
+    //MARK: TextField methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
         let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder!
@@ -104,7 +104,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//MARK: Alert methods
+    //MARK: Alert methods
     
     /**
      Handles the error and shows one alert
@@ -117,7 +117,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-//MARK: Button methods
+    //MARK: Button methods
     /**
      The property enable of all text fields becomes false
      */
@@ -155,7 +155,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.login(username, password: password)
             self.hideKeyboard()
         }
-
+        
     }
     
     
@@ -172,7 +172,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-//MARK: Login method
+    //MARK: Login method
     /**
      makes the login
      */
@@ -180,74 +180,82 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.hideKeyboard()
         //all textFields are filled
-            self.blockTextFields()
-            self.blockButtons()
-            self.activityIndicator.hidden = false
-            self.activityIndicator.startAnimating()
-            //creates a key and saves the login parameters at userDefaults and keychain
-            let key = KeyBO.createKey(username, password: password)
-            LoginBO.login(key, completionHandler: { (getCredential) in
-                do {
-                    //tries to get the credential
-                    let credential = try getCredential()
-                    NinoSession.sharedInstance.setCredential(credential)
-                    SchoolBO.getSchool(credential.token, completionHandler: { (school) in
-                        do {
-                            let school = try school()
-                            NinoSession.sharedInstance.setSchool(school.id)
-                            NinoNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
-                            EducatorBO.getEducator(username, schoolID: school.schoolID!, token: credential.token, completionHandler: { (getProfile) in
-                                do {
-                                    let educator = try getProfile()
-                                    NinoSession.sharedInstance.setEducator(educator.id)
-                                    self.activityIndicator.stopAnimating()
-                                    //changes the view
-                                    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                        delegate.loggedIn = true
-                                        delegate.setupRootViewController(true)
-                                    }
-                                } catch {
-                                    print("profileError")
-                                    //TODO: handle profile error
+        self.blockTextFields()
+        self.blockButtons()
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        //creates a key and saves the login parameters at userDefaults and keychain
+        let key = KeyBO.createKey(username, password: password)
+        LoginBO.login(key, completionHandler: { (getCredential) in
+            do {
+                //tries to get the credential
+                let credential = try getCredential()
+                NinoSession.sharedInstance.setCredential(credential)
+                SchoolBO.getSchool(credential.token, completionHandler: { (school) in
+                    do {
+                        let school = try school()
+                        NinoSession.sharedInstance.setSchool(school.id)
+                        NinoNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
+                        EducatorBO.getEducator(username, schoolID: school.schoolID!, token: credential.token, completionHandler: { (getProfile) in
+                            do {
+                                let educator = try getProfile()
+                                NinoSession.sharedInstance.setEducator(educator.id)
+                                self.activityIndicator.stopAnimating()
+                                //changes the view
+                                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                    delegate.loggedIn = true
+                                    delegate.setupRootViewController(true)
                                 }
-                            })
-                            PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
-                                do {
-                                    let phases = try phases()
-                                    if phases.count > 0 {
-                                        let message = NotificationMessage()
-                                        message.setDataToInsert(phases)
-                                        NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
-                                    }
-                                } catch {
-                                    print("getPhases error")
-                                    //TODO: handle getPhases and addPhases error
+                            } catch {
+                                print("profileError")
+                                //TODO: handle profile error
+                            }
+                        })
+                        PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
+                            do {
+                                let phases = try phases()
+                                if phases.count > 0 {
+                                    let message = NotificationMessage()
+                                    message.setDataToInsert(phases)
+                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
                                 }
-                            })
+                            } catch {
+                                print("getPhases error")
+                                //TODO: handle getPhases and addPhases error
+                            }
+                        })
+                        
+                        DraftMechanism.getDrafts(credential.token, schoolID: 1, studentID: 2, completionHandler: { (info, error, data) in
                             
-                            DraftMechanism.getDrafts(credential.token, schoolID: 1, studentID: 2, completionHandler: { (info, error, data) in
-                                
-                            })
-                            
-                        } catch {
-                            print("getSchool error")
-                            //TODO: handle getSchool error
+                        })
+                        
+                    } catch let error{
+                        if let dataBaseError = error as? DatabaseError {
+                            //There's no school. Let's create one
+                            if dataBaseError == DatabaseError.NotFound {
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let vc = storyboard.instantiateViewControllerWithIdentifier("CreateSchool")
+                                self.presentViewController(vc, animated: true, completion: nil)
+                            }
                         }
-                    })
-                }
-                //login error
-                catch let error {
-                    //clean userDefaults and keychain
-                    KeyBO.removePasswordAndUsername()
-                    self.activityIndicator.stopAnimating()
-                    self.enableTextFields()
-                    self.enableButtons()
-                    if let serverError = error as? ServerError {
-                        self.errorAlert(serverError)
+                        print("getSchool error")
+                        //TODO: handle getSchool error
                     }
-                    self.passwordTextField.text = ""
+                })
+            }
+                //login error
+            catch let error {
+                //clean userDefaults and keychain
+                KeyBO.removePasswordAndUsername()
+                self.activityIndicator.stopAnimating()
+                self.enableTextFields()
+                self.enableButtons()
+                if let serverError = error as? ServerError {
+                    self.errorAlert(serverError)
                 }
-            })
+                self.passwordTextField.text = ""
+            }
+        })
         
     }
     func tryToAutoLogIn(){
@@ -262,7 +270,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         login(username, password: password)
     }
     
-//MARK: Segue methods
+    //MARK: Segue methods
     /**
      Unwind to login
      
@@ -270,5 +278,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      */
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
-
+    
 }

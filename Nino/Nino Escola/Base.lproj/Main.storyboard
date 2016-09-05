@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pKN-Kp-8Uh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pKN-Kp-8Uh">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -821,7 +821,7 @@
         <!--Create School View Controller-->
         <scene sceneID="jYH-ia-eM1">
             <objects>
-                <viewController id="d0H-CD-S6m" customClass="CreateSchoolViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="CreateSchool" storyboardIdentifier="CreateSchool" id="d0H-CD-S6m" customClass="CreateSchoolViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mp4-Vi-82G"/>
                         <viewControllerLayoutGuide type="bottom" id="A3o-1m-gwT"/>

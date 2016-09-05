@@ -105,9 +105,9 @@ class SchoolManagementTableViewController: UITableViewController {
     }
     //MARK: Handling function:
     func logOut() {
-        let alert = UIAlertController(title: "Sair", message: "Você deseja sair do sistema?", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Sair", style: .Destructive, handler: { (act) in
+        let alert = UIAlertController(title: NSLocalizedString("GENERAL_LOGOUT", comment: ""), message: NSLocalizedString("LOGOUT_CONFIRMATION", comment: ""), preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: ""), style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("GENERAL_LOGOUT", comment: ""), style: .Destructive, handler: { (act) in
             LoginBO.logout({ (out) in
                 do {
                     try out()

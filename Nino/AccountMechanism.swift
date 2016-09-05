@@ -20,12 +20,7 @@ class AccountMechanism: NSObject {
      - parameter completionHandler:  completionHandler with optional accessToken and optional error
      */
     static func login(email: String, password: String, completionHandler: (accessToken: String?, error: Int?) -> Void) {
-        let passwordMD5 = MD5.digest(password)
-        guard let passwd = passwordMD5 else {
-            completionHandler(accessToken: nil, error: nil)
-            return
-        }
-        let body: [String: AnyObject] = ["user": email, "password": passwd]
+        let body: [String: AnyObject] = ["user": email, "password": password]
         do {
             let route = try ServerRoutes.Login.description(nil)
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
@@ -128,12 +123,7 @@ class AccountMechanism: NSObject {
      - parameter completionHandler: completion handler with optional access token, optional error and optional data about the error
      */
     static func confirmAccount(password: String, hash: String, completionHandler: (token: String?, error: Int?, data: String?) -> Void) {
-        let passwordMD5 = MD5.digest(password)
-        guard let passwd = passwordMD5 else {
-            completionHandler(token: nil, error: nil, data: nil)
-            return
-        }
-        let body: [String: AnyObject] = ["password": passwd]
+        let body: [String: AnyObject] = ["password": password]
         do {
             let route = try ServerRoutes.ConfirmAccount.description([hash])
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in

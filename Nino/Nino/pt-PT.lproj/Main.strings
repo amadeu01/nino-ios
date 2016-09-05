@@ -1,0 +1,33 @@
+
+/* Class = "UITabBarItem"; title = "Linha do tempo"; ObjectID = "1oR-Xs-qoc"; */
+"1oR-Xs-qoc.title" = "Linha do tempo";
+
+/* Class = "UILabel"; text = "nino"; ObjectID = "EiK-AJ-XqU"; */
+"EiK-AJ-XqU.text" = "nino";
+
+/* Class = "UITextField"; placeholder = "senha"; ObjectID = "Jyd-ys-D3t"; */
+"Jyd-ys-D3t.placeholder" = "senha";
+
+/* Class = "UIButton"; normalTitle = "Entrar"; ObjectID = "KPp-oQ-IVL"; */
+"KPp-oQ-IVL.normalTitle" = "Entrar";
+
+/* Class = "UITabBarItem"; title = "Configurações"; ObjectID = "Nax-10-KYe"; */
+"Nax-10-KYe.title" = "Configurações";
+
+/* Class = "UILabel"; text = "Confirmando email"; ObjectID = "PpB-Cm-m03"; */
+"PpB-Cm-m03.text" = "Confirmando email";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "UhG-0v-3Sf"; */
+"UhG-0v-3Sf.title" = "Root View Controller";
+
+/* Class = "UITextField"; placeholder = "Senha"; ObjectID = "WYn-eM-cV0"; */
+"WYn-eM-cV0.placeholder" = "Senha";
+
+/* Class = "UITextField"; placeholder = "usuário"; ObjectID = "ar5-Mu-r32"; */
+"ar5-Mu-r32.placeholder" = "usuário";
+
+/* Class = "UILabel"; text = "Miriam Millani"; ObjectID = "lp2-az-jRg"; */
+"lp2-az-jRg.text" = "Miriam Millani";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vxJ-1Q-jF3"; */
+"vxJ-1Q-jF3.normalTitle" = "Button";

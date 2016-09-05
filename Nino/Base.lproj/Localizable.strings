@@ -6,160 +6,167 @@
  Copyright © 2016 Danilo Becke. All rights reserved.
  */
 
-/*MyDay*/
+
 
 /*Beginning of MyDay*/
-"MY_FOOD"="My Nutrition";
-"MY_SLEEP"="My Sleep";
-"MY_HYGIENE"="My Hygiene";
+"MY_FOOD"="Minha Alimentação";
+"MY_SLEEP"="Meu Sono";
+"MY_HYGIENE"="Minha Higiene";
 //Meals
 //BREAKFAST
-"MEAL_BREAKFAST"="Breakfast";
-"DESC_BREAKFAST"="In the breakfast I %1.item.";
+"MEAL_BREAKFAST"="Lanche da Manhã";
+"DESC_BREAKFAST"="No lanche da manhã eu %1*item.";
 //LUNCH
-"MEAL_LUNCH"="Lunch";
-"DESC_LUNCH"="In the lunch I %1.item.";
+"MEAL_LUNCH"="Almoço";
+"DESC_LUNCH"="No almoço eu %1*item.";
 //AFTERNOON SNACK
-"MEAL_AFTERNOON_SNACK"="Afternoon Snack";
-"DESC_AFTERNOON_SNACK"="In the afternoon snack I %1.item.";
+"MEAL_AFTERNOON_SNACK"="Lanche da Tarde";
+"DESC_AFTERNOON_SNACK"="No lanche da tarde eu %1*item.";
 //DINNER
-"MEAL_DINNER"="Dinner";
-"DESC_DINNER"="In the dinne I %1.item.";
+"MEAL_DINNER"="Jantar";
+"DESC_DINNER"="No jantar eu %1*item.";
 //Baby Bottle
-"TITLE_BABY_BOTTLE"="Baby Bottle";
-"DESC_BABY_BOTTLE"="Today I had %1.count baby bottle(s).<each> One of %1.item.</each>";
-"EMPTY_DESC_BABY_BOTTLE"="Today I did not have any baby bottles";
+"TITLE_BABY_BOTTLE"="Mamadeira";
+"DESC_BABY_BOTTLE"="Hoje eu mamei %1*count mamadeira(s).<each> Uma de %1*item.</each>";
+"EMPTY_DESC_BABY_BOTTLE"="Hoje eu não mamei.";
 //Sleep
 "WHEN"="Quando";
-"TITLE_BABY_SLEEP"="Time slept";
-"UNIT_BABY_SLEEP"="minutes";
-"DESC_BABY_SLEEP"="Today I slept %1.count time(s).<each> I slept %2.item during the %1.item.</each>";
-"EMPTY_DESC_BABY_SLEEP"="Today I didn't sleep.";
+"TITLE_BABY_SLEEP"="Tempo dormido";
+"UNIT_BABY_SLEEP"="minutos";
+"DESC_BABY_SLEEP"="Hoje eu dormi %1*count vez(es).<each> Dormi %2*item %1*item.</each>";
+"EMPTY_DESC_BABY_SLEEP"="Hoje eu não dormi.";
 
 //Evacuation
-"TITLE_EVACUATION"="Evacuation";
-"DESC_EVACUATION"="Today %1.item.";
-"EMPTY_DESC_EVACUATION"="Today I didn't evacuate";
+"TITLE_EVACUATION"="Evacuação";
+"DESC_EVACUATION"="Hoje %1*item.";
+"EMPTY_DESC_EVACUATION"="Hoje não evacuei.";
 
 //Diaper changes
-"TITLE_DIAPER_CHANGE"="Changes of diaper";
-"DESC_DIAPER_CHANGE"="Today %1.item.";
-"EMPTY_DESC_DIAPER_CHANGE"="Today I didn't change my diaper.";
+"TITLE_DIAPER_CHANGE"="Troca de Fralda";
+"DESC_DIAPER_CHANGE"="Hoje %1*item.";
+"EMPTY_DESC_DIAPER_CHANGE"="Hoje não troquei de fralda.";
 
 //Food_Well
-"PREFIX_FOOD_WELL"="ate ";
-"TITLE_FOOD_WELL"="well";
+"PREFIX_FOOD_WELL"="comi ";
+"TITLE_FOOD_WELL"="bem";
 "SUFFIX_FOOD_WELL"="";
 
 //Food_Little
-"PREFIX_FOOD_LITTLE"="ate ";
-"TITLE_FOOD_LITTLE"="little";
+"PREFIX_FOOD_LITTLE"="comi ";
+"TITLE_FOOD_LITTLE"="pouco";
 "SUFFIX_FOOD_LITTLE"="";
 
 //Food_Nothing
 "PREFIX_FOOD_NOTHING"="";
-"TITLE_FOOD_NOTHING"="didn't eat";
+"TITLE_FOOD_NOTHING"="não comi";
 "SUFFIX_FOOD_NOTHING"="";
 
 //Evacuation_Normal
-"PREFIX_EVACUATION_NORMAL"="my evacuation was ";
+"PREFIX_EVACUATION_NORMAL"="minha evacuação foi ";
 "TITLE_EVACUATION_NORMAL"="normal";
 "SUFFIX_EVACUATION_NORMAL"="";
 
 //Evacuation_Doughly
-"PREFIX_EVACUATION_DOUGHLY"="my evacuation was  ";
-"TITLE_EVACUATION_DOUGHLY"="doughly";
-"SUFFIX_EVACUATION_DOUGHLY"="";
+"PREFIX_EVACUATION_DOUGHY"="minha evacuação foi ";
+"TITLE_EVACUATION_DOUGHY"="pastosa";
+"SUFFIX_EVACUATION_DOUGHY"="";
 
 //Evacuation_Diarrhea
-"PREFIX_EVACUATION_DIARRHEA"="I had ";
-"TITLE_EVACUATION_DIARRHEA"="diarrhea";
+"PREFIX_EVACUATION_DIARRHEA"="eu tive ";
+"TITLE_EVACUATION_DIARRHEA"="diarréia";
 "SUFFIX_EVACUATION_DIARRHEA"="";
 
 //Sleep_Morning
-"PREFIX_SLEEP_MORNING"="slept during the ";
-"TITLE_SLEEP_MORNING"="morning";
+"PREFIX_SLEEP_MORNING"="durante a ";
+"TITLE_SLEEP_MORNING"="manhã";
 "SUFFIX_SLEEP_MORNING"="";
 
 //Sleep_Noon
-"PREFIX_SLEEP_NOON"="slept at ";
-"TITLE_SLEEP_NOON"="noon";
+"PREFIX_SLEEP_NOON"="ao ";
+"TITLE_SLEEP_NOON"="meio-dia";
 "SUFFIX_SLEEP_NOON"="";
 
 //Sleep_Afternoon
-"PREFIX_SLEEP_AFTERNOON"="slept during the ";
-"TITLE_SLEEP_AFTERNOON"="afternoon";
+"PREFIX_SLEEP_AFTERNOON"="durante a ";
+"TITLE_SLEEP_AFTERNOON"="tarde";
 "SUFFIX_SLEEP_AFTERNOON"="";
 
 //DIAPER_ONE
-"PREFIX_DIAPER_ONE"="changed my diaper ";
-"TITLE_DIAPER_ONE"="once";
+"PREFIX_DIAPER_ONE"="troquei de fralda ";
+"TITLE_DIAPER_ONE"="1 vez";
 "SUFFIX_DIAPER_ONE"="";
 
 //DIAPER_TWO
-"PREFIX_DIAPER_TWO"="changed my diaper ";
-"TITLE_DIAPER_TWO"="twice";
+"PREFIX_DIAPER_TWO"="troquei de fralda ";
+"TITLE_DIAPER_TWO"="2 vezes";
 "SUFFIX_DIAPER_TWO"="";
 
 //DIAPER_3ORMORE
-"PREFIX_DIAPER_3ORMORE"="changed my diaper ";
-"TITLE_DIAPER_3ORMORE"="3 or more times";
-"SUFFIX_DIAPER_3ORMORE"="";
+"PREFIX_DIAPER_3ORMORE"="troquei de fralda ";
+"TITLE_DIAPER_3ORMORE"="3 ou mais";
+"SUFFIX_DIAPER_3ORMORE"=" vezes";
 
-/*Profile*/
-"PROF_INFORMATIONS"="Informations";
-"PROF_GENDER"="Gender";
-"PROF_NAME"="Name";
-"PROF_BIRTHDATE"="Birthdate";
-"PROF_GUARDIANS"="Guardians";
-"PROF_GUARDIAN"="Guardian";
-"PROF_ADD_GUARDIAN"="Add Guardian";
-"PROF_CHANGE_ROOM"="Change Room";
-"PROF_DELETE_REGISTER"="Delete Register";
-"PROF_GEN_BOY"="Boy";
-"PROF_GEN_GIRL"="Girl";
-"PROF_GEN_MALE"="Male";
-"PROF_GEN_FEMALE"="Female";
-"PROF_BIRTH"="Birth";
+/*Profiles*/
+"PROF_INFORMATIONS"="Informações";
+"PROF_GENDER"="Gênero";
+"PROF_NAME"="Nome";
+"PROF_BIRTHDATE"="Data de Nascimento";
+"PROF_GUARDIANS"="Responsáveis";
+"PROF_GUARDIAN"="Responsável";
+"PROF_ADD_GUARDIAN"="Adicionar Responsável";
+"PROF_CHANGE_ROOM"="Alterar Turma";
+"PROF_DELETE_REGISTER"="Excluir Profile";
+"PROF_GEN_BOY"="Menino";
+"PROF_GEN_GIRL"="Menina";
+"PROF_GEN_MALE"="Masculino";
+"PROF_GEN_FEMALE"="Feminino";
+"PROF_BIRTH"="Nascimento";
 
 /*Students*/
-"STU_CHANGE_ROOM"="Change Room";
-"STU_NEW"="New Student";
+"STU_CHANGE_ROOM"="Alterar Turma";
+"STU_NEW"="Novo Aluno";
 
 /*Phases*/
-"PHASES"="Phases";
-"PHASES_NEW"="New Phase";
-"PHASE_DELETE"="Delete Phase";
-"PHASE_ADD"="Add new phase";
-"PHASE_INS_NAME"="Insert the name for the new phase";
-"PHASE_ADD_PH"="ex: Daycare, Preschool...";
+"PHASES"="Fases";
+"PHASES_NEW"="Nova Fase";
+"PHASE_DELETE"="Deletar Fase";
+"PHASE_ADD"="Adicionar nova turma";
+"PHASE_INS_NAME"="Digite o nome da nova fase";
+"PHASE_ADD_PH"="ex: Berçário, Pré-Escola...";
+"PHASE_CHANGE_NAME_ALERT_TITLE"="Alterar o nome da fase";
+"PHASE_CHANGE_NAME_ALERT_DESC"="Digite um novo nome para a fase ";
+"GENERAL_CHANGE"="Alterar";
 
-/*Classes*/
-"ROOMS"="Rooms";
-"ROOMS_NEW"="New Room";
-"ROOMS_ADMIN"="Manage Classes";
-"ROOMS_ADD"="Add new room";
-"ROOMS_INS_NAME"="Insert the name for the new room";
-"ROOM_ADD_PH"="ex: Room A, Afternoon...";
-"ROOM_SELECT"="Select Room";
+/*Classrooms*/
+"ROOMS"="Turma";
+"ROOMS_NEW"="Nova Turma";
+"ROOMS_ADMIN"="Gerenciar Turmas";
+"ROOMS_ADD"="Adicionar nova turma";
+"ROOMS_INS_NAME"="Digite o nome da nova turma";
+"ROOM_ADD_PH"="ex: Turma A, Tarde...";
+"ROOM_SELECT"="Selecionar Turma";
+"CLASSROOM_CHANGE_NAME_ALERT_TITLE"="Alterar o nome da turma";
+"CLASROOM_CHANGE_NAME_ALERT_DESC"="Digite um novo nome para a turma ";
+"DELETE_CLASSROOM"="Deletar Turma";
 
 /*General*/
-"GENERAL_EDIT"="Edit";
-"GENERAL_CANCEL"="Cancel";
-"GENERAL_DELETE"="Delete";
-"GENERAL_DELETE_REGISTER"="Delete Register";
-"GENERAL_LOGOUT"="Logout";
-"GENERAL_ADMIN"="Administration";
-"GENERAL_ACCOUNT"="Account";
-"GENERAL_CREATE"="Create";
-"GENERAL_GOTIT"="Got it";
-"GENERAL_EMPTY_FIELD"="Empty field";
-"GENERAL_EMPTY_FIELD_MSG"="You must fill every field";
+"GENERAL_EDIT"="Editar";
+"GENERAL_CANCEL"="Cancelar";
+"GENERAL_DELETE"="Deletar";
+"GENERAL_DELETE_REGISTER"="Excluir Cadastro";
+"GENERAL_LOGOUT"="Sair";
+"GENERAL_ADMIN"="Administração";
+"GENERAL_ACCOUNT"="Conta";
+"GENERAL_CREATE"="Criar";
+"GENERAL_GOTIT"="Entendi";
+"GENERAL_EMPTY_FIELD"="Campo Vazio";
+"GENERAL_EMPTY_FIELD_MSG"="Nenhum campo pode estar vazio";
+"LOGOUT_CONFIRMATION"="Você deseja sair do sistema?";
 
 /*ConfirmEmail*/
-"ALREADY_HAS_PSSWD"="There is already a registered password for this account.";
-"VALIDATION_FAILED"="Validation failed";
-"CONFIRMATION_FAILED"="Confirmation failed";
+"ALREADY_HAS_PSSWD"="Já existe uma senha cadastrada para esse email.";
+"VALIDATION_FAILED"="Falha na validação";
+"CONFIRMATION_FAILED"="Falha na confimação";
 
 /*Registration*/
-"INVALID_MAIL"="Invalid email";
+"INVALID_MAIL"="Email inválido";
