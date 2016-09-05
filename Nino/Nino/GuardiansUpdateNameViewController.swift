@@ -10,6 +10,10 @@ import UIKit
 
 class GuardiansUpdateNameViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var surnameTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +25,9 @@ class GuardiansUpdateNameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func confirmButtonPressed(sender: AnyObject) {
+        
+    }
 
     /*
     // MARK: - Navigation

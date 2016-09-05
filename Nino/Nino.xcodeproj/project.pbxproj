@@ -61,6 +61,9 @@
 		07B22B8E1D6E33980037F71B /* DraftMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B22B8A1D6E33980037F71B /* DraftMechanism.swift */; };
 		07B22B8F1D6E33980037F71B /* DraftMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B22B8A1D6E33980037F71B /* DraftMechanism.swift */; };
 		07B22B901D6E33980037F71B /* DraftMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B22B8A1D6E33980037F71B /* DraftMechanism.swift */; };
+		07C5F84F1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5F84E1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift */; };
+		07C5F8501D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5F84E1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift */; };
+		07C5F8511D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5F84E1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift */; };
 		07DB6AB11D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */; };
 		07DB6AB21D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */; };
 		07DB6AB31D50CAB0003C07EC /* GuardiansLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */; };
@@ -922,6 +925,7 @@
 		07A2723F1D494734005079BC /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
 		07A272431D494750005079BC /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		07B22B8A1D6E33980037F71B /* DraftMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftMechanism.swift; sourceTree = "<group>"; };
+		07C5F84E1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansUpdateNameViewController.swift; sourceTree = "<group>"; };
 		07DB6AB01D50CAB0003C07EC /* GuardiansLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansLoginViewController.swift; sourceTree = "<group>"; };
 		07F1D34F1D79CA56000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Main.strings"; sourceTree = "<group>"; };
 		07F1D3501D79CA56000B66D3 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -1275,6 +1279,7 @@
 				071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */,
 				287F31A01D5DFF9400DF2E1C /* TimelineViewController.swift */,
 				28F20CA11D706B8500FBD332 /* SettingsViewController.swift */,
+				07C5F84E1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2451,6 +2456,7 @@
 				AC0CDEE11D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC43B3D21D4011B000A6CB5C /* StudentRealmObject.swift in Sources */,
 				AC47FD3F1D3EA66C00FB3CB6 /* RoomMechanism.swift in Sources */,
+				07C5F84F1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */,
 				AC6405291D5A4AE6008D91F5 /* MyDaySection.swift in Sources */,
 				AC43B3CB1D40115200A6CB5C /* EducatorRealmObject.swift in Sources */,
 				287F31A11D5DFF9400DF2E1C /* TimelineViewController.swift in Sources */,
@@ -2585,6 +2591,7 @@
 				288B27BA1D37D1AC00B47DC0 /* Credential.swift in Sources */,
 				AC64053C1D5A5D54008D91F5 /* RowMechanism.swift in Sources */,
 				AC80DF5D1D5CA58600DC18F0 /* MyDayRow.swift in Sources */,
+				07C5F8501D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */,
 				288B27C41D37D1AC00B47DC0 /* Gender.swift in Sources */,
 				287F31A21D5DFF9400DF2E1C /* TimelineViewController.swift in Sources */,
 				AC410BCB1D05A880003EB66B /* ServerError.swift in Sources */,
@@ -2672,6 +2679,7 @@
 				288B28071D37E0D400B47DC0 /* EventBO.swift in Sources */,
 				071832241D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */,
 				287F31A31D5DFF9400DF2E1C /* TimelineViewController.swift in Sources */,
+				07C5F8511D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */,
 				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC47FD411D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
 				288B27B51D37D1AB00B47DC0 /* Gender.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IWG-q5-tgM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IWG-q5-tgM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,6 +10,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaRoundedLT-Bold.otf">
+            <string>HelveticaRoundedLT-Bold</string>
             <string>HelveticaRoundedLT-Bold</string>
             <string>HelveticaRoundedLT-Bold</string>
             <string>HelveticaRoundedLT-Bold</string>
@@ -101,10 +102,10 @@
                                 <exclude reference="3P2-01-uEy"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="yip-hq-cDr"/>
                                 <exclude reference="Z5G-7F-uw2"/>
                                 <exclude reference="dhC-Q9-07q"/>
                                 <exclude reference="kXE-aD-lGW"/>
-                                <exclude reference="yip-hq-cDr"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -112,10 +113,10 @@
                                 <include reference="3P2-01-uEy"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="yip-hq-cDr"/>
                                 <include reference="Z5G-7F-uw2"/>
                                 <include reference="dhC-Q9-07q"/>
                                 <include reference="kXE-aD-lGW"/>
-                                <include reference="yip-hq-cDr"/>
                             </mask>
                         </variation>
                     </view>
@@ -167,9 +168,6 @@
                                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="19"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="74" y="29" width="117" height="23"/>
-                                                </variation>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,8 +199,7 @@
                                                 <exclude reference="KAg-eW-wqB"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="104" y="0.0" width="191" height="80"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="sKw-cG-8I2"/>
                                                 <include reference="lp2-az-jRg"/>
@@ -381,9 +378,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="101"/>
                                 <color key="textColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="104" y="50" width="193" height="118"/>
-                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="usuário" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-Mu-r32">
                                 <rect key="frame" x="0.0" y="214" width="600" height="35"/>
@@ -392,9 +386,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="213" width="400" height="35"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="6M4-6S-2NI" id="ab6-qT-JzF"/>
                                 </connections>
@@ -406,9 +397,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="258" width="400" height="35"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="6M4-6S-2NI" id="jZv-e3-zBI"/>
                                 </connections>
@@ -423,18 +411,12 @@
                                 <state key="normal" title="Entrar">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="323" width="400" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="doLogin:" destination="6M4-6S-2NI" eventType="touchUpInside" id="I7t-Qq-gNa"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="S89-5x-w7Z">
                                 <rect key="frame" x="290" y="329" width="20" height="20"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="190" y="328" width="20" height="20"/>
-                                </variation>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -529,7 +511,7 @@
                                     <action selector="continueAction:" destination="vET-Ro-2oK" eventType="touchUpInside" id="fGq-XE-UJJ"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8aS-NS-1bq">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8aS-NS-1bq">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -589,6 +571,108 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dz5-pp-9nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3268.5" y="-155.25"/>
+        </scene>
+        <!--Guardians Update Name View Controller-->
+        <scene sceneID="oFU-KN-0cq">
+            <objects>
+                <viewController id="XIb-dp-l8U" customClass="GuardiansUpdateNameViewController" customModule="Nino" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2w7-Kq-8wg"/>
+                        <viewControllerLayoutGuide type="bottom" id="rBH-uQ-qMp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MfL-Xz-Y7n">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5xg-f4-efb">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfl-QT-fzt">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-zy-6tL">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="XIb-dp-l8U" eventType="touchUpInside" id="ybC-Lt-Wax"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Znh-tz-L49">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Znh-tz-L49" firstAttribute="centerX" secondItem="8AV-zy-6tL" secondAttribute="centerX" id="EFO-Nt-aAm"/>
+                            <constraint firstItem="Znh-tz-L49" firstAttribute="centerY" secondItem="8AV-zy-6tL" secondAttribute="centerY" id="GCU-0u-aaP"/>
+                            <constraint firstItem="8AV-zy-6tL" firstAttribute="centerY" secondItem="MfL-Xz-Y7n" secondAttribute="centerY" id="I0g-lr-P5m"/>
+                            <constraint firstItem="Gfl-QT-fzt" firstAttribute="width" secondItem="5xg-f4-efb" secondAttribute="width" id="UHi-eV-jba"/>
+                            <constraint firstItem="Gfl-QT-fzt" firstAttribute="centerX" secondItem="8AV-zy-6tL" secondAttribute="centerX" id="kfV-s1-eif"/>
+                            <constraint firstItem="8AV-zy-6tL" firstAttribute="width" secondItem="Gfl-QT-fzt" secondAttribute="width" id="pC6-tB-qYp"/>
+                            <constraint firstItem="8AV-zy-6tL" firstAttribute="top" secondItem="Gfl-QT-fzt" secondAttribute="bottom" constant="22" id="u4h-QB-XE1"/>
+                            <constraint firstItem="Gfl-QT-fzt" firstAttribute="top" secondItem="5xg-f4-efb" secondAttribute="bottom" constant="23" id="vP4-fy-26M"/>
+                            <constraint firstItem="8AV-zy-6tL" firstAttribute="centerX" secondItem="MfL-Xz-Y7n" secondAttribute="centerX" id="yBk-0f-iA5"/>
+                            <constraint firstItem="5xg-f4-efb" firstAttribute="width" secondItem="MfL-Xz-Y7n" secondAttribute="width" id="zGx-qj-OI8"/>
+                            <constraint firstItem="5xg-f4-efb" firstAttribute="centerX" secondItem="8AV-zy-6tL" secondAttribute="centerX" id="zxj-B3-Tdd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5xg-f4-efb"/>
+                                <exclude reference="Gfl-QT-fzt"/>
+                                <exclude reference="8AV-zy-6tL"/>
+                                <exclude reference="Znh-tz-L49"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="zGx-qj-OI8"/>
+                                <exclude reference="zxj-B3-Tdd"/>
+                                <exclude reference="UHi-eV-jba"/>
+                                <exclude reference="kfV-s1-eif"/>
+                                <exclude reference="vP4-fy-26M"/>
+                                <exclude reference="I0g-lr-P5m"/>
+                                <exclude reference="pC6-tB-qYp"/>
+                                <exclude reference="u4h-QB-XE1"/>
+                                <exclude reference="yBk-0f-iA5"/>
+                                <exclude reference="EFO-Nt-aAm"/>
+                                <exclude reference="GCU-0u-aaP"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5xg-f4-efb"/>
+                                <include reference="Gfl-QT-fzt"/>
+                                <include reference="8AV-zy-6tL"/>
+                                <include reference="Znh-tz-L49"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="zGx-qj-OI8"/>
+                                <include reference="zxj-B3-Tdd"/>
+                                <include reference="UHi-eV-jba"/>
+                                <include reference="kfV-s1-eif"/>
+                                <include reference="vP4-fy-26M"/>
+                                <include reference="I0g-lr-P5m"/>
+                                <include reference="pC6-tB-qYp"/>
+                                <include reference="u4h-QB-XE1"/>
+                                <include reference="yBk-0f-iA5"/>
+                                <include reference="EFO-Nt-aAm"/>
+                                <include reference="GCU-0u-aaP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Znh-tz-L49" id="RPh-YV-QSq"/>
+                        <outlet property="nameTextField" destination="5xg-f4-efb" id="tJZ-ZV-6jj"/>
+                        <outlet property="surnameTextField" destination="Gfl-QT-fzt" id="H83-3N-3n0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="euf-ZI-5Dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3268.5" y="607.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wkf-vw-4xz">

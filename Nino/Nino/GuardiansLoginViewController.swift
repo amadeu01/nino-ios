@@ -159,77 +159,32 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
             let key = KeyBO.createKey(self.usernameTextField.text!, password: self.passwordTextField.text!)
             LoginBO.login(key, completionHandler: { (getCredential) in
                 do {
-//                    //tries to get the credential
-//                    let credential = try getCredential()
-//                    NinoSession.sharedInstance.setCredential(credential)
-//                    //get educator info and school ID
-//                    EducatorBO.getEducator(self.usernameTextField.text!, token: credential.token, completionHandler: { (getProfileAndSchoolID) in
-//                        do {
-//                            //tries to get the current educator
-//                            let (educator, schoolID) = try getProfileAndSchoolID()
-//                            NinoSession.sharedInstance.setEducator(educator.id)
-//                            //get school info
-//                            SchoolBO.getSchool(credential.token, schoolServerID: schoolID, completionHandler: { (school) in
-//                                do {
-//                                    let school = try school()
-//                                    NinoSession.sharedInstance.setSchool(school.id)
-//                                    //posting notification
-//                                    NinoSessionNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
-//                                    //get phases
-//                                    PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
-//                                        do {
-//                                            let phases = try phases()
-//                                            try PhaseBO.addPhasesInSchool(phases)
-//                                            NinoSessionNotificationManager.sharedInstance.addPhasesUpdatedNotification(self)
-//                                            for phase in phases {
-//                                                //get rooms for each phase
-//                                                RoomBO.getRooms(credential.token, phaseID: phase.id, completionHandler: { (rooms) in
-//                                                    do {
-//                                                        let allRooms = try rooms()
-//                                                        try RoomBO.addRoomsInPhase(allRooms, phase: phase.id)
-//                                                    } catch let error {
-//                                                        //TODO: handle getRoom and addRooms errors
-//                                                        print("getRoom error: " + ((error as? ServerError)?.description())!)
-//                                                    }
-//                                                })
-//                                            }
-//                                        } catch {
-//                                            //TODO: handle getPhases and addPhases error
-//                                        }
-//                                    })
-//                                } catch {
-//                                    //TODO: handle getSchool error
-//                                }
-//                            })
-//                            //gets main queue to make UI changes
-//                            dispatch_async(dispatch_get_main_queue(), {
-//                                self.activityIndicator.stopAnimating()
-//                                //changes the view
-//                                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-//                                    delegate.loggedIn = true
-//                                    delegate.setupRootViewController(true)
-//                                }
-//                            })
-//                        }
-//                            //getEducator error
-//                        catch let profileError {
-//                            //TODO: handle profile error
-//                        }
-//                    })
+                    //tries to get the credential
+                    let credential = try getCredential()
+                    NinoSession.sharedInstance.setCredential(credential)
+                    //gets main queue to make UI changes
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.activityIndicator.stopAnimating()
+                        //changes the view
+                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            delegate.loggedIn = true
+                            delegate.setupRootViewController(true)
+                        }
+                    })
                 }
                     //login error
                 catch let error {
-//                    //clean userDefaults and keychain
-//                    KeyBO.removePasswordAndUsername()
-//                    dispatch_async(dispatch_get_main_queue(), {
-//                        self.activityIndicator.stopAnimating()
-//                        self.enableTextFields()
-//                        self.enableButtons()
-//                        if let serverError = error as? ServerError {
-//                            self.errorAlert(serverError)
-//                        }
-//                        self.passwordTextField.text = ""
-//                    })
+                    //clean userDefaults and keychain
+                    KeyBO.removePasswordAndUsername()
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.activityIndicator.stopAnimating()
+                        self.enableTextFields()
+                        self.enableButtons()
+                        if let serverError = error as? ServerError {
+                            self.errorAlert(serverError)
+                        }
+                        self.passwordTextField.text = ""
+                    })
                 }
             })
         }
