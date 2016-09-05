@@ -142,7 +142,7 @@ class SchoolBO: NSObject {
                         guard let firstSchool = info?.first else {
                             dispatch_async(dispatch_get_main_queue(), { 
                                 completionHandler(school: { () -> School in
-                                    throw ServerError.UnexpectedCase
+                                    throw DatabaseError.NotFound
                                 })
                             })
                             return
