@@ -16,8 +16,8 @@ struct Guardian {
 //MARK: Attributes
     let id: String
     let profileID: Int?
-    let name: String
-    let surname: String
+    let name: String?
+    let surname: String?
     let gender: Gender?
     let email: String
     let students: [String]
@@ -36,7 +36,7 @@ struct Guardian {
 
      - returns: struct VO of Guardian type
      */
-    init(id: String, profileID: Int?, name: String, surname: String, gender: Gender?, email: String, students: [String]) {
+    init(id: String, profileID: Int?, name: String?, surname: String?, gender: Gender?, email: String, students: [String]) {
         self.id = id
         self.name = name
         self.surname = surname

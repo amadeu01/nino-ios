@@ -37,7 +37,7 @@ class GuardianBO: NSObject {
                         GuardianDAO.createGuardians([guardian], completionHandler: { (write) in
                             do {
                                 try write()
-                                GuardianMechanism.createGuardian(token, schoolID: school, studentID: student, email: email, name: name, surname: surname, completionHandler: { (profileID, error, data) in
+                                GuardianMechanism.createGuardian(token, schoolID: school, studentID: student, email: email, completionHandler: { (profileID, error, data) in
                                     if let err = error {
                                         //TODO: handle error data
                                         dispatch_async(dispatch_get_main_queue(), {
@@ -125,22 +125,6 @@ class GuardianBO: NSObject {
                                         })
                                         return
                                     }
-                                    guard let name = guardianName else {
-                                        let error = NotificationMessage()
-                                        error.setServerError(ServerError.UnexpectedCase)
-                                        dispatch_async(dispatch_get_main_queue(), {
-                                            NinoNotificationManager.sharedInstance.addGuardiansUpdatedNotification(self, error: error, info: nil)
-                                        })
-                                        return
-                                    }
-                                    guard let surname = guardianSurname else {
-                                        let error = NotificationMessage()
-                                        error.setServerError(ServerError.UnexpectedCase)
-                                        dispatch_async(dispatch_get_main_queue(), {
-                                            NinoNotificationManager.sharedInstance.addGuardiansUpdatedNotification(self, error: error, info: nil)
-                                        })
-                                        return
-                                    }
                                     guard let email = guardianEmail else {
                                         let error = NotificationMessage()
                                         error.setServerError(ServerError.UnexpectedCase)
@@ -153,7 +137,7 @@ class GuardianBO: NSObject {
                                     if let genderInt = guardianGender {
                                         gender = Gender(rawValue: genderInt)
                                     }
-                                    let guardian = Guardian(id: StringsMechanisms.generateID(), profileID: id, name: name, surname: surname, gender: gender, email: email, students: [student])
+                                    let guardian = Guardian(id: StringsMechanisms.generateID(), profileID: id, name: guardianName, surname: guardianSurname, gender: gender, email: email, students: [student])
                                     serverGuardians.append(guardian)
                                 }
                                 let comparison = self.compareGuardians(serverGuardians, localGuardians: localGuardians)

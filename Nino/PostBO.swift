@@ -82,4 +82,20 @@ class PostBO: NSObject {
             }
         }
     }
+    
+    static func getIdForPost(post: String, completionHandler: (id: () throws -> Int) -> Void) {
+        PostDAO.getIdForPost(post) { (id) in
+            do {
+                let postID = try id()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        return postID
+                    })
+                })
+            } catch {
+                //TODO: handle error
+                print("get id for post DAO error")
+            }
+        }
+    }
 }

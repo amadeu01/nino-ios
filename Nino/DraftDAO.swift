@@ -113,13 +113,27 @@ class DraftDAO: NSObject {
                 let realmDrafts = selectedStudent.drafts
                 let filter = NSPredicate(format: "type = %d", PostTypes.Schedule.rawValue)
                 let scheduleDrafts = realmDrafts.filter(filter)
-                var selectedDraft: PostRealmObject?
                 for draft in scheduleDrafts {
-                    //TODO: check date here
+                    if let draftDate = draft.date {
+                        if NSCalendar.currentCalendar().isDate(date, inSameDayAsDate: draftDate) {
+                            dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                                completionHandler(isThere: { () -> Bool in
+                                    return true
+                                })
+                            })
+                            return
+                        }
+                    } else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(isThere: { () -> Bool in
+                                throw DatabaseError.MissingDate
+                            })
+                        })
+                    }
                 }
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(isThere: { () -> Bool in
-                        return selectedDraft != nil
+                        return false
                     })
                 })
             } catch {
@@ -151,13 +165,126 @@ class DraftDAO: NSObject {
                     })
                 }
                 if let newMetadata = metadata {
+                        do {
+                            let data = try NSJSONSerialization.dataWithJSONObject(newMetadata, options: .PrettyPrinted)
+                            try realm.write({
+                                selectedDraft.metadata = data
+                            })
+                        } catch {
+                            dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                                completionHandler(update: { () -> Post in
+                                    throw RealmError.UnexpectedCase
+                                })
+                            })
+                        }
+                }
+                if let newAttachment = attachment {
                     try realm.write({ 
-//                        selectedDraft.metadata = metadata
+                        selectedDraft.attachment = attachment
                     })
                 }
+                if let newTargets = targets {
+                    for student in newTargets {
+                        let realmStundet = realm.objectForPrimaryKey(StudentRealmObject.self, key: student)
+                        guard let target = realmStundet else {
+                            dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                                completionHandler(update: { () -> Post in
+                                    throw DatabaseError.NotFound
+                                })
+                            })
+                            return
+                        }
+                        try realm.write({ 
+                            selectedDraft.targetsDraft.append(target)
+                        })
+                    }
+                }
+                try realm.write({ 
+                    realm.add(selectedDraft, update: true)
+                })
+                var currentTargets = [String]()
+                for student in selectedDraft.targetsDraft {
+                    currentTargets.append(student.id)
+                }
+                var currentRead = [String]()
+                for readProfile in selectedDraft.readGuardians {
+                    currentRead.append(readProfile.id)
+                }
+                var dictionary: NSDictionary?
+                if let data = selectedDraft.metadata {
+                    do {
+                        dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
+                    } catch {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(update: { () -> Post in
+                                throw RealmError.UnexpectedCase
+                            })
+                        })
+                    }
+                }
+                let post = Post(id: draft, postID: selectedDraft.postID.value, type: selectedDraft.type, date: selectedDraft.date, message: selectedDraft.message, attachment: selectedDraft.attachment, targets: currentTargets, readProfileIDs: currentRead, metadata: dictionary)
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(update: { () -> Post in
+                        return post
+                    })
+                })
             } catch {
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(update: { () -> Post in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
+    static func getIDForScheduleDraft(student: String, date: NSDate, completionHandler: (getID: () throws -> String) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let realmStudent = realm.objectForPrimaryKey(StudentRealmObject.self, key: student)
+                guard let selectedStudent = realmStudent else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(getID: { () -> String in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let drafts = selectedStudent.drafts
+                let filter = NSPredicate(format: "type == %d", PostTypes.Schedule.rawValue)
+                let selectedDrafts = drafts.filter(filter)
+                var id: String?
+                for draft in selectedDrafts {
+                    if let draftDate = draft.date {
+                        if NSCalendar.currentCalendar().isDate(date, inSameDayAsDate: draftDate) {
+                            id = draft.id
+                        }
+                    } else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                            completionHandler(getID: { () -> String in
+                                throw DatabaseError.MissingDate
+                            })
+                        })
+                        return
+                    }
+                }
+                if id == nil {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(getID: { () -> String in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                } else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(getID: { () -> String in
+                            return id!
+                        })
+                    })
+                }
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(getID: { () -> String in
                         throw RealmError.CouldNotCreateRealm
                     })
                 })

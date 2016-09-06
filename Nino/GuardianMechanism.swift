@@ -10,10 +10,10 @@ import UIKit
 
 class GuardianMechanism: NSObject {
 
-    static func createGuardian(token: String, schoolID: Int, studentID: Int, email: String, name: String, surname: String, completionHandler: (profileID: Int?, error: Int?, data: String?) -> Void) {
+    static func createGuardian(token: String, schoolID: Int, studentID: Int, email: String, completionHandler: (profileID: Int?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CreateGuardian.description(nil)
-            let body: [String: AnyObject] = ["token": token, "school_id": schoolID, "student_profile_id": studentID, "name": name, "surname": surname, "email": email]
+            let body: [String: AnyObject] = ["token": token, "school_id": schoolID, "student_profile_id": studentID, "email": email]
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
                     completionHandler(profileID: nil, error: error?.code, data: nil)

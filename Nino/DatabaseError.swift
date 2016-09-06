@@ -12,4 +12,5 @@ enum DatabaseError: ErrorType {
     case NotFound
     case MissingID
     case ConflictingIDs
+    case MissingDate
 }
