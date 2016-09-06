@@ -21,9 +21,6 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     
     private var leftCells: [MyDaySection] = []
     private var rightCells: [MyDaySection] = []
-
-    
-    var student: Student?
     
     /**
      On load sets delegates, background and reloads the data
@@ -217,8 +214,18 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         let cell = self.cellForIndexPath(indexPath, sections: section)
         let newCell = MyDayBO.cellDidChange(value, cell: cell)
         self.changeCellInSide(indexPath, isLeft: isLeftCell, newCell: newCell)
-        MyDayBO.updateDraft("df", left: self.leftCells, right: self.rightCells) { (update) in
-            
+        do {
+            try MyDayBO.updateDraft(self.leftCells, right: self.rightCells, completionHandler: { (update) in
+                do {
+                    try update()
+                } catch let error {
+                    //TODO: handle error
+                }
+            })
+        } catch let error {
+            if let myDayError = error as? MyDayError {
+                //TODO: handle missing student
+            }
         }
     }
     

@@ -175,7 +175,7 @@ class SelectClassroomTableViewController: UITableViewController {
         if let error = userInfo["error"] {
             //TODO:
         } else if let message = userInfo["info"] as? NotificationMessage {
-            if let newPhases = message.dataToInsert as? [Phase] {
+            if let newPhases = message.dataToInsert as? [Room] {
                 if newPhases.count > 0 {
                     reloadData()
                 }
@@ -195,7 +195,7 @@ class SelectClassroomTableViewController: UITableViewController {
         if let error = userInfo["error"] {
             //TODO:
         } else if let message = userInfo["info"] as? NotificationMessage {
-            if let newRooms = message.dataToInsert as? [Room] {
+            if let newRooms = message.dataToInsert as? [Phase] {
                 if newRooms.count > 0 {
                     reloadData()
                 }

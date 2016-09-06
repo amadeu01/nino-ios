@@ -1975,7 +1975,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = N79DG9RG7K;
+						DevelopmentTeam = G52JHG5LJN;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;

@@ -187,4 +187,8 @@ class AccountMechanism: NSObject {
             //TODO: handle missing parameter error
         }
     }
+    
+    static func logout() {
+        
+    }
 }

@@ -13,8 +13,8 @@ class GuardianRealmObject: Object {
     
 //MARK: Required Attributes
     dynamic var id: String = ""
-    dynamic var name: String = ""
-    dynamic var surname: String = ""
+    dynamic var name: String? = nil
+    dynamic var surname: String? = nil
     dynamic var email: String = ""
     
 //MARK: Optional Attributes

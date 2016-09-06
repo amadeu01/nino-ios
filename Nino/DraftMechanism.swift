@@ -10,7 +10,7 @@ import UIKit
 
 class DraftMechanism: NSObject {
     
-    static func createDraft(token: String, schoolID: Int, message: String, type: Int, profiles: [Int], metadata: NSDictionary?, attachment: String?, completionHandler: (postID: Int?, error: Int?, data: String?) -> Void) {
+    static func createDraft(token: String, schoolID: Int, message: String, type: Int, profiles: [Int], metadata: NSDictionary?, attachment: String?, completionHandler: (postID: Int?, postDate: NSDate?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CreateDraft.description(nil)
             var body: [String: AnyObject] = ["token": token, "message": message, "type": type, "profiles": profiles, "school": schoolID]
@@ -22,7 +22,7 @@ class DraftMechanism: NSObject {
             }
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    completionHandler(postID: nil, error: error?.code, data: nil)
+                    completionHandler(postID: nil, postDate: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
@@ -30,13 +30,15 @@ class DraftMechanism: NSObject {
                     //FIXME: decode data as json
                     let data = json["data"].string
                     let error = json["error"].int
-                    completionHandler(postID: nil, error: error, data: data)
+                    completionHandler(postID: nil, postDate: nil, error: error, data: data)
                 }
                     //success
                 else {
                     //FIXME: decode json to get id
                     let id = json["data"]["draft"]["id"].int
-                    completionHandler(postID: id, error: nil, data: nil)
+                    let dateString = json["data"]["draft"]["createdat"].string
+                    let date = StringsMechanisms.dateFromString(dateString!)
+                    completionHandler(postID: id, postDate: date, error: nil, data: nil)
                 }
             })
         } catch {
@@ -83,4 +85,44 @@ class DraftMechanism: NSObject {
             //never SHOULD be reached
         }
     }
+    
+    static func updateDraft(token: String, draftID: Int, schoolID: Int, message: String?, profiles: [Int]?, metadata: NSDictionary?, attachment: NSData?, completionHandler: (updated: Bool?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.UpdateDraft.description([String(draftID)])
+            var body: [String: AnyObject] = ["token": token, "school": schoolID]
+            if let meta = metadata {
+                body["metadata"] = meta
+            }
+            if let attc = attachment {
+                body["attachment"] = attc
+            }
+            if let txt = message {
+                body["message"] = txt
+            }
+            if let students = profiles {
+                body["profiles"] = students
+            }
+            RestApiManager.makeHTTPPutRequest(route, body: body, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(updated: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(updated: nil, error: error, data: data)
+                }
+                //success
+                else {
+                    //FIXME: decode json to get id
+                    completionHandler(updated: true, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
 }
