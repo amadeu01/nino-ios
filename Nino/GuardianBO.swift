@@ -219,6 +219,49 @@ class GuardianBO: NSObject {
         }
     }
     
+    static func updateNameAndSurname(name: String, surname: String, completionHandler: (id: () throws -> Int) -> Void) {
+        
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            dispatch_async(dispatch_get_main_queue(), {
+                completionHandler(id: { () -> Int in
+                    throw AccountError.InvalidToken
+                })
+            })
+            return
+        }
+        
+        GuardianMechanism.updateNameAndSurname(token, name: name, surname: surname) { (info, error, data) in
+            if let error = error {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        throw ErrorBO.decodeServerError(error)
+                    })
+                })
+            }
+            guard let updatedProfile = info else {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(id: { () -> Int in
+                        throw ServerError.UnexpectedCase
+                    })
+                })
+                return
+            }
+            guard let id = updatedProfile["id"] as? Int else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(id: { () -> Int in
+                        throw ServerError.UnexpectedCase
+                    })
+                })
+                return
+            }
+            dispatch_async(dispatch_get_main_queue(), { 
+                completionHandler(id: { () -> Int in
+                    return id
+                })
+            })
+        }
+    }
+    
     static func getStudents(token: String, completionHandler: (students: () throws -> [Student]) -> Void) {
         GuardianDAO.getStudents { (students) in
             do {

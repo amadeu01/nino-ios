@@ -31,6 +31,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         profileImage.layer.borderColor = CustomizeColor.lessStrongBackgroundNino().CGColor
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
+        
+        
     }
     
     

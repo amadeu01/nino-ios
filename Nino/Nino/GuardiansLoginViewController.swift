@@ -185,7 +185,7 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
                                 do {
                                     let guardian = try getProfile()
                                     
-                                    if guardian.name.isEmpty {
+                                    if guardian.name != nil && guardian.name!.isEmpty {
                                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                         let vc = storyboard.instantiateViewControllerWithIdentifier("UpdateUserInfo")
                                         self.presentViewController(vc, animated: true, completion: nil)

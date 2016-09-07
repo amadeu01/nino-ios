@@ -90,7 +90,27 @@ class GuardiansUpdateNameViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         
-        
+        GuardianBO.updateNameAndSurname(self.nameTextField.text!, surname: self.surnameTextField.text!) { (id) in
+            self.confirmButton.enabled = true
+            self.confirmButton.alpha = 1
+            self.nameTextField.enabled = true
+            self.nameTextField.alpha = 1
+            self.surnameTextField.enabled = true
+            self.surnameTextField.alpha = 1
+            self.activityIndicator.hidden = true
+            self.activityIndicator.stopAnimating()
+            do {
+                try id()
+                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                    delegate.loggedIn = true
+                    delegate.setupRootViewController(true)
+                }
+            } catch {
+                let alert = DefaultAlerts.usedDidNotLoggedIn()
+                self.presentViewController(alert, animated: true, completion: nil)
+                //TODO handle error
+            }
+        }
     }
 
     /*
