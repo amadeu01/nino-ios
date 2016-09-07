@@ -39,7 +39,6 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
     
 //MARK: Date Picker Methods
     func dateDidChange(date: NSDate) {
@@ -63,13 +62,19 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
      Gets the info from BO and reloads the tableViews data, alse updating the size of the scrollView
      */
     func reloadData() {
-//        guard let currentStudent = self.student else {
-//            //TODO: handle missing student
-//            return
-//        }
+        guard let currentStudent = SchoolSession.currentStudent else {
+            //TODO: handle missing student
+            print("missing student")
+            return
+        }
+        guard let currentRoom = SchoolSession.currentRoom else {
+            //TODO: handle missing room
+            print("missing room")
+            return
+        }
         
         do {
-            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom("sad"/*currentStudent.roomID*/)
+            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom)
             
             leftTableView.reloadData()
             rightTableView.reloadData()

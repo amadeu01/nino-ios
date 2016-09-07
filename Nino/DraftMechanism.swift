@@ -72,10 +72,16 @@ class DraftMechanism: NSObject {
                     for subjson in datajson {
                         let id = subjson["id"].int
                         let message = subjson["message"].string
-                        let metadata = subjson["metadata"].object
+                        let metadata = subjson["metadata"].string
                         let attachment = subjson["attachment"].string
                         let type = subjson["type"].int
-                        let dict: [String: AnyObject?] = ["draftID": id, "message": message, "metadata": metadata, "attachment": attachment, "type": type]
+                        let dateString = subjson["createdat"].string
+                        let date = StringsMechanisms.dateFromString(dateString!)
+                        var dictMetadata: NSDictionary?
+                        if let meta = metadata {
+                            dictMetadata = StringsMechanisms.convertStringToDictionary(meta)
+                        }
+                        let dict: [String: AnyObject?] = ["draftID": id, "message": message, "metadata": dictMetadata, "attachment": attachment, "type": type, "date": date]
                         draftsDict.append(dict)
                     }
                     completionHandler(info: draftsDict, error: nil, data: nil)

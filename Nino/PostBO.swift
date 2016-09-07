@@ -98,4 +98,82 @@ class PostBO: NSObject {
             }
         }
     }
+    
+    static func comparePosts(serverPosts: [Post], localPosts: [Post]) -> [String: [Post]] {
+        var result = [String: [Post]]()
+        var wasChanged = [Post]()
+        var newPosts = [Post]()
+        var wasDeleted = [Post]()
+        //check all server phases
+        for serverPost in serverPosts {
+            var found = false
+            //look for its similar
+            for localPost in localPosts {
+                //found
+                if serverPost.postID == localPost.postID {
+                    found = true
+                    //updated
+                    if serverPost.message != localPost.message {
+                        wasChanged.append(serverPost)
+                        continue
+                    }
+                    if serverPost.attachment != localPost.attachment {
+                        wasChanged.append(serverPost)
+                        continue
+                    }
+                    if serverPost.metadata != localPost.metadata {
+                        wasChanged.append(serverPost)
+                        continue
+                    }
+                    if serverPost.targets != localPost.targets {
+                        wasChanged.append(serverPost)
+                        continue
+                    }
+                    if let serverRead = serverPost.readProfileIDs {
+                        if let localRead = localPost.readProfileIDs {
+                            if serverRead != localRead {
+                                wasChanged.append(serverPost)
+                                continue
+                            }
+                        } else {
+                            wasChanged.append(serverPost)
+                            continue
+                        }
+                    }
+                    if let serverDate = serverPost.date {
+                        if let localDate = localPost.date {
+                            if !NSCalendar.currentCalendar().isDate(serverDate, inSameDayAsDate: localDate) {
+                                wasChanged.append(serverPost)
+                                continue
+                            }
+                        } else {
+                            wasChanged.append(serverPost)
+                            continue
+                        }
+                    }
+                }
+            }
+            //not found locally
+            if !found {
+                newPosts.append(serverPost)
+            }
+        }
+        for localPost in localPosts {
+            var found = false
+            for serverPost in serverPosts {
+                if localPost.postID == serverPost.postID {
+                    found = true
+                    break
+                }
+            }
+            if !found {
+                wasDeleted.append(localPost)
+            }
+        }
+        
+        result["newPosts"] = newPosts
+        result["wasChanged"] = wasChanged
+        result["wasDeleted"] = wasDeleted
+        return result
+    }
 }
