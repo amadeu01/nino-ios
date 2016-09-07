@@ -174,6 +174,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                     let students = try students()
                     for student in students {
                         self.students.append(student.id)
+                        //TODO: get guardian for student
                     }
                     self.studentProfileTableView.reloadData()
                 } catch {

@@ -167,34 +167,84 @@ class MyDayBO: NSObject {
         }
     }
     
-    static func updateDraft(student: String, left: [MyDaySection], right: [MyDaySection], completionHandler: (update: () throws -> Void) -> Void) {
-        let dict = self.getDictFromAgenda(Agenda(leftSections: left, rightSections: right))
-        let leftArray = dict["left"] as? [[String: AnyObject]]
-        for array in leftArray! {
-            let id = array["id"] as? Int
-            print("secID: \(id!)")
-            let rows = array["rows"] as? [[String: AnyObject]]
-            for row in rows! {
-                let id = row["id"] as? Int
-                print("   rowID: \(id!)")
-                let cells = row["values"] as? [[Int]]
-                for cell in cells! {
-                    print("      cellValues: \(cell)")
-                }
-            }
+    static func updateDraft(left: [MyDaySection], right: [MyDaySection], completionHandler: (update: () throws -> Void) -> Void) throws {
+        guard let student = SchoolSession.currentStudent else {
+            let error = MyDayError(description: "Selecione um aluno para continuar")
+            throw error
         }
-        let rightArray = dict["right"] as? [[String: AnyObject]]
-        for array in rightArray! {
-            let id = array["id"] as? Int
-            print("secID: \(id!)")
-            let rows = array["rows"] as? [[String: AnyObject]]
-            for row in rows! {
-                let id = row["id"] as? Int
-                print("   rowID: \(id!)")
-                let cells = row["values"] as? [[Int]]
-                for cell in cells! {
-                    print("      cellValues: \(cell)")
+        let dict = self.getDictFromAgenda(Agenda(leftSections: left, rightSections: right))
+        DraftBO.shouldCreateScheduleDraft(student, date: NSDate()) { (shouldCreate) in
+            do {
+                let should = try shouldCreate()
+                if should {
+                    DraftBO.createDraft(PostTypes.Schedule.rawValue, message: "", targets: [student], metadata: dict, attachment: nil, completionHandler: { (create) in
+                        do {
+                            try create()
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                completionHandler(update: { 
+                                    return
+                                })
+                            })
+                        } catch {
+                            print("createDraft error")
+                            //TODO: create error
+                        }
+                    })
+                } else {
+                    DraftBO.getIDForScheduleDraft(student, date: NSDate(), completionHandler: { (id) in
+                        do {
+                            let draftID = try id()
+                            DraftBO.updateDraft(draftID, message: nil, targets: nil, metadata: dict, attachment: nil, completionHandler: { (update) in
+                                do {
+                                    let post = try update()
+                                    let dict = post.metadata!
+                                    let leftArray = dict["left"] as? [[String: AnyObject]]
+                                    for array in leftArray! {
+                                        let id = array["id"] as? Int
+                                        print("secID: \(id!)")
+                                        let rows = array["rows"] as? [[String: AnyObject]]
+                                        for row in rows! {
+                                            let id = row["id"] as? Int
+                                            print("   rowID: \(id!)")
+                                            let cells = row["values"] as? [[Int]]
+                                            for cell in cells! {
+                                                print("      cellValues: \(cell)")
+                                            }
+                                        }
+                                    }
+                                    let rightArray = dict["right"] as? [[String: AnyObject]]
+                                    for array in rightArray! {
+                                        let id = array["id"] as? Int
+                                        print("secID: \(id!)")
+                                        let rows = array["rows"] as? [[String: AnyObject]]
+                                        for row in rows! {
+                                            let id = row["id"] as? Int
+                                            print("   rowID: \(id!)")
+                                            let cells = row["values"] as? [[Int]]
+                                            for cell in cells! {
+                                                print("      cellValues: \(cell)")
+                                            }
+                                        }
+                                    }
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(update: {
+                                            return
+                                        })
+                                    })
+                                } catch {
+                                    print("update draft error")
+                                    //TODO: update draft error
+                                }
+                            })
+                        } catch {
+                            print("get draftID error")
+                            //TODO: id error
+                        }
+                    })
                 }
+            } catch {
+                print("shouldCreate error")
+                //TODO: should create error
             }
         }
     }

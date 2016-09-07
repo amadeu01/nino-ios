@@ -348,6 +348,9 @@ class SchoolBO: NSObject {
                 case .MissingID:
                     //TODO: getSchool
                     break
+                default:
+                    //TODO: explode the app
+                    break
                 }
             }//end catch
         }//end DAO method

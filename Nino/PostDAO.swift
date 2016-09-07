@@ -97,4 +97,72 @@ class PostDAO: NSObject {
         }
     }
     
+    static func updatePostDate(post: String, date: NSDate, completionHandler: (update: () throws -> Void) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let postRealm = realm.objectForPrimaryKey(PostRealmObject.self, key: post)
+                guard let selectedPost = postRealm else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(update: { 
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                try realm.write({ 
+                    selectedPost.date = date
+                    realm.add(selectedPost, update: true)
+                })
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
+    static func getIdForPost(post: String, completionHandler: (id: () throws -> Int) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let postRealm = realm.objectForPrimaryKey(PostRealmObject.self, key: post)
+                guard let selectedPost = postRealm else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(id: { () -> Int in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                guard let id = selectedPost.postID.value else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(id: { () -> Int in
+                            throw DatabaseError.MissingID
+                        })
+                    })
+                    return
+                }
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(id: { () -> Int in
+                        return id
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(id: { () -> Int in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
 }

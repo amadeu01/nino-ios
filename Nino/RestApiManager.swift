@@ -92,6 +92,62 @@ class RestApiManager: NSObject {
         }
     }
     
+    static func makeHTTPPutRequest(path: String, body: [String : AnyObject], onCompletion: ServiceResponse) {
+        let url = baseURL + path
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.HTTPMethod = "PUT"
+        do {
+            let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
+            request.HTTPBody = jsonBody
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue(self.device, forHTTPHeaderField: "User-Agent")
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+                guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
+                    onCompletion(json: nil, error: error, statusCode: nil)
+                    return
+                }
+                guard let jsonData = data else {
+                    onCompletion(json: nil, error: error, statusCode: statusCode)
+                    return
+                }
+                let json = JSON(data: jsonData)
+                onCompletion(json: json, error: nil, statusCode: statusCode)
+            })
+            task.resume()
+        } catch {
+            onCompletion(json: nil, error: nil, statusCode: nil)
+        }
+    }
+    
+    static func makeHTTPDeleteRequest(path: String, body: [String : AnyObject], onCompletion: ServiceResponse) {
+        let url = baseURL + path
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.HTTPMethod = "DELETE"
+        do {
+            let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: NSJSONWritingOptions.PrettyPrinted)
+            request.HTTPBody = jsonBody
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.setValue(self.device, forHTTPHeaderField: "User-Agent")
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+                guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode else {
+                    onCompletion(json: nil, error: error, statusCode: nil)
+                    return
+                }
+                guard let jsonData = data else {
+                    onCompletion(json: nil, error: error, statusCode: statusCode)
+                    return
+                }
+                let json = JSON(data: jsonData)
+                onCompletion(json: json, error: nil, statusCode: statusCode)
+            })
+            task.resume()
+        } catch {
+            onCompletion(json: nil, error: nil, statusCode: nil)
+        }
+    }
+    
     static func makeHTTPPostUploadRequest(path: String, token: String, data: NSData, onCompletion: ServiceResponse) {
         let url = baseURL + path
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
