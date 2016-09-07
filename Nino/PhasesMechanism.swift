@@ -55,6 +55,37 @@ class PhasesMechanism: NSObject {
         }
     }
     
+    static func getPhase(token: String, phaseID: Int, completionHandler: (info: [String: AnyObject?]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetPhase.description([String(phaseID)])
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(info: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(info: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let data = json["data"]
+                    
+                    let id = data["id"].int
+                    let name = data["name"].string
+                    let schoolID = data["school"].int
+                    let dict: [String: AnyObject?] = ["phaseID": id, "name": name, "schoolID": schoolID]
+                    completionHandler(info: dict, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
     /**
      Creates a new phase
      

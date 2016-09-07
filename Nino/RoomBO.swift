@@ -80,6 +80,127 @@ class RoomBO: NSObject {
         }
     }
     
+    static func getRoom(roomID: Int, completionHandler: (room: () throws -> Room) -> Void) {
+        RoomDAO.getLocalIdForRoom(roomID) { (get) in
+            do {
+                let id = try get()
+                RoomDAO.getRoomWithID(id, completionHandler: { (getRoom) in
+                    do {
+                        let room = try getRoom()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completionHandler(room: { () -> Room in
+                                return room
+                            })
+                        })
+                    } catch {
+                        //TODO Handle -> Should NOT be here
+                    }
+                })
+            } catch let error {
+                if let dataBaseError = error as? DatabaseError {
+                    //There's no Room. Let's Get and create one
+                    if dataBaseError == DatabaseError.NotFound {
+                        guard let token = NinoSession.sharedInstance.credential?.token else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(room: { () -> Room in
+                                    throw AccountError.InvalidToken
+                                })
+                            })
+                            return
+                        }
+                        RoomMechanism.getRoom(token, roomID: roomID, completionHandler: { (info, error, data) in
+                            if let errorType = error {
+                                //TODO: Handle error data and code
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(room: { () -> Room in
+                                        throw ErrorBO.decodeServerError(errorType)
+                                    })
+                                })
+                            } else if let roomsInfo = info {
+                                
+                                let id = roomsInfo["roomID"] as? Int
+                                let name = roomsInfo["name"] as? String
+                                let phase = roomsInfo["phaseID"] as? Int
+                                guard let roomID = id else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(room: { () -> Room in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                guard let roomName = name else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(room: { () -> Room in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                
+                                guard let phaseID = phase else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(room: { () -> Room in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                
+                                PhaseBO.getPhase(phaseID, completionHandler: { (phase) in
+                                    do {
+                                        let phase = try phase()
+                                        let roomVO = Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phase.id, name: roomName)
+                                        RoomDAO.createRooms([roomVO], completionHandler: { (write) in
+                                            do {
+                                                try write()
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    completionHandler(room: { () -> Room in
+                                                        return roomVO
+                                                    })
+                                                })
+                                            } catch {
+                                                
+                                            }
+                                        })
+                                    } catch {
+                                        
+                                    }
+                                })
+                                
+//                                let room =  Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: phaseID, name: roomName)
+                            
+                            }
+                                //unexpected case
+                            else {
+                                //TODO Halp Becke
+                            }
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
+    static func getLocalIdForRoom(roomID: Int, completionHandler: (id: () throws -> String) -> Void) {
+        RoomDAO.getLocalIdForRoom(roomID) { (get) in
+            do {
+                let id = try get()
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(id: { () -> String in
+                        return id
+                    })
+                })
+            } catch let error {
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(id: { () -> String in
+                        throw error
+                    })
+                })
+            }
+        }
+    }
+    
     static func getAllRooms(completionHandler: (rooms: () throws -> [Room]) -> Void) {
         RoomDAO.getAllRooms { (rooms) in
             do {

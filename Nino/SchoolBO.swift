@@ -117,6 +117,117 @@ class SchoolBO: NSObject {
         }
     }
     
+    static func getSchoolWithID(token: String, schoolID: Int, completionHandler: (school: () throws -> School) -> Void) {
+        SchoolDAO.getLocalIdForSchool(schoolID) { (get) in
+            do {
+                let schoolID = try get()
+                SchoolDAO.getSchoolWithID(schoolID) { (getSchool) in
+                    do {
+                        let school = try getSchool()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completionHandler(school: { () -> School in
+                                return school
+                            })
+                        })
+                    } catch {
+                        //TODO Handle error
+                    }
+                }
+            } catch let error {
+                if let dataBaseError = error as? DatabaseError {
+                    //There's no Room. Let's Get and create one
+                    if dataBaseError == DatabaseError.NotFound {
+                        guard let token = NinoSession.sharedInstance.credential?.token else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(school: { () -> School in
+                                    throw AccountError.InvalidToken
+                                })
+                            })
+                            return
+                        }
+                        SchoolMechanism.getSchoolWithID(token, schoolID: schoolID, completionHandler: { (info, error, data) in
+                            if let errorType = error {
+                                //TODO: Handle error data and code
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(school: { () -> School in
+                                        throw ErrorBO.decodeServerError(errorType)
+                                    })
+                                })
+                            } else if let schoolInfo = info {
+                                let id = schoolInfo["schoolID"] as? Int
+                                let name = schoolInfo["name"] as? String
+                                let email = schoolInfo["email"] as? String
+                                let address = schoolInfo["address"] as? String
+                                let telephone = schoolInfo["telephone"] as? String
+                                
+                                guard let schoolID = id else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(school: { () -> School in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                guard let schoolName = name else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(school: { () -> School in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                guard let schoolEmail = email else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(school: { () -> School in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                guard let schoolAddress = address else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(school: { () -> School in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                guard let schoolTelephone = telephone else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(school: { () -> School in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                    return
+                                }
+                                
+                                let schoolVO = School(id: StringsMechanisms.generateID(), schoolId: schoolID, name: schoolName, address: schoolAddress, legalNumber: nil, telephone: schoolTelephone, email: schoolEmail, owner: nil, logo: nil)
+                                //TODO Solve this stuff here plis
+                                
+                                SchoolDAO.createSchool(schoolVO, completionHandler: { (writeSchool) in
+                                    do {
+                                        try writeSchool()
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(school: { () -> School in
+                                                return schoolVO
+                                            })
+                                        })
+                                    } catch {
+                                        //TODO Handle error
+                                    }
+                                })
+                            }
+                                //unexpected case
+                            else {
+                                //TODO Handle error - Halp Becke
+                            }
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
     static func getSchool(token: String, completionHandler: (school: () throws -> School) -> Void) {
         
         SchoolDAO.getSchool { (school) in

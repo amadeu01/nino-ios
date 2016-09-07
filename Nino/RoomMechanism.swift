@@ -90,6 +90,37 @@ class RoomMechanism: NSObject {
         }
     }
     
+    static func getRoom(token: String, roomID: Int, completionHandler: (info: [String: AnyObject?]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetRoom.description([String(roomID)])
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(info: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(info: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let data = json["data"]
+                    
+                    let id = data["id"].int
+                    let name = data["name"].string
+                    let phaseID = data["class"].int
+                    let dict: [String: AnyObject?] = ["roomID": id, "name": name, "phaseID": phaseID]
+                    completionHandler(info: dict, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
     static func getAllRooms(token: String, schoolID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetAllRooms.description([String(schoolID)])
@@ -126,7 +157,5 @@ class RoomMechanism: NSObject {
         } catch {
             //TODO: handle missing parameter error
         }
-        
     }
-    
 }

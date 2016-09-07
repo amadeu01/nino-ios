@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070AD8901D8021FA00AA98B3 /* GuardiansSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD88F1D8021FA00AA98B3 /* GuardiansSession.swift */; };
+		070AD8911D8021FA00AA98B3 /* GuardiansSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD88F1D8021FA00AA98B3 /* GuardiansSession.swift */; };
+		070AD8921D8021FA00AA98B3 /* GuardiansSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD88F1D8021FA00AA98B3 /* GuardiansSession.swift */; };
 		071832221D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */; };
 		071832231D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */; };
 		071832241D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */; };
@@ -926,6 +929,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070AD88F1D8021FA00AA98B3 /* GuardiansSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansSession.swift; sourceTree = "<group>"; };
 		071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansRegisterPasswordViewController.swift; sourceTree = "<group>"; };
 		071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansConfirmEmailViewController.swift; sourceTree = "<group>"; };
 		07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySliderIcon.swift; sourceTree = "<group>"; };
@@ -1750,6 +1754,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEC39C81CEE128B00867624 /* AppDelegate.swift */,
+				070AD88F1D8021FA00AA98B3 /* GuardiansSession.swift */,
 				07DB6AAF1D50CA8E003C07EC /* Controllers */,
 				07DB6AAE1D50CA75003C07EC /* Storyboards */,
 				287F31971D5DFEB100DF2E1C /* View */,
@@ -1962,6 +1967,9 @@
 		ACEC39BD1CEE128B00867624 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					0,
+				);
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Danilo Becke";
@@ -2570,6 +2578,7 @@
 				288B27D11D37D1AD00B47DC0 /* Activity.swift in Sources */,
 				07B22B8B1D6E33980037F71B /* DraftMechanism.swift in Sources */,
 				AC5128591D50D2E400A2760C /* AccountError.swift in Sources */,
+				070AD8901D8021FA00AA98B3 /* GuardiansSession.swift in Sources */,
 				28AE87081D3AAE6200993AF8 /* UIImageView+Letters.m in Sources */,
 				ACEC39C91CEE128B00867624 /* AppDelegate.swift in Sources */,
 				AC7BB78F1D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
@@ -2653,6 +2662,7 @@
 				288B27B61D37D1AC00B47DC0 /* Student.swift in Sources */,
 				AC79F0461D54FC4500583452 /* StudentDAO.swift in Sources */,
 				ACF1943D1D060D3200F1E68A /* EventBO.swift in Sources */,
+				070AD8911D8021FA00AA98B3 /* GuardiansSession.swift in Sources */,
 				288B27BD1D37D1AC00B47DC0 /* Room.swift in Sources */,
 				288B27BE1D37D1AC00B47DC0 /* Key.swift in Sources */,
 				288B27BC1D37D1AC00B47DC0 /* Phase.swift in Sources */,
@@ -2752,6 +2762,7 @@
 				288B27AB1D37D1AB00B47DC0 /* Credential.swift in Sources */,
 				28F20CA41D706B8500FBD332 /* SettingsViewController.swift in Sources */,
 				AC43B4281D46973700A6CB5C /* RealmError.swift in Sources */,
+				070AD8921D8021FA00AA98B3 /* GuardiansSession.swift in Sources */,
 				288B27FE1D37E0D400B47DC0 /* CredentialBO.swift in Sources */,
 				288B27B11D37D1AB00B47DC0 /* Menu.swift in Sources */,
 				288B27FA1D37E0D400B47DC0 /* StudentBO.swift in Sources */,

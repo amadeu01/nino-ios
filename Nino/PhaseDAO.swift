@@ -84,6 +84,35 @@ class PhaseDAO: NSObject {
         }
     }
     
+    static func getPhaseWithID(phaseID: String, completionHandler: (getPhase: () throws -> Phase) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let realmPhase = realm.objectForPrimaryKey(PhaseRealmObject.self, key: phaseID)
+                guard let phase = realmPhase else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(getPhase: { () -> Phase in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let phaseVO = Phase(id: phase.id, phaseID: phase.phaseID.value, name: phase.name)
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(getPhase: { () -> Phase in
+                        return phaseVO
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(getPhase: { () -> Phase in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
     static func updatePhaseId(phase: String, phaseID: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {

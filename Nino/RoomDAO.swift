@@ -202,6 +202,38 @@ class RoomDAO: NSObject {
         }
     }
     
+    static func getLocalIdForRoom(roomID: Int, completionHandler: (get: () throws -> String) -> Void) {
+        let filter = NSPredicate(format: "roomID = %d", roomID)
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let rooms = realm.objects(RoomRealmObject.self)
+                let possibleRooms = rooms.filter(filter)
+                let room = possibleRooms.first
+                guard let realmRoom = room else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(get: { () -> String in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let id = realmRoom.id
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(get: { () -> String in
+                        return id
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(get: { () -> String in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
     static func getRoomWithID(roomID: String, completionHandler: (getRoom: () throws -> Room) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {

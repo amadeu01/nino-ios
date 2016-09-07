@@ -33,6 +33,7 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
         for tf in self.textFields {
             tf.delegate = self
         }
+        tryToAutoLogIn()
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,7 +50,7 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
         if (nextResponder != nil) && (nextResponder as? UITextField)?.text?.isEmpty == true {
             nextResponder?.becomeFirstResponder()
         } else {
-            self.login()
+            self.userTriedToLogin()
         }
         return false
     }
@@ -136,58 +137,110 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doLogin(sender: UIButton) {
-        self.login()
+        self.userTriedToLogin()
+    }
+    
+    func userTriedToLogin(){
+        if self.checkIfEmpty() {
+            let alert = DefaultAlerts.emptyField()
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else{
+            guard let username = usernameTextField.text else {
+                return
+            }
+            guard let password = passwordTextField.text else {
+                return
+            }
+            self.login(username, password: password)
+            self.hideKeyboard()
+        }
+        
     }
     
     //MARK: Login method
     /**
      makes the login
      */
-    private func login() {
+    private func login(username: String, password: String) {
         self.hideKeyboard()
-        if self.checkIfEmpty() {
-            let alert = DefaultAlerts.emptyField()
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-            //all textFields are filled
-        else {
-            self.blockTextFields()
-            self.blockButtons()
-            self.activityIndicator.hidden = false
-            self.activityIndicator.startAnimating()
-            //creates a key and saves the login parameters at userDefaults and keychain
-            let key = KeyBO.createKey(self.usernameTextField.text!, password: self.passwordTextField.text!)
-            LoginBO.login(key, completionHandler: { (getCredential) in
-                do {
-                    //tries to get the credential
-                    let credential = try getCredential()
-                    NinoSession.sharedInstance.setCredential(credential)
-                    //gets main queue to make UI changes
+        //all textFields are filled
+        self.blockTextFields()
+        self.blockButtons()
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        //creates a key and saves the login parameters at userDefaults and keychain
+        let key = KeyBO.createKey(username, password: password)
+        LoginBO.login(key, completionHandler: { (getCredential) in
+            do {
+                //tries to get the credential
+                let credential = try getCredential()
+                NinoSession.sharedInstance.setCredential(credential)
+                //gets main queue to make UI changes
+                GuardianBO.getStudents(credential.token, completionHandler: { (students) in
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.activityIndicator.stopAnimating()
-                        //changes the view
-                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            delegate.loggedIn = true
-                            delegate.setupRootViewController(true)
+                        do {
+                            let students = try students()
+                            GuardiansSession.selectedStudent = students.first
+                            GuardianBO.getGuardian({ (getProfile) in
+                                do {
+                                    let guardian = try getProfile()
+                                    
+                                    if guardian.name.isEmpty {
+                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                        let vc = storyboard.instantiateViewControllerWithIdentifier("UpdateUserInfo")
+                                        self.presentViewController(vc, animated: true, completion: nil)
+                                    } else {
+                                        self.activityIndicator.stopAnimating()
+                                        //changes the view
+                                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                            delegate.loggedIn = true
+                                            delegate.setupRootViewController(true)
+                                        }
+                                    }
+                                } catch {
+                                    
+                                }
+                            })
+                        } catch {
+                            //TODO: Handle error
                         }
                     })
-                }
-                    //login error
-                catch let error {
-                    //clean userDefaults and keychain
-                    KeyBO.removePasswordAndUsername()
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.activityIndicator.stopAnimating()
-                        self.enableTextFields()
-                        self.enableButtons()
-                        if let serverError = error as? ServerError {
-                            self.errorAlert(serverError)
-                        }
-                        self.passwordTextField.text = ""
-                    })
-                }
-            })
+                })
+            }
+                //login error
+            catch let error {
+                //clean userDefaults and keychain
+                KeyBO.removePasswordAndUsername()
+                LoginDAO.logout({ (out) in
+                    do {
+                        try out();
+                    } catch {
+                        //TODO: Handle Error
+                    }
+                })
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.activityIndicator.stopAnimating()
+                    self.enableTextFields()
+                    self.enableButtons()
+                    if let serverError = error as? ServerError {
+                        self.errorAlert(serverError)
+                    }
+                    self.passwordTextField.text = ""
+                })
+            }
+        })
+    }
+    
+    func tryToAutoLogIn(){
+        guard let username = KeyBO.getUsername() else {
+            return
         }
+        guard let password = KeyBO.getPassword() else {
+            return
+        }
+        self.passwordTextField.text = password
+        self.usernameTextField.text = username
+        login(username, password: password)
     }
     
     //MARK: Segue methods

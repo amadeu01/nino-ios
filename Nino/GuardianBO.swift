@@ -194,6 +194,168 @@ class GuardianBO: NSObject {
         }
     }
     
+    static func getGuardian(completionHandler: (getProfile: () throws -> Guardian) -> Void) {
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            dispatch_async(dispatch_get_main_queue(), {
+                completionHandler(getProfile: { () -> Guardian in
+                    throw AccountError.InvalidToken
+                })
+            })
+            return
+        }
+        
+        AccountMechanism.getMyProfile(nil, token: token) { (profileID, name, surname, birthDate, gender, error, data) in
+            var userName = ""
+            if let serverName = name {
+                userName = serverName
+            }
+            var userSurname = ""
+            if let serverSurname = surname {
+                userSurname = serverSurname
+            }
+            var userGender : Gender?
+            if let serverGender = gender {
+                userGender = Gender(rawValue: serverGender)
+            }
+            guard let userID = profileID else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(getProfile: { () -> Guardian in
+                        throw RealmError.UnexpectedCase
+                    })
+                })
+                return
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                completionHandler(getProfile: { () -> Guardian in
+                    return Guardian(id: StringsMechanisms.generateID(), profileID: userID, name: userName, surname: userSurname, gender: userGender, email: "", students: [])//TODO: Put Students and email
+                })
+            })
+            return
+        }
+    }
+    
+    static func getStudents(token: String, completionHandler: (students: () throws -> [Student]) -> Void) {
+        GuardianDAO.getStudents { (students) in
+            do {
+                let students = try students()
+                if (students.count > 0) {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        completionHandler(students: { () -> [Student] in
+                            return students
+                        })
+                    })
+                } else {
+                    GuardianMechanism.getStudents(token, completionHandler: { (info, error, data) in
+                        if let error = error {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(students: { () -> [Student] in
+                                    throw ErrorBO.decodeServerError(error)
+                                })
+                            })
+                        }
+                        guard let students = info else {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                completionHandler(students: { () -> [Student] in
+                                    throw DatabaseError.NotFound
+                                })
+                            })
+                            return
+                        }
+                        var studentsVO : [Student] = []
+                        for student in students {
+                            guard let studentID = (student["id"] as? Int) else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
+                            guard let studentName = (student["name"] as? String) else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
+                            guard let studentSurname = (student["surname"] as? String) else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
+                            guard let studentGender = (student["gender"] as? Int) else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
+                            guard let studentRoom = (student["room"] as? Int) else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
+                            guard let studentBirthdate = (student["birthdate"] as? NSDate) else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
+                            
+                            guard let gender = Gender(rawValue: studentGender) else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
+
+                            RoomBO.getRoom(studentRoom, completionHandler: { (room) in
+                                do {
+                                    let room = try room()
+                                    let studentVO = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: gender, birthDate: studentBirthdate, profilePicture: nil, roomID: room.id, guardians: nil)
+                                    //TODO: Help
+                                    studentsVO.append(studentVO)
+                                    if (studentsVO.count == students.count) { //FIXME: Fix this, need to check for updates too
+                                        StudentDAO.createStudents(studentsVO, roomID: room.id, completionHandler: { (write) in
+                                            do {
+                                                try write()
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    completionHandler(students: { () -> [Student] in
+                                                        return studentsVO
+                                                    })
+                                                })
+                                            } catch {
+                                                print("realm school error")
+                                                //TODO: post notification
+                                            }
+                                        })
+                                    }
+                                } catch {
+                                    //TODO: Handle error
+                                }
+                            })
+                        }
+                    })
+                }
+            } catch {
+                //TODO Handle error
+            }
+        }
+    }
+    
     private static func compareGuardians(serverGuardians: [Guardian], localGuardians: [Guardian]) -> [String: [Guardian]] {
         var result = [String: [Guardian]]()
         var wasChanged = [Guardian]()

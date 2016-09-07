@@ -83,6 +83,40 @@ class SchoolMechanism: NSObject {
         }
     }
     
+    static func getSchoolWithID(token: String, schoolID: Int, completionHandler: (info: [String: AnyObject?]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetSchoolWithID.description([String(schoolID)])
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(info: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(info: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let data = json["data"]
+                    
+                    let id = data["id"].int
+                    let name = data["name"].string
+                    let email = data["email"].string
+                    let telephone = data["telephone"].string
+                    let address = data["address"].string
+                    
+                    let dict: [String: AnyObject?] = ["schoolID": id, "name": name, "email": email, "telephone": telephone, "address": address]
+                    completionHandler(info: dict, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
     /**
      Gets information about the school
      

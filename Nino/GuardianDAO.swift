@@ -100,6 +100,53 @@ class GuardianDAO: NSObject {
         }
     }
     
+    static func getStudents(completionHandler: (students: () throws -> [Student]) -> Void) {
+        //try to find in database
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let students = realm.objects(StudentRealmObject.self)
+                var studentsVO: [Student] = []
+                for student in students {
+                    guard let studentGender = Gender(rawValue: student.gender) else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(students: { () -> [Student] in
+                                throw RealmError.UnexpectedCase
+                            })
+                        })
+                        return
+                    }
+                    guard let roomID = student.room?.id else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(students: { () -> [Student] in
+                                throw RealmError.UnexpectedCase
+                            })
+                        })
+                        return
+                    }
+                    var guardians: [String] = []
+                    for guardian in student.guardians {
+                        guardians.append(guardian.id)
+                    }
+                    let studentVO = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: studentGender, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: roomID, guardians: guardians)
+                    studentsVO.append(studentVO)
+                }
+                
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(students: { () -> [Student] in
+                        return studentsVO
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(students: { () -> [Student] in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
     static func updateGuardianID(guardian: String, id: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {

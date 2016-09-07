@@ -8,24 +8,88 @@
 
 import UIKit
 
-class GuardiansUpdateNameViewController: UIViewController {
+class GuardiansUpdateNameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var confirmButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addNinoDefaultBackGround()
 
         // Do any additional setup after loading the view.
     }
+    
+    private func hideKeyboard() {
+        self.nameTextField.resignFirstResponder()
+        self.surnameTextField.resignFirstResponder()
+    }
 
+    /**
+     Checks if there are text fields without text
+     
+     - returns: true if there are
+     */
+    private func checkIfEmpty() -> Bool {
+        if let txt = self.nameTextField.text {
+            if txt.isEmpty {
+                return true
+            }
+        } else {
+            return true
+        }
+        if let txt = self.surnameTextField.text {
+            if txt.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder!
+        
+        //tests if next responder ir nil and is is empty
+        guard let responder = nextResponder where (nextResponder as? UITextField)?.text?.isEmpty == true else {
+            self.updateInfo()
+            return false
+        }
+
+        responder.becomeFirstResponder()
+        return false
+    }
+    
     @IBAction func confirmButtonPressed(sender: AnyObject) {
+        self.updateInfo()
+    }
+    
+    private func updateInfo() {
+        self.hideKeyboard()
+        //checks if there are empty data
+        if self.checkIfEmpty() {
+            let alert = DefaultAlerts.emptyField()
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        self.confirmButton.enabled = false
+        self.confirmButton.alpha = 0.4
+        self.nameTextField.enabled = false
+        self.nameTextField.alpha = 0.4
+        self.surnameTextField.enabled = false
+        self.surnameTextField.alpha = 0.4
+        
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        
         
     }
 

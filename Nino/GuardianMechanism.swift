@@ -83,4 +83,50 @@ class GuardianMechanism: NSObject {
         }
     }
     
+    static func getStudents(token: String, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetStudentsForGuardian.description(nil)
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(info: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(info: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let data = json["data"].array
+                    guard let datajson = data else {
+                        completionHandler(info: nil, error: nil, data: nil)
+                        return
+                    }
+                    var guardiansDict = [[String: AnyObject?]]()
+                    for subjson in datajson {
+                        let id = subjson["id"].int
+                        let name = subjson["name"].string
+                        let surname = subjson["surname"].string
+                        let gender = subjson["gender"].int
+                        let school = subjson["school"].int
+                        let room = subjson["room"].int
+                        let jsonBirthdate = subjson["birthdate"].string
+                        var optionalBirthdate: NSDate?
+                        if let birthdate = jsonBirthdate {
+                            optionalBirthdate = StringsMechanisms.dateFromString(birthdate)
+                        }
+                        let dict: [String: AnyObject?] = ["id": id, "name": name, "surname": surname, "gender": gender, "birthdate": optionalBirthdate, "school": school, "room": room]
+                        guardiansDict.append(dict)
+                    }
+                    completionHandler(info: guardiansDict, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
 }

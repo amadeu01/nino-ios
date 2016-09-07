@@ -15,6 +15,67 @@ class SchoolDAO: NSObject {
         super.init()
     }
     
+    static func getSchoolWithID(id: String, completionHandler: (getSchool: () throws -> School) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let realmSchool = realm.objectForPrimaryKey(SchoolRealmObject.self, key: id)
+                guard let school = realmSchool else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(getSchool: { () -> School in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let schoolVO = School(id: school.id, schoolId: school.schoolID.value, name: school.name, address: school.address, legalNumber: school.legalNumber, telephone: school.telephone, email: school.email, owner: school.ownerID.value, logo: school.logo)
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(getSchool: { () -> School in
+                        return schoolVO
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(getSchool: { () -> School in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
+    static func getLocalIdForSchool(schoolID: Int, completionHandler: (get: () throws -> String) -> Void) {
+        let filter = NSPredicate(format: "schoolID = %d", schoolID)
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let schools = realm.objects(SchoolRealmObject.self)
+                let possibleSchools = schools.filter(filter)
+                let school = possibleSchools.first
+                guard let realmSchool = school else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(get: { () -> String in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let id = realmSchool.id
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(get: { () -> String in
+                        return id
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(get: { () -> String in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
     static func createSchool(school: School, completionHandler: (writeSchool: () throws -> Void) -> Void) {
         //new school attributes
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {

@@ -157,7 +157,8 @@
                                                         <exclude reference="Twa-T3-blO"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="heightClass=regular-widthClass=compact">
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="1" y="8" width="64" height="64"/>
                                                     <mask key="constraints">
                                                         <include reference="Twa-T3-blO"/>
                                                     </mask>
@@ -168,6 +169,9 @@
                                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="19"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="75" y="29" width="131" height="22"/>
+                                                </variation>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -379,7 +383,7 @@
                                 <color key="textColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="usuário" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-Mu-r32">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="usuário" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-Mu-r32">
                                 <rect key="frame" x="0.0" y="214" width="600" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="0v9-8b-JDd"/>
@@ -390,7 +394,7 @@
                                     <outlet property="delegate" destination="6M4-6S-2NI" id="ab6-qT-JzF"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jyd-ys-D3t">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jyd-ys-D3t">
                                 <rect key="frame" x="0.0" y="259" width="600" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="hYM-Vf-91p"/>
@@ -401,7 +405,7 @@
                                     <outlet property="delegate" destination="6M4-6S-2NI" id="jZv-e3-zBI"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPp-oQ-IVL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPp-oQ-IVL">
                                 <rect key="frame" x="0.0" y="324" width="600" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -415,7 +419,7 @@
                                     <action selector="doLogin:" destination="6M4-6S-2NI" eventType="touchUpInside" id="I7t-Qq-gNa"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="S89-5x-w7Z">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="S89-5x-w7Z">
                                 <rect key="frame" x="290" y="329" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -575,23 +579,30 @@
         <!--Guardians Update Name View Controller-->
         <scene sceneID="oFU-KN-0cq">
             <objects>
-                <viewController id="XIb-dp-l8U" customClass="GuardiansUpdateNameViewController" customModule="Nino" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="UpdateUserInfo" storyboardIdentifier="UpdateUserInfo" id="XIb-dp-l8U" customClass="GuardiansUpdateNameViewController" customModule="Nino" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2w7-Kq-8wg"/>
                         <viewControllerLayoutGuide type="bottom" id="rBH-uQ-qMp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MfL-Xz-Y7n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5xg-f4-efb">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XIb-dp-l8U" id="8BR-1T-oqh"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfl-QT-fzt">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gfl-QT-fzt">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XIb-dp-l8U" id="h0h-pj-GD1"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-zy-6tL">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -629,6 +640,8 @@
                                 <exclude reference="Znh-tz-L49"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="EFO-Nt-aAm"/>
+                                <exclude reference="GCU-0u-aaP"/>
                                 <exclude reference="zGx-qj-OI8"/>
                                 <exclude reference="zxj-B3-Tdd"/>
                                 <exclude reference="UHi-eV-jba"/>
@@ -638,8 +651,6 @@
                                 <exclude reference="pC6-tB-qYp"/>
                                 <exclude reference="u4h-QB-XE1"/>
                                 <exclude reference="yBk-0f-iA5"/>
-                                <exclude reference="EFO-Nt-aAm"/>
-                                <exclude reference="GCU-0u-aaP"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -650,6 +661,8 @@
                                 <include reference="Znh-tz-L49"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="EFO-Nt-aAm"/>
+                                <include reference="GCU-0u-aaP"/>
                                 <include reference="zGx-qj-OI8"/>
                                 <include reference="zxj-B3-Tdd"/>
                                 <include reference="UHi-eV-jba"/>
@@ -659,13 +672,12 @@
                                 <include reference="pC6-tB-qYp"/>
                                 <include reference="u4h-QB-XE1"/>
                                 <include reference="yBk-0f-iA5"/>
-                                <include reference="EFO-Nt-aAm"/>
-                                <include reference="GCU-0u-aaP"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Znh-tz-L49" id="RPh-YV-QSq"/>
+                        <outlet property="confirmButton" destination="8AV-zy-6tL" id="6uQ-U9-ujR"/>
                         <outlet property="nameTextField" destination="5xg-f4-efb" id="tJZ-ZV-6jj"/>
                         <outlet property="surnameTextField" destination="Gfl-QT-fzt" id="H83-3N-3n0"/>
                     </connections>

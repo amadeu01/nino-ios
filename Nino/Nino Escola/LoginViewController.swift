@@ -139,8 +139,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doLogin(sender: UIButton) {
-        userTriedToLogin()
+        self.userTriedToLogin()
     }
+    
     func userTriedToLogin(){
         if self.checkIfEmpty() {
             let alert = DefaultAlerts.emptyField()
@@ -247,6 +248,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             catch let error {
                 //clean userDefaults and keychain
                 KeyBO.removePasswordAndUsername()
+                LoginDAO.logout({ (out) in
+                    do {
+                        try out();
+                    } catch {
+                        //TODO: Handle Error
+                    }
+                })
                 self.activityIndicator.stopAnimating()
                 self.enableTextFields()
                 self.enableButtons()
