@@ -102,7 +102,7 @@ class DraftBO: NSObject {
         DraftDAO.isThereScheduleForStudentAndDate(student, date: date) { (isThere) in
             do {
                 let shouldCreate = try !isThere()
-                dispatch_async(dispatch_get_main_queue(), { 
+                dispatch_async(dispatch_get_main_queue(), {
                     completionHandler(shouldCreate: { () -> Bool in
                         return shouldCreate
                     })
@@ -152,13 +152,13 @@ class DraftBO: NSObject {
                                 DraftMechanism.updateDraft(token, draftID: draftID, schoolID: schoolID, message: message, profiles: profiles, metadata: metadata, attachment: attachment, completionHandler: { (updated, error, data) in
                                     //error
                                     if let err = error {
-                                        dispatch_async(dispatch_get_main_queue(), { 
+                                        dispatch_async(dispatch_get_main_queue(), {
                                             completionHandler(update: { () -> Post in
                                                 throw ErrorBO.decodeServerError(err)
                                             })
                                         })
                                     }
-                                    //success
+                                        //success
                                     else if updated != nil {
                                         dispatch_async(dispatch_get_main_queue(), {
                                             completionHandler(update: { () -> Post in
@@ -166,9 +166,9 @@ class DraftBO: NSObject {
                                             })
                                         })
                                     }
-                                    //unexpected case
+                                        //unexpected case
                                     else {
-                                        dispatch_async(dispatch_get_main_queue(), { 
+                                        dispatch_async(dispatch_get_main_queue(), {
                                             completionHandler(update: { () -> Post in
                                                 throw ServerError.UnexpectedCase
                                             })
@@ -195,7 +195,7 @@ class DraftBO: NSObject {
         DraftDAO.getIDForScheduleDraft(student, date: date) { (getID) in
             do {
                 let id = try getID()
-                dispatch_async(dispatch_get_main_queue(), { 
+                dispatch_async(dispatch_get_main_queue(), {
                     completionHandler(id: { () -> String in
                         return id
                     })
@@ -203,6 +203,122 @@ class DraftBO: NSObject {
             } catch {
                 print("get scheduleID error")
                 //TODO: handle error
+            }
+        }
+    }
+    
+    static func getDraftsForStudent(student: String, completionHandler: (getDraft: () throws -> [Post]) -> Void) {
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            completionHandler(getDraft: { () -> [Post] in
+                throw AccountError.InvalidToken
+            })
+            return
+        }
+        SchoolBO.getIdForSchool { (id) in
+            do {
+                let schoolID = try id()
+                StudentBO.getIdForStudent(student, completionHandler: { (id) in
+                    do {
+                        let studentID = try id()
+                        DraftDAO.getDraftsForStudent(student, completionHandler: { (getDrafts) in
+                            do {
+                                let localDrafts = try getDrafts()
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(getDraft: { () -> [Post] in
+                                        return localDrafts
+                                    })
+                                })
+                                DraftMechanism.getDrafts(token, schoolID: schoolID, studentID: studentID, completionHandler: { (info, error, data) in
+                                    //error
+                                    if let err = error {
+                                        //TODO: Handle error data and code
+                                        let error = NotificationMessage()
+                                        error.setServerError(ErrorBO.decodeServerError(err))
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                        })
+                                    }
+                                        //success
+                                    else if let array = info {
+                                        var serverDrafts = [Post]()
+                                        for dict in array {
+                                            guard let draftID = dict["draftID"] as? Int else {
+                                                let error = NotificationMessage()
+                                                error.setServerError(ServerError.UnexpectedCase)
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                                })
+                                                return
+                                            }
+                                            guard let type = dict["type"] as? Int else {
+                                                let error = NotificationMessage()
+                                                error.setServerError(ServerError.UnexpectedCase)
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                                })
+                                                return
+                                            }
+                                            guard let message = dict["message"] as? String else {
+                                                let error = NotificationMessage()
+                                                error.setServerError(ServerError.UnexpectedCase)
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                                })
+                                                return
+                                            }
+                                            let metadata = dict["metadata"] as? NSDictionary
+                                            let attachment = dict["attachment"] as? String
+                                            let date = dict["date"] as? NSDate
+                                            var dictionary: NSDictionary?
+                                            let draft = Post(id: StringsMechanisms.generateID(), postID: draftID, type: type, date: date, message: message, attachment: nil, targets: [student], readProfileIDs: nil, metadata: metadata)
+                                            serverDrafts.append(draft)
+                                        }
+                                        let comparison = PostBO.comparePosts(serverDrafts, localPosts: localDrafts)
+                                        let wasChanged = comparison["wasChanged"]
+                                        let wasDeleted = comparison["wasDeleted"]
+                                        let newPosts = comparison["newPosts"]
+                                        if newPosts!.count > 0 {
+                                            for post in newPosts! {
+                                                DraftDAO.createDraft(post, completionHandler: { (write) in
+                                                    do {
+                                                        try write()
+                                                        let message = NotificationMessage()
+                                                        message.setDataToInsert([post])
+                                                        dispatch_async(dispatch_get_main_queue(), {
+                                                            NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: nil, info: message)
+                                                        })
+                                                    } catch {
+                                                        //TODO: handle error
+                                                        print("create local draft error")
+                                                    }
+                                                })
+                                            }
+                                        }
+                                        //TODO: posts was deleted
+                                        //TODO: posts was updated
+                                    }
+                                        //unexpected case
+                                    else {
+                                        let error = NotificationMessage()
+                                        error.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                        })
+                                    }
+                                })
+                            } catch {
+                                //TODO: handle error
+                                print("get local drafts error")
+                            }
+                        })
+                    } catch {
+                        //TODO: handle error
+                        print("get ID for Student error")
+                    }
+                })
+            } catch {
+                //TODO: handle error
+                print("get ID for School error")
             }
         }
     }

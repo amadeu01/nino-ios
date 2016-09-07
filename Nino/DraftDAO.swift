@@ -31,6 +31,8 @@ class DraftDAO: NSObject {
                 let realm = try Realm()
                 let postRealmObject = PostRealmObject()
                 postRealmObject.id = post.id
+                postRealmObject.date = post.date
+                postRealmObject.postID.value = post.postID
                 postRealmObject.type = post.type
                 postRealmObject.message = post.message
                 postRealmObject.attachment = post.attachment
@@ -285,6 +287,52 @@ class DraftDAO: NSObject {
             } catch {
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(getID: { () -> String in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
+    static func getDraftsForStudent(student: String, completionHandler: (getDrafts: () throws -> [Post]) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let studentRealm = realm.objectForPrimaryKey(StudentRealmObject.self, key: student)
+                guard let selectedStudent = studentRealm else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(getDrafts: { () -> [Post] in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let draftsRealm = selectedStudent.drafts
+                var drafts = [Post]()
+                for draft in draftsRealm {
+                    var dictionary: NSDictionary?
+                    if let data = draft.metadata {
+                        do {
+                            dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
+                        } catch {
+                            dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                                completionHandler(getDrafts: { () -> [Post] in
+                                    throw RealmError.UnexpectedCase
+                                })
+                            })
+                        }
+                    }
+                    let draftVO = Post(id: draft.id, postID: draft.postID.value, type: draft.type, date: draft.date, message: draft.message, attachment: draft.attachment, targets: [student], readProfileIDs: nil, metadata: dictionary)
+                    drafts.append(draftVO)
+                }
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(getDrafts: { () -> [Post] in
+                        return drafts
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(getDrafts: { () -> [Post] in
                         throw RealmError.CouldNotCreateRealm
                     })
                 })

@@ -163,6 +163,8 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         self.currentRoom = room
         self.currentPhase = phase
         self.currentHeader?.classroomButton.setTitle(newTitle, forState: .Normal)
+        SchoolSession.currentRoom = room
+        SchoolSession.currentPhase = phase
         self.reloadData()
     }
     
@@ -174,6 +176,13 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                     let students = try students()
                     for student in students {
                         self.students.append(student.id)
+                        DraftBO.getDraftsForStudent(student.id, completionHandler: { (getDraft) in
+                            do {
+                                try getDraft()
+                            } catch {
+                                //TODO: handle get drafts error
+                            }
+                        })
                         //TODO: get guardian for student
                     }
                     self.studentProfileTableView.reloadData()
