@@ -234,22 +234,6 @@ class MyDayBO: NSObject {
                             DraftBO.updateDraft(draftID, message: nil, targets: nil, metadata: dict, attachment: nil, completionHandler: { (update) in
                                 do {
                                     let post = try update()
-                                    let dict = post.metadata!
-                                    let sections = dict["sections"] as? [[String: AnyObject]]
-                                    
-                                    for array in sections! {
-                                        let id = array["id"] as? Int
-                                        print("secID: \(id!)")
-                                        let rows = array["rows"] as? [[String: AnyObject]]
-                                        for row in rows! {
-                                            let id = row["id"] as? Int
-                                            print("   rowID: \(id!)")
-                                            let cells = row["values"] as? [[Int]]
-                                            for cell in cells! {
-                                                print("      cellValues: \(cell)")
-                                            }
-                                        }
-                                    }
                                     dispatch_async(dispatch_get_main_queue(), {
                                         completionHandler(update: {
                                             return
@@ -670,6 +654,23 @@ class MyDayBO: NSObject {
                 }
             }
             return (desc, nil)
+        }
+    }
+    
+    private func printScheduleDic(dict: NSDictionary) {
+        let sections = dict["sections"] as? [[String: AnyObject]]
+        for array in sections! {
+            let id = array["id"] as? Int
+            print("secID: \(id!)")
+            let rows = array["rows"] as? [[String: AnyObject]]
+            for row in rows! {
+                let id = row["id"] as? Int
+                print("   rowID: \(id!)")
+                let cells = row["values"] as? [[Int]]
+                for cell in cells! {
+                    print("      cellValues: \(cell)")
+                }
+            }
         }
     }
 }

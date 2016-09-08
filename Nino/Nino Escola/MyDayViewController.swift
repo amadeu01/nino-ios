@@ -74,7 +74,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         }
         
         do {
-            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: schedule)
+            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: nil)
             
             leftTableView.reloadData()
             rightTableView.reloadData()
