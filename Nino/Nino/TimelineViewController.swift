@@ -9,7 +9,9 @@
 import UIKit
 
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var studentsName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
         
-        
+        if let student = GuardiansSession.selectedStudent {
+            studentsName.text = student.name + " " + student.surname
+        }
     }
     
     

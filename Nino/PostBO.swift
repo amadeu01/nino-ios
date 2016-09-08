@@ -99,6 +99,10 @@ class PostBO: NSObject {
         }
     }
     
+    static func getPostsForStudent(id: String, completionHandler: (posts: () throws -> [Post]) -> Void) {
+        
+    }
+    
     static func comparePosts(serverPosts: [Post], localPosts: [Post]) -> [String: [Post]] {
         var result = [String: [Post]]()
         var wasChanged = [Post]()

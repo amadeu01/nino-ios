@@ -147,7 +147,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gie-sP-14V" userLabel="Container">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bebe1" translatesAutoresizingMaskIntoConstraints="NO" id="sKw-cG-8I2">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="sKw-cG-8I2">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="sKw-cG-8I2" secondAttribute="height" id="Twa-T3-blO"/>
@@ -163,7 +163,7 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miriam Millani" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp2-az-jRg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Aluno" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp2-az-jRg">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="19"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -337,6 +337,7 @@
                     <tabBarItem key="tabBarItem" title="Linha do tempo" image="book" id="1oR-Xs-qoc"/>
                     <connections>
                         <outlet property="profileImage" destination="sKw-cG-8I2" id="n7m-ui-p1B"/>
+                        <outlet property="studentsName" destination="lp2-az-jRg" id="HZf-NN-lM7"/>
                         <outlet property="tableView" destination="Rgb-wp-nIU" id="PrZ-gj-Ucf"/>
                     </connections>
                 </viewController>
@@ -787,8 +788,8 @@
     <resources>
         <image name="Logo-Nino" width="400" height="400"/>
         <image name="backgroundBolas" width="1267" height="1496"/>
-        <image name="bebe1" width="75" height="75"/>
         <image name="book" width="30" height="30"/>
+        <image name="defaultProfilePicture" width="201" height="201"/>
         <image name="icone_configuracao" width="30" height="30"/>
     </resources>
 </document>

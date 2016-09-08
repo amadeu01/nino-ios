@@ -168,7 +168,7 @@ class GuardianBO: NSObject {
                                 })
                             }
                         })
-                    } catch let error {
+                    } catch {
                         //TODO: handle realm error
                     }
                 })
@@ -197,7 +197,7 @@ class GuardianBO: NSObject {
             if let serverSurname = surname {
                 userSurname = serverSurname
             }
-            var userGender : Gender?
+            var userGender: Gender?
             if let serverGender = gender {
                 userGender = Gender(rawValue: serverGender)
             }
@@ -266,7 +266,7 @@ class GuardianBO: NSObject {
         GuardianDAO.getStudents { (students) in
             do {
                 let students = try students()
-                if (students.count > 0) {
+                if students.count > 0 { //TODO check if something new
                     dispatch_async(dispatch_get_main_queue(), {
                         completionHandler(students: { () -> [Student] in
                             return students
@@ -289,7 +289,7 @@ class GuardianBO: NSObject {
                             })
                             return
                         }
-                        var studentsVO : [Student] = []
+                        var studentsVO: [Student] = []
                         for student in students {
                             guard let studentID = (student["id"] as? Int) else {
                                 dispatch_async(dispatch_get_main_queue(), {
