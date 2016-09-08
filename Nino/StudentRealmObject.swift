@@ -25,6 +25,7 @@ class StudentRealmObject: Object {
     
 //MARK: Optional Attributes
     let profileID = RealmOptional<Int>()
+    dynamic var createdAt: NSDate? = nil
     dynamic var profilePicture: NSData? = nil
     let guardians = LinkingObjects(fromType: GuardianRealmObject.self, property: "students")
     let posts = LinkingObjects(fromType: PostRealmObject.self, property: "targetsPost")

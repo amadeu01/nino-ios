@@ -339,7 +339,14 @@ class GuardianBO: NSObject {
                                 })
                                 return
                             }
-                            
+                            guard let createdAt = student["createdAt"] as? NSDate? else {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(students: { () -> [Student] in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                return
+                            }
                             guard let gender = Gender(rawValue: studentGender) else {
                                 dispatch_async(dispatch_get_main_queue(), {
                                     completionHandler(students: { () -> [Student] in
@@ -352,7 +359,7 @@ class GuardianBO: NSObject {
                             RoomBO.getRoom(studentRoom, completionHandler: { (room) in
                                 do {
                                     let room = try room()
-                                    let studentVO = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: gender, birthDate: studentBirthdate, profilePicture: nil, roomID: room.id, guardians: nil)
+                                    let studentVO = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: gender, birthDate: studentBirthdate, profilePicture: nil, roomID: room.id, guardians: nil, createdAt: createdAt)
                                     //TODO: Help
                                     studentsVO.append(studentVO)
                                     if (studentsVO.count == students.count) { //FIXME: Fix this, need to check for updates too

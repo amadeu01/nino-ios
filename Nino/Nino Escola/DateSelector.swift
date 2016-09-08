@@ -37,6 +37,7 @@ class DateSelector: UIView {
     private let datePicker = UIDatePicker()
     override var inputView: UIView? {
         datePicker.datePickerMode = .Date
+        datePicker.maximumDate = NSDate()
         datePicker.addTarget(self, action: #selector(self.handleDatePicker), forControlEvents: .ValueChanged)
         return datePicker
     }

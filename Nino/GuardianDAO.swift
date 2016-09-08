@@ -128,7 +128,7 @@ class GuardianDAO: NSObject {
                     for guardian in student.guardians {
                         guardians.append(guardian.id)
                     }
-                    let studentVO = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: studentGender, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: roomID, guardians: guardians)
+                    let studentVO = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: studentGender, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: roomID, guardians: guardians, createdAt: student.createdAt)
                     studentsVO.append(studentVO)
                 }
                 

@@ -23,6 +23,7 @@ struct Student {
     let profilePicture: NSData?
     let roomID: String
     let guardians: [String]?
+    let createdAt: NSDate?
     
 //MARK: Initializer
     /**
@@ -40,7 +41,7 @@ struct Student {
 
      - returns: struct VO of Student type
      */
-    init(id: String, profileId: Int?, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, roomID: String, guardians: [String]?) {
+    init(id: String, profileId: Int?, name: String, surname: String, gender: Gender, birthDate: NSDate, profilePicture: NSData?, roomID: String, guardians: [String]?, createdAt: NSDate?) {
         self.id = id
         self.profileID = profileId
         self.name = name
@@ -54,6 +55,7 @@ struct Student {
         } else {
             self.guardians = [String]()
         }
+        self.createdAt = createdAt
     }
 
 }

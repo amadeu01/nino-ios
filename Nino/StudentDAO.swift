@@ -40,6 +40,7 @@ class StudentDAO: NSObject {
                     realmStudent.profilePicture = student.profilePicture
                     realmStudent.room = selectedRoom
                     realmStudent.school = selectedRoom.phase?.school
+                    realmStudent.createdAt = student.createdAt
                     realmStudents.append(realmStudent)
                 }
                 try realm.write({ 
@@ -116,7 +117,7 @@ class StudentDAO: NSObject {
                         }
                         guardians?.append(guardian.id)
                     }
-                    let innerStudent = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: Gender(rawValue: student.gender)!, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: student.room!.id, guardians: guardians)
+                    let innerStudent = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: Gender(rawValue: student.gender)!, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: student.room!.id, guardians: guardians, createdAt: student.createdAt)
                     students.append(innerStudent)
                 }
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
@@ -155,7 +156,7 @@ class StudentDAO: NSObject {
                     }
                     guardians?.append(guardian.id)
                 }
-                let studentVO = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: Gender(rawValue: student.gender)!, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: student.room!.id, guardians: guardians)
+                let studentVO = Student(id: student.id, profileId: student.profileID.value, name: student.name, surname: student.surname, gender: Gender(rawValue: student.gender)!, birthDate: student.birthdate, profilePicture: student.profilePicture, roomID: student.room!.id, guardians: guardians, createdAt: student.createdAt)
 
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(student: { () -> Student in
@@ -203,6 +204,38 @@ class StudentDAO: NSObject {
             } catch {
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                     completionHandler(id: { () -> Int in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
+    static func updateCreatedAt(student: String, createdAt: NSDate, completionHandler: (update: () throws -> Void) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let studentRealm = realm.objectForPrimaryKey(StudentRealmObject.self, key: student)
+                guard let selectedStudent = studentRealm else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(update: { 
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                try realm.write({ 
+                    selectedStudent.createdAt = createdAt
+                    realm.add(selectedStudent, update: true)
+                })
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(update: { 
                         throw RealmError.CouldNotCreateRealm
                     })
                 })

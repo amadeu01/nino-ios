@@ -47,7 +47,8 @@ class StudentMechanism: NSObject {
                         //TODO: Unwrap this
                         let birthDate = subjson["birthdate"].string
                         let gender = subjson["gender"].int
-                        let dict: [String: AnyObject?] = ["profileID": id, "name": name, "surname": surname, "birthdate": StringsMechanisms.dateFromString(birthDate!), "gender": gender]
+                        let createdAt = subjson["createdat"].string
+                        let dict: [String: AnyObject?] = ["profileID": id, "name": name, "surname": surname, "birthdate": StringsMechanisms.dateFromString(birthDate!), "gender": gender, "createdAt": StringsMechanisms.dateFromString(createdAt!)]
                         studentsDict.append(dict)
                     }
                     completionHandler(info: studentsDict, error: nil, data: nil)
@@ -70,14 +71,14 @@ class StudentMechanism: NSObject {
      - parameter gender:            student gender.raw
      - parameter completionHandler: completion handler with optional: profileID, error and error data
      */
-    static func createStudent(token: String, schoolID: Int, roomID: Int, name: String, surname: String, birthDate: NSDate, gender: Int, completionHandler: (profileID: Int?, error: Int?, data: String?) -> Void) {
+    static func createStudent(token: String, schoolID: Int, roomID: Int, name: String, surname: String, birthDate: NSDate, gender: Int, completionHandler: (profileID: Int?, createdAt: NSDate?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.CreateStudent.description([String(schoolID)])
             let date = StringsMechanisms.convertDate(birthDate)
             let body: [String: AnyObject] = ["token": token, "room_id": roomID, "name": name, "surname": surname, "birthdate": date, "gender": gender]
             RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
-                    completionHandler(profileID: nil, error: error?.code, data: nil)
+                    completionHandler(profileID: nil, createdAt: nil, error: error?.code, data: nil)
                     return
                 }
                 //error
@@ -85,13 +86,18 @@ class StudentMechanism: NSObject {
                     //FIXME: decode data as json
                     let data = json["data"].string
                     let error = json["error"].int
-                    completionHandler(profileID: nil, error: error, data: data)
+                    completionHandler(profileID: nil, createdAt: nil, error: error, data: data)
                 }
                     //success
                 else {
                     //FIXME: decode json to get id
                     let id = json["data"]["profile"]["id"].int
-                    completionHandler(profileID: id, error: nil, data: nil)
+                    let createdAt = json["data"]["profile"]["createdat"].string
+                    var createdDate: NSDate?
+                    if let date = createdAt {
+                        createdDate = StringsMechanisms.dateFromString(date)
+                    }
+                    completionHandler(profileID: id, createdAt: createdDate, error: nil, data: nil)
                 }
             })
         } catch {

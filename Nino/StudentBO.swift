@@ -33,11 +33,11 @@ class StudentBO: NSObject {
                 RoomBO.getIdForRoom(roomID, completionHandler: { (id) in
                     do {
                         let room = try id()
-                        let student = Student(id: StringsMechanisms.generateID(), profileId: nil, name: name, surname: surname, gender: gender, birthDate: birthDate, profilePicture: profilePictue, roomID: roomID, guardians: nil)
+                        let student = Student(id: StringsMechanisms.generateID(), profileId: nil, name: name, surname: surname, gender: gender, birthDate: birthDate, profilePicture: profilePictue, roomID: roomID, guardians: nil, createdAt: nil)
                         StudentDAO.createStudents([student], roomID: roomID, completionHandler: { (write) in
                             do {
                                 try write()
-                                StudentMechanism.createStudent(token, schoolID: school, roomID: room, name: name, surname: surname, birthDate: birthDate, gender: gender.rawValue) { (profileID, error, data) in
+                                StudentMechanism.createStudent(token, schoolID: school, roomID: room, name: name, surname: surname, birthDate: birthDate, gender: gender.rawValue) { (profileID, createdAt, error, data) in
                                     if let err = error {
                                         //TODO: handle error data
                                         dispatch_async(dispatch_get_main_queue(), {
@@ -49,11 +49,27 @@ class StudentBO: NSObject {
                                         StudentDAO.updateStudentID(student.id, profileID: studentID, completionHandler: { (update) in
                                             do {
                                                 try update()
-                                                dispatch_async(dispatch_get_main_queue(), {
-                                                    completionHandler(student: { () -> Student in
-                                                        return Student(id: student.id, profileId: studentID, name: student.name, surname: student.surname, gender: student.gender, birthDate: student.birthDate, profilePicture: student.profilePicture, roomID: student.roomID, guardians: student.guardians)
+                                                if let studentCreation = createdAt {
+                                                    StudentDAO.updateCreatedAt(student.id, createdAt: studentCreation, completionHandler: { (update) in
+                                                        do {
+                                                            try update()
+                                                            dispatch_async(dispatch_get_main_queue(), {
+                                                                completionHandler(student: { () -> Student in
+                                                                    return Student(id: student.id, profileId: studentID, name: student.name, surname: student.surname, gender: student.gender, birthDate: student.birthDate, profilePicture: student.profilePicture, roomID: student.roomID, guardians: student.guardians, createdAt: studentCreation)
+                                                                })
+                                                            })
+                                                        } catch {
+                                                            //TODO: handle realm error
+                                                        }
                                                     })
-                                                })
+                                                } else {
+                                                    //FIXME: should delete student in realm
+                                                    dispatch_async(dispatch_get_main_queue(), {
+                                                        completionHandler(student: { () -> Student in
+                                                            throw ServerError.UnexpectedCase
+                                                        })
+                                                    })
+                                                }
                                             } catch {
                                                 //TODO: handle realm error
                                             }
@@ -120,6 +136,7 @@ class StudentBO: NSObject {
                                     let surname = dict["surname"] as? String
                                     let birthDate = dict["birthdate"] as? NSDate
                                     let gender = dict["gender"] as? Int
+                                    let created = dict["createdAt"] as? NSDate
                                     guard let studentID = id else {
                                         let message = NotificationMessage()
                                         message.setServerError(ServerError.UnexpectedCase)
@@ -168,7 +185,15 @@ class StudentBO: NSObject {
                                         })
                                         return
                                     }
-                                    let student = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: studentGender, birthDate: studentBirthDate, profilePicture: nil, roomID: roomID, guardians: nil)
+                                    guard let createdAt = created else {
+                                        let message = NotificationMessage()
+                                        message.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: message, info: nil)
+                                        })
+                                        return
+                                    }
+                                    let student = Student(id: StringsMechanisms.generateID(), profileId: studentID, name: studentName, surname: studentSurname, gender: studentGender, birthDate: studentBirthDate, profilePicture: nil, roomID: roomID, guardians: nil, createdAt: createdAt)
                                     serverStudents.append(student)
                                 }
                                 let comparison = self.compareStudents(serverStudents, localStudents: localStudents)

@@ -144,11 +144,16 @@ class GuardianMechanism: NSObject {
                         let school = subjson["school"].int
                         let room = subjson["room"].int
                         let jsonBirthdate = subjson["birthdate"].string
+                        let created = subjson["createdat"].string
                         var optionalBirthdate: NSDate?
                         if let birthdate = jsonBirthdate {
                             optionalBirthdate = StringsMechanisms.dateFromString(birthdate)
                         }
-                        let dict: [String: AnyObject?] = ["id": id, "name": name, "surname": surname, "gender": gender, "birthdate": optionalBirthdate, "school": school, "room": room]
+                        var createdAt: NSDate?
+                        if let date = created {
+                            createdAt = StringsMechanisms.dateFromString(date)
+                        }
+                        let dict: [String: AnyObject?] = ["id": id, "name": name, "surname": surname, "gender": gender, "birthdate": optionalBirthdate, "school": school, "room": room, "createdAt": createdAt]
                         guardiansDict.append(dict)
                     }
                     completionHandler(info: guardiansDict, error: nil, data: nil)
