@@ -23,6 +23,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     var currentStudent: String?
     
     private var students = [String]()
+    private var dates = [NSDate?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,6 +115,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         SchoolSession.currentStudent = students[indexPath.item]
+        SchoolSession.studentCreatedAt = self.dates[indexPath.item]
         self.performSegueWithIdentifier("showStudentProfile", sender: self)
     }
     
@@ -176,6 +178,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                     let students = try students()
                     for student in students {
                         self.students.append(student.id)
+                        self.dates.append(student.createdAt)
                         DraftBO.getDraftsForStudent(student.id, completionHandler: { (getDraft) in
                             do {
                                 try getDraft()

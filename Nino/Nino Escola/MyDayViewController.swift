@@ -9,7 +9,7 @@
 import UIKit
 
 /// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
-class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate, MyDaySliderCellDelegate {
+class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate, MyDaySliderCellDelegate, DateSelectorDataSource {
 
     @IBOutlet weak var dateSelector: DateSelector!
     @IBOutlet weak var leftTableView: UITableView!
@@ -29,6 +29,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         super.viewDidLoad()
         self.addNinoDefaultBackGround()
         self.dateSelector.delegate = self
+        self.dateSelector.dataSource = self
         
         self.leftTableView.delegate = self
         self.rightTableView.delegate = self
@@ -44,6 +45,14 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     func dateDidChange(date: NSDate) {
         //TODO: gets the agenda for the selected day
         print(date)
+    }
+    
+    func setMinimumDate() -> NSDate {
+        guard let date = SchoolSession.studentCreatedAt else {
+            //TODO: handle missing student
+            return NSDate().dateByAddingTimeInterval(-60*60*24*365)
+        }
+        return date
     }
 
 //MARK: View Methods

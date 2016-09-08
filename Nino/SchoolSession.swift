@@ -10,6 +10,7 @@ import Foundation
 
 class SchoolSession {
     static var currentStudent: String?
+    static var studentCreatedAt: NSDate?
     static var currentRoom: String?
     static var currentPhase: String?
 }

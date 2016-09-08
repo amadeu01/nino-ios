@@ -14,6 +14,7 @@ class DateSelector: UIView {
     var dataSource: DateSelectorDataSource? {
         didSet {
             self.setInitialDate()
+            self.setMinimumValue()
         }
     }
     var delegate: DateSelectorDelegate?
@@ -48,6 +49,7 @@ class DateSelector: UIView {
         toolbar.items = [space, barButton]
         return toolbar
     }
+    private var minimumDay: NSDate?
     
 //MARK: View initialization
     required init?(coder aDecoder: NSCoder) {
@@ -67,10 +69,17 @@ class DateSelector: UIView {
     
 //MARK: DataSource updates
     private func setInitialDate() {
-        let date = dataSource?.setInitialDate()
+        let date = dataSource?.setInitialDate?()
         if let newDate = date {
             self.changeDate(newDate)
         }
+    }
+    
+    @objc private func setMinimumValue() {
+        let date = dataSource?.setMinimumDate()
+        self.datePicker.minimumDate = date
+        self.minimumDay = date
+        self.checkDate()
     }
 
 //MARK: Button Actions
@@ -104,17 +113,35 @@ class DateSelector: UIView {
     
     private func checkDate() {
         let order = NSCalendar.currentCalendar().compareDate(self.tomorrow, toDate: self.today, toUnitGranularity: .Day)
+        self.checkOrder(order, righButton: true)
+        if let minimun = self.minimumDay {
+            let order2 = NSCalendar.currentCalendar().compareDate(minimun, toDate: self.yesterday, toUnitGranularity: .Day)
+            self.checkOrder(order2, righButton: false)
+        }
+    }
+    
+    private func checkOrder(order: NSComparisonResult, righButton: Bool) {
         if order == NSComparisonResult.OrderedDescending {
-            self.rightButton.enabled = false
-            self.rightButton.alpha = 0.4
+            if righButton {
+                self.rightButton.enabled = false
+                self.rightButton.alpha = 0.4
+            } else {
+                self.leftButton.enabled = false
+                self.leftButton.alpha = 0.4
+            }
             //checks if the date selected by datePicker is earlier in time than today
             let newOrder = NSCalendar.currentCalendar().compareDate(self.currentDay, toDate: self.today, toUnitGranularity: .Day)
             if newOrder == NSComparisonResult.OrderedDescending {
                 self.changeDate(self.today)
             }
         } else {
-            self.rightButton.enabled = true
-            self.rightButton.alpha = 1
+            if righButton {
+                self.rightButton.enabled = true
+                self.rightButton.alpha = 1
+            } else {
+                self.leftButton.enabled = true
+                self.leftButton.alpha = 1
+            }
         }
     }
     
@@ -160,11 +187,18 @@ protocol DateSelectorDelegate {
 /**
  *  DataSource to set the initial date
  */
-protocol DateSelectorDataSource {
+@objc protocol DateSelectorDataSource {
     /**
      DataSource function to set the initial date
      
      - returns: initial date
      */
-    func setInitialDate() -> NSDate
+    optional func setInitialDate() -> NSDate
+    
+    /**
+     Data source function which sets the inferior bound for the datepicker
+     
+     - returns: inferior bound
+     */
+    func setMinimumDate() -> NSDate
 }
