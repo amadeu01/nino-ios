@@ -198,8 +198,10 @@ class MyDayBO: NSObject {
                                 do {
                                     let post = try update()
                                     let dict = post.metadata!
-                                    let leftArray = dict["left"] as? [[String: AnyObject]]
-                                    for array in leftArray! {
+                                    let sections = dict["sections"] as? [[String: AnyObject]]
+                                    
+//                                    let leftArray = dict["left"] as? [[String: AnyObject]]
+                                    for array in sections! {
                                         let id = array["id"] as? Int
                                         print("secID: \(id!)")
                                         let rows = array["rows"] as? [[String: AnyObject]]
@@ -212,20 +214,20 @@ class MyDayBO: NSObject {
                                             }
                                         }
                                     }
-                                    let rightArray = dict["right"] as? [[String: AnyObject]]
-                                    for array in rightArray! {
-                                        let id = array["id"] as? Int
-                                        print("secID: \(id!)")
-                                        let rows = array["rows"] as? [[String: AnyObject]]
-                                        for row in rows! {
-                                            let id = row["id"] as? Int
-                                            print("   rowID: \(id!)")
-                                            let cells = row["values"] as? [[Int]]
-                                            for cell in cells! {
-                                                print("      cellValues: \(cell)")
-                                            }
-                                        }
-                                    }
+//                                    let rightArray = dict["right"] as? [[String: AnyObject]]
+//                                    for array in rightArray! {
+//                                        let id = array["id"] as? Int
+//                                        print("secID: \(id!)")
+//                                        let rows = array["rows"] as? [[String: AnyObject]]
+//                                        for row in rows! {
+//                                            let id = row["id"] as? Int
+//                                            print("   rowID: \(id!)")
+//                                            let cells = row["values"] as? [[Int]]
+//                                            for cell in cells! {
+//                                                print("      cellValues: \(cell)")
+//                                            }
+//                                        }
+//                                    }
                                     dispatch_async(dispatch_get_main_queue(), {
                                         completionHandler(update: {
                                             return
@@ -272,8 +274,8 @@ class MyDayBO: NSObject {
             let dict: [String: AnyObject] = ["id": secID, "rows": rows]
             sections.append(dict)
         }
-        resultDict["left"] = sections
-        sections.removeAll()
+//        resultDict["left"] = sections
+//        sections.removeAll()
         for section in right {
             let secID = section.id
             var rows = [[String: AnyObject]]()
@@ -292,7 +294,8 @@ class MyDayBO: NSObject {
             let dict: [String: AnyObject] = ["id": secID, "rows": rows]
             sections.append(dict)
         }
-        resultDict["right"] = sections
+//        resultDict["right"] = sections
+        resultDict["sections"] = sections
         return resultDict
     }
     
@@ -377,12 +380,35 @@ class MyDayBO: NSObject {
         }
     }
     
-    static func sendSchedule(description: String, completionHandler: (send: () throws -> Void) -> Void) {
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            completionHandler(send: {
-                return
-            })
+    static func sendSchedule(student: String, description: String, completionHandler: (send: () throws -> Void) -> Void) {
+        DraftBO.getIDForScheduleDraft(student, date: NSDate()) { (id) in
+            do {
+                let draftID = try id()
+                DraftBO.updateDraft(draftID, message: description, targets: nil, metadata: nil, attachment: nil, completionHandler: { (update) in
+                    do {
+                        try update()
+                        DraftBO.changeDraftToPost(draftID, completionHandler: { (change) in
+                            do {
+                                try change()
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(send: {
+                                        return
+                                    })
+                                })
+                            } catch {
+                                //TODO: handle error
+                                print("change schedule to post server error")
+                            }
+                        })
+                    } catch {
+                        //TODO: handle error
+                        print("updte draft error")
+                    }
+                })
+            } catch {
+                //TODO: handle error
+                print("get id for schedule error")
+            }
         }
     }
     

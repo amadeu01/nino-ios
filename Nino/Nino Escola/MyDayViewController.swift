@@ -336,6 +336,11 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     
 //MARK: Button methods
     @IBAction func sendScheduleAction(sender: UIButton) {
+        guard let student = SchoolSession.currentStudent else {
+            //TODO: handle error
+            print("missing student error")
+            return
+        }
         do {
             let description = try MyDayBO.shouldSendSchedule(self.leftCells, rightSections: self.rightCells)
             let alert = UIAlertController(title: "Confirmar Envio", message: description, preferredStyle: .Alert)
@@ -362,7 +367,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                         slider.disableInteraction()
                     }
                 }
-                MyDayBO.sendSchedule(description, completionHandler: { (send) in
+                MyDayBO.sendSchedule(student, description: description, completionHandler: { (send) in
                     do {
                         try send()
                         self.activityIndicator.stopAnimating()

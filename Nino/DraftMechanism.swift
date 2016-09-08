@@ -131,4 +131,28 @@ class DraftMechanism: NSObject {
         }
     }
     
+    static func changeDraftToPost(token: String, schoolID: Int, draftID: Int, completionHandler: (postID: Int?, error: Int?, data: String?) -> Void) {
+
+        do {
+            let route = try ServerRoutes.DraftToPost.description([String(draftID)])
+            let body: [String: AnyObject] = ["token": token, "school": schoolID]
+            RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(postID: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let id = json["data"]["post"]["id"].int
+                    completionHandler(postID: id, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO: handle missing parameter error
+        }
+    }
+    
 }
