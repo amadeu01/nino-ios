@@ -83,6 +83,36 @@ class GuardianMechanism: NSObject {
         }
     }
     
+    static func updateNameAndSurname(token: String, name: String, surname: String, completionHandler: (info: [String: AnyObject?]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.UpdateMyProfile.description(nil)
+            let body: [String: AnyObject] = ["token": token, "name": name, "surname": surname]
+            RestApiManager.makeHTTPPutRequest(route, body: body, onCompletion: {(json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(info: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(info: nil, error: error, data: data)
+                }
+                else {
+                    let data = json["data"]
+                    
+                    let id = data["id"].int
+                    let dict: [String: AnyObject?] = ["id": id]
+                    
+                    completionHandler(info: dict, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //TODO Handle error
+        }
+    }
+    
     static func getStudents(token: String, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetStudentsForGuardian.description(nil)
