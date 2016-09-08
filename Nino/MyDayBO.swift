@@ -26,21 +26,32 @@ class MyDayBO: NSObject {
      
      - returns: lists of MyDaySection
      */
-    static func getCellsForRoom(room: String) throws -> (left: [MyDaySection], right: [MyDaySection]) {
+    static func getCellsForRoom(room: String, schedule: NSDictionary?) throws -> (left: [MyDaySection], right: [MyDaySection]) {
         
         let (agendaLeft, agendaRight) = AgendaMechanism.getSectionsForAgenda(0)
         do {
-            let left = try self.createSections(agendaLeft)
-            let right = try self.createSections(agendaRight)
+            let left = try self.createSections(agendaLeft, schedule: schedule)
+            let right = try self.createSections(agendaRight, schedule: schedule)
             return (left, right)
         } catch let error {
             throw error
         }
     }
     
-    private static func createSections(sectionsInt: [Int]) throws -> [MyDaySection] {
+    private static func createSections(sectionsInt: [Int], schedule: NSDictionary?) throws -> [MyDaySection] {
         var sections = [MyDaySection]()
         for section in sectionsInt {
+            var secDict: [String: AnyObject]?
+            if let dict = schedule {
+                let sections = dict["sections"] as? [[String: AnyObject]]
+                if let sectionsArray = sections {
+                    for sectionDict in sectionsArray {
+                        if sectionDict["id"] as? Int == section {
+                            secDict = sectionDict
+                        }
+                    }
+                }
+            }
             let sec = SectionMechanism.getRowsForSection(section)
             let title = sec["title"] as? String
             let icon = sec["icon"] as? String
@@ -48,7 +59,6 @@ class MyDayBO: NSObject {
             guard let sectionTitle = title else {
                 //TODO: handle missing section title error
                 throw ServerError.UnexpectedCase
-                
             }
             guard let sectionIcon = icon else {
                 //TODO: handle missing section icon error
@@ -64,6 +74,17 @@ class MyDayBO: NSObject {
             }
             var sectionRows = [MyDayRow]()
             for row in sectionRowsInt {
+                var rowDic: [String: AnyObject]?
+                if let dict = secDict {
+                    let rows = dict["rows"] as? [[String: AnyObject]]
+                    if let rowsArray = rows {
+                        for currentDict in rowsArray {
+                            if currentDict["id"] as? Int == row {
+                                rowDic = currentDict
+                            }
+                        }
+                    }
+                }
                 let currentRowDict = RowMechanism.getRowsWithID(row)
                 let rowCells = currentRowDict["cells"] as? [[String: AnyObject]]
                 let rowDescription = currentRowDict["description"] as? String
@@ -81,14 +102,22 @@ class MyDayBO: NSObject {
                     throw ServerError.UnexpectedCase
                 }
                 var currentCells = [MyDayCell]()
+                var index = 0
                 for cell in cells {
                     do {
-                        let currentCell = try self.createCell(cell)
+                        var initialValues: [Int]?
+                        if let dict = rowDic {
+                            if let cellValues = dict["values"] as? [[Int]] {
+                                initialValues = cellValues[index]
+                            }
+                        }
+                        let currentCell = try self.createCell(cell, initialValues: initialValues)
                         currentCells.append(currentCell)
                     } catch let error {
                         //TODO: handle create cell error
                         throw error
                     }
+                    index += 1
                 }
                 let currentRow = MyDayRow(id: row, cells: currentCells, description: description, emptyDescription: emptyDescription)
                 sectionRows.append(currentRow)
@@ -103,7 +132,7 @@ class MyDayBO: NSObject {
         return sections
     }
     
-    private static func createCell(cell: [String: AnyObject]) throws -> MyDayCell {
+    private static func createCell(cell: [String: AnyObject], initialValues: [Int]?) throws -> MyDayCell {
         let type = cell["type"] as? String
         let title = cell["title"] as? String
         guard let cellType = type else {
@@ -120,7 +149,11 @@ class MyDayBO: NSObject {
                 //TODO: handle missing cell buttons error
                 throw ServerError.UnexpectedCase
             }
-            return MyDayIntensityCell(title: cellTitle, buttons: cellButtons, values: nil, current: nil)
+            var current: Int?
+            if initialValues != nil {
+                current = initialValues!.count - 1
+            }
+            return MyDayIntensityCell(title: cellTitle, buttons: cellButtons, values: initialValues, current: current)
         } else if cellType == CellType.Slider.rawValue {
             let floor = cell["floor"] as? Int
             let ceil = cell["ceil"] as? Int
@@ -146,7 +179,11 @@ class MyDayBO: NSObject {
                 //TODO: handle missing icon error
                 throw ServerError.UnexpectedCase
             }
-            return MyDaySliderCell(title: cellTitle, unit: cellUnity, image: cellIcon, floor: cellFloor, ceil: cellCeil, values: nil, current: nil)
+            var current: Int?
+            if initialValues != nil {
+                current = initialValues!.count - 1
+            }
+            return MyDaySliderCell(title: cellTitle, unit: cellUnity, image: cellIcon, floor: cellFloor, ceil: cellCeil, values: initialValues, current: current)
         } else {
             //TODO: handle wrong cell type error
             throw ServerError.UnexpectedCase
@@ -200,7 +237,6 @@ class MyDayBO: NSObject {
                                     let dict = post.metadata!
                                     let sections = dict["sections"] as? [[String: AnyObject]]
                                     
-//                                    let leftArray = dict["left"] as? [[String: AnyObject]]
                                     for array in sections! {
                                         let id = array["id"] as? Int
                                         print("secID: \(id!)")
@@ -214,20 +250,6 @@ class MyDayBO: NSObject {
                                             }
                                         }
                                     }
-//                                    let rightArray = dict["right"] as? [[String: AnyObject]]
-//                                    for array in rightArray! {
-//                                        let id = array["id"] as? Int
-//                                        print("secID: \(id!)")
-//                                        let rows = array["rows"] as? [[String: AnyObject]]
-//                                        for row in rows! {
-//                                            let id = row["id"] as? Int
-//                                            print("   rowID: \(id!)")
-//                                            let cells = row["values"] as? [[Int]]
-//                                            for cell in cells! {
-//                                                print("      cellValues: \(cell)")
-//                                            }
-//                                        }
-//                                    }
                                     dispatch_async(dispatch_get_main_queue(), {
                                         completionHandler(update: {
                                             return

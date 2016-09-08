@@ -74,7 +74,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         }
         
         do {
-            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom)
+            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: schedule)
             
             leftTableView.reloadData()
             rightTableView.reloadData()
@@ -292,6 +292,19 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             let cellVO = self.cellForIndexPath(index, sections: sections)
             let newCell = MyDayBO.deleteItem(item, cell: cellVO)
             self.changeCellInSide(index, isLeft: isLeftCell, newCell: newCell)
+        }
+        do {
+            try MyDayBO.updateDraft(self.leftCells, right: self.rightCells, completionHandler: { (update) in
+                do {
+                    try update()
+                } catch let error {
+                    //TODO: handle error
+                }
+            })
+        } catch let error {
+            if let myDayError = error as? MyDayError {
+                //TODO: handle missing student
+            }
         }
     }
     
