@@ -44,6 +44,47 @@ class PostMechanism: NSObject {
         }
     }
     
+    static func getPosts(token: String, studentID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.GetStudentPostsForGuardian.description([String(studentID)])
+            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(info: nil, error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: decode data as json
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(info: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    let data = json["data"].array
+                    guard let datajson = data else {
+                        completionHandler(info: nil, error: nil, data: nil)
+                        return
+                    }
+                    var postsDict = [[String: AnyObject?]]()
+                    for subjson in datajson {
+                        let id = subjson["id"].int
+                        let message = subjson["message"].string
+                        let metadata = subjson["metadata"].object
+                        let attachment = subjson["attachment"].string
+                        let date = subjson["date"].string
+                        let type = subjson["type"].int
+                        let dict: [String: AnyObject?] = ["postID": id, "message": message, "metadata": metadata, "attachment": attachment, "date": StringsMechanisms.dateFromString(date!), "type": type]
+                        postsDict.append(dict)
+                    }
+                    completionHandler(info: postsDict, error: nil, data: nil)
+                }
+            })
+        } catch {
+            
+        }
+    }
+    
     static func getPosts(token: String, schoolID: Int, studentID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetStudentPostsForSchool.description([String(schoolID), String(studentID)])
@@ -74,7 +115,7 @@ class PostMechanism: NSObject {
                         let attachment = subjson["attachment"].string
                         let date = subjson["date"].string
                         let type = subjson["type"].int
-                        let dict: [String: AnyObject?] = ["draftID": id, "message": message, "metadata": metadata, "attachment": attachment, "date": StringsMechanisms.dateFromString(date!), "type": type]
+                        let dict: [String: AnyObject?] = ["postID": id, "message": message, "metadata": metadata, "attachment": attachment, "date": StringsMechanisms.dateFromString(date!), "type": type]
                         draftsDict.append(dict)
                     }
                     completionHandler(info: draftsDict, error: nil, data: nil)

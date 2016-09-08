@@ -99,8 +99,107 @@ class PostBO: NSObject {
         }
     }
     
-    static func getPostsForStudent(id: String, completionHandler: (posts: () throws -> [Post]) -> Void) {
-        
+    static func getPostsForStudent(student: String, completionHandler: (getPosts: () throws -> [Post]) -> Void) {
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            completionHandler(getPosts: { () -> [Post] in
+                throw AccountError.InvalidToken
+            })
+            return
+        }
+        PostDAO.getPostsForStudent(student) { (getPosts) in
+            do {
+                let localPosts = try getPosts()
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(getPosts: { () -> [Post] in
+                        return localPosts
+                    })
+                })
+                StudentBO.getIdForStudent(student, completionHandler: { (id) in
+                    do {
+                        let id = try id()
+                        PostMechanism.getPosts(token, studentID: id, completionHandler: { (info, error, data) in
+                            if let err = error {
+                                let error = NotificationMessage()
+                                error.setServerError(ErrorBO.decodeServerError(err))
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                })
+                            }
+                            else if let array = info {
+                                var serverPosts = [Post]()
+                                for dict in array {
+                                    guard let postID = dict["postID"] as? Int else {
+                                        let error = NotificationMessage()
+                                        error.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let type = dict["type"] as? Int else {
+                                        let error = NotificationMessage()
+                                        error.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                        })
+                                        return
+                                    }
+                                    guard let message = dict["message"] as? String else {
+                                        let error = NotificationMessage()
+                                        error.setServerError(ServerError.UnexpectedCase)
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                        })
+                                        return
+                                    }
+                                    let metadata = dict["metadata"] as? NSDictionary
+                                    let attachment = dict["attachment"] as? String
+                                    let date = dict["date"] as? NSDate
+                                    var dictionary: NSDictionary?
+                                    let post = Post(id: StringsMechanisms.generateID(), postID: postID, type: type, date: date, message: message, attachment: nil, targets: [student], readProfileIDs: nil, metadata: metadata)
+                                    serverPosts.append(post)
+                                }
+                                let comparison = PostBO.comparePosts(serverPosts, localPosts: localPosts)
+                                let wasChanged = comparison["wasChanged"]
+                                let wasDeleted = comparison["wasDeleted"]
+                                let newPosts = comparison["newPosts"]
+                                if newPosts!.count > 0 {
+                                    for post in newPosts! {
+                                        PostDAO.createPost(post, completionHandler: { (write) in
+                                            do {
+                                                try write()
+                                                let message = NotificationMessage()
+                                                message.setDataToInsert([post])
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: nil, info: message)
+                                                })
+                                            } catch {
+                                                //TODO: handle error
+                                                print("create local draft error")
+                                            }
+                                        })
+                                    }
+                                }
+                                //TODO: posts was deleted
+                                //TODO: posts was updated
+                            }
+                                //unexpected case
+                            else {
+                                let error = NotificationMessage()
+                                error.setServerError(ServerError.UnexpectedCase)
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: error, info: nil)
+                                })
+                            }
+                        })
+                    } catch {
+                        //TODO Handle error
+                    }
+                })
+            } catch {
+                //TODO Handle error
+            }
+        }
     }
     
     static func comparePosts(serverPosts: [Post], localPosts: [Post]) -> [String: [Post]] {
@@ -120,15 +219,15 @@ class PostBO: NSObject {
                     if serverPost.message != localPost.message {
                         wasChanged.append(serverPost)
                         continue
-                    }
+                    }//TODO: must else if here, of else can add the same post multiple times
                     if serverPost.attachment != localPost.attachment {
                         wasChanged.append(serverPost)
                         continue
-                    }
+                    }//TODO: must else if here, of else can add the same post multiple times
                     if serverPost.metadata != localPost.metadata {
                         wasChanged.append(serverPost)
                         continue
-                    }
+                    }//TODO: must else if here, of else can add the same post multiple times
                     if serverPost.targets != localPost.targets {
                         wasChanged.append(serverPost)
                         continue

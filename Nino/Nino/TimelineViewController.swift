@@ -13,6 +13,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var studentsName: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    private var currentPosts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "MyDay", bundle: nil)
@@ -37,6 +40,44 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         if let student = GuardiansSession.selectedStudent {
             studentsName.text = student.name + " " + student.surname
         }
+        
+        NinoNotificationManager.sharedInstance.addObserverForPostsUpdates(self, selector: #selector(postsUpdated))
+        self.reloadData()
+    }
+    
+    func reloadData() {
+        self.currentPosts.removeAll()
+        if let id = GuardiansSession.selectedStudent?.id {
+            PostBO.getPostsForStudent(id) { (getPosts) in
+                do {
+                    let posts = try getPosts()
+                    self.currentPosts = posts
+                    self.tableView.reloadData()
+                } catch {
+                    //TODO:
+                }
+            }
+        }
+    }
+    
+    @objc func postsUpdated(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO:
+            return
+        }
+        
+        if let error = userInfo["error"] {
+            //TODO:
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newPosts = message.dataToInsert as? [Post] {
+                if newPosts.count > 0 {
+                    reloadData()
+                }
+            }
+        }
+        
+        //TODO: DELETED
+        //TODO: UPDATED
     }
     
     
@@ -61,14 +102,18 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             print("Could not find cell")
             return UITableViewCell()
         }
-        let overview =  "• Hoje eu comi bem\n• Evacuei três vezes\n• Mamei 3 mamadeiras de 100ml, 130ml e 50ml\n"
-        thisCell.fillCellWithFeed(NSDate(), overview: overview)
+        let overview =  self.currentPosts[indexPath.item].message
+        guard let date = self.currentPosts[indexPath.item].date else {
+            print("No date")
+            return UITableViewCell()
+        }
+        thisCell.fillCellWithFeed(date, overview: overview)
         return thisCell
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return currentPosts.count
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1 //Only one section

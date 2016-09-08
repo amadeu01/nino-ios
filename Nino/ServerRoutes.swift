@@ -39,6 +39,8 @@ enum ServerRoutes {
     case GetPhase
     case GetSchoolWithID
     case UpdateMyProfile
+    
+    case GetStudentPostsForGuardian
 
 // swiftlint:disable cyclomatic_complexity
     func description(param: [String]?) throws -> String {
@@ -135,6 +137,11 @@ enum ServerRoutes {
                 throw RouteError.MissingParameter
             }
             return "drafts/" + id[0]
+        case .GetStudentPostsForGuardian:
+            guard let id = param where id.count > 0 else {
+                throw RouteError.MissingParameter
+            }
+            return "posts/profiles/" + id[0]
         }
     }
 }
