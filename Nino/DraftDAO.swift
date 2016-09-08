@@ -339,4 +339,42 @@ class DraftDAO: NSObject {
             }
         }
     }
+    
+    static func changeDraftToPost(draft: String, postID: Int, compltionHandler: (change: () throws -> Void) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let drafRealm = realm.objectForPrimaryKey(PostRealmObject.self, key: draft)
+                guard let selectedDraft = drafRealm else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        compltionHandler(change: { 
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                var index = 0
+                try realm.write({ 
+                    for target in selectedDraft.targetsDraft {
+                        selectedDraft.targetsDraft.removeAtIndex(index)
+                        selectedDraft.targetsPost.append(target)
+                        index += 1
+                    }
+                    selectedDraft.postID.value = postID
+                    realm.add(selectedDraft, update: true)
+                })
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    compltionHandler(change: { 
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    compltionHandler(change: { 
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
 }

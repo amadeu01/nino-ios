@@ -322,4 +322,59 @@ class DraftBO: NSObject {
             }
         }
     }
+    
+    static func changeDraftToPost(draft: String, completionHandler: (change: () throws -> Void) -> Void) {
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            completionHandler(change: { 
+                throw AccountError.InvalidToken
+            })
+            return
+        }
+        SchoolBO.getIdForSchool { (id) in
+            do {
+                let schoolID = try id()
+                PostBO.getIdForPost(draft, completionHandler: { (id) in
+                    do {
+                        let draftID = try id()
+                        DraftMechanism.changeDraftToPost(token, schoolID: schoolID, draftID: draftID, completionHandler: { (postID, error, data) in
+                            if let err = error {
+                                //TODO: handle error data
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(change: { 
+                                        throw ErrorBO.decodeServerError(err)
+                                    })
+                                })
+                            } else if let newID = postID {
+                                DraftDAO.changeDraftToPost(draft, postID: newID, compltionHandler: { (change) in
+                                    do {
+                                        try change()
+                                        dispatch_async(dispatch_get_main_queue(), { 
+                                            completionHandler(change: { 
+                                                return
+                                            })
+                                        })
+                                    } catch {
+                                        //TODO: handle error
+                                        print("realm change draft to post error")
+                                    }
+                                })
+                            } else {
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(change: { 
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                            }
+                        })
+                    } catch {
+                        //TODO: handle get post id error
+                        print("get post id error")
+                    }
+                })
+            } catch {
+                //TODO: handle get id for school error
+                print("get id for school error")
+            }
+        }
+    }
 }
