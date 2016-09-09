@@ -58,8 +58,9 @@ class StudentBO: NSObject {
                                                                     return Student(id: student.id, profileId: studentID, name: student.name, surname: student.surname, gender: student.gender, birthDate: student.birthDate, profilePicture: student.profilePicture, roomID: student.roomID, guardians: student.guardians, createdAt: studentCreation)
                                                                 })
                                                             })
-                                                        } catch {
+                                                        } catch let error {
                                                             //TODO: handle realm error
+                                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                                         }
                                                     })
                                                 } else {
@@ -70,8 +71,9 @@ class StudentBO: NSObject {
                                                         })
                                                     })
                                                 }
-                                            } catch {
+                                            } catch let error {
                                                 //TODO: handle realm error
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                             }
                                         })
                                     } else {
@@ -82,8 +84,9 @@ class StudentBO: NSObject {
                                         })
                                     }
                                 }
-                            } catch {
+                            } catch let error {
                                 //TODO: handle realm error
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         })
                     } catch let error {
@@ -94,8 +97,9 @@ class StudentBO: NSObject {
                         })
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: missing schoolID or roomID
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -209,8 +213,9 @@ class StudentBO: NSObject {
                                             dispatch_async(dispatch_get_main_queue(), {
                                                 NinoNotificationManager.sharedInstance.addStudentsUpdatedNotification(self, error: nil, info: message)
                                             })
-                                        } catch {
+                                        } catch let error {
                                             //TODO: handle realm error
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 }
@@ -227,8 +232,9 @@ class StudentBO: NSObject {
                                 return
                             }
                         }
-                    } catch {
+                    } catch let error {
                         //TODO: handle realm error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
             } catch let error {

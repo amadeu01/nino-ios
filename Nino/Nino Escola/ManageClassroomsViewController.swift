@@ -59,8 +59,9 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                 dispatch_async(dispatch_get_main_queue(), { 
                     self.tableView.reloadData()
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle getRoom errors
+                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -117,6 +118,7 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                 } catch let error {
                     //TODO: handle createRoom error
                     print("createRoom error: " + ((error as? ServerError)?.description())!)
+                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }

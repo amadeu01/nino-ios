@@ -5,6 +5,7 @@ PODS:
   - Fabric (1.6.7)
   - IQKeyboardManagerSwift (4.0.0)
   - JWTDecode (1.1.0)
+  - Mixpanel-swift (1.0.0)
   - QBImagePickerController (3.4.0)
   - QuickBlox (2.7.3)
   - Realm (1.0.0):
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Fabric
   - IQKeyboardManagerSwift (= 4.0.0)
   - JWTDecode
+  - Mixpanel-swift
   - QBImagePickerController
   - QuickBlox
   - RealmSwift
@@ -50,6 +52,7 @@ SPEC CHECKSUMS:
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   IQKeyboardManagerSwift: ede2a27b4e1ce053d03073b9c7fa439322f5e405
   JWTDecode: a6b91ad0bc798c723e9a29a368a6ead70edf7213
+  Mixpanel-swift: f35c35756e2122a8dbd9bd2f0e27441fc7a02e33
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   QuickBlox: 28720ddcb52d43879e2732f04c72900e38937cca
   Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
@@ -61,6 +64,6 @@ SPEC CHECKSUMS:
   TagListView: 6bf4bded034c4c90b1e90d8cd3d8e1d852dba0a8
   TOCropViewController: 441075834904054c13b5558523743a6e27d1baa5
 
-PODFILE CHECKSUM: 855c02929ceeb343bb7f7be52b2ddef326afeebd
+PODFILE CHECKSUM: e52688578adbdda50b05a9b565e8b0b7f604a609
 
 COCOAPODS: 1.0.1

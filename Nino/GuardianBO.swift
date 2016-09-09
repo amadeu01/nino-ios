@@ -54,8 +54,9 @@ class GuardianBO: NSObject {
                                                         return Guardian(id: guardian.id, profileID: guardianID, name: guardian.name, surname: guardian.surname, gender: guardian.gender, email: guardian.email, students: guardian.students)
                                                     })
                                                 })
-                                            } catch {
+                                            } catch let error {
                                                 //TODO: handle realm error
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                             }
                                         })
                                     } else {
@@ -66,16 +67,19 @@ class GuardianBO: NSObject {
                                         })
                                     }
                                 })
-                            } catch {
+                            } catch let error {
                                 //TODO: handle realm error
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO: handle getStudentID error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle getSchoolID error
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -153,8 +157,9 @@ class GuardianBO: NSObject {
                                             dispatch_async(dispatch_get_main_queue(), {
                                                 NinoNotificationManager.sharedInstance.addGuardiansUpdatedNotification(self, error: nil, info: message)
                                             })
-                                        } catch {
+                                        } catch let error {
                                             //TODO: handle Realm error
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 }
@@ -168,12 +173,14 @@ class GuardianBO: NSObject {
                                 })
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO: handle realm error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle missing id error
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -371,21 +378,24 @@ class GuardianBO: NSObject {
                                                         return studentsVO
                                                     })
                                                 })
-                                            } catch {
+                                            } catch let error {
                                                 print("realm school error")
                                                 //TODO: post notification
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                             }
                                         })
                                     }
-                                } catch {
+                                } catch let error {
                                     //TODO: Handle error
+                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 }
                             })
                         }
                     })
                 }
-            } catch {
+            } catch let error {
                 //TODO Handle error
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

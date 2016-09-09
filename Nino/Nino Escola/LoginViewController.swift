@@ -207,8 +207,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     delegate.loggedIn = true
                                     delegate.setupRootViewController(true)
                                 }
-                            } catch {
+                            } catch let error {
                                 print("profileError")
+                                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 //TODO: handle profile error
                             }
                         })
@@ -220,8 +221,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     message.setDataToInsert(phases)
                                     NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
                                 }
-                            } catch {
+                            } catch let error {
                                 print("getPhases error")
+                                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 //TODO: handle getPhases and addPhases error
                             }
                         })
@@ -238,6 +240,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 let vc = storyboard.instantiateViewControllerWithIdentifier("CreateSchool")
                                 self.presentViewController(vc, animated: true, completion: nil)
                             }
+                        } else {
+                            NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         }
                         print("getSchool error")
                         //TODO: handle getSchool error
@@ -251,7 +255,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 LoginDAO.logout({ (out) in
                     do {
                         try out();
-                    } catch {
+                    } catch let error {
+                        NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         //TODO: Handle Error
                     }
                 })

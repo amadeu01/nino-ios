@@ -230,6 +230,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
                         delegate.setupRootViewController(true)
                     }
                 } catch let internalError {
+                    NinoSession.sharedInstance.kamikaze(["error":internalError, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     //TODO: handle error
                 }
             })

@@ -62,8 +62,9 @@ class DraftBO: NSObject {
                                                         return Post(id: post.id, postID: postServerID, type: post.type, date: postDate!, message: post.message, attachment: post.attachment, targets: post.targets, readProfileIDs: post.readProfileIDs, metadata: post.metadata)
                                                     })
                                                 })
-                                            } catch {
+                                            } catch let error{
                                                 print("update error")
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                                 //TODO: handle updateDate error
                                             }
                                         })
@@ -91,8 +92,9 @@ class DraftBO: NSObject {
                         })
                     }
                 }
-            } catch {
+            } catch let error {
                 print("getschoolID error")
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 //TODO: handle getSchoolID error
             }
         }
@@ -107,8 +109,9 @@ class DraftBO: NSObject {
                         return shouldCreate
                     })
                 })
-            } catch {
+            } catch let error {
                 print("not found error")
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 //TODO: handle not found or realm error
             }
         }
@@ -175,18 +178,21 @@ class DraftBO: NSObject {
                                         })
                                     }
                                 })
-                            } catch {
+                            } catch let error {
                                 print("realmError")
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 //TODO: handle local errors
                             }
                         }
-                    } catch {
+                    } catch let error {
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         //TODO: handle error
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle error
                 print("getIdForSchool error")
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -200,8 +206,9 @@ class DraftBO: NSObject {
                         return id
                     })
                 })
-            } catch {
+            } catch let error {
                 print("get scheduleID error")
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 //TODO: handle error
             }
         }
@@ -287,9 +294,10 @@ class DraftBO: NSObject {
                                                         dispatch_async(dispatch_get_main_queue(), {
                                                             NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: nil, info: message)
                                                         })
-                                                    } catch {
+                                                    } catch let error {
                                                         //TODO: handle error
                                                         print("create local draft error")
+                                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                                     }
                                                 })
                                             }
@@ -306,19 +314,22 @@ class DraftBO: NSObject {
                                         })
                                     }
                                 })
-                            } catch {
+                            } catch let error {
                                 //TODO: handle error
                                 print("get local drafts error")
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO: handle error
                         print("get ID for Student error")
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle error
                 print("get ID for School error")
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -353,9 +364,10 @@ class DraftBO: NSObject {
                                                 return
                                             })
                                         })
-                                    } catch {
+                                    } catch let error {
                                         //TODO: handle error
                                         print("realm change draft to post error")
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
                                 })
                             } else {
@@ -366,14 +378,16 @@ class DraftBO: NSObject {
                                 })
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO: handle get post id error
                         print("get post id error")
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
             } catch {
                 //TODO: handle get id for school error
                 print("get id for school error")
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

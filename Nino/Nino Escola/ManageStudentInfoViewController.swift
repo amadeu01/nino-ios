@@ -81,8 +81,9 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
                 let guardians = try getGuardians()
                 self.guardians.appendContentsOf(guardians)
                 self.tableView.reloadSections(NSIndexSet(index: self.guardianInfoSec), withRowAnimation: UITableViewRowAnimation.Automatic)
-            } catch {
+            } catch let error {
                 //TODO: handle error
+                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

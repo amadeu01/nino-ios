@@ -151,8 +151,9 @@ class RegisterGuardianViewController: UIViewController, UITextFieldDelegate {
                 do {
                     self.guardian = try guardian()
                     self.performSegueWithIdentifier("goBackToManageStudentInfoViewController", sender: self)
-                } catch {
+                } catch let error {
                     //TODO: handle error
+                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             }
         } catch {

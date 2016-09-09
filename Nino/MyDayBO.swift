@@ -222,8 +222,9 @@ class MyDayBO: NSObject {
                                     return
                                 })
                             })
-                        } catch {
+                        } catch let error {
                             print("createDraft error")
+                            NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             //TODO: create error
                         }
                     })
@@ -239,19 +240,22 @@ class MyDayBO: NSObject {
                                             return
                                         })
                                     })
-                                } catch {
+                                } catch let error {
                                     print("update draft error")
+                                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     //TODO: update draft error
                                 }
                             })
-                        } catch {
+                        } catch let error {
                             print("get draftID error")
+                            NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             //TODO: id error
                         }
                     })
                 }
-            } catch {
+            } catch let error {
                 print("shouldCreate error")
+                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 //TODO: should create error
             }
         }
@@ -401,19 +405,22 @@ class MyDayBO: NSObject {
                                         return
                                     })
                                 })
-                            } catch {
+                            } catch let error {
                                 //TODO: handle error
                                 print("change schedule to post server error")
+                                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO: handle error
                         print("updte draft error")
+                        NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle error
                 print("get id for schedule error")
+                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

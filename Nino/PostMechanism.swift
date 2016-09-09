@@ -39,8 +39,9 @@ class PostMechanism: NSObject {
                     completionHandler(postID: id, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //never will be reached
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -80,8 +81,8 @@ class PostMechanism: NSObject {
                     completionHandler(info: postsDict, error: nil, data: nil)
                 }
             })
-        } catch {
-            
+        } catch let error {
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -121,8 +122,9 @@ class PostMechanism: NSObject {
                     completionHandler(info: draftsDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //never SHOULD be reached
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
 

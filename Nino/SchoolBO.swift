@@ -83,8 +83,9 @@ class SchoolBO: NSObject {
                                                     })
                                                 }
                                             })
-                                        } catch {
+                                        } catch let error {
                                             //TODO: update logo error
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 }
@@ -96,8 +97,9 @@ class SchoolBO: NSObject {
                                         })
                                     })
                                 }
-                            } catch {
+                            } catch let error {
                                 //TODO: update ID error
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         })
                     }
@@ -111,8 +113,9 @@ class SchoolBO: NSObject {
                     }
 
                 })
-            } catch {
+            } catch let error {
                 //TODO: realm error create school
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -129,8 +132,9 @@ class SchoolBO: NSObject {
                                 return school
                             })
                         })
-                    } catch {
+                    } catch let error {
                         //TODO Handle error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 }
             } catch let error {
@@ -212,8 +216,9 @@ class SchoolBO: NSObject {
                                                 return schoolVO
                                             })
                                         })
-                                    } catch {
+                                    } catch let error {
                                         //TODO Handle error
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
                                 })
                             }
@@ -309,8 +314,9 @@ class SchoolBO: NSObject {
                         SchoolDAO.createSchool(currentSchool, completionHandler: { (writeSchool) in
                             do {
                                 try writeSchool()
-                            } catch {
+                            } catch let error {
                                 print("realm school error")
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 //TODO: post notification
                             }
                         })
@@ -352,6 +358,7 @@ class SchoolBO: NSObject {
                     //TODO: explode the app
                     break
                 }
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }//end catch
         }//end DAO method
     }

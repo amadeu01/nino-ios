@@ -11,6 +11,7 @@ pod 'QBImagePickerController'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'RealmSwift'
 pod 'JWTDecode'
+pod 'Mixpanel-swift'
 end
 
 target 'NinoTests' do
@@ -29,6 +30,7 @@ pod 'QBImagePickerController'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'RealmSwift'
 pod 'JWTDecode'
+pod 'Mixpanel-swift'
 
 # Chat
 #pod 'QMChatViewController'

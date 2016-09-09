@@ -45,8 +45,9 @@ class SchoolMechanism: NSObject {
                     completionHandler(schoolID: schoolID, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //never will be reached
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -78,8 +79,9 @@ class SchoolMechanism: NSObject {
                     completionHandler(success: true, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -112,8 +114,9 @@ class SchoolMechanism: NSObject {
                     completionHandler(info: dict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -159,8 +162,9 @@ class SchoolMechanism: NSObject {
                     completionHandler(info: schoolsDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: never will be reached
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
 }

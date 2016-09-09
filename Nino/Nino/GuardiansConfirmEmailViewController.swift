@@ -49,6 +49,7 @@ class GuardiansConfirmEmailViewController: UIViewController {
             } catch let error {
                 //TODO: handle error
                 guard let serverError = error as? ServerError else {
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     return
                 }
                 let action = UIAlertAction(title: "Entendi", style: .Default, handler: { (act) in

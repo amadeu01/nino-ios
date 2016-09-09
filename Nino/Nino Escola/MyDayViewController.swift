@@ -9,6 +9,7 @@
 import UIKit
 
 /// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
+// swiftlint:disable type_body_length
 class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate, MyDaySliderCellDelegate, DateSelectorDataSource {
 
     @IBOutlet weak var dateSelector: DateSelector!
@@ -91,8 +92,9 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
             //TODO: Insert class ID
 
-        } catch {
+        } catch let error {
             //TODO: handle error
+            NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
         
         
@@ -234,12 +236,14 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                     try update()
                 } catch let error {
                     //TODO: handle error
+                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         } catch let error {
             if let myDayError = error as? MyDayError {
                 //TODO: handle missing student
             }
+            NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -308,12 +312,14 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                     try update()
                 } catch let error {
                     //TODO: handle error
+                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         } catch let error {
             if let myDayError = error as? MyDayError {
                 //TODO: handle missing student
             }
+            NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     

@@ -71,8 +71,9 @@ class LoginBO: NSObject {
                 //tries to get the credential
                 let credential = try getCredential()
                 NinoSession.sharedInstance.setCredential(credential)
-            } catch {
+            } catch let error {
                 //TODO: logout too?
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

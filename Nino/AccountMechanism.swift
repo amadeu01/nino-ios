@@ -39,7 +39,8 @@ class AccountMechanism: NSObject {
                     completionHandler(accessToken: token, error: nil)
                 }
             })
-        } catch {
+        } catch let error{
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //Never will be reached
         }
         
@@ -78,7 +79,8 @@ class AccountMechanism: NSObject {
                     completionHandler(profileID: userID, error: nil, data: nil)
                 }
             }
-        } catch {
+        } catch let error{
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //path error - in this case, never will be reached
         }
     }
@@ -110,7 +112,8 @@ class AccountMechanism: NSObject {
                     completionHandler(validated: validated, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //FIXME: send an email to contato@ninoapp.com.br notifying the route error
         }
     }
@@ -144,7 +147,8 @@ class AccountMechanism: NSObject {
                     completionHandler(token: token, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //TODO: handle missing parameter error
         }
     }
@@ -183,7 +187,8 @@ class AccountMechanism: NSObject {
                     completionHandler(profileID: profileID, name: name, surname: surname, birthDate: birthdate, gender: genderInt, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error{
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //TODO: handle missing parameter error
         }
     }

@@ -33,8 +33,9 @@ class GuardianMechanism: NSObject {
                     completionHandler(profileID: id, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //never will be reached
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -78,8 +79,9 @@ class GuardianMechanism: NSObject {
                     completionHandler(info: guardiansDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -108,8 +110,9 @@ class GuardianMechanism: NSObject {
                     completionHandler(info: dict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO Handle error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -159,8 +162,9 @@ class GuardianMechanism: NSObject {
                     completionHandler(info: guardiansDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     

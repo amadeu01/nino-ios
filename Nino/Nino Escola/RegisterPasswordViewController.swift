@@ -143,8 +143,9 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
                 let credential = CredentialBO.createCredential(token)
                 NinoSession.sharedInstance.setCredential(credential)
                 self.performSegueWithIdentifier("createSchool", sender: nil)
-            } catch {
+            } catch let error {
                 //TODO:handle error and error data
+                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

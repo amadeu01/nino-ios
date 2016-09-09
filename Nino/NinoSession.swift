@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Mixpanel
 
 class NinoSession: NSObject {
     
@@ -62,6 +63,28 @@ class NinoSession: NSObject {
         self._credential = nil
         self._educator = nil
         self._school = nil
+    }
+    
+    
+    /**
+     This function is used to log unhandled error and kill graciously the application, logging what error occurred in order to make it possible to fix it in future versions
+     It is called in unhandled errors
+     
+     - parameter log: Description of the error
+     */
+    func kamikaze(log: [String: AnyObject]) {
+        Mixpanel.initialize(token: "f86281849e415ef0d69aa6af9f80450b")
+        Mixpanel.mainInstance().track(event: "Kamikazed", properties: ["Erro" : log])
+        LoginBO.logout { (out) in
+            do {
+                try out()
+                var a: Int?
+                print(a!)
+            } catch let error {
+                var a: Int?
+                print(a!)
+            }
+        }
     }
     
 }

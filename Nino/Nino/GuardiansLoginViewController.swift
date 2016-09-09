@@ -197,12 +197,13 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
                                             delegate.setupRootViewController(true)
                                         }
                                     }
-                                } catch {
-                                    
+                                } catch let error {
+                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 }
                             })
-                        } catch {
+                        } catch let error {
                             //TODO: Handle error
+                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         }
                     })
                 })
@@ -214,8 +215,9 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
                 LoginDAO.logout({ (out) in
                     do {
                         try out();
-                    } catch {
+                    } catch let error {
                         //TODO: Handle Error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
                 dispatch_async(dispatch_get_main_queue(), {

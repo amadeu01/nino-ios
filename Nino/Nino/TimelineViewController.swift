@@ -53,8 +53,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                     let posts = try getPosts()
                     self.currentPosts = posts
                     self.tableView.reloadData()
-                } catch {
+                } catch let error {
                     //TODO:
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             }
         }
