@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JWTDecode
 
 /// Class which manages all services of login
 class LoginBO: NSObject {
@@ -17,6 +18,16 @@ class LoginBO: NSObject {
      - parameter key:               Key VO with user information
      - parameter completionHandler: completion handler with other inside. The completion handler from the inside can throw an error or return a credential.
      */
+    private static var timer: NSTimer?
+    
+    private class KeyWrapper {
+        let key: Key
+        
+        init(key: Key) {
+            self.key = key
+        }
+    }
+    
     static func login(key: Key, completionHandler: (getCredential: () throws -> Credential) -> Void) {
         AccountMechanism.login(key.email, password: key.password) { (accessToken, error) in
             if let errorType = error {
@@ -28,6 +39,15 @@ class LoginBO: NSObject {
             } else if let token = accessToken {
                 dispatch_async(dispatch_get_main_queue(), { 
                     completionHandler(getCredential: { () -> Credential in
+                        let jwt = try decode(token)
+                        if let expiration = jwt.body["exp"] as? Int {
+                            if let currentTimer = self.timer {
+                                currentTimer.invalidate()
+                            }
+                            print(Double(expiration) - NSDate().timeIntervalSince1970 - 60)
+                            self.timer = NSTimer.scheduledTimerWithTimeInterval(Double(expiration) - NSDate().timeIntervalSince1970 - 60, target: self, selector: #selector(refreshToken), userInfo: KeyWrapper(key: key), repeats: false)
+                        }
+                        
                         return CredentialBO.createCredential(token)
                     })
                 })
@@ -37,6 +57,22 @@ class LoginBO: NSObject {
                         throw ServerError.UnexpectedCase
                     })
                 })
+            }
+        }
+    }
+    
+    @objc private static func refreshToken(timer: NSTimer) {
+        guard let key = timer.userInfo as? KeyWrapper else {
+            //TODO: Here we should probably logout
+            return
+        }
+        self.login(key.key) { (getCredential) in
+            do {
+                //tries to get the credential
+                let credential = try getCredential()
+                NinoSession.sharedInstance.setCredential(credential)
+            } catch {
+                //TODO: logout too?
             }
         }
     }
