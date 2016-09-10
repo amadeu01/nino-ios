@@ -254,7 +254,7 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
                 self.performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
             } catch let error {
                 //TODO: handle error
-                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

@@ -76,7 +76,7 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
                 self.tableView.reloadData()
             } catch let error {
                 //TODO: getStudents error
-                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

@@ -11,7 +11,7 @@ import UIKit
 /// Class which manages all guardian's services
 class GuardianBO: NSObject {
 
-    static func createGuardian(name: String, surname: String, email: String, studentID: String, completionHandler: (guardian: () throws -> Guardian) -> Void) throws {
+    static func createGuardian(name: String?, surname: String?, email: String, studentID: String, completionHandler: (guardian: () throws -> Guardian) -> Void) throws {
         
         if !StringsMechanisms.isValidEmail(email) {
             throw CreationError.InvalidEmail

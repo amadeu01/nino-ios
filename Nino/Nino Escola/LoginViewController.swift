@@ -209,7 +209,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 }
                             } catch let error {
                                 print("profileError")
-                                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 //TODO: handle profile error
                             }
                         })
@@ -223,7 +223,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 }
                             } catch let error {
                                 print("getPhases error")
-                                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 //TODO: handle getPhases and addPhases error
                             }
                         })
@@ -241,7 +241,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 self.presentViewController(vc, animated: true, completion: nil)
                             }
                         } else {
-                            NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         }
                         print("getSchool error")
                         //TODO: handle getSchool error
@@ -256,7 +256,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     do {
                         try out();
                     } catch let error {
-                        NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         //TODO: Handle Error
                     }
                 })

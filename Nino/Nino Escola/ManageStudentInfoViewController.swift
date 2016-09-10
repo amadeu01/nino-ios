@@ -83,7 +83,7 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
                 self.tableView.reloadSections(NSIndexSet(index: self.guardianInfoSec), withRowAnimation: UITableViewRowAnimation.Automatic)
             } catch let error {
                 //TODO: handle error
-                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

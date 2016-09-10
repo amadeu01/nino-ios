@@ -87,7 +87,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
                     self.tableView.reloadData()
                 } catch let error {
                     //TODO: handle newPhase errors
-                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }
@@ -116,7 +116,7 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
                 self.tableView.reloadData()
             } catch let error {
                 //TODO: handle getPhases error
-                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
         

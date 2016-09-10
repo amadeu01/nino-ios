@@ -73,8 +73,8 @@ class NinoSession: NSObject {
      - parameter log: Description of the error
      */
     func kamikaze(log: [String: AnyObject]) {
-        Mixpanel.initialize(token: "f86281849e415ef0d69aa6af9f80450b")
-        Mixpanel.mainInstance().track(event: "Kamikazed", properties: ["Erro" : log])
+        print(log)
+        Mixpanel.mainInstance().track(event: "Kamikazed", properties: log)
         LoginBO.logout { (out) in
             do {
                 try out()

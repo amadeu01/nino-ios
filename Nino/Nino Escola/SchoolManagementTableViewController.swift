@@ -118,7 +118,7 @@ class SchoolManagementTableViewController: UITableViewController {
                     }
                 } catch let error {
                     //TODO: handle logout error
-                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }))

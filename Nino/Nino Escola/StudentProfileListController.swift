@@ -75,7 +75,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                     header.schoolNameLabel.text = school.name
                 } catch let error {
                     //TODO: Handle error
-                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }
@@ -153,7 +153,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                     self.roomsUpdated()
                 } catch let error {
                     //TODO: handle error
-                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }
@@ -186,15 +186,15 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                                 try getDraft()
                             } catch let error {
                                 //TODO: handle get drafts error
-                                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         })
                         //TODO: get guardian for student
                     }
                     self.studentProfileTableView.reloadData()
-                } catch ler error {
+                } catch let error {
                     //TODO: HANDLE
-                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
                 
             }

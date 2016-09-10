@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        lagFreeField.becomeFirstResponder()
 //        lagFreeField.resignFirstResponder()
 //        lagFreeField.removeFromSuperview()
+        
+        Mixpanel.initialize(token: "f86281849e415ef0d69aa6af9f80450b")
+        
         IQKeyboardManager.sharedManager().enable = true
         self.setupRootViewController(loggedIn)
         //disabling toolbar in some views

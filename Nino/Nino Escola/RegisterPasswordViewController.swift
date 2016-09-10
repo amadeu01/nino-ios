@@ -145,7 +145,7 @@ class RegisterPasswordViewController: UIViewController, UITextFieldDelegate {
                 self.performSegueWithIdentifier("createSchool", sender: nil)
             } catch let error {
                 //TODO:handle error and error data
-                NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

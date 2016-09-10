@@ -147,13 +147,13 @@ class RegisterGuardianViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         do {
-            try GuardianBO.createGuardian(self.nameTextField.text!, surname: self.surnameTextField.text!, email: self.emailTextField.text!, studentID: self.studentID!) { (guardian) in
+            try GuardianBO.createGuardian(nil, surname: nil, email: self.emailTextField.text!, studentID: self.studentID!) { (guardian) in
                 do {
                     self.guardian = try guardian()
                     self.performSegueWithIdentifier("goBackToManageStudentInfoViewController", sender: self)
                 } catch let error {
                     //TODO: handle error
-                    NinoSession.sharedInstance.kamikaze(["error":error, "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             }
         } catch {
