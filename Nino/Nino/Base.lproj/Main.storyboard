@@ -75,9 +75,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3P2-01-uEy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3P2-01-uEy">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="configCell" rowHeight="70" id="RM3-sF-Qcc">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RM3-sF-Qcc" id="J0q-Gc-nlj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="dSI-PI-F5k" id="yPy-fn-Crq"/>
                                     <outlet property="delegate" destination="dSI-PI-F5k" id="kAG-O6-RqI"/>
@@ -87,7 +95,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3P2-01-uEy" firstAttribute="top" secondItem="m7k-wA-I9F" secondAttribute="bottom" constant="270" id="Z5G-7F-uw2">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="3P2-01-uEy" firstAttribute="leading" secondItem="SiE-EW-IOX" secondAttribute="leadingMargin" id="dhC-Q9-07q">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
@@ -169,7 +177,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="75" y="29" width="117" height="22"/>
+                                                    <rect key="frame" x="75" y="29" width="132" height="22"/>
                                                 </variation>
                                             </label>
                                         </subviews>
@@ -203,7 +211,7 @@
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="105" y="0.0" width="191" height="80"/>
+                                            <rect key="frame" x="97" y="0.0" width="207" height="80"/>
                                             <mask key="subviews">
                                                 <include reference="sKw-cG-8I2"/>
                                                 <include reference="lp2-az-jRg"/>
@@ -627,7 +635,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Confirm"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="384" width="400" height="34"/>
+                                    <rect key="frame" x="0.0" y="384" width="400" height="33"/>
                                 </variation>
                                 <connections>
                                     <action selector="confirmButtonPressed:" destination="XIb-dp-l8U" eventType="touchUpInside" id="ybC-Lt-Wax"/>
