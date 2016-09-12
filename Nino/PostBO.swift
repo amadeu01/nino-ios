@@ -92,9 +92,10 @@ class PostBO: NSObject {
                         return postID
                     })
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle error
                 print("get id for post DAO error")
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -172,9 +173,14 @@ class PostBO: NSObject {
                                                 dispatch_async(dispatch_get_main_queue(), {
                                                     NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: nil, info: message)
                                                 })
-                                            } catch {
+                                            } catch let error {
                                                 //TODO: handle error
+<<<<<<< HEAD
                                                 print("create local post error")
+=======
+                                                print("create local draft error")
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+>>>>>>> bafb5fa219974c32598069ad74e2ae41e7a11cdf
                                             }
                                         })
                                 }
@@ -190,12 +196,14 @@ class PostBO: NSObject {
                                 })
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO Handle error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO Handle error
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

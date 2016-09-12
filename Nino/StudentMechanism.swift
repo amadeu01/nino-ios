@@ -54,8 +54,9 @@ class StudentMechanism: NSObject {
                     completionHandler(info: studentsDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -100,8 +101,9 @@ class StudentMechanism: NSObject {
                     completionHandler(profileID: id, createdAt: createdDate, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
 }

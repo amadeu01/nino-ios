@@ -54,8 +54,9 @@ class RoomBO: NSObject {
                                                 return Room(id: room.id, roomID: roomID, phaseID: room.phaseID, name: room.name)
                                             })
                                         })
-                                    } catch {
+                                    } catch let error {
                                         //TODO: handle realm error
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
                                 })
                             } else {
@@ -66,8 +67,9 @@ class RoomBO: NSObject {
                                 })
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO: create room error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 }
             } catch let error {
@@ -92,8 +94,9 @@ class RoomBO: NSObject {
                                 return room
                             })
                         })
-                    } catch {
+                    } catch let error {
                         //TODO Handle -> Should NOT be here
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
             } catch let error {
@@ -159,12 +162,12 @@ class RoomBO: NSObject {
                                                         return roomVO
                                                     })
                                                 })
-                                            } catch {
-                                                
+                                            } catch let error {
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                             }
                                         })
-                                    } catch {
-                                        
+                                    } catch let error {
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
                                 })
                                 
@@ -266,8 +269,9 @@ class RoomBO: NSObject {
                                             let localPhaseID = try id()
                                             let room = Room(id: StringsMechanisms.generateID(), roomID: roomID, phaseID: localPhaseID, name: roomName)
                                             serverRooms.append(room)
-                                        } catch {
+                                        } catch let error {
                                             //TODO: phase not found error
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 } // end loop
@@ -284,8 +288,9 @@ class RoomBO: NSObject {
                                             dispatch_async(dispatch_get_main_queue(), {
                                                 NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: nil, info: message)
                                             })
-                                        } catch {
+                                        } catch let error {
                                             //TODO: handle couldNotCreateRealm
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 }
@@ -294,12 +299,14 @@ class RoomBO: NSObject {
                             }
                         })
                         
-                    } catch {
+                    } catch let error {
                         //getidschool error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: handle couldNotCreateRealm
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -370,8 +377,9 @@ class RoomBO: NSObject {
                                             dispatch_async(dispatch_get_main_queue(), {
                                                 NinoNotificationManager.sharedInstance.addRoomsWereUpdatedFromServerNotification(self, error: nil, info: message)
                                             })
-                                        } catch {
+                                        } catch let error {
                                             //TODO: handle couldNotCreateRealm
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 }
@@ -385,12 +393,14 @@ class RoomBO: NSObject {
                                 })
                             }
                         })
-                    } catch {
+                    } catch let error {
                         //TODO: get ID for phase error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: get rooms locally error
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -423,8 +433,9 @@ class RoomBO: NSObject {
                         return roomVO
                     })
                 })
-            } catch {
+            } catch let error {
                 //TODO: could not create realm or not found error
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }

@@ -116,8 +116,9 @@ class SchoolManagementTableViewController: UITableViewController {
                         delegate.loggedIn = false
                         delegate.setupRootViewController(true)
                     }
-                } catch {
+                } catch let error {
                     //TODO: handle logout error
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }))

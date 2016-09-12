@@ -50,8 +50,9 @@ class PhasesMechanism: NSObject {
                     completionHandler(info: phasesDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle route error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -81,8 +82,9 @@ class PhasesMechanism: NSObject {
                     completionHandler(info: dict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -116,8 +118,9 @@ class PhasesMechanism: NSObject {
                     completionHandler(id: id, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle route error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     

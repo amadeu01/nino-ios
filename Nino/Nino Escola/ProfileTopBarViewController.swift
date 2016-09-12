@@ -36,8 +36,9 @@ class ProfileTopBarViewController: UIViewController {
                     let formatter = NSDateFormatter()
                     formatter.dateStyle = .ShortStyle
                     self.birthdate.text = NSLocalizedString("PROF_BIRTH", comment: "") + ": " + formatter.stringFromDate(student.birthDate)
-                } catch {
+                } catch let error {
                     //TODO: handle error
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }

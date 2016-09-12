@@ -55,8 +55,9 @@ class StringsMechanisms: NSObject {
         if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
             do {
                 return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String:AnyObject]
-            } catch let error as NSError {
+            } catch let error {
                 print(error)
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
         return nil

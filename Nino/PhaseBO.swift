@@ -49,8 +49,9 @@ class PhaseBO: NSObject {
                                                 return Phase(id: newPhase.id, phaseID: phaseID, name: newPhase.name)
                                             })
                                         })
-                                    } catch let err {
+                                    } catch let error {
                                         //TODO: update phaseID error
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
                                 })
                             } else {
@@ -62,12 +63,14 @@ class PhaseBO: NSObject {
                             }
                         }
 
-                    } catch let err {
+                    } catch let error {
                         //TODO: realm create phase error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: waiting getIdForSchool error handling
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -131,8 +134,9 @@ class PhaseBO: NSObject {
                                             dispatch_async(dispatch_get_main_queue(), { 
                                                 NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
                                             })
-                                        } catch {
+                                        } catch let error {
                                             //TODO: handle realm error
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 }
@@ -146,12 +150,14 @@ class PhaseBO: NSObject {
                                 })
                             }
                         })
-                    } catch {
+                    } catch let error {
                        //TODO: realm and database error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
-            } catch {
+            } catch let error {
                 //TODO: waiting getIdForSchool error handling
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -168,8 +174,9 @@ class PhaseBO: NSObject {
                                 return phase
                             })
                         })
-                    } catch {
+                    } catch let error {
                         //TODO Handle -> Should NOT be here
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
             } catch let error {
@@ -234,12 +241,14 @@ class PhaseBO: NSObject {
                                                         return phaseVO
                                                     })
                                                 })
-                                            } catch {
+                                            } catch let error {
                                                 //TODO Handle Realm error
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                             }
                                         })
-                                    } catch {
+                                    } catch let error {
                                         //TODO Handle error
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
                                 })
                             }

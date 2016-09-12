@@ -41,8 +41,9 @@ class DraftMechanism: NSObject {
                     completionHandler(postID: id, postDate: date, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //never will be reached
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -87,8 +88,9 @@ class DraftMechanism: NSObject {
                     completionHandler(info: draftsDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //never SHOULD be reached
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -126,8 +128,9 @@ class DraftMechanism: NSObject {
                     completionHandler(updated: true, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -150,8 +153,9 @@ class DraftMechanism: NSObject {
                     completionHandler(postID: id, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     

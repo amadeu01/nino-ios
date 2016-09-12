@@ -73,8 +73,9 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                 do {
                     let school = try school()
                     header.schoolNameLabel.text = school.name
-                } catch {
+                } catch let error {
                     //TODO: Handle error
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }
@@ -150,8 +151,9 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                         self.rooms.append(room)
                     }
                     self.roomsUpdated()
-                } catch {
+                } catch let error {
                     //TODO: handle error
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         }
@@ -182,15 +184,17 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                         DraftBO.getDraftsForStudent(student.id, completionHandler: { (getDraft) in
                             do {
                                 try getDraft()
-                            } catch {
+                            } catch let error {
                                 //TODO: handle get drafts error
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         })
                         //TODO: get guardian for student
                     }
                     self.studentProfileTableView.reloadData()
-                } catch {
+                } catch let error {
                     //TODO: HANDLE
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
                 
             }

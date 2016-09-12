@@ -49,8 +49,9 @@ class RoomMechanism: NSObject {
                     completionHandler(info: roomsDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -85,8 +86,9 @@ class RoomMechanism: NSObject {
                     completionHandler(roomID: id, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -116,8 +118,9 @@ class RoomMechanism: NSObject {
                     completionHandler(info: dict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -154,8 +157,9 @@ class RoomMechanism: NSObject {
                     completionHandler(info: roomsDict, error: nil, data: nil)
                 }
             })
-        } catch {
+        } catch let error {
             //TODO: handle missing parameter error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
 }

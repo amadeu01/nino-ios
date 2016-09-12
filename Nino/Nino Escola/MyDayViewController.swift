@@ -10,6 +10,7 @@ import UIKit
 
 //swiftlint:disable type_body_length
 /// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
+// swiftlint:disable type_body_length
 class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate, MyDaySliderCellDelegate, DateSelectorDataSource {
 
     @IBOutlet weak var dateSelector: DateSelector!
@@ -83,6 +84,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             return
         }
         
+<<<<<<< HEAD
             MyDayBO.getScheduleForDate(currentStudent, date: self.dateSelector.currentDay, completionHandler: { (getSchedule) in
                 do {
                     let (schedule, isPost) = try getSchedule()
@@ -96,6 +98,23 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                     //TODO: handle error
                 }
             })
+=======
+        do {
+            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: nil)
+            
+            leftTableView.reloadData()
+            rightTableView.reloadData()
+            
+            scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
+            //TODO: Insert class ID
+
+        } catch let error {
+            //TODO: handle error
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+        }
+        
+        
+>>>>>>> bafb5fa219974c32598069ad74e2ae41e7a11cdf
     }
     
     
@@ -234,12 +253,14 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                     try update()
                 } catch let error {
                     //TODO: handle error
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         } catch let error {
             if let myDayError = error as? MyDayError {
                 //TODO: handle missing student
             }
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     
@@ -308,12 +329,14 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
                     try update()
                 } catch let error {
                     //TODO: handle error
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 }
             })
         } catch let error {
             if let myDayError = error as? MyDayError {
                 //TODO: handle missing student
             }
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     

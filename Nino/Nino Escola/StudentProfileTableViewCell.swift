@@ -39,8 +39,9 @@ class StudentProfileTableViewCell: UITableViewCell {
                         self.studentName = student.name
 //                        self.guardianFirstNames = student.
                         self.guardianFirstNames = student.guardians
-                    } catch {
+                    } catch let error {
                         //TODO: handle error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
             }

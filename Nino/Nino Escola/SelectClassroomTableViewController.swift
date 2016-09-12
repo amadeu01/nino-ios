@@ -130,13 +130,15 @@ class SelectClassroomTableViewController: UITableViewController {
                                     self.phases.append(thisPhase)
                                     self.tableView.reloadData()
                                     self.resizeView()
-                                } catch {
+                                } catch let error {
                                     //TODO: HANDLE ERROR AGAIN
+                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                 }
                             })
                         }
-                    } catch {
+                    } catch let error {
                         //TODO: HANDLE ERROR AGAIN
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                     }
                 })
             }
