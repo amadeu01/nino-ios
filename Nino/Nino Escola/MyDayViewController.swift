@@ -84,37 +84,21 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             return
         }
         
-<<<<<<< HEAD
-            MyDayBO.getScheduleForDate(currentStudent, date: self.dateSelector.currentDay, completionHandler: { (getSchedule) in
-                do {
-                    let (schedule, isPost) = try getSchedule()
-                    (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: schedule)
-                    
-                    self.leftTableView.reloadData()
-                    self.rightTableView.reloadData()
-                        
-                    self.scrollViewHeight.constant = max(self.leftTableView.contentSize.height, self.rightTableView.contentSize.height)
-                } catch {
-                    //TODO: handle error
-                }
-            })
-=======
-        do {
-            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: nil)
+        MyDayBO.getScheduleForDate(currentStudent, date: self.dateSelector.currentDay, completionHandler: { (getSchedule) in
+            do {
+                let (schedule, isPost) = try getSchedule()
+                (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: schedule)
+                
+                self.leftTableView.reloadData()
+                self.rightTableView.reloadData()
+                
+                self.scrollViewHeight.constant = max(self.leftTableView.contentSize.height, self.rightTableView.contentSize.height)
+            } catch let error {
+                //TODO: handle error
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+            }
             
-            leftTableView.reloadData()
-            rightTableView.reloadData()
-            
-            scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
-            //TODO: Insert class ID
-
-        } catch let error {
-            //TODO: handle error
-            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-        }
-        
-        
->>>>>>> bafb5fa219974c32598069ad74e2ae41e7a11cdf
+        })
     }
     
     

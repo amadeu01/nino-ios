@@ -175,12 +175,8 @@ class PostBO: NSObject {
                                                 })
                                             } catch let error {
                                                 //TODO: handle error
-<<<<<<< HEAD
-                                                print("create local post error")
-=======
                                                 print("create local draft error")
                                                 NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
->>>>>>> bafb5fa219974c32598069ad74e2ae41e7a11cdf
                                             }
                                         })
                                 }
