@@ -8,6 +8,7 @@
 
 import UIKit
 
+//swiftlint:disable type_body_length
 /// MyDay View Controller, showing and communicating with the BO to save inforation about the day of the child
 class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDataSource, UITableViewDelegate, MyDayCellDelegate, MyDaySliderCellDelegate, DateSelectorDataSource {
 
@@ -82,20 +83,19 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             return
         }
         
-        do {
-            (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: nil)
-            
-            leftTableView.reloadData()
-            rightTableView.reloadData()
-            
-            scrollViewHeight.constant = max(leftTableView.contentSize.height, rightTableView.contentSize.height)
-            //TODO: Insert class ID
-
-        } catch {
-            //TODO: handle error
-        }
-        
-        
+            MyDayBO.getScheduleForDate(currentStudent, date: self.dateSelector.currentDay, completionHandler: { (getSchedule) in
+                do {
+                    let (schedule, isPost) = try getSchedule()
+                    (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: schedule)
+                    
+                    self.leftTableView.reloadData()
+                    self.rightTableView.reloadData()
+                        
+                    self.scrollViewHeight.constant = max(self.leftTableView.contentSize.height, self.rightTableView.contentSize.height)
+                } catch {
+                    //TODO: handle error
+                }
+            })
     }
     
     

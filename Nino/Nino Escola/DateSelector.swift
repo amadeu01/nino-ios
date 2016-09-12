@@ -34,7 +34,7 @@ class DateSelector: UIView {
     /// 1 day before current day
     private var yesterday: NSDate
     /// day displayed by the component
-    private var currentDay: NSDate
+    var currentDay: NSDate
     private let datePicker = UIDatePicker()
     override var inputView: UIView? {
         datePicker.datePickerMode = .Date

@@ -377,4 +377,67 @@ class DraftDAO: NSObject {
             }
         }
     }
+    
+    static func getScheduleDraft(student: String, date: NSDate, completionHandler:(getSchedule: () throws -> Post?) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let studentRealm = realm.objectForPrimaryKey(StudentRealmObject.self, key: student)
+                guard let selectedStudent = studentRealm else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(getSchedule: { () -> Post in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                let filter = NSPredicate(format: "type = %d", PostTypes.Schedule.rawValue)
+                let drafts = selectedStudent.drafts.filter(filter)
+                var selectedDraftRealm: PostRealmObject?
+                for draft in drafts {
+                    if let postDate = draft.date {
+                        if NSCalendar.currentCalendar().isDate(postDate, inSameDayAsDate: date) {
+                            selectedDraftRealm = draft
+                            break
+                        }
+                    }
+                }
+                var selectedDraft: Post?
+                if let draft = selectedDraftRealm {
+                    var targets = [String]()
+                    for student in draft.targetsDraft {
+                        targets.append(student.id)
+                    }
+                    var profiles = [String]()
+                    for profile in draft.readGuardians {
+                        profiles.append(profile.id)
+                    }
+                    var dict: NSDictionary?
+                    if let data = draft.metadata {
+                        do {
+                            dict = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
+                        } catch {
+                            dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                                completionHandler(getSchedule: { () -> Post? in
+                                    throw RealmError.UnexpectedCase
+                                })
+                            })
+                        }
+                    }
+                    selectedDraft = Post(id: draft.id, postID: draft.postID.value, type: draft.type, date: draft.date, message: draft.message, attachment: draft.attachment, targets: targets, readProfileIDs: profiles, metadata: dict)
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                        completionHandler(getSchedule: { () -> Post? in
+                            return selectedDraft
+                        })
+                    })
+                }
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(getSchedule: { () -> Post? in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
 }

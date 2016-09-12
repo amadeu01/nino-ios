@@ -230,7 +230,7 @@ class MyDayBO: NSObject {
                 } else {
                     DraftBO.getIDForScheduleDraft(student, date: NSDate(), completionHandler: { (id) in
                         do {
-                            let draftID = try id()
+                            let draftID = try id() 
                             DraftBO.updateDraft(draftID, message: nil, targets: nil, metadata: dict, attachment: nil, completionHandler: { (update) in
                                 do {
                                     let post = try update()
@@ -657,7 +657,75 @@ class MyDayBO: NSObject {
         }
     }
     
-    private func printScheduleDic(dict: NSDictionary) {
+    static func getScheduleForDate(student: String, date: NSDate, completionHandler: (getSchedule: () throws -> (NSDictionary?, isPost: Bool?)) -> Void) {
+        PostBO.getPostsTypeForDate(student, type: PostTypes.Schedule.rawValue, date: date) { (getPosts) in
+            do {
+                let posts = try getPosts()
+                if posts.count > 0 {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        completionHandler(getSchedule: { () -> (NSDictionary?, isPost: Bool?) in
+                            return (posts.first!.metadata, true)
+                        })
+                    })
+                } else {
+                    DraftBO.shouldCreateScheduleDraft(student, date: date, completionHandler: { (shouldCreate) in
+                        do {
+                            let should = try shouldCreate()
+                            if should {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(getSchedule: { () -> (NSDictionary?, isPost: Bool?) in
+                                        return (nil, nil)
+                                    })
+                                })
+                            } else {
+                                DraftBO.getDraftsForStudent(student, completionHandler: { (getDraft) in
+                                    do {
+                                        let drafts = try getDraft()
+                                        var selectedDraft: Post?
+                                        for draft in drafts {
+                                            if draft.type == PostTypes.Schedule.rawValue {
+                                                if let draftDate = draft.date {
+                                                    if NSCalendar.currentCalendar().isDate(date, inSameDayAsDate: draftDate) {
+                                                        selectedDraft = draft
+                                                        break
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        guard let metadata = selectedDraft?.metadata else {
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                completionHandler(getSchedule: { () -> (NSDictionary?, isPost: Bool?) in
+                                                    throw ServerError.UnexpectedCase
+                                                })
+                                            })
+                                            return
+                                        }
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(getSchedule: { () -> (NSDictionary?, isPost: Bool?) in
+                                                return (metadata, false)
+                                            })                                            
+                                        })
+                                    } catch {
+                                        //TODO: handle error
+                                        print("get drafts error")
+                                    }
+                                })
+                            }
+                        } catch {
+                            //TODO: handle error
+                            print("should create draft error")
+                        }
+                    })
+                }
+            } catch {
+                //TODO: handle error
+                print("get posts type date error")
+            }
+        }
+    }
+    
+    
+    private static func printScheduleDic(dict: NSDictionary) {
         let sections = dict["sections"] as? [[String: AnyObject]]
         for array in sections! {
             let id = array["id"] as? Int

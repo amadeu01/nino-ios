@@ -8,6 +8,7 @@
 
 import UIKit
 
+//swiftlint:disable type_body_length
 class DraftBO: NSObject {
     
     static func createDraft(type: Int, message: String, targets: [String], metadata: NSDictionary?, attachment: NSData?, completionHandler: (create: () throws -> Post) -> Void) -> Void {
@@ -98,18 +99,253 @@ class DraftBO: NSObject {
         }
     }
     
+//swiftlint:disable function_body_length
     static func shouldCreateScheduleDraft(student: String, date: NSDate, completionHandler: (shouldCreate: () throws -> Bool) -> Void) {
-        DraftDAO.isThereScheduleForStudentAndDate(student, date: date) { (isThere) in
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            completionHandler(shouldCreate: { () -> Bool in
+                throw AccountError.InvalidToken
+            })
+            return
+        }
+        var schoolID: Int?
+        var shouldCreateLocally: Bool?
+        var serverDraft: Post?
+        var studentID: Int?
+        dispatch_group_enter(NinoDispatchGroupes.getGroup(2))
+        SchoolBO.getIdForSchool { (id) in
             do {
-                let shouldCreate = try !isThere()
-                dispatch_async(dispatch_get_main_queue(), {
-                    completionHandler(shouldCreate: { () -> Bool in
-                        return shouldCreate
-                    })
+                schoolID = try id()
+                StudentBO.getIdForStudent(student, completionHandler: { (id) in
+                    do {
+                        studentID = try id()
+                        DraftMechanism.getDrafts(token, schoolID: schoolID!, studentID: studentID!, completionHandler: { (info, error, data) in
+                            //error
+                            if let err = error {
+                                //TODO: Handle error data and code
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(shouldCreate: { () -> Bool in
+                                        throw ErrorBO.decodeServerError(err)
+                                    })
+                                })
+                                dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
+                                return
+                            }
+                                //success
+                            else if let array = info {
+                                for dict in array {
+                                    guard let draftID = dict["draftID"] as? Int else {
+                                        dispatch_async(dispatch_get_main_queue(), { 
+                                            completionHandler(shouldCreate: { () -> Bool in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
+                                        serverDraft = nil
+                                        dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
+                                        return
+                                    }
+                                    guard let type = dict["type"] as? Int else {
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(shouldCreate: { () -> Bool in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
+                                        serverDraft = nil
+                                        dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
+                                        return
+                                    }
+                                    guard let message = dict["message"] as? String else {
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(shouldCreate: { () -> Bool in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
+                                        serverDraft = nil
+                                        dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
+                                        return
+                                    }
+                                    let metadata = dict["metadata"] as? NSDictionary
+                                    let attachment = dict["attachment"] as? String
+                                    let optionalDate = dict["date"] as? NSDate
+                                    if type != PostTypes.Schedule.rawValue {
+                                        continue
+                                    }
+                                    if let postDate = optionalDate {
+                                        if !NSCalendar.currentCalendar().isDate(postDate, inSameDayAsDate: date) {
+                                            continue
+                                        }
+                                    } else {
+                                        continue
+                                    }
+                                    
+                                    serverDraft = Post(id: StringsMechanisms.generateID(), postID: draftID, type: type, date: optionalDate, message: message, attachment: nil, targets: [student], readProfileIDs: nil, metadata: metadata)
+                                    break
+                                }
+                                dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
+                            }
+                            //unexpected case
+                            else {
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(shouldCreate: { () -> Bool in
+                                        throw ServerError.UnexpectedCase
+                                    })
+                                })
+                                dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
+                            }
+                        })
+                        dispatch_group_enter(NinoDispatchGroupes.getGroup(2))
+                        DraftDAO.isThereScheduleForStudentAndDate(student, date: date) { (isThere) in
+                            do {
+                                shouldCreateLocally = try !isThere()
+                                dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
+                            } catch {
+                                print("not found error")
+                                //TODO: handle not found or realm error
+                            }
+                        }
+                    } catch {
+                        //TODO: handle error
+                        print("get student id error")
+                    }
                 })
             } catch {
-                print("not found error")
-                //TODO: handle not found or realm error
+                //TODO: handle error
+                print("get school id error")
+            }
+        }
+        dispatch_group_notify(NinoDispatchGroupes.getGroup(2), dispatch_get_main_queue()) { 
+            if let shouldCreate = shouldCreateLocally {
+                if let draft = serverDraft {
+                    if shouldCreate {
+                        DraftDAO.createDraft(draft, completionHandler: { (write) in
+                            do {
+                                try write()
+                                dispatch_async(dispatch_get_main_queue(), { 
+                                    completionHandler(shouldCreate: { () -> Bool in
+                                        return false
+                                    })
+                                })
+                            } catch {
+                                //TODO: handle error
+                                print("create draft locally error")
+                            }
+                        })
+                    } else {
+                        DraftDAO.getIDForScheduleDraft(student, date: date, completionHandler: { (getID) in
+                            do {
+                                let scheduleID = try getID()
+                                DraftDAO.updateDraft(scheduleID, message: draft.message, targets: draft.targets, metadata: draft.metadata, attachment: draft.attachment, completionHandler: { (update) in
+                                    do {
+                                        try update()
+                                        dispatch_async(dispatch_get_main_queue(), { 
+                                            completionHandler(shouldCreate: { () -> Bool in
+                                                return false
+                                            })
+                                        })
+                                    } catch {
+                                        //TODO: handle error
+                                        print("update draft locally error")
+                                    }
+                                })
+                            } catch {
+                                //TODO: handle error
+                                print("get schedule id error")
+                            }
+                        })
+                    }
+                } else {
+                    if shouldCreate {
+                        completionHandler(shouldCreate: { () -> Bool in
+                            return shouldCreate
+                        })
+                    } else {
+                        //TODO: create remote draft
+                        guard let school = schoolID else {
+                            completionHandler(shouldCreate: { () -> Bool in
+                                throw AccountError.InvalidToken
+                            })
+                            return
+                        }
+                        DraftDAO.getScheduleDraft(student, date: date, completionHandler: { (getSchedule) in
+                            do {
+                                let draft = try getSchedule()
+                                if let draftSchedule = draft {
+                                    guard let stdID = studentID else {
+                                        dispatch_async(dispatch_get_main_queue(), { 
+                                            completionHandler(shouldCreate: { () -> Bool in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
+                                        return
+                                    }
+                                    DraftMechanism.createDraft(token, schoolID: school, message: draftSchedule.message, type: draftSchedule.type, profiles: [stdID], metadata: draftSchedule.metadata, attachment: nil, completionHandler: { (postID, postDate, error, data) in
+                                        if let err = error {
+                                            //TODO: remove locally
+                                            dispatch_async(dispatch_get_main_queue(), { 
+                                                completionHandler(shouldCreate: { () -> Bool in
+                                                    throw ErrorBO.decodeServerError(err)
+                                                })
+                                            })
+                                        } else  if let id = postID {
+                                            if let remoteDate = postDate {
+                                                DraftDAO.upateDraftID(draftSchedule.id, serverID: id, completionHandler: { (update) in
+                                                    do {
+                                                        try update()
+                                                        PostDAO.updatePostDate(draftSchedule.id, date: remoteDate, completionHandler: { (update) in
+                                                            do {
+                                                                try update()
+                                                                dispatch_async(dispatch_get_main_queue(), { 
+                                                                    completionHandler(shouldCreate: { () -> Bool in
+                                                                        return false
+                                                                    })
+                                                                })
+                                                            } catch {
+                                                                //TODO: handle error
+                                                                print("update date error")
+                                                            }
+                                                        })
+                                                    } catch {
+                                                        //TODO: handle error
+                                                        print("updat draft id error")
+                                                    }
+                                                })
+                                            } else {
+                                                //TODO: remove locally
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    completionHandler(shouldCreate: { () -> Bool in
+                                                        throw ServerError.UnexpectedCase
+                                                    })
+                                                })
+                                            }
+                                        } else {
+                                            //TODO: remove locally
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                completionHandler(shouldCreate: { () -> Bool in
+                                                    throw ServerError.UnexpectedCase
+                                                })
+                                            })
+                                        }
+                                    })
+                                } else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        completionHandler(shouldCreate: { () -> Bool in
+                                            throw ServerError.UnexpectedCase
+                                        })
+                                    })
+                                }
+                            } catch {
+                                //TODO: handle error
+                                print("get draft schedule error")
+                            }
+                        })
+                        
+                        completionHandler(shouldCreate: { () -> Bool in
+                            return false
+                        })
+                    }
+                }
+            } else {
+                //TODO: handle error
+                print("should create locally error")
             }
         }
     }

@@ -36,7 +36,7 @@ class PostBO: NSObject {
         }
         
         let post = Post(id: StringsMechanisms.generateID(), postID: nil, type: type, date: nil, message: message, attachment: attachment, targets: targets, readProfileIDs: nil, metadata: metadata)
-        PostDAO.createPost(post) { (write) in
+        PostDAO.createPost([post]) { (write) in
             do {
                 try write()
                 //FIXME: fix attachment
@@ -164,21 +164,19 @@ class PostBO: NSObject {
                                 let wasDeleted = comparison["wasDeleted"]
                                 let newPosts = comparison["newPosts"]
                                 if newPosts!.count > 0 {
-                                    for post in newPosts! {
-                                        PostDAO.createPost(post, completionHandler: { (write) in
+                                    PostDAO.createPost(newPosts!, completionHandler: { (write) in
                                             do {
                                                 try write()
                                                 let message = NotificationMessage()
-                                                message.setDataToInsert([post])
+                                                message.setDataToInsert(newPosts!)
                                                 dispatch_async(dispatch_get_main_queue(), {
                                                     NinoNotificationManager.sharedInstance.addPostsUpdatedNotification(self, error: nil, info: message)
                                                 })
                                             } catch {
                                                 //TODO: handle error
-                                                print("create local draft error")
+                                                print("create local post error")
                                             }
                                         })
-                                    }
                                 }
                                 //TODO: posts was deleted
                                 //TODO: posts was updated
@@ -278,5 +276,167 @@ class PostBO: NSObject {
         result["wasChanged"] = wasChanged
         result["wasDeleted"] = wasDeleted
         return result
+    }
+    
+    //swiftlint:disable function_body_length
+    static func getPostsTypeForDate(student: String, type: Int, date: NSDate, completionHandler: (getPosts: () throws -> [Post]) -> Void) {
+        var localPosts: [Post]?
+        var serverPosts: [Post]?
+        guard let token = NinoSession.sharedInstance.credential?.token else {
+            completionHandler(getPosts: { () -> [Post] in
+                throw AccountError.InvalidToken
+            })
+            return
+        }
+        dispatch_group_enter(NinoDispatchGroupes.getGroup(1))
+        PostDAO.getPostsTypeForDate(student, type: type, date: date) { (getPosts) in
+            do {
+                localPosts = try getPosts()
+                dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+            } catch {
+                //TODO: handle error
+                print("get posts type date local error")
+                dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+            }
+        }
+        dispatch_group_enter(NinoDispatchGroupes.getGroup(1))
+        StudentBO.getIdForStudent(student) { (id) in
+            do {
+                let studentID = try id()
+                SchoolBO.getIdForSchool({ (id) in
+                    do {
+                        let schoolID = try id()
+                        PostMechanism.getPosts(token, schoolID: schoolID, studentID: studentID, completionHandler: { (info, error, data) in
+                            if let err = error {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(getPosts: { () -> [Post] in
+                                        throw ErrorBO.decodeServerError(err)
+                                    })
+                                })
+                                dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+                            } else if let array = info {
+                                for dict in array {
+                                    if serverPosts == nil {
+                                        serverPosts = [Post]()
+                                    }
+                                    guard let postID = dict["postID"] as? Int else {
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(getPosts: { () -> [Post] in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
+                                        serverPosts = nil
+                                        dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+                                        return
+                                    }
+                                    guard let postType = dict["type"] as? Int else {
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(getPosts: { () -> [Post] in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
+                                        serverPosts = nil
+                                        dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+                                        return
+                                    }
+                                    guard let message = dict["message"] as? String else {
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(getPosts: { () -> [Post] in
+                                                throw ServerError.UnexpectedCase
+                                            })
+                                        })
+                                        serverPosts = nil
+                                        dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+                                        return
+                                    }
+                                    let metadata = dict["metadata"] as? NSDictionary
+                                    let attachment = dict["attachment"] as? String
+                                    let postDate = dict["date"] as? NSDate
+                                    if type != postType {
+                                        //if it don't exists locally, save it
+                                        continue
+                                    }
+                                    if let internalDate = postDate {
+                                        //if it don't exists locally, save it
+                                        if !NSCalendar.currentCalendar().isDate(internalDate, inSameDayAsDate: date) {
+                                            continue
+                                        }
+                                    } else {
+                                        continue
+                                    }
+                                    let post = Post(id: StringsMechanisms.generateID(), postID: postID, type: postType, date: postDate, message: message, attachment: nil, targets: [student], readProfileIDs: nil, metadata: metadata)
+                                    serverPosts!.append(post)
+                                }
+                                dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+                            } else {
+                                //student don't have post
+                                dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+                            }
+                        })
+                    } catch {
+                        //TODO: handle error
+                        print("get school id error")
+                    }
+                })
+            } catch {
+                //TODO: handle error
+                print("get id student error")
+                dispatch_group_leave(NinoDispatchGroupes.getGroup(1))
+            }
+        }
+        dispatch_group_notify(NinoDispatchGroupes.getGroup(1), dispatch_get_main_queue()) { 
+            if let serverArray = serverPosts {
+                if let localArray = localPosts {
+                    let comparison = self.comparePosts(serverArray, localPosts: localArray)
+                    let newPosts = comparison["newPosts"]
+                    let updated = comparison["wasChanged"]
+                    let deleted = comparison["wasDeleted"]
+                    //update updated posts
+                    //delete deleted posts
+                    PostDAO.createPost(newPosts!, completionHandler: { (write) in
+                        do {
+                            try write()
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                let array = localArray + newPosts!
+                                completionHandler(getPosts: { () -> [Post] in
+                                    return array
+                                })
+                            })
+                        } catch {
+                            //TODO: handle error
+                            print("create local post error")
+                        }
+                    })
+                } else {
+                    PostDAO.createPost(serverArray, completionHandler: { (write) in
+                        do {
+                            try write()
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                completionHandler(getPosts: { () -> [Post] in
+                                    return serverArray
+                                })
+                            })
+                        } catch {
+                            //TODO: handle error
+                            print("create local post error")
+                        }
+                    })
+                }
+            } else {
+                if let localArray = localPosts {
+                    if localArray.count > 0 {
+                        //delete posts
+                        print("should delete post")
+                    } else {
+                        completionHandler(getPosts: { () -> [Post] in
+                            return [Post]()
+                        })
+                    }
+                } else {
+                    //TODO: handle error
+                    print("get local posts error")
+                }
+            }
+        }
     }
 }
