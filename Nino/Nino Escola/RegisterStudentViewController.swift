@@ -39,6 +39,7 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
             tf.delegate = self
         }
         self.datePicker.datePickerMode = .Date
+        self.datePicker.maximumDate = NSDate()
         self.birthDateTextField.inputView = datePicker
         let barButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(self.hideKeyboard))
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))

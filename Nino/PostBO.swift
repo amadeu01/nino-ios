@@ -310,7 +310,8 @@ class PostBO: NSObject {
                 SchoolBO.getIdForSchool({ (id) in
                     do {
                         let schoolID = try id()
-                        PostMechanism.getPosts(token, schoolID: schoolID, studentID: studentID, completionHandler: { (info, error, data) in
+                        //FIXME: fix offset
+                        PostMechanism.getPosts(type, offset: nil, token: token, schoolID: schoolID, studentID: studentID, completionHandler: { (info, error, data) in
                             if let err = error {
                                 dispatch_async(dispatch_get_main_queue(), {
                                     completionHandler(getPosts: { () -> [Post] in
@@ -356,10 +357,10 @@ class PostBO: NSObject {
                                     let metadata = dict["metadata"] as? NSDictionary
                                     let attachment = dict["attachment"] as? String
                                     let postDate = dict["date"] as? NSDate
-                                    if type != postType {
-                                        //if it don't exists locally, save it
-                                        continue
-                                    }
+//                                    if type != postType {
+//                                        //if it don't exists locally, save it
+//                                        continue
+//                                    }
                                     if let internalDate = postDate {
                                         //if it don't exists locally, save it
                                         if !NSCalendar.currentCalendar().isDate(internalDate, inSameDayAsDate: date) {

@@ -81,6 +81,7 @@ class SelectClassroomTableViewController: UITableViewController {
         self.dismiss {
             let phase = self.phases[indexPath.section]
             let room = self.phases[indexPath.section].rooms[indexPath.item]
+            print("delegateRoom: " + room.id)
             self.delegate?.didChangeSelectedPhase(phase.name.uppercaseString + " | " + room.name, phase: phase.id, room: room.id)
         }
     }
@@ -113,6 +114,9 @@ class SelectClassroomTableViewController: UITableViewController {
     }
     
     func reloadData() {
+        for phase in self.phases {
+            phase.rooms.removeAll()
+        }
         self.phases.removeAll()
         if let token = NinoSession.sharedInstance.credential?.token {
             if let schoolID = NinoSession.sharedInstance.schoolID {
@@ -122,9 +126,11 @@ class SelectClassroomTableViewController: UITableViewController {
                         for phase in phases {
                             RoomBO.getRooms(phase.id, completionHandler: { (rooms) in
                                 do {
+                                    print("phaseID: " + phase.id)
                                     let rooms = try rooms()
                                     let thisPhase = SelectorPhase(name: phase.name, id: phase.id)
                                     for room in rooms {
+                                        print("roomID: " + room.id)
                                         thisPhase.rooms.append(SelectorRoom(name: room.name, id: room.id))
                                     }
                                     self.phases.append(thisPhase)

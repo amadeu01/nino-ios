@@ -83,6 +83,7 @@ class LoginBO: NSObject {
             do {
                 try out()
                 NinoSession.sharedInstance.resetSession()
+                SchoolSession.clearSession()
                 dispatch_async(dispatch_get_main_queue(), { 
                     completionHandler(out: { 
                         return

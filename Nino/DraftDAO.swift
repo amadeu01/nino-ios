@@ -16,6 +16,7 @@ class DraftDAO: NSObject {
     }
     
     static func createDraft(post: Post, completionHandler: (write: () throws -> Void) -> Void) {
+        print("creating draft for student: \(post.targets.first!) with date: \(post.date)")
         var metadata: NSData?
         if let data = post.metadata {
             do {
@@ -153,6 +154,17 @@ class DraftDAO: NSObject {
             do {
                 let realm = try Realm()
                 let draftRealm = realm.objectForPrimaryKey(PostRealmObject.self, key: draft)
+                
+                
+                
+                let students = realm.objects(StudentRealmObject.self)
+                for student in students {
+                    print("student: \(student.name), drafts: \(student.drafts.count)")
+                }
+                
+                
+                
+                
                 guard let selectedDraft = draftRealm else {
                     dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                         completionHandler(update: { () -> Post in
@@ -162,30 +174,38 @@ class DraftDAO: NSObject {
                     return
                 }
                 if let newMessage = message {
-                    try realm.write({ 
-                        selectedDraft.message = newMessage
-                    })
+                    if selectedDraft.message != newMessage {
+                        try realm.write({
+                            selectedDraft.message = newMessage
+                        })
+                    }
                 }
                 if let newMetadata = metadata {
                         do {
                             let data = try NSJSONSerialization.dataWithJSONObject(newMetadata, options: .PrettyPrinted)
-                            try realm.write({
-                                selectedDraft.metadata = data
-                            })
+                            if data != selectedDraft.metadata {
+                                try realm.write({
+                                    selectedDraft.metadata = data
+                                })
+                            }
                         } catch {
                             dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
                                 completionHandler(update: { () -> Post in
                                     throw RealmError.UnexpectedCase
                                 })
                             })
+                            return
                         }
                 }
                 if let newAttachment = attachment {
-                    try realm.write({ 
-                        selectedDraft.attachment = attachment
-                    })
+                    if newAttachment != selectedDraft.attachment {
+                        try realm.write({
+                            selectedDraft.attachment = newAttachment
+                        })
+                    }
                 }
                 if let newTargets = targets {
+                    var studentsRealm = [StudentRealmObject]()
                     for student in newTargets {
                         let realmStundet = realm.objectForPrimaryKey(StudentRealmObject.self, key: student)
                         guard let target = realmStundet else {
@@ -196,9 +216,20 @@ class DraftDAO: NSObject {
                             })
                             return
                         }
-                        try realm.write({ 
-                            selectedDraft.targetsDraft.append(target)
-                        })
+                        studentsRealm.append(target)
+                    }
+                    var found = false
+                    for student in studentsRealm {
+                        for target in selectedDraft.targetsDraft {
+                            if student.profileID.value == target.profileID.value {
+                                found = true
+                                break
+                            }
+                        }
+                        if !found {
+                            selectedDraft.targetsDraft.append(student)
+                            found = false
+                        }
                     }
                 }
                 try realm.write({ 
@@ -225,6 +256,17 @@ class DraftDAO: NSObject {
                     }
                 }
                 let post = Post(id: draft, postID: selectedDraft.postID.value, type: selectedDraft.type, date: selectedDraft.date, message: selectedDraft.message, attachment: selectedDraft.attachment, targets: currentTargets, readProfileIDs: currentRead, metadata: dictionary)
+                
+                
+                
+                
+                for student in students {
+                    print("student: \(student.name), drafts: \(student.drafts.count)")
+                }
+                
+                
+                
+                
                 dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
                     completionHandler(update: { () -> Post in
                         return post

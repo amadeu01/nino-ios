@@ -13,4 +13,11 @@ class SchoolSession {
     static var studentCreatedAt: NSDate?
     static var currentRoom: String?
     static var currentPhase: String?
+    
+    static func clearSession() {
+        self.currentStudent = nil
+        self.studentCreatedAt = nil
+        self.currentRoom = nil
+        self.currentPhase = nil
+    }
 }

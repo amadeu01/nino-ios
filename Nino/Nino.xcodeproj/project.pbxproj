@@ -848,6 +848,9 @@
 		ACC921E11D7C72AF0006697F /* MyDayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC921DD1D7C72AF0006697F /* MyDayError.swift */; };
 		ACC921E21D7C72AF0006697F /* MyDayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC921DD1D7C72AF0006697F /* MyDayError.swift */; };
 		ACC921E31D7C72AF0006697F /* MyDayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC921DD1D7C72AF0006697F /* MyDayError.swift */; };
+		ACE2AEB11D8851ED00940637 /* SchoolSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59A31D63B9190030007A /* SchoolSession.swift */; };
+		ACE2AEB21D8851EE00940637 /* SchoolSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59A31D63B9190030007A /* SchoolSession.swift */; };
+		ACE2AEB31D8851EE00940637 /* SchoolSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F59A31D63B9190030007A /* SchoolSession.swift */; };
 		ACE6E1511D1091B600A11E6A /* Pods_Nino_Escola.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE6E1501D1091B600A11E6A /* Pods_Nino_Escola.framework */; };
 		ACE6E1571D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
 		ACE6E1581D10CBF400A11E6A /* CustomizeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE6E1561D10CBF400A11E6A /* CustomizeColor.swift */; };
@@ -2503,6 +2506,7 @@
 				AC7144021D3DA6BE00C743A5 /* PhasesMechanism.swift in Sources */,
 				AC79F0241D50F54400583452 /* NinoSession.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
+				ACE2AEB31D8851EE00940637 /* SchoolSession.swift in Sources */,
 				28F20CA21D706B8500FBD332 /* SettingsViewController.swift in Sources */,
 				AC74E1031D2D4908004281F3 /* RouteError.swift in Sources */,
 				AC43B3EE1D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
@@ -2647,6 +2651,7 @@
 				288B27BB1D37D1AC00B47DC0 /* Post.swift in Sources */,
 				AC79F0251D50F55800583452 /* NinoSession.swift in Sources */,
 				AC74E10B1D2E8749004281F3 /* AccountBO.swift in Sources */,
+				ACE2AEB21D8851EE00940637 /* SchoolSession.swift in Sources */,
 				AC64052B1D5A4AEA008D91F5 /* MyDayCell.swift in Sources */,
 				AC7BB7901D37C1220044ABE0 /* StatusCodeError.swift in Sources */,
 				071832271D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */,
@@ -2720,6 +2725,7 @@
 				AC5128541D50C49000A2760C /* RoomDAO.swift in Sources */,
 				ACEC39E91CEE128B00867624 /* NinoUITests.swift in Sources */,
 				288B28071D37E0D400B47DC0 /* EventBO.swift in Sources */,
+				ACE2AEB11D8851ED00940637 /* SchoolSession.swift in Sources */,
 				071832241D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */,
 				287F31A31D5DFF9400DF2E1C /* TimelineViewController.swift in Sources */,
 				07C5F8511D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */,

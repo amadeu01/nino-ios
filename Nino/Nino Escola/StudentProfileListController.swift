@@ -18,7 +18,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     
     var currentHeader: StudentProfileListHeader?
     
-    var currentRoom: String?
+    var currentRoom: String? { didSet { print("someone setted: + \(currentRoom)")}}
     var currentPhase: String?
     var currentStudent: String?
     
@@ -26,13 +26,14 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     private var dates = [NSDate?]()
     
     override func viewDidLoad() {
+        self.currentRoom = nil
         super.viewDidLoad()
         self.studentProfileTableView.dataSource = self
         self.studentProfileTableView.delegate = self
         //registering for notification
         NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
         NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
-        NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(reloadData))
+        NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(test))
         NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
         //xrschoolNameLabel.text = "DID WORK"
         //self.tableView.registerNib(UINib(nibName: "StudentProfileListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
@@ -47,9 +48,13 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
-        
     }
+    
+    func test() {
+        print("here")
+        self.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         // Dispose of any resources that can be recreated.
     }
@@ -144,6 +149,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     
     private func getRooms() {
         if self.phases.count > 0 {
+            self.rooms.removeAll()
             RoomBO.getAllRooms({ (rooms) in
                 do {
                     let newRooms = try rooms()
@@ -164,7 +170,10 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     }
     
     func didChangeSelectedPhase(newTitle: String, phase: String, room: String) {
+        print("didChangeSelectedPhase: " + room)
+        print("beforeDelegate: \(self.currentRoom)")
         self.currentRoom = room
+        print("afterDelegate: \(self.currentRoom)")
         self.currentPhase = phase
         self.currentHeader?.classroomButton.setTitle(newTitle, forState: .Normal)
         SchoolSession.currentRoom = room
@@ -175,20 +184,22 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     @objc private func reloadData() {
         self.students.removeAll()
         if let room = self.currentRoom {
+            print("reloadData: " + room)
+            print("currentRoom: \(self.currentRoom)")
             StudentBO.getStudent(room) { (students) in
                 do {
                     let students = try students()
                     for student in students {
                         self.students.append(student.id)
                         self.dates.append(student.createdAt)
-                        DraftBO.getDraftsForStudent(student.id, completionHandler: { (getDraft) in
-                            do {
-                                try getDraft()
-                            } catch let error {
-                                //TODO: handle get drafts error
-                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                            }
-                        })
+//                        DraftBO.getDraftsForStudent(student.id, completionHandler: { (getDraft) in
+//                            do {
+//                                try getDraft()
+//                            } catch let error {
+//                                //TODO: handle get drafts error
+//                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+//                            }
+//                        })
                         //TODO: get guardian for student
                     }
                     self.studentProfileTableView.reloadData()
