@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="afj-1E-Ytj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="afj-1E-Ytj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -224,15 +224,12 @@
                                     <action selector="sendScheduleAction:" destination="afj-1E-Ytj" eventType="touchUpInside" id="hPq-jt-ibv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61W-86-y1I">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61W-86-y1I">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="12"/>
                                 <state key="normal" title=" adicionar comentários" image="maizin">
                                     <color key="titleColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="20" y="1170" width="138" height="15"/>
-                                </variation>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XIO-pc-KAP">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -278,24 +275,24 @@
                                 <exclude reference="XIO-pc-KAP"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="sVh-9i-JgR"/>
+                                <exclude reference="vur-ia-Gak"/>
+                                <exclude reference="6sd-yg-avg"/>
+                                <exclude reference="VLA-nI-GWB"/>
+                                <exclude reference="VZ1-8Z-vZA"/>
+                                <exclude reference="bVO-t2-ERg"/>
+                                <exclude reference="BAy-HZ-4sA"/>
+                                <exclude reference="ONA-ep-jzF"/>
+                                <exclude reference="xnl-vp-B82"/>
                                 <exclude reference="2My-Ev-BGC"/>
                                 <exclude reference="Jen-NI-7eY"/>
                                 <exclude reference="Roq-6h-dUi"/>
                                 <exclude reference="mVN-dF-mjP"/>
-                                <exclude reference="BAy-HZ-4sA"/>
-                                <exclude reference="ONA-ep-jzF"/>
-                                <exclude reference="xnl-vp-B82"/>
-                                <exclude reference="VZ1-8Z-vZA"/>
-                                <exclude reference="bVO-t2-ERg"/>
-                                <exclude reference="sVh-9i-JgR"/>
-                                <exclude reference="vur-ia-Gak"/>
                                 <exclude reference="DGn-KX-CHO"/>
                                 <exclude reference="JxY-UN-pBX"/>
                                 <exclude reference="PbD-Je-2Br"/>
                                 <exclude reference="cnB-eY-qUD"/>
                                 <exclude reference="hJW-w6-k0Q"/>
-                                <exclude reference="6sd-yg-avg"/>
-                                <exclude reference="VLA-nI-GWB"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -307,24 +304,24 @@
                                 <include reference="XIO-pc-KAP"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="sVh-9i-JgR"/>
+                                <include reference="vur-ia-Gak"/>
+                                <include reference="6sd-yg-avg"/>
+                                <include reference="VLA-nI-GWB"/>
+                                <include reference="VZ1-8Z-vZA"/>
+                                <include reference="bVO-t2-ERg"/>
+                                <include reference="BAy-HZ-4sA"/>
+                                <include reference="ONA-ep-jzF"/>
+                                <include reference="xnl-vp-B82"/>
                                 <include reference="2My-Ev-BGC"/>
                                 <include reference="Jen-NI-7eY"/>
                                 <include reference="Roq-6h-dUi"/>
                                 <exclude reference="mVN-dF-mjP"/>
-                                <include reference="BAy-HZ-4sA"/>
-                                <include reference="ONA-ep-jzF"/>
-                                <include reference="xnl-vp-B82"/>
-                                <include reference="VZ1-8Z-vZA"/>
-                                <include reference="bVO-t2-ERg"/>
-                                <exclude reference="sVh-9i-JgR"/>
-                                <include reference="vur-ia-Gak"/>
                                 <include reference="DGn-KX-CHO"/>
                                 <exclude reference="JxY-UN-pBX"/>
                                 <include reference="PbD-Je-2Br"/>
                                 <exclude reference="cnB-eY-qUD"/>
                                 <include reference="hJW-w6-k0Q"/>
-                                <include reference="6sd-yg-avg"/>
-                                <include reference="VLA-nI-GWB"/>
                             </mask>
                         </variation>
                     </view>

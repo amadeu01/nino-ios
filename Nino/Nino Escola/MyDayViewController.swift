@@ -24,6 +24,8 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     private var leftCells: [MyDaySection] = []
     private var rightCells: [MyDaySection] = []
     
+    private var isPost = false
+    
     /**
      On load sets delegates, background and reloads the data
      */
@@ -87,13 +89,23 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         MyDayBO.getScheduleForDate(currentStudent, date: self.dateSelector.currentDay, completionHandler: { (getSchedule) in
             do {
                 let (schedule, isPost) = try getSchedule()
-                print(isPost)
+                
                 (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: schedule)
                 
                 self.leftTableView.reloadData()
                 self.rightTableView.reloadData()
                 
                 self.scrollViewHeight.constant = max(self.leftTableView.contentSize.height, self.rightTableView.contentSize.height)
+
+                
+                if let post = isPost {
+                    self.isPost = post
+                    if post {
+                        self.sendButton.hidden = true
+                    }
+                }
+                
+                
             } catch let error {
                 //TODO: handle error
                 NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
@@ -179,7 +191,20 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if self.isPost {
+            
+            if let intensity = cell as? IntensityCell {
+                intensity.disableInteraction()
+            }
+            if let slider = cell as? SliderCell {
+                slider.disableInteraction()
+            }
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("cell for row")
         var cell: MyDayCell?
         var isLeft: Bool
         switch tableView {
