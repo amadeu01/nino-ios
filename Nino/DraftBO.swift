@@ -186,11 +186,7 @@ class DraftBO: NSObject {
                             }
                             //unexpected case
                             else {
-                                dispatch_async(dispatch_get_main_queue(), { 
-                                    completionHandler(shouldCreate: { () -> Bool in
-                                        throw ServerError.UnexpectedCase
-                                    })
-                                })
+                                //student don't have draft
                                 dispatch_group_leave(NinoDispatchGroupes.getGroup(2))
                             }
                         })
@@ -467,6 +463,7 @@ class DraftBO: NSObject {
                                 let localDrafts = try getDrafts()
                                 dispatch_async(dispatch_get_main_queue(), {
                                     completionHandler(getDraft: { () -> [Post] in
+                                        print("localDrafts count: \(localDrafts.count)")
                                         return localDrafts
                                     })
                                 })

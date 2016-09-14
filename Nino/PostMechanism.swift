@@ -86,10 +86,32 @@ class PostMechanism: NSObject {
         }
     }
     
-    static func getPosts(token: String, schoolID: Int, studentID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
+    static func getPosts(type: Int?, offset: Int?, token: String, schoolID: Int, studentID: Int, completionHandler: (info: [[String: AnyObject?]]?, error: Int?, data: String?) -> Void) {
         do {
             let route = try ServerRoutes.GetStudentPostsForSchool.description([String(schoolID), String(studentID)])
-            RestApiManager.makeHTTPGetRequest(nil, path: route, token: token, onCompletion: { (json, error, statusCode) in
+            guard let urlComponent = NSURLComponents(string: route) else {
+                //TODO: handle error
+                completionHandler(info: nil, error: nil, data: nil)
+                return
+            }
+            var queryItens = [NSURLQueryItem]()
+            if let postType = type {
+                let query = NSURLQueryItem(name: "type", value: "\(postType)")
+                queryItens.append(query)
+            }
+            if let requestOffset = offset {
+                let query = NSURLQueryItem(name: "offset", value: "\(requestOffset)")
+                queryItens.append(query)
+            }
+            if !queryItens.isEmpty {
+                urlComponent.queryItems = queryItens
+            }
+            guard let queryString = urlComponent.string else {
+                completionHandler(info: nil, error: nil, data: nil)
+                return
+            }
+            
+            RestApiManager.makeHTTPGetRequest(nil, path: queryString, token: token, onCompletion: { (json, error, statusCode) in
                 guard let statusCode = statusCode else {
                     completionHandler(info: nil, error: error?.code, data: nil)
                     return

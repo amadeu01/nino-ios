@@ -228,10 +228,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             }
                         })
                         
-                        DraftMechanism.getDrafts(credential.token, schoolID: 1, studentID: 2, completionHandler: { (info, error, data) in
-                            
-                        })
-                        
                     } catch let error{
                         if let dataBaseError = error as? DatabaseError {
                             //There's no school. Let's create one

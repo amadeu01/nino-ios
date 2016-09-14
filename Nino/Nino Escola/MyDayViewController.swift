@@ -87,6 +87,7 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
         MyDayBO.getScheduleForDate(currentStudent, date: self.dateSelector.currentDay, completionHandler: { (getSchedule) in
             do {
                 let (schedule, isPost) = try getSchedule()
+                print(isPost)
                 (self.leftCells, self.rightCells) = try MyDayBO.getCellsForRoom(currentRoom, schedule: schedule)
                 
                 self.leftTableView.reloadData()
@@ -375,7 +376,6 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
             let alert = UIAlertController(title: "Confirmar Envio", message: description, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Confirmar", style: .Default, handler: { (act) in
-                //TODO: disable interaction in all cells
                 self.sendButton.userInteractionEnabled = false
                 self.sendButton.alpha = 0.4
                 self.activityIndicator.startAnimating()
