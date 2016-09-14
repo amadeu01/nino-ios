@@ -269,6 +269,25 @@ class GuardianBO: NSObject {
         }
     }
     
+    static func getGuardianForID(guardian: String, completionHandler: (guardian: () throws -> Guardian) -> Void) {
+        GuardianDAO.getGuardianForId(guardian) { (guardian) in
+            do {
+                let guardian = try guardian()
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(guardian: { () -> Guardian in
+                        return guardian
+                    })
+                })
+            } catch let error {
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(guardian: { () -> Guardian in
+                        throw error
+                    })
+                })
+            }
+        }
+    }
+    
     static func getStudents(token: String, completionHandler: (students: () throws -> [Student]) -> Void) {
         GuardianDAO.getStudents { (students) in
             do {

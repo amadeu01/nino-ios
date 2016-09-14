@@ -15,6 +15,47 @@ class GuardianDAO: NSObject {
         super.init()
     }
     
+    static func getGuardianForId(id: String, completionHandler: (guardian: () throws -> Guardian) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let realmGuardian = realm.objectForPrimaryKey(GuardianRealmObject.self, key: id)
+                guard let guardian = realmGuardian else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(guardian: { () -> Guardian in
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                var guardianGender : Gender?
+                if let gender = guardian.gender.value {
+                    guardianGender = Gender(rawValue: gender)
+                }
+                
+                var students = [String]()
+                for student in guardian.students {
+                    students.append(student.id)
+                }
+                
+                let guardianVO = Guardian(id: guardian.id, profileID: guardian.profileID.value, name: guardian.name, surname: guardian.surname, gender: guardianGender, email: guardian.email, students: students)
+                
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(guardian: { () -> Guardian in
+                        return guardianVO
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(guardian: { () -> Guardian in
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+        
+    }
+    
     static func createGuardians(guardians: [Guardian], completionHandler: (write: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
             do {

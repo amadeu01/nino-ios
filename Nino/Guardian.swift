@@ -45,4 +45,14 @@ struct Guardian {
         self.students = students
         self.profileID = profileID
     }
+    
+    func getDescription() -> String {
+        guard let name = self.name else {
+            return self.email
+        }
+        guard let surname = self.surname else {
+            return self.email
+        }
+        return name
+    }
 }

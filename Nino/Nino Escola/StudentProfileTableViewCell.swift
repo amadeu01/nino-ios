@@ -38,7 +38,24 @@ class StudentProfileTableViewCell: UITableViewCell {
                         let student = try student()
                         self.studentName = student.name
 //                        self.guardianFirstNames = student.
-                        self.guardianFirstNames = student.guardians
+                        if let guardians = student.guardians {
+                            for guardian in  guardians{
+                                GuardianBO.getGuardianForID(guardian, completionHandler: { (guardian) in
+                                    do {
+                                        let guardian = try guardian()
+                                        if let guardiansNameList = self.guardianFirstNames {
+                                            self.guardianFirstNames?.append(guardian.getDescription())
+                                        } else {
+                                            self.guardianFirstNames = []
+                                            self.guardianFirstNames?.append(guardian.getDescription())
+                                        }
+                                        self.updateGuardiansName()
+                                    } catch {
+                                        //TODO: handle error
+                                    }
+                                })
+                            }
+                        }
                     } catch let error {
                         //TODO: handle error
                         NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
@@ -53,29 +70,29 @@ class StudentProfileTableViewCell: UITableViewCell {
     // Sets the text according to the sponsors' names.
     internal var guardianFirstNames: [String]? {
         didSet {
-            guard let guardianFirstNames = guardianFirstNames where guardianFirstNames.count > 0 else {
-                // No parents.
-                self.guardianFirstNamesLabel.text = NSLocalizedString("PROF_GUARDIAN", comment: "") + ": -"
-                return
-            }
-            var text: String = ""
-            if guardianFirstNames.count == 0 {
-                text = NSLocalizedString("PROF_GUARDIAN", comment: "Guardian") + ": \(guardianFirstNames[0])"
-            } else {
-                text = NSLocalizedString("PROF_GUARDIANS", comment: "Guardians") + ": \(guardianFirstNames[0])"
-                var i = 1
-                while i < guardianFirstNames.count {
-                    if i == (guardianFirstNames.count - 1) { //Last one
-                        text.appendContentsOf(" e \(guardianFirstNames[i])")
-                    } else {
-                        text.appendContentsOf(", \(guardianFirstNames[i])")
-                    }
-                    i += 1
-                }
-                //Exits once adds every name
-                guardianFirstNamesLabel.text = text
-            }
+            self.updateGuardiansName()
         }
+    }
+    
+    private func updateGuardiansName() {
+        guard let guardianFirstNames = guardianFirstNames where guardianFirstNames.count > 0 else {
+            // No parents.
+            self.guardianFirstNamesLabel.text = NSLocalizedString("PROF_GUARDIAN", comment: "") + ": -"
+            return
+        }
+        var text: String = ""
+        text = NSLocalizedString("PROF_GUARDIANS", comment: "Guardians") + ": \(guardianFirstNames[0])"
+        var i = 1
+        while i < guardianFirstNames.count {
+            if i == (guardianFirstNames.count - 1) { //Last one
+                text.appendContentsOf(" \(NSLocalizedString("AND", comment: "")) \(guardianFirstNames[i])")
+            } else {
+                text.appendContentsOf(", \(guardianFirstNames[i])")
+            }
+            i += 1
+        }
+        //Exits once adds every name
+        guardianFirstNamesLabel.text = text
     }
     
     override func awakeFromNib() {
