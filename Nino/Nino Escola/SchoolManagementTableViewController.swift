@@ -88,11 +88,11 @@ class SchoolManagementTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
-   func configureSections() {
-    let adminSecRows = [DataRow(name: NSLocalizedString("ROOMS_ADMIN", comment: "Manage Classes"), image: UIImage(named: "icon_classroomManagement")!, identifier: "showManageClassroomsViewController")]
-    theseSecs.append(DataSection(name: NSLocalizedString("GENERAL_ADMIN", comment: "Administration"), rows: adminSecRows))
-    let accountSecRows = [DataRow(name: NSLocalizedString("GENERAL_LOGOUT", comment: "Logout"), image: UIImage(named: "Becke_Sair")!, identifier: "shouldLogOut")]
-    theseSecs.append(DataSection(name: NSLocalizedString("GENERAL_ACCOUNT", comment: "Account"), rows: accountSecRows))
+    func configureSections() {
+        let adminSecRows = [DataRow(name: NSLocalizedString("ROOMS_ADMIN", comment: "Manage Classes"), image: UIImage(named: "icon_classroomManagement")!, identifier: "showManageClassroomsViewController")]
+        theseSecs.append(DataSection(name: NSLocalizedString("GENERAL_ADMIN", comment: "Administration"), rows: adminSecRows))
+        let accountSecRows = [DataRow(name: NSLocalizedString("GENERAL_LOGOUT", comment: "Logout"), image: UIImage(named: "Becke_Sair")!, identifier: "shouldLogOut")]
+        theseSecs.append(DataSection(name: NSLocalizedString("GENERAL_ACCOUNT", comment: "Account"), rows: accountSecRows))
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
