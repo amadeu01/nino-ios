@@ -1980,6 +1980,11 @@
 					ACEC39C41CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = N79DG9RG7K;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					ACEC39D81CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1991,7 +1996,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = G52JHG5LJN;
+						DevelopmentTeam = N79DG9RG7K;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;

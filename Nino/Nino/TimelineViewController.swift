@@ -20,8 +20,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         let nib = UINib(nibName: "MyDay", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "MyDay")
-
-
         // Do any additional setup after loading the view.
     }
 
@@ -43,6 +41,22 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         NinoNotificationManager.sharedInstance.addObserverForPostsUpdates(self, selector: #selector(postsUpdated))
         self.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if true {
+            let okAction = UIAlertAction(title: NSLocalizedString("GENERAL_GOTIT", comment: ""), style: .Default) { (alert) in
+                let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+                UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+            }
+            let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: ""), style: .Cancel, handler: nil)
+            let alertView = UIAlertController(title: NSLocalizedString("PUSHNOTIF_DESCR", comment: ""), message: NSLocalizedString("PUSHNOTIF_INVITE", comment: ""), preferredStyle:.Alert)
+            alertView.addAction(okAction)
+            alertView.addAction(cancelAction)
+            self.presentViewController(alertView, animated: true, completion: nil)
+        }
     }
     
     func reloadData() {

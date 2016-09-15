@@ -63,6 +63,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        print("Got data! \(deviceToken)")
+        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
+        if let settings = settings {
+            if settings.types != .None {
+                let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+                var tokenString = ""
+                
+                for i in 0..<deviceToken.length {
+                    tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+                }
+                AccountBO.enableNotifications(tokenString, completionHandler: { (getStatus) in
+                    do {
+                        try getStatus()
+                    } catch {
+                        print("Something went wrong :(")
+                    }
+                })
+                print(tokenString)
+            }
+        }
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("Couldn't register :( \(error)")
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        print("New Setting: \(notificationSettings)")
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -150,6 +150,7 @@
 "DELETE_CLASSROOM"="Delete Classroom";
 
 /*General*/
+"AND"="and";
 "GENERAL_EDIT"="Edit";
 "GENERAL_CANCEL"="Cancel";
 "GENERAL_DELETE"="Delete";
@@ -170,3 +171,7 @@
 
 /*Registration*/
 "INVALID_MAIL"="Invalid email";
+
+/*Push Notification*/
+"PUSHNOTIF_DESCR"="Enable Notifictions?";
+"PUSHNOTIF_INVITE"="By enabling notifications you will know when there is something new! Do you want to enable?";
