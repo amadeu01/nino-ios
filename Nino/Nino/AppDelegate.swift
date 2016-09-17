@@ -65,25 +65,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         print("Got data! \(deviceToken)")
-        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
-        if let settings = settings {
-            if settings.types != .None {
-                let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-                var tokenString = ""
-                
-                for i in 0..<deviceToken.length {
-                    tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-                }
-                AccountBO.enableNotifications(tokenString, completionHandler: { (getStatus) in
-                    do {
-                        try getStatus()
-                    } catch {
-                        print("Something went wrong :(")
-                    }
-                })
-                print(tokenString)
-            }
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for i in 0..<deviceToken.length {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
+        AccountBO.enableNotifications(tokenString, completionHandler: { (getStatus) in
+            do {
+                try getStatus()
+            } catch {
+                print("Something went wrong :(")
+            }
+        })
+        print(tokenString)
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

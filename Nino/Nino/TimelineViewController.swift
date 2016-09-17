@@ -46,15 +46,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if true {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("haveAsked") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "haveAsked")
             let okAction = UIAlertAction(title: NSLocalizedString("GENERAL_GOTIT", comment: ""), style: .Default) { (alert) in
                 let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
                 UIApplication.sharedApplication().registerUserNotificationSettings(settings)
             }
-            let cancelAction = UIAlertAction(title: NSLocalizedString("GENERAL_CANCEL", comment: ""), style: .Cancel, handler: nil)
             let alertView = UIAlertController(title: NSLocalizedString("PUSHNOTIF_DESCR", comment: ""), message: NSLocalizedString("PUSHNOTIF_INVITE", comment: ""), preferredStyle:.Alert)
             alertView.addAction(okAction)
-            alertView.addAction(cancelAction)
             self.presentViewController(alertView, animated: true, completion: nil)
         }
     }

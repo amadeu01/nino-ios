@@ -16,8 +16,12 @@ class RestApiManager: NSObject {
 //    private static let baseURL = "https://www.ninoapp.com.br:5000/"
 //MARK: DEV_URL
     private static let baseURL = "https://development.ninoapp.com.br:5000/"
-    //FIXME: fix device id
-    private static let device = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
+    
+    private static let device: String = {
+        let webView = UIWebView(frame: CGRectZero)
+        let string = webView.stringByEvaluatingJavaScriptFromString("navigator.userAgent")
+        return string!
+    }()
     
     /**
      Makes GET request to api.ninoapp.com.br/
