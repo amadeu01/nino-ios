@@ -185,9 +185,9 @@ public class FluentConstraint {
 
     public var baseline: FluentConstraint {
         if secondView == nil {
-            self.firstAttribute = .Baseline
+            self.firstAttribute = .LastBaseline
         } else {
-            self.secondAttribute = .Baseline
+            self.secondAttribute = .LastBaseline
         }
         return self
     }

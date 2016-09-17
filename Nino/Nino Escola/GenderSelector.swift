@@ -38,7 +38,7 @@ class GenderSelector: UIView, UIGestureRecognizerDelegate {
 //MARK: View initialization methods
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let view = NSBundle.mainBundle().loadNibNamed("GenderSelector", owner: self, options: nil)[0] as? UIView
+        let view = NSBundle.mainBundle().loadNibNamed("GenderSelector", owner: self, options: nil)![0] as? UIView
         if let selectGender = view {
             self.addSubview(selectGender)
             selectGender.frame = self.bounds

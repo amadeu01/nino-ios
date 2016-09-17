@@ -236,7 +236,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
             name: "SelectClassroom",
             bundle: nil)
         
-        var menuViewController: SelectClassroomTableViewController = storyboard.instantiateViewControllerWithIdentifier("SelectClassroomTableViewController") as! SelectClassroomTableViewController
+        let menuViewController: SelectClassroomTableViewController = storyboard.instantiateViewControllerWithIdentifier("SelectClassroomTableViewController") as! SelectClassroomTableViewController
         menuViewController.modalPresentationStyle = .Popover
         menuViewController.preferredContentSize = CGSizeMake(300, 400)
         menuViewController.delegate = self
