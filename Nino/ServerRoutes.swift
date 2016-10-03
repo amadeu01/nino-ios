@@ -41,6 +41,8 @@ enum ServerRoutes {
     case UpdateMyProfile
     
     case GetStudentPostsForGuardian
+    
+    case UpdateNotificationStatus
 
 // swiftlint:disable cyclomatic_complexity
     func description(param: [String]?) throws -> String {
@@ -142,6 +144,8 @@ enum ServerRoutes {
                 throw RouteError.MissingParameter
             }
             return "posts/profiles/" + id[0]
+        case .UpdateNotificationStatus:
+            return "accounts/notifications/me"
         }
     }
 }

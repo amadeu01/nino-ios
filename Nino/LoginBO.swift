@@ -79,6 +79,7 @@ class LoginBO: NSObject {
     }
     
     static func logout(completionHandler: (out: () throws -> Void) -> Void) {
+        UIApplication.sharedApplication().unregisterForRemoteNotifications()
         LoginDAO.logout { (out) in
             do {
                 try out()

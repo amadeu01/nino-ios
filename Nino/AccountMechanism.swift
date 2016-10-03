@@ -85,6 +85,31 @@ class AccountMechanism: NSObject {
         }
     }
     
+    
+    static func enableNotifications(token: String, deviceToken: String, completionHandler: (error: Int?, data: String?) -> Void) {
+        do {
+            let route = try ServerRoutes.UpdateNotificationStatus.description(nil)
+            let body: [String: AnyObject] = ["token": token, "deviceToken": deviceToken]
+            RestApiManager.makeHTTPPutRequest(route, body: body, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(error: error?.code, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: data is a json, needs to be interpreted
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(error: error, data: data)
+                } else {
+                    completionHandler(error: nil, data: nil)
+                }
+            })
+        } catch {
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+        }
+    }
+    
     /**
      Checks if the hash still valid
      

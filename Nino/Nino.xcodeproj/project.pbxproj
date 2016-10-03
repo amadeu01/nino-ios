@@ -1980,6 +1980,11 @@
 					ACEC39C41CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = N79DG9RG7K;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					ACEC39D81CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1991,7 +1996,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = G52JHG5LJN;
+						DevelopmentTeam = N79DG9RG7K;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;
@@ -3561,7 +3566,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.nino.ninoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.responsaveis.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";
@@ -3580,7 +3585,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.nino.ninoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.responsaveis.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";

@@ -150,6 +150,7 @@
 "DELETE_CLASSROOM"="Deletar Turma";
 
 /*General*/
+"AND"="e";
 "GENERAL_EDIT"="Editar";
 "GENERAL_CANCEL"="Cancelar";
 "GENERAL_DELETE"="Deletar";
@@ -170,3 +171,7 @@
 
 /*Registration*/
 "INVALID_MAIL"="Email inválido";
+
+/*Push Notification*/
+"PUSHNOTIF_DESCR"="Habilitar Notificações?";
+"PUSHNOTIF_INVITE"="Ativando as notificações você é avisado assim que houver algo novo! Deseja ativar?";
