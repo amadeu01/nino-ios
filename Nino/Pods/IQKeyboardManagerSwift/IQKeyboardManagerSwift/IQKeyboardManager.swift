@@ -635,24 +635,24 @@ public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
         super.init()
 
         //  Registering for keyboard notification.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",                name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:",                name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidHide:",                name: UIKeyboardDidHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.keyboardWillShow(_:)),                name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.keyboardWillHide(_:)),                name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.keyboardDidHide(_:)),                name: UIKeyboardDidHideNotification, object: nil)
         
         //  Registering for textField notification.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldViewDidBeginEditing:",    name: UITextFieldTextDidBeginEditingNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldViewDidEndEditing:",      name: UITextFieldTextDidEndEditingNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.textFieldViewDidBeginEditing(_:)),    name: UITextFieldTextDidBeginEditingNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.textFieldViewDidEndEditing(_:)),      name: UITextFieldTextDidEndEditingNotification, object: nil)
         
         //  Registering for textView notification.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldViewDidBeginEditing:",    name: UITextViewTextDidBeginEditingNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldViewDidEndEditing:",      name: UITextViewTextDidEndEditingNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldViewDidChange:",          name: UITextViewTextDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.textFieldViewDidBeginEditing(_:)),    name: UITextViewTextDidBeginEditingNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.textFieldViewDidEndEditing(_:)),      name: UITextViewTextDidEndEditingNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.textFieldViewDidChange(_:)),          name: UITextViewTextDidChangeNotification, object: nil)
         
         //  Registering for orientation changes notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "willChangeStatusBarOrientation:",          name: UIApplicationWillChangeStatusBarOrientationNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(IQKeyboardManager.willChangeStatusBarOrientation(_:)),          name: UIApplicationWillChangeStatusBarOrientationNotification, object: nil)
 
         //Creating gesture for @shouldResignOnTouchOutside. (Enhancement ID: #14)
-        _tapGesture = UITapGestureRecognizer(target: self, action: "tapRecognized:")
+        _tapGesture = UITapGestureRecognizer(target: self, action: #selector(IQKeyboardManager.tapRecognized(_:)))
         _tapGesture.cancelsTouchesInView = false
         _tapGesture.delegate = self
         _tapGesture.enabled = shouldResignOnTouchOutside
@@ -1673,14 +1673,14 @@ public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
                     
                     //Supporting Custom Done button image (Enhancement ID: #366)
                     if let doneBarButtonItemImage = toolbarDoneBarButtonItemImage {
-                            textField.addRightButtonOnKeyboardWithImage(doneBarButtonItemImage, target: self, action: "doneAction:", shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
+                            textField.addRightButtonOnKeyboardWithImage(doneBarButtonItemImage, target: self, action: #selector(IQKeyboardManager.doneAction(_:)), shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
                     }
                     //Supporting Custom Done button text (Enhancement ID: #209, #411, Bug ID: #376)
                     else if let doneBarButtonItemText = toolbarDoneBarButtonItemText {
-                        textField.addRightButtonOnKeyboardWithText(doneBarButtonItemText, target: self, action: "doneAction:", shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
+                        textField.addRightButtonOnKeyboardWithText(doneBarButtonItemText, target: self, action: #selector(IQKeyboardManager.doneAction(_:)), shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
                     } else {
                         //Now adding textField placeholder text as title of IQToolbar  (Enhancement ID: #27)
-                        textField.addDoneOnKeyboardWithTarget(self, action: "doneAction:", shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
+                        textField.addDoneOnKeyboardWithTarget(self, action: #selector(IQKeyboardManager.doneAction(_:)), shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
                     }
 
                     textField.inputAccessoryView?.tag = IQKeyboardManager.kIQDoneButtonToolbarTag //  (Bug ID: #78)
@@ -1771,14 +1771,14 @@ public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
                         
                         //Supporting Custom Done button image (Enhancement ID: #366)
                         if let doneBarButtonItemImage = toolbarDoneBarButtonItemImage {
-                            textField.addPreviousNextRightOnKeyboardWithTarget(self, rightButtonImage: doneBarButtonItemImage, previousAction: "previousAction:", nextAction: "nextAction:", rightButtonAction: "doneAction:", shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
+                            textField.addPreviousNextRightOnKeyboardWithTarget(self, rightButtonImage: doneBarButtonItemImage, previousAction: #selector(IQKeyboardManager.previousAction(_:)), nextAction: #selector(IQKeyboardManager.nextAction(_:)), rightButtonAction: #selector(IQKeyboardManager.doneAction(_:)), shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
                         }
                         //Supporting Custom Done button text (Enhancement ID: #209, #411, Bug ID: #376)
                         else if let doneBarButtonItemText = toolbarDoneBarButtonItemText {
-                            textField.addPreviousNextRightOnKeyboardWithTarget(self, rightButtonTitle: doneBarButtonItemText, previousAction: "previousAction:", nextAction: "nextAction:", rightButtonAction: "doneAction:", shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
+                            textField.addPreviousNextRightOnKeyboardWithTarget(self, rightButtonTitle: doneBarButtonItemText, previousAction: #selector(IQKeyboardManager.previousAction(_:)), nextAction: #selector(IQKeyboardManager.nextAction(_:)), rightButtonAction: #selector(IQKeyboardManager.doneAction(_:)), shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
                         } else {
                             //Now adding textField placeholder text as title of IQToolbar  (Enhancement ID: #27)
-                            textField.addPreviousNextDoneOnKeyboardWithTarget(self, previousAction: "previousAction:", nextAction: "nextAction:", doneAction: "doneAction:", shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
+                            textField.addPreviousNextDoneOnKeyboardWithTarget(self, previousAction: #selector(IQKeyboardManager.previousAction(_:)), nextAction: #selector(IQKeyboardManager.nextAction(_:)), doneAction: #selector(IQKeyboardManager.doneAction(_:)), shouldShowPlaceholder: shouldShowTextFieldPlaceholder)
                         }
 
                         textField.inputAccessoryView?.tag = IQKeyboardManager.kIQPreviousNextButtonToolbarTag //  (Bug ID: #78)

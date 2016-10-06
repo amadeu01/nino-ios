@@ -322,16 +322,16 @@ class SliderCell: UITableViewCell {
             right.leadingConstraint.active = false
             if let left = left {
                 let newConstraint = right.image.leadingAnchor.constraintEqualToAnchor(left.image.trailingAnchor, constant: self.itemSpacing)
-                if let constraint = newConstraint {
-                    constraint.active = true
-                    right.leadingConstraint = constraint
-                }
-            } else {
-                let newConstraint = right.image.leadingAnchor.constraintEqualToAnchor(plusIcon?.trailingAnchor, constant: self.itemSpacing)
-                if let constraint = newConstraint {
-                    constraint.active = true
-                    right.leadingConstraint = constraint
-                }
+//                if let constraint = newConstraint {
+                    newConstraint.active = true
+                    right.leadingConstraint = newConstraint
+//                }
+//            } else {
+//                let newConstraint = right.image.leadingAnchor.constraintEqualToAnchor((plusIcon?.trailingAnchor)!, constant: self.itemSpacing)
+//                if let constraint = newConstraint {
+//                    constraint.active = true
+//                    right.leadingConstraint = constraint
+//                }
             }
         }
         

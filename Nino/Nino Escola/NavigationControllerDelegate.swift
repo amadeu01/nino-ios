@@ -37,9 +37,9 @@ UIViewControllerAnimatedTransitioning {
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
         let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
         
-        containerView!.addSubview(toView)
-        containerView!.sendSubviewToBack(toView)
-        let currentFrame  = containerView!.bounds
+        containerView.addSubview(toView)
+        containerView.sendSubviewToBack(toView)
+        let currentFrame  = containerView.bounds
         let bottomFrame = CGRect(x: 0, y: currentFrame.height, width: currentFrame.width, height: currentFrame.height)
         
         toView.frame = currentFrame
@@ -68,9 +68,9 @@ UIViewControllerAnimatedTransitioning {
         
         let containerView = transitionContext.containerView()
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
-        containerView!.addSubview(toView)
+        containerView.addSubview(toView)
         
-        let finalFrame  = containerView!.bounds
+        let finalFrame  = containerView.bounds
         let initalFrame = CGRect(x: 0, y: finalFrame.height, width: finalFrame.width, height: finalFrame.height)
         
         toView.frame = initalFrame
