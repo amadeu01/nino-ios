@@ -26,9 +26,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let accountSecRows = [DataRow(name: NSLocalizedString("GENERAL_LOGOUT", comment: "Logout"), image: UIImage(named: "Becke_Sair")!, identifier: "shouldLogOut")]
         theseSecs.append(DataSection(name: NSLocalizedString("GENERAL_ACCOUNT", comment: "Account"), rows: accountSecRows))
+        tableView.separatorStyle = .None
+        tableView.tableFooterView = UIView(frame: CGRect.zero)// Removes empty cells
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +72,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let identifier = self.theseSecs[indexPath.section].rows[indexPath.row].identifier
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if identifier == "shouldLogOut" {
             logOut()
         } else {
@@ -89,6 +91,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             }
             return cell!
+    }
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 90
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 90
     }
     //MARK: Table View Datasour
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
