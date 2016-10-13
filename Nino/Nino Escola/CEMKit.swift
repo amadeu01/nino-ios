@@ -355,7 +355,7 @@ extension UIView {
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return img
+        return img!
     }
 }
 
@@ -1114,7 +1114,7 @@ extension UIImage {
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return img
+        return img!
     }
     
     func aspectResizeWithHeight (height: CGFloat) -> UIImage {
@@ -1125,7 +1125,7 @@ extension UIImage {
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return img
+        return img!
     }
     
     
@@ -1542,7 +1542,7 @@ class BlockButton: UIButton {
     
     var actionBlock: ((sender: BlockButton) -> ())? {
         didSet {
-            self.addTarget(self, action: "action:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.addTarget(self, action: #selector(BlockButton.action(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
     
@@ -1583,8 +1583,8 @@ class BlockWebView: UIWebView, UIWebViewDelegate {
     
     func webView(
         webView: UIWebView,
-        didFailLoadWithError error: NSError?) {
-            didFailLoad? (webView.request!, error!)
+        didFailLoadWithError error: NSError) {
+            didFailLoad? (webView.request!, error)
     }
     
     func webView(
@@ -1620,7 +1620,7 @@ class BlockTap: UITapGestureRecognizer {
             self.numberOfTapsRequired = tapCount
             self.numberOfTouchesRequired = fingerCount
             self.tapAction = action
-            self.addTarget(self, action: "didTap:")
+            self.addTarget(self, action: #selector(BlockTap.didTap(_:)))
     }
     
     func didTap (tap: UITapGestureRecognizer) {
@@ -1643,7 +1643,7 @@ class BlockPan: UIPanGestureRecognizer {
     convenience init (action: ((UIPanGestureRecognizer) -> Void)?) {
         self.init()
         self.panAction = action
-        self.addTarget(self, action: "didPan:")
+        self.addTarget(self, action: #selector(BlockPan.didPan(_:)))
     }
     
     func didPan (pan: UIPanGestureRecognizer) {
@@ -1670,7 +1670,7 @@ class BlockSwipe: UISwipeGestureRecognizer {
             self.direction = direction
             numberOfTouchesRequired = fingerCount
             swipeAction = action
-            addTarget(self, action: "didSwipe:")
+            addTarget(self, action: #selector(BlockSwipe.didSwipe(_:)))
     }
     
     func didSwipe (swipe: UISwipeGestureRecognizer) {
@@ -1693,7 +1693,7 @@ class BlockPinch: UIPinchGestureRecognizer {
     convenience init (action: ((UIPinchGestureRecognizer) -> Void)?) {
         self.init()
         pinchAction = action
-        addTarget(self, action: "didPinch:")
+        addTarget(self, action: #selector(BlockPinch.didPinch(_:)))
     }
     
     func didPinch (pinch: UIPinchGestureRecognizer) {
@@ -1716,7 +1716,7 @@ class BlockLongPress: UILongPressGestureRecognizer {
     convenience init (action: ((UILongPressGestureRecognizer) -> Void)?) {
         self.init()
         longPressAction = action
-        addTarget(self, action: "didLongPressed:")
+        addTarget(self, action: #selector(BlockLongPress.didLongPressed(_:)))
     }
     
     func didLongPressed (longPress: UILongPressGestureRecognizer) {

@@ -123,8 +123,8 @@ class IntensityCell: UITableViewCell {
             //Positions the circle
             circle.centerYAnchor.constraintEqualToAnchor(button.centerYAnchor, constant: 0).active = true
             circle.trailingAnchor.constraintEqualToAnchor(button.leadingAnchor, constant: -circleDiameter).active = true
-            circle.widthAnchor.constraintEqualToAnchor(nil, constant: circleDiameter-1).active = true
-            circle.heightAnchor.constraintEqualToAnchor(nil, constant: circleDiameter-1).active = true
+            circle.widthAnchor.constraintEqualToConstant(circleDiameter-1).active = true
+            circle.heightAnchor.constraintEqualToConstant(circleDiameter-1).active = true
             
             offset += step
             position += 1

@@ -58,7 +58,7 @@ class DateSelector: UIView {
         self.tomorrow = self.currentDay.dateByAddingTimeInterval(60*60*24*1)
         self.yesterday = self.currentDay.dateByAddingTimeInterval(-60*60*24*1)
         super.init(coder: aDecoder)
-        let view = NSBundle.mainBundle().loadNibNamed("DateSelector", owner: self, options: nil)[0] as? UIView
+        let view = NSBundle.mainBundle().loadNibNamed("DateSelector", owner: self, options: nil)![0] as? UIView
         if let dateSelctor = view {
             self.addSubview(dateSelctor)
             dateSelctor.frame = self.bounds
