@@ -24,14 +24,12 @@
                                     <frame key="frameInset" width="1366" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZa-Zm-Lzl">
-                                            <frame key="frameInset" minX="-42" minY="-21" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZa-Zm-Lzl">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks1-jJ-bus">
-                                            <frame key="frameInset" minX="-23" minY="-15" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks1-jJ-bus">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="37" id="1US-gY-xeB"/>
                                                 <constraint firstAttribute="width" constant="33" id="uA8-j2-h0W">
@@ -55,9 +53,7 @@
                                                 <action selector="thisButtonWorked:" destination="Pfs-KX-0vu" eventType="touchUpInside" id="JXh-b9-c8O"/>
                                             </connections>
                                         </button>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9PF-qB-xqA">
-                                            <frame key="frameInset" minX="-25" minY="-15" width="51" height="31"/>
-                                        </switch>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9PF-qB-xqA"/>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ks1-jJ-bus" firstAttribute="leading" secondItem="bZa-Zm-Lzl" secondAttribute="trailing" constant="55" id="Guq-yN-UVQ"/>

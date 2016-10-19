@@ -285,7 +285,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      
      - parameter segue: unwind segue
      */
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+    @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "changePassword" {
+            if let destVC = segue.destinationViewController as? ChangePasswordViewController {
+                if let email = self.usernameTextField.text {
+                    destVC.email = email
+                }
+            }
+        }
     }
     
 }

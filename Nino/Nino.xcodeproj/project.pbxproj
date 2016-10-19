@@ -666,6 +666,9 @@
 		AC74E1141D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC7567431DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */; };
+		AC7567441DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */; };
+		AC7567451DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */; };
 		AC79F0241D50F54400583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
 		AC79F0251D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
 		AC79F0261D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
@@ -1121,6 +1124,7 @@
 		AC74E1021D2D4908004281F3 /* RouteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteError.swift; sourceTree = "<group>"; };
 		AC74E1091D2E8749004281F3 /* AccountBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBO.swift; sourceTree = "<group>"; };
 		AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoImagePicker.swift; sourceTree = "<group>"; };
+		AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		AC79F0231D50F54400583452 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		AC79F02A1D53B25100583452 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1556,6 +1560,7 @@
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
 				AC33F47B1D3673C4009D10B5 /* Create User */,
 				AC33F4801D36C4E7009D10B5 /* Detail */,
+				AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1980,12 +1985,12 @@
 					ACEC39C41CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = N79DG9RG7K;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
 							};
 						};
-						LastSwiftMigration = 0800;
 					};
 					ACEC39D81CEE128B00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -2874,6 +2879,7 @@
 				288B279E1D37D1AA00B47DC0 /* Phase.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				AC7567431DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */,
 				AC79F02B1D53B25100583452 /* PhotosViewController.swift in Sources */,
 				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
 				28F366F21D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
@@ -3121,6 +3127,7 @@
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
 				AC8978301D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				288B27E91D37E0D300B47DC0 /* EventBO.swift in Sources */,
+				AC7567441DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */,
 				AC43B3F21D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				288B277A1D37D1A800B47DC0 /* Student.swift in Sources */,
 				AC7143FF1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */,
@@ -3183,6 +3190,7 @@
 				288B27971D37D1A900B47DC0 /* Gender.swift in Sources */,
 				AC43B4051D41379800A6CB5C /* CreationError.swift in Sources */,
 				AC79F0381D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */,
+				AC7567451DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */,
 				07A2722E1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
 				288B27261D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,

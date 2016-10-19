@@ -20,7 +20,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="5GA-Tm-GkI" sceneMemberID="viewController">
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sEw-na-lrA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sEw-na-lrA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -41,7 +41,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yyd-5n-9bw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JVd-KW-aO2">
-                        <rect key="frame" x="0.0" y="0.0" width="1045" height="153.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1044.5" height="154"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0X-5L-JhS">
@@ -542,7 +542,7 @@
         <scene sceneID="o7D-33-qo1">
             <objects>
                 <navigationController navigationBarHidden="YES" id="YZF-3e-4ak" customClass="StudentProfileNavigationController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UTQ-sC-5Kj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UTQ-sC-5Kj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -30,7 +30,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="6e4-ht-WwP" sceneMemberID="viewController">
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUQ-ld-NvJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XUQ-ld-NvJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

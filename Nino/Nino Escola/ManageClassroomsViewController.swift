@@ -26,6 +26,8 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNinoDefaultBackGround()
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView?.backgroundColor = UIColor.clearColor()
         NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
