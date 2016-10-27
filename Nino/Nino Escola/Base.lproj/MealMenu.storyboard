@@ -40,7 +40,7 @@
             <objects>
                 <navigationController id="ENw-K7-Lce" sceneMemberID="viewController">
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FJt-Yh-Eho">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FJt-Yh-Eho">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

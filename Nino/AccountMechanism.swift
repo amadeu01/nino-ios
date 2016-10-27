@@ -218,6 +218,32 @@ class AccountMechanism: NSObject {
         }
     }
     
+    static func changePassword(email: String, completionHandler: (success: Bool?, error: Int?, data: String?) -> Void) {
+        let body: [String: AnyObject] = ["email": email]
+        do {
+            let route = try ServerRoutes.ChangePassword.description(nil)
+            RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(success: nil, error: nil, data: nil)
+                    return
+                }
+                //error
+                if statusCode != 200 {
+                    //FIXME: data is a json, needs to be interpreted
+                    let data = json["data"].string
+                    let error = json["error"].int
+                    completionHandler(success: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    completionHandler(success: true, error: nil, data: nil)
+                }
+            })
+        } catch {
+            //never will be reached
+        }
+    }
+    
     static func logout() {
         
     }

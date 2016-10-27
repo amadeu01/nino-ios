@@ -31,10 +31,10 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         self.studentProfileTableView.dataSource = self
         self.studentProfileTableView.delegate = self
         //registering for notification
-        NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
-        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
-        NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(test))
-        NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
+//        NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
+//        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
+        NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(studentsUpdated))
+//        NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
         //xrschoolNameLabel.text = "DID WORK"
         //self.tableView.registerNib(UINib(nibName: "StudentProfileListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
         let nib = UINib(nibName: "StudentProfileListHeader", bundle: nil)
@@ -50,9 +50,25 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         super.viewDidAppear(animated)
     }
     
-    func test() {
-        print("here")
-        self.reloadData()
+    func studentsUpdated(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            if let newStudents = message.dataToInsert as? [Student] {
+                for student in newStudents {
+                    self.students.append(student.id)
+                    self.dates.append(student.createdAt)
+                    //TODO: get guardian for student
+                }
+                self.studentProfileTableView.reloadData()
+            }
+            //TODO: updated students
+            //TODO: deleted students
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -126,48 +142,48 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     }
     
     //MARK: Notification Manager methods
-    @objc private func schoolUpdated() {
-        print("School notification working")
-    }
+//    @objc private func schoolUpdated() {
+//        print("School notification working")
+//    }
     
-    @objc private func phasesUpdated(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else {
-            //TODO: Unexpected case
-            return
-        }
-        if let error = userInfo["error"] {
-            //TODO: handle error
-        } else if let message = userInfo["info"] as? NotificationMessage {
-            if let newPhases = message.dataToInsert as? [Phase] {
-                self.phases.appendContentsOf(newPhases)
-            }
-            //TODO: updated phases
-            //TODO: deleted phases
-        }
-        self.getRooms()
-    }
+//    @objc private func phasesUpdated(notification: NSNotification) {
+//        guard let userInfo = notification.userInfo else {
+//            //TODO: Unexpected case
+//            return
+//        }
+//        if let error = userInfo["error"] {
+//            //TODO: handle error
+//        } else if let message = userInfo["info"] as? NotificationMessage {
+//            if let newPhases = message.dataToInsert as? [Phase] {
+//                self.phases.appendContentsOf(newPhases)
+//            }
+//            //TODO: updated phases
+//            //TODO: deleted phases
+//        }
+//        self.getRooms()
+//    }
     
-    private func getRooms() {
-        if self.phases.count > 0 {
-            self.rooms.removeAll()
-            RoomBO.getAllRooms({ (rooms) in
-                do {
-                    let newRooms = try rooms()
-                    for room in newRooms {
-                        self.rooms.append(room)
-                    }
-                    self.roomsUpdated()
-                } catch let error {
-                    //TODO: handle error
-                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                }
-            })
-        }
-    }
+//    private func getRooms() {
+//        if self.phases.count > 0 {
+//            self.rooms.removeAll()
+//            RoomBO.getAllRooms({ (rooms) in
+//                do {
+//                    let newRooms = try rooms()
+//                    for room in newRooms {
+//                        self.rooms.append(room)
+//                    }
+//                    self.roomsUpdated()
+//                } catch let error {
+//                    //TODO: handle error
+//                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+//                }
+//            })
+//        }
+//    }
     
-    private func roomsUpdated() {
-        //TODO: reload rooms buttons
-    }
+//    private func roomsUpdated() {
+//        //TODO: reload rooms buttons
+//    }
     
     func didChangeSelectedPhase(newTitle: String, phase: String, room: String) {
         print("didChangeSelectedPhase: " + room)
@@ -212,24 +228,24 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         }
     }
     
-    @objc private func roomsUpdatedFromServer(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else {
-            //TODO: Unexpected case
-            return
-        }
-        if let error = userInfo["error"] {
-            //TODO: handle error
-        } else if let message = userInfo["info"] as? NotificationMessage {
-            if let newRooms = message.dataToInsert as? [Room] {
-                for room in newRooms {
-                    self.rooms.append(room)
-                }
-            }
-            //TODO: updated phases
-            //TODO: deleted phases
-        }
-        self.roomsUpdated()
-    }
+//    @objc private func roomsUpdatedFromServer(notification: NSNotification) {
+//        guard let userInfo = notification.userInfo else {
+//            //TODO: Unexpected case
+//            return
+//        }
+//        if let error = userInfo["error"] {
+//            //TODO: handle error
+//        } else if let message = userInfo["info"] as? NotificationMessage {
+//            if let newRooms = message.dataToInsert as? [Room] {
+//                for room in newRooms {
+//                    self.rooms.append(room)
+//                }
+//            }
+//            //TODO: updated phases
+//            //TODO: deleted phases
+//        }
+//        self.roomsUpdated()
+//    }
     //MARK: Student Profile List Header Delegate
     func didTapPhaseButton(sender: UIButton) {
         let storyboard : UIStoryboard = UIStoryboard(
@@ -244,8 +260,8 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         popoverMenuViewController?.permittedArrowDirections = .Left
         popoverMenuViewController?.delegate = self
         popoverMenuViewController?.sourceView = sender
-        popoverMenuViewController?.sourceRect = CGRect(x: sender.frame.width,y: sender.frame.height/2,width: 1,height: 1)
-        presentViewController(menuViewController,animated: true,completion: nil)
+        popoverMenuViewController?.sourceRect = CGRect(x: sender.frame.width, y: sender.frame.height/2,width: 1, height: 1)
+        presentViewController(menuViewController, animated: true, completion: nil)
         
     }
 }

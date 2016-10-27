@@ -157,7 +157,7 @@ class SelectClassroomTableViewController: UITableViewController {
             return
         }
         let allSecsHeight = (tableView.sectionHeaderHeight + 10) * CGFloat(self.tableView.numberOfSections)
-        
+//        print("allSecsHeight:" + allSecsHeight)
         var numberOfRows = 0
         var secNum = 0
         while secNum < tableView.numberOfSections {
@@ -165,7 +165,7 @@ class SelectClassroomTableViewController: UITableViewController {
             secNum += 1
         }
         let allRowsHeight = CGFloat(numberOfRows) * firstCell.frame.height
-        
+//        print("allRowsHeight:" + allRowsHeight)
         self.preferredContentSize = CGSize(width: 300, height: allRowsHeight + allSecsHeight)
         
         //self.preferredContentSize = CGSize(width: 200, height: 200)
@@ -183,9 +183,19 @@ class SelectClassroomTableViewController: UITableViewController {
         if let error = userInfo["error"] {
             //TODO:
         } else if let message = userInfo["info"] as? NotificationMessage {
-            if let newPhases = message.dataToInsert as? [Room] {
-                if newPhases.count > 0 {
-                    reloadData()
+            if let newRooms = message.dataToInsert as? [Room] {
+                if newRooms.count > 0 {
+                    let phaseID = newRooms.first!.phaseID
+                    for phase in self.phases {
+                        if phase.id == phaseID {
+                            for room in newRooms {
+                                print("roomID: " + room.id)
+                                phase.rooms.append(SelectorRoom(name: room.name, id: room.id))
+                            }
+                        }
+                    }
+                    self.tableView.reloadData()
+                    self.resizeView()
                 }
             }
         }
@@ -203,9 +213,27 @@ class SelectClassroomTableViewController: UITableViewController {
         if let error = userInfo["error"] {
             //TODO:
         } else if let message = userInfo["info"] as? NotificationMessage {
-            if let newRooms = message.dataToInsert as? [Phase] {
-                if newRooms.count > 0 {
-                    reloadData()
+            if let newPhases = message.dataToInsert as? [Phase] {
+                if newPhases.count > 0 {
+                    for phase in newPhases {
+                        RoomBO.getRooms(phase.id, completionHandler: { (rooms) in
+                            do {
+                                print("phaseID: " + phase.id)
+                                let rooms = try rooms()
+                                let thisPhase = SelectorPhase(name: phase.name, id: phase.id)
+                                for room in rooms {
+                                    print("roomID: " + room.id)
+                                    thisPhase.rooms.append(SelectorRoom(name: room.name, id: room.id))
+                                }
+                                self.phases.append(thisPhase)
+                                self.tableView.reloadData()
+                                self.resizeView()
+                            } catch let error {
+                                //TODO: HANDLE ERROR AGAIN
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                            }
+                        })
+                    }
                 }
             }
         }
