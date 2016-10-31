@@ -31,8 +31,12 @@ class ChangePasswordViewController: UIViewController {
     
     @IBAction func changePasswordAction(sender: UIButton) {
         self.emailTextField.resignFirstResponder()
+        let alertView = UIAlertController(title: "Erro", message: nil , preferredStyle: .Alert)
+         let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         guard let user = self.emailTextField.text else {
-            //TODO: empty email
+            alertView.message =  "Por favor digite um e-mail válido"
+            alertView.addAction(okAction)
+            self.presentViewController(alertView, animated: true, completion: nil)
             return
         }
         self.changePasswordButton.userInteractionEnabled = false
@@ -43,12 +47,26 @@ class ChangePasswordViewController: UIViewController {
             try AccountBO.changePassword(user, completionHandler: { (change) in
                 do {
                     try change()
-                    //TODO: alert -> login
+                    alertView.title = "Sucesso!"
+                    alertView.message = "Um e-mail foi enviado para o endereço \(user) com as instruções para o registro de uma nova senha."
+                    let okGoBackAction = UIAlertAction(title: "Ok", style: .Default, handler: { (action) in
+                        self.performSegueWithIdentifier("unwindToLogin", sender: self)
+                    })
+                    alertView.addAction(okGoBackAction)
+                    self.presentViewController(alertView, animated: true, completion: nil)
                 } catch {
-                    //TODO: email not found
+                    //TODO: email not found. SERVER is not returning error for an unregistered email.
+                    alertView.message = "Não foi encontrada nenhuma conta com o e-mail \(user)"
+                    let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+                    alertView.addAction(okAction)
+                    self.presentViewController(alertView, animated: true, completion: nil)
                 }
             })
         } catch {
+            alertView.message = "Por favor digite um e-mail válido"
+            //let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertView.addAction(okAction)
+            self.presentViewController(alertView, animated: true, completion: nil)
             self.changePasswordButton.userInteractionEnabled = true
             self.changePasswordButton.alpha = 1
             self.activityIndicator.stopAnimating()

@@ -24,7 +24,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2kg-Gy-SlJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EGD-ex-UzO">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Nino" translatesAutoresizingMaskIntoConstraints="NO" id="3TQ-L6-hEA">
@@ -38,7 +38,7 @@
                                     <color key="titleColor" red="0.32615384460000002" green="0.75371456150000005" blue="0.78024578089999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QtR-gT-wU6" kind="unwind" unwindAction="unwindToLogin:" id="nFX-bh-9zT"/>
+                                    <segue destination="QtR-gT-wU6" kind="unwind" identifier="unwindToLogin" unwindAction="unwindToLogin:" id="nFX-bh-9zT"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tid-R5-yfe">
@@ -129,15 +129,12 @@
                         <viewControllerLayoutGuide type="bottom" id="CoM-fn-iKK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="LoginVC" id="yAQ-vZ-0HN">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundBolas" translatesAutoresizingMaskIntoConstraints="NO" id="gOm-8P-Tlc"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9D-jx-6Dk">
                                 <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="VPk-cP-4EB"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="18"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -160,19 +157,6 @@
                                 </variation>
                             </textField>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-26-wsp"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-Bh-lcj">
-                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="6Qm-Yi-kTK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="18"/>
-                                <state key="normal" title="Novo Usuário">
-                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="doNewUser:" destination="IuW-Is-F4i" eventType="touchUpInside" id="gR1-qn-47x"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-Di-vBa">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bKm-eN-eCX"/>
@@ -186,30 +170,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wh0-il-DzV">
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Esqueceu a senha?"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Esqueceu a senha?">
+                                    <color key="titleColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="uDV-IB-ej0" kind="show" identifier="changePassword" id="eaZ-46-KJa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-Bh-lcj">
+                                <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaRoundedLT-Bold" family="Helvetica Rounded LT" pointSize="18"/>
+                                <state key="normal" title="Novo Usuário">
+                                    <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doNewUser:" destination="IuW-Is-F4i" eventType="touchUpInside" id="gR1-qn-47x"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="u4f-Bh-lcj" firstAttribute="top" secondItem="y9D-jx-6Dk" secondAttribute="bottom" constant="40" id="7cf-t8-Ehk"/>
                             <constraint firstItem="gOm-8P-Tlc" firstAttribute="top" secondItem="yAQ-vZ-0HN" secondAttribute="top" id="9hn-z5-xy9"/>
                             <constraint firstItem="ZRW-mP-JS5" firstAttribute="trailing" secondItem="12B-7p-Kjs" secondAttribute="trailing" constant="30" id="E4N-1V-Aej"/>
                             <constraint firstItem="12B-7p-Kjs" firstAttribute="top" secondItem="yAQ-vZ-0HN" secondAttribute="top" constant="30" id="Jx3-4q-J1C"/>
                             <constraint firstItem="12B-7p-Kjs" firstAttribute="leading" secondItem="ZRW-mP-JS5" secondAttribute="leading" constant="30" id="Kfj-Uq-hQf"/>
-                            <constraint firstItem="wh0-il-DzV" firstAttribute="top" secondItem="nfY-Di-vBa" secondAttribute="bottom" constant="8" id="LwQ-kS-CYe"/>
+                            <constraint firstItem="u4f-Bh-lcj" firstAttribute="width" secondItem="y9D-jx-6Dk" secondAttribute="width" id="NAd-U7-J8S"/>
+                            <constraint firstItem="u4f-Bh-lcj" firstAttribute="top" secondItem="gOm-8P-Tlc" secondAttribute="bottom" constant="-87" id="Nuw-gh-HTL"/>
                             <constraint firstItem="wh0-il-DzV" firstAttribute="centerX" secondItem="nfY-Di-vBa" secondAttribute="centerX" id="Qd7-Hz-iVm"/>
                             <constraint firstItem="12B-7p-Kjs" firstAttribute="centerX" secondItem="yAQ-vZ-0HN" secondAttribute="centerX" id="VfI-g2-dIT"/>
+                            <constraint firstItem="wh0-il-DzV" firstAttribute="top" secondItem="y9D-jx-6Dk" secondAttribute="bottom" constant="19" id="YmZ-6f-Oof"/>
+                            <constraint firstItem="y9D-jx-6Dk" firstAttribute="top" secondItem="nfY-Di-vBa" secondAttribute="bottom" constant="15" id="Yrp-IB-gnp"/>
                             <constraint firstAttribute="trailing" secondItem="gOm-8P-Tlc" secondAttribute="trailing" id="bXQ-qf-XgD"/>
-                            <constraint firstItem="y9D-jx-6Dk" firstAttribute="top" secondItem="nfY-Di-vBa" secondAttribute="bottom" constant="83" id="d2C-nP-LkR"/>
                             <constraint firstItem="ZRW-mP-JS5" firstAttribute="leading" secondItem="nfY-Di-vBa" secondAttribute="leading" id="dfG-TN-Xev"/>
                             <constraint firstItem="gOm-8P-Tlc" firstAttribute="leading" secondItem="yAQ-vZ-0HN" secondAttribute="leading" id="fWe-SK-KqL"/>
                             <constraint firstItem="VQG-26-wsp" firstAttribute="centerX" secondItem="y9D-jx-6Dk" secondAttribute="centerX" id="h4q-zS-Gum"/>
                             <constraint firstItem="u4f-Bh-lcj" firstAttribute="centerX" secondItem="yAQ-vZ-0HN" secondAttribute="centerX" id="jPB-wF-mnD"/>
                             <constraint firstItem="VQG-26-wsp" firstAttribute="centerY" secondItem="y9D-jx-6Dk" secondAttribute="centerY" id="nOB-tH-2Wf"/>
+                            <constraint firstItem="y9D-jx-6Dk" firstAttribute="width" secondItem="nfY-Di-vBa" secondAttribute="width" id="o9c-fZ-wXk"/>
                             <constraint firstItem="ZRW-mP-JS5" firstAttribute="trailing" secondItem="nfY-Di-vBa" secondAttribute="trailing" id="pao-t2-0PE"/>
                             <constraint firstItem="nfY-Di-vBa" firstAttribute="top" secondItem="ZRW-mP-JS5" secondAttribute="bottom" constant="5" id="qml-7n-fe7"/>
                             <constraint firstItem="y9D-jx-6Dk" firstAttribute="centerX" secondItem="yAQ-vZ-0HN" secondAttribute="centerX" id="rNr-Fd-RzW"/>
@@ -241,7 +239,7 @@
                         <outlet property="newUserButton" destination="u4f-Bh-lcj" id="Mf6-7E-72h"/>
                         <outlet property="passwordTextField" destination="nfY-Di-vBa" id="epE-h6-yUO"/>
                         <outlet property="usernameTextField" destination="ZRW-mP-JS5" id="agR-Pr-oZO"/>
-                        <segue destination="hhC-b2-CtG" kind="show" identifier="createNewUser" animates="NO" action="showDetailViewController:sender:" id="zai-1e-ia9"/>
+                        <segue destination="hhC-b2-CtG" kind="presentation" identifier="createNewUser" id="zai-1e-ia9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31p-zP-QEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -296,7 +294,7 @@
                         <viewControllerLayoutGuide type="bottom" id="njc-hr-alW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TdE-l1-dML">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Nino" translatesAutoresizingMaskIntoConstraints="NO" id="Aeo-Hm-24Y">
@@ -431,7 +429,7 @@
             <objects>
                 <tableViewController id="mJH-Cl-Jvg" customClass="StudentProfileListController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8vw-oj-ui7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="pzz-Zo-2ax">
@@ -536,7 +534,7 @@
             <objects>
                 <tableViewController id="Jbt-AK-Zyp" customClass="SchoolManagementTableViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zKZ-CT-Eyc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -574,15 +572,15 @@
             <objects>
                 <tableViewController id="jTB-KH-0xf" customClass="AnnouncementTableViewController" customModule="Nino_Escola" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0X7-Vg-K0b">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="announcementTableViewCell" rowHeight="90" id="kJ7-KZ-PmO" customClass="AnnouncementTableViewCell" customModule="Nino_Escola" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1366" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJ7-KZ-PmO" id="chJ-BE-g2P">
-                                    <frame key="frameInset" width="1366" height="89"/>
+                                    <frame key="frameInset" width="1024" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcement title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5th-zu-F9N">
@@ -682,7 +680,7 @@
                         <viewControllerLayoutGuide type="bottom" id="AfP-wp-X4h"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hIX-Pm-Ugi">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Nino" translatesAutoresizingMaskIntoConstraints="NO" id="24C-0H-ovV">
@@ -869,7 +867,7 @@
                         <viewControllerLayoutGuide type="bottom" id="A3o-1m-gwT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xMc-cX-ejn">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Nino" translatesAutoresizingMaskIntoConstraints="NO" id="Shq-Ri-5gj">

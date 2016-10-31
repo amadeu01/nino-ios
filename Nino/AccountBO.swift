@@ -167,7 +167,9 @@ class AccountBO: NSObject {
                 })
             } else if let done = success {
                 dispatch_async(dispatch_get_main_queue(), { 
-                    return
+                    completionHandler(change: { 
+                        return
+                    })
                 })
             } else {
                 dispatch_async(dispatch_get_main_queue(), { 
