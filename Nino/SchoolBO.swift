@@ -306,14 +306,14 @@ class SchoolBO: NSObject {
                         }
                         //success
                         let currentSchool = School(id: StringsMechanisms.generateID(), schoolId: schoolID, name: schoolName, address: schoolAddr, legalNumber: nil, telephone: schoolPhone, email: schoolEmail, owner: nil, logo: nil)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            completionHandler(school: { () -> School in
-                                return currentSchool
-                            })
-                        })
                         SchoolDAO.createSchool(currentSchool, completionHandler: { (writeSchool) in
                             do {
                                 try writeSchool()
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(school: { () -> School in
+                                        return currentSchool
+                                    })
+                                })
                             } catch let error {
                                 print("realm school error")
                                 NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
