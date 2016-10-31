@@ -228,15 +228,16 @@ class AccountMechanism: NSObject {
                     return
                 }
                 //error
+                let error = json["error"].int
+                let data = json["data"].string
                 if statusCode != 200 {
                     //FIXME: data is a json, needs to be interpreted
-                    let data = json["data"].string
-                    let error = json["error"].int
+                    
                     completionHandler(success: nil, error: error, data: data)
                 }
                     //success
                 else {
-                    completionHandler(success: true, error: nil, data: nil)
+                    completionHandler(success: true, error: error, data: data)
                 }
             })
         } catch {

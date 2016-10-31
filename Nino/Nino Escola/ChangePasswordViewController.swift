@@ -21,12 +21,10 @@ class ChangePasswordViewController: UIViewController {
         if let txt = self.email {
             self.emailTextField.text = txt
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func changePasswordAction(sender: UIButton) {
@@ -55,16 +53,18 @@ class ChangePasswordViewController: UIViewController {
                     alertView.addAction(okGoBackAction)
                     self.presentViewController(alertView, animated: true, completion: nil)
                 } catch {
-                    //TODO: email not found. SERVER is not returning error for an unregistered email.
                     alertView.message = "Não foi encontrada nenhuma conta com o e-mail \(user)"
                     let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
                     alertView.addAction(okAction)
                     self.presentViewController(alertView, animated: true, completion: nil)
+                    self.changePasswordButton.userInteractionEnabled = true
+                    self.changePasswordButton.alpha = 1
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.hidden = true
                 }
             })
         } catch {
             alertView.message = "Por favor digite um e-mail válido"
-            //let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alertView.addAction(okAction)
             self.presentViewController(alertView, animated: true, completion: nil)
             self.changePasswordButton.userInteractionEnabled = true
