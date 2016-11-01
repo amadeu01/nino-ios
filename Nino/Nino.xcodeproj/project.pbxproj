@@ -1031,7 +1031,7 @@
 		287F31A01D5DFF9400DF2E1C /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseClassroomsTableViewController.swift; sourceTree = "<group>"; };
 		28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableSelectableTableViewCell.swift; sourceTree = "<group>"; };
-		2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultChangePasswordViewController.swift; sourceTree = "<group>"; };
+		2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultChangePasswordViewController.swift; path = "Nino Escola/DefaultChangePasswordViewController.swift"; sourceTree = "<group>"; };
 		2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomSelectorInput.swift; sourceTree = "<group>"; };
 		2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassroomSelectorInput.xib; sourceTree = "<group>"; };
 		288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagePhasesViewController.swift; sourceTree = "<group>"; };
@@ -1384,6 +1384,7 @@
 		2885ED7A1DC8CA1A00F10409 /* CommonViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */,
 			);
 			name = CommonViewControllers;
 			sourceTree = "<group>";
@@ -1580,7 +1581,6 @@
 				AC33F47B1D3673C4009D10B5 /* Create User */,
 				AC33F4801D36C4E7009D10B5 /* Detail */,
 				AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */,
-				2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
