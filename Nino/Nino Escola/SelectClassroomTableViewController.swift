@@ -81,7 +81,6 @@ class SelectClassroomTableViewController: UITableViewController {
         self.dismiss {
             let phase = self.phases[indexPath.section]
             let room = self.phases[indexPath.section].rooms[indexPath.item]
-            print("delegateRoom: " + room.id)
             self.delegate?.didChangeSelectedPhase(phase.name.uppercaseString + " | " + room.name, phase: phase.id, room: room.id)
         }
     }
@@ -126,11 +125,9 @@ class SelectClassroomTableViewController: UITableViewController {
                         for phase in phases {
                             RoomBO.getRooms(phase.id, completionHandler: { (rooms) in
                                 do {
-                                    print("phaseID: " + phase.id)
                                     let rooms = try rooms()
                                     let thisPhase = SelectorPhase(name: phase.name, id: phase.id)
                                     for room in rooms {
-                                        print("roomID: " + room.id)
                                         thisPhase.rooms.append(SelectorRoom(name: room.name, id: room.id))
                                     }
                                     self.phases.append(thisPhase)
@@ -189,7 +186,6 @@ class SelectClassroomTableViewController: UITableViewController {
                     for phase in self.phases {
                         if phase.id == phaseID {
                             for room in newRooms {
-                                print("roomID: " + room.id)
                                 phase.rooms.append(SelectorRoom(name: room.name, id: room.id))
                             }
                         }
@@ -218,11 +214,9 @@ class SelectClassroomTableViewController: UITableViewController {
                     for phase in newPhases {
                         RoomBO.getRooms(phase.id, completionHandler: { (rooms) in
                             do {
-                                print("phaseID: " + phase.id)
                                 let rooms = try rooms()
                                 let thisPhase = SelectorPhase(name: phase.name, id: phase.id)
                                 for room in rooms {
-                                    print("roomID: " + room.id)
                                     thisPhase.rooms.append(SelectorRoom(name: room.name, id: room.id))
                                 }
                                 self.phases.append(thisPhase)
