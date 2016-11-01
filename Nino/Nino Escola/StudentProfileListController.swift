@@ -18,7 +18,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     
     var currentHeader: StudentProfileListHeader?
     
-    var currentRoom: String? { didSet { print("someone setted: + \(currentRoom)")}}
+    var currentRoom: String?
     var currentPhase: String?
     var currentStudent: String?
     
@@ -186,10 +186,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
 //    }
     
     func didChangeSelectedPhase(newTitle: String, phase: String, room: String) {
-        print("didChangeSelectedPhase: " + room)
-        print("beforeDelegate: \(self.currentRoom)")
         self.currentRoom = room
-        print("afterDelegate: \(self.currentRoom)")
         self.currentPhase = phase
         self.currentHeader?.classroomButton.setTitle(newTitle, forState: .Normal)
         SchoolSession.currentRoom = room
@@ -200,8 +197,6 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     @objc private func reloadData() {
         self.students.removeAll()
         if let room = self.currentRoom {
-            print("reloadData: " + room)
-            print("currentRoom: \(self.currentRoom)")
             StudentBO.getStudent(room) { (students) in
                 do {
                     let students = try students()
