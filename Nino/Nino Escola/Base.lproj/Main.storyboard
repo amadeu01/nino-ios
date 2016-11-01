@@ -110,9 +110,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="nyB-rb-cjD" id="T9G-Et-Roj"/>
-                        <outlet property="changePasswordButton" destination="nn3-6y-76m" id="qx1-aI-zv8"/>
-                        <outlet property="emailTextField" destination="1mX-QS-hxS" id="ZKT-QH-Qoq"/>
+                        <outlet property="schoolActivityIndicator" destination="nyB-rb-cjD" id="VSz-d9-Ix4"/>
+                        <outlet property="schoolChangePasswordButton" destination="nn3-6y-76m" id="X7O-Vv-f4k"/>
+                        <outlet property="schoolEmailTextField" destination="1mX-QS-hxS" id="T8d-nv-3DH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfZ-AM-2wU" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -156,6 +156,10 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    @IBAction func userDidTapForgotPassword(sender: AnyObject) {
+        self.performSegueWithIdentifier("presentChangeGuardianPassword", sender: self)
+    }
+    
     
     //MARK: Login method
     /**
