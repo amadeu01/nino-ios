@@ -164,6 +164,18 @@
 "GENERAL_EMPTY_FIELD_MSG"="You must fill in every field";
 "LOGOUT_CONFIRMATION"="Do you want to logout?";
 
+/* Create New User */
+"EMPTY_GENDER" = "Gender unselected";
+"EMPTY_NAME" = "Name empty";
+"EMPTY_SURNAME" = "Surname empty";
+"EMPTY_EMAIL" = "Email empty";
+"CREATE_NEW_USER_FAILED" = "Create User failed";
+"EMPTY_FIELD_GENDER" = "Please, select a gender";
+"EMPTY_FIELD_SURNAME" = "Please, complete surname";
+"EMPTY_FIELD_NAME" = "Please, complete name";
+"EMPTY_FIELD_EMAIL" = "Please, complete email";
+
+
 /*ConfirmEmail*/
 "ALREADY_HAS_PSSWD"="There is already a registered password for this account.";
 "VALIDATION_FAILED"="Validation failed";
