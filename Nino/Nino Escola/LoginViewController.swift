@@ -83,14 +83,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      - returns: true if there are
      */
     private func checkIfEmpty() -> Bool {
-        for tf in self.textFields {
-            if let txt = tf.text {
-                if txt.isEmpty {
-                    return true
-                }
-            } else {
-                return true
-            }
+        guard let username = self.usernameTextField.text where !username.isEmpty else {
+            let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_USERNAME", comment: ""), message: NSLocalizedString("EMPTY_FIELD_USERNAME", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
+        }
+        guard let password = self.passwordTextField.text where !password.isEmpty else {
+            let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_PASSWORD", comment: ""), message: NSLocalizedString("EMPTY_FIELD_PASSWORD", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
         }
         return false
     }
@@ -112,7 +113,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      - parameter error: Server Error throwed by login
      */
     private func errorAlert(error: ServerError) {
-        let title = "Falha no login"
+        let title = NSLocalizedString("LOGIN_FAILED", comment: "")
         let alert = DefaultAlerts.serverErrorAlert(error, title: title, customAction: nil)
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -142,11 +143,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.userTriedToLogin()
     }
     
-    func userTriedToLogin(){
+    func userTriedToLogin() {
         if self.checkIfEmpty() {
-            let alert = DefaultAlerts.emptyField()
-            self.presentViewController(alert, animated: true, completion: nil)
-        } else{
+            return
+        } else {
             guard let username = usernameTextField.text else {
                 return
             }

@@ -175,6 +175,13 @@
 "EMPTY_FIELD_NAME" = "Por favor, complete nome";
 "EMPTY_FIELD_EMAIL" = "Por favor, complete email";
 
+/* Login */
+"LOGIN_FAILED" = "Falha no Login";
+"EMPTY_USERNAME" = "Campo usuário vazio";
+"EMPTY_FIELD_USERNAME" = "Por favor, completar campo de usuário";
+"EMPTY_PASSWORD" = "Campo senha vazio";
+"EMPTY_FIELD_PASSWORD" = "Por favor, completar campo de senha";
+
 /*ConfirmEmail*/
 "ALREADY_HAS_PSSWD"="Já existe uma senha cadastrada para esse email.";
 "VALIDATION_FAILED"="Falha na validação";
