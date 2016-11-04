@@ -140,24 +140,24 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
         guard let name = self.nameTextField.text where !name.isEmpty else {
             let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_NAME", comment: ""), message: NSLocalizedString("EMPTY_FIELD_NAME", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
-            return false
+            return true
         }
         guard let surname = self.surnameTextField.text where !surname.isEmpty else {
             let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_SURNAME", comment: ""), message: NSLocalizedString("EMPTY_FIELD_SURNAME", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
-            return false
+            return true
         }
         guard let email = self.emailTextField.text where !email.isEmpty else {
             let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_EMAIL", comment: ""), message: NSLocalizedString("EMPTY_FIELD_EMAIL", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
-            return false
+            return true
         }
         if self.gender == nil {
             let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_GENDER", comment: ""), message: NSLocalizedString("EMPTY_FIELD_GENDER", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
-            return false
+            return true
         }
-        return true
+        return false
     }
     
     /**
@@ -173,7 +173,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
     private func createUser() {
         self.hideKeyboard()
         //checks if there are empty data
-        if !self.checkIfEmpty() {
+        if self.checkIfEmpty() {
             return
         }
         

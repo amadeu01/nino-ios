@@ -36,10 +36,11 @@ class AccountMechanism: NSObject {
                     //success
                 else {
                     let token = json["data"]["token"].string
-                    completionHandler(accessToken: token, error: nil)
+                    let error = json["error"].int
+                    completionHandler(accessToken: token, error: error)
                 }
             })
-        } catch let error{
+        } catch let error {
             NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //Never will be reached
         }

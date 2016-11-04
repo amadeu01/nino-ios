@@ -175,6 +175,12 @@
 "EMPTY_FIELD_NAME" = "Please, complete name";
 "EMPTY_FIELD_EMAIL" = "Please, complete email";
 
+/* Login */
+"LOGIN_FAILED" = "Login Failed";
+"EMPTY_USERNAME" = "Empty user";
+"EMPTY_FIELD_USERNAME" = "Please, complete user field";
+"EMPTY_PASSWORD" = "Empty password";
+"EMPTY_FIELD_PASSWORD" = "Please, complete password field";
 
 /*ConfirmEmail*/
 "ALREADY_HAS_PSSWD"="There is already a registered password for this account.";
