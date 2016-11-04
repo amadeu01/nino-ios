@@ -187,87 +187,97 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.startAnimating()
         //creates a key and saves the login parameters at userDefaults and keychain
         let key = KeyBO.createKey(username, password: password)
-        LoginBO.login(key, completionHandler: { (getCredential) in
-            do {
-                //tries to get the credential
-                let credential = try getCredential()
-                NinoSession.sharedInstance.setCredential(credential)
-                SchoolBO.getSchool(credential.token, completionHandler: { (school) in
-                    do {
-                        let school = try school()
-                        NinoSession.sharedInstance.setSchool(school.id)
-                        NinoNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
-                        EducatorBO.getEducator(username, schoolID: school.schoolID!, token: credential.token, completionHandler: { (getProfile) in
-                            do {
-                                let educator = try getProfile()
-                                NinoSession.sharedInstance.setEducator(educator.id)
-                                self.activityIndicator.stopAnimating()
-                                //changes the view
-                                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                    delegate.loggedIn = true
-                                    delegate.setupRootViewController(true)
+        do {
+            try LoginBO.login(key, completionHandler: { (getCredential) in
+                do {
+                    //tries to get the credential
+                    let credential = try getCredential()
+                    NinoSession.sharedInstance.setCredential(credential)
+                    SchoolBO.getSchool(credential.token, completionHandler: { (school) in
+                        do {
+                            let school = try school()
+                            NinoSession.sharedInstance.setSchool(school.id)
+                            NinoNotificationManager.sharedInstance.addSchoolUpdatedNotification(self)
+                            EducatorBO.getEducator(username, schoolID: school.schoolID!, token: credential.token, completionHandler: { (getProfile) in
+                                do {
+                                    let educator = try getProfile()
+                                    NinoSession.sharedInstance.setEducator(educator.id)
+                                    self.activityIndicator.stopAnimating()
+                                    //changes the view
+                                    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                        delegate.loggedIn = true
+                                        delegate.setupRootViewController(true)
+                                    }
+                                } catch let error {
+                                    print("profileError")
+                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                    //TODO: handle profile error
                                 }
-                            } catch let error {
-                                print("profileError")
-                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                                //TODO: handle profile error
-                            }
-                        })
-                        PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
-                            do {
-                                let phases = try phases()
-                                if phases.count > 0 {
-                                    let message = NotificationMessage()
-                                    message.setDataToInsert(phases)
-                                    NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
+                            })
+                            PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
+                                do {
+                                    let phases = try phases()
+                                    if phases.count > 0 {
+                                        let message = NotificationMessage()
+                                        message.setDataToInsert(phases)
+                                        NinoNotificationManager.sharedInstance.addPhasesWereUpdatedNotification(self, error: nil, info: message)
+                                    }
+                                } catch let error {
+                                    print("getPhases error")
+                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                    //TODO: handle getPhases and addPhases error
                                 }
-                            } catch let error {
-                                print("getPhases error")
+                            })
+                            
+                        } catch let error{
+                            if let dataBaseError = error as? DatabaseError {
+                                //There's no school. Let's create one
+                                if dataBaseError == DatabaseError.NotFound {
+                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let vc = storyboard.instantiateViewControllerWithIdentifier("CreateSchool")
+                                    self.presentViewController(vc, animated: true, completion: nil)
+                                }
+                            } else {
                                 NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                                //TODO: handle getPhases and addPhases error
                             }
-                        })
-                        
-                    } catch let error{
-                        if let dataBaseError = error as? DatabaseError {
-                            //There's no school. Let's create one
-                            if dataBaseError == DatabaseError.NotFound {
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let vc = storyboard.instantiateViewControllerWithIdentifier("CreateSchool")
-                                self.presentViewController(vc, animated: true, completion: nil)
-                            }
-                        } else {
-                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                            print("getSchool error")
+                            //TODO: handle getSchool error
                         }
-                        print("getSchool error")
-                        //TODO: handle getSchool error
-                    }
-                })
-            }
-                //login error
-            catch let error {
-                //clean userDefaults and keychain
-                KeyBO.removePasswordAndUsername()
-                LoginDAO.logout({ (out) in
-                    do {
-                        try out();
-                    } catch let error {
-                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                        //TODO: Handle Error
-                    }
-                })
-                self.activityIndicator.stopAnimating()
-                self.enableTextFields()
-                self.enableButtons()
-                if let serverError = error as? ServerError {
-                    self.errorAlert(serverError)
+                    })
                 }
-                self.passwordTextField.text = ""
-            }
-        })
+                    //login error
+                catch let error {
+                    //clean userDefaults and keychain
+                    KeyBO.removePasswordAndUsername()
+                    LoginDAO.logout({ (out) in
+                        do {
+                            try out();
+                        } catch let error {
+                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                            //TODO: Handle Error
+                        }
+                    })
+                    self.activityIndicator.stopAnimating()
+                    self.enableTextFields()
+                    self.enableButtons()
+                    if let serverError = error as? ServerError {
+                        self.errorAlert(serverError)
+                    }
+                    self.passwordTextField.text = ""
+                }
+            })
+        } catch {
+            let alert = DefaultAlerts.invalidEmail()
+            self.presentViewController(alert, animated: true, completion: nil)
+            self.usernameTextField.text = ""
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidden = true
+            self.enableButtons()
+            self.enableTextFields()
+        }
         
     }
-    func tryToAutoLogIn(){
+    func tryToAutoLogIn() {
         guard let username = KeyBO.getUsername() else {
             return
         }

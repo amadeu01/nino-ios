@@ -174,67 +174,77 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.startAnimating()
         //creates a key and saves the login parameters at userDefaults and keychain
         let key = KeyBO.createKey(username, password: password)
-        LoginBO.login(key, completionHandler: { (getCredential) in
-            do {
-                //tries to get the credential
-                let credential = try getCredential()
-                NinoSession.sharedInstance.setCredential(credential)
-                //gets main queue to make UI changes
-                GuardianBO.getStudents(credential.token, completionHandler: { (students) in
-                    dispatch_async(dispatch_get_main_queue(), {
-                        do {
-                            let students = try students()
-                            GuardiansSession.selectedStudent = students.first
-                            GuardianBO.getGuardian({ (getProfile) in
-                                do {
-                                    let guardian = try getProfile()
-                                    
-                                    if guardian.name != nil && guardian.name!.isEmpty {
-                                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                        let vc = storyboard.instantiateViewControllerWithIdentifier("UpdateUserInfo")
-                                        self.presentViewController(vc, animated: true, completion: nil)
-                                    } else {
-                                        self.activityIndicator.stopAnimating()
-                                        //changes the view
-                                        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                            delegate.loggedIn = true
-                                            delegate.setupRootViewController(true)
+        do {
+            try LoginBO.login(key, completionHandler: { (getCredential) in
+                do {
+                    //tries to get the credential
+                    let credential = try getCredential()
+                    NinoSession.sharedInstance.setCredential(credential)
+                    //gets main queue to make UI changes
+                    GuardianBO.getStudents(credential.token, completionHandler: { (students) in
+                        dispatch_async(dispatch_get_main_queue(), {
+                            do {
+                                let students = try students()
+                                GuardiansSession.selectedStudent = students.first
+                                GuardianBO.getGuardian({ (getProfile) in
+                                    do {
+                                        let guardian = try getProfile()
+                                        
+                                        if guardian.name != nil && guardian.name!.isEmpty {
+                                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                            let vc = storyboard.instantiateViewControllerWithIdentifier("UpdateUserInfo")
+                                            self.presentViewController(vc, animated: true, completion: nil)
+                                        } else {
+                                            self.activityIndicator.stopAnimating()
+                                            //changes the view
+                                            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                                delegate.loggedIn = true
+                                                delegate.setupRootViewController(true)
+                                            }
                                         }
+                                    } catch let error {
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
-                                } catch let error {
-                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                                }
-                            })
+                                })
+                            } catch let error {
+                                //TODO: Handle error
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                            }
+                        })
+                    })
+                }
+                    //login error
+                catch let error {
+                    //clean userDefaults and keychain
+                    KeyBO.removePasswordAndUsername()
+                    LoginDAO.logout({ (out) in
+                        do {
+                            try out();
                         } catch let error {
-                            //TODO: Handle error
+                            //TODO: Handle Error
                             NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         }
                     })
-                })
-            }
-                //login error
-            catch let error {
-                //clean userDefaults and keychain
-                KeyBO.removePasswordAndUsername()
-                LoginDAO.logout({ (out) in
-                    do {
-                        try out();
-                    } catch let error {
-                        //TODO: Handle Error
-                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                    }
-                })
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.activityIndicator.stopAnimating()
-                    self.enableTextFields()
-                    self.enableButtons()
-                    if let serverError = error as? ServerError {
-                        self.errorAlert(serverError)
-                    }
-                    self.passwordTextField.text = ""
-                })
-            }
-        })
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.activityIndicator.stopAnimating()
+                        self.enableTextFields()
+                        self.enableButtons()
+                        if let serverError = error as? ServerError {
+                            self.errorAlert(serverError)
+                        }
+                        self.passwordTextField.text = ""
+                    })
+                }
+            })
+        } catch {
+            let alert = DefaultAlerts.invalidEmail()
+            self.presentViewController(alert, animated: true, completion: nil)
+            self.usernameTextField.text = ""
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidden = true
+            self.enableButtons()
+            self.enableTextFields()
+        }
     }
     
     func tryToAutoLogIn(){
