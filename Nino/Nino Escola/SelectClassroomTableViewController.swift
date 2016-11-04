@@ -64,16 +64,13 @@ class SelectClassroomTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return phases.count
     }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return phases[section].rooms.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("selectClassroomTableViewCell", forIndexPath: indexPath)
-
         return cell
     }
     
@@ -84,7 +81,18 @@ class SelectClassroomTableViewController: UITableViewController {
             self.delegate?.didChangeSelectedPhase(phase.name.uppercaseString + " | " + room.name, phase: phase.id, room: room.id)
         }
     }
-    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    override func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
             guard let phaseCell = cell as? SelectClassroomTableViewCell else {
@@ -105,13 +113,7 @@ class SelectClassroomTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))
-    }
-    
+
     func reloadData() {
         for phase in self.phases {
             phase.rooms.removeAll()
@@ -153,7 +155,7 @@ class SelectClassroomTableViewController: UITableViewController {
             self.preferredContentSize = CGSize(width: 300, height: 100)
             return
         }
-        let allSecsHeight = (tableView.sectionHeaderHeight + 10) * CGFloat(self.tableView.numberOfSections)
+        let allSecsHeight = (20) * CGFloat(self.tableView.numberOfSections)
 //        print("allSecsHeight:" + allSecsHeight)
         var numberOfRows = 0
         var secNum = 0
@@ -163,8 +165,7 @@ class SelectClassroomTableViewController: UITableViewController {
         }
         let allRowsHeight = CGFloat(numberOfRows) * firstCell.frame.height
 //        print("allRowsHeight:" + allRowsHeight)
-        self.preferredContentSize = CGSize(width: 300, height: allRowsHeight + allSecsHeight)
-        
+        self.preferredContentSize = CGSize(width: 300, height: allSecsHeight + 3*firstCell.frame.height)
         //self.preferredContentSize = CGSize(width: 200, height: 200)
         
     }
