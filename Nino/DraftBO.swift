@@ -46,10 +46,17 @@ class DraftBO: NSObject {
                         DraftMechanism.createDraft(token, schoolID: id, message: message, type: type, profiles: profiles, metadata: metadata, attachment: nil, completionHandler: { (postID, postDate, error, data) in
                             if let err = error {
                                 //handle error data
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    completionHandler(create: { () -> Post in
-                                        throw ErrorBO.decodeServerError(err)
-                                    })
+                                DraftDAO.deleteDraft(post.id, completionHandler: { (delete) in
+                                    do {
+                                        try delete()
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(create: { () -> Post in
+                                                throw ErrorBO.decodeServerError(err)
+                                            })
+                                        })
+                                    } catch let error {
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                    }
                                 })
                             } else if let postServerID = postID {
                                 DraftDAO.upateDraftID(post.id, serverID: postServerID, completionHandler: { (update) in
@@ -63,7 +70,7 @@ class DraftBO: NSObject {
                                                         return Post(id: post.id, postID: postServerID, type: post.type, date: postDate!, message: post.message, attachment: post.attachment, targets: post.targets, readProfileIDs: post.readProfileIDs, metadata: post.metadata)
                                                     })
                                                 })
-                                            } catch let error{
+                                            } catch let error {
                                                 print("update error")
                                                 NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                                 //TODO: handle updateDate error

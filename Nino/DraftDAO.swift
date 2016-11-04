@@ -15,6 +15,37 @@ class DraftDAO: NSObject {
         super.init()
     }
     
+    static func deleteDraft(id: String, completionHandler: (delete: () throws -> Void) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) {
+            do {
+                let realm = try Realm()
+                let postRealm = realm.objectForPrimaryKey(PostRealmObject.self, key: id)
+                guard let post = postRealm else {
+                    dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                        completionHandler(delete: {
+                            throw DatabaseError.NotFound
+                        })
+                    })
+                    return
+                }
+                try realm.write({
+                    realm.delete(post)
+                })
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(delete: {
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(delete: {
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
     static func createDraft(post: Post, completionHandler: (write: () throws -> Void) -> Void) {
         print("creating draft for student: \(post.targets.first!) with date: \(post.date)")
         var metadata: NSData?
