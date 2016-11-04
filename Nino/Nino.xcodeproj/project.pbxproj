@@ -2025,7 +2025,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = G52JHG5LJN;
+						DevelopmentTeam = N79DG9RG7K;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
@@ -3722,6 +3722,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -3749,6 +3750,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",

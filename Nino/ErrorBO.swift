@@ -27,11 +27,14 @@ class ErrorBO: NSObject {
             error = ServerError.LostNetworkConnection
         case -1004:
             error = ServerError.CouldNotConnectToTheServer
+        case 203:
+            error = ServerError.Duplicate
         case 100:
             error = ServerError.InexistentRegister
         case 101:
             error = ServerError.DeletedRegister
         default:
+            //FIXME: Handle -1001 - it is triggle when wait too long for a response, normally, there is a error on the server side.
             error = ServerError.UnexpectedCase
         }
         return error
