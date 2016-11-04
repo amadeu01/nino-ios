@@ -16,6 +16,10 @@
 		071832261D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
 		071832271D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
 		071832281D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
+		074274C91DCCD1B700F996F9 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C71DCCCF9A00F996F9 /* Debug.xcconfig */; };
+		074274CA1DCCD1B800F996F9 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C71DCCCF9A00F996F9 /* Debug.xcconfig */; };
+		074274CB1DCCD1BB00F996F9 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C81DCCD09B00F996F9 /* Release.xcconfig */; };
+		074274CC1DCCD1BB00F996F9 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C81DCCD09B00F996F9 /* Release.xcconfig */; };
 		07447C171D4D20FF00830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
 		07447C191D4D210000830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
 		07447C1A1D4D210100830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
@@ -552,9 +556,7 @@
 		AC43B42A1D46973700A6CB5C /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43B4251D46973700A6CB5C /* RealmError.swift */; };
 		AC43B42B1D46973700A6CB5C /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43B4251D46973700A6CB5C /* RealmError.swift */; };
 		AC47FCDF1D3E64E200FB3CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FC1CEE137A00867624 /* AppDelegate.swift */; };
-		AC47FCE01D3E64E200FB3CB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A081CEE137A00867624 /* Info.plist */; };
 		AC47FCE11D3E64E300FB3CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FC1CEE137A00867624 /* AppDelegate.swift */; };
-		AC47FCE21D3E64E300FB3CB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A081CEE137A00867624 /* Info.plist */; };
 		AC47FCE31D3E64E300FB3CB6 /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
 		AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A031CEE137A00867624 /* Assets.xcassets */; };
 		AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A031CEE137A00867624 /* Assets.xcassets */; };
@@ -947,6 +949,8 @@
 		070AD88F1D8021FA00AA98B3 /* GuardiansSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansSession.swift; sourceTree = "<group>"; };
 		071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansRegisterPasswordViewController.swift; sourceTree = "<group>"; };
 		071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansConfirmEmailViewController.swift; sourceTree = "<group>"; };
+		074274C71DCCCF9A00F996F9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		074274C81DCCD09B00F996F9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySliderIcon.swift; sourceTree = "<group>"; };
 		07818C971D46E716007FFDE2 /* MyDayBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayBO.swift; sourceTree = "<group>"; };
 		07818C9E1D46E7D2007FFDE2 /* MyDaySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySection.swift; sourceTree = "<group>"; };
@@ -1282,6 +1286,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		074274C61DCCCF8000F996F9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				074274C71DCCCF9A00F996F9 /* Debug.xcconfig */,
+				074274C81DCCD09B00F996F9 /* Release.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		07818C961D46DC65007FFDE2 /* MyDay xibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1753,6 +1766,7 @@
 		ACEC39BC1CEE128B00867624 = {
 			isa = PBXGroup;
 			children = (
+				074274C61DCCCF8000F996F9 /* Config */,
 				2885ED7A1DC8CA1A00F10409 /* CommonViewControllers */,
 				AC9F99CE1CEF3924001B53E8 /* Mechanisms */,
 				AC9F99CD1CEF3918001B53E8 /* Persistence */,
@@ -2076,12 +2090,14 @@
 			files = (
 				ACEC39D31CEE128B00867624 /* LaunchScreen.storyboard in Resources */,
 				ACEC39D01CEE128B00867624 /* Assets.xcassets in Resources */,
+				074274CB1DCCD1BB00F996F9 /* Release.xcconfig in Resources */,
 				07F1D3DB1D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				AC86BBE31D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */,
 				287F319D1D5DFF1D00DF2E1C /* MyDay.xib in Resources */,
 				AC86BBF51D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				AC86BBDD1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				074274C91DCCD1B700F996F9 /* Debug.xcconfig in Resources */,
 				AC86BBE91D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBEF1D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC86BBD71D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
@@ -2158,7 +2174,9 @@
 				2868C57B1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
 				28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */,
 				284A33411D2C528200030773 /* ManageEducators.storyboard in Resources */,
+				074274CC1DCCD1BB00F996F9 /* Release.xcconfig in Resources */,
 				28143E101D299F4E00139B0D /* StudentProfile.storyboard in Resources */,
+				074274CA1DCCD1B800F996F9 /* Debug.xcconfig in Resources */,
 				AC86BBDA1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2194,7 +2212,6 @@
 				AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */,
 				AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				284A33421D2C528300030773 /* ManageEducators.storyboard in Resources */,
-				AC47FCE01D3E64E200FB3CB6 /* Info.plist in Resources */,
 				284A33341D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A411D103A420013611E /* CreateUser.storyboard in Resources */,
 				2868C57C1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
@@ -2238,7 +2255,6 @@
 				AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */,
 				AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				284A33431D2C528400030773 /* ManageEducators.storyboard in Resources */,
-				AC47FCE21D3E64E300FB3CB6 /* Info.plist in Resources */,
 				284A33351D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A421D103A420013611E /* CreateUser.storyboard in Resources */,
 				2868C57D1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
@@ -3517,6 +3533,7 @@
 /* Begin XCBuildConfiguration section */
 		ACEC39EB1CEE128B00867624 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074274C71DCCCF9A00F996F9 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -3559,6 +3576,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3566,6 +3584,7 @@
 		};
 		ACEC39EC1CEE128B00867624 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074274C81DCCD09B00F996F9 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -3601,6 +3620,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3616,11 +3636,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.responsaveis.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
@@ -3637,11 +3659,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.responsaveis.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;

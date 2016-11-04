@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Nino
+//
+//  Created by Carlos Eduardo Millani on 04/11/16.
+//  Copyright © 2016 Danilo Becke. All rights reserved.
+//
+
+#include "Pods/Target Support Files/Pods/Pods.debug.xcconfig"
+
+URL = https:/$()/development.ninoapp.com.br:5000/
