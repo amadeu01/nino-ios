@@ -21,7 +21,7 @@ enum ServerError: ErrorType {
     case ExpiredCredential
     case Duplicate
     case UnexpectedCase
-    
+    //FIXME translate errors
     func description() -> String {
         switch self {
         case .InexistentRegister:

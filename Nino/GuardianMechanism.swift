@@ -134,6 +134,10 @@ class GuardianMechanism: NSObject {
                     //success
                 else {
                     let data = json["data"].array
+                    if let error = json["error"].int {
+                        completionHandler(info: nil, error: error, data: nil)
+                        return
+                    }
                     guard let datajson = data else {
                         completionHandler(info: nil, error: nil, data: nil)
                         return

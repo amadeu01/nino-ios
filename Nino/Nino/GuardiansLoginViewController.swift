@@ -207,8 +207,15 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
                                     }
                                 })
                             } catch let error {
-                                //TODO: Handle error
-                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    if let serverError = error as? ServerError {
+                                        self.errorAlert(serverError)
+                                    }
+                                    self.activityIndicator.stopAnimating()
+                                    self.enableTextFields()
+                                    self.enableButtons()
+                                    self.passwordTextField.text = ""
+                                })
                             }
                         })
                     })

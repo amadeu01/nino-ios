@@ -29,7 +29,7 @@ class ErrorBO: NSObject {
             error = ServerError.CouldNotConnectToTheServer
         case 203:
             error = ServerError.Duplicate
-        case 100:
+        case 100, 205: // 205 when it returns empty vector
             error = ServerError.InexistentRegister
         case 101:
             error = ServerError.DeletedRegister
