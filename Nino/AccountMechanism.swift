@@ -36,7 +36,7 @@ class AccountMechanism: NSObject {
                     //success
                 else {
                     let token = json["data"]["token"].string
-                    let error = json["error"].int
+                    let error = json["error"].int //FIXME It might be better a if let expression 
                     completionHandler(accessToken: token, error: error)
                 }
             })
