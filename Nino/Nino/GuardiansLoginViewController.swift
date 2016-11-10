@@ -140,11 +140,11 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
         self.userTriedToLogin()
     }
     
-    func userTriedToLogin(){
+    func userTriedToLogin() {
         if self.checkIfEmpty() {
             let alert = DefaultAlerts.emptyField()
             self.presentViewController(alert, animated: true, completion: nil)
-        } else{
+        } else {
             guard let username = usernameTextField.text else {
                 return
             }
@@ -226,7 +226,7 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
                     KeyBO.removePasswordAndUsername()
                     LoginDAO.logout({ (out) in
                         do {
-                            try out();
+                            try out()
                         } catch let error {
                             //TODO: Handle Error
                             NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
@@ -254,7 +254,7 @@ class GuardiansLoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func tryToAutoLogIn(){
+    func tryToAutoLogIn() {
         guard let username = KeyBO.getUsername() else {
             return
         }
