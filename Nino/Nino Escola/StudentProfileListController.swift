@@ -121,9 +121,14 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
             //Not a StudentProfileTableViewCell
             return
         }
-//        thisCell.profileImageView.image = UIImage(named: "baby1")
-//        thisCell.guardianFirstNames = ["Carlos", "Danilo"]
-//        thisCell.studentName = "Amanda"
+    }
+    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.setNeedsDisplay()
+        guard let thisCell = cell as? StudentProfileTableViewCell else {
+            return
+        }
+        thisCell.profileImageView.setNeedsDisplay()
+        thisCell.profileImageView.layoutIfNeeded()
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return students.count
@@ -141,49 +146,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         self.performSegueWithIdentifier("showStudentProfile", sender: self)
     }
     
-    //MARK: Notification Manager methods
-//    @objc private func schoolUpdated() {
-//        print("School notification working")
-//    }
-    
-//    @objc private func phasesUpdated(notification: NSNotification) {
-//        guard let userInfo = notification.userInfo else {
-//            //TODO: Unexpected case
-//            return
-//        }
-//        if let error = userInfo["error"] {
-//            //TODO: handle error
-//        } else if let message = userInfo["info"] as? NotificationMessage {
-//            if let newPhases = message.dataToInsert as? [Phase] {
-//                self.phases.appendContentsOf(newPhases)
-//            }
-//            //TODO: updated phases
-//            //TODO: deleted phases
-//        }
-//        self.getRooms()
-//    }
-    
-//    private func getRooms() {
-//        if self.phases.count > 0 {
-//            self.rooms.removeAll()
-//            RoomBO.getAllRooms({ (rooms) in
-//                do {
-//                    let newRooms = try rooms()
-//                    for room in newRooms {
-//                        self.rooms.append(room)
-//                    }
-//                    self.roomsUpdated()
-//                } catch let error {
-//                    //TODO: handle error
-//                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-//                }
-//            })
-//        }
-//    }
-    
-//    private func roomsUpdated() {
-//        //TODO: reload rooms buttons
-//    }
+
     
     func didChangeSelectedPhase(newTitle: String, phase: String, room: String) {
         self.currentRoom = room
@@ -203,14 +166,6 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
                     for student in students {
                         self.students.append(student.id)
                         self.dates.append(student.createdAt)
-//                        DraftBO.getDraftsForStudent(student.id, completionHandler: { (getDraft) in
-//                            do {
-//                                try getDraft()
-//                            } catch let error {
-//                                //TODO: handle get drafts error
-//                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-//                            }
-//                        })
                         //TODO: get guardian for student
                     }
                     self.studentProfileTableView.reloadData()
@@ -223,24 +178,6 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         }
     }
     
-//    @objc private func roomsUpdatedFromServer(notification: NSNotification) {
-//        guard let userInfo = notification.userInfo else {
-//            //TODO: Unexpected case
-//            return
-//        }
-//        if let error = userInfo["error"] {
-//            //TODO: handle error
-//        } else if let message = userInfo["info"] as? NotificationMessage {
-//            if let newRooms = message.dataToInsert as? [Room] {
-//                for room in newRooms {
-//                    self.rooms.append(room)
-//                }
-//            }
-//            //TODO: updated phases
-//            //TODO: deleted phases
-//        }
-//        self.roomsUpdated()
-//    }
     //MARK: Student Profile List Header Delegate
     func didTapPhaseButton(sender: UIButton) {
         let storyboard : UIStoryboard = UIStoryboard(

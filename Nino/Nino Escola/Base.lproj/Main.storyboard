@@ -422,7 +422,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hri-M2-pR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810.75" y="-1219"/>
+            <point key="canvasLocation" x="668" y="-1200"/>
         </scene>
         <!--Alunos-->
         <scene sceneID="Lkq-HB-nxm">
@@ -445,17 +445,21 @@
                                     <frame key="frameInset" width="320" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_defaultStudentProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="cG7-04-QMc">
+                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_defaultStudentProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="cG7-04-QMc">
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="cG7-04-QMc" secondAttribute="height" multiplier="1:1" id="JXo-Tp-yea"/>
                                                 <constraint firstAttribute="width" priority="750" constant="60" id="dbg-mk-Lwc"/>
                                                 <constraint firstAttribute="height" priority="750" constant="60" id="eoO-2W-Q2Q"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="JXo-Tp-yea"/>
-                                                </mask>
-                                            </variation>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="30"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <variation key="widthClass=regular">
                                                 <mask key="constraints">
                                                     <include reference="JXo-Tp-yea"/>
@@ -494,11 +498,6 @@
                                         <constraint firstItem="ssq-Jh-DN5" firstAttribute="leading" secondItem="cG7-04-QMc" secondAttribute="trailing" constant="30" id="sQZ-Ph-Ka9"/>
                                         <constraint firstItem="cG7-04-QMc" firstAttribute="leading" secondItem="1OG-KF-fuf" secondAttribute="leadingMargin" constant="5" id="yov-HE-0mz"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="7vv-wy-99P"/>
-                                        </mask>
-                                    </variation>
                                     <variation key="widthClass=regular">
                                         <mask key="constraints">
                                             <include reference="7vv-wy-99P"/>

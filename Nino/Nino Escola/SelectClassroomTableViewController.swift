@@ -46,6 +46,7 @@ class SelectClassroomTableViewController: UITableViewController {
         
         reloadData()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)// Removes empty cells
+        self.tableView.separatorColor = UIColor.clearColor()
         self.preferredContentSize = CGSize(width: tableView.frame.width, height: tableView.frame.height + 15 )
 
     }
@@ -53,22 +54,17 @@ class SelectClassroomTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.resizeView()
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return phases.count
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return phases[section].rooms.count
     }
-    
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("selectClassroomTableViewCell", forIndexPath: indexPath)
         return cell
@@ -108,7 +104,7 @@ class SelectClassroomTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
-            view.backgroundView!.backgroundColor = UIColor.clearColor()
+            view.backgroundView!.backgroundColor = UIColor.whiteColor()
             view.textLabel!.textColor = CustomizeColor.lessStrongBackgroundNino()
         }
     }
@@ -156,7 +152,6 @@ class SelectClassroomTableViewController: UITableViewController {
             return
         }
         let allSecsHeight = (20) * CGFloat(self.tableView.numberOfSections)
-//        print("allSecsHeight:" + allSecsHeight)
         var numberOfRows = 0
         var secNum = 0
         while secNum < tableView.numberOfSections {
@@ -164,8 +159,7 @@ class SelectClassroomTableViewController: UITableViewController {
             secNum += 1
         }
         let allRowsHeight = CGFloat(numberOfRows) * firstCell.frame.height
-//        print("allRowsHeight:" + allRowsHeight)
-        self.preferredContentSize = CGSize(width: 300, height: allSecsHeight + 3*firstCell.frame.height)
+        self.preferredContentSize = CGSize(width: 300, height: allSecsHeight + allRowsHeight)
         //self.preferredContentSize = CGSize(width: 200, height: 200)
         
     }
@@ -174,12 +168,10 @@ class SelectClassroomTableViewController: UITableViewController {
     
     func roomsUpdated (notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
-            //TODO:
             return
         }
         
         if let error = userInfo["error"] {
-            //TODO:
         } else if let message = userInfo["info"] as? NotificationMessage {
             if let newRooms = message.dataToInsert as? [Room] {
                 if newRooms.count > 0 {

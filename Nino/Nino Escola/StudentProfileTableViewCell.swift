@@ -13,7 +13,11 @@ class StudentProfileTableViewCell: UITableViewCell {
     /**
      * Baby's picture in the cell
      */
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView! {
+        didSet {
+
+        }
+    }
     /**
      * Baby's name label
      */
@@ -103,7 +107,6 @@ class StudentProfileTableViewCell: UITableViewCell {
         self.studentNameLabel.textColor = CustomizeColor.fontColourNino()
         self.guardianFirstNamesLabel.textColor = CustomizeColor.fontColourNino()
         self.guardianFirstNamesLabel.font = NinoFont.fontForCellSecondText()
-        
         //border between cells
         let border = UIView()
         border.translatesAutoresizingMaskIntoConstraints = false
@@ -113,18 +116,15 @@ class StudentProfileTableViewCell: UITableViewCell {
         self.addConstraints(borderConstraints)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
+//    override func setSelected(selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//        
+//        // Configure the view for the selected state
+//    }
+//
     override func layoutSubviews() {
-        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
-        self.profileImageView.clipsToBounds = true
-        self.profileImageView.contentMode = .ScaleAspectFit
+        super.layoutSubviews()
         self.profileImageView.layer.borderColor = CustomizeColor.lessStrongBackgroundNino().CGColor
-        self.profileImageView.layer.borderWidth = 2.0
-        
+
     }
 }
