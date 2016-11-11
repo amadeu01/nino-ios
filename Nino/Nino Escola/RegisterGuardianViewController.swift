@@ -147,7 +147,7 @@ class RegisterGuardianViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         do {
-            try GuardianBO.createGuardian(nil, surname: nil, email: self.emailTextField.text!, studentID: self.studentID!) { (guardian) in
+            try GuardianBO.createGuardian(self.emailTextField.text!, studentID: self.studentID!) { (guardian) in
                 do {
                     self.guardian = try guardian()
                     self.performSegueWithIdentifier("goBackToManageStudentInfoViewController", sender: self)

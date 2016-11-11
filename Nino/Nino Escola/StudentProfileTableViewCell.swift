@@ -32,28 +32,24 @@ class StudentProfileTableViewCell: UITableViewCell {
     
     var studentID: String? {
         didSet {
+            self.guardianFirstNames = []
             if let studentID = self.studentID {
+                NinoNotificationManager.sharedInstance.addObserverForGuardiansUpdates(self, selector: #selector(guardiansUpdated)) //Waits for possible updates after the completion handler
                 StudentBO.getStudentForID(studentID, completionHandler: { (student) in
                     do {
                         let student = try student()
                         self.studentName = student.name
-//                        self.guardianFirstNames = student.
-                        if let guardians = student.guardians {
-                            for guardian in  guardians{
-                                GuardianBO.getGuardianForID(guardian, completionHandler: { (guardian) in
-                                    do {
-                                        let guardian = try guardian()
-                                        if let guardiansNameList = self.guardianFirstNames {
-                                            self.guardianFirstNames?.append(guardian.getDescription())
-                                        } else {
-                                            self.guardianFirstNames = []
-                                            self.guardianFirstNames?.append(guardian.getDescription())
-                                        }
-                                        self.updateGuardiansName()
-                                    } catch {
-                                        //TODO: handle error
-                                    }
-                                })
+//                        NinoNotificationManager.addGuardian
+                        GuardianBO.getGuardiansForStudent(studentID) { (getGuardians) in
+                            do {
+                                let guardians = try getGuardians()
+                                for guardian in guardians {
+                                    self.guardianFirstNames?.append(guardian.getDescription())
+                                }
+                                self.updateGuardiansName()
+                            } catch let error {
+                                //TODO: handle error
+                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                             }
                         }
                     } catch let error {
@@ -62,6 +58,41 @@ class StudentProfileTableViewCell: UITableViewCell {
                     }
                 })
             }
+        }
+    }
+    
+    @objc private func guardiansUpdated(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {
+            NinoNotificationManager.sharedInstance.removeObserverForGuardiansUpdates(self)
+            //TODO: Unexpected case
+            return
+        }
+        if let error = userInfo["error"] {
+            print(error)
+            NinoNotificationManager.sharedInstance.removeObserverForGuardiansUpdates(self)
+            //TODO: handle error
+        } else if let message = userInfo["info"] as? NotificationMessage {
+            guard let target = message.target as? String else {
+                return
+            }
+            if target != self.studentID { //This notification is meant to another view, with other student (different ID)
+                return
+            }
+            
+            if let newGuardians = message.dataToInsert as? [Guardian] {
+                for guardian in newGuardians {
+                    self.guardianFirstNames?.append(guardian.getDescription())
+                }
+            }
+            if let updatedGuardians = message.dataToUpdate as? [Guardian] {
+                for guardian in updatedGuardians {
+                    self.guardianFirstNames?.append(guardian.getDescription())
+                }
+            }
+            
+            self.updateGuardiansName()
+            NinoNotificationManager.sharedInstance.removeObserverForGuardiansUpdates(self)
+            //TODO: deleted guardians
         }
     }
     
