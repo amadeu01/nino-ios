@@ -29,10 +29,10 @@ class ErrorBO: NSObject {
             error = ServerError.CouldNotConnectToTheServer
         case 203:
             error = ServerError.Duplicate
-        case 100, 205: // 205 when it returns empty vector
-            error = ServerError.InexistentRegister
         case 101:
             error = ServerError.DeletedRegister
+        case 100:
+            error = ServerError.InexistentRegister
         default:
             //FIXME: Handle -1001 - it is triggle when wait too long for a response, normally, there is a error on the server side.
             error = ServerError.UnexpectedCase

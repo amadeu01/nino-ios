@@ -310,7 +310,7 @@ class GuardianBO: NSObject {
                         guard let students = info else {
                             dispatch_async(dispatch_get_main_queue(), {
                                 completionHandler(students: { () -> [Student] in
-                                    throw DatabaseError.NotFound
+                                    throw ServerError.InexistentRegister
                                 })
                             })
                             return

@@ -78,11 +78,10 @@ class NinoSession: NSObject {
         LoginBO.logout { (out) in
             do {
                 try out()
-                let a: Int? = nil
-                print(a!)
+                fatalError()
             } catch let error {
                 let a: Int? = nil
-                print(a!)
+                fatalError()
             }
         }
     }

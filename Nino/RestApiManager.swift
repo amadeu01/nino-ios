@@ -13,14 +13,17 @@ class RestApiManager: NSObject {
 
     private static let baseURL: String = {
         guard let plist = NSBundle.mainBundle().pathForResource("Info", ofType: "plist") else {
+            NinoSession.sharedInstance.kamikaze(["error":"CRITICAL - Could not read URL from Info.plist", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             return "localhost/"
         }
         if let dict = NSDictionary(contentsOfFile: plist) {
             guard let url = dict.valueForKey("URL") as? String else {
+                NinoSession.sharedInstance.kamikaze(["error":"CRITICAL - Could not read URL from Info.plist", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                 return "localhost/"
             }
             return url
         } else {
+            NinoSession.sharedInstance.kamikaze(["error":"CRITICAL - Could not read URL from Info.plist", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             return "localhost/"
         }
     }()
