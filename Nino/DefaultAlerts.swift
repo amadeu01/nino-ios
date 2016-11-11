@@ -33,6 +33,18 @@ class DefaultAlerts: NSObject {
     }
     
     /**
+     Default alert to be used when one or more fields are empty
+     
+     - returns: UIAlertController ready to be presented
+     */
+    
+    static func emptyField(title: String, message: String) -> UIAlertController {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle:.Alert)
+        alertView.addAction(self.okAction)
+        return alertView
+    }
+    
+    /**
      Default alert to be used when the email is invalid
      
      - returns: UIAlertController ready to be presented

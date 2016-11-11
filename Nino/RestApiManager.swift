@@ -11,11 +11,19 @@ import SwiftyJSON
 
 class RestApiManager: NSObject {
 
-//    private static let baseURL = "api.ninoapp.com.br/"
-//MARK: PROD_URL
-    private static let baseURL = "https://www.ninoapp.com.br:5000/"
-//MARK: DEV_URL
-//    private static let baseURL = "https://development.ninoapp.com.br:5000/"
+    private static let baseURL: String = {
+        guard let plist = NSBundle.mainBundle().pathForResource("Info", ofType: "plist") else {
+            return "localhost/"
+        }
+        if let dict = NSDictionary(contentsOfFile: plist) {
+            guard let url = dict.valueForKey("URL") as? String else {
+                return "localhost/"
+            }
+            return url
+        } else {
+            return "localhost/"
+        }
+    }()
     
     private static let device: String = {
         let webView = UIWebView(frame: CGRectZero)

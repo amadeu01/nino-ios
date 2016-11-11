@@ -152,4 +152,33 @@ class AccountBO: NSObject {
             })
         }
     }
+    
+    
+    static func changePassword(email: String, completionHandler: (change: () throws -> Void) -> Void) throws {
+        if !StringsMechanisms.isValidEmail(email) {
+            throw CreationError.InvalidEmail
+        }
+        AccountMechanism.changePassword(email) { (success, error, data) in
+            if let err = error {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(change: { 
+                        throw ErrorBO.decodeServerError(err)
+                    })
+                })
+            } else if let done = success {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(change: { 
+                        return
+                    })
+                })
+            } else {
+                dispatch_async(dispatch_get_main_queue(), { 
+                    completionHandler(change: { 
+                        throw ServerError.UnexpectedCase
+                    })
+                })
+            }
+        }
+        
+    }
 }

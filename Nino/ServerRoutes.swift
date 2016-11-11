@@ -33,6 +33,7 @@ enum ServerRoutes {
     case GetStudentDraftsForSchool
     case UpdateDraft
     case DraftToPost
+    case ChangePassword
     
     case GetStudentsForGuardian
     case GetRoom
@@ -146,6 +147,8 @@ enum ServerRoutes {
             return "posts/profiles/" + id[0]
         case .UpdateNotificationStatus:
             return "accounts/notifications/me"
+        case .ChangePassword:
+            return "accounts/authentication/password_reset"
         }
     }
 }

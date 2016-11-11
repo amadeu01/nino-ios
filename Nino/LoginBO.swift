@@ -28,7 +28,12 @@ class LoginBO: NSObject {
         }
     }
     
-    static func login(key: Key, completionHandler: (getCredential: () throws -> Credential) -> Void) {
+    static func login(key: Key, completionHandler: (getCredential: () throws -> Credential) -> Void) throws {
+        
+        if !StringsMechanisms.isValidEmail(key.email) {
+            throw CreationError.InvalidEmail
+        }
+        
         AccountMechanism.login(key.email, password: key.password) { (accessToken, error) in
             if let errorType = error {
                 dispatch_async(dispatch_get_main_queue(), { 
@@ -66,15 +71,19 @@ class LoginBO: NSObject {
             //TODO: Here we should probably logout
             return
         }
-        self.login(key.key) { (getCredential) in
-            do {
-                //tries to get the credential
-                let credential = try getCredential()
-                NinoSession.sharedInstance.setCredential(credential)
-            } catch let error {
-                //TODO: logout too?
-                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+        do {
+            try self.login(key.key) { (getCredential) in
+                do {
+                    //tries to get the credential
+                    let credential = try getCredential()
+                    NinoSession.sharedInstance.setCredential(credential)
+                } catch let error {
+                    //TODO: logout too?
+                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                }
             }
+        } catch let error {
+            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
         }
     }
     

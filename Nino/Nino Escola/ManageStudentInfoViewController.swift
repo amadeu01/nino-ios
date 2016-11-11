@@ -225,6 +225,9 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
         if indexPath.section == 2 {
             performSegueWithIdentifier("showRegisterGuardianViewController", sender: self)
         }
+        if indexPath.section == guardianInfoSec {
+            print(self.guardians[indexPath.row].email)
+        }
     }
     
     //MARK: NAvigation

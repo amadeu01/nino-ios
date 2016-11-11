@@ -16,6 +16,10 @@
 		071832261D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
 		071832271D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
 		071832281D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */; };
+		074274C91DCCD1B700F996F9 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C71DCCCF9A00F996F9 /* Debug.xcconfig */; };
+		074274CA1DCCD1B800F996F9 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C71DCCCF9A00F996F9 /* Debug.xcconfig */; };
+		074274CB1DCCD1BB00F996F9 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C81DCCD09B00F996F9 /* Release.xcconfig */; };
+		074274CC1DCCD1BB00F996F9 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 074274C81DCCD09B00F996F9 /* Release.xcconfig */; };
 		07447C171D4D20FF00830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
 		07447C191D4D210000830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
 		07447C1A1D4D210100830F81 /* MyDaySliderIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */; };
@@ -106,6 +110,9 @@
 		28143E461D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E441D2BF4B300139B0D /* RegisterStudent.storyboard */; };
 		28143E471D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E441D2BF4B300139B0D /* RegisterStudent.storyboard */; };
 		28143E481D2BF4B300139B0D /* RegisterStudent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28143E441D2BF4B300139B0D /* RegisterStudent.storyboard */; };
+		281BC10C1DC77AC8007B350B /* GuardianChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281BC10B1DC77AC8007B350B /* GuardianChangePasswordViewController.swift */; };
+		281BC10D1DC77AC8007B350B /* GuardianChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281BC10B1DC77AC8007B350B /* GuardianChangePasswordViewController.swift */; };
+		281BC10E1DC77AC8007B350B /* GuardianChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281BC10B1DC77AC8007B350B /* GuardianChangePasswordViewController.swift */; };
 		28218D921D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */; };
 		28218D931D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */; };
 		28218D941D428B8800973BDC /* RegisterGuardianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */; };
@@ -181,6 +188,12 @@
 		28830E801D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */; };
 		28830E811D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */; };
 		28830E821D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */; };
+		2885ED741DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */; };
+		2885ED751DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */; };
+		2885ED761DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */; };
+		2885ED771DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */; };
+		2885ED781DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */; };
+		2885ED791DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */; };
 		2889CFCA1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */; };
 		2889CFCB1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */; };
 		2889CFCC1D480A84000ED8BB /* ClassroomSelectorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */; };
@@ -543,9 +556,7 @@
 		AC43B42A1D46973700A6CB5C /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43B4251D46973700A6CB5C /* RealmError.swift */; };
 		AC43B42B1D46973700A6CB5C /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43B4251D46973700A6CB5C /* RealmError.swift */; };
 		AC47FCDF1D3E64E200FB3CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FC1CEE137A00867624 /* AppDelegate.swift */; };
-		AC47FCE01D3E64E200FB3CB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A081CEE137A00867624 /* Info.plist */; };
 		AC47FCE11D3E64E300FB3CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC39FC1CEE137A00867624 /* AppDelegate.swift */; };
-		AC47FCE21D3E64E300FB3CB6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A081CEE137A00867624 /* Info.plist */; };
 		AC47FCE31D3E64E300FB3CB6 /* SchoolManagementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */; };
 		AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A031CEE137A00867624 /* Assets.xcassets */; };
 		AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC3A031CEE137A00867624 /* Assets.xcassets */; };
@@ -666,6 +677,9 @@
 		AC74E1141D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1151D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
 		AC74E1161D2FFF5A004281F3 /* NinoImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */; };
+		AC7567431DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */; };
+		AC7567441DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */; };
+		AC7567451DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */; };
 		AC79F0241D50F54400583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
 		AC79F0251D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
 		AC79F0261D50F55800583452 /* NinoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79F0231D50F54400583452 /* NinoSession.swift */; };
@@ -935,6 +949,8 @@
 		070AD88F1D8021FA00AA98B3 /* GuardiansSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansSession.swift; sourceTree = "<group>"; };
 		071832211D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansRegisterPasswordViewController.swift; sourceTree = "<group>"; };
 		071832251D50DDBF000CF196 /* GuardiansConfirmEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardiansConfirmEmailViewController.swift; sourceTree = "<group>"; };
+		074274C71DCCCF9A00F996F9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		074274C81DCCD09B00F996F9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		07447C151D4D1EBC00830F81 /* MyDaySliderIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySliderIcon.swift; sourceTree = "<group>"; };
 		07818C971D46E716007FFDE2 /* MyDayBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDayBO.swift; sourceTree = "<group>"; };
 		07818C9E1D46E7D2007FFDE2 /* MyDaySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDaySection.swift; sourceTree = "<group>"; };
@@ -992,6 +1008,7 @@
 		28143E1C1D29A15E00139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		28143E371D2AD63200139B0D /* SchoolManagementTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolManagementTableViewController.swift; sourceTree = "<group>"; };
 		28143E451D2BF4B300139B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RegisterStudent.storyboard; sourceTree = "<group>"; };
+		281BC10B1DC77AC8007B350B /* GuardianChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuardianChangePasswordViewController.swift; sourceTree = "<group>"; };
 		28218D911D428B8800973BDC /* RegisterGuardianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterGuardianViewController.swift; sourceTree = "<group>"; };
 		283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		283C29811D299E0F00DF7DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StudentProfile.storyboard; sourceTree = "<group>"; };
@@ -1018,6 +1035,7 @@
 		287F31A01D5DFF9400DF2E1C /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		28830E7A1D4BD081006DB3C8 /* ChooseClassroomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseClassroomsTableViewController.swift; sourceTree = "<group>"; };
 		28830E7F1D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableSelectableTableViewCell.swift; sourceTree = "<group>"; };
+		2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultChangePasswordViewController.swift; path = "Nino Escola/DefaultChangePasswordViewController.swift"; sourceTree = "<group>"; };
 		2889CFC91D480A84000ED8BB /* ClassroomSelectorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomSelectorInput.swift; sourceTree = "<group>"; };
 		2889CFCD1D480AA2000ED8BB /* ClassroomSelectorInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassroomSelectorInput.xib; sourceTree = "<group>"; };
 		288B271B1D369EDE00B47DC0 /* ManagePhasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagePhasesViewController.swift; sourceTree = "<group>"; };
@@ -1121,6 +1139,7 @@
 		AC74E1021D2D4908004281F3 /* RouteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteError.swift; sourceTree = "<group>"; };
 		AC74E1091D2E8749004281F3 /* AccountBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountBO.swift; sourceTree = "<group>"; };
 		AC74E1101D2FFF5A004281F3 /* NinoImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoImagePicker.swift; sourceTree = "<group>"; };
+		AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		AC79F0231D50F54400583452 /* NinoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NinoSession.swift; sourceTree = "<group>"; };
 		AC79F02A1D53B25100583452 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		AC79F02E1D53B3CC00583452 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1267,6 +1286,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		074274C61DCCCF8000F996F9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				074274C71DCCCF9A00F996F9 /* Debug.xcconfig */,
+				074274C81DCCD09B00F996F9 /* Release.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		07818C961D46DC65007FFDE2 /* MyDay xibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1311,6 +1339,7 @@
 				287F31A01D5DFF9400DF2E1C /* TimelineViewController.swift */,
 				28F20CA11D706B8500FBD332 /* SettingsViewController.swift */,
 				07C5F84E1D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift */,
+				281BC10B1DC77AC8007B350B /* GuardianChangePasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1363,6 +1392,14 @@
 				28E2D77D1D5B775C00023D35 /* SelectClassroomTableViewController.swift */,
 			);
 			name = PopOver;
+			sourceTree = "<group>";
+		};
+		2885ED7A1DC8CA1A00F10409 /* CommonViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2885ED731DC8B82F00F10409 /* DefaultChangePasswordViewController.swift */,
+			);
+			name = CommonViewControllers;
 			sourceTree = "<group>";
 		};
 		288DE34E1D22AFA30052A35D /* View */ = {
@@ -1556,6 +1593,7 @@
 				283C297B1D289DA500DF7DCC /* StudentProfileViewController.swift */,
 				AC33F47B1D3673C4009D10B5 /* Create User */,
 				AC33F4801D36C4E7009D10B5 /* Detail */,
+				AC7567421DAD1B8A008849BC /* ChangePasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1728,6 +1766,8 @@
 		ACEC39BC1CEE128B00867624 = {
 			isa = PBXGroup;
 			children = (
+				074274C61DCCCF8000F996F9 /* Config */,
+				2885ED7A1DC8CA1A00F10409 /* CommonViewControllers */,
 				AC9F99CE1CEF3924001B53E8 /* Mechanisms */,
 				AC9F99CD1CEF3918001B53E8 /* Persistence */,
 				AC9F99CC1CEF3901001B53E8 /* Business */,
@@ -1999,7 +2039,7 @@
 					};
 					ACEC39F91CEE137A00867624 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = G52JHG5LJN;
+						DevelopmentTeam = N79DG9RG7K;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
@@ -2050,12 +2090,14 @@
 			files = (
 				ACEC39D31CEE128B00867624 /* LaunchScreen.storyboard in Resources */,
 				ACEC39D01CEE128B00867624 /* Assets.xcassets in Resources */,
+				074274CB1DCCD1BB00F996F9 /* Release.xcconfig in Resources */,
 				07F1D3DB1D7A0C9B000B66D3 /* Localizable.strings in Resources */,
 				AC86BBE31D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				ACEC39CE1CEE128B00867624 /* Main.storyboard in Resources */,
 				287F319D1D5DFF1D00DF2E1C /* MyDay.xib in Resources */,
 				AC86BBF51D0F4340005282E7 /* HelveticaRoundedLT-BoldObl.otf in Resources */,
 				AC86BBDD1D0F4340005282E7 /* HelveticaRoundedLT-BlackObl.otf in Resources */,
+				074274C91DCCD1B700F996F9 /* Debug.xcconfig in Resources */,
 				AC86BBE91D0F4340005282E7 /* HelveticaRoundedLT-BoldCond.otf in Resources */,
 				AC86BBEF1D0F4340005282E7 /* HelveticaRoundedLT-BoldCondObl.otf in Resources */,
 				AC86BBD71D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
@@ -2132,7 +2174,9 @@
 				2868C57B1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
 				28C5CB201D4AA604003629E3 /* ChooseClassroom.storyboard in Resources */,
 				284A33411D2C528200030773 /* ManageEducators.storyboard in Resources */,
+				074274CC1DCCD1BB00F996F9 /* Release.xcconfig in Resources */,
 				28143E101D299F4E00139B0D /* StudentProfile.storyboard in Resources */,
+				074274CA1DCCD1B800F996F9 /* Debug.xcconfig in Resources */,
 				AC86BBDA1D0F4340005282E7 /* HelveticaRoundedLT-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2168,7 +2212,6 @@
 				AC47FD2D1D3E652F00FB3CB6 /* Assets.xcassets in Resources */,
 				AC86BBE71D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				284A33421D2C528300030773 /* ManageEducators.storyboard in Resources */,
-				AC47FCE01D3E64E200FB3CB6 /* Info.plist in Resources */,
 				284A33341D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A411D103A420013611E /* CreateUser.storyboard in Resources */,
 				2868C57C1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
@@ -2212,7 +2255,6 @@
 				AC47FD2E1D3E653000FB3CB6 /* Assets.xcassets in Resources */,
 				AC86BBE81D0F4340005282E7 /* HelveticaRoundedLT-Bold.otf in Resources */,
 				284A33431D2C528400030773 /* ManageEducators.storyboard in Resources */,
-				AC47FCE21D3E64E300FB3CB6 /* Info.plist in Resources */,
 				284A33351D2C3ED900030773 /* MealMenu.storyboard in Resources */,
 				AC182A421D103A420013611E /* CreateUser.storyboard in Resources */,
 				2868C57D1D46B6EA0032591D /* SentAnnouncement.storyboard in Resources */,
@@ -2518,6 +2560,7 @@
 				AC79F0241D50F54400583452 /* NinoSession.swift in Sources */,
 				AC529EF31CF4A82F003C1063 /* CredentialBO.swift in Sources */,
 				ACE2AEB31D8851EE00940637 /* SchoolSession.swift in Sources */,
+				2885ED741DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */,
 				28F20CA21D706B8500FBD332 /* SettingsViewController.swift in Sources */,
 				AC74E1031D2D4908004281F3 /* RouteError.swift in Sources */,
 				AC43B3EE1D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
@@ -2586,6 +2629,7 @@
 				288B27CA1D37D1AD00B47DC0 /* Post.swift in Sources */,
 				AC7B83511D7D6AE600EC379A /* DraftDAO.swift in Sources */,
 				AC529EE71CF497E3003C1063 /* SchoolBO.swift in Sources */,
+				281BC10C1DC77AC8007B350B /* GuardianChangePasswordViewController.swift in Sources */,
 				28A046621D254C30007E0053 /* NinoFont.swift in Sources */,
 				ACF360351D4800D900A30922 /* NotificationMessage.swift in Sources */,
 				AC529EED1CF49DDD003C1063 /* GuardianBO.swift in Sources */,
@@ -2694,7 +2738,9 @@
 				AC47FD471D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
 				AC9CA6341D0CB429007AAAA6 /* SchoolMechanism.swift in Sources */,
 				288B28091D37E0D500B47DC0 /* SchoolBO.swift in Sources */,
+				281BC10D1DC77AC8007B350B /* GuardianChangePasswordViewController.swift in Sources */,
 				288B27C01D37D1AC00B47DC0 /* Menu.swift in Sources */,
+				2885ED751DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */,
 				AC6405431D5A5E1E008D91F5 /* CellType.swift in Sources */,
 				AC0CDEE21D05D8680000ECE9 /* PhaseBO.swift in Sources */,
 				AC9CA6391D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
@@ -2739,6 +2785,7 @@
 				ACE2AEB11D8851ED00940637 /* SchoolSession.swift in Sources */,
 				071832241D50DB03000CF196 /* GuardiansRegisterPasswordViewController.swift in Sources */,
 				287F31A31D5DFF9400DF2E1C /* TimelineViewController.swift in Sources */,
+				2885ED761DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */,
 				07C5F8511D7C739A00DD0C6D /* GuardiansUpdateNameViewController.swift in Sources */,
 				28A0466D1D254D0A007E0053 /* FluentConstraints.swift in Sources */,
 				AC47FD411D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
@@ -2808,6 +2855,7 @@
 				AC8978291D3D08F600022BDC /* ServerError.swift in Sources */,
 				AC79F0471D54FC4500583452 /* StudentDAO.swift in Sources */,
 				AC43B3DB1D4011F100A6CB5C /* MenuRealmObject.swift in Sources */,
+				281BC10E1DC77AC8007B350B /* GuardianChangePasswordViewController.swift in Sources */,
 				AC80DF5E1D5CA58600DC18F0 /* MyDayRow.swift in Sources */,
 				288B27B31D37D1AB00B47DC0 /* Activity.swift in Sources */,
 				AC47FD481D3EF70200FB3CB6 /* StudentMechanism.swift in Sources */,
@@ -2874,6 +2922,7 @@
 				288B279E1D37D1AA00B47DC0 /* Phase.swift in Sources */,
 				AC9CA63A1D0CB516007AAAA6 /* MechanismsResponses.swift in Sources */,
 				AC9EC7161D2418B200D54857 /* DefaultAlerts.swift in Sources */,
+				AC7567431DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */,
 				AC79F02B1D53B25100583452 /* PhotosViewController.swift in Sources */,
 				AC410BCC1D05A880003EB66B /* ServerError.swift in Sources */,
 				28F366F21D2EF70600A0743B /* RegisterStudentViewController.swift in Sources */,
@@ -2884,6 +2933,7 @@
 				AC47FD421D3EA66D00FB3CB6 /* RoomMechanism.swift in Sources */,
 				28D2A7BB1D4C546400677DCC /* CEMKit.swift in Sources */,
 				AC64051D1D5A49ED008D91F5 /* AgendaMechanism.swift in Sources */,
+				2885ED771DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */,
 				AC74E1061D2D4908004281F3 /* RouteError.swift in Sources */,
 				28143E391D2AD63200139B0D /* SchoolManagementTableViewController.swift in Sources */,
 				AC74E10D1D2E8749004281F3 /* AccountBO.swift in Sources */,
@@ -3024,6 +3074,7 @@
 				ACE961CC1D3D073A003B3D17 /* EducatorBO.swift in Sources */,
 				AC86BC011D0F43F8005282E7 /* LoginViewController.swift in Sources */,
 				AC6405321D5A52E8008D91F5 /* SectionMechanism.swift in Sources */,
+				2885ED781DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */,
 				28830E811D4BD1BE006DB3C8 /* ExpandableSelectableTableViewCell.swift in Sources */,
 				288B271D1D369EDE00B47DC0 /* ManagePhasesViewController.swift in Sources */,
 				288B27801D37D1A800B47DC0 /* Phase.swift in Sources */,
@@ -3121,6 +3172,7 @@
 				ACEC3A121CEE137B00867624 /* Nino_EscolaTests.swift in Sources */,
 				AC8978301D3D159D00022BDC /* NinoDispatchGroupes.swift in Sources */,
 				288B27E91D37E0D300B47DC0 /* EventBO.swift in Sources */,
+				AC7567441DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */,
 				AC43B3F21D40164600A6CB5C /* RoomRealmObject.swift in Sources */,
 				288B277A1D37D1A800B47DC0 /* Student.swift in Sources */,
 				AC7143FF1D3D963600C743A5 /* NinoNotificationManager.swift in Sources */,
@@ -3183,6 +3235,7 @@
 				288B27971D37D1A900B47DC0 /* Gender.swift in Sources */,
 				AC43B4051D41379800A6CB5C /* CreationError.swift in Sources */,
 				AC79F0381D53B47D00583452 /* AddPhotoCollectionViewCell.swift in Sources */,
+				AC7567451DAD1B8A008849BC /* ChangePasswordViewController.swift in Sources */,
 				07A2722E1D491A7A005079BC /* MyDaySectionIcon.swift in Sources */,
 				288B27261D36C51300B47DC0 /* ManageStudentsViewController.swift in Sources */,
 				AC4D2E2E1D2AF54300ECD2CF /* ConfirmEmailViewController.swift in Sources */,
@@ -3193,6 +3246,7 @@
 				AC64051F1D5A49ED008D91F5 /* AgendaMechanism.swift in Sources */,
 				AC5128571D50C49000A2760C /* RoomDAO.swift in Sources */,
 				AC79F0341D53B3CC00583452 /* PhotoCollectionViewCell.swift in Sources */,
+				2885ED791DC8B82F00F10409 /* DefaultChangePasswordViewController.swift in Sources */,
 				288B27EB1D37E0D400B47DC0 /* StudentBO.swift in Sources */,
 				AC43B3C11D40086300A6CB5C /* SchoolRealmObject.swift in Sources */,
 				283C297F1D289DC800DF7DCC /* StudentProfileViewController.swift in Sources */,
@@ -3479,6 +3533,7 @@
 /* Begin XCBuildConfiguration section */
 		ACEC39EB1CEE128B00867624 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074274C71DCCCF9A00F996F9 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -3521,6 +3576,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3528,6 +3584,7 @@
 		};
 		ACEC39EC1CEE128B00867624 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074274C81DCCD09B00F996F9 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -3563,6 +3620,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3578,11 +3636,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.responsaveis.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
@@ -3599,11 +3659,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				INFOPLIST_FILE = Nino/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.responsaveis.ninoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nino-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3684,6 +3746,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -3711,6 +3774,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N79DG9RG7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",

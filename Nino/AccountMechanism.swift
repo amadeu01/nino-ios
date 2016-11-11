@@ -36,10 +36,11 @@ class AccountMechanism: NSObject {
                     //success
                 else {
                     let token = json["data"]["token"].string
-                    completionHandler(accessToken: token, error: nil)
+                    let error = json["error"].int //FIXME It might be better a if let expression 
+                    completionHandler(accessToken: token, error: error)
                 }
             })
-        } catch let error{
+        } catch let error {
             NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //Never will be reached
         }
@@ -215,6 +216,33 @@ class AccountMechanism: NSObject {
         } catch let error{
             NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             //TODO: handle missing parameter error
+        }
+    }
+    
+    static func changePassword(email: String, completionHandler: (success: Bool?, error: Int?, data: String?) -> Void) {
+        let body: [String: AnyObject] = ["email": email]
+        do {
+            let route = try ServerRoutes.ChangePassword.description(nil)
+            RestApiManager.makeHTTPPostRequest(route, body: body, onCompletion: { (json, error, statusCode) in
+                guard let statusCode = statusCode else {
+                    completionHandler(success: nil, error: nil, data: nil)
+                    return
+                }
+                //error
+                let error = json["error"].int
+                let data = json["data"].string
+                if statusCode != 200 {
+                    //FIXME: data is a json, needs to be interpreted
+                    
+                    completionHandler(success: nil, error: error, data: data)
+                }
+                    //success
+                else {
+                    completionHandler(success: true, error: error, data: data)
+                }
+            })
+        } catch {
+            //never will be reached
         }
     }
     

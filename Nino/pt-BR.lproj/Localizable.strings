@@ -164,6 +164,24 @@
 "GENERAL_EMPTY_FIELD_MSG"="Nenhum campo pode estar vazio";
 "LOGOUT_CONFIRMATION"="Você deseja sair do sistema?";
 
+/* Create New User */
+"EMPTY_GENDER" = "Gênero não selecionado";
+"EMPTY_NAME" = "Nome vazio";
+"EMPTY_SURNAME" = "Sobrenome vazio";
+"EMPTY_EMAIL" = "Email vazio";
+"CREATE_NEW_USER_FAILED" = "Falha no cadastro do usuário";
+"EMPTY_FIELD_GENDER" = "Por favor, selecione um gênero";
+"EMPTY_FIELD_SURNAME" = "Por favor, complete sobrenome";
+"EMPTY_FIELD_NAME" = "Por favor, complete nome";
+"EMPTY_FIELD_EMAIL" = "Por favor, complete email";
+
+/* Login */
+"LOGIN_FAILED" = "Falha no Login";
+"EMPTY_USERNAME" = "Campo usuário vazio";
+"EMPTY_FIELD_USERNAME" = "Por favor, completar campo de usuário";
+"EMPTY_PASSWORD" = "Campo senha vazio";
+"EMPTY_FIELD_PASSWORD" = "Por favor, completar campo de senha";
+
 /*ConfirmEmail*/
 "ALREADY_HAS_PSSWD"="Já existe uma senha cadastrada para esse email.";
 "VALIDATION_FAILED"="Falha na validação";

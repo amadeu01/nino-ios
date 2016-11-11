@@ -55,7 +55,7 @@
                         <viewControllerLayoutGuide type="bottom" id="jlP-U0-9kd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="hDY-ee-XjY">
-                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="dEp-J2-YW4">
@@ -233,14 +233,14 @@
                         <leftBarButtonItems>
                             <barButtonItem style="plain" id="JU1-pI-jAb">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jfy-ep-3Xf">
-                                    <rect key="frame" x="20" y="7" width="30" height="30"/>
+                                    <rect key="frame" x="16" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="trashCan"/>
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="plain" id="4qT-zX-1DR">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cSJ-8n-CcV">
-                                    <rect key="frame" x="58" y="7" width="30" height="30"/>
+                                    <rect key="frame" x="54" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="save-2"/>
                                 </button>
@@ -248,7 +248,7 @@
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="EFH-9m-cf0">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lbr-1I-x59">
-                                <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                <rect key="frame" x="329" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="enviar"/>
                             </button>

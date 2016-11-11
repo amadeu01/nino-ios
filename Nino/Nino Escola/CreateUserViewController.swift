@@ -122,16 +122,40 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
      
      - returns: true if there are
      */
+//    private func checkIfEmpty() -> Bool {
+//        for tf in self.textFields {
+//            guard let txt = tf.text else {
+//                return true
+//            }
+//            if txt.isEmpty {
+//                return true
+//            } else {
+//                return false
+//            }
+//        }
+//        return false
+//    }
+    
     private func checkIfEmpty() -> Bool {
-        for tf in self.textFields {
-            guard let txt = tf.text else {
-                return true
-            }
-            if txt.isEmpty {
-                return true
-            } else {
-                return false
-            }
+        guard let name = self.nameTextField.text where !name.isEmpty else {
+            let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_NAME", comment: ""), message: NSLocalizedString("EMPTY_FIELD_NAME", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
+        }
+        guard let surname = self.surnameTextField.text where !surname.isEmpty else {
+            let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_SURNAME", comment: ""), message: NSLocalizedString("EMPTY_FIELD_SURNAME", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
+        }
+        guard let email = self.emailTextField.text where !email.isEmpty else {
+            let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_EMAIL", comment: ""), message: NSLocalizedString("EMPTY_FIELD_EMAIL", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
+        }
+        if self.gender == nil {
+            let alert = DefaultAlerts.emptyField(NSLocalizedString("EMPTY_GENDER", comment: ""), message: NSLocalizedString("EMPTY_FIELD_GENDER", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return true
         }
         return false
     }
@@ -149,17 +173,16 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
     private func createUser() {
         self.hideKeyboard()
         //checks if there are empty data
-        guard let userGender = self.gender where self.checkIfEmpty() == false else {
-            let alert = DefaultAlerts.emptyField()
-            self.presentViewController(alert, animated: true, completion: nil)
+        if self.checkIfEmpty() {
             return
         }
+        
         self.blockTextFields()
         self.blockButtons()
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
         do {
-            try AccountBO.createAccount(self.nameTextField.text!, surname: self.surnameTextField.text!, gender: userGender, email: self.emailTextField.text!, completionHandler: { (getAccount) in
+            try AccountBO.createAccount(self.nameTextField.text!, surname: self.surnameTextField.text!, gender: self.gender!, email: self.emailTextField.text!, completionHandler: { (getAccount) in
                 do {
                     //tries to create an account
                     try getAccount()
@@ -170,7 +193,7 @@ class CreateUserViewController: UIViewController, UITextFieldDelegate, GenderSel
                     guard let error = internalError as? ServerError else {
                         return
                     }
-                    let title = "Falha no cadastro do usuário"
+                    let title = NSLocalizedString("CREATE_NEW_USER_FAILED", comment: "")
                     let alert = DefaultAlerts.serverErrorAlert(error, title: title, customAction: nil)
                     self.activityIndicator.stopAnimating()
                     self.enableButtons()

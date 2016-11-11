@@ -61,7 +61,7 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Bordered, target: self, action: #selector (didPressToCancel))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("GENERAL_CANCEL", comment: "Cancel"), style: .Plain, target: self, action: #selector (didPressToCancel))
     }
     
     func didPressToCancel() {

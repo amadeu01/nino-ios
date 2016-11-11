@@ -204,7 +204,6 @@ class MyDayViewController: UIViewController, DateSelectorDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("cell for row")
         var cell: MyDayCell?
         var isLeft: Bool
         switch tableView {
