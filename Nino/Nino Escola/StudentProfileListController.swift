@@ -31,16 +31,10 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         self.studentProfileTableView.dataSource = self
         self.studentProfileTableView.delegate = self
         //registering for notification
-//        NinoNotificationManager.sharedInstance.addObserverForSchoolUpdates(self, selector: #selector(schoolUpdated))
-//        NinoNotificationManager.sharedInstance.addObserverForPhasesUpdates(self, selector: #selector(phasesUpdated))
         NinoNotificationManager.sharedInstance.addObserverForStudentsUpdates(self, selector: #selector(studentsUpdated))
-//        NinoNotificationManager.sharedInstance.addObserverForRoomsUpdatesFromServer(self, selector: #selector(roomsUpdatedFromServer))
-        //xrschoolNameLabel.text = "DID WORK"
-        //self.tableView.registerNib(UINib(nibName: "StudentProfileListHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
         let nib = UINib(nibName: "StudentProfileListHeader", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "StudentProfileListHeader")
         self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
-        //self.studentProfileTableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,8 +49,13 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
             //TODO: Unexpected case
             return
         }
-        if let error = userInfo["error"] {
-            //TODO: handle error
+        if let error = userInfo["error"] as? NotificationMessage {
+            if error.serverError != nil {
+                let alert = DefaultAlerts.serverErrorAlert(error.serverError!, title: "Falha na atualização", customAction: nil)
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+            }
         } else if let message = userInfo["info"] as? NotificationMessage {
             if let newStudents = message.dataToInsert as? [Student] {
                 for student in newStudents {
@@ -121,9 +120,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
             //Not a StudentProfileTableViewCell
             return
         }
-//        thisCell.profileImageView.image = UIImage(named: "baby1")
-//        thisCell.guardianFirstNames = ["Carlos", "Danilo"]
-//        thisCell.studentName = "Amanda"
+
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return students.count
@@ -141,49 +138,7 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         self.performSegueWithIdentifier("showStudentProfile", sender: self)
     }
     
-    //MARK: Notification Manager methods
-//    @objc private func schoolUpdated() {
-//        print("School notification working")
-//    }
-    
-//    @objc private func phasesUpdated(notification: NSNotification) {
-//        guard let userInfo = notification.userInfo else {
-//            //TODO: Unexpected case
-//            return
-//        }
-//        if let error = userInfo["error"] {
-//            //TODO: handle error
-//        } else if let message = userInfo["info"] as? NotificationMessage {
-//            if let newPhases = message.dataToInsert as? [Phase] {
-//                self.phases.appendContentsOf(newPhases)
-//            }
-//            //TODO: updated phases
-//            //TODO: deleted phases
-//        }
-//        self.getRooms()
-//    }
-    
-//    private func getRooms() {
-//        if self.phases.count > 0 {
-//            self.rooms.removeAll()
-//            RoomBO.getAllRooms({ (rooms) in
-//                do {
-//                    let newRooms = try rooms()
-//                    for room in newRooms {
-//                        self.rooms.append(room)
-//                    }
-//                    self.roomsUpdated()
-//                } catch let error {
-//                    //TODO: handle error
-//                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-//                }
-//            })
-//        }
-//    }
-    
-//    private func roomsUpdated() {
-//        //TODO: reload rooms buttons
-//    }
+
     
     func didChangeSelectedPhase(newTitle: String, phase: String, room: String) {
         self.currentRoom = room
@@ -197,52 +152,29 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
     @objc private func reloadData() {
         self.students.removeAll()
         if let room = self.currentRoom {
-            StudentBO.getStudent(room) { (students) in
-                do {
-                    let students = try students()
+            do {
+                try StudentBO.getStudent(room, completionHandler: { (students) in
+                    let students = students()
                     for student in students {
                         self.students.append(student.id)
                         self.dates.append(student.createdAt)
-//                        DraftBO.getDraftsForStudent(student.id, completionHandler: { (getDraft) in
-//                            do {
-//                                try getDraft()
-//                            } catch let error {
-//                                //TODO: handle get drafts error
-//                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-//                            }
-//                        })
-                        //TODO: get guardian for student
                     }
                     self.studentProfileTableView.reloadData()
-                } catch let error {
-                    //TODO: HANDLE
-                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                }
-                
+                })
+            } catch {
+                let alertVC = DefaultAlerts.userDidNotLoggedIn()
+                self.presentViewController(alertVC, animated: true, completion: nil)
             }
         }
     }
     
-//    @objc private func roomsUpdatedFromServer(notification: NSNotification) {
-//        guard let userInfo = notification.userInfo else {
-//            //TODO: Unexpected case
-//            return
-//        }
-//        if let error = userInfo["error"] {
-//            //TODO: handle error
-//        } else if let message = userInfo["info"] as? NotificationMessage {
-//            if let newRooms = message.dataToInsert as? [Room] {
-//                for room in newRooms {
-//                    self.rooms.append(room)
-//                }
-//            }
-//            //TODO: updated phases
-//            //TODO: deleted phases
-//        }
-//        self.roomsUpdated()
-//    }
+    override func viewWillDisappear(animated: Bool) {
+        NinoNotificationManager.sharedInstance.removeObserverForStudentsUpdates(self)
+    }
+
     //MARK: Student Profile List Header Delegate
     func didTapPhaseButton(sender: UIButton) {
+        self.reloadData()
         let storyboard : UIStoryboard = UIStoryboard(
             name: "SelectClassroom",
             bundle: nil)

@@ -48,7 +48,7 @@ class DefaultAlerts: NSObject {
      
      - returns: UIAlertController ready to be presented
      */
-    static func usedDidNotLoggedIn() -> UIAlertController {
+    static func userDidNotLoggedIn() -> UIAlertController {
         let alertView = UIAlertController(title: "Usuário não logado", message: "Você precisa estar logado no sistema para continuar", preferredStyle: .Alert)
         let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
             self.segueToLogin()

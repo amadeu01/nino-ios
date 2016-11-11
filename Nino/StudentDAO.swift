@@ -242,4 +242,30 @@ class StudentDAO: NSObject {
             }
         }
     }
+    
+    static func deleteStudent(student: String, completionHandler: (delete: () throws -> Void) -> Void) {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                let student = realm.objectForPrimaryKey(StudentRealmObject.self, key: student)
+                if let selectedStudent = student {
+                    try realm.write({
+                        realm.delete(selectedStudent)
+                    })
+                }
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(delete: { 
+                        return
+                    })
+                })
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), { 
+                    completionHandler(delete: { 
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
 }

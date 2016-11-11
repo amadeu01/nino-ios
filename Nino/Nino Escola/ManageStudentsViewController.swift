@@ -48,8 +48,13 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
             //TODO: Unexpected case
             return
         }
-        if let error = userInfo["error"] {
-            //TODO: handle error
+        if let error = userInfo["error"] as? NotificationMessage {
+            if error.serverError != nil {
+                let alert = DefaultAlerts.serverErrorAlert(error.serverError!, title: "Falha na atualização", customAction: nil)
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+            }
         } else if let message = userInfo["info"] as? NotificationMessage {
             if let newStudents = message.dataToInsert as? [Student] {
                 for student in newStudents {
@@ -67,17 +72,17 @@ class ManageStudentsViewController: UIViewController, UITableViewDelegate, UITab
             //TODO: back to phases
             return
         }
-        StudentBO.getStudent(room) { (students) in
-            do {
-                let localStudents = try students()
+        do {
+            try StudentBO.getStudent(room, completionHandler: { (students) in
+                let localStudents = students()
                 for student in localStudents {
                     self.students.append(student)
                 }
                 self.tableView.reloadData()
-            } catch let error {
-                //TODO: getStudents error
-                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-            }
+            })
+        } catch {
+            let alertVC = DefaultAlerts.userDidNotLoggedIn()
+            self.presentViewController(alertVC, animated: true, completion: nil)
         }
     }
 

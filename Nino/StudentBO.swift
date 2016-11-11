@@ -11,21 +11,13 @@ import UIKit
 /// Class which manages all student's services
 class StudentBO: NSObject {
     
-    static func createStudent(roomID: String, name: String, surname: String, birthDate: NSDate, gender: Gender, profilePictue: NSData?, completionHandler: (student: () throws -> Student) -> Void) {
+    static func createStudent(roomID: String, name: String, surname: String, birthDate: NSDate, gender: Gender, profilePictue: NSData?, completionHandler: (student: () throws -> Student) -> Void) throws {
         
         if birthDate.compare(NSDate()) == NSComparisonResult.OrderedDescending {
-            completionHandler(student: { () -> Student in
-                throw CreationError.InvalidBirthDate
-            })
-            return
+            throw CreationError.InvalidBirthDate
         }
         guard let token = NinoSession.sharedInstance.credential?.token else {
-            dispatch_async(dispatch_get_main_queue(), { 
-                completionHandler(student: { () -> Student in
-                    throw AccountError.InvalidToken
-                })
-            })
-            return
+            throw AccountError.InvalidToken
         }
         SchoolBO.getIdForSchool { (id) in
             do {
@@ -40,10 +32,18 @@ class StudentBO: NSObject {
                                 StudentMechanism.createStudent(token, schoolID: school, roomID: room, name: name, surname: surname, birthDate: birthDate, gender: gender.rawValue) { (profileID, createdAt, error, data) in
                                     if let err = error {
                                         //TODO: handle error data
-                                        dispatch_async(dispatch_get_main_queue(), {
-                                            completionHandler(student: { () -> Student in
-                                                throw ErrorBO.decodeServerError(err)
-                                            })
+                                        StudentDAO.deleteStudent(student.id, completionHandler: { (delete) in
+                                            do {
+                                                try delete()
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    completionHandler(student: { () -> Student in
+                                                        throw ErrorBO.decodeServerError(err)
+                                                    })
+                                                })
+                                            } catch {
+                                                //REALM error
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                            }
                                         })
                                     } else if let studentID = profileID {
                                         StudentDAO.updateStudentID(student.id, profileID: studentID, completionHandler: { (update) in
@@ -64,11 +64,18 @@ class StudentBO: NSObject {
                                                         }
                                                     })
                                                 } else {
-                                                    //FIXME: should delete student in realm
-                                                    dispatch_async(dispatch_get_main_queue(), {
-                                                        completionHandler(student: { () -> Student in
-                                                            throw ServerError.UnexpectedCase
-                                                        })
+                                                    StudentDAO.deleteStudent(student.id, completionHandler: { (delete) in
+                                                        do {
+                                                            try delete()
+                                                            dispatch_async(dispatch_get_main_queue(), {
+                                                                completionHandler(student: { () -> Student in
+                                                                    throw ServerError.UnexpectedCase
+                                                                })
+                                                            })
+                                                        } catch {
+                                                            //REALM error
+                                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                                        }
                                                     })
                                                 }
                                             } catch let error {
@@ -77,10 +84,17 @@ class StudentBO: NSObject {
                                             }
                                         })
                                     } else {
-                                        dispatch_async(dispatch_get_main_queue(), {
-                                            completionHandler(student: { () -> Student in
-                                                throw ServerError.UnexpectedCase
-                                            })
+                                        StudentDAO.deleteStudent(student.id, completionHandler: { (delete) in
+                                            do {
+                                                try delete()
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    completionHandler(student: { () -> Student in
+                                                        throw ServerError.UnexpectedCase
+                                                    })
+                                                })
+                                            } catch {
+                                                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                            }
                                         })
                                     }
                                 }
@@ -90,28 +104,19 @@ class StudentBO: NSObject {
                             }
                         })
                     } catch let error {
-                        dispatch_async(dispatch_get_main_queue(), { 
-                            completionHandler(student: { () -> Student in
-                                throw error
-                            })
-                        })
-                    }
+                        //TODO: missing roomID
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])                    }
                 })
             } catch let error {
-                //TODO: missing schoolID or roomID
+                //TODO: missing schoolID
                 NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
     
-    static func getStudent(roomID: String, completionHandler: (students: () throws -> [Student]) -> Void) {
+    static func getStudent(roomID: String, completionHandler: (students: () -> [Student]) -> Void) throws {
         guard let token = NinoSession.sharedInstance.credential?.token else {
-            dispatch_async(dispatch_get_main_queue(), {
-                completionHandler(students: { () -> [Student] in
-                    throw AccountError.InvalidToken
-                })
-            })
-            return
+            throw AccountError.InvalidToken
         }
         RoomBO.getIdForRoom(roomID) { (id) in
             do {
@@ -238,11 +243,7 @@ class StudentBO: NSObject {
                     }
                 })
             } catch let error {
-                dispatch_async(dispatch_get_main_queue(), { 
-                    completionHandler(students: { () -> [Student] in
-                        throw error
-                    })
-                })
+                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
             }
         }
     }
@@ -350,5 +351,6 @@ class StudentBO: NSObject {
         result["wasDeleted"] = wasDeleted
         return result
     }
+    
     
 }

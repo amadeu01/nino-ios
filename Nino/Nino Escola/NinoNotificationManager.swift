@@ -109,6 +109,10 @@ class NinoNotificationManager: NSObject {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.StudentsFromServer.description(), object: nil)
     }
     
+    func removeObserverForStudentsUpdates(observer: AnyObject) {
+        self.notificationCenter.removeObserver(observer, name: NinoNotifications.StudentsFromServer.description(), object: nil)
+    }
+    
     func addObserverForGuardiansUpdates(observer: AnyObject, selector: Selector) {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.GuardiansFromServer.description(), object: nil)
     }

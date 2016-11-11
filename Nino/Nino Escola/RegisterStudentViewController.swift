@@ -248,14 +248,34 @@ class RegisterStudentViewController: UIViewController, NinoImagePickerDelegate, 
                 }
             }
         }
-        StudentBO.createStudent(self.roomID!, name: self.nameTextField.text!, surname: self.surnameTextField.text!, birthDate: birthday, gender: userGender, profilePictue: image) { (student) in
-            do {
-                let newStudent = try student()
-                self.student = newStudent
-                self.performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
-            } catch let error {
-                //TODO: handle error
-                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+        
+        do {
+            try StudentBO.createStudent(self.roomID!, name: self.nameTextField.text!, surname: self.surnameTextField.text!, birthDate: birthday, gender: userGender, profilePictue: image) { (student) in
+                do {
+                    let newStudent = try student()
+                    self.student = newStudent
+                    self.performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
+                } catch let error {
+                    if let serverError = error as? ServerError {
+                        let action = UIAlertAction(title: "Entendi", style: .Default) { (ok) in
+                            self.performSegueWithIdentifier("goBackToManageStudentsViewController", sender: self)
+                        }
+                        let alert = DefaultAlerts.serverErrorAlert(serverError, title: "Falha no cadastro", customAction: action)
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    } else {
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    }
+                }
+            }
+        } catch let error {
+            if error is CreationError {
+                let alertVC = UIAlertController(title: "Falha no cadastro", message: "Data de nascimento inválida", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Entendi", style: .Default, handler: nil)
+                alertVC.addAction(action)
+                self.presentViewController(alertVC, animated: true, completion: nil)
+            } else {
+                let alertVC = DefaultAlerts.userDidNotLoggedIn()
+                self.presentViewController(alertVC, animated: true, completion: nil)
             }
         }
     }
