@@ -246,6 +246,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
 //MARK: Segue Methods
     private func segueToLogin() {
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            KeyBO.removePasswordAndUsername()
             delegate.loggedIn = false
             delegate.setupRootViewController(true)
         }

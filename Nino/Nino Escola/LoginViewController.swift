@@ -209,9 +209,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                         delegate.setupRootViewController(true)
                                     }
                                 } catch let error {
-                                    print("profileError")
-                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                                    //TODO: handle profile error
+                                    self.activityIndicator.stopAnimating()
+                                    self.enableTextFields()
+                                    self.enableButtons()
+                                    if let serverError = error as? ServerError {
+                                        self.errorAlert(serverError)
+                                    }
+                                    self.passwordTextField.text = ""
                                 }
                             })
                             PhaseBO.getPhases(credential.token, schoolID: school.id, completionHandler: { (phases) in
@@ -229,7 +233,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 }
                             })
                             
-                        } catch let error{
+                        } catch let error {
                             if let dataBaseError = error as? DatabaseError {
                                 //There's no school. Let's create one
                                 if dataBaseError == DatabaseError.NotFound {
@@ -295,7 +299,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      
      - parameter segue: unwind segue
      */
-    @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
