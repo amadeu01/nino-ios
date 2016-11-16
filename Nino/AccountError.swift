@@ -10,5 +10,6 @@ import Foundation
 
 enum AccountError: ErrorType {
     case InvalidToken
+    case UserCredentialsNotSaved
     case MissingSchool
 }

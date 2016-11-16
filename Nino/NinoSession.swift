@@ -8,6 +8,7 @@
 
 import Foundation
 import Mixpanel
+import JWTDecode
 
 class NinoSession: NSObject {
     
@@ -16,9 +17,56 @@ class NinoSession: NSObject {
     private var _educator: String?
     private var _school: String?
     /// User credential, get only
-    var credential: Credential? {
-        return _credential
+    
+    func getCredential(completionHandler: (getCredential: () throws -> Credential) -> Void) -> Void {
+        let renewToken = {
+            guard let email = KeyBO.getUsername() else {
+                completionHandler(getCredential: { () -> Credential in
+                    throw AccountError.UserCredentialsNotSaved
+                })
+                return
+            }
+            guard let password = KeyBO.getPassword() else {
+                completionHandler(getCredential: { () -> Credential in
+                    throw AccountError.UserCredentialsNotSaved
+                })
+                return
+            }
+            let key = Key(email: email, password: password)
+            LoginBO.login(key, completionHandler: { (getCredential) in
+                do {
+                    let cred = try getCredential()
+                    self._credential = cred
+                    completionHandler(getCredential: { () -> Credential in
+                        return cred
+                    })
+                } catch let error{
+                    completionHandler(getCredential: { () -> Credential in
+                        throw error
+                    })
+                }
+            })
+        }
+
+        do {
+            guard let credential = _credential else {
+                renewToken()
+                return
+            }
+            let jwt = try decode(credential.token)
+            let expiration = jwt.body["exp"] as? Int
+            if (expiration != nil && Double(expiration!) < NSDate().timeIntervalSince1970) {
+                renewToken()
+            } else {
+                completionHandler(getCredential: { () -> Credential in
+                    return credential
+                })
+            }
+        } catch {
+            renewToken()
+        }
     }
+    
     /// Active educator, get only
     var educatorID: String? {
         return _educator
