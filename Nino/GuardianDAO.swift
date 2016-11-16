@@ -188,6 +188,48 @@ class GuardianDAO: NSObject {
         }
     }
     
+    static func updateGuardians(guardians: [Guardian], completionHandler: (update: () throws -> Void) -> Void) -> Void {
+        dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
+            do {
+                let realm = try Realm()
+                for guardian in guardians {
+                    var realmGuardian : GuardianRealmObject?
+                    if let profileID = guardian.profileID {
+                        realmGuardian = realm.objects(GuardianRealmObject.self).filter("profileID = \(profileID)").first
+                    } else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(update: {
+                                throw DatabaseError.MissingID
+                            })
+                        })
+                        return
+                    }
+                    guard let selectedGuardian = realmGuardian else {
+                        dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                            completionHandler(update: {
+                                throw DatabaseError.NotFound
+                            })
+                        })
+                        return
+                    }
+                    try realm.write({
+                        selectedGuardian.name = guardian.name
+                        selectedGuardian.surname = guardian.surname
+                        selectedGuardian.email = guardian.email
+                        //TODO: Gender is let but BO checks if updated
+//                        selectedGuardian.gender = guardian.gender
+                    })
+                }
+            } catch {
+                dispatch_async(RealmManager.sharedInstace.getDefaultQueue(), {
+                    completionHandler(update: {
+                        throw RealmError.CouldNotCreateRealm
+                    })
+                })
+            }
+        }
+    }
+    
     static func updateGuardianID(guardian: String, id: Int, completionHandler: (update: () throws -> Void) -> Void) {
         dispatch_async(RealmManager.sharedInstace.getRealmQueue()) { 
             do {

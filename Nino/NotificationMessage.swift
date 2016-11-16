@@ -10,12 +10,16 @@ import UIKit
 
 class NotificationMessage: NSObject {
     
+    private var _target: Any?
     private var _remove: Any?
     private var _update: Any?
     private var _insert: Any?
     private var _serverError: ServerError?
     private var _databaseError: DatabaseError?
     
+    var target: Any? {
+        return _target
+    }
     var dataToRemove: Any? {
         return _remove
     }
@@ -32,6 +36,10 @@ class NotificationMessage: NSObject {
     
     var serverError: ServerError? {
         return _serverError
+    }
+    
+    func setTarget(data: Any) {
+        self._target = data
     }
     
     func setDataToRemove(data: Any) {

@@ -113,6 +113,10 @@ class NinoNotificationManager: NSObject {
         self.notificationCenter.addObserver(observer, selector: selector, name: NinoNotifications.GuardiansFromServer.description(), object: nil)
     }
     
+    func removeObserverForGuardiansUpdates(observer: AnyObject) {
+        self.notificationCenter.removeObserver(observer, name: NinoNotifications.GuardiansFromServer.description(), object: nil)
+    }
+    
     func addGuardiansUpdatedNotification(sender: AnyObject, error: AnyObject?, info: AnyObject?) {
         if let err = error {
             self.notificationCenter.postNotificationName(NinoNotifications.GuardiansFromServer.description(), object: sender, userInfo: ["error": err])

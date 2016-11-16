@@ -11,7 +11,7 @@ import UIKit
 /// Class which manages all guardian's services
 class GuardianBO: NSObject {
 
-    static func createGuardian(name: String?, surname: String?, email: String, studentID: String, completionHandler: (guardian: () throws -> Guardian) -> Void) throws {
+    static func createGuardian(email: String, studentID: String, completionHandler: (guardian: () throws -> Guardian) -> Void) throws {
         
         if !StringsMechanisms.isValidEmail(email) {
             throw CreationError.InvalidEmail
@@ -26,7 +26,7 @@ class GuardianBO: NSObject {
             return
         }
         
-        let guardian = Guardian(id: StringsMechanisms.generateID(), profileID: nil, name: name, surname: surname, gender: nil, email: email, students: [studentID])
+        let guardian = Guardian(id: StringsMechanisms.generateID(), profileID: nil, name: nil, surname: nil, gender: nil, email: email, students: [studentID])
         
         SchoolBO.getIdForSchool { (id) in
             do {
@@ -148,23 +148,44 @@ class GuardianBO: NSObject {
                                 let wasChanged = comparison["wasChanged"]
                                 let wasDeleted = comparison["wasDeleted"]
                                 let newGuardians = comparison["newGuardians"]
+                                
+                                var shouldNotify = false
+                                
                                 if newGuardians!.count > 0 {
+                                    shouldNotify = true
                                     GuardianDAO.createGuardians(newGuardians!, completionHandler: { (write) in
                                         do {
                                             try write()
-                                            let message = NotificationMessage()
-                                            message.setDataToInsert(newGuardians!)
-                                            dispatch_async(dispatch_get_main_queue(), {
-                                                NinoNotificationManager.sharedInstance.addGuardiansUpdatedNotification(self, error: nil, info: message)
-                                            })
                                         } catch let error {
                                             //TODO: handle Realm error
                                             NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                         }
                                     })
                                 }
+                                if wasChanged!.count > 0 {
+                                    shouldNotify = true
+                                    GuardianDAO.updateGuardians(wasChanged!, completionHandler: { (update) in
+                                        do {
+                                            try update()
+                                        } catch let error {
+                                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                        }
+                                    })
+                                }
                                 //TODO: guardian was deleted
-                                //TODO: guardian was updated
+                                
+                                if shouldNotify {
+                                    let message = NotificationMessage()
+                                    message.setTarget(student)
+                                    message.setDataToInsert(newGuardians)
+                                    message.setDataToUpdate(wasChanged)
+                                    message.setDataToRemove(wasDeleted)
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        NinoNotificationManager.sharedInstance.addGuardiansUpdatedNotification(self, error: nil, info: message)
+                                    })
+                                }
+                            } else if info == nil {
+                                return
                             } else {
                                 let error = NotificationMessage()
                                 error.setServerError(ServerError.UnexpectedCase)
@@ -433,21 +454,33 @@ class GuardianBO: NSObject {
                 if serverGuardian.profileID == localGuardian.profileID {
                     found = true
                     //updated
+                    var shouldInsert = false
+                    let id = serverGuardian.id
+                    var finalName = serverGuardian.name
+                    var finalSurname = serverGuardian.surname
+                    var finalGender = serverGuardian.gender //TODO: Gender is not chanchabe on the RealmObject
+                    var finalEmail = serverGuardian.email
+                    
                     if serverGuardian.name != localGuardian.name {
-                        wasChanged.append(serverGuardian)
-                    } else {
-                        if serverGuardian.surname != localGuardian.surname {
-                            wasChanged.append(serverGuardian)
-                        } else {
-                            if serverGuardian.email != localGuardian.email {
-                                wasChanged.append(serverGuardian)
-                            } else {
-                                if serverGuardian.gender != localGuardian.gender {
-                                    wasChanged.append(serverGuardian)
-                                }
-                            }
-                        }
+                        shouldInsert = true
+                        finalName = serverGuardian.name
                     }
+                    
+                    if serverGuardian.surname != localGuardian.surname {
+                        shouldInsert = true
+                        finalSurname = serverGuardian.surname
+                    }
+                    
+                    if serverGuardian.email != localGuardian.email {
+                        shouldInsert = true
+                        finalEmail = serverGuardian.email
+                    }
+                    
+                    if shouldInsert {
+                        wasChanged.append(Guardian(id: id, profileID: serverGuardian.profileID, name: finalName, surname: finalSurname, gender: localGuardian.gender, email: finalEmail, students: localGuardian.students))
+                    }
+                    
+                    
                     break
                 }
             }

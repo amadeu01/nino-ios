@@ -40,7 +40,6 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NinoNotificationManager.sharedInstance.addObserverForGuardiansUpdates(self, selector: #selector(guardiansUpdated))
         updateStudentInfo()
         updateExtraSection()
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -76,6 +75,8 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
             self.profileImageView.image = UIImage(named: "icone-cadastrar-bebe")
         }
         self.studentName.text = selectedStudent.name + " " + selectedStudent.surname
+        
+        NinoNotificationManager.sharedInstance.addObserverForGuardiansUpdates(self, selector: #selector(guardiansUpdated)) //Waits for possible updates after the completion handler
         GuardianBO.getGuardiansForStudent(selectedStudent.id) { (getGuardians) in
             do {
                 let guardians = try getGuardians()
@@ -90,17 +91,38 @@ class ManageStudentInfoViewController: UIViewController, UITableViewDelegate, UI
     
     @objc private func guardiansUpdated(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {
+            NinoNotificationManager.sharedInstance.removeObserverForGuardiansUpdates(self)
             //TODO: Unexpected case
             return
         }
         if let error = userInfo["error"] {
+            NinoNotificationManager.sharedInstance.removeObserverForGuardiansUpdates(self)
             //TODO: handle error
         } else if let message = userInfo["info"] as? NotificationMessage {
+            guard let target = message.target as? String else {
+                return
+            }
+            if target != self.student?.id { //This notification is meant to another view, with other student (different ID)
+                return
+            }
+            
             if let newGuardians = message.dataToInsert as? [Guardian] {
                 self.guardians.appendContentsOf(newGuardians)
                 self.tableView.reloadSections(NSIndexSet(index: self.guardianInfoSec), withRowAnimation: UITableViewRowAnimation.Automatic)
             }
-            //TODO: updated guardians
+            if let updatedGuardians = message.dataToUpdate as? [Guardian] {
+                for guardian in updatedGuardians {
+                    guard let index = self.guardians.indexOf({$0.profileID == guardian.profileID}) else {
+                        NinoSession.sharedInstance.kamikaze(["error":"NOT FOUND - Update value on view", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                        return
+                    }
+                    self.guardians.removeAtIndex(index)
+                    self.guardians.insert(guardian, atIndex: index)
+                    self.tableView.reloadSections(NSIndexSet(index: self.guardianInfoSec), withRowAnimation: UITableViewRowAnimation.Automatic)
+                }
+                
+            }
+            NinoNotificationManager.sharedInstance.removeObserverForGuardiansUpdates(self)
             //TODO: deleted guardians
         }
     }
