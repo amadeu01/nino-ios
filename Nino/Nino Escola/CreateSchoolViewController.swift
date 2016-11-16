@@ -201,7 +201,7 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
                 self.activityIndicator.stopAnimating()
                 self.enableButtons()
                 self.enableTextFields()
-                let alertView = DefaultAlerts.usedDidNotLoggedIn()
+                let alertView = DefaultAlerts.userDidNotLoggedIn()
                 self.presentViewController(alertView, animated: true, completion: nil)
                 return
             }
