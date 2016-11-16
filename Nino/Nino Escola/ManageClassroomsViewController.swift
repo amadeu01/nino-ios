@@ -104,10 +104,6 @@ class ManageClassroomsViewController: UIViewController, UITableViewDelegate, UIT
                 //TODO: empty field default alert
                 return
             }
-            guard let token = NinoSession.sharedInstance.credential?.token else {
-                //TODO: back to login
-                return
-            }
             guard let currentPhase = self.phaseID else {
                 //TODO: back to phases manager
                 return

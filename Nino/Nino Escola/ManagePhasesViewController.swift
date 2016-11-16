@@ -66,28 +66,30 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
             //Did press cancel.
         }
         let submitAction = UIAlertAction(title: NSLocalizedString("GENERAL_CREATE", comment: ""), style: .Default) { (alert) in
-            let credential = NinoSession.sharedInstance.credential
-            guard let token = credential?.token else {
-                //TODO: back to login
-                return
-            }
-            let school = NinoSession.sharedInstance.schoolID
-            guard let schoolID = school else {
-                //TODO: back to login
-                return
-            }
-            guard let name = self.newPhaseTextField?.text else {
-                //TODO: show default alert for empty field
-                return
-            }
-            PhaseBO.createPhase(token, schoolID: schoolID, name: name, completionHandler: { (phase) in
+            NinoSession.sharedInstance.getCredential({ (getCredential) in
                 do {
-                    let newPhase = try phase()
-                    self.phases.append(newPhase)
-                    self.tableView.reloadData()
+                    let token = try getCredential().token
+                    let school = NinoSession.sharedInstance.schoolID
+                    guard let schoolID = school else {
+                        //TODO: back to login
+                        return
+                    }
+                    guard let name = self.newPhaseTextField?.text else {
+                        //TODO: show default alert for empty field
+                        return
+                    }
+                    PhaseBO.createPhase(token, schoolID: schoolID, name: name, completionHandler: { (phase) in
+                        do {
+                            let newPhase = try phase()
+                            self.phases.append(newPhase)
+                            self.tableView.reloadData()
+                        } catch let error {
+                            //TODO: handle newPhase errors
+                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                        }
+                    })
                 } catch let error {
-                    //TODO: handle newPhase errors
-                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    //TODO: back to login
                 }
             })
         }
@@ -98,28 +100,30 @@ class ManagePhasesViewController: UIViewController, UITableViewDelegate, UITable
     //MARK: Data
     func updateData() {
     //get phases
-        guard let token = NinoSession.sharedInstance.credential?.token else {
-            //TODO: go to login
-            return
-        }
-        guard let school = NinoSession.sharedInstance.schoolID else {
-            //TODO: go to login
-            return
-        }
-        PhaseBO.getPhases(token, schoolID: school) { (phases) in
+        NinoSession.sharedInstance.getCredential({ (getCredential) in
             do {
-                let newPhases = try phases()
-                self.phases.removeAll()
-                for phase in newPhases {
-                    self.phases.append(phase)
+                let token = try getCredential().token
+                guard let school = NinoSession.sharedInstance.schoolID else {
+                    //TODO: go to login
+                    return
                 }
-                self.tableView.reloadData()
+                PhaseBO.getPhases(token, schoolID: school) { (phases) in
+                    do {
+                        let newPhases = try phases()
+                        self.phases.removeAll()
+                        for phase in newPhases {
+                            self.phases.append(phase)
+                        }
+                        self.tableView.reloadData()
+                    } catch let error {
+                        //TODO: handle getPhases error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    }
+                }
             } catch let error {
-                //TODO: handle getPhases error
-                NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                //TODO: Handle
             }
-        }
-        
+        })
     }
     // MARK: TableView Data Source
     

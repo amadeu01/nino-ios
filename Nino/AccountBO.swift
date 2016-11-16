@@ -55,32 +55,33 @@ class AccountBO: NSObject {
     
     
     static func enableNotifications(deviceToken: String, completionHandler: (getStatus: () throws -> Void) -> Void) {
-        guard let token = NinoSession.sharedInstance.credential?.token else {
-            dispatch_async(dispatch_get_main_queue(), {
-                completionHandler(getStatus: { () -> Void in
-                    throw AccountError.InvalidToken
-                })
-            })
-            return
-        }
-        
-        AccountMechanism.enableNotifications(token, deviceToken: deviceToken) { (error, data) in
-            if let errorType = error {
-                //TODO: Handle error data and code
+        NinoSession.sharedInstance.getCredential({ (getCredential) in
+            do {
+                let token = try getCredential().token
+                AccountMechanism.enableNotifications(token, deviceToken: deviceToken) { (error, data) in
+                    if let errorType = error {
+                        //TODO: Handle error data and code
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completionHandler(getStatus: { () -> Void in
+                                throw ErrorBO.decodeServerError(errorType)
+                            })
+                        })
+                    } else {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completionHandler(getStatus: { () -> Void in
+                                return
+                            })
+                        })
+                    }
+                }
+            } catch let error {
                 dispatch_async(dispatch_get_main_queue(), {
                     completionHandler(getStatus: { () -> Void in
-                        throw ErrorBO.decodeServerError(errorType)
-                    })
-                })
-            } else {
-                dispatch_async(dispatch_get_main_queue(), {
-                    completionHandler(getStatus: { () -> Void in
-                        return
+                        throw AccountError.InvalidToken
                     })
                 })
             }
-        }
-        
+        })
     }
     
     /**

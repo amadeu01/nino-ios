@@ -106,7 +106,7 @@ class GuardiansUpdateNameViewController: UIViewController, UITextFieldDelegate {
                     delegate.setupRootViewController(true)
                 }
             } catch {
-                let alert = DefaultAlerts.usedDidNotLoggedIn()
+                let alert = DefaultAlerts.userDidNotLoggedIn()
                 self.presentViewController(alert, animated: true, completion: nil)
                 //TODO handle error
             }

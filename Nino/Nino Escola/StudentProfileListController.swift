@@ -88,17 +88,22 @@ class StudentProfileListController: UITableViewController, StudentProfileListHea
         let header = cell as! StudentProfileListHeader
         self.currentHeader = header
         header.delegate = self
-        if let token = NinoSession.sharedInstance.credential?.token {
-            SchoolBO.getSchool(token, completionHandler: { (school) in
-                do {
-                    let school = try school()
-                    header.schoolNameLabel.text = school.name
-                } catch let error {
-                    //TODO: Handle error
-                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                }
-            })
-        }
+        NinoSession.sharedInstance.getCredential({ (getCredential) in
+            do {
+                let token = try getCredential().token
+                SchoolBO.getSchool(token, completionHandler: { (school) in
+                    do {
+                        let school = try school()
+                        header.schoolNameLabel.text = school.name
+                    } catch let error {
+                        //TODO: Handle error
+                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                    }
+                })
+            } catch let error {
+                
+            }
+        })
         header.schoolNameLabel.text = ""
         return cell
     }

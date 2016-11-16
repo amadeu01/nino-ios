@@ -183,78 +183,81 @@ class PhaseBO: NSObject {
                 if let dataBaseError = error as? DatabaseError {
                     //There's no Room. Let's Get and create one
                     if dataBaseError == DatabaseError.NotFound {
-                        guard let token = NinoSession.sharedInstance.credential?.token else {
-                            dispatch_async(dispatch_get_main_queue(), {
-                                completionHandler(phase: { () -> Phase in
-                                    throw AccountError.InvalidToken
-                                })
-                            })
-                            return
-                        }
-                        PhasesMechanism.getPhase(token, phaseID: phaseID, completionHandler: { (info, error, data) in
-                            if let errorType = error {
-                                //TODO: Handle error data and code
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    completionHandler(phase: { () -> Phase in
-                                        throw ErrorBO.decodeServerError(errorType)
-                                    })
-                                })
-                            } else if let roomsInfo = info {
-                                let id = roomsInfo["phaseID"] as? Int
-                                let name = roomsInfo["name"] as? String
-                                let school = roomsInfo["schoolID"] as? Int
-                                guard let phaseID = id else {
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        completionHandler(phase: { () -> Phase in
-                                            throw ServerError.UnexpectedCase
+                        NinoSession.sharedInstance.getCredential({ (getCredential) in
+                            do {
+                                let token = try getCredential().token
+                                PhasesMechanism.getPhase(token, phaseID: phaseID, completionHandler: { (info, error, data) in
+                                    if let errorType = error {
+                                        //TODO: Handle error data and code
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            completionHandler(phase: { () -> Phase in
+                                                throw ErrorBO.decodeServerError(errorType)
+                                            })
                                         })
-                                    })
-                                    return
-                                }
-                                guard let roomName = name else {
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        completionHandler(phase: { () -> Phase in
-                                            throw ServerError.UnexpectedCase
-                                        })
-                                    })
-                                    return
-                                }
-                                guard let schoolID = school else {
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        completionHandler(phase: { () -> Phase in
-                                            throw ServerError.UnexpectedCase
-                                        })
-                                    })
-                                    return
-                                }
-                                
-                                let phaseVO = Phase(id: StringsMechanisms.generateID(), phaseID: phaseID, name: roomName)
-                                
-                                SchoolBO.getSchoolWithID(token, schoolID: schoolID, completionHandler: { (school) in
-                                    do {
-                                        let school = try school()
-                                        PhaseDAO.createPhases([phaseVO], schoolID: school.id, completionHandler: { (write) in
+                                    } else if let roomsInfo = info {
+                                        let id = roomsInfo["phaseID"] as? Int
+                                        let name = roomsInfo["name"] as? String
+                                        let school = roomsInfo["schoolID"] as? Int
+                                        guard let phaseID = id else {
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                completionHandler(phase: { () -> Phase in
+                                                    throw ServerError.UnexpectedCase
+                                                })
+                                            })
+                                            return
+                                        }
+                                        guard let roomName = name else {
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                completionHandler(phase: { () -> Phase in
+                                                    throw ServerError.UnexpectedCase
+                                                })
+                                            })
+                                            return
+                                        }
+                                        guard let schoolID = school else {
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                completionHandler(phase: { () -> Phase in
+                                                    throw ServerError.UnexpectedCase
+                                                })
+                                            })
+                                            return
+                                        }
+                                        
+                                        let phaseVO = Phase(id: StringsMechanisms.generateID(), phaseID: phaseID, name: roomName)
+                                        
+                                        SchoolBO.getSchoolWithID(token, schoolID: schoolID, completionHandler: { (school) in
                                             do {
-                                                try write()
-                                                dispatch_async(dispatch_get_main_queue(), {
-                                                    completionHandler(phase: { () -> Phase in
-                                                        return phaseVO
-                                                    })
+                                                let school = try school()
+                                                PhaseDAO.createPhases([phaseVO], schoolID: school.id, completionHandler: { (write) in
+                                                    do {
+                                                        try write()
+                                                        dispatch_async(dispatch_get_main_queue(), {
+                                                            completionHandler(phase: { () -> Phase in
+                                                                return phaseVO
+                                                            })
+                                                        })
+                                                    } catch let error {
+                                                        //TODO Handle Realm error
+                                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                                    }
                                                 })
                                             } catch let error {
-                                                //TODO Handle Realm error
+                                                //TODO Handle error
                                                 NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                             }
                                         })
-                                    } catch let error {
-                                        //TODO Handle error
-                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                                    }
+                                        //unexpected case
+                                    else {
+                                        //TODO Halp Becke
                                     }
                                 })
-                            }
-                                //unexpected case
-                            else {
-                                //TODO Halp Becke
+                            } catch let error {
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    completionHandler(phase: { () -> Phase in
+                                        throw AccountError.InvalidToken
+                                    })
+                                })
                             }
                         })
                     }

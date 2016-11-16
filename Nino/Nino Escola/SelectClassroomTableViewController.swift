@@ -117,35 +117,40 @@ class SelectClassroomTableViewController: UITableViewController {
             phase.rooms.removeAll()
         }
         self.phases.removeAll()
-        if let token = NinoSession.sharedInstance.credential?.token {
-            if let schoolID = NinoSession.sharedInstance.schoolID {
-                PhaseBO.getPhases(token, schoolID: schoolID, completionHandler: { (phases) in
-                    do {
-                        let phases = try phases()
-                        for phase in phases {
-                            RoomBO.getRooms(phase.id, completionHandler: { (rooms) in
-                                do {
-                                    let rooms = try rooms()
-                                    let thisPhase = SelectorPhase(name: phase.name, id: phase.id)
-                                    for room in rooms {
-                                        thisPhase.rooms.append(SelectorRoom(name: room.name, id: room.id))
+        NinoSession.sharedInstance.getCredential({ (getCredential) in
+            do {
+                let token = try getCredential().token
+                if let schoolID = NinoSession.sharedInstance.schoolID {
+                    PhaseBO.getPhases(token, schoolID: schoolID, completionHandler: { (phases) in
+                        do {
+                            let phases = try phases()
+                            for phase in phases {
+                                RoomBO.getRooms(phase.id, completionHandler: { (rooms) in
+                                    do {
+                                        let rooms = try rooms()
+                                        let thisPhase = SelectorPhase(name: phase.name, id: phase.id)
+                                        for room in rooms {
+                                            thisPhase.rooms.append(SelectorRoom(name: room.name, id: room.id))
+                                        }
+                                        self.phases.append(thisPhase)
+                                        self.tableView.reloadData()
+                                        self.resizeView()
+                                    } catch let error {
+                                        //TODO: HANDLE ERROR AGAIN
+                                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                                     }
-                                    self.phases.append(thisPhase)
-                                    self.tableView.reloadData()
-                                    self.resizeView()
-                                } catch let error {
-                                    //TODO: HANDLE ERROR AGAIN
-                                    NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                                }
-                            })
+                                })
+                            }
+                        } catch let error {
+                            //TODO: HANDLE ERROR AGAIN
+                            NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
                         }
-                    } catch let error {
-                        //TODO: HANDLE ERROR AGAIN
-                        NinoSession.sharedInstance.kamikaze(["error":"\(error)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                    }
-                })
+                    })
+                }
+            } catch let error {
+                
             }
-        }
+        })
     }
     
     func resizeView() {

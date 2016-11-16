@@ -195,52 +195,55 @@ class CreateSchoolViewController: UIViewController, UITextFieldDelegate, NinoIma
         self.blockButtons()
         self.activityIndicator.hidden = false
         self.activityIndicator.startAnimating()
-        do {
-//            gets the current user credential
-            guard let credential = NinoSession.sharedInstance.credential else {
+        NinoSession.sharedInstance.getCredential({ (getCredential) in
+            do {
+                let token = try getCredential().token
+                do {
+                    //            gets the current user credential
+                    var image: NSData? = nil
+                    //FIXME: change placeholder image for the correct image (waiting Camila)
+                    //            let placeholderImage = UIImageJPEGRepresentation(UIImage(named: "Logo-Nino")!, 1.0)
+                    //            let schoolImage = UIImageJPEGRepresentation(self.logoImageView.image!, 1.0)
+                    let placeholderImage = UIImagePNGRepresentation(UIImage(named: "Logo-Nino")!)
+                    let schoolImage = UIImagePNGRepresentation(self.logoImageView.image!)
+                    //checks if the user changed the image
+                    if let imageBefore = placeholderImage {
+                        if let newImage = schoolImage {
+                            if !imageBefore.isEqualToData(newImage) {
+                                image = NSData(data: newImage)
+                            }
+                        }
+                    }
+                    try SchoolBO.createSchool(token, name: self.schoolNameTextField.text!, address: self.addressTextField.text!, telephone: self.phoneTextField.text!, email: self.emailTextField.text!, logo: image, completionHandler: { (getSchool) in
+                        do {
+                            let school = try getSchool()
+                            NinoSession.sharedInstance.setSchool(school.id)
+                            self.activityIndicator.stopAnimating()
+                            //changes the view
+                            if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                                delegate.loggedIn = true
+                                delegate.setupRootViewController(true)
+                            }
+                        } catch let internalError {
+                            NinoSession.sharedInstance.kamikaze(["error":"\(internalError)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
+                            //TODO: handle error
+                        }
+                    })
+                } catch _ {
+                    self.activityIndicator.stopAnimating()
+                    self.enableButtons()
+                    self.enableTextFields()
+                    let alertView = DefaultAlerts.invalidEmail()
+                    self.presentViewController(alertView, animated: true, completion: nil)
+                }
+            } catch let error {
                 self.activityIndicator.stopAnimating()
                 self.enableButtons()
                 self.enableTextFields()
                 let alertView = DefaultAlerts.userDidNotLoggedIn()
                 self.presentViewController(alertView, animated: true, completion: nil)
-                return
             }
-            var image: NSData? = nil
-            //FIXME: change placeholder image for the correct image (waiting Camila)
-//            let placeholderImage = UIImageJPEGRepresentation(UIImage(named: "Logo-Nino")!, 1.0)
-//            let schoolImage = UIImageJPEGRepresentation(self.logoImageView.image!, 1.0)
-            let placeholderImage = UIImagePNGRepresentation(UIImage(named: "Logo-Nino")!)
-            let schoolImage = UIImagePNGRepresentation(self.logoImageView.image!)
-            //checks if the user changed the image
-            if let imageBefore = placeholderImage {
-                if let newImage = schoolImage {
-                    if !imageBefore.isEqualToData(newImage) {
-                        image = NSData(data: newImage)
-                    }
-                }
-            }
-            try SchoolBO.createSchool(credential.token, name: self.schoolNameTextField.text!, address: self.addressTextField.text!, telephone: self.phoneTextField.text!, email: self.emailTextField.text!, logo: image, completionHandler: { (getSchool) in
-                do {
-                    let school = try getSchool()
-                    NinoSession.sharedInstance.setSchool(school.id)
-                    self.activityIndicator.stopAnimating()
-                    //changes the view
-                    if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                        delegate.loggedIn = true
-                        delegate.setupRootViewController(true)
-                    }
-                } catch let internalError {
-                    NinoSession.sharedInstance.kamikaze(["error":"\(internalError)", "description": "File: \(#file), Function: \(#function), line: \(#line)"])
-                    //TODO: handle error
-                }
-            })
-        } catch _ {
-            self.activityIndicator.stopAnimating()
-            self.enableButtons()
-            self.enableTextFields()
-            let alertView = DefaultAlerts.invalidEmail()
-            self.presentViewController(alertView, animated: true, completion: nil)
-        }
+        })
     }
     
 //MARK: Segue Methods
