@@ -1012,7 +1012,7 @@ extension UIFont {
         name: FontName,
         type: FontType,
         size: CGFloat) -> UIFont {
-            return UIFont (name: name.rawValue + "-" + type.rawValue, size: size)!
+            return UIFont.init(name: name.rawValue + "-" + type.rawValue, size: size)!
     }
     
     class func HelveticaNeue (

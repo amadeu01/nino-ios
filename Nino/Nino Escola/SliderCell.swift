@@ -45,9 +45,9 @@ class SliderCell: UITableViewCell {
     private var selectedItem: Item? {
         willSet(newItem) {
             selectedItem?.label.textColor = UIColor.blackColor()
-            selectedItem?.label.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
+            selectedItem?.label.font = UIFont.init(name: "HelveticaNeue-Thin", size: 14)
             newItem?.label.textColor = UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1)
-            newItem?.label.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
+            newItem?.label.font = UIFont.init(name: "HelveticaNeue-Bold", size: 14)
             if let sliderValue = newItem?.value {
                 self.slider.value = sliderValue
             } else {
@@ -194,7 +194,7 @@ class SliderCell: UITableViewCell {
             newLabel.text = "\(Int(self.min))\n\(labelUnit)"
         }
         newLabel.textAlignment = NSTextAlignment.Center
-        newLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
+        newLabel.font = UIFont.init(name: "HelveticaNeue-Thin", size: 14)
         newLabel.numberOfLines = 2
         
         self.availableArea.addSubview(newIcon)

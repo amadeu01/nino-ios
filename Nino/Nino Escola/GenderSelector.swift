@@ -64,10 +64,10 @@ class GenderSelector: UIView, UIGestureRecognizerDelegate {
      */
     @IBAction func maleWasTouched(sender: UITapGestureRecognizer) {
         self.maleIcon.image = UIImage(named: "icone-masculino-azul")
-        self.maleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)
+        self.maleLabel.font = UIFont.init(name: "HelveticaNeue-Bold", size: 15.0)
         self.maleLabel.textColor = UIColor(red: 0, green: 162/255, blue: 173/255, alpha: 1)
         self.femaleIcon.image = UIImage(named: "icone-feminino-cinza")
-        self.femaleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 15.0)
+        self.femaleLabel.font = UIFont.init(name: "HelveticaNeue-Light", size: 15.0)
         self.femaleLabel.textColor = UIColor.blackColor()
         self.delegate?.genderWasSelected(Gender.Male)
     }
@@ -79,10 +79,10 @@ class GenderSelector: UIView, UIGestureRecognizerDelegate {
      */
     @IBAction func femaleWasTouched(sender: UITapGestureRecognizer) {
         self.femaleIcon.image = UIImage(named: "icone-feminino-azul")
-        self.femaleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15.0)
+        self.femaleLabel.font = UIFont.init(name: "HelveticaNeue-Bold", size: 15.0)
         self.femaleLabel.textColor = UIColor(red: 0, green: 162/255, blue: 173/255, alpha: 1)
         self.maleIcon.image = UIImage(named: "icone-masculino-cinza")
-        self.maleLabel.font = UIFont(name: "HelveticaNeue-Light", size: 15.0)
+        self.maleLabel.font = UIFont.init(name: "HelveticaNeue-Light", size: 15.0)
         self.maleLabel.textColor = UIColor.blackColor()
         self.delegate?.genderWasSelected(Gender.Female)
     }

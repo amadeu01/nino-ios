@@ -24,11 +24,11 @@ class IntensityCell: UITableViewCell {
     var selectedItem: UIButton? {
         willSet(newSelected) {
             //Sets the one selected before back to black
-            selectedItem?.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
+            selectedItem?.titleLabel?.font = UIFont.init(name: "HelveticaNeue-Thin", size: 14)
             selectedItem?.setTitleColor(UIColor.blackColor(), forState: .Normal)
             selectedItem?.subviews[1].backgroundColor = UIColor.blackColor()
             //Sets the new selected item to the nino color
-            newSelected?.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
+            newSelected?.titleLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 14)
             newSelected?.setTitleColor(UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1), forState: .Normal)
             newSelected?.subviews[1].backgroundColor = UIColor(colorLiteralRed: 2/255, green: 119/255, blue: 155/255, alpha: 1)
         }
@@ -98,7 +98,7 @@ class IntensityCell: UITableViewCell {
             }
             button.setTitle(title, forState: .Normal)
             button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            button.titleLabel!.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
+            button.titleLabel!.font = UIFont.init(name: "HelveticaNeue-Thin", size: 14)
             button.titleLabel?.minimumScaleFactor = 0.2
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.contentHorizontalAlignment = .Left
